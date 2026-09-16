@@ -91,7 +91,8 @@ export interface GlobeLocation {
   label: string;
   lat: number;
   lon: number;
-  kind: "hq" | "clients" | "market";
+  /** hq: our base · market: a market we serve (labelled, with an arc from the base) · coverage: a smaller point inside a market, unlabelled */
+  kind: "hq" | "market" | "coverage";
 }
 
 /**

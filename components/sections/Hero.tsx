@@ -94,10 +94,10 @@ export function Hero({ cards, locations }: { cards: GlobeCard[]; locations: Glob
             locations={locations}
             label={
               cards.some((c) => c.kind === "client")
-                ? `A globe with Dhaka marked as our base and delivery arcs to the United Kingdom and United States, orbited by clients who recommend SoftVolt AI: ${cards
+                ? `A globe with Dhaka marked as our base and arcs to the markets we serve — the UK, the USA, Canada, Australia and Europe — orbited by clients who recommend SoftVolt AI: ${cards
                     .flatMap((c) => (c.kind === "client" ? [`${c.name}, ${c.role} at ${c.company}`] : []))
                     .join("; ")}.`
-                : "A globe with Dhaka marked as our base and delivery arcs to the United Kingdom and United States, orbited by websites delivered for clients in the UK, US and Bangladesh."
+                : "A globe with Dhaka marked as our base and arcs to the markets we serve — the UK, the USA, Canada, Australia and Europe — orbited by websites delivered for clients in the UK, US and Bangladesh."
             }
           />
           <ul className="mono mt-2 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-[11px] uppercase tracking-[0.1em] text-muted" data-after>
@@ -105,10 +105,10 @@ export function Hero({ cards, locations }: { cards: GlobeCard[]; locations: Glob
               <span className="h-2.5 w-2.5 rounded-full border-2 border-ink bg-volt" aria-hidden="true" /> Dhaka HQ
             </li>
             <li className="flex items-center gap-2">
-              <span className="h-2.5 w-2.5 rounded-full bg-accent" aria-hidden="true" /> Client countries
+              <span className="h-2.5 w-2.5 rounded-full bg-accent" aria-hidden="true" /> Markets we serve
             </li>
             <li className="flex items-center gap-2">
-              <span className="h-2.5 w-2.5 rounded-full border-2 border-muted" aria-hidden="true" /> Markets we serve
+              <span className="h-2.5 w-2.5 rounded-full border-2 border-muted" aria-hidden="true" /> EU member states
             </li>
             <li className="hidden sm:block">Drag to rotate · any direction</li>
           </ul>

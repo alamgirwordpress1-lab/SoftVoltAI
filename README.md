@@ -53,7 +53,7 @@ The site follows three content rules, and the code is built around them:
 
 ## Highlights
 
-- **Orbit globe hero.** A canvas-drawn Earth made of 6,352 land dots: a 24,000-point Fibonacci sphere, keeping only the points that fall on Natural Earth land data. Visitors can drag it to rotate in any direction. Twelve cards orbit it: eight real client sites plus four tiles for cities, reach, stack and working hours. Arcs run from Dhaka to clients in the UK and US, and rings mark the other markets.
+- **Orbit globe hero.** A canvas-drawn Earth made of 6,352 land dots: a 24,000-point Fibonacci sphere, keeping only the points that fall on Natural Earth land data. Visitors can drag it to rotate in any direction. Twelve cards orbit it: eight real client sites plus four tiles for cities, reach, stack and working hours. Arcs run from Dhaka to the five markets it serves (the UK, the USA, Canada, Australia and Europe), each labelled, and small rings mark the EU member states.
 - **White-label, demonstrated.** Visitors type their agency name and pick a brand colour. The finished client site rebrands to match, and a lens reveals what the client never sees underneath: the staging server, the commits and the QA.
 - **Live vitals.** The stack panel measures this site's performance in the visitor's own browser, using `PerformanceObserver` and the Resource Timing API. Nothing is sent anywhere and nothing is faked.
 - **Process engine.** Five steps from brief to handover. The steps scroll past while a pinned panel shows the document each step produces. It uses plain `position: sticky` and an `IntersectionObserver`, with no scroll hijacking.

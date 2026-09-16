@@ -37,25 +37,6 @@ export const clients: Client[] = [
  */
 export const recommendingClients: RecommendingClient[] = [];
 
-/**
- * Neutral silhouettes for designing the client globe before real clients are in.
- * They render only under `next dev` (localhost) and never in a build, so they can
- * never reach the live site; the moment `recommendingClients` has anyone in it,
- * these are ignored. Delete them once the real list is filled.
- */
-const placeholderClients: RecommendingClient[] = [
-  { id: "placeholder-1", name: "Client name", role: "Founder", company: "Agency name", country: "UK", photo: "/clients/people/placeholder-1.png", consent: "placeholder" },
-  { id: "placeholder-2", name: "Client name", role: "Managing director", company: "Agency name", country: "US", photo: "/clients/people/placeholder-2.png", consent: "placeholder" },
-  { id: "placeholder-3", name: "Client name", role: "Head of delivery", company: "Agency name", country: "CA", photo: "/clients/people/placeholder-3.png", consent: "placeholder" },
-  { id: "placeholder-4", name: "Client name", role: "Founder", company: "Agency name", country: "AU", photo: "/clients/people/placeholder-4.png", consent: "placeholder" },
-  { id: "placeholder-5", name: "Client name", role: "SEO lead", company: "Agency name", country: "UK", photo: "/clients/people/placeholder-5.png", consent: "placeholder" },
-  { id: "placeholder-6", name: "Client name", role: "Creative director", company: "Agency name", country: "US", photo: "/clients/people/placeholder-6.png", consent: "placeholder" },
-  { id: "placeholder-7", name: "Client name", role: "Operations lead", company: "Agency name", country: "IE", photo: "/clients/people/placeholder-7.png", consent: "placeholder" },
-  { id: "placeholder-8", name: "Client name", role: "Founder", company: "Agency name", country: "AU", photo: "/clients/people/placeholder-8.png", consent: "placeholder" },
-];
-
-const globeClients = recommendingClients.length ? recommendingClients : process.env.NODE_ENV === "development" ? placeholderClients : [];
-
 /** Context tiles that orbit the globe alongside either set of cards. */
 const tiles = {
   cities: { id: "cities", kind: "cities", lines: ["London", "New York", "Dhaka"], az: 62, lat: 30 },
@@ -111,50 +92,51 @@ function clientOrbit(people: RecommendingClient[]): GlobeCard[] {
 }
 
 /** The cards orbiting the hero globe: recommending clients once there are any, delivered projects until then. */
-export const globeCards: GlobeCard[] = globeClients.length ? clientOrbit(globeClients) : projectOrbit;
+export const globeCards: GlobeCard[] = recommendingClients.length ? clientOrbit(recommendingClients) : projectOrbit;
 
 /**
- * Globe markers. "clients" = where the clients above are (these also draw the
- * arcs from Dhaka); "market" = a market we sell into, no clients claimed.
+ * Globe markers. "market" = one of the markets we serve, as published in
+ * `site.markets`: each is labelled on the globe and gets an arc from Dhaka.
+ * "coverage" = the EU member states, drawn as small unlabelled rings so the
+ * European market reads as a region rather than one pin.
  *
- * The market list is the one published in `site.markets` — UK, US, Canada,
- * Australia and the EU — with the EU drawn as its individual member states so
- * the coverage reads on the globe instead of sitting under one pin. Markets
- * render as small hollow rings and stay unlabelled, so they cluster without
- * colliding. Add or remove a country here and the globe follows.
+ * Market pins sit near the middle of each country (Europe near its centre),
+ * so the labels stay apart; the globe also skips any label that would overlap
+ * one already drawn. Add or remove a market here and the globe follows.
  */
 export const globeLocations: GlobeLocation[] = [
   { id: "dhaka", label: "Dhaka · HQ", lat: 23.81, lon: 90.41, kind: "hq" },
-  { id: "uk", label: "United Kingdom", lat: 51.51, lon: -0.13, kind: "clients" },
-  { id: "us", label: "United States", lat: 40.71, lon: -74.01, kind: "clients" },
-  { id: "ca", label: "Canada", lat: 43.65, lon: -79.38, kind: "market" },
-  { id: "au", label: "Australia", lat: -33.87, lon: 151.21, kind: "market" },
+  { id: "uk", label: "UK", lat: 51.51, lon: -0.13, kind: "market" },
+  { id: "us", label: "USA", lat: 40.71, lon: -74.01, kind: "market" },
+  { id: "ca", label: "Canada", lat: 56.13, lon: -106.35, kind: "market" },
+  { id: "au", label: "Australia", lat: -25.27, lon: 133.78, kind: "market" },
+  { id: "eu", label: "Europe", lat: 48.5, lon: 22.0, kind: "market" },
   // European Union — all 27 member states, pinned at the capital
-  { id: "ie", label: "Ireland", lat: 53.35, lon: -6.26, kind: "market" },
-  { id: "nl", label: "Netherlands", lat: 52.37, lon: 4.9, kind: "market" },
-  { id: "de", label: "Germany", lat: 52.52, lon: 13.4, kind: "market" },
-  { id: "fr", label: "France", lat: 48.86, lon: 2.35, kind: "market" },
-  { id: "be", label: "Belgium", lat: 50.85, lon: 4.35, kind: "market" },
-  { id: "lu", label: "Luxembourg", lat: 49.61, lon: 6.13, kind: "market" },
-  { id: "dk", label: "Denmark", lat: 55.68, lon: 12.57, kind: "market" },
-  { id: "se", label: "Sweden", lat: 59.33, lon: 18.07, kind: "market" },
-  { id: "fi", label: "Finland", lat: 60.17, lon: 24.94, kind: "market" },
-  { id: "ee", label: "Estonia", lat: 59.44, lon: 24.75, kind: "market" },
-  { id: "lv", label: "Latvia", lat: 56.95, lon: 24.11, kind: "market" },
-  { id: "lt", label: "Lithuania", lat: 54.69, lon: 25.28, kind: "market" },
-  { id: "pl", label: "Poland", lat: 52.23, lon: 21.01, kind: "market" },
-  { id: "cz", label: "Czechia", lat: 50.08, lon: 14.44, kind: "market" },
-  { id: "sk", label: "Slovakia", lat: 48.15, lon: 17.11, kind: "market" },
-  { id: "at", label: "Austria", lat: 48.21, lon: 16.37, kind: "market" },
-  { id: "hu", label: "Hungary", lat: 47.5, lon: 19.04, kind: "market" },
-  { id: "si", label: "Slovenia", lat: 46.06, lon: 14.51, kind: "market" },
-  { id: "hr", label: "Croatia", lat: 45.81, lon: 15.98, kind: "market" },
-  { id: "ro", label: "Romania", lat: 44.43, lon: 26.1, kind: "market" },
-  { id: "bg", label: "Bulgaria", lat: 42.7, lon: 23.32, kind: "market" },
-  { id: "gr", label: "Greece", lat: 37.98, lon: 23.73, kind: "market" },
-  { id: "cy", label: "Cyprus", lat: 35.19, lon: 33.38, kind: "market" },
-  { id: "mt", label: "Malta", lat: 35.9, lon: 14.51, kind: "market" },
-  { id: "it", label: "Italy", lat: 41.9, lon: 12.5, kind: "market" },
-  { id: "es", label: "Spain", lat: 40.42, lon: -3.7, kind: "market" },
-  { id: "pt", label: "Portugal", lat: 38.72, lon: -9.14, kind: "market" },
+  { id: "ie", label: "Ireland", lat: 53.35, lon: -6.26, kind: "coverage" },
+  { id: "nl", label: "Netherlands", lat: 52.37, lon: 4.9, kind: "coverage" },
+  { id: "de", label: "Germany", lat: 52.52, lon: 13.4, kind: "coverage" },
+  { id: "fr", label: "France", lat: 48.86, lon: 2.35, kind: "coverage" },
+  { id: "be", label: "Belgium", lat: 50.85, lon: 4.35, kind: "coverage" },
+  { id: "lu", label: "Luxembourg", lat: 49.61, lon: 6.13, kind: "coverage" },
+  { id: "dk", label: "Denmark", lat: 55.68, lon: 12.57, kind: "coverage" },
+  { id: "se", label: "Sweden", lat: 59.33, lon: 18.07, kind: "coverage" },
+  { id: "fi", label: "Finland", lat: 60.17, lon: 24.94, kind: "coverage" },
+  { id: "ee", label: "Estonia", lat: 59.44, lon: 24.75, kind: "coverage" },
+  { id: "lv", label: "Latvia", lat: 56.95, lon: 24.11, kind: "coverage" },
+  { id: "lt", label: "Lithuania", lat: 54.69, lon: 25.28, kind: "coverage" },
+  { id: "pl", label: "Poland", lat: 52.23, lon: 21.01, kind: "coverage" },
+  { id: "cz", label: "Czechia", lat: 50.08, lon: 14.44, kind: "coverage" },
+  { id: "sk", label: "Slovakia", lat: 48.15, lon: 17.11, kind: "coverage" },
+  { id: "at", label: "Austria", lat: 48.21, lon: 16.37, kind: "coverage" },
+  { id: "hu", label: "Hungary", lat: 47.5, lon: 19.04, kind: "coverage" },
+  { id: "si", label: "Slovenia", lat: 46.06, lon: 14.51, kind: "coverage" },
+  { id: "hr", label: "Croatia", lat: 45.81, lon: 15.98, kind: "coverage" },
+  { id: "ro", label: "Romania", lat: 44.43, lon: 26.1, kind: "coverage" },
+  { id: "bg", label: "Bulgaria", lat: 42.7, lon: 23.32, kind: "coverage" },
+  { id: "gr", label: "Greece", lat: 37.98, lon: 23.73, kind: "coverage" },
+  { id: "cy", label: "Cyprus", lat: 35.19, lon: 33.38, kind: "coverage" },
+  { id: "mt", label: "Malta", lat: 35.9, lon: 14.51, kind: "coverage" },
+  { id: "it", label: "Italy", lat: 41.9, lon: 12.5, kind: "coverage" },
+  { id: "es", label: "Spain", lat: 40.42, lon: -3.7, kind: "coverage" },
+  { id: "pt", label: "Portugal", lat: 38.72, lon: -9.14, kind: "coverage" },
 ];

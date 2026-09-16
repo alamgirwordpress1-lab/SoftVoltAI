@@ -29,9 +29,9 @@ const PALETTES = {
     land: "18,22,20",
     arc: "rgba(30,122,50,0.6)",
     hqEdge: "#121614",
-    clientRing: "rgba(30,122,50,0.35)",
-    client: "#1e7a32",
-    market: "rgba(18,22,20,0.55)",
+    marketRing: "rgba(30,122,50,0.35)",
+    marketFill: "#1e7a32",
+    coverageRing: "rgba(18,22,20,0.55)",
     labelHalo: "rgba(246,247,244,0.92)",
     label: "#121614",
   },
@@ -43,9 +43,9 @@ const PALETTES = {
     land: "205,228,212",
     arc: "rgba(101,245,69,0.7)",
     hqEdge: "#0a0f0c",
-    clientRing: "rgba(93,208,106,0.45)",
-    client: "#5dd06a",
-    market: "rgba(237,242,238,0.55)",
+    marketRing: "rgba(93,208,106,0.45)",
+    marketFill: "#5dd06a",
+    coverageRing: "rgba(237,242,238,0.55)",
     labelHalo: "rgba(17,24,20,0.92)",
     label: "#edf2ee",
   },
@@ -138,7 +138,7 @@ export function OrbitGlobe({ cards, locations, label }: { cards: GlobeCard[]; lo
     const hq = locs.find((l) => l.kind === "hq");
     const arcs = hq
       ? locs
-          .filter((l) => l.kind === "clients")
+          .filter((l) => l.kind === "market")
           .map((t) => {
             const d = clamp(hq.v.x * t.v.x + hq.v.y * t.v.y + hq.v.z * t.v.z, -1, 1);
             return { from: hq.v, to: t.v, omega: Math.acos(d), phase: t.phase };
@@ -242,7 +242,7 @@ export function OrbitGlobe({ cards, locations, label }: { cards: GlobeCard[]; lo
         ctx.fill();
       }
 
-      // delivery arcs: Dhaka to client countries, with a pulse travelling along each
+      // arcs: Dhaka to each market we serve, with a pulse travelling along each
       for (const arc of arcs) {
         const so = Math.sin(arc.omega) || 1;
         const pts: { x: number; y: number; front: boolean }[] = [];
@@ -298,6 +298,7 @@ export function OrbitGlobe({ cards, locations, label }: { cards: GlobeCard[]; lo
       // markers + labels
       ctx.font = `600 ${11 * dpr}px ${fontFamily}`;
       ctx.textBaseline = "middle";
+      const labelBoxes: number[][] = [];
       for (const l of locs) {
         const p = view(l.v.x, l.v.y, l.v.z, cr, sr, cT, sT);
         if (p.z < 0.03) continue;
@@ -318,30 +319,37 @@ export function OrbitGlobe({ cards, locations, label }: { cards: GlobeCard[]; lo
           ctx.fill();
           ctx.strokeStyle = c.hqEdge;
           ctx.stroke();
-        } else if (l.kind === "clients") {
+        } else if (l.kind === "market") {
           ctx.beginPath();
           ctx.arc(sx, sy, 9 * dpr, 0, Math.PI * 2);
-          ctx.strokeStyle = c.clientRing;
+          ctx.strokeStyle = c.marketRing;
           ctx.lineWidth = 1.5 * dpr;
           ctx.stroke();
           ctx.beginPath();
           ctx.arc(sx, sy, 4.5 * dpr, 0, Math.PI * 2);
-          ctx.fillStyle = c.client;
+          ctx.fillStyle = c.marketFill;
           ctx.fill();
         } else {
           ctx.beginPath();
           ctx.arc(sx, sy, 4 * dpr, 0, Math.PI * 2);
-          ctx.strokeStyle = c.market;
+          ctx.strokeStyle = c.coverageRing;
           ctx.lineWidth = 1.5 * dpr;
           ctx.stroke();
         }
-        // markets stay unlabelled (the legend explains them); Toronto and New York would collide
-        if (p.z > 0.3 && l.kind !== "market") {
-          ctx.lineWidth = 4 * dpr;
-          ctx.strokeStyle = c.labelHalo;
-          ctx.strokeText(l.label, sx + 13 * dpr, sy);
-          ctx.fillStyle = c.label;
-          ctx.fillText(l.label, sx + 13 * dpr, sy);
+        // HQ and markets are labelled; coverage rings are not. A label that would
+        // overlap one already drawn this frame is skipped rather than stacked.
+        if (p.z > 0.3 && l.kind !== "coverage") {
+          const lx = sx + 13 * dpr;
+          const half = 8 * dpr;
+          const box = [lx - 4 * dpr, sy - half, lx + ctx.measureText(l.label).width + 4 * dpr, sy + half];
+          if (!labelBoxes.some((b) => box[0] < b[2] && box[2] > b[0] && box[1] < b[3] && box[3] > b[1])) {
+            labelBoxes.push(box);
+            ctx.lineWidth = 4 * dpr;
+            ctx.strokeStyle = c.labelHalo;
+            ctx.strokeText(l.label, lx, sy);
+            ctx.fillStyle = c.label;
+            ctx.fillText(l.label, lx, sy);
+          }
         }
       }
       ctx.globalAlpha = 1;
