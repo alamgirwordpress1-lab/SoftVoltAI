@@ -20,7 +20,7 @@ export function LogoMark({ size = 28, id = "lm", className }: { size?: number; i
         </radialGradient>
       </defs>
       <rect x="2" y="2" width="60" height="60" rx="16" fill="#121614" />
-      <rect x="2" y="2" width="60" height="60" rx="16" fill={`url(#${id}-glow)`} />
+      <rect x="2" y="2" width="60" height="60" rx="16" fill={`url(#${id}-glow)`} className="logo-tile-edge" />
       <path d="M35 9 17 35h12l-3 20 19-26H33l2-20Z" fill={`url(#${id}-volt)`} />
       <path d="M38 10.5h7" stroke="#65f545" strokeWidth="2" strokeLinecap="round" />
       <circle cx="49.5" cy="10.5" r="4" fill="#121614" stroke="#65f545" strokeWidth="2" />

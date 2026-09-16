@@ -4,6 +4,7 @@ import { site } from "@/content/site";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { organizationSchema, websiteSchema } from "@/lib/seo/schema";
 import { MotionRoot } from "@/components/motion/MotionRoot";
+import { THEME_COLORS, themeInitScript } from "@/lib/theme";
 import "./globals.css";
 
 // Four families, one job each: display headings, body copy, interface, data.
@@ -72,20 +73,21 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#f6f7f4",
+  // the theme script switches this to THEME_COLORS.dark when the visitor chose dark
+  themeColor: THEME_COLORS.light,
+  // the site opens light; html[data-theme="dark"] sets `color-scheme: dark` in CSS
   colorScheme: "light",
   width: "device-width",
   initialScale: 1,
 };
 
-// Runs before first paint so the hero intro never flashes its final state first.
-const jsFlag = "document.documentElement.classList.add('js')";
-
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en-GB" className={`${jakarta.variable} ${inter.variable} ${manrope.variable} ${roboto.variable}`} suppressHydrationWarning>
       <head>
-        <script dangerouslySetInnerHTML={{ __html: jsFlag }} />
+        {/* Before first paint: marks JS as present (the hero intro never flashes its final
+            state) and applies a stored dark theme (the page never flashes light). */}
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </head>
       <body>
         <JsonLd data={[organizationSchema(), websiteSchema()]} />

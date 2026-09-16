@@ -28,6 +28,10 @@
   --color-ok-fg: #0f5c36;
   --color-warn-bg: #f6ecd3;
   --color-warn-fg: #6e4a00;
+  --color-danger: #b23a1f;
+  --color-danger-bg: #f8e3df;
+  --color-danger-fg: #8a2417;
+  --color-ink-hover: #232a26; /* primary button hover */
 
   /* Four families, one job each */
   --font-display: var(--font-jakarta), "Segoe UI", system-ui, sans-serif; /* Plus Jakarta Sans — headings */
@@ -52,6 +56,82 @@
 :root {
   color-scheme: light;
   --section-y: clamp(56px, 5.5vw, 84px);
+}
+
+/* ---------- dark theme ----------
+   html[data-theme="dark"] (set before first paint by the script in app/layout.tsx)
+   re-points the paper tokens at the engine room's greens, so every utility and
+   component follows without its own dark variant. Contrast on paper: ink 15.9:1,
+   muted 7.4:1, accent 9.2:1. */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --color-paper: #111814;
+  --color-surface: #172019;
+  --color-raised: #1e2821;
+  --color-ink: #edf2ee;
+  --color-ink-hover: #cfd8d1;
+  --color-muted: #9fa9a2;
+  --color-line: #27322b;
+  --color-line-strong: #3a473f;
+  --color-accent: #5dd06a;
+  --color-accent-soft: #183021;
+  --color-ok-bg: #183021;
+  --color-ok-fg: #86dea0;
+  --color-warn-bg: #362b12;
+  --color-warn-fg: #f0c56b;
+  --color-danger: #f0806f;
+  --color-danger-bg: #3a1c17;
+  --color-danger-fg: #ffb3a6;
+  /* the engine room drops a step so it still reads as its own, deeper ground */
+  --color-er-bg: #0a0f0c;
+}
+
+/* Engine-room sections are dark in both themes, and the demo's client website is
+   a mock of someone else's site: both keep the light tokens inside, so their
+   buttons, chips and mock blocks look exactly as they do in the light theme. */
+:root[data-theme="dark"] :is(.er, .keep-light) {
+  --color-paper: #f6f7f4;
+  --color-surface: #ffffff;
+  --color-raised: #ecefe9;
+  --color-ink: #121614;
+  --color-ink-hover: #232a26;
+  --color-muted: #5b645e;
+  --color-line: #dce1da;
+  --color-line-strong: #b9c2bb;
+  --color-accent: #1e7a32;
+  --color-accent-soft: #e3f1e8;
+  --color-ok-bg: #e3f1e8;
+  --color-ok-fg: #0f5c36;
+  --color-warn-bg: #f6ecd3;
+  --color-warn-fg: #6e4a00;
+  --color-danger: #b23a1f;
+  --color-danger-bg: #f8e3df;
+  --color-danger-fg: #8a2417;
+}
+:root[data-theme="dark"] .keep-light {
+  color-scheme: light;
+}
+
+/* Switching theme changes every colour at once: no transitions for that frame. */
+.theme-switching,
+.theme-switching *,
+.theme-switching *::before,
+.theme-switching *::after {
+  transition: none !important;
+}
+
+.theme-icon-sun,
+:root[data-theme="dark"] .theme-icon-moon {
+  display: none;
+}
+:root[data-theme="dark"] .theme-icon-sun {
+  display: block;
+}
+
+/* the logo's ink tile would melt into a dark header; a faint edge keeps its shape */
+:root[data-theme="dark"] .logo-tile-edge {
+  stroke: rgba(242, 244, 241, 0.16);
+  stroke-width: 1.5px;
 }
 
 html {
@@ -137,7 +217,8 @@ body {
   -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 20%, transparent 75%);
   mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 20%, transparent 75%);
 }
-.er .dot-grid {
+.er .dot-grid,
+:root[data-theme="dark"] .dot-grid {
   background-image: radial-gradient(circle, rgba(242, 244, 241, 0.14) 1px, transparent 1.2px);
 }
 
@@ -234,6 +315,18 @@ body {
     0 1px 1px rgba(18, 22, 20, 0.05),
     0 40px 80px -36px rgba(18, 22, 20, 0.35);
 }
+/* on a dark ground a tinted shadow disappears; go darker and let the hairline carry the edge */
+:root[data-theme="dark"] .shadow-soft {
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.3),
+    0 24px 60px -32px rgba(0, 0, 0, 0.75);
+}
+:root[data-theme="dark"] .shadow-float,
+:root[data-theme="dark"] .card-lift:hover {
+  box-shadow:
+    0 1px 1px rgba(0, 0, 0, 0.35),
+    0 40px 80px -36px rgba(0, 0, 0, 0.85);
+}
 
 .card-lift {
   transition:
@@ -258,6 +351,10 @@ body {
   background: linear-gradient(180deg, #eefbe9, #dff5d6);
   color: var(--color-accent);
   border: 1px solid rgba(30, 122, 50, 0.18);
+}
+:root[data-theme="dark"] .icon-tile {
+  background: linear-gradient(180deg, #1c3323, #16291c);
+  border-color: rgba(93, 208, 106, 0.22);
 }
 
 /* SVG line drawing: paths carry pathLength="1"; drawing starts when the reveal lands.
@@ -311,6 +408,12 @@ body {
   background: var(--color-er-bg);
   color: var(--color-er-ink);
 }
+/* In the dark theme the page is dark too: a hairline marks where the engine room starts and ends. */
+:root[data-theme="dark"] section.er {
+  box-shadow:
+    inset 0 1px 0 var(--color-er-line),
+    inset 0 -1px 0 var(--color-er-line);
+}
 
 /* Alternate light ground. Full-bleed white between hairlines so two pale
    sections never sit against each other on the same paper. */
@@ -332,6 +435,18 @@ body {
   background-repeat: no-repeat;
   background-position: top center;
   background-size:
+    100% 100%,
+    max(100%, 1100px) auto;
+}
+/* The grid's silver lines are bright on a dark ground: a veil of the page colour
+   (middle layer) brings them down to the same quiet level as on paper. */
+:root[data-theme="dark"] .grid-bg {
+  background-image:
+    linear-gradient(180deg, rgba(93, 208, 106, 0.08), rgba(93, 208, 106, 0.025) 45%, transparent 80%),
+    linear-gradient(rgba(17, 24, 20, 0.8), rgba(17, 24, 20, 0.8)),
+    url("/hero-grid.svg");
+  background-size:
+    100% 100%,
     100% 100%,
     max(100%, 1100px) auto;
 }

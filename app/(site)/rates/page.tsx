@@ -11,17 +11,8 @@ export const metadata: Metadata = {
   alternates: { canonical: "/rates" },
 };
 
-// TODO(owner): every answer below is a public commitment — confirm each one, and
-// keep them consistent with the plan limits set in content/stack.ts.
-const pricingFaqs = [
-  { q: "What if a project does not fit a plan?", a: "Tell us in the brief. Anything outside a plan — a one-off build, a migration, a rescue — is scoped and quoted separately, with a written scope and a fixed price before any work starts." },
-  { q: "What counts as an active project?", a: "One client website in production at a time. You can send as many briefs as you like; the plan limits how many run in parallel, not how many you queue." },
-  { q: "What about rush work?", a: "Say so in the brief. If we can hit the date we will tell you what it costs; if we cannot, we will tell you that instead of taking the work and missing it." },
-  { q: "Do you mark up third-party costs?", a: "No. Hosting, plugins, ad spend and tools are billed at cost or held in your accounts. We quote our work; everything else is transparent." },
-];
-
 export default async function RatesPage() {
-  const models = await cms.getEngagementModels();
+  const [models, pricingFaqs] = await Promise.all([cms.getEngagementModels(), cms.getPricingFaqs()]);
   return (
     <>
       <PageHero

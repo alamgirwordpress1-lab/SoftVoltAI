@@ -92,7 +92,7 @@ export function MegaMenu({ pillars, active = false }: { pillars: PillarGroup[]; 
         aria-expanded={open}
         aria-controls={panelId}
         onClick={() => setOpen((v) => !v)}
-        className={cn("inline-flex items-center gap-1.5 text-[15px] transition-colors duration-150 hover:text-ink", open || active ? "text-ink" : "text-muted")}
+        className={cn("inline-flex items-center gap-1.5 whitespace-nowrap text-[15px] transition-colors duration-150 hover:text-ink", open || active ? "text-ink" : "text-muted")}
       >
         Services
         <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" className={cn("transition-transform duration-300 ease-[var(--ease-out-quint)]", open && "rotate-180")}>

@@ -57,7 +57,7 @@
 /* site screenshot card */
 .og-card--site {
   width: 24cqw;
-  background: #fff;
+  background: var(--color-surface);
   border: 1px solid var(--color-line);
 }
 .og-shot {
@@ -164,8 +164,8 @@
 .og-card--stack {
   width: 16cqw;
   padding: 1.55cqw;
-  background: #e3f1e8;
-  border: 1px solid rgba(30, 122, 50, 0.22);
+  background: var(--color-accent-soft);
+  border: 1px solid color-mix(in srgb, var(--color-accent) 22%, transparent);
 }
 .og-stack-title {
   font-family: var(--font-ui);
@@ -193,7 +193,7 @@
   flex-direction: column;
   justify-content: space-between;
   padding: 1.55cqw;
-  background: #fff;
+  background: var(--color-surface);
   border: 1px solid var(--color-line);
 }
 .og-hours-big {

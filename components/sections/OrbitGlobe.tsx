@@ -19,6 +19,38 @@ const HOVER_SPEED = 0.0005;
 
 const clamp = (v: number, lo: number, hi: number) => Math.max(lo, Math.min(hi, v));
 
+/** Canvas colours for each site theme; read every frame, so a theme switch shows at once. */
+const PALETTES = {
+  light: {
+    discTop: "rgba(255,255,255,0.97)",
+    discBottom: "rgba(206,223,211,0.94)",
+    discEdge: "rgba(18,22,20,0.12)",
+    graticule: "rgba(18,22,20,0.08)",
+    land: "18,22,20",
+    arc: "rgba(30,122,50,0.6)",
+    hqEdge: "#121614",
+    clientRing: "rgba(30,122,50,0.35)",
+    client: "#1e7a32",
+    market: "rgba(18,22,20,0.55)",
+    labelHalo: "rgba(246,247,244,0.92)",
+    label: "#121614",
+  },
+  dark: {
+    discTop: "rgba(40,54,45,0.97)",
+    discBottom: "rgba(17,24,20,0.96)",
+    discEdge: "rgba(237,242,238,0.14)",
+    graticule: "rgba(237,242,238,0.07)",
+    land: "205,228,212",
+    arc: "rgba(101,245,69,0.7)",
+    hqEdge: "#0a0f0c",
+    clientRing: "rgba(93,208,106,0.45)",
+    client: "#5dd06a",
+    market: "rgba(237,242,238,0.55)",
+    labelHalo: "rgba(17,24,20,0.92)",
+    label: "#edf2ee",
+  },
+};
+
 /** Billboard placement of one card on the orbit, after spin (rot) and tilt. x/y in stage percent (cqw). */
 function place(azDeg: number, latDeg: number, rot: number, tilt: number, spread: number, base = 1) {
   const lat = latDeg * DEG;
@@ -155,21 +187,22 @@ export function OrbitGlobe({ cards, locations, label }: { cards: GlobeCard[]; lo
       const cT = Math.cos(st.tilt);
       const sT = Math.sin(st.tilt);
       ctx.globalAlpha = st.earth;
+      const c = PALETTES[document.documentElement.dataset.theme === "dark" ? "dark" : "light"];
 
       // disc: soft sea-glass sphere so the dots read as a planet, not noise
       const g = ctx.createRadialGradient(cx - R * 0.35, cy - R * 0.42, R * 0.05, cx, cy, R);
-      g.addColorStop(0, "rgba(255,255,255,0.97)");
-      g.addColorStop(1, "rgba(206,223,211,0.94)");
+      g.addColorStop(0, c.discTop);
+      g.addColorStop(1, c.discBottom);
       ctx.beginPath();
       ctx.arc(cx, cy, R, 0, Math.PI * 2);
       ctx.fillStyle = g;
       ctx.fill();
       ctx.lineWidth = dpr;
-      ctx.strokeStyle = "rgba(18,22,20,0.12)";
+      ctx.strokeStyle = c.discEdge;
       ctx.stroke();
 
       // graticule
-      ctx.strokeStyle = "rgba(18,22,20,0.08)";
+      ctx.strokeStyle = c.graticule;
       for (const line of gratLines) {
         ctx.beginPath();
         let pen = false;
@@ -203,7 +236,7 @@ export function OrbitGlobe({ cards, locations, label }: { cards: GlobeCard[]; lo
       // square dots: at this size they read the same as circles and draw several times faster
       const dot = Math.max(1.5 * dpr, R / 120);
       for (let b = 0; b < BUCKETS; b++) {
-        ctx.fillStyle = `rgba(18,22,20,${0.16 + (0.62 * (b + 1)) / BUCKETS})`;
+        ctx.fillStyle = `rgba(${c.land},${0.16 + (0.62 * (b + 1)) / BUCKETS})`;
         ctx.beginPath();
         for (let k = 0; k < count[b]; k++) ctx.rect(bx[b][k] - dot / 2, by[b][k] - dot / 2, dot, dot);
         ctx.fill();
@@ -243,7 +276,7 @@ export function OrbitGlobe({ cards, locations, label }: { cards: GlobeCard[]; lo
         }
         ctx.setLineDash([4 * dpr, 5 * dpr]);
         ctx.lineDashOffset = -st.time * 24 * dpr;
-        ctx.strokeStyle = "rgba(30,122,50,0.6)";
+        ctx.strokeStyle = c.arc;
         ctx.lineWidth = 1.5 * dpr;
         ctx.stroke();
         ctx.setLineDash([]);
@@ -283,31 +316,31 @@ export function OrbitGlobe({ cards, locations, label }: { cards: GlobeCard[]; lo
           ctx.arc(sx, sy, 5.5 * dpr, 0, Math.PI * 2);
           ctx.fillStyle = "#65f545";
           ctx.fill();
-          ctx.strokeStyle = "#121614";
+          ctx.strokeStyle = c.hqEdge;
           ctx.stroke();
         } else if (l.kind === "clients") {
           ctx.beginPath();
           ctx.arc(sx, sy, 9 * dpr, 0, Math.PI * 2);
-          ctx.strokeStyle = "rgba(30,122,50,0.35)";
+          ctx.strokeStyle = c.clientRing;
           ctx.lineWidth = 1.5 * dpr;
           ctx.stroke();
           ctx.beginPath();
           ctx.arc(sx, sy, 4.5 * dpr, 0, Math.PI * 2);
-          ctx.fillStyle = "#1e7a32";
+          ctx.fillStyle = c.client;
           ctx.fill();
         } else {
           ctx.beginPath();
           ctx.arc(sx, sy, 4 * dpr, 0, Math.PI * 2);
-          ctx.strokeStyle = "rgba(18,22,20,0.55)";
+          ctx.strokeStyle = c.market;
           ctx.lineWidth = 1.5 * dpr;
           ctx.stroke();
         }
         // markets stay unlabelled (the legend explains them); Toronto and New York would collide
         if (p.z > 0.3 && l.kind !== "market") {
           ctx.lineWidth = 4 * dpr;
-          ctx.strokeStyle = "rgba(246,247,244,0.92)";
+          ctx.strokeStyle = c.labelHalo;
           ctx.strokeText(l.label, sx + 13 * dpr, sy);
-          ctx.fillStyle = "#121614";
+          ctx.fillStyle = c.label;
           ctx.fillText(l.label, sx + 13 * dpr, sy);
         }
       }
@@ -395,9 +428,13 @@ export function OrbitGlobe({ cards, locations, label }: { cards: GlobeCard[]; lo
     });
     ro.observe(root);
 
+    const themeWatch = new MutationObserver(() => draw());
+    themeWatch.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+
     const detach = () => {
       io.disconnect();
       ro.disconnect();
+      themeWatch.disconnect();
       root.removeEventListener("pointerenter", onEnter);
       root.removeEventListener("pointerleave", onLeave);
       root.removeEventListener("pointerdown", onDown);

@@ -38,7 +38,7 @@ export function RebrandField({
             aria-pressed={color === c}
             onClick={() => onColor(c)}
             className="h-8 w-8 rounded-full border-2 transition-transform duration-150 hover:scale-110"
-            style={{ background: c, borderColor: color === c ? "#121614" : "transparent" }}
+            style={{ background: c, borderColor: color === c ? "var(--color-ink)" : "transparent" }}
           />
         ))}
       </fieldset>

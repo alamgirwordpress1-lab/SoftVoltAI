@@ -10,6 +10,8 @@ import { slugify } from "@/lib/utils";
  * to a circular lens). When the stage scrolls into view the site assembles,
  * the lens sweeps across it, then follows the pointer — or drifts on its own,
  * so touch visitors see both layers too. Paused while off screen.
+ * The stage is `keep-light`: it shows a client's website, so it stays light
+ * when the visitor switches this site to the dark theme.
  */
 export function HeroStage({ agency, brand }: { agency: string; brand: string }) {
   const stageRef = useRef<HTMLDivElement>(null);
@@ -107,7 +109,7 @@ export function HeroStage({ agency, brand }: { agency: string; brand: string }) 
   }, []);
 
   return (
-    <div ref={stageRef} className="hero-stage" style={{ ["--brand" as string]: brand }}>
+    <div ref={stageRef} className="hero-stage keep-light" style={{ ["--brand" as string]: brand }}>
       <div className="stage-chrome" aria-hidden="true">
         <i />
         <i />

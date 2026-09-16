@@ -59,6 +59,8 @@ The site follows three content rules, and the code is built around them:
 - **Process engine.** Five steps from brief to handover. The steps scroll past while a pinned panel shows the document each step produces. It uses plain `position: sticky` and an `IntersectionObserver`, with no scroll hijacking.
 - **Follow-the-sun clocks.** Live local time in Dhaka, London, New York, Toronto and Sydney, rendered without hydration mismatches.
 - **Four-step brief form.** Built with React Hook Form and Zod, with validation on every step, automatic time-zone detection and a honeypot spam trap. Briefs are delivered by email through Resend.
+- **Site search.** A search button in the header, also opened with <kbd>Ctrl</kbd>/<kbd>⌘</kbd> + <kbd>K</kbd> or <kbd>/</kbd>. As you type, keywords autocomplete: a grey completion that <kbd>Tab</kbd> accepts, plus suggestion chips. Results are grouped (services, agency solutions, case studies, pages, FAQs) with match highlighting and filters. The search understands typos ("shopfy") and synonyms ("ppc" → Google Ads, "hacked" → malware cleanup), remembers recent searches, and works with the keyboard alone. The index is generated from the content at build time and loads only when search is first opened.
+- **Light and dark theme.** A toggle in the header switches the whole site. The choice is remembered and applied before the first paint, so a dark page never flashes light. The site opens in the light theme until a visitor chooses dark.
 - **Case studies.** A gallery with category filters, plus a page for each project.
 - **Plan cards.** Four monthly tiers, one marked "Recommended". A tier without a price shows "Let's talk" instead of a number.
 
@@ -78,7 +80,7 @@ The site follows three content rules, and the code is built around them:
 
 ## Pages
 
-`next build` pre-renders 59 routes as static files. The brief API is the only server function.
+`next build` pre-renders 60 routes as static files. The brief API is the only server function.
 
 | Route | What it is |
 | --- | --- |
@@ -95,6 +97,7 @@ The site follows three content rules, and the code is built around them:
 | `/about` | Story, team, coverage hours and process |
 | `/contact` | The four-step brief form, plus a booking link when one is configured |
 | `POST /api/brief` | Validates a brief, then emails it or logs it |
+| `/search-index.json` | The site search index, built from the content (kept out of search engines in `robots.txt`) |
 | `/sitemap.xml` · `/robots.txt` · `/opengraph-image` | Generated from the same content as the pages |
 
 `/work` permanently redirects to `/case-studies`.
@@ -174,9 +177,11 @@ app/
 │   ├── case-studies/        index + [slug] template
 │   └── rates/ security/ partner-programme/ about/ contact/
 ├── api/brief/route.ts       brief endpoint: Zod validation, then Resend or the log
+├── search-index.json/       static search index, built from the content at build time
 └── sitemap.ts · robots.ts · opengraph-image.tsx · not-found.tsx · icon.svg · apple-icon.png
 components/
-├── layout/                  SiteHeader, MegaMenu, NavDropdown, SiteFooter, StickyCta, BackToTop, Logo
+├── layout/                  SiteHeader, MegaMenu, NavDropdown, SiteFooter, StickyCta, BackToTop, Logo, ThemeToggle
+├── search/                  SiteSearch (header button + shortcuts), SearchDialog (lazy-loaded)
 ├── sections/                one file per page section: Hero, OrbitGlobe, EngineRoomDemo, ProcessEngine, Rates, BriefForm…
 ├── ui/                      Button, SectionHeading, PageHero, Chip, ArrowLink
 ├── seo/                     JsonLd, Breadcrumbs (with BreadcrumbList data)
@@ -186,6 +191,8 @@ lib/
 ├── cms/                     content access layer (cms.getX()) and shared types
 ├── forms/brief-schema.ts    Zod schema shared by the brief form and the API route
 ├── globe/land-dots.ts       generated globe coordinates (do not edit by hand)
+├── search/                  index builder (server) and search engine: typos, synonyms, autocomplete
+├── theme.ts                 light/dark: stored choice, pre-paint script, theme-color
 ├── motion/gsap.ts           GSAP plugin registration + reduced-motion helper
 ├── seo/schema.ts            schema.org builders
 └── hooks/useNow.ts          hydration-safe clock
@@ -212,11 +219,12 @@ Pages never import from `content/` directly. They call `cms` from `lib/cms`, whi
 | Tech stack, city clocks, plans and prices | `content/stack.ts` |
 | Build-or-buy comparison | `content/comparison.ts` |
 | Team cards | `content/founder.ts` + a photo in `public/` |
-| FAQs | `content/faqs.ts` |
+| FAQs (home page and rates page) | `content/faqs.ts` |
+| Search: extra pages, popular searches, quick links | `content/search.ts` (services, case studies, agency pages and FAQs are indexed automatically) |
 | Testimonials | `content/testimonials.ts` (while empty, the honest placeholder panel shows) |
 | Brief form platforms and budgets | `lib/forms/brief-schema.ts` |
 
-To add a service, add one entry to `pillars.ts` and its copy to the matching details file. Its page, sitemap entry, navigation link and structured data are all generated from those two entries.
+To add a service, add one entry to `pillars.ts` and its copy to the matching details file. Its page, sitemap entry, navigation link, search result and structured data are all generated from those two entries.
 
 ## Design system
 
@@ -230,6 +238,8 @@ The design tokens live in `app/globals.css` under `@theme`, so every Tailwind co
 | `accent` | `#1e7a32` | Approval green on light sections |
 | `volt` | `#65f545` | Accent for the dark "engine room" sections only, never used as text on paper |
 | `er-bg` | `#0e1411` | Engine room background |
+
+**Dark theme.** `html[data-theme="dark"]` re-points the same tokens, so no component needs its own dark variant: paper `#111814`, surface `#172019`, ink `#edf2ee`, muted `#9fa9a2`, accent `#5dd06a` (contrast on paper: ink 15.9:1, muted 7.4:1, accent 9.2:1). Engine-room sections and the mock client website in the white-label demo keep the light tokens inside (`.er`, `.keep-light`), so they look the same in both themes.
 
 - **Type:** Plus Jakarta Sans for headings, Inter for body copy, Manrope for navigation, buttons and labels, and Roboto for numbers and metadata.
 - **Layout:** content sits in `.container-x` (up to 1500px wide). The header and the page heroes share the full-bleed `.wide-x` rail (up to 1920px), so their edges line up.
@@ -249,7 +259,7 @@ The design tokens live in `app/globals.css` under `@theme`, so every Tailwind co
 - Each page has its own title, description, canonical URL and Open Graph data, with `en-GB` as the site language.
 - Structured data: `Organization` + `ProfessionalService` and `WebSite` on every page, `Service` on each service page, and `BreadcrumbList` on every inner page.
 - `sitemap.xml` is built from the same content as the pages, so new services and case studies are listed automatically.
-- `robots.txt` keeps crawlers out of `/api/` and explicitly allows OpenAI's search crawler.
+- `robots.txt` keeps crawlers out of `/api/` and the search index, and explicitly allows OpenAI's search crawler.
 - A 1200×630 Open Graph image is generated with `next/og`.
 - Every response carries `X-Content-Type-Options`, `X-Frame-Options`, `Referrer-Policy` and `Permissions-Policy` headers (set in `next.config.ts`).
 - The brief API checks every field on the server with the same Zod schema the form uses. The emailed brief has the visitor's address as its reply-to.
@@ -259,7 +269,7 @@ The design tokens live in `app/globals.css` under `@theme`, so every Tailwind co
 Search the code for `TODO(owner)`. Each marker is a public commitment to confirm or a placeholder to replace:
 
 - [ ] `content/stack.ts`: **the plan prices, limits and turnarounds are placeholders.** Replace them with costed figures.
-- [ ] `content/promises.ts`, `content/process.ts`, `content/comparison.ts`, `app/(site)/rates/page.tsx`: confirm every commitment and turnaround.
+- [ ] `content/promises.ts`, `content/process.ts`, `content/comparison.ts`, `content/faqs.ts` (pricing FAQs): confirm every commitment and turnaround.
 - [ ] `components/sections/FollowTheSun.tsx`: confirm the coverage hours.
 - [ ] `content/site.ts`: create the `hello@softvoltai.com` mailbox and add the company's own social profiles.
 - [ ] `content/founder.ts`: add team quotes, in each person's own words.

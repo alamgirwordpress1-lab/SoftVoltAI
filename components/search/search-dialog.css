@@ -1,0 +1,324 @@
+/* ------------------------------------------------------------------
+   Site search dialog (native <dialog>, opened with showModal()).
+   Every colour comes from the theme tokens, so it follows light/dark.
+   ------------------------------------------------------------------ */
+html[data-search-open] {
+  overflow: hidden;
+  /* keep the scrollbar's space so the page behind does not jump sideways */
+  scrollbar-gutter: stable;
+}
+
+.search-dialog {
+  width: min(720px, calc(100vw - 24px));
+  max-width: none;
+  max-height: none;
+  margin: min(10vh, 96px) auto 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--color-ink);
+  overflow: visible;
+}
+.search-dialog::backdrop {
+  background: rgba(10, 14, 12, 0.5);
+  backdrop-filter: blur(3px);
+}
+:root[data-theme="dark"] .search-dialog::backdrop {
+  background: rgba(0, 0, 0, 0.62);
+}
+.search-dialog[open] .search-panel {
+  animation: search-in 0.24s var(--ease-out-quint);
+}
+.search-dialog[open]::backdrop {
+  animation: search-fade 0.2s ease-out;
+}
+@keyframes search-in {
+  from {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.985);
+  }
+}
+@keyframes search-fade {
+  from {
+    opacity: 0;
+  }
+}
+
+.search-panel {
+  display: flex;
+  flex-direction: column;
+  max-height: calc(100dvh - min(10vh, 96px) - 24px);
+  overflow: hidden;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-xl);
+  background: var(--color-surface);
+  box-shadow:
+    0 1px 1px rgba(18, 22, 20, 0.06),
+    0 40px 90px -30px rgba(18, 22, 20, 0.45);
+}
+:root[data-theme="dark"] .search-panel {
+  box-shadow:
+    0 1px 1px rgba(0, 0, 0, 0.3),
+    0 40px 90px -30px rgba(0, 0, 0, 0.8);
+}
+
+@media (max-width: 639px) {
+  .search-dialog {
+    width: calc(100vw - 16px);
+    margin-top: 8px;
+  }
+  .search-panel {
+    max-height: calc(100dvh - 16px);
+  }
+}
+
+/* The input and the grey completion behind it share one font and box, so the
+   ghost text continues exactly where the typed text ends. */
+.search-input,
+.search-ghost {
+  font-family: var(--font-ui);
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: normal;
+}
+.search-input {
+  position: relative;
+  width: 100%;
+  height: 60px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--color-ink);
+  outline: none;
+  appearance: none;
+}
+.search-input::placeholder {
+  color: var(--color-muted);
+  font-weight: 400;
+}
+.search-input:focus-visible {
+  outline: none;
+}
+.search-ghost {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  white-space: pre;
+  pointer-events: none;
+}
+.search-ghost .text-muted {
+  opacity: 0.7;
+}
+
+.search-icon-btn,
+.search-esc {
+  display: inline-grid;
+  place-items: center;
+  flex: none;
+  border-radius: var(--radius-sm);
+  color: var(--color-muted);
+  transition:
+    color 0.15s,
+    background-color 0.15s;
+}
+.search-icon-btn {
+  width: 32px;
+  height: 32px;
+}
+.search-icon-btn:hover,
+.search-esc:hover {
+  color: var(--color-ink);
+  background: var(--color-raised);
+}
+.search-esc {
+  min-width: 32px;
+  height: 32px;
+}
+/* no `display` here: the Esc key cap is shown with Tailwind's sm:inline-block */
+.search-esc kbd,
+.search-footer kbd {
+  min-width: 22px;
+  padding: 3px 6px;
+  border: 1px solid var(--color-line);
+  border-bottom-width: 2px;
+  border-radius: 6px;
+  background: var(--color-raised);
+  font-family: var(--font-data);
+  font-size: 11px;
+  line-height: 1;
+  text-align: center;
+  color: var(--color-muted);
+}
+
+.search-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--color-line);
+}
+@media (min-width: 640px) {
+  .search-row {
+    padding-inline: 20px;
+  }
+}
+/* on phones the chip rows scroll sideways instead of wrapping, so results stay in view */
+@media (max-width: 639px) {
+  .search-row {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+  }
+  .search-row::-webkit-scrollbar {
+    display: none;
+  }
+  .search-row > * {
+    flex: none;
+    white-space: nowrap;
+  }
+}
+.search-row-label {
+  margin-right: 2px;
+  font-family: var(--font-ui);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+.search-chip,
+.search-filter {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 11px;
+  border: 1px solid var(--color-line-strong);
+  border-radius: 999px;
+  background: var(--color-surface);
+  font-family: var(--font-ui);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-ink);
+  transition:
+    border-color 0.15s,
+    background-color 0.15s,
+    color 0.15s;
+}
+.search-chip:hover,
+.search-filter:hover {
+  border-color: var(--color-ink);
+}
+.search-chip .search-mark {
+  background: transparent;
+  color: var(--color-accent);
+}
+.search-filter[aria-pressed="true"] {
+  border-color: var(--color-ink);
+  background: var(--color-ink);
+  color: var(--color-paper);
+}
+
+.search-body {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding-bottom: 8px;
+}
+
+.search-group-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 0 10px 6px;
+  font-family: var(--font-ui);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+.search-option {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 12px;
+  border-radius: var(--radius-lg);
+  scroll-margin: 8px;
+}
+.search-option.is-active {
+  background: var(--color-raised);
+}
+.search-option.is-active::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 12px;
+  bottom: 12px;
+  width: 3px;
+  border-radius: 3px;
+  background: var(--color-accent);
+}
+.search-option-icon {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--color-line);
+  border-radius: 10px;
+  background: var(--color-surface);
+  color: var(--color-accent);
+}
+.search-option-arrow {
+  color: var(--color-muted);
+  opacity: 0;
+  transform: translateX(-4px);
+  transition:
+    opacity 0.15s,
+    transform 0.2s var(--ease-out-quint);
+}
+.search-option.is-active .search-option-arrow {
+  opacity: 1;
+  transform: none;
+  color: var(--color-ink);
+}
+
+.search-mark {
+  border-radius: 3px;
+  background: var(--color-accent-soft);
+  color: inherit;
+  box-shadow: 0 0 0 1px var(--color-accent-soft);
+}
+
+.search-footer {
+  display: none;
+  gap: 18px;
+  padding: 10px 20px;
+  border-top: 1px solid var(--color-line);
+  background: var(--color-paper);
+  font-family: var(--font-ui);
+  font-size: 12px;
+  color: var(--color-muted);
+}
+.search-footer span {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.search-footer kbd {
+  display: inline-block;
+}
+@media (min-width: 640px) and (hover: hover) {
+  .search-footer {
+    display: flex;
+  }
+}

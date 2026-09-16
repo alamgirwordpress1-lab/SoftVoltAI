@@ -12,7 +12,7 @@ const base =
   "ui inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md px-5 py-3 text-[15px] font-semibold leading-tight transition-[background-color,border-color,color,transform] duration-200 ease-[var(--ease-hover)] active:translate-y-px";
 
 const variants: Record<Variant, string> = {
-  primary: "bg-ink text-paper hover:bg-[#232a26]",
+  primary: "bg-ink text-paper hover:bg-ink-hover",
   secondary: "border border-line-strong bg-surface text-ink hover:border-ink",
   onDark: "bg-paper text-ink hover:bg-white",
   outlineDark: "border border-er-line bg-transparent text-er-ink hover:border-volt",

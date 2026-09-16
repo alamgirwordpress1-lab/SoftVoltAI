@@ -8,7 +8,7 @@ import { agencyTypes } from "@/content/agency-types";
 import { process } from "@/content/process";
 import { work, workCategories } from "@/content/work";
 import { promises, protectionClauses } from "@/content/promises";
-import { faqs } from "@/content/faqs";
+import { faqs, pricingFaqs } from "@/content/faqs";
 import { stack, clocks, engagementModels } from "@/content/stack";
 import { team } from "@/content/founder";
 import { clients, globeCards, globeLocations } from "@/content/clients";
@@ -63,6 +63,7 @@ export const cms = {
   getPromises: async () => promises,
   getProtectionClauses: async () => protectionClauses,
   getFaqs: async () => faqs,
+  getPricingFaqs: async () => pricingFaqs,
   getStack: async () => stack,
   getClocks: async () => clocks,
   getEngagementModels: async () => engagementModels,

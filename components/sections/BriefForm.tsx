@@ -21,7 +21,7 @@ const chip = (on: boolean) =>
     on ? "border-ink bg-ink text-paper" : "border-line-strong bg-surface text-ink hover:border-ink",
   );
 const input =
-  "w-full rounded-md border border-line-strong bg-surface px-3 py-2.5 text-[15px] text-ink outline-none transition-colors focus:border-ink aria-[invalid=true]:border-[#b23a1f]";
+  "w-full rounded-md border border-line-strong bg-surface px-3 py-2.5 text-[15px] text-ink outline-none transition-colors focus:border-ink aria-[invalid=true]:border-danger";
 const label = "mono mb-1.5 block text-[11px] uppercase tracking-[0.1em] text-muted";
 
 export function BriefForm() {
@@ -214,11 +214,11 @@ export function BriefForm() {
           <input id="brief-website" type="text" tabIndex={-1} autoComplete="off" {...register("website")} />
         </div>
         <label className="flex items-start gap-3 text-[15px] text-ink">
-          <input id="brief-nda" type="checkbox" {...register("nda")} className="mt-1 h-4 w-4 accent-[#1e7a32]" />
+          <input id="brief-nda" type="checkbox" {...register("nda")} className="mt-1 h-4 w-4 accent-accent" />
           Send me your mutual NDA before I share client details
         </label>
         <label className="flex items-start gap-3 text-[15px] text-ink">
-          <input id="brief-consent" type="checkbox" {...register("consent")} aria-invalid={!!errors.consent} className="mt-1 h-4 w-4 accent-[#1e7a32]" />
+          <input id="brief-consent" type="checkbox" {...register("consent")} aria-invalid={!!errors.consent} className="mt-1 h-4 w-4 accent-accent" />
           <span>
             You may use these details to reply about this brief. Nothing else, no newsletter.
             <FieldError msg={errors.consent?.message} />
@@ -227,7 +227,7 @@ export function BriefForm() {
       </fieldset>
 
       {status === "error" ? (
-        <p role="alert" className="mt-5 rounded-md bg-[#f8e3df] px-3 py-2 text-[14px] text-[#8a2417]">
+        <p role="alert" className="mt-5 rounded-md bg-danger-bg px-3 py-2 text-[14px] text-danger-fg">
           {serverError} — or email <a href={`mailto:${site.email}`} className="underline">{site.email}</a>.
         </p>
       ) : null}
@@ -239,7 +239,7 @@ export function BriefForm() {
           </button>
         ) : null}
         {step < STEPS.length - 1 ? (
-          <button type="button" onClick={next} className="rounded-md bg-ink px-5 py-3 text-[15px] font-medium text-paper hover:bg-[#232a26]">
+          <button type="button" onClick={next} className="rounded-md bg-ink px-5 py-3 text-[15px] font-medium text-paper hover:bg-ink-hover">
             Continue
           </button>
         ) : (
@@ -253,7 +253,7 @@ export function BriefForm() {
 
 function FieldError({ msg }: { msg?: string }) {
   return msg ? (
-    <p className="mt-1.5 text-[13px] text-[#8a2417]" role="alert">
+    <p className="mt-1.5 text-[13px] text-danger-fg" role="alert">
       {msg}
     </p>
   ) : null;

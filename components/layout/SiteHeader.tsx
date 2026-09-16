@@ -10,6 +10,8 @@ import { Logo } from "@/components/layout/Logo";
 import { MegaMenu } from "@/components/layout/MegaMenu";
 import { NavDropdown } from "@/components/layout/NavDropdown";
 import { Button } from "@/components/ui/Button";
+import { SiteSearch } from "@/components/search/SiteSearch";
+import { ThemeToggle } from "@/components/layout/ThemeToggle";
 import { cn } from "@/lib/utils";
 
 const agencyItems = agencyTypes.map((a) => ({ label: a.name, href: `/for/${a.slug}` }));
@@ -61,13 +63,13 @@ export function SiteHeader() {
       )}
     >
       {/* not `relative`: the mega menu panel positions against the full-width header */}
-      <div className="wide-x flex h-16 items-center gap-6 md:h-20">
+      <div className="wide-x flex h-16 items-center gap-6 md:h-20 lg:gap-4 xl:gap-6">
         <Link href="/" className="flex items-center gap-2.5" aria-label={`${site.name} — home`} onClick={close}>
           <Logo id="logo-header" />
         </Link>
 
         <nav aria-label="Primary" className="ml-auto hidden lg:block">
-          <ul className="flex items-center gap-8">
+          <ul className="flex items-center gap-4 xl:gap-8">
             <li>
               <MegaMenu pillars={menuPillars} active={isActive(nav.services.href)} />
             </li>
@@ -85,7 +87,7 @@ export function SiteHeader() {
                 href={nav.caseStudies.href}
                 aria-current={isActive(nav.caseStudies.href) ? "page" : undefined}
                 className={cn(
-                  "relative text-[15px] transition-colors duration-150 hover:text-ink",
+                  "relative whitespace-nowrap text-[15px] transition-colors duration-150 hover:text-ink",
                   "after:absolute after:-bottom-1.5 after:left-0 after:h-px after:w-full after:origin-left after:bg-accent after:transition-transform after:duration-300",
                   isActive(nav.caseStudies.href) ? "text-ink after:scale-x-100" : "text-muted after:scale-x-0 hover:after:scale-x-100",
                 )}
@@ -99,7 +101,9 @@ export function SiteHeader() {
           </ul>
         </nav>
 
-        <div className="ml-auto flex items-center gap-3 lg:ml-6">
+        <div className="ml-auto flex items-center gap-2 lg:ml-2 xl:ml-6 xl:gap-3">
+          <SiteSearch />
+          <ThemeToggle />
           <div className="hidden sm:block">
             <Button href={headerCta.href}>{headerCta.label}</Button>
           </div>
