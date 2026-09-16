@@ -89,7 +89,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             state) and applies a stored dark theme (the page never flashes light). */}
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </head>
-      <body>
+      {/* browser extensions such as Grammarly add attributes to <body> before React loads */}
+      <body suppressHydrationWarning>
         <JsonLd data={[organizationSchema(), websiteSchema()]} />
         <MotionRoot />
         {children}

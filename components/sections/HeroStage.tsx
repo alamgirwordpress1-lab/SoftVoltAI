@@ -162,26 +162,47 @@ export function HeroStage({ agency, brand }: { agency: string; brand: string }) 
           <span className="hidden text-er-muted sm:inline">branch {slug}/harbour-dental</span>
         </div>
 
-        <div className="mock-piece mock-block overflow-hidden p-4 text-[11px] leading-[1.7] text-er-muted sm:p-6 sm:text-[12px]">
-          <p>
-            <span className="text-volt">{"<?php"}</span> add_action(<span className="text-er-ink">&apos;woocommerce_checkout_process&apos;</span>,
-          </p>
-          <p className="pl-4">
-            <span className="text-er-ink">&apos;{slug.replace(/-/g, "_")}_validate_slot&apos;</span>);
-          </p>
-          <p className="mt-2 text-er-ink">$ pnpm build</p>
-          <p>
-            ✓ 48 pages · <span className="text-volt">LCP 1.6s</span> · CLS 0.00
-          </p>
-          <p className="mt-2">
-            <span className="text-volt">feat</span>(booking): same-week slots + Klarna
-          </p>
-          <p>
-            <span className="text-volt">perf</span>(images): AVIF, 4.1s → 1.6s
-          </p>
-          <p>
-            <span className="text-volt">a11y</span>: WCAG 2.2 AA pass, 42/42 checks
-          </p>
+        {/* two columns spread top to bottom, so the lens finds something to show wherever it drifts */}
+        <div className="mock-piece mock-block grid overflow-hidden p-4 text-[11px] leading-[1.7] text-er-muted sm:grid-cols-[1.25fr_1fr] sm:gap-6 sm:p-6 sm:text-[12px]">
+          <div className="flex flex-col justify-between gap-2">
+            <div>
+              <p>
+                <span className="text-volt">{"<?php"}</span> add_action(<span className="text-er-ink">&apos;woocommerce_checkout_process&apos;</span>,
+              </p>
+              <p className="pl-4">
+                <span className="text-er-ink">&apos;{slug.replace(/-/g, "_")}_validate_slot&apos;</span>);
+              </p>
+            </div>
+            <div>
+              <p className="text-er-ink">$ pnpm build</p>
+              <p>
+                ✓ 48 pages · <span className="text-volt">LCP 1.6s</span> · CLS 0.00
+              </p>
+            </div>
+            <div>
+              <p>
+                <span className="text-volt">feat</span>(booking): same-week slots + Klarna
+              </p>
+              <p>
+                <span className="text-volt">perf</span>(images): AVIF, 4.1s → 1.6s
+              </p>
+              <p>
+                <span className="text-volt">a11y</span>: WCAG 2.2 AA pass, 42/42 checks
+              </p>
+            </div>
+          </div>
+          <div className="hidden flex-col justify-between gap-2 border-l border-dashed border-er-line pl-5 sm:flex">
+            <p className="text-er-ink">pipeline · deploy #24</p>
+            {["build", "type-check", "tests", "a11y audit", "preview"].map((step) => (
+              <p key={step} className="flex justify-between gap-4">
+                <span>{step}</span>
+                <span className="text-volt">✓ passed</span>
+              </p>
+            ))}
+            <p>
+              status <span className="text-volt">live on staging</span>
+            </p>
+          </div>
         </div>
 
         <div className="mock-piece grid grid-cols-3 gap-2 text-[10px]">

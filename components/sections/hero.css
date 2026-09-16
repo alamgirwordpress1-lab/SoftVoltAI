@@ -175,13 +175,30 @@
   background: var(--color-surface);
   color: var(--color-ink);
 }
+/* The engine room is seen through a magnifying glass: a crisp circle with a lit
+   centre and a faint blueprint grid, so it reads as glass over the workings
+   rather than a dark hole. The layer covers the whole stage (content starts
+   below the browser chrome), so the mask and .hero-lens share one coordinate
+   box and the glass sits exactly on its rim. */
 .hero-engine {
-  background: var(--color-er-bg);
+  inset: 0;
+  padding-top: 60px; /* 42px chrome + the layer's 18px */
+  background:
+    radial-gradient(circle calc(var(--r) * 1.05) at var(--lx) var(--ly), rgba(101, 245, 69, 0.13), rgba(101, 245, 69, 0) 75%),
+    linear-gradient(rgba(242, 244, 241, 0.06) 1px, transparent 1px) 0 0 / 24px 24px,
+    linear-gradient(90deg, rgba(242, 244, 241, 0.06) 1px, transparent 1px) 0 0 / 24px 24px,
+    #27322d;
   color: var(--color-er-ink);
-  -webkit-mask-image: radial-gradient(circle var(--r) at var(--lx) var(--ly), #000 0, #000 calc(100% - 22px), rgba(0, 0, 0, 0.55) calc(100% - 8px), transparent 100%);
-  mask-image: radial-gradient(circle var(--r) at var(--lx) var(--ly), #000 0, #000 calc(100% - 22px), rgba(0, 0, 0, 0.55) calc(100% - 8px), transparent 100%);
+  -webkit-mask-image: radial-gradient(circle var(--r) at var(--lx) var(--ly), #000 calc(100% - 1px), transparent 100%);
+  mask-image: radial-gradient(circle var(--r) at var(--lx) var(--ly), #000 calc(100% - 1px), transparent 100%);
+}
+@media (min-width: 640px) {
+  .hero-engine {
+    padding-top: 64px; /* 42px chrome + 22px */
+  }
 }
 .hero-lens {
+  --handle: clamp(9px, calc(var(--r) * 0.085), 14px);
   position: absolute;
   left: var(--lx);
   top: var(--ly);
@@ -189,26 +206,49 @@
   height: calc(var(--r) * 2);
   border-radius: 50%;
   transform: translate(-50%, -50%);
-  border: 1px solid rgba(101, 245, 69, 0.6);
+  /* glass: a white rim, a soft highlight top-left, a volt hairline inside and only a light shadow outside */
+  border: 4px solid rgba(255, 255, 255, 0.96);
+  background: radial-gradient(circle at 30% 24%, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0) 46%);
   box-shadow:
-    0 0 0 1px rgba(14, 20, 17, 0.35),
-    0 0 40px rgba(101, 245, 69, 0.25),
-    inset 0 0 0 1px rgba(101, 245, 69, 0.15);
+    0 0 0 1px rgba(18, 22, 20, 0.1),
+    inset 0 0 0 1px rgba(101, 245, 69, 0.55),
+    inset 0 0 28px rgba(255, 255, 255, 0.1),
+    0 22px 44px -24px rgba(18, 22, 20, 0.38);
   pointer-events: none;
+}
+/* the magnifier's handle, leaving the rim at 45° like a search icon */
+.hero-lens::before {
+  content: "";
+  position: absolute;
+  left: 85.36%;
+  top: calc(85.36% - var(--handle) / 2);
+  width: calc(var(--r) * 0.55);
+  height: var(--handle);
+  border-radius: 999px;
+  background: linear-gradient(180deg, #2f3833, #121614);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.18),
+    0 10px 20px -10px rgba(18, 22, 20, 0.45);
+  transform: rotate(45deg);
+  transform-origin: 0 50%;
 }
 .hero-lens::after {
   content: "engine room";
   position: absolute;
   left: 50%;
-  bottom: -26px;
+  bottom: -30px;
   transform: translateX(-50%);
+  padding: 4px 9px;
+  border-radius: 999px;
+  background: #121614;
+  box-shadow: 0 6px 14px -8px rgba(18, 22, 20, 0.5);
   font-family: var(--font-ui);
   font-weight: 700;
   font-size: 10px;
+  line-height: 1;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--color-volt);
-  text-shadow: 0 0 12px rgba(14, 20, 17, 0.8);
   white-space: nowrap;
 }
 
