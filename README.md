@@ -213,7 +213,7 @@ Pages never import from `content/` directly. They call `cms` from `lib/cms`, whi
 | Services and their pillars | `content/pillars.ts` (the list) + `content/service-details-*.ts` (the page copy) |
 | Agency solution pages | `content/agency-types.ts` |
 | Case studies and gallery filters | `content/work.ts` + a screenshot in `public/clients/` |
-| Globe cards and map markers | `content/clients.ts` |
+| Globe cards and map markers | `content/clients.ts`. Clients who recommend SoftVolt AI go in `recommendingClients` (name, role, company, country, photo in `public/clients/people/`, and a record of their written consent); as soon as there is one, their photos replace the project cards around the globe |
 | Commitments and protection clauses | `content/promises.ts` |
 | Process steps and turnarounds | `content/process.ts` |
 | Tech stack, city clocks, plans and prices | `content/stack.ts` |

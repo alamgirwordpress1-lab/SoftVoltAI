@@ -1,4 +1,4 @@
-import type { Client, GlobeCard, GlobeLocation } from "@/lib/cms/types";
+import type { Client, GlobeCard, GlobeLocation, RecommendingClient } from "@/lib/cms/types";
 
 /**
  * Businesses our founder has delivered websites for — as developer, project
@@ -20,21 +20,79 @@ export const clients: Client[] = [
   { name: "Dropndot", country: "BD", work: "Agency development" },
 ];
 
-/** The twelve cards orbiting the hero globe: real client sites plus a few context tiles. */
-export const globeCards: GlobeCard[] = [
+/**
+ * TODO(owner): clients who recommend SoftVolt AI. As soon as this list has anyone
+ * in it, their photos permanently replace the delivered projects around the hero
+ * globe (the first 12 are shown).
+ *
+ * Real clients only, each of whom has agreed in writing to appear with their name
+ * and photo — record how in `consent`. Never a stock photo, never a picture copied
+ * from another website, never a name that has not been agreed. Under UK and US
+ * rules a testimonial or endorsement from someone who is not a real client is a
+ * fake review, and agencies can reverse-image-search a photo in seconds.
+ *
+ * Photos: square, at least 400×400, face centred, saved in public/clients/people/.
+ *   { id: "jane-doe", name: "Jane Doe", role: "Founder", company: "Example Agency", country: "UK",
+ *     photo: "/clients/people/jane-doe.jpg", consent: "Email to Alamgir, 2026-09-20" },
+ */
+export const recommendingClients: RecommendingClient[] = [];
+
+/** Context tiles that orbit the globe alongside either set of cards. */
+const tiles = {
+  cities: { id: "cities", kind: "cities", lines: ["London", "New York", "Dhaka"], az: 62, lat: 30 },
+  brand: { id: "brand", kind: "brand", title: "Delivered worldwide", sub: "UK · US · Bangladesh", az: 152, lat: -30 },
+  stack: { id: "stack", kind: "stack", title: "Our stack", items: ["WordPress", "WooCommerce", "Next.js", "Payload", "Shopify"], az: 242, lat: -18 },
+  hours: { id: "hours", kind: "hours", big: "UTC+6", sub: "UK & US overlap, daily", az: 332, lat: 26 },
+} satisfies Record<string, GlobeCard>;
+
+/** Delivered client websites with hand-placed positions: shown until recommending clients are added. */
+const projectOrbit: GlobeCard[] = [
   { id: "bbm", kind: "site", title: "The Bulk Bag Man", country: "UK", work: "Headless WordPress + Next.js", image: "/clients/bulk-bag-man.jpg", az: 0, lat: 6, scale: 1.06 },
   { id: "hp4p", kind: "site", title: "Heat Pumps 4 Pools", country: "UK", work: "WooCommerce store", image: "/clients/heat-pumps-4-pools.jpg", az: 32, lat: -28 },
-  { id: "cities", kind: "cities", lines: ["London", "New York", "Dhaka"], az: 62, lat: 30 },
+  tiles.cities,
   { id: "seo", kind: "site", title: "SEO Agency in Essex", country: "UK", work: "Technical-SEO site", image: "/clients/seo-agency-in-essex.jpg", az: 92, lat: -6 },
   { id: "ascent", kind: "site", title: "Ascent Energy", country: "UK", work: "WooCommerce build", image: "/clients/ascent-energy.jpg", az: 122, lat: 24 },
-  { id: "brand", kind: "brand", title: "Delivered worldwide", sub: "UK · US · Bangladesh", az: 152, lat: -30 },
+  tiles.brand,
   { id: "md24", kind: "site", title: "MobileDokan24", country: "BD", work: "WooCommerce catalogue", image: "/clients/mobiledokan24.jpg", az: 182, lat: 6 },
   { id: "patriot", kind: "site", title: "Patriot Insurance Group", country: "US", work: "Full-stack WordPress", image: "/clients/patriot-insurance.jpg", az: 212, lat: 30 },
-  { id: "stack", kind: "stack", title: "Our stack", items: ["WordPress", "WooCommerce", "Next.js", "Payload", "Shopify"], az: 242, lat: -18 },
+  tiles.stack,
   { id: "ronvil", kind: "site", title: "Ronemus & Vilensky", country: "US", work: "Law firm website", image: "/clients/ronemus-vilensky.jpg", az: 272, lat: 14 },
   { id: "yume", kind: "site", title: "Yume Nihongo", country: "BD", work: "Education website", image: "/clients/yume-nihongo.jpg", az: 302, lat: -30 },
-  { id: "hours", kind: "hours", big: "UTC+6", sub: "UK & US overlap, daily", az: 332, lat: 26 },
+  tiles.hours,
 ];
+
+const MAX_GLOBE_CLIENTS = 12;
+/** Neighbouring cards alternate high and low so they never sit on top of each other. */
+const ORBIT_LATITUDES = [6, -28, 30, -6, 24, -30, 14, -18];
+
+/** Client photos spread evenly round the orbit, with the context tiles spaced out between them. */
+function clientOrbit(people: RecommendingClient[]): GlobeCard[] {
+  const cards: GlobeCard[] = people.slice(0, MAX_GLOBE_CLIENTS).map((p) => ({
+    id: `client-${p.id}`,
+    kind: "client",
+    name: p.name,
+    role: p.role,
+    company: p.company,
+    country: p.country,
+    photo: p.photo,
+    az: 0,
+    lat: 0,
+  }));
+  // with many people, keep only the two tiles that say where and when
+  const extras: GlobeCard[] = cards.length > 8 ? [tiles.brand, tiles.hours] : [tiles.cities, tiles.brand, tiles.stack, tiles.hours];
+  const every = Math.max(1, Math.round(cards.length / extras.length));
+  const ordered: GlobeCard[] = [];
+  let next = 0;
+  cards.forEach((card, i) => {
+    ordered.push(card);
+    if ((i + 1) % every === 0 && next < extras.length) ordered.push(extras[next++]);
+  });
+  ordered.push(...extras.slice(next));
+  return ordered.map((card, i) => ({ ...card, az: Math.round((i * 360) / ordered.length), lat: ORBIT_LATITUDES[i % ORBIT_LATITUDES.length], scale: undefined }));
+}
+
+/** The cards orbiting the hero globe: recommending clients once there are any, delivered projects until then. */
+export const globeCards: GlobeCard[] = recommendingClients.length ? clientOrbit(recommendingClients) : projectOrbit;
 
 /**
  * Globe markers. "clients" = where the clients above are (these also draw the

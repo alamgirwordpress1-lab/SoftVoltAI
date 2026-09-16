@@ -54,6 +54,84 @@
   }
 }
 
+/* client photo card: a round portrait with a name plate tucked under it */
+.og-card--client {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 15.5cqw;
+  overflow: visible;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+.og-avatar {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 0.55cqw solid var(--color-surface);
+  background: var(--color-raised);
+  box-shadow:
+    0 1px 1px rgba(18, 22, 20, 0.08),
+    0 2cqw 4cqw -2cqw rgba(18, 22, 20, 0.5);
+}
+.og-avatar img {
+  border-radius: 50%;
+}
+/* two classes: .og-flag is declared further down and would otherwise win */
+.og-avatar .og-avatar-flag {
+  position: absolute;
+  right: 2%;
+  bottom: 6%;
+  z-index: 1;
+  font-size: 1.15cqw;
+  box-shadow: 0 0 0 0.3cqw var(--color-surface);
+}
+.og-client {
+  display: grid;
+  justify-items: center;
+  /* sized by the longer of name and role, so the role is not cut to the name's width */
+  width: max-content;
+  max-width: 25cqw;
+  margin-top: -1.4cqw;
+  padding: 0.75cqw 1.4cqw 0.85cqw;
+  border: 1px solid var(--color-line);
+  border-radius: 1.2cqw;
+  background: var(--color-surface);
+  box-shadow: 0 1.2cqw 2.6cqw -1.4cqw rgba(18, 22, 20, 0.35);
+  text-align: center;
+}
+.og-client-name {
+  max-width: 100%;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.9cqw;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--color-ink);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.og-client-role {
+  max-width: 100%;
+  margin-top: 0.15cqw;
+  font-family: var(--font-ui);
+  font-weight: 500;
+  font-size: 1.3cqw;
+  color: var(--color-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+:root[data-theme="dark"] .og-avatar,
+:root[data-theme="dark"] .og-client {
+  box-shadow:
+    0 1px 1px rgba(0, 0, 0, 0.3),
+    0 2cqw 4cqw -2cqw rgba(0, 0, 0, 0.8);
+}
+
 /* site screenshot card */
 .og-card--site {
   width: 24cqw;

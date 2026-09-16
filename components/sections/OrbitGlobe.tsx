@@ -495,6 +495,21 @@ export function OrbitGlobe({ cards, locations, label }: { cards: GlobeCard[]; lo
 
 function CardBody({ card }: { card: GlobeCard }) {
   switch (card.kind) {
+    case "client":
+      return (
+        <>
+          <span className="og-avatar">
+            <Image src={card.photo} alt="" fill sizes="(min-width: 1024px) 140px, 26vw" className="object-cover" draggable={false} />
+            <span className="og-flag og-avatar-flag">{card.country}</span>
+          </span>
+          <span className="og-client">
+            <span className="og-client-name">{card.name}</span>
+            <span className="og-client-role">
+              {card.role} · {card.company}
+            </span>
+          </span>
+        </>
+      );
     case "site":
       return (
         <>

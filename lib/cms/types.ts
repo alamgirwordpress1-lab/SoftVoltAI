@@ -94,6 +94,25 @@ export interface GlobeLocation {
   kind: "hq" | "clients" | "market";
 }
 
+/**
+ * A real client who recommends SoftVolt AI and has agreed, in writing, to be
+ * shown on the site with their name and photo.
+ */
+export interface RecommendingClient {
+  id: string;
+  /** Their name exactly as they want it shown. */
+  name: string;
+  /** Job title, as they want it shown. */
+  role: string;
+  company: string;
+  /** Short country code shown on the photo, e.g. "UK". */
+  country: string;
+  /** Square photo under /public/clients/people/, supplied by them or used with their permission. */
+  photo: string;
+  /** When and how they agreed to appear, e.g. "Email to Alamgir, 2026-09-20". Keep that record. */
+  consent: string;
+}
+
 interface GlobeCardBase {
   id: string;
   /** Longitude-like position on the orbit, degrees. */
@@ -105,6 +124,7 @@ interface GlobeCardBase {
 
 export type GlobeCard = GlobeCardBase &
   (
+    | { kind: "client"; name: string; role: string; company: string; country: string; photo: string }
     | { kind: "site"; title: string; country: Client["country"]; work: string; image: string }
     | { kind: "cities"; lines: string[] }
     | { kind: "brand"; title: string; sub: string }
