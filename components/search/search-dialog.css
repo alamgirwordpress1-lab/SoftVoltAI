@@ -292,11 +292,12 @@ html[data-search-open] {
   color: var(--color-ink);
 }
 
+/* a translucent accent, so the highlight still shows on the active row's raised background */
 .search-mark {
   border-radius: 3px;
-  background: var(--color-accent-soft);
+  background: color-mix(in srgb, var(--color-accent) 20%, transparent);
   color: inherit;
-  box-shadow: 0 0 0 1px var(--color-accent-soft);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--color-accent) 20%, transparent);
 }
 
 .search-footer {
