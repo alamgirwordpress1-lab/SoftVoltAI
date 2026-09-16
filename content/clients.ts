@@ -37,6 +37,25 @@ export const clients: Client[] = [
  */
 export const recommendingClients: RecommendingClient[] = [];
 
+/**
+ * Neutral silhouettes for designing the client globe before real clients are in.
+ * They render only under `next dev` (localhost) and never in a build, so they can
+ * never reach the live site; the moment `recommendingClients` has anyone in it,
+ * these are ignored. Delete them once the real list is filled.
+ */
+const placeholderClients: RecommendingClient[] = [
+  { id: "placeholder-1", name: "Client name", role: "Founder", company: "Agency name", country: "UK", photo: "/clients/people/placeholder-1.png", consent: "placeholder" },
+  { id: "placeholder-2", name: "Client name", role: "Managing director", company: "Agency name", country: "US", photo: "/clients/people/placeholder-2.png", consent: "placeholder" },
+  { id: "placeholder-3", name: "Client name", role: "Head of delivery", company: "Agency name", country: "CA", photo: "/clients/people/placeholder-3.png", consent: "placeholder" },
+  { id: "placeholder-4", name: "Client name", role: "Founder", company: "Agency name", country: "AU", photo: "/clients/people/placeholder-4.png", consent: "placeholder" },
+  { id: "placeholder-5", name: "Client name", role: "SEO lead", company: "Agency name", country: "UK", photo: "/clients/people/placeholder-5.png", consent: "placeholder" },
+  { id: "placeholder-6", name: "Client name", role: "Creative director", company: "Agency name", country: "US", photo: "/clients/people/placeholder-6.png", consent: "placeholder" },
+  { id: "placeholder-7", name: "Client name", role: "Operations lead", company: "Agency name", country: "IE", photo: "/clients/people/placeholder-7.png", consent: "placeholder" },
+  { id: "placeholder-8", name: "Client name", role: "Founder", company: "Agency name", country: "AU", photo: "/clients/people/placeholder-8.png", consent: "placeholder" },
+];
+
+const globeClients = recommendingClients.length ? recommendingClients : process.env.NODE_ENV === "development" ? placeholderClients : [];
+
 /** Context tiles that orbit the globe alongside either set of cards. */
 const tiles = {
   cities: { id: "cities", kind: "cities", lines: ["London", "New York", "Dhaka"], az: 62, lat: 30 },
@@ -92,7 +111,7 @@ function clientOrbit(people: RecommendingClient[]): GlobeCard[] {
 }
 
 /** The cards orbiting the hero globe: recommending clients once there are any, delivered projects until then. */
-export const globeCards: GlobeCard[] = recommendingClients.length ? clientOrbit(recommendingClients) : projectOrbit;
+export const globeCards: GlobeCard[] = globeClients.length ? clientOrbit(globeClients) : projectOrbit;
 
 /**
  * Globe markers. "clients" = where the clients above are (these also draw the
