@@ -12,7 +12,8 @@ export const metadata: Metadata = {
 };
 
 export default async function RatesPage() {
-  const [models, pricingFaqs] = await Promise.all([cms.getEngagementModels(), cms.getPricingFaqs()]);
+  const [models, pricingFaqs, process] = await Promise.all([cms.getEngagementModels(), cms.getPricingFaqs(), cms.getProcess()]);
+  const scope = process.find((p) => p.id === "scope");
   return (
     <>
       <PageHero
@@ -20,6 +21,11 @@ export default async function RatesPage() {
         eyebrow="Rates"
         title="Simple monthly plans, priced up front."
         lede="Match your spend to your actual client workload instead of committing to a full-time salary. Pick the plan that fits how many active projects you run, and move up or down as that number changes."
+        highlights={[
+          { label: "Plans", value: `${models.length} monthly tiers` },
+          { label: "Outside a plan", value: "Scoped and quoted in writing" },
+          ...(scope ? [{ label: scope.name, value: scope.turnaround }] : []),
+        ]}
       />
       <Rates models={models} showHeading={false} />
       <div className="border-t border-line">

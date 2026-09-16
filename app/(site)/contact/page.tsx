@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { PageHero } from "@/components/ui/PageHero";
 import { BriefForm } from "@/components/sections/BriefForm";
 import { site } from "@/content/site";
+import { cms } from "@/lib/cms";
 
 export const metadata: Metadata = {
   title: "Send us a brief",
@@ -9,7 +10,10 @@ export const metadata: Metadata = {
   alternates: { canonical: "/contact" },
 };
 
-export default function ContactPage() {
+export default async function ContactPage() {
+  const process = await cms.getProcess();
+  const brief = process.find((p) => p.id === "brief");
+  const scope = process.find((p) => p.id === "scope");
   return (
     <>
       <PageHero
@@ -17,6 +21,11 @@ export default function ContactPage() {
         eyebrow="Send us a brief"
         title="Four short steps. A scope and a fixed price within two business days."
         lede="Client names can wait until the NDA is signed. Tell us what exists, what is needed and when — a named producer replies within one business day."
+        highlights={[
+          { label: "The brief", value: "Four short steps" },
+          ...(brief ? [{ label: brief.name, value: brief.turnaround }] : []),
+          ...(scope ? [{ label: scope.name, value: scope.turnaround }] : []),
+        ]}
       />
       <section className="container-x relative pb-20 md:pb-28" aria-label="Brief form and contact details">
         <div className="relative grid gap-10 lg:grid-cols-12 lg:gap-14">

@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/Button";
 import { CtaBand } from "@/components/sections/CtaBand";
 import { site, cta } from "@/content/site";
 import { cms } from "@/lib/cms";
+import { midSentence } from "@/lib/utils";
 
 export async function generateStaticParams() {
   const types = await cms.getAgencyTypes();
@@ -17,10 +18,10 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const type = await cms.getAgencyType(slug);
   if (!type) return {};
   return {
-    title: `White-label services for ${type.name.toLowerCase()}`,
+    title: `White-label services for ${midSentence(type.name)}`,
     description: type.seo,
     alternates: { canonical: `/for/${slug}` },
-    openGraph: { title: `For ${type.name.toLowerCase()} · SoftVolt AI`, description: type.seo, url: `${site.url}/for/${slug}` },
+    openGraph: { title: `For ${midSentence(type.name)} · SoftVolt AI`, description: type.seo, url: `${site.url}/for/${slug}` },
   };
 }
 
@@ -28,7 +29,9 @@ export default async function AgencyTypePage({ params }: { params: Promise<{ slu
   const { slug } = await params;
   const type = await cms.getAgencyType(slug);
   if (!type) notFound();
-  const promises = await cms.getPromises();
+  const [promises, process] = await Promise.all([cms.getPromises(), cms.getProcess()]);
+  const scope = process.find((p) => p.id === "scope");
+  const noContact = promises.find((p) => p.id === "no-contact");
 
   return (
     <>
@@ -38,8 +41,13 @@ export default async function AgencyTypePage({ params }: { params: Promise<{ slu
           { name: type.name, href: `/for/${slug}` },
         ]}
         eyebrow="Who we help"
-        title={`For ${type.name.toLowerCase()}`}
+        title={`For ${midSentence(type.name)}`}
         lede={type.intro}
+        highlights={[
+          { label: "Services that fit", value: type.serviceItems.slice(0, 2).map((s) => s.name).join(" · ") },
+          ...(scope ? [{ label: scope.name, value: scope.turnaround }] : []),
+          ...(noContact ? [{ label: "Commitment", value: noContact.label }] : []),
+        ]}
       >
         <div className="flex flex-wrap items-center gap-3">
           <Button href={cta.primary.href}>{cta.primary.label}</Button>
@@ -83,7 +91,7 @@ export default async function AgencyTypePage({ params }: { params: Promise<{ slu
       <section className="container-x py-14 md:py-20" aria-labelledby="services-for-title">
         <span className="eyebrow">Services that fit</span>
         <h2 id="services-for-title" className="display display-md mt-4">
-          What {type.name.toLowerCase()} usually send us.
+          What {midSentence(type.name)} usually send us.
         </h2>
         <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {type.serviceItems.map((s, i) => (

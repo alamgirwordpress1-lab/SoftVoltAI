@@ -11,7 +11,9 @@ export const metadata: Metadata = {
 };
 
 export default async function ForIndexPage() {
-  const types = await cms.getAgencyTypes();
+  const [types, promises] = await Promise.all([cms.getAgencyTypes(), cms.getPromises()]);
+  const short = (list: typeof types) => list.map((t) => t.name.replace(/ agencies$/i, "")).join(" · ");
+  const noContact = promises.find((p) => p.id === "no-contact");
   return (
     <>
       <PageHero
@@ -19,6 +21,11 @@ export default async function ForIndexPage() {
         eyebrow="Who we help"
         title="Built for agencies that have already sold the work."
         lede="You own the client, the strategy and the invoice. We take the part that is blocking your calendar. Pick the kind of agency you are and see how the engagement runs."
+        highlights={[
+          { label: "Built for", value: short(types.slice(0, 3)) },
+          { label: "And for", value: short(types.slice(3)) },
+          ...(noContact ? [{ label: "Commitment", value: noContact.label }] : []),
+        ]}
       />
       <section className="container-x border-t border-line py-14 md:py-20">
         <ul className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">

@@ -5,6 +5,7 @@ import { FollowTheSun } from "@/components/sections/FollowTheSun";
 import { ProcessEngine } from "@/components/sections/ProcessEngine";
 import { CtaBand } from "@/components/sections/CtaBand";
 import { cms } from "@/lib/cms";
+import { site } from "@/content/site";
 
 export const metadata: Metadata = {
   title: "About — the team behind the agencies",
@@ -29,6 +30,11 @@ export default async function AboutPage() {
         eyebrow="About SoftVolt AI"
         title="The digital team behind agencies."
         lede="SoftVolt AI exists so agencies can sell websites, apps, automation, SEO and paid media without building a bigger team. We are based in Dhaka, work UK and US hours, and never appear in front of your client."
+        highlights={[
+          { label: "Based in", value: `${site.location} · ${site.utcOffset}` },
+          { label: "Hours", value: "UK & US overlap, daily" },
+          ...(team[0] ? [{ label: "Founded by", value: team[0].name }] : []),
+        ]}
       />
 
       <section id="story" className="section container-x border-t border-line" aria-labelledby="story-title">

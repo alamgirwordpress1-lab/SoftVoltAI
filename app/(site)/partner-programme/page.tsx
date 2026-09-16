@@ -26,6 +26,7 @@ export default async function PartnerProgrammePage() {
         eyebrow="Become a partner"
         title="Partnership starts with one project, not a pitch deck."
         lede="We do not ask agencies to commit before they have seen the work. The first brief is a fixed-price project; everything after it gets easier."
+        highlights={steps.slice(0, 3).map((s, i) => ({ label: `Step ${i + 1}`, value: s.title }))}
       >
         <div className="flex flex-wrap gap-3">
           <Button href="/contact">Send the first brief</Button>

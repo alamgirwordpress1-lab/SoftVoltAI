@@ -1,0 +1,126 @@
+/* ------------------------------------------------------------------
+   Inner-page banner visual: orbit rings around the brand mark, with the
+   page's key facts on floating cards. Shown from xl up, beside the copy.
+   ------------------------------------------------------------------ */
+.phv {
+  position: relative;
+  width: 100%;
+  max-width: 560px;
+  aspect-ratio: 1;
+  margin-left: auto;
+}
+
+.phv-orbit {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+.phv-orbit-outer {
+  inset: 7%;
+  border: 1px dashed var(--color-line-strong);
+}
+/* a single volt marker on the outer ring, like the markers on the homepage globe */
+.phv-orbit-outer::after {
+  content: "";
+  position: absolute;
+  right: 13%;
+  bottom: 13%;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--color-volt);
+  box-shadow: 0 0 0 5px rgba(101, 245, 69, 0.18);
+}
+.phv-orbit-inner {
+  inset: 25%;
+  border: 1px solid var(--color-line);
+  background: radial-gradient(circle at 50% 40%, color-mix(in srgb, var(--color-surface) 70%, transparent), transparent 70%);
+}
+.phv-glow {
+  position: absolute;
+  inset: 32%;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(101, 245, 69, 0.24), rgba(101, 245, 69, 0) 75%);
+  filter: blur(14px);
+  pointer-events: none;
+}
+.phv-emblem {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  border-radius: 28px;
+  border: 1px solid var(--color-line);
+  background: var(--color-surface);
+  box-shadow:
+    0 1px 1px rgba(18, 22, 20, 0.05),
+    0 34px 64px -30px rgba(18, 22, 20, 0.4);
+  transform: translate(-50%, -50%);
+}
+
+.phv-cards {
+  position: absolute;
+  inset: 0;
+}
+.phv-card {
+  position: absolute;
+  display: grid;
+  gap: 4px;
+  width: max-content;
+  max-width: 230px;
+  padding: 14px 18px 15px;
+  border: 1px solid var(--color-line);
+  border-radius: 16px;
+  background: color-mix(in srgb, var(--color-surface) 94%, transparent);
+  box-shadow:
+    0 1px 1px rgba(18, 22, 20, 0.05),
+    0 26px 50px -30px rgba(18, 22, 20, 0.42);
+  backdrop-filter: blur(6px);
+}
+/* placed round the mark, never over it: upper left, upper right, lower left */
+.phv-card-1 {
+  left: 0;
+  top: 4%;
+}
+.phv-card-2 {
+  right: 0;
+  top: 21%;
+}
+.phv-card-3 {
+  left: 5%;
+  bottom: 6%;
+}
+.js .phv-card {
+  animation: bob 7s ease-in-out infinite;
+}
+.js .phv-card-2 {
+  animation-delay: -2.3s;
+}
+.js .phv-card-3 {
+  animation-delay: -4.6s;
+}
+.phv-card-label {
+  font-family: var(--font-ui);
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+.phv-card-value {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 17px;
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+  color: var(--color-ink);
+}
+
+:root[data-theme="dark"] .phv-emblem,
+:root[data-theme="dark"] .phv-card {
+  box-shadow:
+    0 1px 1px rgba(0, 0, 0, 0.3),
+    0 30px 60px -30px rgba(0, 0, 0, 0.85);
+}

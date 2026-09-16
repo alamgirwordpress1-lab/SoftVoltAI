@@ -13,6 +13,7 @@ export const metadata: Metadata = {
 
 export default async function ServicesPage() {
   const pillars = await cms.getPillars();
+  const count = (ids: string[]) => pillars.filter((p) => ids.includes(p.id)).reduce((n, p) => n + p.services.length, 0);
   return (
     <>
       <PageHero
@@ -20,6 +21,11 @@ export default async function ServicesPage() {
         eyebrow="Services"
         title="Four pillars. One partner. Your brand on everything."
         lede="Every service is delivered under your agency's name with a written scope, a named producer and a fixed price. Pick the one that matches the brief, or send the brief and let the scope tell you."
+        highlights={[
+          { label: "Build", value: `${count(["build"])} services` },
+          { label: "Automate", value: `${count(["automate"])} services` },
+          { label: "Grow & Support", value: `${count(["grow", "support"])} services` },
+        ]}
       />
 
       {pillars.map((p, i) => (

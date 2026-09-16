@@ -13,6 +13,10 @@ export const metadata: Metadata = {
 
 export default async function CaseStudiesPage() {
   const [work, categories] = await Promise.all([cms.getWork(), cms.getWorkCategories()]);
+  const regions = [...new Set(work.map((w) => w.region))];
+  const toolCount = new Map<string, number>();
+  for (const tool of work.flatMap((w) => w.stack)) toolCount.set(tool, (toolCount.get(tool) ?? 0) + 1);
+  const topTools = [...toolCount].sort((a, b) => b[1] - a[1]).slice(0, 3).map(([tool]) => tool);
   return (
     <>
       <PageHero
@@ -20,6 +24,11 @@ export default async function CaseStudiesPage() {
         eyebrow="Case studies"
         title="Builds you can open, not logos you have to trust."
         lede="White-label means partner work is never shown without written permission — and when it is, it carries your name. What we can show are builds our founder delivered as developer, project manager and team lead at a UK agency."
+        highlights={[
+          { label: "Case studies", value: `${work.length} builds you can open` },
+          { label: "Delivered in", value: regions.join(" · ") },
+          { label: "Most used", value: topTools.join(" · ") },
+        ]}
       />
 
       <WorkGrid items={work} categories={categories} showHeading={false} />

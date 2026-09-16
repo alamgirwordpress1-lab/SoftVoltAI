@@ -30,6 +30,11 @@ export default async function SecurityPage() {
         eyebrow="Security & confidentiality"
         title="Your client's data, treated like it is yours. Because it is."
         lede="Agencies hand us logins, client names and campaign data. This page says exactly what happens to them — and what goes into the contract so you do not have to take our word for it."
+        highlights={[
+          { label: "Before the brief", value: "Mutual NDA" },
+          { label: "Credentials", value: "In a shared vault only" },
+          { label: "At handover", value: "Access revoked and confirmed" },
+        ]}
       />
       <section className="container-x border-t border-line py-14 md:py-20" aria-labelledby="practices-title">
         <span className="eyebrow">Practices</span>

@@ -43,6 +43,11 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
         eyebrow={item.category}
         title={item.title}
         lede={item.summary}
+        highlights={[
+          { label: "Client", value: item.client },
+          { label: "Region", value: item.region },
+          { label: "Stack", value: item.stack.slice(0, 3).join(" · ") },
+        ]}
       >
         <div className="flex flex-wrap items-center gap-3">
           {item.url ? (

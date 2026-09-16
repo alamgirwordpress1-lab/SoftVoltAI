@@ -31,6 +31,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
   const service = await cms.getService(slug);
   if (!service) notFound();
   const process = await cms.getProcess();
+  const scope = process.find((p) => p.id === "scope");
 
   return (
     <>
@@ -55,6 +56,11 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         eyebrow={`${service.pillarGroup.name} · white-label`}
         title={service.title}
         lede={service.intro}
+        highlights={[
+          { label: "Tooling", value: service.stack.slice(0, 3).join(" · ") },
+          ...(service.agencies[0] ? [{ label: "Best for", value: service.agencies[0].name }] : []),
+          ...(scope ? [{ label: scope.name, value: scope.turnaround }] : []),
+        ]}
       >
         <div className="flex flex-wrap items-center gap-3">
           <Button href={cta.primary.href}>{cta.primary.label}</Button>
