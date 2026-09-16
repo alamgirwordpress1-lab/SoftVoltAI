@@ -1,3 +1,9 @@
 # Marks this project as its own pnpm workspace root.
 # Without this, pnpm climbs up and finds C:\Users\alamg\pnpm-workspace.yaml
 # (a stray file) and installs everything into the home directory instead.
+#
+# Keep a real `packages` list: a file with only comments parses as null, and
+# Vercel's workspace detection crashes on that ("Cannot read properties of null
+# (reading 'packages')"), failing the deployment. The root is the only package.
+packages:
+  - "."
