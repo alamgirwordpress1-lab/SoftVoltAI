@@ -1,0 +1,29 @@
+# dependencies
+node_modules
+
+# Next.js build output
+.next
+out
+build
+
+# environment — real values live in .env.local locally and in Vercel project settings
+.env*
+!.env.example
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
+# logs
+npm-debug.log*
+pnpm-debug.log*
+
+# misc
+.DS_Store
+Thumbs.db
+*.pem
+.vercel
+
+# private planning notes — kept on this machine, out of the public repo
+business-plane.md
+White_Label_Digital_Production_Agency_Website_Development_Plan_Expanded.md

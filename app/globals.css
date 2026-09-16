@@ -1,0 +1,508 @@
+@import "tailwindcss";
+
+/* ------------------------------------------------------------------
+   SoftVolt AI design tokens — "The Blank Label"
+   Soft outside (paper, deep approval green), volt inside (engine room).
+   Every colour in the UI resolves to one of these tokens.
+   ------------------------------------------------------------------ */
+@theme {
+  --color-paper: #f6f7f4;
+  --color-surface: #ffffff;
+  --color-raised: #ecefe9;
+  --color-ink: #121614;
+  --color-muted: #5b645e;
+  --color-line: #dce1da;
+  --color-line-strong: #b9c2bb;
+  --color-accent: #1e7a32; /* approval green — 5.0:1 on paper, white on it 5.4:1 */
+  --color-accent-soft: #e3f1e8;
+  --color-volt: #65f545; /* engine-room accent — 13.0:1 on er-bg, never text on paper */
+
+  --color-er-bg: #0e1411;
+  --color-er-surface: #161d19;
+  --color-er-raised: #1b2320;
+  --color-er-line: #24302a;
+  --color-er-ink: #f2f4f1;
+  --color-er-muted: #9aa59e;
+
+  --color-ok-bg: #e3f1e8;
+  --color-ok-fg: #0f5c36;
+  --color-warn-bg: #f6ecd3;
+  --color-warn-fg: #6e4a00;
+
+  /* Four families, one job each */
+  --font-display: var(--font-jakarta), "Segoe UI", system-ui, sans-serif; /* Plus Jakarta Sans — headings */
+  --font-sans: var(--font-inter), "Segoe UI", system-ui, sans-serif; /* Inter — body copy */
+  --font-ui: var(--font-manrope), "Segoe UI", system-ui, sans-serif; /* Manrope — nav, buttons, labels */
+  --font-data: var(--font-roboto), "Segoe UI", system-ui, sans-serif; /* Roboto — numbers, metadata */
+  --font-mono: ui-monospace, "SFMono-Regular", "Cascadia Mono", Consolas, monospace; /* code mocks only, no web font */
+
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 18px;
+
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-out-quint: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-expo: cubic-bezier(0.165, 0.84, 0.44, 1);
+  --ease-hover: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+  --breakpoint-xs: 30rem;
+}
+
+:root {
+  color-scheme: light;
+  --section-y: clamp(56px, 5.5vw, 84px);
+}
+
+html {
+  background: var(--color-paper);
+  scroll-behavior: smooth;
+}
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+button,
+input,
+select,
+textarea,
+nav,
+summary {
+  font-family: var(--font-ui);
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: clip;
+}
+
+::selection {
+  background: var(--color-volt);
+  color: var(--color-er-bg);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+.er :focus-visible {
+  outline-color: var(--color-volt);
+}
+
+/* ---------- layout primitives ---------- */
+.container-x {
+  width: 100%;
+  max-width: 93.75rem; /* 1500px */
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 3vw, 3rem);
+}
+
+/* full-bleed rail used by the header and the hero, so their edges line up */
+.wide-x {
+  width: 100%;
+  max-width: 120rem; /* 1920px */
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 5vw, 6rem);
+}
+
+/* ---------- richness: glow, grid, grain, depth ---------- */
+.glow {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  background: radial-gradient(closest-side, rgba(101, 245, 69, 0.28), rgba(101, 245, 69, 0.08) 55%, transparent 100%);
+  filter: blur(40px);
+}
+.er .glow {
+  background: radial-gradient(closest-side, rgba(101, 245, 69, 0.22), rgba(101, 245, 69, 0.05) 55%, transparent 100%);
+}
+
+.dot-grid {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: radial-gradient(circle, rgba(18, 22, 20, 0.16) 1px, transparent 1.2px);
+  background-size: 28px 28px;
+  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 20%, transparent 75%);
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 20%, transparent 75%);
+}
+.er .dot-grid {
+  background-image: radial-gradient(circle, rgba(242, 244, 241, 0.14) 1px, transparent 1.2px);
+}
+
+/* browser chrome used on the hero stage, work cards and case studies */
+.stage-chrome {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 42px;
+  padding: 0 14px;
+  border-bottom: 1px solid var(--color-line);
+  background: var(--color-raised);
+  font-family: var(--font-data);
+  font-size: 11px;
+  color: var(--color-muted);
+}
+.stage-chrome i {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--color-line-strong);
+}
+.stage-chrome .url {
+  flex: 1;
+  margin-left: 8px;
+  padding: 5px 10px;
+  border-radius: 6px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* architectural grid lines, fading out from the bottom centre */
+.grid-lines {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(to right, rgba(242, 244, 241, 0.055) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(242, 244, 241, 0.055) 1px, transparent 1px);
+  background-size: 80px 80px;
+  -webkit-mask-image: radial-gradient(ellipse 85% 95% at 50% 100%, #000 35%, transparent 85%);
+  mask-image: radial-gradient(ellipse 85% 95% at 50% 100%, #000 35%, transparent 85%);
+}
+
+/* anchored sections land below the sticky header */
+:where(section[id], [id].anchor) {
+  scroll-margin-top: 96px;
+}
+
+/* small bordered label chip used above dark-section headlines */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.85rem;
+  border: 1px solid rgba(242, 244, 241, 0.35);
+  border-radius: 999px;
+  font-family: var(--font-ui);
+  font-weight: 700;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-er-ink);
+}
+.pill::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-volt);
+  box-shadow: 0 0 0 3px rgba(101, 245, 69, 0.2);
+}
+
+.grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.05;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.6 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+
+.shadow-soft {
+  box-shadow:
+    0 1px 2px rgba(18, 22, 20, 0.04),
+    0 24px 60px -32px rgba(18, 22, 20, 0.28);
+}
+.shadow-float {
+  box-shadow:
+    0 1px 1px rgba(18, 22, 20, 0.05),
+    0 40px 80px -36px rgba(18, 22, 20, 0.35);
+}
+
+.card-lift {
+  transition:
+    transform 0.45s var(--ease-out-quint),
+    box-shadow 0.45s var(--ease-out-quint),
+    border-color 0.3s;
+}
+.card-lift:hover {
+  transform: translateY(-6px);
+  border-color: var(--color-line-strong);
+  box-shadow:
+    0 1px 1px rgba(18, 22, 20, 0.05),
+    0 40px 80px -36px rgba(18, 22, 20, 0.35);
+}
+
+.icon-tile {
+  display: inline-grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: linear-gradient(180deg, #eefbe9, #dff5d6);
+  color: var(--color-accent);
+  border: 1px solid rgba(30, 122, 50, 0.18);
+}
+
+/* SVG line drawing: paths carry pathLength="1"; drawing starts when the reveal lands.
+   Without MotionRoot (no .reveal-on) the paths simply render complete. */
+.reveal-on .draw-path {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+}
+.reveal-on .is-in .draw-path,
+.reveal-on .is-in.draw-path {
+  animation: draw 1.8s var(--ease-out-quint) 0.2s forwards;
+}
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes bob {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -8px, 0);
+  }
+}
+@keyframes marquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+.marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 40s linear infinite;
+}
+.marquee-wrap:hover .marquee {
+  animation-play-state: paused;
+}
+
+.section {
+  padding-block: var(--section-y);
+}
+
+/* Engine-room sections: dark ground, volt accent, same rhythm. */
+.er {
+  background: var(--color-er-bg);
+  color: var(--color-er-ink);
+}
+
+/* Alternate light ground. Full-bleed white between hairlines so two pale
+   sections never sit against each other on the same paper. */
+.section-alt {
+  background: var(--color-surface);
+  border-block: 1px solid var(--color-line);
+}
+
+/* Fading grid backdrop for page openers — full-bleed, since the element it sits
+   on spans the viewport and only its inner container is constrained. The SVG
+   carries its own top-to-transparent gradient, so it thins out on its own
+   before the copy starts. Light grounds only: on `.er` it would be invisible. */
+.grid-bg {
+  /* First layer paints on top: a soft accent wash that veils the grid so the
+     headline reads cleanly, fading out before the copy ends. */
+  background-image:
+    linear-gradient(180deg, rgba(30, 122, 50, 0.1), rgba(30, 122, 50, 0.035) 45%, transparent 80%),
+    url("/hero-grid.svg");
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size:
+    100% 100%,
+    max(100%, 1100px) auto;
+}
+
+/* ---------- typography ---------- */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  font-family: var(--font-ui);
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+.eyebrow::before {
+  content: "";
+  width: 1.25rem;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.8;
+}
+.er .eyebrow {
+  color: var(--color-volt);
+}
+
+.display {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 1.02;
+  text-wrap: balance;
+}
+.display-xl {
+  font-size: clamp(2.5rem, 5.6vw, 5.75rem);
+  font-weight: 800;
+  letter-spacing: -0.045em;
+  line-height: 0.98;
+}
+.display-lg {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  line-height: 1.04;
+}
+.display-md {
+  font-size: clamp(1.5rem, 2.6vw, 2.25rem);
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+/* interface text: nav, buttons, chips, form labels */
+.ui {
+  font-family: var(--font-ui);
+}
+
+.lede {
+  font-size: clamp(1.0625rem, 1.5vw, 1.25rem);
+  line-height: 1.6;
+  color: var(--color-muted);
+  max-width: 60ch;
+  text-wrap: pretty;
+}
+.er .lede {
+  color: var(--color-er-muted);
+}
+
+/* data & metadata: numbers, times, labels (Roboto, tabular figures) */
+.mono {
+  font-family: var(--font-data);
+  font-variant-numeric: tabular-nums;
+}
+/* code-like mock content (terminal, PHP) — system monospace, no extra download */
+.code {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- surfaces ---------- */
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-lg);
+}
+.er .card {
+  background: var(--color-er-surface);
+  border-color: var(--color-er-line);
+}
+
+.hairline {
+  border-color: var(--color-line);
+}
+
+/* ---------- reveal ----------
+   Resting state is visible. MotionRoot marks what is already on screen as
+   .is-in, then sets html.reveal-on. Uses an animation on the `translate`
+   property (not a transition on `transform`) so it never fights hover lifts. */
+.reveal-on [data-reveal]:not(.is-in) {
+  opacity: 0;
+}
+.reveal-on [data-reveal].is-revealing {
+  animation: reveal-up 0.8s var(--ease-out-expo) var(--reveal-delay, 0ms) backwards;
+}
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    translate: 0 22px;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+/* ---------- native details accordion ---------- */
+details.faq summary {
+  list-style: none;
+  cursor: pointer;
+}
+details.faq summary::-webkit-details-marker {
+  display: none;
+}
+details.faq .faq-icon {
+  transition:
+    transform 0.35s var(--ease-out-quart),
+    background-color 0.2s;
+}
+details.faq[open] .faq-icon {
+  transform: rotate(135deg);
+}
+details.faq[open] .faq-body {
+  animation: faq-open 0.45s var(--ease-out-quint) backwards;
+}
+@keyframes faq-open {
+  from {
+    opacity: 0;
+    translate: 0 -6px;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+/* ---------- scrollbars on dark ---------- */
+.er ::-webkit-scrollbar {
+  width: 8px;
+}
+.er ::-webkit-scrollbar-thumb {
+  background: var(--color-er-line);
+  border-radius: 8px;
+}
+
+/* ---------- reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .marquee {
+    animation: none;
+  }
+  .reveal-on [data-reveal]:not(.is-in) {
+    opacity: 1;
+  }
+  .reveal-on .draw-path {
+    stroke-dashoffset: 0;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

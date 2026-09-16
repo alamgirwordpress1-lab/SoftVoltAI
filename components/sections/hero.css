@@ -1,0 +1,357 @@
+/* ------------------------------------------------------------------
+   Hero: full-width thesis headline, then the "workbench" — the client's
+   finished site in the middle, the engine room masked underneath it, and
+   the artefacts of the invisible team floating around it.
+   ------------------------------------------------------------------ */
+.hero {
+  position: relative;
+  overflow: hidden;
+  /* Fading grid backdrop with a soft accent wash over it. The wash is listed
+     first so it paints above the grid, veiling it behind the headline. Its
+     height tracks the grid (which is 2:1, so half the viewport width) rather
+     than the whole hero — otherwise the tint would cover the entire fold. */
+  background-image:
+    linear-gradient(180deg, rgba(30, 122, 50, 0.1), rgba(30, 122, 50, 0.035) 45%, transparent 80%),
+    url("/hero-grid.svg");
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size:
+    100% max(50vw, 560px),
+    max(100%, 1100px) auto;
+}
+.hero-title {
+  /* The base size is measured against the longest line — "Your brand gets the
+     credit." — so it still sits on one line in the left column. Column gap, not
+     line-height, sets the leading: it stays even when the lines differ in size. */
+  display: flex;
+  flex-direction: column;
+  gap: 0.09em;
+  font-size: clamp(2.3rem, 3.5vw, 4.3rem);
+  font-weight: 800;
+  letter-spacing: -0.045em;
+  line-height: 1;
+}
+.hero-title [data-line] {
+  white-space: nowrap;
+}
+/* The two opening statements carry the weight; the green payoff line sits a step
+   down. 1.2em still leaves them narrower than the payoff line, so all three fit. */
+.hero-line-lead {
+  font-size: 1.2em;
+}
+/* Jakarta's full stop carries a wide left side-bearing at this tracking; pull it in */
+.hero-stop {
+  margin-left: -0.07em;
+}
+.hero-glow {
+  position: absolute;
+  top: 2%;
+  right: -8%;
+  width: min(62vw, 1050px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  pointer-events: none;
+  background: radial-gradient(closest-side, rgba(101, 245, 69, 0.2), rgba(101, 245, 69, 0.06) 55%, transparent 78%);
+  filter: blur(24px);
+  animation: glow-drift 20s ease-in-out infinite alternate;
+}
+@keyframes glow-drift {
+  from {
+    translate: 0 0;
+    scale: 1;
+  }
+  to {
+    translate: -6% 5%;
+    scale: 1.12;
+  }
+}
+
+.split-mask {
+  overflow: hidden;
+}
+
+/* ---------- intro states ----------
+   Hidden only when JS is present (html.js is set inline before paint).
+   Each has a timed fallback so a failed bundle never leaves the hero blank. */
+@keyframes unhide {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes unhide-opacity {
+  to {
+    opacity: 1;
+  }
+}
+.js .hero:not(.hero-ready) [data-line] {
+  transform: translate3d(0, 110%, 0);
+  animation: unhide 0s 5s forwards;
+}
+.js .hero:not(.hero-ready) [data-after] {
+  opacity: 0;
+  animation: unhide-opacity 0s 5s forwards;
+}
+/* The demo bench sits below the fold, so it is gated on .reveal-on (set by
+   MotionRoot) instead of .js — no timers needed, visible if JS never runs. */
+@media (min-width: 1024px) {
+  .reveal-on .bench:not(.bench-ready) .hero-stage,
+  .reveal-on .bench:not(.bench-ready) .bench-card {
+    opacity: 0;
+  }
+}
+
+/* ---------- workbench ---------- */
+.bench {
+  position: relative;
+  margin-top: clamp(2rem, 4vw, 3.5rem);
+}
+@media (min-width: 1024px) {
+  .bench {
+    min-height: 660px;
+    padding: 40px 0 24px;
+  }
+}
+
+.hero-stage {
+  --lx: 68%;
+  --ly: 42%;
+  --r: 120px;
+  --brand: #2b4c7e;
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  margin-inline: auto;
+  aspect-ratio: 4 / 5;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid var(--color-line);
+  background: var(--color-surface);
+  box-shadow:
+    0 1px 1px rgba(18, 22, 20, 0.05),
+    0 50px 100px -40px rgba(18, 22, 20, 0.45);
+  isolation: isolate;
+  touch-action: pan-y;
+}
+@media (min-width: 640px) {
+  .hero-stage {
+    aspect-ratio: 16 / 10;
+    --r: 150px;
+  }
+}
+@media (min-width: 1024px) {
+  .hero-stage {
+    --r: 170px;
+  }
+}
+
+.hero-layer {
+  position: absolute;
+  inset: 42px 0 0 0;
+  padding: 18px;
+  display: grid;
+  grid-template-rows: auto 1fr auto auto;
+  gap: 14px;
+}
+@media (min-width: 640px) {
+  .hero-layer {
+    padding: 22px 26px;
+    gap: 16px;
+  }
+}
+.hero-surface {
+  background: var(--color-surface);
+  color: var(--color-ink);
+}
+.hero-engine {
+  background: var(--color-er-bg);
+  color: var(--color-er-ink);
+  -webkit-mask-image: radial-gradient(circle var(--r) at var(--lx) var(--ly), #000 0, #000 calc(100% - 22px), rgba(0, 0, 0, 0.55) calc(100% - 8px), transparent 100%);
+  mask-image: radial-gradient(circle var(--r) at var(--lx) var(--ly), #000 0, #000 calc(100% - 22px), rgba(0, 0, 0, 0.55) calc(100% - 8px), transparent 100%);
+}
+.hero-lens {
+  position: absolute;
+  left: var(--lx);
+  top: var(--ly);
+  width: calc(var(--r) * 2);
+  height: calc(var(--r) * 2);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid rgba(101, 245, 69, 0.6);
+  box-shadow:
+    0 0 0 1px rgba(14, 20, 17, 0.35),
+    0 0 40px rgba(101, 245, 69, 0.25),
+    inset 0 0 0 1px rgba(101, 245, 69, 0.15);
+  pointer-events: none;
+}
+.hero-lens::after {
+  content: "engine room";
+  position: absolute;
+  left: 50%;
+  bottom: -26px;
+  transform: translateX(-50%);
+  font-family: var(--font-ui);
+  font-weight: 700;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-volt);
+  text-shadow: 0 0 12px rgba(14, 20, 17, 0.8);
+  white-space: nowrap;
+}
+
+.mock-block {
+  border-radius: 12px;
+}
+.hero-surface .mock-block {
+  background: linear-gradient(180deg, #f2f4f0, #e9ede6);
+}
+.hero-engine .mock-block {
+  background: transparent;
+  border: 1px dashed var(--color-er-line);
+}
+.mock-brand {
+  color: var(--brand);
+}
+.mock-brand-bg {
+  background: var(--brand);
+}
+.stage-ready .mock-piece {
+  opacity: 1;
+  transform: none;
+}
+.reveal-on .hero-stage:not(.stage-ready) .mock-piece {
+  opacity: 0;
+  transform: translateY(14px) scale(0.98);
+}
+
+/* ---------- floating artefact cards ---------- */
+.bench-card {
+  position: relative;
+  width: 100%;
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: 14px;
+  padding: 14px 16px;
+  font-family: var(--font-data);
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--color-muted);
+  box-shadow:
+    0 1px 1px rgba(18, 22, 20, 0.05),
+    0 30px 60px -30px rgba(18, 22, 20, 0.4);
+}
+.bench-card b {
+  display: block;
+  font-family: var(--font-ui);
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--color-ink);
+}
+.bench-card .bob {
+  display: block;
+}
+.js .bench-card .bob {
+  animation: bob var(--bob-dur, 6s) ease-in-out var(--bob-delay, 0s) infinite;
+}
+.bench-cards-mobile {
+  display: grid;
+  gap: 12px;
+  margin-top: 14px;
+}
+@media (min-width: 640px) {
+  .bench-cards-mobile {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (min-width: 1024px) {
+  .bench-cards-mobile {
+    display: contents;
+  }
+  .bench-card {
+    position: absolute;
+    width: 250px;
+    z-index: 2;
+  }
+  .bench-card.c-vitals {
+    left: 0;
+    top: 6%;
+    width: 270px;
+  }
+  .bench-card.c-figma {
+    left: 2%;
+    top: 58%;
+    width: 220px;
+  }
+  .bench-card.c-qa {
+    left: 10%;
+    bottom: 0;
+    width: 230px;
+  }
+  .bench-card.c-commits {
+    right: 0;
+    top: 10%;
+    width: 280px;
+  }
+  .bench-card.c-slack {
+    right: 2%;
+    bottom: 4%;
+    width: 300px;
+  }
+  .bench-card.c-staging {
+    left: 0;
+    right: 0;
+    top: 0;
+    margin-inline: auto;
+    width: max-content;
+    padding: 8px 14px;
+    border-radius: 999px;
+    z-index: 3;
+  }
+}
+@media (max-width: 1023px) {
+  .bench-card.lg-only {
+    display: none;
+  }
+}
+
+.ring {
+  width: 40px;
+  height: 40px;
+  flex: none;
+}
+.ring circle {
+  fill: none;
+  stroke-width: 3.5;
+}
+.ring .track {
+  stroke: var(--color-raised);
+}
+.ring .bar {
+  stroke: var(--color-accent);
+  stroke-linecap: round;
+  stroke-dasharray: 100;
+  stroke-dashoffset: 0;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-stage {
+    --lx: 70%;
+    --ly: 46%;
+  }
+  .js .hero:not(.hero-ready) [data-line],
+  .js .hero:not(.hero-ready) [data-after],
+  .reveal-on .bench:not(.bench-ready) .hero-stage,
+  .reveal-on .bench:not(.bench-ready) .bench-card,
+  .reveal-on .hero-stage:not(.stage-ready) .mock-piece {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+  .js .bench-card .bob,
+  .hero-glow {
+    animation: none;
+  }
+}

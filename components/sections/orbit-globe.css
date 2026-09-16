@@ -1,0 +1,226 @@
+/* ------------------------------------------------------------------
+   Orbit Globe — a dotted world map on a globe, with client cards orbiting it.
+   Cards are billboards (always facing the viewer) placed on a tilted
+   sphere; JS updates --x / --y (in cqw) and --s every frame.
+   ------------------------------------------------------------------ */
+.og {
+  position: relative;
+  width: 100%;
+  max-width: 820px;
+  margin-inline: auto;
+  aspect-ratio: 1;
+  container-type: inline-size;
+  /* keeps the cards' z-indexes inside the globe, below the sticky header and menus */
+  isolation: isolate;
+  touch-action: pan-y;
+  user-select: none;
+  -webkit-user-select: none;
+  cursor: grab;
+}
+.og:active {
+  cursor: grabbing;
+}
+.og-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  pointer-events: none;
+}
+
+.og-card {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: translate3d(calc(var(--x) * 1cqw - 50%), calc(var(--y) * 1cqw - 50%), 0) scale(var(--s));
+  transform-origin: 50% 50%;
+  will-change: transform, opacity;
+  border-radius: 1.4cqw;
+  overflow: hidden;
+  pointer-events: none;
+  box-shadow:
+    0 1px 1px rgba(18, 22, 20, 0.06),
+    0 2.4cqw 4.6cqw -2.4cqw rgba(18, 22, 20, 0.42);
+}
+/* hidden until the intro takes over (html.js is set before paint); timed fallback if JS fails */
+.js .og:not(.og-live) .og-card {
+  visibility: hidden;
+  animation: og-unhide 0s 4s forwards;
+}
+@keyframes og-unhide {
+  to {
+    visibility: visible;
+  }
+}
+
+/* site screenshot card */
+.og-card--site {
+  width: 24cqw;
+  background: #fff;
+  border: 1px solid var(--color-line);
+}
+.og-shot {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  background: var(--color-raised);
+  border-bottom: 1px solid var(--color-line);
+}
+.og-meta {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  column-gap: 0.8cqw;
+  row-gap: 0.1cqw;
+  align-items: center;
+  padding: 0.85cqw 1cqw 1cqw;
+}
+.og-flag {
+  grid-row: span 2;
+  font-family: var(--font-data);
+  font-weight: 500;
+  font-size: 1cqw;
+  letter-spacing: 0.08em;
+  padding: 0.4cqw 0.5cqw;
+  border-radius: 0.45cqw;
+  background: var(--color-er-bg);
+  color: var(--color-volt);
+}
+.og-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.45cqw;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--color-ink);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.og-work {
+  font-family: var(--font-ui);
+  font-weight: 500;
+  font-size: 1.1cqw;
+  color: var(--color-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* city tile */
+.og-card--cities {
+  width: 16.5cqw;
+  aspect-ratio: 4 / 5;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.55cqw;
+  background: linear-gradient(160deg, #1f2824, #0e1411);
+  color: var(--color-er-ink);
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.9cqw;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  line-height: 1;
+}
+.og-card--cities span:nth-child(2) {
+  align-self: center;
+}
+.og-card--cities span:last-child {
+  align-self: flex-end;
+  color: var(--color-volt);
+}
+
+/* brand tile */
+.og-card--brand {
+  width: 17cqw;
+  aspect-ratio: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.55cqw;
+  background:
+    radial-gradient(circle at 30% 18%, rgba(101, 245, 69, 0.32), transparent 62%),
+    #121614;
+  color: var(--color-er-ink);
+}
+.og-brand-title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 2cqw;
+  line-height: 1.04;
+  letter-spacing: -0.03em;
+}
+.og-brand-sub {
+  margin-top: 0.6cqw;
+  font-family: var(--font-data);
+  font-size: 1cqw;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-volt);
+}
+
+/* stack tile */
+.og-card--stack {
+  width: 16cqw;
+  padding: 1.55cqw;
+  background: #e3f1e8;
+  border: 1px solid rgba(30, 122, 50, 0.22);
+}
+.og-stack-title {
+  font-family: var(--font-ui);
+  font-weight: 700;
+  font-size: 0.95cqw;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+.og-stack-list {
+  margin-top: 0.7cqw;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.65cqw;
+  line-height: 1.32;
+  letter-spacing: -0.02em;
+  color: var(--color-ink);
+}
+
+/* hours tile */
+.og-card--hours {
+  width: 15.5cqw;
+  aspect-ratio: 5 / 6;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.55cqw;
+  background: #fff;
+  border: 1px solid var(--color-line);
+}
+.og-hours-big {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 3.4cqw;
+  line-height: 1;
+  letter-spacing: -0.045em;
+  color: var(--color-ink);
+}
+.og-hours-sub {
+  font-family: var(--font-ui);
+  font-weight: 600;
+  font-size: 1.12cqw;
+  color: var(--color-muted);
+}
+.og-hours-dot {
+  width: 1cqw;
+  height: 1cqw;
+  border-radius: 50%;
+  background: var(--color-volt);
+  box-shadow: 0 0 0 0.45cqw rgba(101, 245, 69, 0.25);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js .og:not(.og-live) .og-card {
+    visibility: visible;
+    animation: none;
+  }
+}
