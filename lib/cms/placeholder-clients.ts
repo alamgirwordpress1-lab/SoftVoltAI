@@ -23,6 +23,10 @@ const PLACEHOLDER_IDENTITIES = [
   { name: "Chris Roe", role: "Operations Lead", company: "Example Partners", country: "US" },
   { name: "Taylor Doe", role: "SEO Lead", company: "Placeholder Digital", country: "UK" },
   { name: "Jordan Poe", role: "Account Director", company: "Specimen Media", country: "DE" },
+  { name: "Casey Doe", role: "Paid Media Lead", company: "Example Studio", country: "UK" },
+  { name: "Morgan Roe", role: "Client Partner", company: "Sample Works", country: "US" },
+  { name: "Riley Poe", role: "Product Owner", company: "Placeholder Labs", country: "AU" },
+  { name: "Avery Doe", role: "Brand Director", company: "Specimen Studio", country: "CA" },
 ];
 
 const IMAGE = /\.(avif|jpe?g|png|webp)$/i;

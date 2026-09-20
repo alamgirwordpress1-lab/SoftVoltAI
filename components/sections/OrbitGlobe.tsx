@@ -14,6 +14,8 @@ const MAX_TILT = 80 * DEG; // stop just short of the poles so the globe never fl
 const START_ROT = -45 * DEG; // opens with London and Dhaka both on the front face
 const ORBIT = 0.43; // card orbit radius, fraction of the stage
 const EARTH = 0.3; // earth radius, fraction of the stage — big enough to read the world map
+const MAX_LINKS = 3; // client-to-country lines drawn at once
+const LINK_FADE = 0.8; // a card joins its country only once this near the front
 const BASE_SPEED = 0.0016; // radians per 60fps frame
 const HOVER_SPEED = 0.0005;
 
@@ -32,7 +34,10 @@ const PALETTES = {
     marketRing: "rgba(30,122,50,0.35)",
     marketFill: "#1e7a32",
     coverageRing: "rgba(18,22,20,0.55)",
-    labelHalo: "rgba(246,247,244,0.92)",
+    link: "rgba(30,122,50,0.8)",
+    linkHalo: "rgba(246,247,244,0.8)",
+    linkDot: "#1e7a32",
+    labelHalo: "rgba(255,255,255,0.92)",
     label: "#121614",
   },
   dark: {
@@ -46,6 +51,9 @@ const PALETTES = {
     marketRing: "rgba(93,208,106,0.45)",
     marketFill: "#5dd06a",
     coverageRing: "rgba(237,242,238,0.55)",
+    link: "rgba(101,245,69,0.82)",
+    linkHalo: "rgba(17,24,20,0.8)",
+    linkDot: "#65f545",
     labelHalo: "rgba(17,24,20,0.92)",
     label: "#edf2ee",
   },
@@ -144,6 +152,17 @@ export function OrbitGlobe({ cards, locations, label }: { cards: GlobeCard[]; lo
             return { from: hq.v, to: t.v, omega: Math.acos(d), phase: t.phase };
           })
       : [];
+
+    /**
+     * The country each card belongs to, as a point on the map: the country code
+     * on the card is a location id ("UK" -> uk, "DE" -> Germany's pin), Bangladesh
+     * is home, and anything else we serve from the European marker.
+     */
+    const linkTargets = cards.map((card) => {
+      if (!("country" in card)) return null;
+      const code = card.country.toLowerCase();
+      return locs.find((l) => l.id === code) ?? (code === "bd" ? hq : locs.find((l) => l.id === "eu")) ?? null;
+    });
 
     const fontFamily = getComputedStyle(document.documentElement).getPropertyValue("--font-roboto").trim() || "Roboto, sans-serif";
 
@@ -295,6 +314,57 @@ export function OrbitGlobe({ cards, locations, label }: { cards: GlobeCard[]; lo
         }
       }
 
+      // leader lines: the cards nearest the front are joined to the country they
+      // are in, in the same dashed signal as the arcs. Only a few at a time —
+      // every card at once would be a cat's cradle, and a line to a card behind
+      // the globe would read as cutting through it.
+      const linked = new Set<string>();
+      const candidates: { id: string; sx: number; sy: number; x: number; y: number; o: number }[] = [];
+      for (let i = 0; i < cards.length; i++) {
+        const target = linkTargets[i];
+        if (!target) continue;
+        const card = cards[i];
+        const v = place(card.az, card.lat, st.rot, st.tilt, st.spread, card.scale);
+        if (v.o < LINK_FADE) continue;
+        const p = view(target.v.x, target.v.y, target.v.z, cr, sr, cT, sT);
+        if (p.z < 0.06) continue;
+        const f = P / (P - p.z * R);
+        candidates.push({
+          id: target.id,
+          sx: cx + p.x * R * f,
+          sy: cy - p.y * R * f,
+          // the card's own anchor: the line ends under the card, which hides the join
+          x: (v.x / 100) * W,
+          y: (v.y / 100) * W,
+          o: v.o * Math.min(1, (p.z - 0.06) * 6),
+        });
+      }
+      candidates.sort((a, b) => b.o - a.o);
+      for (const link of candidates.slice(0, MAX_LINKS)) {
+        const dx = link.x - link.sx;
+        const dy = link.y - link.sy;
+        ctx.globalAlpha = st.earth * Math.min(1, (link.o - LINK_FADE) * 6);
+        const path = new Path2D();
+        path.moveTo(link.sx, link.sy);
+        // a gentle bow, so it reads as a signal rather than a ruler
+        path.quadraticCurveTo((link.sx + link.x) / 2 - dy * 0.1, (link.sy + link.y) / 2 + dx * 0.1, link.x, link.y);
+        ctx.strokeStyle = c.linkHalo;
+        ctx.lineWidth = 4 * dpr;
+        ctx.stroke(path);
+        ctx.setLineDash([3 * dpr, 4 * dpr]);
+        ctx.lineDashOffset = -st.time * 16 * dpr;
+        ctx.strokeStyle = c.link;
+        ctx.lineWidth = 1.6 * dpr;
+        ctx.stroke(path);
+        ctx.setLineDash([]);
+        ctx.beginPath();
+        ctx.arc(link.sx, link.sy, 2.6 * dpr, 0, Math.PI * 2);
+        ctx.fillStyle = c.linkDot;
+        ctx.fill();
+        linked.add(link.id);
+      }
+      ctx.globalAlpha = st.earth;
+
       // markers + labels
       ctx.font = `600 ${11 * dpr}px ${fontFamily}`;
       ctx.textBaseline = "middle";
@@ -322,6 +392,12 @@ export function OrbitGlobe({ cards, locations, label }: { cards: GlobeCard[]; lo
         } else if (l.kind === "market") {
           ctx.beginPath();
           ctx.arc(sx, sy, 9 * dpr, 0, Math.PI * 2);
+          if (linked.has(l.id)) {
+            ctx.fillStyle = c.link;
+            ctx.globalAlpha *= 0.22;
+            ctx.fill();
+            ctx.globalAlpha = st.earth * Math.min(1, p.z * 4);
+          }
           ctx.strokeStyle = c.marketRing;
           ctx.lineWidth = 1.5 * dpr;
           ctx.stroke();
@@ -338,7 +414,7 @@ export function OrbitGlobe({ cards, locations, label }: { cards: GlobeCard[]; lo
         }
         // HQ and markets are labelled; coverage rings are not. A label that would
         // overlap one already drawn this frame is skipped rather than stacked.
-        if (p.z > 0.3 && l.kind !== "coverage") {
+        if (p.z > 0.3 && (l.kind !== "coverage" || linked.has(l.id))) {
           const lx = sx + 13 * dpr;
           const half = 8 * dpr;
           const box = [lx - 4 * dpr, sy - half, lx + ctx.measureText(l.label).width + 4 * dpr, sy + half];
