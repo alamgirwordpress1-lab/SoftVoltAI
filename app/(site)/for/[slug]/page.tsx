@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { PageHero } from "@/components/ui/PageHero";
+import { PageIntro } from "@/components/ui/PageIntro";
 import { Button } from "@/components/ui/Button";
 import { CtaBand } from "@/components/sections/CtaBand";
 import { site, cta } from "@/content/site";
@@ -18,7 +19,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const type = await cms.getAgencyType(slug);
   if (!type) return {};
   return {
-    title: `White-label services for ${midSentence(type.name)}`,
+    title: `White-label for ${midSentence(type.name)}`,
     description: type.seo,
     alternates: { canonical: `/for/${slug}` },
     openGraph: { title: `For ${midSentence(type.name)} · SoftVolt AI`, description: type.seo, url: `${site.url}/for/${slug}` },
@@ -57,7 +58,35 @@ export default async function AgencyTypePage({ params }: { params: Promise<{ slu
         </div>
       </PageHero>
 
-      <section className="container-x grid gap-10 border-t border-line py-14 md:py-20 lg:grid-cols-12" aria-labelledby="problem-title">
+      <PageIntro
+        eyebrow="At a glance"
+        title={`What ${midSentence(type.name)} hand over.`}
+        subtitle={type.relief}
+        body={[
+          <>
+            {type.problem} That is the part we take. The brief comes to a named producer, goes back to you as a written scope with a fixed price
+            {scope ? ` ${scope.turnaround.toLowerCase()}` : ""}, and the build runs under your agency&apos;s name from the staging link to the handover.
+          </>,
+          <>
+            The services that fit this kind of agency most often are {type.serviceItems.slice(0, 4).map((s) => midSentence(s.name)).join(", ")} — but the
+            list below is the full set, and a brief can mix them. {noContact ? `${noContact.label}: ${noContact.detail}` : ""}
+          </>,
+        ]}
+        points={[
+          { title: "The blocker", text: type.problem },
+          { title: "What changes", text: type.relief },
+          ...(scope ? [{ title: scope.name, text: `${scope.turnaround} — ${scope.artefact}` }] : []),
+          ...(noContact ? [{ title: noContact.label, text: noContact.detail }] : []),
+        ]}
+        jump={[
+          { label: "The problem", href: "#problem" },
+          { label: "How it runs", href: "#workflow" },
+          { label: "Services that fit", href: "#services-for" },
+          { label: "What you get in writing", href: "#promises" },
+        ]}
+      />
+
+      <section id="problem" className="container-x grid gap-10 border-t border-line py-14 md:py-20 lg:grid-cols-12" aria-labelledby="problem-title">
         <div className="lg:col-span-5" data-reveal>
           <span className="eyebrow">The problem</span>
           <h2 id="problem-title" className="display display-md mt-4">
@@ -70,7 +99,7 @@ export default async function AgencyTypePage({ params }: { params: Promise<{ slu
         </div>
       </section>
 
-      <section className="er relative overflow-hidden" aria-labelledby="workflow-title">
+      <section id="workflow" className="er relative overflow-hidden" aria-labelledby="workflow-title">
         <div className="glow -left-24 -bottom-24 h-[420px] w-[420px]" aria-hidden="true" />
         <div className="container-x relative py-14 md:py-20">
           <span className="eyebrow">How the engagement runs</span>
@@ -88,7 +117,7 @@ export default async function AgencyTypePage({ params }: { params: Promise<{ slu
         </div>
       </section>
 
-      <section className="container-x py-14 md:py-20" aria-labelledby="services-for-title">
+      <section id="services-for" className="container-x py-14 md:py-20" aria-labelledby="services-for-title">
         <span className="eyebrow">Services that fit</span>
         <h2 id="services-for-title" className="display display-md mt-4">
           What {midSentence(type.name)} usually send us.
@@ -106,7 +135,7 @@ export default async function AgencyTypePage({ params }: { params: Promise<{ slu
         </ul>
       </section>
 
-      <section className="container-x border-t border-line py-14 md:py-20" aria-labelledby="promises-title">
+      <section id="promises" className="container-x border-t border-line py-14 md:py-20" aria-labelledby="promises-title">
         <span className="eyebrow">On every project</span>
         <h2 id="promises-title" className="display display-md mt-4">
           The commitments.

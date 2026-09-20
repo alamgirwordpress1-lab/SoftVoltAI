@@ -11,7 +11,7 @@ export function organizationSchema() {
     "@id": orgId,
     name: site.name,
     url: site.url,
-    description: site.description,
+    description: site.longDescription,
     email: site.email,
     address: {
       "@type": "PostalAddress",

@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import { PageHero } from "@/components/ui/PageHero";
+import { PageIntro } from "@/components/ui/PageIntro";
 import { Protection } from "@/components/sections/Protection";
 import { CtaBand } from "@/components/sections/CtaBand";
 import { cms } from "@/lib/cms";
 
 export const metadata: Metadata = {
-  title: "Security & confidentiality — how client data and credentials are handled",
-  description: "How SoftVolt AI protects agency clients: mutual NDA before the brief, shared-vault credentials, least-privilege access, revocation at handover, SCCs, UK IDTA and a data processing agreement.",
+  title: "Security & client confidentiality",
+  description: "How agency and client data is handled: mutual NDA, shared-vault credentials, least-privilege access, and access revoked and confirmed at handover.",
   alternates: { canonical: "/security" },
 };
 
@@ -36,7 +37,34 @@ export default async function SecurityPage() {
           { label: "At handover", value: "Access revoked and confirmed" },
         ]}
       />
-      <section className="container-x border-t border-line py-14 md:py-20" aria-labelledby="practices-title">
+      <PageIntro
+        eyebrow="What this page is"
+        title="The rules we work to, written down."
+        subtitle="Everything below is either already in the contract or can be, before a single credential changes hands."
+        body={[
+          <>
+            Handing production to another company means handing over logins, client names, analytics and sometimes payment data. That is a real risk, and
+            &ldquo;trust us&rdquo; is not an answer to it. So this page lists what actually happens: where credentials live, who can see them, what we keep after a
+            project ends, and what we sign before it begins.
+          </>,
+          <>
+            None of it is aspirational. If a practice is on this page, it is how the work runs today — and the clauses that back it are in the agency
+            protection terms you sign once, not buried in a policy nobody reads.
+          </>,
+        ]}
+        points={[
+          { title: "Mutual NDA first", text: "Signed before client names or systems are discussed." },
+          { title: "Vault, never email", text: "Credentials live in a shared vault with access we can revoke." },
+          { title: "Least access", text: "The role we need, on the systems we need, for as long as the work runs." },
+          { title: "Clean exit", text: "Access revoked and confirmed in writing at handover." },
+        ]}
+        jump={[
+          { label: "Our practices", href: "#practices" },
+          { label: "Contract terms", href: "#protection" },
+        ]}
+      />
+
+      <section id="practices" className="container-x border-t border-line py-14 md:py-20" aria-labelledby="practices-title">
         <span className="eyebrow">Practices</span>
         <h2 id="practices-title" className="display display-md mt-4">
           Eight things that are true on every project.

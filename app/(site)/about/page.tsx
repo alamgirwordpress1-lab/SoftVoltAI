@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { PageHero } from "@/components/ui/PageHero";
+import { PageIntro } from "@/components/ui/PageIntro";
 import { Founder } from "@/components/sections/Founder";
 import { FollowTheSun } from "@/components/sections/FollowTheSun";
 import { ProcessEngine } from "@/components/sections/ProcessEngine";
@@ -9,8 +10,7 @@ import { site } from "@/content/site";
 
 export const metadata: Metadata = {
   title: "About — the team behind the agencies",
-  description:
-    "SoftVolt AI is a Dhaka-based white-label production and growth team founded by a senior WordPress and Next.js developer with nine years of agency work in the UK and Bangladesh.",
+  description: "The Dhaka team behind agencies in the UK and US: senior WordPress, Next.js and SEO production, founded by a nine-year agency developer.",
   alternates: { canonical: "/about" },
 };
 
@@ -37,30 +37,32 @@ export default async function AboutPage() {
         ]}
       />
 
-      <section id="story" className="section container-x border-t border-line" aria-labelledby="story-title">
-        <div className="grid gap-8 lg:grid-cols-12 lg:gap-12">
-          <div className="lg:col-span-5" data-reveal>
-            <span className="eyebrow">Our story</span>
-            <h2 id="story-title" className="display display-lg mt-4">
-              Built from nine years inside agencies.
-            </h2>
-          </div>
-          <div className="space-y-5 text-[16px] leading-relaxed text-muted lg:col-span-6 lg:col-start-7 md:text-[17px]" data-reveal>
-            <p>
-              SoftVolt AI grew out of nine years of doing this work from the inside — building WordPress and WooCommerce sites for
-              clients in the UK and Bangladesh, and most recently leading the WordPress team at a UK agency.
-            </p>
-            <p>
-              The pattern never changed. The agency won the client, then the build waited on developers who were already fully
-              booked. Deadlines slipped, margins shrank, and the client relationship took the hit.
-            </p>
-            <p className="text-ink">
-              SoftVolt AI is the team that fixes that: senior production capacity that works under your brand, overlaps with your
-              working day, and writes every step down.
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageIntro
+        id="story"
+        eyebrow="Our story"
+        title="Built from nine years inside agencies."
+        subtitle="The people who take your brief are the ones who build it — senior WordPress, Next.js and SEO hands, on your working day."
+        body={[
+          <>
+            SoftVolt AI grew out of nine years of doing this work from the inside — building WordPress and WooCommerce sites for clients in the UK and
+            Bangladesh, and most recently leading the WordPress team at a UK agency.
+          </>,
+          <>
+            The pattern never changed. The agency won the client, then the build waited on developers who were already fully booked. Deadlines slipped,
+            margins shrank, and the client relationship took the hit.
+          </>,
+          <span key="closing" className="text-ink">
+            SoftVolt AI is the team that fixes that: senior production capacity that works under your brand, overlaps with your working day, and writes every
+            step down.
+          </span>,
+        ]}
+        jump={[
+          { label: "The team", href: "#founder" },
+          { label: "Our rules", href: "#why" },
+          { label: "How we work", href: "#how-it-works" },
+          { label: "Our hours", href: "#hours" },
+        ]}
+      />
 
       <Founder team={team} />
 

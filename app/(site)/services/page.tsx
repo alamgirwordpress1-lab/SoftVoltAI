@@ -1,19 +1,20 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PageHero } from "@/components/ui/PageHero";
+import { PageIntro } from "@/components/ui/PageIntro";
 import { CtaBand } from "@/components/sections/CtaBand";
 import { cms } from "@/lib/cms";
 
 export const metadata: Metadata = {
-  title: "Services — white-label build, automate, grow and support",
-  description:
-    "Every white-label service SoftVolt AI delivers for agencies: WordPress, WooCommerce, headless Next.js, Payload, Sanity, Shopify, Webflow, AI automation, SEO, paid media, maintenance and rescue.",
+  title: "Services — build, automate, grow, support",
+  description: "Every white-label service for agencies: WordPress, WooCommerce, headless Next.js, Shopify, Webflow, AI automation, SEO, ads and maintenance.",
   alternates: { canonical: "/services" },
 };
 
 export default async function ServicesPage() {
   const pillars = await cms.getPillars();
   const count = (ids: string[]) => pillars.filter((p) => ids.includes(p.id)).reduce((n, p) => n + p.services.length, 0);
+  const total = pillars.reduce((n, p) => n + p.services.length, 0);
   return (
     <>
       <PageHero
@@ -26,6 +27,31 @@ export default async function ServicesPage() {
           { label: "Automate", value: `${count(["automate"])} services` },
           { label: "Grow & Support", value: `${count(["grow", "support"])} services` },
         ]}
+      />
+
+      <PageIntro
+        eyebrow="What we cover"
+        title={`${total} services, one white-label contract.`}
+        subtitle="One partner for the build, the automation, the traffic and the upkeep — under your agency's name, start to finish."
+        body={[
+          <>
+            Agencies come to us with one of four problems: a build they cannot staff, a manual process eating the team&apos;s week, traffic that has stalled,
+            or a live site nobody is looking after. Each pillar below answers one of those. Inside them sit the specifics — WordPress and WooCommerce,
+            headless front ends on Next.js with Payload or Sanity, Shopify and Webflow, AI automation and internal tools, technical and local SEO, Google and
+            Meta ads, maintenance, migration and rescue.
+          </>,
+          <>
+            Every service is scoped in writing before anything starts, carries a fixed price and a named producer, and ships under your brand. Your client
+            never sees us, and your team keeps the relationship, the strategy and the invoice.
+          </>,
+        ]}
+        points={[
+          { title: "Written scope first", text: "Line-by-line, priced, agreed before a single commit." },
+          { title: "One producer", text: "A named person answers on your hours, not a ticket queue." },
+          { title: "Your brand throughout", text: "Staging URLs, documents and handover all carry your name." },
+          { title: "Defects on us", text: "Anything that breaks against the agreed scope is fixed at our cost." },
+        ]}
+        jump={pillars.map((p) => ({ label: p.name, href: `#pillar-${p.id}` }))}
       />
 
       {pillars.map((p, i) => (

@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import { PageHero } from "@/components/ui/PageHero";
+import { PageIntro } from "@/components/ui/PageIntro";
 import { Button } from "@/components/ui/Button";
 import { CtaBand } from "@/components/sections/CtaBand";
 import { cms } from "@/lib/cms";
 
 export const metadata: Metadata = {
   title: "Partner programme — become an agency partner",
-  description: "How agencies partner with SoftVolt AI: a first fixed-price project, then a retainer if the work is recurring. NDA, agency protection terms and a named producer from day one.",
+  description: "Partner with SoftVolt AI: one fixed-price project first, then a retainer if the briefs keep coming. NDA and protection terms signed once.",
   alternates: { canonical: "/partner-programme" },
 };
 
@@ -36,7 +37,35 @@ export default async function PartnerProgrammePage() {
         </div>
       </PageHero>
 
-      <section className="container-x border-t border-line py-14 md:py-20" aria-labelledby="steps-title">
+      <PageIntro
+        eyebrow="What a partnership is"
+        title="A supplier you can put in front of nobody."
+        subtitle="No exclusivity, no minimum spend, no logo on your work — the partnership is simply that the next brief is easier than the last."
+        body={[
+          <>
+            Most white-label arrangements start with a contract nobody has earned yet. Ours starts with a project. You send one brief, we scope it in
+            writing, build it under your brand and hand it over with the documents your client can read. If that goes well, the second brief skips the
+            introductions — we already know your stack, your conventions and how you like a handover written.
+          </>,
+          <>
+            Partners get the same production team, the same fixed prices and the same hours as anyone else. What changes is the paperwork: one NDA and one
+            master agreement cover everything that follows, so each new project is a scope and a start date rather than a negotiation.
+          </>,
+        ]}
+        points={[
+          { title: "One agreement", text: "Signed once, covering every project that follows it." },
+          { title: "Your brand only", text: "We are never named to your client, in writing or in a call." },
+          { title: "No exclusivity", text: "Keep your other suppliers. We are not asking for the lot." },
+          { title: "Leave any time", text: "Plans are monthly; projects end when the handover is signed." },
+        ]}
+        jump={[
+          { label: "How it starts", href: "#steps" },
+          { label: "Ways to work", href: "#models" },
+          { label: "The terms", href: "#terms" },
+        ]}
+      />
+
+      <section id="steps" className="container-x border-t border-line py-14 md:py-20" aria-labelledby="steps-title">
         <span className="eyebrow">How it starts</span>
         <h2 id="steps-title" className="display display-md mt-4">
           From first brief to standing retainer.
@@ -52,7 +81,7 @@ export default async function PartnerProgrammePage() {
         </ol>
       </section>
 
-      <section className="er relative overflow-hidden" aria-labelledby="models-title">
+      <section id="models" className="er relative overflow-hidden" aria-labelledby="models-title">
         <div className="glow -right-24 -top-24 h-[420px] w-[420px]" aria-hidden="true" />
         <div className="container-x relative py-14 md:py-20">
           <span className="eyebrow">Ways to work</span>
@@ -80,7 +109,7 @@ export default async function PartnerProgrammePage() {
         </div>
       </section>
 
-      <section className="container-x py-14 md:py-20" aria-labelledby="terms-title">
+      <section id="terms" className="container-x py-14 md:py-20" aria-labelledby="terms-title">
         <span className="eyebrow">Signed once</span>
         <h2 id="terms-title" className="display display-md mt-4">
           What every partner gets in writing.

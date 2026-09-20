@@ -2,12 +2,14 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { PageHero } from "@/components/ui/PageHero";
+import { PageIntro } from "@/components/ui/PageIntro";
 import { Button } from "@/components/ui/Button";
 import { Chip } from "@/components/ui/Chip";
 import { CtaBand } from "@/components/sections/CtaBand";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { site, cta } from "@/content/site";
 import { cms } from "@/lib/cms";
+import { midSentence } from "@/lib/utils";
 
 export async function generateStaticParams() {
   const services = await cms.getServices();
@@ -70,7 +72,39 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         </div>
       </PageHero>
 
-      <section className="container-x grid gap-10 border-t border-line py-14 md:py-20 lg:grid-cols-12" aria-labelledby="deliverables-title">
+      <PageIntro
+        eyebrow="At a glance"
+        title={`${service.name}, run the way agencies need it run.`}
+        subtitle={service.pillarGroup.tagline}
+        body={[
+          <>
+            Send the brief and a named producer turns it into a written scope: {service.deliverables.length} deliverables, each priced, with the assumptions
+            and the tools listed — {service.stack.join(", ")}. Nothing is built until you have agreed that document, and the price on it is the price you
+            pay.
+          </>,
+          <>
+            {service.agencies.length
+              ? `It is the brief we see most often from ${service.agencies.map((a) => midSentence(a.name)).join(", ")}. `
+              : ""}
+            Everything ships under your agency&apos;s name — the staging link, the commits, the checklist and the handover — and your client never learns we
+            were involved.
+          </>,
+        ]}
+        points={[
+          { title: "Pillar", text: `${service.pillarGroup.name} — ${service.pillarGroup.tagline}` },
+          { title: "Tooling", text: service.stack.join(" · ") },
+          ...(service.agencies[0] ? [{ title: "Most often for", text: service.agencies[0].name }] : []),
+          ...(scope ? [{ title: scope.name, text: `${scope.turnaround} — ${scope.artefact}` }] : []),
+        ]}
+        jump={[
+          { label: "What ships", href: "#deliverables" },
+          { label: "When to send it", href: "#signals" },
+          ...(service.agencies.length ? [{ label: "Who it is for", href: "#who-for" }] : []),
+          { label: "Related services", href: "#related" },
+        ]}
+      />
+
+      <section id="deliverables" className="container-x grid gap-10 border-t border-line py-14 md:py-20 lg:grid-cols-12" aria-labelledby="deliverables-title">
         <div className="lg:col-span-4" data-reveal>
           <span className="eyebrow">What ships</span>
           <h2 id="deliverables-title" className="display display-md mt-4">
@@ -88,7 +122,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         </ul>
       </section>
 
-      <section className="er relative overflow-hidden" aria-labelledby="signals-title">
+      <section id="signals" className="er relative overflow-hidden" aria-labelledby="signals-title">
         <div className="glow -right-20 -top-20 h-[420px] w-[420px]" aria-hidden="true" />
         <div className="container-x relative grid gap-10 py-14 md:py-20 lg:grid-cols-12">
           <div className="lg:col-span-5" data-reveal>
@@ -133,7 +167,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
       </section>
 
       {service.agencies.length ? (
-        <section className="container-x py-14 md:py-20" aria-labelledby="for-title">
+        <section id="who-for" className="container-x py-14 md:py-20" aria-labelledby="for-title">
           <span className="eyebrow">Built for</span>
           <h2 id="for-title" className="display display-md mt-4">
             Agencies that send this brief most often.
@@ -152,7 +186,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         </section>
       ) : null}
 
-      <section className="container-x border-t border-line py-14 md:py-20" aria-labelledby="related-title">
+      <section id="related" className="container-x border-t border-line py-14 md:py-20" aria-labelledby="related-title">
         <span className="eyebrow">Also in {service.pillarGroup.name}</span>
         <h2 id="related-title" className="display display-md mt-4">
           Related services.

@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import { PageHero } from "@/components/ui/PageHero";
+import { PageIntro } from "@/components/ui/PageIntro";
 import { BriefForm } from "@/components/sections/BriefForm";
 import { site } from "@/content/site";
 import { cms } from "@/lib/cms";
 
 export const metadata: Metadata = {
   title: "Send us a brief",
-  description: "Send SoftVolt AI a brief in four short steps. A named producer replies within one business day; a scope and fixed price follow within two. Mutual NDA available before any client detail.",
+  description: "Send a white-label brief: a named producer replies in one business day with a written scope and a fixed price. NDA before any client detail.",
   alternates: { canonical: "/contact" },
 };
 
@@ -27,7 +28,34 @@ export default async function ContactPage() {
           ...(scope ? [{ label: scope.name, value: scope.turnaround }] : []),
         ]}
       />
-      <section className="container-x relative pb-20 md:pb-28" aria-label="Brief form and contact details">
+      <PageIntro
+        eyebrow="Before you write"
+        title="A brief, not a discovery call."
+        subtitle="Five minutes of typing gets you a written scope with a fixed price — no meeting required to find out what something costs."
+        body={[
+          <>
+            Tell us what exists today, what the client needs, and the date it has to be live. If there is a Figma file, a staging link or a ticket list,
+            point at it. If the client cannot be named yet, describe them instead — the NDA comes before we ask for anything identifying.
+          </>,
+          <>
+            {brief ? `${brief.name}: ${brief.turnaround.toLowerCase()}. ` : ""}A named producer reads it, asks anything missing in one message rather than
+            five, and sends the scope{scope ? ` ${scope.turnaround.toLowerCase()}` : " within two business days"} — line by line, priced, with the assumptions
+            written down. Nothing starts until you approve it.
+          </>,
+        ]}
+        points={[
+          { title: "NDA first", text: "Mutual, signed before client details change hands." },
+          { title: "One reply, not a thread", text: "Every open question comes back in a single message." },
+          { title: "Fixed price", text: "The scope carries the number. Changes are priced, not assumed." },
+          { title: "Prefer to talk?", text: "A 20-minute scoping call is free and booked in your time zone." },
+        ]}
+        jump={[
+          { label: "The brief form", href: "#brief-form" },
+          { label: "Book a call", href: "#call" },
+        ]}
+      />
+
+      <section id="brief-form" className="container-x relative pb-20 md:pb-28" aria-label="Brief form and contact details">
         <div className="relative grid gap-10 lg:grid-cols-12 lg:gap-14">
           <div className="lg:col-span-7" data-reveal>
             <BriefForm />

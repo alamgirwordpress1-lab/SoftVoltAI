@@ -2,7 +2,11 @@ export const site = {
   name: "SoftVolt AI",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://softvoltai.com",
   tagline: "The white-label production and growth team behind agencies.",
+  /** Meta description and Open Graph copy: kept under 160 characters so search results do not cut it off. */
   description:
+    "White-label production and growth for agencies: WordPress, WooCommerce, headless Next.js, SEO and paid media, built under your brand from Dhaka.",
+  /** The longer description, for schema.org where length is not penalised. */
+  longDescription:
     "SoftVolt AI is the white-label production and growth team behind agencies in the UK, US, Canada and Australia. WordPress, WooCommerce, headless Next.js, Payload, Sanity, Shopify, Webflow, AI automation, SEO and paid media — delivered under your brand from Dhaka, with UK and US overlap hours.",
   // TODO(owner): create this mailbox on softvoltai.com before launch.
   email: "hello@softvoltai.com",

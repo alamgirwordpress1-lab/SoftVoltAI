@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { PageHero } from "@/components/ui/PageHero";
+import { PageIntro } from "@/components/ui/PageIntro";
 import { Button } from "@/components/ui/Button";
 import { Chip } from "@/components/ui/Chip";
 import { CtaBand } from "@/components/sections/CtaBand";
@@ -18,7 +19,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const item = await cms.getWorkItem(slug);
   if (!item) return {};
-  const description = `${item.title} — ${item.category} build for a ${item.client.toLowerCase()} in ${item.region}. ${item.summary.slice(0, 110)}…`;
+  const head = `${item.title} — ${item.category} build for a ${item.client.toLowerCase()} in ${item.region}. `;
+  // meta descriptions are cut off past about 160 characters, so the summary fills whatever is left
+  const description = (head + item.summary).slice(0, 157).replace(/[\s,;:—-]+$/, "") + "…";
   return {
     title: `${item.title} — case study`,
     description,
@@ -75,7 +78,35 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
         </section>
       ) : null}
 
-      <section className="container-x border-t border-line py-14 md:py-20" aria-labelledby="delivered-title">
+      <PageIntro
+        eyebrow="At a glance"
+        title={`${item.category} for a ${item.client.toLowerCase()}.`}
+        subtitle={item.role}
+        body={[
+          <>
+            This one is on the site because it can be checked. It was delivered for a {item.client.toLowerCase()} in {item.region}, our founder&apos;s part
+            in it was {item.role.toLowerCase()}, and everything claimed below is either visible in the running site or in the code behind it.
+          </>,
+          <>
+            {item.delivered.length} things shipped in this build, listed in full below. It was made with {item.stack.join(", ")} for a client in{" "}
+            {item.region}
+            {item.url ? ", and the site is still live — open it and check the claims against the real thing." : "."}
+          </>,
+        ]}
+        points={[
+          { title: "Client", text: item.client },
+          { title: "Market", text: item.region },
+          { title: "Our role", text: item.role },
+          { title: "Built with", text: item.stack.join(" · ") },
+        ]}
+        jump={[
+          { label: "What shipped", href: "#delivered" },
+          { label: "As a partner brief", href: "#as-partner" },
+          { label: "Related builds", href: "#related" },
+        ]}
+      />
+
+      <section id="delivered" className="container-x border-t border-line py-14 md:py-20" aria-labelledby="delivered-title">
         <div className="grid gap-10 lg:grid-cols-12 lg:gap-14">
           <div className="lg:col-span-4" data-reveal>
             <span className="eyebrow">What shipped</span>
@@ -120,7 +151,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
         </p>
       </section>
 
-      <section className="er relative overflow-hidden" aria-labelledby="as-partner-title">
+      <section id="as-partner" className="er relative overflow-hidden" aria-labelledby="as-partner-title">
         <div className="grid-lines" aria-hidden="true" />
         <div className="container-x relative grid gap-10 py-14 md:py-20 lg:grid-cols-12">
           <div className="lg:col-span-5" data-reveal>
@@ -147,7 +178,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
         </div>
       </section>
 
-      <section className="container-x py-14 md:py-20" aria-labelledby="related-title">
+      <section id="related" className="container-x py-14 md:py-20" aria-labelledby="related-title">
         <span className="eyebrow">More work</span>
         <h2 id="related-title" className="display display-md mt-4">
           Related builds.
