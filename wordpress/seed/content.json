@@ -1,0 +1,1621 @@
+{
+ "generatedAt": "2026-09-20T21:24:53.943Z",
+ "taxonomies": {
+  "pillar": [
+   {
+    "slug": "build",
+    "name": "Build",
+    "description": "Websites, stores and apps your clients will put their name on."
+   },
+   {
+    "slug": "automate",
+    "name": "Automate",
+    "description": "AI and workflow automation that removes the manual hours from an account."
+   },
+   {
+    "slug": "grow",
+    "name": "Grow",
+    "description": "Execution for the campaigns you have already sold."
+   },
+   {
+    "slug": "support",
+    "name": "Support",
+    "description": "The unglamorous work that keeps client relationships alive."
+   }
+  ],
+  "work_category": [
+   {
+    "slug": "headless-next-js",
+    "name": "Headless & Next.js"
+   },
+   {
+    "slug": "e-commerce",
+    "name": "E-commerce"
+   },
+   {
+    "slug": "corporate",
+    "name": "Corporate"
+   },
+   {
+    "slug": "agency-seo",
+    "name": "Agency & SEO"
+   }
+  ],
+  "region": [
+   {
+    "slug": "united-kingdom",
+    "name": "United Kingdom"
+   },
+   {
+    "slug": "bangladesh",
+    "name": "Bangladesh"
+   },
+   {
+    "slug": "united-states",
+    "name": "United States"
+   }
+  ],
+  "faq_group": [
+   {
+    "slug": "general",
+    "name": "General"
+   },
+   {
+    "slug": "pricing",
+    "name": "Pricing"
+   }
+  ]
+ },
+ "service": [
+  {
+   "slug": "white-label-wordpress-development",
+   "title": "WordPress",
+   "menu_order": 0,
+   "terms": {
+    "pillar": [
+     "build"
+    ]
+   },
+   "acf": {
+    "heading": "White-label WordPress development",
+    "summary": "Custom themes, ACF, Gutenberg and Elementor builds to WordPress coding standards.",
+    "intro": "Custom WordPress builds delivered under your agency's brand: themes written to WordPress coding standards, ACF-driven page templates, Gutenberg blocks and Elementor widgets your client's team can actually edit. You send the design and the brief; we return a scope, a staging site and a handover doc with your name on it.",
+    "deliverables": "Custom theme or child theme built to WordPress coding standards\nACF field groups and page templates matching your Figma\nCustom Gutenberg blocks or Elementor widgets where the design needs them\nCustom post types, taxonomies and archive templates\nForms, integrations and tracking wired and tested\nEditing guide and handover documentation in your brand",
+    "signals": "A Figma or Adobe XD design is approved and needs building on WordPress\nA client's existing theme is fighting every change your team makes\nYou need a build to start this week and your developer is booked for a month",
+    "stack": "WordPress\nPHP\nACF\nGutenberg\nElementor\nTailwind CSS",
+    "seo_description": "White-label WordPress development for agencies: custom themes, ACF, Gutenberg and Elementor builds delivered under your brand with a fixed price."
+   },
+   "links": {
+    "agency_types": [
+     "web-design-agencies",
+     "digital-marketing-agencies",
+     "branding-agencies"
+    ]
+   }
+  },
+  {
+   "slug": "elementor-development",
+   "title": "Elementor development",
+   "menu_order": 1,
+   "terms": {
+    "pillar": [
+     "build"
+    ]
+   },
+   "acf": {
+    "heading": "White-label Elementor development",
+    "summary": "Custom Elementor widgets, templates and theme builders that stay fast.",
+    "intro": "Elementor builds that behave like real development work: custom widgets for the parts the editor cannot do, theme-builder templates, a tidy global style system and a performance pass so the page still loads quickly. Your client edits what they should, and nothing else.",
+    "deliverables": "Custom Elementor widgets with their own controls, built as a plugin\nTheme builder templates: header, footer, archives, single templates, popups\nGlobal colours, typography and spacing set up as a system, not per-section overrides\nReusable sections and templates your team can drop into the next project\nPerformance pass: unused widgets off, images sized, CSS/JS trimmed\nEditing guide so the client stays inside the parts you want them in",
+    "signals": "A design needs a component Elementor does not have out of the box\nAn Elementor site has become slow and inconsistent after years of edits\nYou want page-builder editing for the client without page-builder chaos",
+    "stack": "Elementor\nElementor Pro\nWordPress\nPHP\nACF\nCustom widgets",
+    "seo_description": "White-label Elementor development for agencies: custom widgets, theme-builder templates and a performance pass, delivered under your brand."
+   },
+   "links": {
+    "agency_types": [
+     "web-design-agencies",
+     "digital-marketing-agencies",
+     "branding-agencies"
+    ]
+   }
+  },
+  {
+   "slug": "wordpress-plugin-development",
+   "title": "WordPress plugin development",
+   "menu_order": 2,
+   "terms": {
+    "pillar": [
+     "build"
+    ]
+   },
+   "acf": {
+    "heading": "WordPress plugin development",
+    "summary": "Custom plugins with their own admin screens, settings and WooCommerce hooks.",
+    "intro": "When a client's requirement does not exist as a plugin — or the one that does is a liability — we build it. Custom plugins with their own admin screens, settings, roles and update path, written to WordPress standards so the next developer can read them.",
+    "deliverables": "Custom plugin scoped to one job, with its own admin screens and settings\nCustom post types, taxonomies, meta boxes and REST or GraphQL endpoints\nWooCommerce hooks and filters for pricing, checkout and order logic\nGutenberg blocks or shortcodes where the content team needs them\nUninstall, migration and update handling — not just an activation hook\nDocumented code and a handover note for whoever maintains it next",
+    "signals": "The only plugin that does the job is abandoned, bloated or paid per site\nA client needs business logic no page builder can express\nYou are stacking five plugins to achieve one outcome",
+    "stack": "WordPress\nPHP\nWP REST API\nWooCommerce hooks\nGutenberg\nWP-CLI",
+    "seo_description": "White-label WordPress plugin development for agencies: custom plugins, admin screens, WooCommerce hooks and Gutenberg blocks, built to WordPress standards."
+   },
+   "links": {
+    "agency_types": [
+     "digital-marketing-agencies",
+     "full-service-agencies",
+     "web-design-agencies"
+    ]
+   }
+  },
+  {
+   "slug": "woocommerce-development",
+   "title": "WooCommerce",
+   "menu_order": 3,
+   "terms": {
+    "pillar": [
+     "build"
+    ]
+   },
+   "acf": {
+    "heading": "White-label WooCommerce development",
+    "summary": "Custom checkout, payment and shipping logic, subscriptions, performance.",
+    "intro": "Stores that survive real customers: custom checkout flows, payment and shipping logic, subscriptions and product configurators, built and load-tested before launch. Whether the brief is a new store or a checkout that keeps losing orders, you get a fixed scope and a staging store to click through.",
+    "deliverables": "WooCommerce store build or rebuild on your chosen theme or a custom one\nPayment gateways (Stripe, PayPal, Klarna and others) configured and tested end to end\nShipping rules, tax and multi-currency logic\nCustom checkout fields, order flows and email templates\nSubscriptions, bookings, bundles or configurable products where needed\nPerformance pass: caching, image pipeline, database cleanup",
+    "signals": "A client is losing orders at checkout and nobody can say why\nThe store needs custom pricing, shipping or product logic a plugin cannot do\nA migration from Shopify, Magento or a legacy store is on the table",
+    "stack": "WooCommerce\nWordPress\nPHP\nStripe\nKlarna\nWP REST API",
+    "seo_description": "White-label WooCommerce development for agencies: custom checkout, payments, shipping logic, subscriptions and performance, delivered under your brand."
+   },
+   "links": {
+    "agency_types": [
+     "digital-marketing-agencies",
+     "web-design-agencies",
+     "full-service-agencies"
+    ]
+   }
+  },
+  {
+   "slug": "headless-wordpress-development",
+   "title": "Headless WordPress + Next.js",
+   "menu_order": 4,
+   "terms": {
+    "pillar": [
+     "build"
+    ]
+   },
+   "acf": {
+    "heading": "Headless WordPress + Next.js development",
+    "summary": "Keep the CMS your client knows, ship a Next.js front end that scores.",
+    "intro": "Your client keeps the WordPress admin they already know; their visitors get a Next.js front end that loads in a fraction of the time. We expose content through WPGraphQL or the REST API, build the front end with server components and image optimisation, and wire previews and on-demand revalidation so editors never wait for a deploy.",
+    "deliverables": "WordPress configured as a headless CMS with WPGraphQL or REST, ACF and preview support\nNext.js App Router front end with server components, next/image and next/font\nDraft preview, on-demand revalidation and a webhook from publish to deploy\nSEO parity: metadata, sitemaps, structured data and redirects carried over\nForms and integrations proxied through route handlers, never exposing the CMS\nDeployment on Vercel or your chosen host, with a runbook",
+    "signals": "A client site fails Core Web Vitals no matter how many caching plugins are added\nThe design needs interactions a page builder cannot deliver\nThe client wants WordPress editing but a modern, secure front end",
+    "stack": "Next.js\nReact\nTypeScript\nWPGraphQL\nACF\nVercel",
+    "seo_description": "Headless WordPress with a Next.js front end, white-label for agencies: WPGraphQL, previews, revalidation and Core Web Vitals passes, delivered under your brand."
+   },
+   "links": {
+    "agency_types": [
+     "branding-agencies",
+     "seo-agencies",
+     "full-service-agencies"
+    ]
+   }
+  },
+  {
+   "slug": "landing-page-development",
+   "title": "High-speed landing pages",
+   "menu_order": 5,
+   "terms": {
+    "pillar": [
+     "build"
+    ]
+   },
+   "acf": {
+    "heading": "High-speed landing pages",
+    "summary": "Campaign pages built for Core Web Vitals, clean tracking and fast iteration.",
+    "intro": "Campaign pages that load fast enough to keep Quality Score and patience intact: built headless on Next.js or as a lean WordPress template, with tracking wired correctly and a structure your team can clone for the next campaign.",
+    "deliverables": "Landing page built for Core Web Vitals on mobile, not just a lab score\nCopy and section structure implemented from your brief or Figma\nForms with validation, spam protection and CRM or email delivery\nGA4, Tag Manager and ad-platform conversion tracking, tested end to end\nA/B-ready variants where traffic justifies them\nReusable template so the next campaign takes hours, not days",
+    "signals": "Paid traffic is landing on a slow, generic page\nA campaign starts next week and the page does not exist\nConversions are not being recorded the same way in every platform",
+    "stack": "Next.js\nWordPress\nTailwind CSS\nGA4\nGoogle Tag Manager\nVercel",
+    "seo_description": "White-label landing page development for agencies: fast, tracked campaign pages built headless or on WordPress, ready for paid traffic."
+   },
+   "links": {
+    "agency_types": [
+     "google-ads-agencies",
+     "digital-marketing-agencies",
+     "seo-agencies"
+    ]
+   }
+  },
+  {
+   "slug": "nextjs-payload-postgresql",
+   "title": "Next.js + Payload + PostgreSQL",
+   "menu_order": 6,
+   "terms": {
+    "pillar": [
+     "build"
+    ]
+   },
+   "acf": {
+    "heading": "Next.js + Payload CMS + PostgreSQL",
+    "summary": "A code-first CMS inside the Next.js app itself — auth, roles, uploads, admin UI, one deploy.",
+    "intro": "When a client needs more than a marketing site — accounts, roles, uploads, an editorial workflow, an app that lives at the same URL — Payload runs inside the Next.js app on PostgreSQL. One codebase, one deploy, a fully typed content model, and an admin UI your client's team can use on day one.",
+    "deliverables": "Content model designed as typed Payload collections and globals\nPayload admin inside the Next.js app, with roles, access control and uploads\nPostgreSQL schema, migrations and seed data\nServer-rendered front end with live preview and draft workflows\nAuth, forms and integrations built as Payload endpoints and hooks\nHosting setup with backups and a deploy pipeline",
+    "signals": "The brief mixes a marketing site with logged-in functionality\nThe client needs granular editor roles and a real content workflow\nYou want a code-first CMS that will not become a plugin graveyard",
+    "stack": "Next.js\nPayload CMS\nPostgreSQL\nTypeScript\nTailwind CSS\nVercel",
+    "seo_description": "White-label Next.js + Payload CMS + PostgreSQL builds for agencies: typed content models, admin UI, auth and live preview in one deployable app."
+   },
+   "links": {
+    "agency_types": [
+     "branding-agencies",
+     "full-service-agencies"
+    ]
+   }
+  },
+  {
+   "slug": "nextjs-sanity-prismic",
+   "title": "Next.js + Sanity / Prismic",
+   "menu_order": 7,
+   "terms": {
+    "pillar": [
+     "build"
+    ]
+   },
+   "acf": {
+    "heading": "Next.js + Sanity or Prismic",
+    "summary": "Hosted structured content with live preview, for editorial teams that outgrow page builders.",
+    "intro": "Hosted structured content for editorial teams that have outgrown page builders. We model content in Sanity or Prismic, build the Next.js front end with live preview, and set up the workflows — slices, references, localisation — so the client's editors publish without a developer in the loop.",
+    "deliverables": "Content schema and studio configuration (Sanity) or custom types and slices (Prismic)\nNext.js front end with visual editing or live preview\nImage pipeline, localisation and redirects handled at the framework level\nMigration of existing content with a mapping document\nEditor training notes written in your brand\nPerformance and SEO baseline verified before launch",
+    "signals": "An editorial or multi-market site is being rebuilt\nThe client wants a hosted CMS with real-time collaboration\nMarketing needs to launch pages without waiting for releases",
+    "stack": "Next.js\nSanity\nPrismic\nTypeScript\nGROQ\nVercel",
+    "seo_description": "Next.js with Sanity or Prismic, built white-label for agencies: structured content, live preview and localisation for editorial teams."
+   },
+   "links": {
+    "agency_types": [
+     "branding-agencies",
+     "digital-marketing-agencies"
+    ]
+   }
+  },
+  {
+   "slug": "nextjs-postgres-apps",
+   "title": "Next.js apps on PostgreSQL",
+   "menu_order": 8,
+   "terms": {
+    "pillar": [
+     "build"
+    ]
+   },
+   "acf": {
+    "heading": "Next.js applications on PostgreSQL",
+    "summary": "Portals, dashboards and SaaS-style tools with Prisma, Drizzle or Kysely on Postgres.",
+    "intro": "Client portals, dashboards, booking systems, internal tools and SaaS-style products: Next.js on PostgreSQL with Prisma, Drizzle or Kysely, depending on how much control the data layer needs. Scoped as a product, not a website — with a data model, auth, roles and the boring parts done properly.",
+    "deliverables": "Product scope: user roles, flows, data model, integration list\nPostgreSQL schema with migrations, using Prisma, Drizzle or Kysely\nAuth, permissions and audit trails\nServer actions and route handlers for every integration\nDashboards, tables, exports and notifications\nDeployment, monitoring and a maintenance plan",
+    "signals": "A client is running the business on a spreadsheet and three Zapier zaps\nThe brief includes logins, dashboards or workflows\nAn agency wants to productise a service as software",
+    "stack": "Next.js\nPostgreSQL\nPrisma\nDrizzle\nKysely\nTypeScript",
+    "seo_description": "White-label Next.js application development on PostgreSQL with Prisma, Drizzle or Kysely: portals, dashboards and internal tools for agency clients."
+   },
+   "links": {
+    "agency_types": [
+     "full-service-agencies",
+     "digital-marketing-agencies"
+    ]
+   }
+  },
+  {
+   "slug": "laravel-development",
+   "title": "Laravel applications",
+   "menu_order": 9,
+   "terms": {
+    "pillar": [
+     "build"
+    ]
+   },
+   "acf": {
+    "heading": "Laravel application development",
+    "summary": "PHP applications and APIs on Laravel, for briefs that outgrow a CMS.",
+    "intro": "For briefs that outgrow a CMS: PHP applications and APIs on Laravel, with the parts that matter to a client — accounts, permissions, payments, jobs, notifications — modelled properly instead of bolted onto a plugin.",
+    "deliverables": "Application scope: user roles, flows, data model and integration list\nLaravel application with migrations, seeders and queued jobs\nAuthentication, permissions and an audit trail\nREST or JSON APIs for the front end, mobile apps or a WordPress site\nPayments, notifications and third-party integrations\nDeployment, backups and a maintenance plan",
+    "signals": "The requirement is an application with a marketing site attached, not the other way round\nA client's process needs custom business logic, roles and reporting\nAn existing PHP application needs rescuing or extending",
+    "stack": "Laravel\nPHP\nMySQL\nPostgreSQL\nREST APIs\nQueues",
+    "seo_description": "White-label Laravel development for agencies: PHP applications, APIs, auth and integrations for briefs that outgrow a CMS."
+   },
+   "links": {
+    "agency_types": [
+     "full-service-agencies",
+     "digital-marketing-agencies"
+    ]
+   }
+  },
+  {
+   "slug": "shopify-development",
+   "title": "Shopify",
+   "menu_order": 10,
+   "terms": {
+    "pillar": [
+     "build"
+    ]
+   },
+   "acf": {
+    "heading": "White-label Shopify development",
+    "summary": "Theme customisation, Liquid sections, app integrations, migrations.",
+    "intro": "Theme customisation, Liquid sections, app integrations and migrations for agencies whose clients sell on Shopify. We work in your Shopify Partner account or the client's store as staff, build in a theme copy, and hand over a store the client's team can run.",
+    "deliverables": "Theme customisation or custom sections in Liquid and JSON templates\nMetafields and metaobjects for structured product content\nApp integrations: reviews, subscriptions, loyalty, shipping\nCheckout extensibility and Shopify Functions where the plan allows\nMigrations from WooCommerce, Magento or legacy platforms with redirects\nSpeed and conversion pass before handover",
+    "signals": "A client's theme needs changes the editor cannot make\nA migration to Shopify is scoped and needs a developer\nProduct pages need structured content the theme does not support",
+    "stack": "Shopify\nLiquid\nShopify Functions\nMetaobjects\nJavaScript",
+    "seo_description": "White-label Shopify development for agencies: theme customisation, Liquid sections, app integrations and migrations, delivered under your brand."
+   },
+   "links": {
+    "agency_types": [
+     "branding-agencies",
+     "web-design-agencies",
+     "digital-marketing-agencies"
+    ]
+   }
+  },
+  {
+   "slug": "webflow-development",
+   "title": "Webflow",
+   "menu_order": 11,
+   "terms": {
+    "pillar": [
+     "build"
+    ]
+   },
+   "acf": {
+    "heading": "White-label Webflow development",
+    "summary": "Figma to Webflow with CMS, interactions and clean class structure.",
+    "intro": "Figma to Webflow with a clean class system, CMS collections and interactions that match the prototype. Built in your Webflow workspace or the client's, so the site — and the credit — stays with you.",
+    "deliverables": "Figma to Webflow build with a documented class naming system\nCMS collections, filters and dynamic templates\nInteractions and animations to match your prototype\nForms, integrations and tracking\nAccessibility and SEO settings configured\nClient editing guide in your brand",
+    "signals": "A design agency wants a no-code handover with a designer-friendly editor\nA marketing site needs to launch fast and be edited by non-developers\nA Webflow site has grown messy and needs a clean rebuild",
+    "stack": "Webflow\nWebflow CMS\nInteractions\nFinsweet attributes\nJavaScript",
+    "seo_description": "White-label Webflow development for agencies: Figma to Webflow, CMS, interactions and clean class structure, built in your workspace."
+   },
+   "links": {
+    "agency_types": [
+     "branding-agencies",
+     "web-design-agencies"
+    ]
+   }
+  },
+  {
+   "slug": "ai-automation",
+   "title": "AI automation",
+   "menu_order": 0,
+   "terms": {
+    "pillar": [
+     "automate"
+    ]
+   },
+   "acf": {
+    "heading": "AI automation for agencies and their clients",
+    "summary": "Lead qualification, reporting, content pipelines and support triage built on the Claude and OpenAI APIs.",
+    "intro": "The manual hours inside an account — qualifying leads, drafting reports, summarising calls, triaging support — turned into workflows built on the Claude and OpenAI APIs. Scoped around one measurable task at a time, with a human in the loop where the output goes to a customer.",
+    "deliverables": "Workflow map: where the hours go today and what is safe to automate\nOne or more automations built on the Claude or OpenAI API with your data sources\nGuardrails: approval steps, logging, fallbacks and a kill switch\nPrompt and evaluation set kept in version control\nCost model and monthly usage reporting\nDocumentation your account team can read",
+    "signals": "Your team spends hours a week on repeatable writing, sorting or summarising\nA client wants 'AI' and nobody has defined what it should actually do\nReporting or lead handling is late because a person is the bottleneck",
+    "stack": "Claude API\nOpenAI API\nn8n\nNode.js\nPostgreSQL\nVector search",
+    "seo_description": "White-label AI automation for agencies: lead qualification, reporting, content pipelines and support triage built on the Claude and OpenAI APIs, with guardrails."
+   },
+   "links": {
+    "agency_types": [
+     "full-service-agencies",
+     "digital-marketing-agencies",
+     "google-ads-agencies"
+    ]
+   }
+  },
+  {
+   "slug": "workflow-automation",
+   "title": "Workflow automation",
+   "menu_order": 1,
+   "terms": {
+    "pillar": [
+     "automate"
+    ]
+   },
+   "acf": {
+    "heading": "Workflow automation",
+    "summary": "CRM, forms, ads and site data connected with n8n, Make or custom code — no more copy-paste ops.",
+    "intro": "CRMs, forms, ad platforms, spreadsheets and site data connected so nobody copies anything by hand. Built in n8n or Make when a visual tool fits, in code when it does not, and always with error handling so a silent failure never costs a lead.",
+    "deliverables": "Process audit: every hand-off, every re-key, every 'someone checks it on Fridays'\nAutomations in n8n, Make or custom code, with retries and alerts\nCRM, form, ads and analytics integrations\nData validation and deduplication rules\nMonitoring dashboard and monthly run report\nRunbook for the day something upstream changes",
+    "signals": "Leads arrive in three inboxes and a spreadsheet\nClient onboarding takes a week of copy and paste\nReports are assembled by hand every month",
+    "stack": "n8n\nMake\nNode.js\nWebhooks\nHubSpot / Pipedrive\nGoogle Sheets",
+    "seo_description": "White-label workflow automation for agencies: CRM, forms, ads and site data connected with n8n, Make or custom code, with monitoring and alerts."
+   },
+   "links": {
+    "agency_types": [
+     "full-service-agencies",
+     "google-ads-agencies",
+     "digital-marketing-agencies"
+    ]
+   }
+  },
+  {
+   "slug": "ai-assistants-and-chat",
+   "title": "AI assistants & chat",
+   "menu_order": 2,
+   "terms": {
+    "pillar": [
+     "automate"
+    ]
+   },
+   "acf": {
+    "heading": "AI assistants and on-site chat",
+    "summary": "On-site assistants grounded in the client's own content, with hand-off to a human.",
+    "intro": "Assistants grounded in a client's own content — product data, policies, help articles — that answer accurately, cite their source and hand off to a person when they should. Built to be measured: deflection, satisfaction and the questions nobody had written down yet.",
+    "deliverables": "Knowledge base ingestion and retrieval over the client's own content\nAssistant with citations, tone rules and refusal behaviour\nHand-off to email, WhatsApp or live chat with full context\nEmbeddable widget or integration into an existing chat tool\nEvaluation set and monthly quality review\nAnalytics on questions, gaps and outcomes",
+    "signals": "Support handles the same twenty questions all day\nA client wants a chatbot that does not make things up\nSales needs pre-qualification outside office hours",
+    "stack": "Claude API\nOpenAI API\nVector search\nNext.js\nPostgreSQL",
+    "seo_description": "White-label AI assistants and on-site chat for agency clients: grounded in their content, with citations, hand-off to humans and measurable outcomes."
+   },
+   "links": {
+    "agency_types": [
+     "full-service-agencies",
+     "digital-marketing-agencies"
+    ]
+   }
+  },
+  {
+   "slug": "internal-tools",
+   "title": "Internal tools",
+   "menu_order": 3,
+   "terms": {
+    "pillar": [
+     "automate"
+    ]
+   },
+   "acf": {
+    "heading": "Internal tools",
+    "summary": "Small apps that replace the spreadsheet your client's team is quietly running the business on.",
+    "intro": "The small application that replaces the spreadsheet a client's team is quietly running the business on: a quoting tool, a job board, a stock tracker, an approvals flow. Scoped tightly, built in weeks, and handed over with the boring parts — auth, backups, exports — already done.",
+    "deliverables": "Half-day scoping workshop and a written spec with screens\nNext.js application on PostgreSQL with roles and audit trail\nImports from the existing spreadsheet, with validation\nExports, notifications and integrations with the tools already in use\nHosting, backups and monitoring\nTraining notes and a maintenance plan",
+    "signals": "'It is all in Sarah's spreadsheet' is a sentence you have heard on a client call\nA process has outgrown forms and email\nOff-the-shelf software almost fits but never quite",
+    "stack": "Next.js\nPostgreSQL\nDrizzle\nTypeScript\nResend\nVercel",
+    "seo_description": "White-label internal tools for agency clients: small Next.js applications on PostgreSQL that replace spreadsheets, with auth, exports and integrations."
+   },
+   "links": {
+    "agency_types": [
+     "full-service-agencies",
+     "digital-marketing-agencies"
+    ]
+   }
+  },
+  {
+   "slug": "white-label-seo-services",
+   "title": "SEO",
+   "menu_order": 0,
+   "terms": {
+    "pillar": [
+     "grow"
+    ]
+   },
+   "acf": {
+    "heading": "White-label SEO services",
+    "summary": "Keyword strategy, on-page, content structure, monthly reporting.",
+    "intro": "SEO execution for agencies that have sold organic growth and need it delivered: keyword strategy, on-page work, content structure and monthly reporting in your template. No guaranteed rankings — measurable, documented work that increases qualified visibility over time, with every change logged.",
+    "deliverables": "Keyword and search-intent research mapped to pages\nOn-page implementation: titles, meta, headings, internal links, image SEO\nContent briefs and page structures for new or thin pages\nTechnical fixes coordinated with the development team\nSearch Console and GA4 analysis with monthly reporting in your brand\nA change log per site that goes straight into your client report",
+    "signals": "You have sold an SEO retainer and need reliable monthly execution\nRecommendations are piling up faster than they get implemented\nA client's visibility has stalled and nobody has time to find out why",
+    "stack": "Search Console\nGA4\nAhrefs / Semrush\nScreaming Frog\nLooker Studio",
+    "seo_description": "White-label SEO services for agencies: keyword strategy, on-page implementation, content briefs and monthly reporting delivered under your brand."
+   },
+   "links": {
+    "agency_types": [
+     "seo-agencies",
+     "digital-marketing-agencies",
+     "full-service-agencies"
+    ]
+   }
+  },
+  {
+   "slug": "technical-seo-services",
+   "title": "Technical SEO",
+   "menu_order": 1,
+   "terms": {
+    "pillar": [
+     "grow"
+    ]
+   },
+   "acf": {
+    "heading": "Technical SEO implementation",
+    "summary": "Crawlability, Core Web Vitals, structured data, migrations.",
+    "intro": "The part of an SEO audit that needs a developer: crawlability, indexation, canonicals, sitemaps, structured data, Core Web Vitals and migrations. We implement what your audit specifies on WordPress, Shopify, Webflow or a headless stack, and verify each fix with the same tools you use.",
+    "deliverables": "Crawl and indexation fixes: robots, canonicals, redirects, pagination\nXML sitemaps, hreflang and international setup where relevant\nStructured data (Organization, Product, Article, Breadcrumb and more) validated\nCore Web Vitals work on real devices, not just lab scores\nJavaScript SEO and rendering fixes on headless and app-heavy sites\nMigration plans with redirect maps and post-launch monitoring",
+    "signals": "An audit has been sitting in a shared drive for a quarter\nA migration or redesign is coming and rankings must survive it\nPages are indexed wrong, slow, or not at all",
+    "stack": "Screaming Frog\nSearch Console\nPageSpeed Insights\nSchema.org\nWordPress\nNext.js",
+    "seo_description": "White-label technical SEO implementation for agencies: crawlability, structured data, Core Web Vitals and migrations built by developers who follow your audit."
+   },
+   "links": {
+    "agency_types": [
+     "seo-agencies",
+     "full-service-agencies"
+    ]
+   }
+  },
+  {
+   "slug": "local-seo-services",
+   "title": "Local SEO",
+   "menu_order": 2,
+   "terms": {
+    "pillar": [
+     "grow"
+    ]
+   },
+   "acf": {
+    "heading": "Local SEO services",
+    "summary": "Google Business Profile, local pages, citation consistency.",
+    "intro": "Local visibility for multi-location and service-area clients: Google Business Profile optimisation, location landing pages, citation consistency and local on-page work, executed under your brand and reported in your format.",
+    "deliverables": "Google Business Profile audit and optimisation per location\nLocation and service-area landing pages built to a template you approve\nCitation audit and consistency fixes\nLocal keyword research and on-page implementation\nReview strategy support and response templates\nMonthly local visibility report",
+    "signals": "A client has several locations and inconsistent listings\nLocation pages are thin, duplicated or missing\nMap-pack visibility is the client's real KPI",
+    "stack": "Google Business Profile\nBrightLocal\nSearch Console\nWordPress",
+    "seo_description": "White-label local SEO for agencies: Google Business Profile, location pages and citation consistency for multi-location clients, delivered under your brand."
+   },
+   "links": {
+    "agency_types": [
+     "seo-agencies",
+     "digital-marketing-agencies"
+    ]
+   }
+  },
+  {
+   "slug": "white-label-google-ads-management",
+   "title": "Google Ads",
+   "menu_order": 3,
+   "terms": {
+    "pillar": [
+     "grow"
+    ]
+   },
+   "acf": {
+    "heading": "White-label Google Ads management",
+    "summary": "Search, Shopping and Performance Max under your brand.",
+    "intro": "Search, Shopping and Performance Max execution under your brand: structure, ad copy, tracking, search-term hygiene and bid strategy, run in your manager account with reporting in your template. No guaranteed ROAS — disciplined execution you can show your client every month.",
+    "deliverables": "Account structure, keyword research and ad copy\nConversion tracking via GA4 and Tag Manager, verified end to end\nSearch-term analysis and negative keyword management\nShopping feed and Performance Max asset groups where relevant\nBid and budget optimisation with a written rationale\nMonthly white-label report and next-month plan",
+    "signals": "Your media buyers are at capacity and a new client is starting\nAn account has grown messy and needs a rebuild\nYou want to offer paid search without hiring a specialist",
+    "stack": "Google Ads\nGA4\nGoogle Tag Manager\nMerchant Center\nLooker Studio",
+    "seo_description": "White-label Google Ads management for agencies: Search, Shopping and Performance Max execution in your manager account with reporting in your brand."
+   },
+   "links": {
+    "agency_types": [
+     "google-ads-agencies",
+     "full-service-agencies",
+     "digital-marketing-agencies"
+    ]
+   }
+  },
+  {
+   "slug": "meta-ads-management",
+   "title": "Meta Ads",
+   "menu_order": 4,
+   "terms": {
+    "pillar": [
+     "grow"
+    ]
+   },
+   "acf": {
+    "heading": "Meta Ads management",
+    "summary": "Lead-gen and conversion campaigns, Pixel and Conversions API.",
+    "intro": "Facebook and Instagram campaigns executed under your brand: audience strategy, creative testing, Pixel and Conversions API, retargeting and reporting. Built to be measured properly, so the conversations with your client are about results, not attribution arguments.",
+    "deliverables": "Campaign structure for lead generation, conversions or retargeting\nPixel and Conversions API implementation, verified\nCreative testing framework and ad copy\nAudience and exclusion strategy\nLanding page recommendations coordinated with the development team\nMonthly white-label report",
+    "signals": "A client needs paid social alongside search and you lack a buyer\nAttribution broke after iOS changes and nobody fixed the Conversions API\nCreative is being launched without a test plan",
+    "stack": "Meta Ads Manager\nMeta Pixel\nConversions API\nGA4\nGoogle Tag Manager",
+    "seo_description": "White-label Meta Ads management for agencies: campaign execution, Pixel and Conversions API, creative testing and reporting under your brand."
+   },
+   "links": {
+    "agency_types": [
+     "google-ads-agencies",
+     "full-service-agencies"
+    ]
+   }
+  },
+  {
+   "slug": "conversion-rate-optimisation",
+   "title": "CRO",
+   "menu_order": 5,
+   "terms": {
+    "pillar": [
+     "grow"
+    ]
+   },
+   "acf": {
+    "heading": "Conversion rate optimisation",
+    "summary": "Landing pages, funnel analysis, A/B test support.",
+    "intro": "Landing pages and funnels that turn the traffic you already paid for into leads and orders: analytics-led diagnosis, fast pages, clear offers, form and checkout fixes, and A/B tests where the volume justifies them. Development and measurement from the same team, so tests actually ship.",
+    "deliverables": "Funnel and analytics review with a prioritised list of fixes\nLanding pages built for speed and clarity, matched to campaigns\nForm, checkout and booking flow improvements\nA/B or multivariate test setup and analysis where traffic allows\nHeatmap and session-recording setup with consent handling\nMonthly CRO report with what changed and what it did",
+    "signals": "Ad spend is rising and conversion rate is flat\nLanding pages are slow, generic or built by the client\nYou want CRO in your offer without an in-house specialist",
+    "stack": "GA4\nMicrosoft Clarity\nGoogle Optimize alternatives\nNext.js\nWordPress",
+    "seo_description": "White-label conversion rate optimisation for agencies: landing pages, funnel fixes and A/B testing delivered by one team that builds and measures."
+   },
+   "links": {
+    "agency_types": [
+     "google-ads-agencies",
+     "digital-marketing-agencies",
+     "branding-agencies"
+    ]
+   }
+  },
+  {
+   "slug": "website-maintenance",
+   "title": "Maintenance",
+   "menu_order": 0,
+   "terms": {
+    "pillar": [
+     "support"
+    ]
+   },
+   "acf": {
+    "heading": "White-label website maintenance",
+    "summary": "Updates, backups, uptime, monthly care under your brand.",
+    "intro": "Care plans you resell to every client site: updates staged before they go live, nightly backups with a rehearsed restore, uptime monitoring, security hardening and a monthly report in your brand. The unglamorous work that keeps the relationship — and the retainer — alive.",
+    "deliverables": "Core, plugin, theme and PHP updates staged and tested before release\nNightly off-site backups with a documented restore procedure\nUptime and performance monitoring with alerts\nSecurity hardening, malware scanning and login protection\nA block of small-fix hours each month\nMonthly white-label report per site",
+    "signals": "You have clients on 'we will look at it when it breaks'\nUpdates are being skipped because nobody has time to test them\nYou want a recurring revenue line that does not need a developer on staff",
+    "stack": "WordPress\nWooCommerce\nShopify\nWebflow\nUptime monitoring\nCloudflare",
+    "seo_description": "White-label website maintenance and care plans for agencies: staged updates, backups, monitoring, security and a monthly report in your brand."
+   },
+   "links": {
+    "agency_types": [
+     "web-design-agencies",
+     "digital-marketing-agencies",
+     "full-service-agencies"
+    ]
+   }
+  },
+  {
+   "slug": "wordpress-security-malware-cleanup",
+   "title": "Security & malware cleanup",
+   "menu_order": 1,
+   "terms": {
+    "pillar": [
+     "support"
+    ]
+   },
+   "acf": {
+    "heading": "WordPress security and malware cleanup",
+    "summary": "Hacked-site recovery, hardening, credential hygiene.",
+    "intro": "Hacked-site recovery and hardening, handled calmly: isolate, clean, patch, restore, then close the door it came through. We work from a fresh backup, document every step, and hand the client's site back with the credentials rotated and the monitoring in place.",
+    "deliverables": "Incident triage and a written recovery plan within hours\nMalware removal, backdoor hunting and file integrity verification\nCredential rotation, least-privilege roles and 2FA\nPatching of the entry point: plugins, themes, hosting configuration\nBlacklist removal requests and search-engine re-review\nHardening and monitoring so it does not happen twice",
+    "signals": "A client site is redirecting, spamming or flagged by Google\nThe host has suspended an account for malware\nA site has never had its credentials or plugins reviewed",
+    "stack": "WordPress\nWordfence / Sucuri\nCloudflare\nSSH\nWP-CLI",
+    "seo_description": "White-label WordPress malware cleanup and security hardening for agencies: recovery, credential rotation, patching and monitoring, documented step by step."
+   },
+   "links": {
+    "agency_types": [
+     "web-design-agencies",
+     "digital-marketing-agencies"
+    ]
+   }
+  },
+  {
+   "slug": "website-rescue-and-fixes",
+   "title": "Bug fixing & rescue",
+   "menu_order": 2,
+   "terms": {
+    "pillar": [
+     "support"
+    ]
+   },
+   "acf": {
+    "heading": "Website rescue and bug fixing",
+    "summary": "Plugin conflicts, broken checkouts, white screens, critical errors.",
+    "intro": "Plugin conflicts, broken checkouts, white screens, critical errors, layouts that fell apart after an update. Senior developers who diagnose before they touch anything, fix on staging, and write down what happened so it can go in your client update.",
+    "deliverables": "Diagnosis with a written cause, not a guess\nFix on staging with before-and-after evidence\nRegression check on the pages and flows around the fix\nRoot-cause notes and prevention recommendations\nEmergency response for sites that are down\nOptional care plan so the next one is caught earlier",
+    "signals": "'The site broke after the update' and the developer has left\nCheckout, forms or bookings are failing and orders are being lost\nA theme or plugin conflict nobody can locate",
+    "stack": "WordPress\nWooCommerce\nPHP\nShopify\nWebflow\nBrowser DevTools",
+    "seo_description": "White-label website rescue and bug fixing for agencies: plugin conflicts, broken checkouts, white screens and critical errors fixed by senior developers."
+   },
+   "links": {
+    "agency_types": [
+     "web-design-agencies",
+     "digital-marketing-agencies",
+     "full-service-agencies"
+    ]
+   }
+  },
+  {
+   "slug": "performance-optimisation",
+   "title": "Performance",
+   "menu_order": 3,
+   "terms": {
+    "pillar": [
+     "support"
+    ]
+   },
+   "acf": {
+    "heading": "Website performance optimisation",
+    "summary": "Core Web Vitals passes on real devices, not just lab scores.",
+    "intro": "Core Web Vitals passes measured on real devices, not just a green lab score: image pipeline, caching, script diet, font loading, layout stability and server response. We show the before and after with field data your client can check.",
+    "deliverables": "Performance audit with prioritised fixes and expected impact\nImage, font and script optimisation\nCaching, CDN and hosting configuration\nLayout-shift and interaction fixes in templates and plugins\nThird-party script governance\nBefore/after report with lab and field data",
+    "signals": "A client fails Core Web Vitals in Search Console\nAd landing pages are slow and Quality Score is suffering\nSpeed plugins have been stacked and the site got slower",
+    "stack": "PageSpeed Insights\nWebPageTest\nCloudflare\nWP Rocket\nNext.js\nLighthouse",
+    "seo_description": "White-label website performance optimisation for agencies: Core Web Vitals passes on real devices, with before-and-after field data."
+   },
+   "links": {
+    "agency_types": [
+     "seo-agencies",
+     "google-ads-agencies",
+     "web-design-agencies"
+    ]
+   }
+  },
+  {
+   "slug": "website-migration",
+   "title": "Migration",
+   "menu_order": 4,
+   "terms": {
+    "pillar": [
+     "support"
+    ]
+   },
+   "acf": {
+    "heading": "Website migration",
+    "summary": "Host, platform and domain moves without losing rankings.",
+    "intro": "Host, platform and domain moves without losing rankings, orders or the client's sleep: inventory, redirect map, content and data migration, a rehearsal on staging, and monitoring after cutover. Scoped with a checklist your client can read.",
+    "deliverables": "Migration inventory: URLs, content, data, integrations, DNS, email\nRedirect map and SEO preservation plan\nContent and database migration with validation\nStaging rehearsal with sign-off\nCutover with DNS, SSL and email checked\nPost-launch monitoring of errors, rankings and conversions",
+    "signals": "A client is changing host, platform or domain\nA redesign is launching on new URLs\nA previous migration lost traffic and nobody knows why",
+    "stack": "WordPress\nShopify\nWebflow\nCloudflare DNS\nSearch Console\nWP-CLI",
+    "seo_description": "White-label website migration for agencies: host, platform and domain moves with redirect maps, staging rehearsal and post-launch monitoring."
+   },
+   "links": {
+    "agency_types": [
+     "seo-agencies",
+     "web-design-agencies",
+     "full-service-agencies"
+    ]
+   }
+  },
+  {
+   "slug": "analytics-and-tracking",
+   "title": "Analytics & tracking",
+   "menu_order": 5,
+   "terms": {
+    "pillar": [
+     "support"
+    ]
+   },
+   "acf": {
+    "heading": "Analytics and conversion tracking",
+    "summary": "GA4, Tag Manager, Consent Mode v2, conversion tracking that holds up.",
+    "intro": "GA4, Google Tag Manager, Google Ads and Meta conversions, Consent Mode v2 and server-side options implemented so the numbers hold up when the client asks a hard question. Every event documented; every consent state tested; nothing firing before it should.",
+    "deliverables": "Measurement plan mapping business goals to events\nGA4 and Tag Manager implementation with a documented container\nGoogle Ads and Meta conversion tracking, including Conversions API\nConsent Mode v2 with a compliant banner and reject-all parity\nE-commerce and form tracking validated end to end\nLooker Studio dashboard in your brand",
+    "signals": "Conversions in the ad platform do not match the CRM\nA cookie banner was added and half the data disappeared\nNobody can explain what a tag in the container does",
+    "stack": "GA4\nGoogle Tag Manager\nConsent Mode v2\nMeta Conversions API\nLooker Studio\nc15t",
+    "seo_description": "White-label analytics and conversion tracking for agencies: GA4, Tag Manager, Google Ads and Meta conversions, Consent Mode v2 — documented and tested."
+   },
+   "links": {
+    "agency_types": [
+     "google-ads-agencies",
+     "digital-marketing-agencies",
+     "seo-agencies"
+    ]
+   }
+  }
+ ],
+ "agency_type": [
+  {
+   "slug": "digital-marketing-agencies",
+   "title": "Digital marketing agencies",
+   "menu_order": 0,
+   "acf": {
+    "problem": "You sell websites and campaigns, but every build waits on the one developer you have.",
+    "relief": "A production team that takes the build, the fixes and the tracking off your plate.",
+    "intro": "You are good at winning clients and running campaigns. The bottleneck is production: the site rebuild that has slipped twice, the landing page the ads team is waiting on, the tracking that nobody has time to fix. We become that production capacity under your brand, with one producer, one channel and a written scope for every job.",
+    "workflow": "You send the brief — Figma, URL, the client's notes, the campaign deadline.\nWe return a written scope with a fixed price within two business days.\nWork runs on a staging URL under your brand; you review in your shared channel.\nQA against the published checklist, then a handover doc you can forward to the client.",
+    "seo_description": "White-label development, tracking and maintenance for digital marketing agencies. Fixed-price scopes, a named producer, your brand on everything."
+   },
+   "links": {
+    "services": [
+     "white-label-wordpress-development",
+     "woocommerce-development",
+     "analytics-and-tracking",
+     "website-maintenance",
+     "conversion-rate-optimisation",
+     "ai-automation"
+    ]
+   }
+  },
+  {
+   "slug": "seo-agencies",
+   "title": "SEO agencies",
+   "menu_order": 1,
+   "acf": {
+    "problem": "Technical recommendations sit in a report because nobody is free to implement them.",
+    "relief": "Developers who implement the technical SEO fixes, landing pages and schema you specify.",
+    "intro": "Your audits are good. Getting them implemented on a client's WordPress or Shopify site is where months disappear. We implement what you specify — Core Web Vitals fixes, structured data, redirects, internal-linking modules, location pages — and report back in the format your client already sees.",
+    "workflow": "You send the audit or ticket list, with priorities and the client's platform access.\nWe scope it into a fixed-price implementation sprint or a monthly block of hours.\nEach fix is deployed to staging, verified with the same tools you use, then released.\nYou get a change log per site, written so it can go straight into your client report.",
+    "seo_description": "White-label technical SEO implementation for SEO agencies: Core Web Vitals, schema, migrations and landing pages built by developers who follow your audit."
+   },
+   "links": {
+    "services": [
+     "technical-seo-services",
+     "white-label-seo-services",
+     "local-seo-services",
+     "performance-optimisation",
+     "website-migration",
+     "white-label-wordpress-development"
+    ]
+   }
+  },
+  {
+   "slug": "google-ads-agencies",
+   "title": "Google Ads & PPC agencies",
+   "menu_order": 2,
+   "acf": {
+    "problem": "Campaigns leak spend into landing pages you do not control and tracking that half works.",
+    "relief": "Fast landing pages, clean conversion tracking and Consent Mode done properly.",
+    "intro": "Paid media is only as good as the page it lands on and the conversion it can measure. We build the landing pages, implement GA4, Tag Manager and Consent Mode v2 correctly, and can run Google and Meta execution under your brand when your media buyers are at capacity.",
+    "workflow": "You send the campaign structure, the offer and the tracking requirements.\nWe build or fix the landing pages and the measurement, and test every conversion path.\nIf you want execution too, campaigns run in your MCC under your reporting.\nMonthly: a white-label report and a list of what changed, why, and what is next.",
+    "seo_description": "White-label landing pages, conversion tracking, Consent Mode v2 and Google Ads execution for PPC agencies that need capacity without new hires."
+   },
+   "links": {
+    "services": [
+     "conversion-rate-optimisation",
+     "analytics-and-tracking",
+     "white-label-google-ads-management",
+     "meta-ads-management",
+     "white-label-wordpress-development",
+     "workflow-automation"
+    ]
+   }
+  },
+  {
+   "slug": "branding-agencies",
+   "title": "Branding & design agencies",
+   "menu_order": 3,
+   "acf": {
+    "problem": "The Figma is beautiful. The build never quite matches it.",
+    "relief": "Pixel-faithful Figma to WordPress, Webflow, Shopify or Next.js, reviewed against your file.",
+    "intro": "You have a design team clients pay for and a development gap that costs you the second phase of every project. We build what you designed — spacing, type, motion — on the platform the client will actually maintain, and review every page against your Figma before you see it.",
+    "workflow": "You share the Figma file, the prototype and the brand system.\nWe return a build scope: platform recommendation, component list, timeline, fixed price.\nPages are built and reviewed side by side with your frames — you sign off per template.\nHandover includes an editing guide in your brand so the client never needs us.",
+    "seo_description": "White-label Figma-to-WordPress, Webflow, Shopify and Next.js development for branding and design agencies. Built to the frame, delivered under your name."
+   },
+   "links": {
+    "services": [
+     "webflow-development",
+     "white-label-wordpress-development",
+     "shopify-development",
+     "nextjs-sanity-prismic",
+     "headless-wordpress-development",
+     "conversion-rate-optimisation"
+    ]
+   }
+  },
+  {
+   "slug": "web-design-agencies",
+   "title": "Web design agencies",
+   "menu_order": 4,
+   "acf": {
+    "problem": "Overflow months mean turning work away or missing the date you promised.",
+    "relief": "Overflow capacity with a named producer, so the date you promised holds.",
+    "intro": "Some months you have three builds and one developer. We are the second developer you do not have to hire: senior WordPress, WooCommerce, Shopify and Webflow production that starts within days, works to your standards and your deadlines, and disappears at handover.",
+    "workflow": "You send the brief and the date you have promised the client.\nWe confirm capacity and return a fixed-price scope within two business days.\nDaily progress in your shared channel; staging under your brand from day one.\nQA, handover, and a care plan you can resell if the client wants one.",
+    "seo_description": "Overflow web development capacity for web design agencies: white-label WordPress, WooCommerce, Shopify and Webflow builds with a named producer and fixed deadlines."
+   },
+   "links": {
+    "services": [
+     "white-label-wordpress-development",
+     "woocommerce-development",
+     "shopify-development",
+     "webflow-development",
+     "website-rescue-and-fixes",
+     "website-maintenance"
+    ]
+   }
+  },
+  {
+   "slug": "full-service-agencies",
+   "title": "Full-service agencies",
+   "menu_order": 5,
+   "acf": {
+    "problem": "Hiring a specialist for every discipline is not an option at your margin.",
+    "relief": "One partner across development, SEO, paid media and support — one contract, one channel.",
+    "intro": "Full-service means clients expect development, SEO, paid media, automation and support from one place. Staffing every discipline in-house is where the margin goes. We cover all of it under one contract and one channel, so your account managers have one place to send everything.",
+    "workflow": "We agree a monthly retainer sized in hours, across any of our services.\nYour team sends briefs into one channel; a named producer triages and schedules.\nDevelopment, SEO and paid work run in parallel with weekly status you can forward.\nQuarterly review of hours used, what shipped, and what to move in-house or out.",
+    "seo_description": "One white-label partner for full-service agencies: development, SEO, paid media, AI automation and support under a single retainer and a single channel."
+   },
+   "links": {
+    "services": [
+     "white-label-wordpress-development",
+     "white-label-seo-services",
+     "white-label-google-ads-management",
+     "ai-automation",
+     "website-maintenance",
+     "nextjs-postgres-apps"
+    ]
+   }
+  }
+ ],
+ "case_study": [
+  {
+   "slug": "bulk-bag-man",
+   "title": "The Bulk Bag Man",
+   "menu_order": 0,
+   "terms": {
+    "work_category": [
+     "headless-next-js"
+    ],
+    "region": [
+     "united-kingdom"
+    ]
+   },
+   "acf": {
+    "client": "UK aggregates supplier",
+    "role": "Headless architecture · WordPress child theme · Next.js front end",
+    "summary": "A custom WordPress child theme exposes ACF fields, menus and a Supplies post type through the REST API; a Next.js App Router front end renders it on Vercel. Contact form submissions are proxied through a route handler, so the browser never talks to WordPress directly.",
+    "delivered": "WordPress child theme that exposes ACF fields, menus and a Supplies post type through the REST API\nNext.js App Router front end deployed on Vercel\nContact form submissions proxied through a Next.js route handler, so the browser never calls WordPress\nContent editing stays in the WordPress admin the client already knows",
+    "stack": "Headless WordPress\nNext.js\nREST API\nACF\nTypeScript\nVercel",
+    "live_url": "https://bag-man-live-six.vercel.app/"
+   },
+   "image": "/clients/bulk-bag-man.jpg"
+  },
+  {
+   "slug": "heat-pumps-4-pools",
+   "title": "Heat Pumps 4 Pools",
+   "menu_order": 1,
+   "terms": {
+    "work_category": [
+     "e-commerce"
+    ],
+    "region": [
+     "united-kingdom"
+    ]
+   },
+   "acf": {
+    "client": "UK pool-heating retailer",
+    "role": "Developer & maintenance engineer",
+    "summary": "Full WooCommerce build for a pool heating retailer, followed by ongoing maintenance engineering — the kind of care plan agencies resell under their own brand.",
+    "delivered": "Full WooCommerce store build: catalogue, product templates and checkout\nCategory and search structure for a large, technical product range\nOngoing maintenance engineering after launch, not a hand-off and goodbye\nThe same care-plan pattern agencies resell under their own brand",
+    "stack": "WooCommerce\nWordPress\nPHP\nMaintenance",
+    "live_url": "https://heatpumps4pools.com/"
+   },
+   "image": "/clients/heat-pumps-4-pools.jpg"
+  },
+  {
+   "slug": "ascent-energy",
+   "title": "Ascent Energy",
+   "menu_order": 2,
+   "terms": {
+    "work_category": [
+     "e-commerce"
+    ],
+    "region": [
+     "united-kingdom"
+    ]
+   },
+   "acf": {
+    "client": "UK energy retailer",
+    "role": "Project manager & developer",
+    "summary": "A UK energy e-commerce platform delivered end to end — scoping, build and launch — with the project run as well as written.",
+    "delivered": "Scoping and requirements turned into a build plan\nWooCommerce platform for energy products and services\nProject managed through to launch, with the client briefed at each stage",
+    "stack": "WooCommerce\nWordPress\nProject management",
+    "live_url": "https://ascent-energy.co.uk/"
+   },
+   "image": "/clients/ascent-energy.jpg"
+  },
+  {
+   "slug": "mobiledokan24",
+   "title": "MobileDokan24",
+   "menu_order": 3,
+   "terms": {
+    "work_category": [
+     "e-commerce"
+    ],
+    "region": [
+     "bangladesh"
+    ]
+   },
+   "acf": {
+    "client": "Bangladesh mobile retailer",
+    "role": "Developer",
+    "summary": "A mobile-device store built for catalogue-scale product management, with daily merchandising handled by the client's own team.",
+    "delivered": "WooCommerce store for a large, fast-changing device catalogue\nProduct data structure the client's team can manage daily without a developer\nCategory, filter and search paths for shoppers comparing models",
+    "stack": "WooCommerce\nWordPress\nPHP",
+    "live_url": "https://mobiledokan24.com/"
+   },
+   "image": "/clients/mobiledokan24.jpg"
+  },
+  {
+   "slug": "patriot-insurance",
+   "title": "Patriot Insurance Group",
+   "menu_order": 4,
+   "terms": {
+    "work_category": [
+     "corporate"
+    ],
+    "region": [
+     "united-states"
+    ]
+   },
+   "acf": {
+    "client": "US insurance group",
+    "role": "Full-stack developer",
+    "summary": "A full-stack website build for a division of a US insurance group: services architecture, enquiry flows and a content structure the team can maintain.",
+    "delivered": "Full-stack WordPress build for an insurance division\nServices architecture that separates personal, business and industry cover\nEnquiry and quote-request flows\nA content structure the client's team can maintain without breaking templates",
+    "stack": "WordPress\nPHP\nFull-stack",
+    "live_url": "https://dsayles.com/"
+   },
+   "image": "/clients/patriot-insurance.jpg"
+  },
+  {
+   "slug": "ronemus-vilensky",
+   "title": "Ronemus & Vilensky",
+   "menu_order": 5,
+   "terms": {
+    "work_category": [
+     "corporate"
+    ],
+    "region": [
+     "united-states"
+    ]
+   },
+   "acf": {
+    "client": "New York law firm",
+    "role": "Project manager",
+    "summary": "A law firm website with practice-area architecture and consultation enquiry flows, managed from brief to launch.",
+    "delivered": "Practice-area architecture for a multi-practice law firm\nConsultation enquiry flows for prospective clients\nProject managed from brief to launch, with the firm reviewing each stage",
+    "stack": "WordPress\nACF\nProject management",
+    "live_url": "https://www.ronvil.com/"
+   },
+   "image": "/clients/ronemus-vilensky.jpg"
+  },
+  {
+   "slug": "yume-nihongo",
+   "title": "Yume Nihongo",
+   "menu_order": 6,
+   "terms": {
+    "work_category": [
+     "corporate"
+    ],
+    "region": [
+     "bangladesh"
+    ]
+   },
+   "acf": {
+    "client": "Dhaka language school",
+    "role": "Developer",
+    "summary": "A study-in-Japan language school site: courses, admissions guidance and the document-to-visa process laid out for prospective students.",
+    "delivered": "Course and admissions pages for a study-in-Japan programme\nThe document-to-visa process explained step by step for applicants\nEnquiry paths for students and parents",
+    "stack": "WordPress\nEducation",
+    "live_url": "https://yumenihongo.com/"
+   },
+   "image": "/clients/yume-nihongo.jpg"
+  },
+  {
+   "slug": "seo-agency-in-essex",
+   "title": "SEO Agency in Essex",
+   "menu_order": 7,
+   "terms": {
+    "work_category": [
+     "agency-seo"
+    ],
+    "region": [
+     "united-kingdom"
+    ]
+   },
+   "acf": {
+    "client": "UK SEO agency",
+    "role": "Developer",
+    "summary": "An SEO agency's own website, engineered to practise what it preaches: technical SEO and speed first, built for an agency that sells rankings to its clients.",
+    "delivered": "An agency website built technical-SEO first: clean markup, headings and internal linking\nSpeed treated as a requirement, not a plugin added at the end\nService and location page templates the agency can extend itself",
+    "stack": "WordPress\nTechnical SEO\nPerformance",
+    "live_url": "https://seoagencyinessex.co.uk/"
+   },
+   "image": "/clients/seo-agency-in-essex.jpg"
+  }
+ ],
+ "process_step": [
+  {
+   "slug": "brief",
+   "title": "Send the brief",
+   "menu_order": 0,
+   "acf": {
+    "step_key": "brief",
+    "turnaround": "Reply within 1 business day",
+    "summary": "Figma, URL, client notes, SEO or ads requirements — whatever you have. A mutual NDA is available before you share client details.",
+    "artefact": "brief"
+   }
+  },
+  {
+   "slug": "scope",
+   "title": "Scope & quote",
+   "menu_order": 1,
+   "acf": {
+    "step_key": "scope",
+    "turnaround": "Within 2 business days",
+    "summary": "A written scope with deliverables, timeline and a fixed price. Nothing starts until you approve it.",
+    "artefact": "scope"
+   }
+  },
+  {
+   "slug": "production",
+   "title": "Production",
+   "menu_order": 2,
+   "acf": {
+    "step_key": "production",
+    "turnaround": "Timeline fixed in the scope",
+    "summary": "Work happens on a staging URL under your brand, with a named producer in a shared Slack Connect or WhatsApp channel.",
+    "artefact": "staging"
+   }
+  },
+  {
+   "slug": "qa",
+   "title": "QA & review",
+   "menu_order": 3,
+   "acf": {
+    "step_key": "qa",
+    "turnaround": "Published checklist, every build",
+    "summary": "Cross-browser, real-device, accessibility and Core Web Vitals checks against the same checklist you can read on this site.",
+    "artefact": "qa"
+   }
+  },
+  {
+   "slug": "delivery",
+   "title": "Agency delivery",
+   "menu_order": 4,
+   "acf": {
+    "step_key": "delivery",
+    "turnaround": "Handover doc with every launch",
+    "summary": "You present the work to your client. We hand over documentation, credentials are transferred, and our name appears nowhere.",
+    "artefact": "handover"
+   }
+  }
+ ],
+ "plan": [
+  {
+   "slug": "essential",
+   "title": "Essential",
+   "menu_order": 0,
+   "acf": {
+    "plan_key": "essential",
+    "best_for": "For agencies testing unbranded delivery with their first few client projects.",
+    "includes": "1 active project at a time\nWordPress and WooCommerce builds\nStandard turnaround (10–15 business days)\nUp to 5 pages per project\nMobile-responsive on every build\nEmail support, 1 business day",
+    "price_from": "£500",
+    "period": "/month",
+    "badge": ""
+   }
+  },
+  {
+   "slug": "growth",
+   "title": "Growth",
+   "menu_order": 1,
+   "acf": {
+    "plan_key": "growth",
+    "best_for": "For agencies with steady, ongoing client work who need predictable capacity.",
+    "includes": "Up to 3 active projects at a time\nWordPress, WooCommerce and headless Next.js\nPriority turnaround (7–10 business days)\nUp to 10 pages per project\nA named producer and shared channel\nPriority email and chat support",
+    "price_from": "£1,200",
+    "period": "/month",
+    "badge": "Recommended"
+   }
+  },
+  {
+   "slug": "premium",
+   "title": "Premium",
+   "menu_order": 2,
+   "acf": {
+    "plan_key": "premium",
+    "best_for": "For agencies scaling client delivery fast without adding headcount.",
+    "includes": "Up to 6 active projects at a time\nBuilds, AI automation, SEO and paid media\nFast-track turnaround (5–7 business days)\nUp to 15 pages per project\nA named producer and shared channel\nPriority support, same-day response",
+    "price_from": "£2,400",
+    "period": "/month",
+    "badge": ""
+   }
+  },
+  {
+   "slug": "enterprise",
+   "title": "Enterprise",
+   "menu_order": 3,
+   "acf": {
+    "plan_key": "enterprise",
+    "best_for": "For agencies with high-volume, complex or custom ongoing needs.",
+    "includes": "Unlimited active projects, billed monthly\nThe full white-label suite\nTurnaround agreed in writing\nCapacity planning and reporting\nA named producer and shared channel\nMulti-brand and multi-team support",
+    "price_from": "",
+    "period": "",
+    "badge": ""
+   }
+  }
+ ],
+ "faq": [
+  {
+   "slug": "",
+   "title": "Will my client ever know you exist?",
+   "menu_order": 0,
+   "terms": {
+    "faq_group": [
+     "general"
+    ]
+   },
+   "acf": {
+    "answer": "Not from us. Staging domains, commit messages, documents and reports carry your brand. We never contact your client, and we do not list your projects anywhere without your written permission."
+   }
+  },
+  {
+   "slug": "",
+   "title": "Where is the team, and what hours do you cover?",
+   "menu_order": 1,
+   "terms": {
+    "faq_group": [
+     "general"
+    ]
+   },
+   "acf": {
+    "answer": "Dhaka, Bangladesh (UTC+6, no daylight saving). That gives a full morning overlap with the UK and Europe and an early-morning overlap with the US East Coast. A brief sent at the end of your day is usually in review by your next morning."
+   }
+  },
+  {
+   "slug": "",
+   "title": "How do you price work?",
+   "menu_order": 2,
+   "terms": {
+    "faq_group": [
+     "general"
+    ]
+   },
+   "acf": {
+    "answer": "Project work is a fixed price against a written scope. Ongoing work runs on a monthly retainer sized in hours. You get a scope and quote within two business days of a brief, and nothing starts until you approve it."
+   }
+  },
+  {
+   "slug": "",
+   "title": "What do you need from us to start?",
+   "menu_order": 3,
+   "terms": {
+    "faq_group": [
+     "general"
+    ]
+   },
+   "acf": {
+    "answer": "Whatever you have: a Figma file, a live URL, a client email, an SEO audit, an ads account structure. We will ask the missing questions in the scoping call rather than guess."
+   }
+  },
+  {
+   "slug": "",
+   "title": "How are client credentials handled?",
+   "menu_order": 4,
+   "terms": {
+    "faq_group": [
+     "general"
+    ]
+   },
+   "acf": {
+    "answer": "Through a shared password-manager vault with least-privilege access — a scoped WordPress role, Shopify staff permissions or GA4 property access rather than owner logins. Access is revoked at handover and confirmed in writing."
+   }
+  },
+  {
+   "slug": "",
+   "title": "Can you sign our NDA and contractor agreement?",
+   "menu_order": 5,
+   "terms": {
+    "faq_group": [
+     "general"
+    ]
+   },
+   "acf": {
+    "answer": "Yes. We can work under your paperwork or provide a mutual NDA before you share any client details. For EU and UK client data we work under Standard Contractual Clauses or the UK IDTA and a data processing agreement."
+   }
+  },
+  {
+   "slug": "",
+   "title": "What if a project does not fit a plan?",
+   "menu_order": 100,
+   "terms": {
+    "faq_group": [
+     "pricing"
+    ]
+   },
+   "acf": {
+    "answer": "Tell us in the brief. Anything outside a plan — a one-off build, a migration, a rescue — is scoped and quoted separately, with a written scope and a fixed price before any work starts."
+   }
+  },
+  {
+   "slug": "",
+   "title": "What counts as an active project?",
+   "menu_order": 101,
+   "terms": {
+    "faq_group": [
+     "pricing"
+    ]
+   },
+   "acf": {
+    "answer": "One client website in production at a time. You can send as many briefs as you like; the plan limits how many run in parallel, not how many you queue."
+   }
+  },
+  {
+   "slug": "",
+   "title": "What about rush work?",
+   "menu_order": 102,
+   "terms": {
+    "faq_group": [
+     "pricing"
+    ]
+   },
+   "acf": {
+    "answer": "Say so in the brief. If we can hit the date we will tell you what it costs; if we cannot, we will tell you that instead of taking the work and missing it."
+   }
+  },
+  {
+   "slug": "",
+   "title": "Do you mark up third-party costs?",
+   "menu_order": 103,
+   "terms": {
+    "faq_group": [
+     "pricing"
+    ]
+   },
+   "acf": {
+    "answer": "No. Hosting, plugins, ad spend and tools are billed at cost or held in your accounts. We quote our work; everything else is transparent."
+   }
+  }
+ ],
+ "promise": [
+  {
+   "slug": "nda",
+   "title": "Mutual NDA before the brief",
+   "menu_order": 0,
+   "acf": {
+    "promise_key": "nda",
+    "detail": "Our template or yours, signed before you share a client's name."
+   }
+  },
+  {
+   "slug": "no-contact",
+   "title": "We never contact your client",
+   "menu_order": 1,
+   "acf": {
+    "promise_key": "no-contact",
+    "detail": "No emails, no LinkedIn, no portfolio use without your written permission."
+   }
+  },
+  {
+   "slug": "producer",
+   "title": "A named producer on every project",
+   "menu_order": 2,
+   "acf": {
+    "promise_key": "producer",
+    "detail": "One person owns your project and answers in your shared channel."
+   }
+  },
+  {
+   "slug": "fixed",
+   "title": "Fixed-price scope, agreed first",
+   "menu_order": 3,
+   "acf": {
+    "promise_key": "fixed",
+    "detail": "The quote is the price. Scope changes are written down before they are built."
+   }
+  },
+  {
+   "slug": "defects",
+   "title": "Post-launch defects fixed at our cost",
+   "menu_order": 4,
+   "acf": {
+    "promise_key": "defects",
+    "detail": "If it was in the scope and it breaks, we fix it. No invoice."
+   }
+  }
+ ],
+ "clause": [
+  {
+   "slug": "",
+   "title": "Your client stays yours",
+   "menu_order": 0,
+   "acf": {
+    "body": "We will not approach, market to, quote for or accept work from your client — during the project or after it."
+   }
+  },
+  {
+   "slug": "",
+   "title": "No credit, no footprint",
+   "menu_order": 1,
+   "acf": {
+    "body": "No footer links, no watermarks, no 'built by' anywhere. Commit messages, staging domains and documents carry your brand."
+   }
+  },
+  {
+   "slug": "",
+   "title": "Confidential by default",
+   "menu_order": 2,
+   "acf": {
+    "body": "Mutual NDA on request before the brief. Credentials live in a shared vault, never in email, and are revoked and confirmed at handover."
+   }
+  },
+  {
+   "slug": "",
+   "title": "You own the relationship",
+   "menu_order": 3,
+   "acf": {
+    "body": "Strategy, communication, billing and the commercial relationship are yours. We handle production and execution."
+   }
+  },
+  {
+   "slug": "",
+   "title": "Data handled lawfully",
+   "menu_order": 4,
+   "acf": {
+    "body": "Bangladesh is not on the EU adequacy list, so we work under Standard Contractual Clauses, the UK IDTA and an Article 28 data processing agreement."
+   }
+  }
+ ],
+ "team_member": [
+  {
+   "slug": "",
+   "title": "Md Alamgir Hossen",
+   "menu_order": 0,
+   "acf": {
+    "role": "Founder · Senior WordPress & Next.js developer",
+    "headline": "Building SoftVolt AI's production side — the code, the QA and the handover",
+    "bio": "Nine years of PHP, WordPress, WooCommerce and Elementor work for agencies in the UK and Bangladesh, most recently leading the WordPress team at a UK agency. Custom themes and plugins, headless WordPress with Next.js, and the unglamorous fixes that keep client sites alive.",
+    "quote": "",
+    "facts": "BSc in Computer Science & Engineering\nTeam lead at a UK agency\nBased in Dhaka, works UK and US hours",
+    "linkedin": "https://www.linkedin.com/in/wordpress-developer-alan/"
+   },
+   "image": "/founder.png"
+  },
+  {
+   "slug": "",
+   "title": "Md Mazidul Hossain Likhon",
+   "menu_order": 1,
+   "acf": {
+    "role": "Co-founder · SEO & search strategy",
+    "headline": "Building future-ready search — semantic SEO, link building and AI-driven optimisation (GEO & AEO)",
+    "bio": "An SEO specialist with a deep focus on link building and outreach. Four years of hands-on experience across more than 50 clients, building tailored strategies with semantic SEO and AI-driven search optimisation — GEO and AEO.",
+    "quote": "",
+    "facts": "4+ years in SEO\n50+ clients\nSemantic SEO, GEO & AEO",
+    "linkedin": "https://www.linkedin.com/in/md-mazidul-hossain-likhon/"
+   },
+   "image": "/team-likhon.png"
+  }
+ ],
+ "testimonial": [],
+ "client": [
+  {
+   "slug": "",
+   "title": "The Bulk Bag Man",
+   "menu_order": 5,
+   "acf": {
+    "country": "UK",
+    "work": "Headless WordPress + Next.js",
+    "url": "https://bag-man-live-six.vercel.app/",
+    "featured": true,
+    "logo_fill": false
+   },
+   "image": null
+  },
+  {
+   "slug": "",
+   "title": "Heat Pumps 4 Pools",
+   "menu_order": 0,
+   "acf": {
+    "country": "UK",
+    "work": "WooCommerce store",
+    "url": "https://heatpumps4pools.com/",
+    "featured": true,
+    "logo_fill": false
+   },
+   "image": "/clients/logos/heat-pumps-4-pools.png"
+  },
+  {
+   "slug": "",
+   "title": "Ascent Energy",
+   "menu_order": 1,
+   "acf": {
+    "country": "UK",
+    "work": "WooCommerce build",
+    "url": "https://ascent-energy.co.uk/",
+    "featured": true,
+    "logo_fill": false
+   },
+   "image": "/clients/logos/ascent-energy.png"
+  },
+  {
+   "slug": "",
+   "title": "SEO Agency in Essex",
+   "menu_order": 2,
+   "acf": {
+    "country": "UK",
+    "work": "Technical-SEO site",
+    "url": "https://seoagencyinessex.co.uk/",
+    "featured": true,
+    "logo_fill": false
+   },
+   "image": "/clients/logos/seo-agency-in-essex.png"
+  },
+  {
+   "slug": "",
+   "title": "Online Marketing Help",
+   "menu_order": 54,
+   "acf": {
+    "country": "UK",
+    "work": "Agency WordPress team",
+    "url": "",
+    "featured": false,
+    "logo_fill": false
+   },
+   "image": null
+  },
+  {
+   "slug": "",
+   "title": "Patriot Insurance Group",
+   "menu_order": 6,
+   "acf": {
+    "country": "US",
+    "work": "Full-stack WordPress",
+    "url": "https://dsayles.com/",
+    "featured": true,
+    "logo_fill": false
+   },
+   "image": null
+  },
+  {
+   "slug": "",
+   "title": "Ronemus & Vilensky",
+   "menu_order": 3,
+   "acf": {
+    "country": "US",
+    "work": "Law firm website",
+    "url": "https://www.ronvil.com/",
+    "featured": true,
+    "logo_fill": true
+   },
+   "image": "/clients/logos/ronemus-vilensky.png"
+  },
+  {
+   "slug": "",
+   "title": "MobileDokan24",
+   "menu_order": 7,
+   "acf": {
+    "country": "BD",
+    "work": "WooCommerce catalogue",
+    "url": "https://mobiledokan24.com/",
+    "featured": true,
+    "logo_fill": false
+   },
+   "image": null
+  },
+  {
+   "slug": "",
+   "title": "GFC Fans BD",
+   "menu_order": 58,
+   "acf": {
+    "country": "BD",
+    "work": "Brand store",
+    "url": "https://gfcfansbd.com/",
+    "featured": false,
+    "logo_fill": false
+   },
+   "image": null
+  },
+  {
+   "slug": "",
+   "title": "Yume Nihongo",
+   "menu_order": 4,
+   "acf": {
+    "country": "BD",
+    "work": "Education website",
+    "url": "https://yumenihongo.com/",
+    "featured": true,
+    "logo_fill": false
+   },
+   "image": "/clients/logos/yume-nihongo.png"
+  },
+  {
+   "slug": "",
+   "title": "Bhalogari",
+   "menu_order": 60,
+   "acf": {
+    "country": "BD",
+    "work": "Web development",
+    "url": "",
+    "featured": false,
+    "logo_fill": false
+   },
+   "image": null
+  },
+  {
+   "slug": "",
+   "title": "Dropndot",
+   "menu_order": 61,
+   "acf": {
+    "country": "BD",
+    "work": "Agency development",
+    "url": "",
+    "featured": false,
+    "logo_fill": false
+   },
+   "image": null
+  }
+ ]
+}

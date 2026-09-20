@@ -33,6 +33,7 @@ require_once SOFTVOLT_HEADLESS_DIR . 'inc/fields.php';
 require_once SOFTVOLT_HEADLESS_DIR . 'inc/settings.php';
 require_once SOFTVOLT_HEADLESS_DIR . 'inc/graphql.php';
 require_once SOFTVOLT_HEADLESS_DIR . 'inc/preview.php';
+require_once SOFTVOLT_HEADLESS_DIR . 'inc/media.php';
 require_once SOFTVOLT_HEADLESS_DIR . 'inc/revalidate.php';
 require_once SOFTVOLT_HEADLESS_DIR . 'inc/headless.php';
 
