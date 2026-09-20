@@ -22,7 +22,7 @@ export function ServicePillars({ pillars }: { pillars: PillarGroup[] }) {
       />
 
       <div className="mt-10 grid gap-5 lg:grid-cols-3">
-        <PillarCard pillar={byId.build} className="lg:col-span-2" visual={<BuildVisual />} wide featured={6} />
+        <PillarCard pillar={byId.build} className="lg:col-span-2" visual={<BuildVisual />} wide featured={8} />
         <PillarCard pillar={byId.automate} visual={<AutomateVisual />} delay={80} />
         <PillarCard pillar={byId.grow} visual={<GrowVisual />} delay={120} />
         <PillarCard pillar={byId.support} visual={<SupportVisual />} delay={160} />
@@ -32,11 +32,28 @@ export function ServicePillars({ pillars }: { pillars: PillarGroup[] }) {
           <div className="relative">
             <span className="pill">Not sure where it fits?</span>
             <h3 className="display mt-5 text-[26px] leading-[1.1]">Send the brief. The scope tells you which service — and what it costs.</h3>
+            {/* what the brief actually gets back, so the card is an answer rather than a slogan */}
+            <ol className="mt-7 space-y-3.5">
+              {[
+                { k: "01", t: "A named producer replies", m: "Within 1 business day" },
+                { k: "02", t: "Scope, line by line, priced", m: "Within 2 business days" },
+                { k: "03", t: "Work starts on your approval", m: "Fixed price, your brand" },
+              ].map((s) => (
+                <li key={s.k} className="grid grid-cols-[28px_1fr] gap-3 border-t border-er-line pt-3.5">
+                  <span className="mono text-[12px] text-volt">{s.k}</span>
+                  <span>
+                    <span className="ui block text-[14px] font-bold leading-snug text-er-ink">{s.t}</span>
+                    <span className="mono mt-1 block text-[11px] uppercase tracking-[0.08em] text-er-muted">{s.m}</span>
+                  </span>
+                </li>
+              ))}
+            </ol>
           </div>
           <div className="relative mt-8">
             <Button href="/contact" variant="onDark">
               Send us a brief
             </Button>
+            <p className="mt-4 text-[13px] leading-relaxed text-er-muted">Client names can wait until the NDA is signed.</p>
           </div>
         </article>
       </div>
@@ -130,7 +147,30 @@ function PillarCard({
 
 /* ---------- visuals: illustrative, drawn in code, no stock imagery ---------- */
 
+/** What every build ships with, under the mock — it fills the column beside the service list. */
+const BUILD_INCLUDES = [
+  { k: "Staging", v: "A password-protected link on your domain, from day one" },
+  { k: "QA", v: "A checklist signed off before anything reaches your client" },
+  { k: "Handover", v: "A document your client can read, and the repo if you want it" },
+];
+
 function BuildVisual() {
+  return (
+    <div>
+      <Mocks />
+      <dl className="mt-8 space-y-3">
+        {BUILD_INCLUDES.map((i) => (
+          <div key={i.k} className="grid grid-cols-[76px_1fr] gap-3 border-t border-line pt-3">
+            <dt className="mono text-[11px] uppercase tracking-[0.08em] text-accent">{i.k}</dt>
+            <dd className="text-[13px] leading-snug text-muted">{i.v}</dd>
+          </div>
+        ))}
+      </dl>
+    </div>
+  );
+}
+
+function Mocks() {
   return (
     <div className="relative h-[210px]" aria-hidden="true">
       {[

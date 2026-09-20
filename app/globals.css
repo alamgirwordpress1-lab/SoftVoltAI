@@ -560,10 +560,30 @@ body {
   }
 }
 
+/* ---------- pointer cursor on anything that answers a click ----------
+   Tailwind v4's Preflight follows the browser and leaves buttons on the arrow.
+   Every button, summary and select on this site is a real action, and a label
+   with a `for` moves focus, so they all say so. */
+button:not(:disabled),
+summary,
+select:not(:disabled),
+[role="button"]:not([aria-disabled="true"]),
+label[for],
+label:has(input[type="checkbox"]),
+label:has(input[type="radio"]) {
+  cursor: pointer;
+}
+/* a label wrapped around a text field is not a button: clicking it starts typing */
+label:has(input[type="text"]),
+label:has(input[type="email"]),
+label:has(input[type="url"]),
+label:has(textarea) {
+  cursor: text;
+}
+
 /* ---------- native details accordion ---------- */
 details.faq summary {
   list-style: none;
-  cursor: pointer;
 }
 details.faq summary::-webkit-details-marker {
   display: none;
