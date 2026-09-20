@@ -10,7 +10,8 @@ import "./globals.css";
 // Four families, one job each: display headings, body copy, interface, data.
 const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
-  weight: ["600", "700", "800"],
+  // 600 is never rendered anywhere on the site; 700 and 800 are the display weights
+  weight: ["700", "800"],
   variable: "--font-jakarta",
   display: "swap",
 });

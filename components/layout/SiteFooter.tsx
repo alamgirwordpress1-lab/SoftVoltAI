@@ -29,7 +29,7 @@ function Column({ title, links }: { title: string; links: { label: string; href:
       <ul className="mt-6 space-y-3.5">
         {links.map((l) => (
           <li key={l.href}>
-            <Link href={l.href} className="group inline-flex items-center text-[15px] text-er-muted transition-colors duration-200 hover:text-er-ink">
+            <Link href={l.href} prefetch={false} className="group inline-flex items-center text-[15px] text-er-muted transition-colors duration-200 hover:text-er-ink">
               <span className="mr-0 h-px w-0 bg-volt transition-[width,margin] duration-300 ease-[var(--ease-out-quint)] group-hover:mr-2 group-hover:w-3" aria-hidden="true" />
               {l.label}
             </Link>

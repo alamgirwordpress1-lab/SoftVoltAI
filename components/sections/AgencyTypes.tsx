@@ -26,7 +26,7 @@ export function AgencyTypes({ items }: { items: AgencyType[] }) {
         <ul className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
           {items.map((a, i) => (
             <li key={a.slug} data-reveal style={{ ["--reveal-delay" as string]: `${i * 60}ms` }}>
-              <Link href={`/for/${a.slug}`} className="card card-lift shadow-soft group flex h-full flex-col bg-paper p-6 md:p-7">
+              <Link href={`/for/${a.slug}`} prefetch={false} className="card card-lift shadow-soft group flex h-full flex-col bg-paper p-6 md:p-7">
                 <span className="icon-tile transition-transform duration-500 ease-[var(--ease-out-quint)] group-hover:-rotate-6 group-hover:scale-110">
                   <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                     {GLYPHS[a.slug]}

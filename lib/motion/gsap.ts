@@ -1,10 +1,10 @@
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { SplitText } from "gsap/SplitText";
 
-// GSAP 3.13+ is free for commercial use, SplitText and ScrollTrigger included.
+// GSAP 3.13+ is free for commercial use, ScrollTrigger included. SplitText is not
+// registered: nothing on the site splits text, and the plugin is not free weight.
 if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger, SplitText);
+  gsap.registerPlugin(ScrollTrigger);
   gsap.defaults({ ease: "power3.out", duration: 0.8 });
 }
 
@@ -13,4 +13,4 @@ export function prefersReducedMotion() {
   return typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 }
 
-export { gsap, ScrollTrigger, SplitText };
+export { gsap, ScrollTrigger };

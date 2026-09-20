@@ -64,7 +64,7 @@ export default async function ForIndexPage() {
         <ul className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
           {types.map((a, i) => (
             <li key={a.slug} data-reveal style={{ ["--reveal-delay" as string]: `${i * 60}ms` }}>
-              <Link href={`/for/${a.slug}`} className="card card-lift shadow-soft group flex h-full flex-col p-7">
+              <Link href={`/for/${a.slug}`} prefetch={false} className="card card-lift shadow-soft group flex h-full flex-col p-7">
                 <h3 className="text-xl font-semibold tracking-[-0.01em] text-ink">{a.name}</h3>
                 <p className="mt-3 text-[15px] leading-relaxed text-muted">{a.problem}</p>
                 <p className="mt-3 text-[15px] leading-relaxed text-ink">→ {a.relief}</p>

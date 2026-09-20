@@ -68,7 +68,7 @@ export default async function ServicesPage() {
             <ul className="grid gap-4 sm:grid-cols-2 lg:col-span-8">
               {p.services.map((s, j) => (
                 <li key={s.slug} data-reveal style={{ ["--reveal-delay" as string]: `${j * 50}ms` }}>
-                  <Link href={`/services/${s.slug}`} className="card card-lift shadow-soft group flex h-full flex-col p-6">
+                  <Link href={`/services/${s.slug}`} prefetch={false} className="card card-lift shadow-soft group flex h-full flex-col p-6">
                     <h3 className="text-lg font-semibold tracking-[-0.01em] text-ink">{s.name}</h3>
                     <p className="mt-2 text-[14px] leading-relaxed text-muted">{s.summary}</p>
                     <span className="mono mt-auto inline-flex items-center gap-1.5 pt-5 text-[11px] uppercase tracking-[0.1em] text-accent">

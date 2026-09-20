@@ -100,6 +100,8 @@ export function NavDropdown({
             >
               <Link
                 href={it.href}
+                // closed dropdowns are only invisible, so their links would prefetch on every page
+                prefetch={false}
                 onClick={close}
                 tabIndex={open ? 0 : -1}
                 className="group flex items-start gap-3 rounded-lg px-3 py-2.5 transition-colors duration-150 hover:bg-paper"

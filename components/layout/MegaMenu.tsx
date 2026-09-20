@@ -52,6 +52,9 @@ export function MegaMenu({ pillars, active = false }: { pillars: PillarGroup[]; 
     >
       <Link
         href={href}
+        // the panel holds thirty links and is only visibility-hidden when closed:
+        // without this every page load prefetches the whole menu
+        prefetch={false}
         onClick={close}
         tabIndex={open ? 0 : -1}
         className="group -mx-2 flex items-center gap-2.5 rounded-md px-2 py-[7px] text-[14px] text-ink transition-colors duration-150 hover:bg-paper"
@@ -68,7 +71,7 @@ export function MegaMenu({ pillars, active = false }: { pillars: PillarGroup[]; 
         className={cn("transition-[opacity,translate] duration-500 ease-[var(--ease-out-quint)]", open ? "translate-y-0 opacity-100" : "translate-y-3 opacity-0")}
         style={{ transitionDelay: open ? `${60 + col * 55}ms` : "0ms" }}
       >
-        <Link href={`/services#pillar-${p.id}`} onClick={close} tabIndex={open ? 0 : -1} className="eyebrow hover:underline">
+        <Link href={`/services#pillar-${p.id}`} prefetch={false} onClick={close} tabIndex={open ? 0 : -1} className="eyebrow hover:underline">
           {p.name}
         </Link>
         <p className="mt-2 max-w-[42ch] text-[13px] leading-snug text-muted">{p.tagline}</p>

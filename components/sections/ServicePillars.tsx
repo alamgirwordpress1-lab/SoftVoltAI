@@ -104,7 +104,7 @@ function PillarCard({
           <ul className="grid gap-x-8 gap-y-4 sm:grid-cols-2">
             {shown.map((s) => (
               <li key={s.slug} className="border-t border-line pt-3.5">
-                <Link href={`/services/${s.slug}`} className="group/s block">
+                <Link href={`/services/${s.slug}`} prefetch={false} className="group/s block">
                   <p className="ui text-[15px] font-bold leading-snug text-ink transition-colors group-hover/s:text-accent">
                     {s.name}
                     <span className="ml-1.5 inline-block opacity-0 transition-[opacity,transform] duration-200 group-hover/s:translate-x-0.5 group-hover/s:opacity-100" aria-hidden="true">
@@ -123,7 +123,7 @@ function PillarCard({
           <ul className="mt-6 flex flex-wrap gap-2">
             {shown.map((s) => (
               <li key={s.slug}>
-                <Link href={`/services/${s.slug}`} className="block transition-transform duration-200 hover:-translate-y-0.5">
+                <Link href={`/services/${s.slug}`} prefetch={false} className="block transition-transform duration-200 hover:-translate-y-0.5">
                   <Chip className="hover:border-accent hover:text-accent">{s.name}</Chip>
                 </Link>
               </li>

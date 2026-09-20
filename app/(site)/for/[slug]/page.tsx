@@ -125,7 +125,7 @@ export default async function AgencyTypePage({ params }: { params: Promise<{ slu
         <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {type.serviceItems.map((s, i) => (
             <li key={s.slug} data-reveal style={{ ["--reveal-delay" as string]: `${i * 50}ms` }}>
-              <Link href={`/services/${s.slug}`} className="card card-lift shadow-soft flex h-full flex-col p-6">
+              <Link href={`/services/${s.slug}`} prefetch={false} className="card card-lift shadow-soft flex h-full flex-col p-6">
                 <span className="eyebrow">{s.pillar}</span>
                 <h3 className="mt-3 text-lg font-semibold text-ink">{s.name}</h3>
                 <p className="mt-2 text-[14px] leading-relaxed text-muted">{s.summary}</p>

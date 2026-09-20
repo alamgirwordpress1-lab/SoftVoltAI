@@ -90,7 +90,7 @@ export function WorkGrid({
               <div className="flex flex-1 flex-col p-6">
                 <span className="eyebrow">{w.category}</span>
                 <h3 className="mt-3 text-2xl font-semibold tracking-[-0.01em] text-ink">
-                  <Link href={`/case-studies/${w.slug}`} className="transition-colors hover:text-accent">
+                  <Link href={`/case-studies/${w.slug}`} prefetch={false} className="transition-colors hover:text-accent">
                     {w.title}
                   </Link>
                 </h3>
@@ -108,6 +108,7 @@ export function WorkGrid({
                 <div className="mt-auto flex flex-wrap items-center gap-x-5 gap-y-2 pt-6">
                   <Link
                     href={`/case-studies/${w.slug}`}
+                    prefetch={false}
                     className="ui inline-flex items-center gap-1.5 text-[15px] font-semibold text-ink underline decoration-line underline-offset-4 transition-colors group-hover:decoration-accent"
                   >
                     Read the case study

@@ -106,7 +106,7 @@ export function CaseByType({ items, categories }: { items: WorkItem[]; categorie
               <ul className="mt-5 space-y-2 border-t border-line pt-4">
                 {g.builds.map((b) => (
                   <li key={b.slug}>
-                    <Link href={`/case-studies/${b.slug}`} className="ui group flex items-baseline justify-between gap-3 text-[14px] font-semibold text-ink hover:text-accent">
+                    <Link href={`/case-studies/${b.slug}`} prefetch={false} className="ui group flex items-baseline justify-between gap-3 text-[14px] font-semibold text-ink hover:text-accent">
                       <span>{b.title}</span>
                       <span className="mono text-[11px] uppercase tracking-[0.08em] text-muted transition-colors group-hover:text-accent">{b.region}</span>
                     </Link>
@@ -158,7 +158,7 @@ export function CaseByMarketAndStack({ items }: { items: WorkItem[] }) {
                   {r.builds.map((b, k) => (
                     <span key={b.slug}>
                       {k > 0 ? " · " : ""}
-                      <Link href={`/case-studies/${b.slug}`} className="text-ink underline-offset-4 hover:text-accent hover:underline">
+                      <Link href={`/case-studies/${b.slug}`} prefetch={false} className="text-ink underline-offset-4 hover:text-accent hover:underline">
                         {b.title}
                       </Link>
                     </span>
@@ -188,6 +188,7 @@ export function CaseByMarketAndStack({ items }: { items: WorkItem[] }) {
                   {href ? (
                     <Link
                       href={href}
+                      prefetch={false}
                       className="ui inline-flex items-center gap-2 rounded-full border border-line-strong bg-surface px-3.5 py-1.5 text-[13px] font-semibold text-ink transition-colors duration-200 hover:border-ink hover:text-accent"
                     >
                       {body}
