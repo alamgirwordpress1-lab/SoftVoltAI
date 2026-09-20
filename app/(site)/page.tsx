@@ -15,7 +15,6 @@ import { Founder } from "@/components/sections/Founder";
 import { Rates } from "@/components/sections/Rates";
 import { Faq } from "@/components/sections/Faq";
 import { BriefCta } from "@/components/sections/BriefCta";
-import { CtaBand } from "@/components/sections/CtaBand";
 import { cms } from "@/lib/cms";
 
 export default async function HomePage() {
@@ -57,8 +56,8 @@ export default async function HomePage() {
       <WorkGrid items={work} categories={workCategories} limit={6} />
       <Founder team={team} />
       <Faq faqs={faqs} />
+      {/* the brief form is the page’s closing call: a CtaBand under it would only repeat the ask */}
       <BriefCta />
-      <CtaBand />
       <StickyCta />
     </>
   );

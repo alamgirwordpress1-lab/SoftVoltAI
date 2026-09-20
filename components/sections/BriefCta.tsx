@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { BriefForm } from "@/components/sections/BriefForm";
 import { site } from "@/content/site";
 
@@ -42,6 +43,25 @@ export function BriefCta() {
               </dd>
             </div>
           </dl>
+
+          {/* the page ends on this form, so the last word goes to the reader who
+              is not ready to fill it in yet */}
+          <div className="mt-10 border-t border-line pt-6">
+            <p className="mono text-[11px] uppercase tracking-[0.1em] text-muted">Not ready to brief?</p>
+            <ul className="mt-3 flex flex-wrap gap-x-6 gap-y-2">
+              {[
+                { label: "See what we have built", href: "/case-studies" },
+                { label: "How pricing works", href: "/rates" },
+                { label: "Partner programme", href: "/partner-programme" },
+              ].map((l) => (
+                <li key={l.href}>
+                  <Link href={l.href} className="ui text-[15px] font-semibold text-ink underline decoration-line underline-offset-4 transition-colors hover:decoration-accent">
+                    {l.label} <span aria-hidden="true">→</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
         <div className="lg:col-span-7" data-reveal style={{ ["--reveal-delay" as string]: "100ms" }}>
           <BriefForm />
