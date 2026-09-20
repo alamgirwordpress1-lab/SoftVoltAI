@@ -24,7 +24,7 @@ import { buildDetails } from "@/content/service-details-build";
 import { automateDetails } from "@/content/service-details-automate";
 import { growDetails } from "@/content/service-details-grow";
 import { supportDetails } from "@/content/service-details-support";
-import { wpAgencyTypes, wpCollections, wpPage, wpPost, wpPosts, wpServices, wpSlugs, wpWork } from "@/lib/cms/wordpress";
+import { wpAgencyTypes, wpCollections, wpOpener, wpPage, wpPost, wpPosts, wpServices, wpSettings, wpSlugs, wpWork } from "@/lib/cms/wordpress";
 import type { Service, ServiceDetail, PillarGroup, AgencyType } from "@/lib/cms/types";
 
 const details: Record<string, ServiceDetail> = { ...buildDetails, ...automateDetails, ...growDetails, ...supportDetails };
@@ -38,6 +38,9 @@ const fromWpServices = cache(wpServices);
 const fromWpAgencyTypes = cache(wpAgencyTypes);
 const fromWpWork = cache(wpWork);
 const fromWpCollections = cache(wpCollections);
+const fromWpSettings = cache(wpSettings);
+/** One read per page per request, however many bands on it ask for the opener. */
+const fromWpOpener = cache(wpOpener);
 
 export interface ServicePage extends Service, ServiceDetail {
   pillarGroup: PillarGroup;
@@ -119,8 +122,15 @@ export const cms = {
   },
 
   // the stack list and the clocks are structural, not editorial: they stay in code
-  getStack: async () => stack,
-  getClocks: async () => clocks,
+  getStack: async () => {
+    const wp = await fromWpCollections();
+    return wp?.stack.length ? wp.stack : stack;
+  },
+
+  getClocks: async () => {
+    const wp = await fromWpCollections();
+    return wp?.clocks.length ? wp.clocks : clocks;
+  },
 
   getEngagementModels: async () => {
     const wp = await fromWpCollections();
@@ -152,7 +162,13 @@ export const cms = {
     return globeCards;
   },
 
-  getComparison: async () => ({ rows: comparison, source: comparisonSource }),
+  getComparison: async () => {
+    const [wp, settings] = await Promise.all([fromWpCollections(), fromWpSettings()]);
+    return {
+      rows: wp?.comparison.length ? wp.comparison : comparison,
+      source: settings?.comparisonSource?.label ? settings.comparisonSource : comparisonSource,
+    };
+  },
 
   getTestimonials: async () => {
     const wp = await fromWpCollections();
@@ -171,6 +187,14 @@ export const cms = {
 
   /** Every slug WordPress publishes — the sitemap and generateStaticParams read this. */
   getWpSlugs: async () => wpSlugs(),
+
+  /**
+   * The banner and intro band an editor wrote for one of the designed pages.
+   *
+   * Null when WordPress has no page at that path, and every field inside can
+   * be empty — the page keeps whatever it has in code for anything unset.
+   */
+  getOpener: async (uri: string) => fromWpOpener(uri),
 };
 
 export type Cms = typeof cms;

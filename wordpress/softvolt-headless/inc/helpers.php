@@ -42,6 +42,10 @@ function softvolt_settings_schema(): array
         'markets'           => ['label' => 'Markets served', 'type' => 'lines', 'default' => "United Kingdom\nUnited States\nCanada\nAustralia\nEuropean Union", 'help' => 'One per line. Drives the globe arcs and the schema areaServed.'],
         'social_links'      => ['label' => 'Social links', 'type' => 'lines', 'default' => '', 'help' => 'One per line, as "Label | https://…".'],
 
+        // the one figure quoted in the comparison table, and where it came from
+        'comparison_source_label' => ['label' => 'Comparison source', 'type' => 'text', 'default' => '', 'help' => 'The publication the figure in the table is quoted from. It is printed under the table, so it has to be checkable.'],
+        'comparison_source_url'   => ['label' => 'Comparison source link', 'type' => 'url', 'default' => ''],
+
         // the forms
         'cf7_brief_id'      => ['label' => 'Contact Form 7 — brief form ID', 'type' => 'text', 'default' => ''],
         'cf7_contact_id'    => ['label' => 'Contact Form 7 — message form ID', 'type' => 'text', 'default' => ''],

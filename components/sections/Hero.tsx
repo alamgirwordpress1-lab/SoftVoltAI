@@ -9,9 +9,13 @@ import { Button } from "@/components/ui/Button";
 import { OrbitGlobe } from "@/components/sections/OrbitGlobe";
 import "./hero.css";
 
+/** What the banner says when WordPress has nothing to say about it. */
 const LINES = ["You win the client.", "We deliver the work.", "Your brand gets the credit."];
-/** The chips under the buttons are the published commitments, verbatim — derived
-    from content/promises.ts so the two lists can never drift apart. */
+const EYEBROW = "White-label production & growth partner";
+const LEDE =
+  "WordPress, WooCommerce, Shopify and Webflow builds, Next.js apps on Payload, Sanity or PostgreSQL, AI automation, SEO and paid media — delivered under your brand by a senior team in Dhaka, working UK and US hours.";
+/** The chips under the buttons are the published commitments, verbatim — the
+    page passes the ones from the CMS so the two lists can never drift apart. */
 const TRUST = promises.map((p) => p.label);
 
 const GLOBE_BASE = "A globe with Dhaka marked as our base and arcs to the markets we serve — the UK, the USA, Canada, Australia and Europe";
@@ -25,7 +29,24 @@ function globeLabel(cards: GlobeCard[]) {
   return `${GLOBE_BASE} — orbited by websites delivered for clients in the UK, US and Bangladesh.`;
 }
 
-export function Hero({ cards, locations }: { cards: GlobeCard[]; locations: GlobeLocation[] }) {
+export function Hero({
+  cards,
+  locations,
+  eyebrow,
+  lines,
+  lede,
+  trust,
+}: {
+  cards: GlobeCard[];
+  locations: GlobeLocation[];
+  /** From the WordPress page at "/" — each one falls back to the copy above. */
+  eyebrow?: string;
+  lines?: string[];
+  lede?: string;
+  trust?: string[];
+}) {
+  const headline = lines?.length ? lines : LINES;
+  const chips = trust?.length ? trust : TRUST;
   const rootRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -56,14 +77,15 @@ export function Hero({ cards, locations }: { cards: GlobeCard[]; locations: Glob
         {/* Below 768px the globe leads and this column follows it — see the globe's order-first */}
         <div className="relative z-10 pb-12 md:pb-0 md:pt-16 lg:py-16">
           <span className="eyebrow" data-after>
-            White-label production &amp; growth partner
+            {eyebrow || EYEBROW}
           </span>
 
           {/* One sentence per line: the thesis is the typography. */}
           <h1 id="hero-title" className="display hero-title mt-7">
-            {LINES.map((line, i) => (
-              <span key={line} className={`split-mask block pb-[0.08em] ${i < 2 ? "hero-line-lead" : ""}`}>
-                <span data-line className={`block ${i === 2 ? "text-accent" : ""}`}>
+            {headline.map((line, i) => (
+              // the closing line carries the accent, however many lines an editor writes
+              <span key={line} className={`split-mask block pb-[0.08em] ${i < headline.length - 1 ? "hero-line-lead" : ""}`}>
+                <span data-line className={`block ${i === headline.length - 1 ? "text-accent" : ""}`}>
                   {line.slice(0, -1)}
                   <span className="hero-stop">.</span>
                 </span>
@@ -72,8 +94,7 @@ export function Hero({ cards, locations }: { cards: GlobeCard[]; locations: Glob
           </h1>
 
           <p className="lede mt-8 max-w-[56ch]" data-after>
-            WordPress, WooCommerce, Shopify and Webflow builds, Next.js apps on Payload, Sanity or PostgreSQL, AI automation, SEO
-            and paid media — delivered under your brand by a senior team in Dhaka, working UK and US hours.
+            {lede || LEDE}
           </p>
 
           <div className="mt-10 flex flex-wrap items-center gap-3" data-after>
@@ -85,7 +106,7 @@ export function Hero({ cards, locations }: { cards: GlobeCard[]; locations: Glob
 
           {/* trust row as chips, wrapping under the buttons */}
           <ul className="mt-10 flex flex-wrap gap-3" data-after>
-            {TRUST.map((t) => (
+            {chips.map((t) => (
               <li
                 key={t}
                 className="ui shadow-soft flex items-center gap-2 rounded-full border border-line bg-surface px-4 py-2.5 text-[14px] font-semibold text-ink"

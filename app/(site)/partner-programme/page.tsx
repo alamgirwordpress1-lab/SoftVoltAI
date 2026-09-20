@@ -4,6 +4,7 @@ import { PageIntro } from "@/components/ui/PageIntro";
 import { Button } from "@/components/ui/Button";
 import { CtaBand } from "@/components/sections/CtaBand";
 import { cms } from "@/lib/cms";
+import { countWord } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "Partner programme — become an agency partner",
@@ -11,7 +12,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/partner-programme" },
 };
 
-const steps = [
+const localSteps = [
   { title: "Start with one brief", body: "No onboarding fee, no minimum. Send a real project and judge the scope, the communication and the delivery on that." },
   { title: "Sign the paperwork once", body: "Mutual NDA, agency protection terms and, for EU/UK data, the DPA — signed once, covering every project after." },
   { title: "Move to a retainer if it is recurring", body: "When the briefs keep coming, a monthly block of hours with a named producer costs less and schedules faster than project by project." },
@@ -19,15 +20,19 @@ const steps = [
 ];
 
 export default async function PartnerProgrammePage() {
-  const [models, promises] = await Promise.all([cms.getEngagementModels(), cms.getPromises()]);
+  const [models, promises, opener] = await Promise.all([cms.getEngagementModels(), cms.getPromises(), cms.getOpener("/partner-programme")]);
+  const steps = opener?.list.length ? opener.list : localSteps;
   return (
     <>
       <PageHero
         crumbs={[{ name: "Partner programme", href: "/partner-programme" }]}
-        eyebrow="Become a partner"
-        title="Partnership starts with one project, not a pitch deck."
-        lede="We do not ask agencies to commit before they have seen the work. The first brief is a fixed-price project; everything after it gets easier."
-        highlights={steps.slice(0, 3).map((s, i) => ({ label: `Step ${i + 1}`, value: s.title }))}
+        eyebrow={opener?.eyebrow || "Become a partner"}
+        title={opener?.heading.join(" ") || "Partnership starts with one project, not a pitch deck."}
+        lede={
+          opener?.lede ||
+          "We do not ask agencies to commit before they have seen the work. The first brief is a fixed-price project; everything after it gets easier."
+        }
+        highlights={opener?.highlights.length ? opener.highlights : steps.slice(0, 3).map((s, i) => ({ label: `Step ${i + 1}`, value: s.title }))}
       >
         <div className="flex flex-wrap gap-3">
           <Button href="/contact">Send the first brief</Button>
@@ -38,10 +43,15 @@ export default async function PartnerProgrammePage() {
       </PageHero>
 
       <PageIntro
-        eyebrow="What a partnership is"
-        title="A supplier you can put in front of nobody."
-        subtitle="No exclusivity, no minimum spend, no logo on your work — the partnership is simply that the next brief is easier than the last."
-        body={[
+        eyebrow={opener?.intro?.eyebrow || "What a partnership is"}
+        title={opener?.intro?.title || "A supplier you can put in front of nobody."}
+        subtitle={
+          opener?.intro?.subtitle || "No exclusivity, no minimum spend, no logo on your work — the partnership is simply that the next brief is easier than the last."
+        }
+        body={
+          opener?.intro?.body.length
+            ? opener.intro.body
+            : [
           <>
             Most white-label arrangements start with a contract nobody has earned yet. Ours starts with a project. You send one brief, we scope it in
             writing, build it under your brand and hand it over with the documents your client can read. If that goes well, the second brief skips the
@@ -51,18 +61,27 @@ export default async function PartnerProgrammePage() {
             Partners get the same production team, the same fixed prices and the same hours as anyone else. What changes is the paperwork: one NDA and one
             master agreement cover everything that follows, so each new project is a scope and a start date rather than a negotiation.
           </>,
-        ]}
-        points={[
-          { title: "One agreement", text: "Signed once, covering every project that follows it." },
-          { title: "Your brand only", text: "We are never named to your client, in writing or in a call." },
-          { title: "No exclusivity", text: "Keep your other suppliers. We are not asking for the lot." },
-          { title: "Leave any time", text: "Plans are monthly; projects end when the handover is signed." },
-        ]}
-        jump={[
-          { label: "How it starts", href: "#steps" },
-          { label: "Ways to work", href: "#models" },
-          { label: "The terms", href: "#terms" },
-        ]}
+              ]
+        }
+        points={
+          opener?.intro?.points.length
+            ? opener.intro.points
+            : [
+                { title: "One agreement", text: "Signed once, covering every project that follows it." },
+                { title: "Your brand only", text: "We are never named to your client, in writing or in a call." },
+                { title: "No exclusivity", text: "Keep your other suppliers. We are not asking for the lot." },
+                { title: "Leave any time", text: "Plans are monthly; projects end when the handover is signed." },
+              ]
+        }
+        jump={
+          opener?.intro?.jump.length
+            ? opener.intro.jump
+            : [
+                { label: "How it starts", href: "#steps" },
+                { label: "Ways to work", href: "#models" },
+                { label: "The terms", href: "#terms" },
+              ]
+        }
       />
 
       <section id="steps" className="container-x border-t border-line py-14 md:py-20" aria-labelledby="steps-title">
@@ -86,7 +105,7 @@ export default async function PartnerProgrammePage() {
         <div className="container-x relative py-14 md:py-20">
           <span className="eyebrow">Ways to work</span>
           <h2 id="models-title" className="display display-md mt-4">
-            Three engagement models.
+            <span className="capitalize">{countWord(models.length)}</span> engagement models.
           </h2>
           <ul className="mt-10 grid gap-4 md:grid-cols-3">
             {models.map((m) => (

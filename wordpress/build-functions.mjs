@@ -35,10 +35,15 @@ const head = `<?php
  *
  * Generated from wordpress/softvolt-headless/ in the front-end repo. Edit it
  * there, not here, or the next build will overwrite your change.
+ *
+ * Careful with the live file: it opens with the Astra child theme's own header
+ * and its parent-stylesheet enqueue, which this build does not contain. Update
+ * the install by applying the difference to what is already in the theme
+ * editor, not by pasting this file over it, or the child theme loses its CSS.
  */
 
 if (!defined('SOFTVOLT_HEADLESS_VERSION')) {
-    define('SOFTVOLT_HEADLESS_VERSION', '1.0.0');
+    define('SOFTVOLT_HEADLESS_VERSION', '1.1.0');
 }
 
 if (!defined('SOFTVOLT_SETTINGS_KEY')) {

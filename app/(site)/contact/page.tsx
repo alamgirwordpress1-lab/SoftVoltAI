@@ -13,28 +13,40 @@ export const metadata: Metadata = {
 };
 
 export default async function ContactPage() {
-  const process = await cms.getProcess();
+  const [process, opener] = await Promise.all([cms.getProcess(), cms.getOpener("/contact")]);
   const brief = process.find((p) => p.id === "brief");
   const scope = process.find((p) => p.id === "scope");
   return (
     <>
       <PageHero
         crumbs={[{ name: "Contact", href: "/contact" }]}
-        eyebrow="Contact"
-        title="Ask us anything. A person answers, not a queue."
-        lede="A question about how we work, an issue on something live, an introduction, or a project that is still an idea — it all comes to the same inbox, and a named producer replies within one business day."
-        highlights={[
-          ...(brief ? [{ label: brief.name, value: brief.turnaround }] : []),
-          ...(scope ? [{ label: scope.name, value: scope.turnaround }] : []),
-          { label: "Before client details", value: "Mutual NDA on request" },
-        ]}
+        eyebrow={opener?.eyebrow || "Contact"}
+        title={opener?.heading.join(" ") || "Ask us anything. A person answers, not a queue."}
+        lede={
+          opener?.lede ||
+          "A question about how we work, an issue on something live, an introduction, or a project that is still an idea — it all comes to the same inbox, and a named producer replies within one business day."
+        }
+        highlights={
+          opener?.highlights.length
+            ? opener.highlights
+            : [
+                ...(brief ? [{ label: brief.name, value: brief.turnaround }] : []),
+                ...(scope ? [{ label: scope.name, value: scope.turnaround }] : []),
+                { label: "Before client details", value: "Mutual NDA on request" },
+              ]
+        }
       />
 
       <PageIntro
-        eyebrow="Before you write"
-        title="No form maze, no sales sequence."
-        subtitle="One short form, read by the person who would do the work — and if it turns into a project, the scope and the price follow in writing."
-        body={[
+        eyebrow={opener?.intro?.eyebrow || "Before you write"}
+        title={opener?.intro?.title || "No form maze, no sales sequence."}
+        subtitle={
+          opener?.intro?.subtitle || "One short form, read by the person who would do the work — and if it turns into a project, the scope and the price follow in writing."
+        }
+        body={
+          opener?.intro?.body.length
+            ? opener.intro.body
+            : [
           <>
             Use this page for anything that is not a project brief yet: how we price, whether we cover a platform, what happens to credentials, a problem on
             work already running, or simply an introduction so the name is familiar when you do have something to send.
@@ -45,18 +57,27 @@ export default async function ContactPage() {
             {brief ? `${brief.name}: ${brief.turnaround.toLowerCase()}. ` : ""}The scope follows
             {scope ? ` ${scope.turnaround.toLowerCase()}` : " within two business days"} — line by line, priced, and nothing starts until you approve it.
           </>,
-        ]}
-        points={[
+              ]
+        }
+        points={
+          opener?.intro?.points.length
+            ? opener.intro.points
+            : [
           { title: "NDA first", text: "Mutual, signed before client details change hands." },
           { title: "Already working with us?", text: "Say so in the message — it goes straight to your producer." },
           { title: "One reply, not a thread", text: "Every open question comes back in a single message." },
           { title: "Fixed price", text: "The scope carries the number. Changes are priced, not assumed." },
           { title: "Prefer to talk?", text: "A 20-minute scoping call is free and booked in your time zone." },
-        ]}
-        jump={[
-          { label: "Send a message", href: "#message" },
-          { label: "Book a call", href: "#call" },
-        ]}
+              ]
+        }
+        jump={
+          opener?.intro?.jump.length
+            ? opener.intro.jump
+            : [
+                { label: "Send a message", href: "#message" },
+                { label: "Book a call", href: "#call" },
+              ]
+        }
       />
 
       <section id="message" className="border-t border-line bg-surface" aria-labelledby="message-title">

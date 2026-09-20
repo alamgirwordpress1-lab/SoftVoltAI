@@ -19,27 +19,37 @@ export const metadata: Metadata = {
 const dateFormat = new Intl.DateTimeFormat("en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" });
 
 export default async function BlogPage() {
-  const posts = await cms.getPosts(24);
+  const [posts, opener] = await Promise.all([cms.getPosts(24), cms.getOpener("/blog")]);
 
   return (
     <>
       <PageHero
         crumbs={[{ name: "Blog", href: "/blog" }]}
-        eyebrow="Blog"
-        title="What we learn on agency work, written down."
-        lede="Scoping, build notes, automation patterns and the reporting agencies actually forward to their clients. Every post is written by whoever did the work."
-        highlights={[
-          { label: "Written by", value: "The delivery team" },
-          { label: "Published from", value: "Our own CMS" },
-          { label: "Posts", value: String(posts.length) },
-        ]}
+        eyebrow={opener?.eyebrow || "Blog"}
+        title={opener?.heading.join(" ") || "What we learn on agency work, written down."}
+        lede={
+          opener?.lede ||
+          "Scoping, build notes, automation patterns and the reporting agencies actually forward to their clients. Every post is written by whoever did the work."
+        }
+        highlights={
+          opener?.highlights.length
+            ? opener.highlights
+            : [
+                { label: "Written by", value: "The delivery team" },
+                { label: "Published from", value: "Our own CMS" },
+                { label: "Posts", value: String(posts.length) },
+              ]
+        }
       />
 
       <PageIntro
-        eyebrow="What you will find here"
-        title="Method, not marketing."
-        subtitle="The same notes we send partners when they ask how something was done."
-        body={[
+        eyebrow={opener?.intro?.eyebrow || "What you will find here"}
+        title={opener?.intro?.title || "Method, not marketing."}
+        subtitle={opener?.intro?.subtitle || "The same notes we send partners when they ask how something was done."}
+        body={
+          opener?.intro?.body.length
+            ? opener.intro.body
+            : [
           <>
             This is the working half of the site. The service pages say what we deliver; these posts say how a particular job went — the constraint that shaped
             it, the approach we took, and what we would do differently next time.
@@ -48,12 +58,18 @@ export default async function BlogPage() {
             Everything here is published from the same WordPress install that runs the rest of the site, so an editor can post without a developer and the page
             you are reading updates within seconds.
           </>,
-        ]}
-        jump={[
-          { label: "All services", href: "/services" },
-          { label: "Case studies", href: "/case-studies" },
-          { label: "Talk to us", href: "/contact" },
-        ]}
+              ]
+        }
+        points={opener?.intro?.points.length ? opener.intro.points : undefined}
+        jump={
+          opener?.intro?.jump.length
+            ? opener.intro.jump
+            : [
+                { label: "All services", href: "/services" },
+                { label: "Case studies", href: "/case-studies" },
+                { label: "Talk to us", href: "/contact" },
+              ]
+        }
       />
 
       <section id="posts" aria-labelledby="posts-title" className="border-b border-line">

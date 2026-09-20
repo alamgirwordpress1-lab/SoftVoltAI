@@ -105,6 +105,30 @@ function softvolt_post_type_schema(): array
             'supports'  => ['title', 'thumbnail', 'revisions', 'page-attributes'],
             'taxonomies' => [],
         ],
+        'stack_item' => [
+            'singular'  => 'Stack item',
+            'plural'    => 'Stack',
+            'gql'       => ['stackItem', 'stackItems'],
+            'icon'      => 'dashicons-editor-code',
+            'supports'  => ['title', 'revisions', 'page-attributes'],
+            'taxonomies' => [],
+        ],
+        'comparison_row' => [
+            'singular'  => 'Comparison row',
+            'plural'    => 'Comparison',
+            'gql'       => ['comparisonRow', 'comparisonRows'],
+            'icon'      => 'dashicons-editor-table',
+            'supports'  => ['title', 'revisions', 'page-attributes'],
+            'taxonomies' => [],
+        ],
+        'clock' => [
+            'singular'  => 'Clock',
+            'plural'    => 'Clocks',
+            'gql'       => ['clock', 'clocks'],
+            'icon'      => 'dashicons-clock',
+            'supports'  => ['title', 'revisions', 'page-attributes'],
+            'taxonomies' => [],
+        ],
     ];
 }
 

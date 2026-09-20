@@ -24,3 +24,12 @@ export function slugify(input: string) {
       .replace(/^-+|-+$/g, "") || "your-agency"
   );
 }
+
+/**
+ * Small counts read better as words in a heading, and a heading that counts
+ * its own list can never say "eight" above seven cards.
+ */
+const WORDS = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve"];
+export function countWord(n: number) {
+  return WORDS[n] ?? String(n);
+}

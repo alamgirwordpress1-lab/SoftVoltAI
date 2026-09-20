@@ -18,8 +18,9 @@ import { BriefCta } from "@/components/sections/BriefCta";
 import { cms } from "@/lib/cms";
 
 export default async function HomePage() {
-  const [comparison, globeCards, globeLocations, promises, agencyTypes, pillars, process, work, workCategories, clocks, stack, clauses, team, models, faqs] =
+  const [opener, comparison, globeCards, globeLocations, promises, agencyTypes, pillars, process, work, workCategories, clocks, stack, clauses, team, models, faqs] =
     await Promise.all([
+      cms.getOpener("/home"),
       cms.getComparison(),
       cms.getGlobeCards(),
       cms.getGlobeLocations(),
@@ -41,7 +42,14 @@ export default async function HomePage() {
     <>
       {/* Narrative order: who we are → what we do → why us → the build-or-buy
           case → how it runs → what it costs → who it is for → proof → answers. */}
-      <Hero cards={globeCards} locations={globeLocations} />
+      <Hero
+        cards={globeCards}
+        locations={globeLocations}
+        eyebrow={opener?.eyebrow}
+        lines={opener?.heading}
+        lede={opener?.lede}
+        trust={promises.map((promise) => promise.label)}
+      />
       <PromiseBar promises={promises} />
       <EngineRoomDemo />
       <CapabilityMarquee pillars={pillars} />

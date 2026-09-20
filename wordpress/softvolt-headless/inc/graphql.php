@@ -44,6 +44,7 @@ add_action('graphql_register_types', static function (): void {
             'headerCta'    => ['type' => 'SoftVoltLink'],
             'cf7BriefId'   => ['type' => 'String'],
             'cf7ContactId' => ['type' => 'String'],
+            'comparisonSource' => ['type' => 'SoftVoltLink'],
         ],
     ]);
 
@@ -78,6 +79,7 @@ add_action('graphql_register_types', static function (): void {
                 'headerCta'    => ['label' => (string) softvolt_setting('header_cta_label'), 'href' => (string) softvolt_setting('header_cta_href')],
                 'cf7BriefId'   => (string) softvolt_setting('cf7_brief_id'),
                 'cf7ContactId' => (string) softvolt_setting('cf7_contact_id'),
+                'comparisonSource' => ['label' => (string) softvolt_setting('comparison_source_label'), 'href' => (string) softvolt_setting('comparison_source_url')],
             ];
         },
     ]);

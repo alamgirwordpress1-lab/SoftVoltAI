@@ -12,28 +12,42 @@ export const metadata: Metadata = {
 };
 
 export default async function ServicesPage() {
-  const pillars = await cms.getPillars();
+  // WordPress writes the banner and the intro band; anything an editor leaves
+  // empty keeps what is below, including the figures counted from the content.
+  const [pillars, opener] = await Promise.all([cms.getPillars(), cms.getOpener("/services")]);
   const count = (ids: string[]) => pillars.filter((p) => ids.includes(p.id)).reduce((n, p) => n + p.services.length, 0);
   const total = pillars.reduce((n, p) => n + p.services.length, 0);
   return (
     <>
       <PageHero
         crumbs={[{ name: "Services", href: "/services" }]}
-        eyebrow="Services"
-        title="Four pillars. One partner. Your brand on everything."
-        lede="Every service is delivered under your agency's name with a written scope, a named producer and a fixed price. Pick the one that matches the brief, or send the brief and let the scope tell you."
-        highlights={[
-          { label: "Build", value: `${count(["build"])} services` },
-          { label: "Automate", value: `${count(["automate"])} services` },
-          { label: "Grow & Support", value: `${count(["grow", "support"])} services` },
-        ]}
+        eyebrow={opener?.eyebrow || "Services"}
+        title={opener?.heading.join(" ") || "Four pillars. One partner. Your brand on everything."}
+        lede={
+          opener?.lede ||
+          "Every service is delivered under your agency's name with a written scope, a named producer and a fixed price. Pick the one that matches the brief, or send the brief and let the scope tell you."
+        }
+        highlights={
+          opener?.highlights.length
+            ? opener.highlights
+            : [
+                { label: "Build", value: `${count(["build"])} services` },
+                { label: "Automate", value: `${count(["automate"])} services` },
+                { label: "Grow & Support", value: `${count(["grow", "support"])} services` },
+              ]
+        }
       />
 
       <PageIntro
-        eyebrow="What we cover"
-        title={`${total} services, one white-label contract.`}
-        subtitle="One partner for the build, the automation, the traffic and the upkeep — under your agency's name, start to finish."
-        body={[
+        eyebrow={opener?.intro?.eyebrow || "What we cover"}
+        title={opener?.intro?.title || `${total} services, one white-label contract.`}
+        subtitle={
+          opener?.intro?.subtitle || "One partner for the build, the automation, the traffic and the upkeep — under your agency's name, start to finish."
+        }
+        body={
+          opener?.intro?.body.length
+            ? opener.intro.body
+            : [
           <>
             Agencies come to us with one of four problems: a build they cannot staff, a manual process eating the team&apos;s week, traffic that has stalled,
             or a live site nobody is looking after. Each pillar below answers one of those. Inside them sit the specifics — WordPress and WooCommerce,
@@ -44,14 +58,19 @@ export default async function ServicesPage() {
             Every service is scoped in writing before anything starts, carries a fixed price and a named producer, and ships under your brand. Your client
             never sees us, and your team keeps the relationship, the strategy and the invoice.
           </>,
-        ]}
-        points={[
-          { title: "Written scope first", text: "Line-by-line, priced, agreed before a single commit." },
-          { title: "One producer", text: "A named person answers on your hours, not a ticket queue." },
-          { title: "Your brand throughout", text: "Staging URLs, documents and handover all carry your name." },
-          { title: "Defects on us", text: "Anything that breaks against the agreed scope is fixed at our cost." },
-        ]}
-        jump={pillars.map((p) => ({ label: p.name, href: `#pillar-${p.id}` }))}
+              ]
+        }
+        points={
+          opener?.intro?.points.length
+            ? opener.intro.points
+            : [
+                { title: "Written scope first", text: "Line-by-line, priced, agreed before a single commit." },
+                { title: "One producer", text: "A named person answers on your hours, not a ticket queue." },
+                { title: "Your brand throughout", text: "Staging URLs, documents and handover all carry your name." },
+                { title: "Defects on us", text: "Anything that breaks against the agreed scope is fixed at our cost." },
+              ]
+        }
+        jump={opener?.intro?.jump.length ? opener.intro.jump : pillars.map((p) => ({ label: p.name, href: `#pillar-${p.id}` }))}
       />
 
       {pillars.map((p, i) => (

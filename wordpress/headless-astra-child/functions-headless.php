@@ -15,10 +15,15 @@
  *
  * Generated from wordpress/softvolt-headless/ in the front-end repo. Edit it
  * there, not here, or the next build will overwrite your change.
+ *
+ * Careful with the live file: it opens with the Astra child theme's own header
+ * and its parent-stylesheet enqueue, which this build does not contain. Update
+ * the install by applying the difference to what is already in the theme
+ * editor, not by pasting this file over it, or the child theme loses its CSS.
  */
 
 if (!defined('SOFTVOLT_HEADLESS_VERSION')) {
-    define('SOFTVOLT_HEADLESS_VERSION', '1.0.0');
+    define('SOFTVOLT_HEADLESS_VERSION', '1.1.0');
 }
 
 if (!defined('SOFTVOLT_SETTINGS_KEY')) {
@@ -96,6 +101,10 @@ function softvolt_settings_schema(): array
         'footer_note'       => ['label' => 'Footer legal note', 'type' => 'textarea', 'default' => ''],
         'markets'           => ['label' => 'Markets served', 'type' => 'lines', 'default' => "United Kingdom\nUnited States\nCanada\nAustralia\nEuropean Union", 'help' => 'One per line. Drives the globe arcs and the schema areaServed.'],
         'social_links'      => ['label' => 'Social links', 'type' => 'lines', 'default' => '', 'help' => 'One per line, as "Label | https://…".'],
+
+        // the one figure quoted in the comparison table, and where it came from
+        'comparison_source_label' => ['label' => 'Comparison source', 'type' => 'text', 'default' => '', 'help' => 'The publication the figure in the table is quoted from. It is printed under the table, so it has to be checkable.'],
+        'comparison_source_url'   => ['label' => 'Comparison source link', 'type' => 'url', 'default' => ''],
 
         // the forms
         'cf7_brief_id'      => ['label' => 'Contact Form 7 — brief form ID', 'type' => 'text', 'default' => ''],
@@ -279,6 +288,30 @@ function softvolt_post_type_schema(): array
             'gql'       => ['client', 'clients'],
             'icon'      => 'dashicons-building',
             'supports'  => ['title', 'thumbnail', 'revisions', 'page-attributes'],
+            'taxonomies' => [],
+        ],
+        'stack_item' => [
+            'singular'  => 'Stack item',
+            'plural'    => 'Stack',
+            'gql'       => ['stackItem', 'stackItems'],
+            'icon'      => 'dashicons-editor-code',
+            'supports'  => ['title', 'revisions', 'page-attributes'],
+            'taxonomies' => [],
+        ],
+        'comparison_row' => [
+            'singular'  => 'Comparison row',
+            'plural'    => 'Comparison',
+            'gql'       => ['comparisonRow', 'comparisonRows'],
+            'icon'      => 'dashicons-editor-table',
+            'supports'  => ['title', 'revisions', 'page-attributes'],
+            'taxonomies' => [],
+        ],
+        'clock' => [
+            'singular'  => 'Clock',
+            'plural'    => 'Clocks',
+            'gql'       => ['clock', 'clocks'],
+            'icon'      => 'dashicons-clock',
+            'supports'  => ['title', 'revisions', 'page-attributes'],
             'taxonomies' => [],
         ],
     ];
@@ -602,12 +635,91 @@ add_action('acf/init', static function (): void {
         [[['param' => 'post_type', 'operator' => '==', 'value' => 'page']]],
         [
             softvolt_field(['key' => 'field_sv_page_eyebrow', 'label' => 'Eyebrow', 'name' => 'eyebrow', 'type' => 'text', 'instructions' => 'The small line above the H1.']),
+            softvolt_field(['key' => 'field_sv_page_heading', 'label' => 'Heading (H1)', 'name' => 'heading', 'type' => 'textarea', 'rows' => 3, 'instructions' => 'The headline on the banner. Leave it empty and the page title is used. On the home page each line is set on its own line of the headline.']),
             softvolt_field(['key' => 'field_sv_page_lede', 'label' => 'Lede', 'name' => 'lede', 'type' => 'textarea', 'rows' => 3, 'instructions' => 'The paragraph under the H1.']),
+            softvolt_field(['key' => 'field_sv_page_intro_eyebrow', 'label' => 'Intro eyebrow', 'name' => 'intro_eyebrow', 'type' => 'text', 'instructions' => 'The small line above the intro heading, e.g. "What we cover".']),
             softvolt_field(['key' => 'field_sv_page_intro_title', 'label' => 'Intro heading', 'name' => 'intro_title', 'type' => 'text', 'instructions' => 'The band under the banner — leave empty and the band is skipped.']),
             softvolt_field(['key' => 'field_sv_page_intro_sub', 'label' => 'Intro sub-heading', 'name' => 'intro_subtitle', 'type' => 'textarea', 'rows' => 2]),
             softvolt_field(['key' => 'field_sv_page_intro_body', 'label' => 'Intro body', 'name' => 'intro_body', 'type' => 'textarea', 'rows' => 8, 'instructions' => 'One paragraph per line.']),
+            softvolt_field(['key' => 'field_sv_page_highlights', 'label' => 'Banner facts', 'name' => 'highlights', 'type' => 'textarea', 'rows' => 4, 'instructions' => 'Up to three, one per line, as "Label | Value". These are the cards on the banner, so each one has to be true. Left empty, the page counts them from its own content.']),
+            softvolt_field(['key' => 'field_sv_page_points', 'label' => 'Intro points', 'name' => 'intro_points', 'type' => 'textarea', 'rows' => 5, 'instructions' => 'Up to four, one per line, as "Heading | Text". They sit under the intro copy.']),
+            softvolt_field(['key' => 'field_sv_page_jump', 'label' => 'On this page', 'name' => 'jump_links', 'type' => 'textarea', 'rows' => 4, 'instructions' => 'One per line, as "Label | #anchor". These are the links that jump into the sections below.']),
         ]
     ));
+
+    // ------------------------------------------------------------------ stack
+    acf_add_local_field_group(softvolt_field_group(
+        'group_softvolt_stack',
+        'Stack item',
+        'stackFields',
+        ['StackItem'],
+        $where('stack_item'),
+        [
+            softvolt_field(['key' => 'field_sv_stack_group', 'label' => 'Group', 'name' => 'group', 'type' => 'text', 'required' => 1, 'instructions' => 'The column it sits under, e.g. "Front end". Items with the same group are shown together, in this order.']),
+        ]
+    ));
+
+    // ------------------------------------------------------------- comparison
+    acf_add_local_field_group(softvolt_field_group(
+        'group_softvolt_comparison',
+        'Comparison row',
+        'comparisonFields',
+        ['ComparisonRow'],
+        $where('comparison_row'),
+        [
+            softvolt_field(['key' => 'field_sv_cmp_inhouse', 'label' => 'In-house hire', 'name' => 'in_house', 'type' => 'textarea', 'rows' => 3, 'required' => 1]),
+            softvolt_field(['key' => 'field_sv_cmp_freelancer', 'label' => 'Freelancer', 'name' => 'freelancer', 'type' => 'textarea', 'rows' => 3, 'required' => 1]),
+            softvolt_field(['key' => 'field_sv_cmp_us', 'label' => 'Us', 'name' => 'us', 'type' => 'textarea', 'rows' => 3, 'required' => 1, 'instructions' => 'Every line in this column is a public commitment. Only write what we will honour.']),
+        ]
+    ));
+
+    // ----------------------------------------------------------------- clocks
+    acf_add_local_field_group(softvolt_field_group(
+        'group_softvolt_clock',
+        'Clock',
+        'clockFields',
+        ['Clock'],
+        $where('clock'),
+        [
+            softvolt_field(['key' => 'field_sv_clock_tz', 'label' => 'IANA time zone', 'name' => 'time_zone', 'type' => 'text', 'required' => 1, 'instructions' => 'e.g. Europe/London. The front end reads the live time from this.']),
+            softvolt_field(['key' => 'field_sv_clock_short', 'label' => 'Short code', 'name' => 'short', 'type' => 'text', 'required' => 1, 'instructions' => 'Three letters, e.g. LON. The city name is the post title.']),
+        ]
+    ));
+
+    /*
+     * The lists that belong to one page and to no other.
+     *
+     * ACF without the repeater add-on has no repeating rows, so each list is a
+     * textarea written as "Heading | Body", one item per line — the same shape
+     * the rest of this install uses for lists. The location rule is resolved
+     * from the page's slug at registration, so nothing here holds a post ID.
+     */
+    $page_rule = static function (string $slug): array {
+        $page = get_page_by_path($slug);
+        return $page ? [[['param' => 'page', 'operator' => '==', 'value' => (string) $page->ID]]] : [];
+    };
+
+    $page_list = static function (string $slug, string $group_key, string $title, string $graphql_name, string $field_key, string $name, string $label, string $help) use ($page_rule): void {
+        $location = $page_rule($slug);
+        if (!$location) {
+            return; // the page has not been created yet: nothing to attach to
+        }
+        acf_add_local_field_group(softvolt_field_group(
+            $group_key,
+            $title,
+            $graphql_name,
+            ['Page'],
+            $location,
+            [
+                softvolt_field(['key' => $field_key, 'label' => $label, 'name' => $name, 'type' => 'textarea', 'rows' => 12, 'instructions' => $help]),
+            ]
+        ));
+    };
+
+    $lines_help = 'One per line, written as "Heading | Body".';
+    $page_list('security', 'group_softvolt_page_security', 'Security practices', 'securityFields', 'field_sv_page_practices', 'practices', 'Practices', $lines_help . ' Each one is a public commitment about client data.');
+    $page_list('partner-programme', 'group_softvolt_page_partner', 'Partner steps', 'partnerFields', 'field_sv_page_steps', 'steps', 'How it works', $lines_help);
+    $page_list('about', 'group_softvolt_page_about', 'About values', 'aboutFields', 'field_sv_page_values', 'values', 'What we hold to', $lines_help);
 });
 
 /* ==========================================================================
@@ -650,6 +762,7 @@ add_action('admin_init', static function (): void {
         'cta'       => ['Calls to action', 'The buttons that repeat across the site.', ['cta_primary_label', 'cta_primary_href', 'cta_secondary_label', 'cta_secondary_href', 'header_cta_label', 'header_cta_href']],
         'footer'    => ['Footer', 'The closing band above the legal line.', ['footer_blurb', 'footer_note', 'social_links']],
         'forms'     => ['Forms', 'Contact Form 7 ids, so the front end can post to the right form.', ['cf7_brief_id', 'cf7_contact_id']],
+        'comparison' => ['Comparison table', 'The one outside figure the home page quotes, and where a reader can check it.', ['comparison_source_label', 'comparison_source_url']],
     ];
 
     $schema = softvolt_settings_schema();
@@ -799,6 +912,7 @@ add_action('graphql_register_types', static function (): void {
             'headerCta'    => ['type' => 'SoftVoltLink'],
             'cf7BriefId'   => ['type' => 'String'],
             'cf7ContactId' => ['type' => 'String'],
+            'comparisonSource' => ['type' => 'SoftVoltLink'],
         ],
     ]);
 
@@ -833,6 +947,7 @@ add_action('graphql_register_types', static function (): void {
                 'headerCta'    => ['label' => (string) softvolt_setting('header_cta_label'), 'href' => (string) softvolt_setting('header_cta_href')],
                 'cf7BriefId'   => (string) softvolt_setting('cf7_brief_id'),
                 'cf7ContactId' => (string) softvolt_setting('cf7_contact_id'),
+                'comparisonSource' => ['label' => (string) softvolt_setting('comparison_source_label'), 'href' => (string) softvolt_setting('comparison_source_url')],
             ];
         },
     ]);
@@ -1047,6 +1162,10 @@ function softvolt_paths_for_post(int $post_id): array
         case 'testimonial':
             $paths[] = '/case-studies';
             break;
+        case 'stack_item':
+        case 'comparison_row':
+        case 'clock':
+            break; // the home page only, which is already in the list
     }
 
     return array_values(array_unique($paths));

@@ -39,6 +39,7 @@ export const SITE_SETTINGS = /* GraphQL */ `
       headerCta { label href }
       cf7BriefId
       cf7ContactId
+      comparisonSource { label href }
     }
   }
 `;
@@ -163,6 +164,15 @@ export const SIMPLE_COLLECTIONS = /* GraphQL */ `
         clientFields { country work url featured logoFill }
       }
     }
+    stackItems(first: 100, where: { orderby: { field: MENU_ORDER, order: ASC } }) {
+      nodes { slug title orderIndex stackFields { group } }
+    }
+    comparisonRows(first: 30, where: { orderby: { field: MENU_ORDER, order: ASC } }) {
+      nodes { slug title orderIndex comparisonFields { inHouse freelancer us } }
+    }
+    clocks(first: 20, where: { orderby: { field: MENU_ORDER, order: ASC } }) {
+      nodes { slug title orderIndex clockFields { timeZone short } }
+    }
   }
 `;
 
@@ -175,7 +185,10 @@ export const PAGE_BY_URI = /* GraphQL */ `
       content
       modifiedGmt
       featuredImage { node { sourceUrl altText } }
-      pageFields { eyebrow lede introTitle introSubtitle introBody }
+      pageFields { eyebrow heading lede highlights introEyebrow introTitle introSubtitle introBody introPoints jumpLinks }
+      securityFields { practices }
+      partnerFields { steps }
+      aboutFields { values }
       ${SEO}
     }
   }

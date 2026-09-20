@@ -33,7 +33,7 @@ export async function POST(req: Request) {
   const text = lines.join("\n");
 
   // WordPress first when it is configured: the same submission, delivered by CF7.
-  if (cf7FormId("brief")) {
+  if (await cf7FormId("brief")) {
     const result = await sendToCf7("brief", { ...data, website: undefined });
     if (result.sent) return NextResponse.json({ ok: true, delivered: true, via: "cf7" });
     console.error("[brief] CF7 rejected the submission", result);

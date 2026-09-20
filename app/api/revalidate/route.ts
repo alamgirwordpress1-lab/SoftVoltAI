@@ -33,8 +33,10 @@ export async function POST(req: Request) {
   const paths = Array.isArray(body.paths) ? body.paths.filter((p): p is string => typeof p === "string" && p.startsWith("/")) : [];
   const tags = Array.isArray(body.tags) ? body.tags.filter((t): t is string => typeof t === "string" && t.startsWith("wp:")) : [];
 
-  // Next 16 wants a cache-life profile with the tag: "max" means "until this call"
-  for (const tag of tags.length ? tags : ["wp:all"]) revalidateTag(tag, "max");
+  // Next 16 takes a cache-life profile with the tag, and a named profile only
+  // says how long stale data may still be served — "max" would keep serving the
+  // old page for a year. A publish means now, so the expiry is zero.
+  for (const tag of tags.length ? tags : ["wp:all"]) revalidateTag(tag, { expire: 0 });
   // "page" is the whole route, which is what a content change means here
   for (const path of paths) revalidatePath(path, "page");
 

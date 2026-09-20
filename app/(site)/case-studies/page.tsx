@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 };
 
 export default async function CaseStudiesPage() {
-  const [work, categories] = await Promise.all([cms.getWork(), cms.getWorkCategories()]);
+  const [work, categories, opener] = await Promise.all([cms.getWork(), cms.getWorkCategories(), cms.getOpener("/case-studies")]);
   const regions = [...new Set(work.map((w) => w.region))];
   const toolCount = new Map<string, number>();
   for (const tool of work.flatMap((w) => w.stack)) toolCount.set(tool, (toolCount.get(tool) ?? 0) + 1);
@@ -27,21 +27,31 @@ export default async function CaseStudiesPage() {
     <>
       <PageHero
         crumbs={[{ name: "Case studies", href: "/case-studies" }]}
-        eyebrow="Case studies"
-        title="Builds you can open, not logos you have to trust."
-        lede="White-label means partner work is never shown without written permission — and when it is, it carries your name. What we can show are builds our founder delivered as developer, project manager and team lead at a UK agency."
-        highlights={[
-          { label: "Case studies", value: `${work.length} builds you can open` },
-          { label: "Delivered in", value: regions.join(" · ") },
-          { label: "Most used", value: topTools.join(" · ") },
-        ]}
+        eyebrow={opener?.eyebrow || "Case studies"}
+        title={opener?.heading.join(" ") || "Builds you can open, not logos you have to trust."}
+        lede={
+          opener?.lede ||
+          "White-label means partner work is never shown without written permission — and when it is, it carries your name. What we can show are builds our founder delivered as developer, project manager and team lead at a UK agency."
+        }
+        highlights={
+          opener?.highlights.length
+            ? opener.highlights
+            : [
+                { label: "Case studies", value: `${work.length} builds you can open` },
+                { label: "Delivered in", value: regions.join(" · ") },
+                { label: "Most used", value: topTools.join(" · ") },
+              ]
+        }
       />
 
       <PageIntro
-        eyebrow="How to read these"
-        title="Eight builds, four ways in."
-        subtitle="Every one is live, public and linked — open them before you read a word we wrote."
-        body={[
+        eyebrow={opener?.intro?.eyebrow || "How to read these"}
+        title={opener?.intro?.title || "Eight builds, four ways in."}
+        subtitle={opener?.intro?.subtitle || "Every one is live, public and linked — open them before you read a word we wrote."}
+        body={
+          opener?.intro?.body.length
+            ? opener.intro.body
+            : [
           <>
             Most agency portfolios are a wall of logos. This page is the opposite: {work.length} finished websites, each with the brief it answered, the
             stack it was built on and a link to the running site. They were delivered for clients in {regions.join(", ")} — WooCommerce stores, headless
@@ -51,20 +61,29 @@ export default async function CaseStudiesPage() {
             Read them the way that matches your brief. Start with the spotlight, browse by the kind of work, check the market and the stack, or filter the
             full set at the bottom. Whichever way you come in, the facts are the same ones — nothing on this page is an outcome we cannot show you.
           </>,
-        ]}
-        points={[
+              ]
+        }
+        points={
+          opener?.intro?.points.length
+            ? opener.intro.points
+            : [
           { title: "Delivered, not pitched", text: "Each build shipped and is still live. The links go to the real site, not a screenshot." },
           { title: "Named honestly", text: "These are our founder's builds at a UK agency, said plainly on every card." },
           { title: "Your name on the next one", text: "Partner work only appears with written permission — and under your agency's brand." },
           { title: "Same team, same hours", text: "The people who built these are the ones who take your brief, on UK and US hours." },
-        ]}
-        jump={[
-          { label: "Spotlight", href: "#spotlight" },
-          { label: "By what we built", href: "#by-type" },
-          { label: "By market and stack", href: "#by-market" },
-          { label: "Every build", href: "#work" },
-          { label: "How we publish", href: "#format" },
-        ]}
+              ]
+        }
+        jump={
+          opener?.intro?.jump.length
+            ? opener.intro.jump
+            : [
+                { label: "Spotlight", href: "#spotlight" },
+                { label: "By what we built", href: "#by-type" },
+                { label: "By market and stack", href: "#by-market" },
+                { label: "Every build", href: "#work" },
+                { label: "How we publish", href: "#format" },
+              ]
+        }
       />
 
       {spotlight ? <CaseSpotlight item={spotlight} /> : null}

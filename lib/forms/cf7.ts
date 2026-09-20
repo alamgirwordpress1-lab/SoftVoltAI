@@ -5,15 +5,19 @@
  * validates, then delivers. Delivery is CF7 when a WordPress install is
  * configured, and Resend otherwise — the forms themselves never change.
  *
- * To go headless, set in the environment:
+ * Which form each one posts to comes from the CMS: the Headless settings
+ * screen holds the two Contact Form 7 ids, so an editor can rebuild a form and
+ * point the site at the new one without a deploy. The environment is the
+ * fallback, for a build that has no CMS yet:
  *   CF7_BASE_URL=https://cms.example.com     (the WordPress origin, no trailing slash)
  *   CF7_BRIEF_FORM_ID=123                    (the four-step brief form)
  *   CF7_CONTACT_FORM_ID=124                  (the short message form)
  *
- * Then build the two forms in CF7 with the field names in CF7_FIELDS below —
- * the tag names have to match exactly, because that is what CF7 validates and
- * what the mail template reads.
+ * Whichever way the id arrives, the two forms in CF7 have to carry the field
+ * names in CF7_FIELDS below — the tag names are what CF7 validates and what
+ * the mail template reads.
  */
+import { wpSettings } from "@/lib/cms/wordpress";
 
 export const CF7_FIELDS = {
   brief: {
@@ -44,11 +48,23 @@ export const CF7_FIELDS = {
 
 export type Cf7Form = keyof typeof CF7_FIELDS;
 
+/** The WordPress origin: whatever CF7_BASE_URL says, or the REST root we already talk to. */
+function cf7Base() {
+  const base =
+    process.env.CF7_BASE_URL || process.env.WP_REST_URL?.replace(/\/wp-json\/?$/, "") || process.env.WP_GRAPHQL_URL?.replace(/\/graphql\/?$/, "") || "";
+  return base.replace(/\/$/, "");
+}
+
 /** The form id for one of our two forms, or null when CF7 is not configured. */
-export function cf7FormId(form: Cf7Form) {
-  const base = process.env.CF7_BASE_URL;
-  const id = form === "brief" ? process.env.CF7_BRIEF_FORM_ID : process.env.CF7_CONTACT_FORM_ID;
-  return base && id ? { base: base.replace(/\/$/, ""), id } : null;
+export async function cf7FormId(form: Cf7Form) {
+  const base = cf7Base();
+  if (!base) return null;
+
+  // the CMS is asked first: the ids live on the Headless settings screen
+  const settings = await wpSettings().catch(() => null);
+  const fromCms = form === "brief" ? settings?.cf7BriefId : settings?.cf7ContactId;
+  const id = fromCms || (form === "brief" ? process.env.CF7_BRIEF_FORM_ID : process.env.CF7_CONTACT_FORM_ID);
+  return id ? { base, id } : null;
 }
 
 /**
@@ -57,7 +73,7 @@ export function cf7FormId(form: Cf7Form) {
  * otherwise, so the status is what decides, not the HTTP code.
  */
 export async function sendToCf7(form: Cf7Form, values: Record<string, string | string[] | boolean | undefined>) {
-  const target = cf7FormId(form);
+  const target = await cf7FormId(form);
   if (!target) return { sent: false as const, reason: "not-configured" };
 
   const names = CF7_FIELDS[form] as Record<string, string>;

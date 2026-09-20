@@ -1,5 +1,5 @@
 import "server-only";
-import type { AgencyType, Client, EngagementModel, Faq, PillarGroup, Pillar, ProcessStep, Promise as SitePromise, Service, ServiceDetail, Testimonial, WorkItem } from "@/lib/cms/types";
+import type { AgencyType, CityClock, Client, ComparisonRow, EngagementModel, Faq, PillarGroup, Pillar, ProcessStep, Promise as SitePromise, Service, ServiceDetail, TechItem, Testimonial, WorkItem } from "@/lib/cms/types";
 import type { TeamMember } from "@/content/founder";
 import { lines, plain, wpTry } from "@/lib/wp/client";
 import { AGENCY_TYPES, ALL_SLUGS, CASE_STUDIES, MENUS, PAGE_BY_URI, POST_BY_SLUG, POSTS, SERVICES, SIMPLE_COLLECTIONS, SITE_SETTINGS } from "@/lib/wp/queries";
@@ -25,6 +25,7 @@ export interface WpLink {
 }
 
 export interface WpSettings {
+  comparisonSource: WpLink;
   brandName: string;
   tagline: string;
   description: string;
@@ -259,6 +260,9 @@ interface RawSimple {
   teamMembers: { nodes: { slug: string; title: string; featuredImage: { node: { sourceUrl: string } } | null; teamFields: { role: string | null; headline: string | null; bio: string | null; quote: string | null; facts: string | null; linkedin: string | null } | null }[] };
   testimonials: { nodes: { slug: string; title: string; testimonialFields: { quote: string | null; personName: string | null; personRole: string | null; agency: string | null; country: string | null; work: string | null; consent: string | null } | null }[] };
   clients: { nodes: { slug: string; title: string; featuredImage: { node: { sourceUrl: string } } | null; clientFields: { country: string | null; work: string | null; url: string | null; featured: boolean | null; logoFill: boolean | null } | null }[] };
+  stackItems: { nodes: { slug: string; title: string; stackFields: { group: string | null } | null }[] };
+  comparisonRows: { nodes: { slug: string; title: string; comparisonFields: { inHouse: string | null; freelancer: string | null; us: string | null } | null }[] };
+  clocks: { nodes: { slug: string; title: string; clockFields: { timeZone: string | null; short: string | null } | null }[] };
 }
 
 export interface WpCollections {
@@ -272,10 +276,15 @@ export interface WpCollections {
   testimonials: Testimonial[];
   clients: Client[];
   featuredClients: { id: string; name: string; work: string; country: Client["country"]; logo?: string; logoFill?: boolean }[];
+  stack: TechItem[];
+  comparison: ComparisonRow[];
+  clocks: CityClock[];
 }
 
 export async function wpCollections(): Promise<WpCollections | null> {
-  const data = await wpTry<RawSimple>(SIMPLE_COLLECTIONS, { tags: ["wp:process_step", "wp:plan", "wp:faq", "wp:promise", "wp:clause", "wp:team_member", "wp:testimonial", "wp:client"] });
+  const data = await wpTry<RawSimple>(SIMPLE_COLLECTIONS, {
+    tags: ["wp:process_step", "wp:plan", "wp:faq", "wp:promise", "wp:clause", "wp:team_member", "wp:testimonial", "wp:client", "wp:stack_item", "wp:comparison_row", "wp:clock"],
+  });
   if (!data) return null;
 
   const faqNodes = data.faqs?.nodes ?? [];
@@ -344,6 +353,21 @@ export async function wpCollections(): Promise<WpCollections | null> {
         logo: node.featuredImage?.node?.sourceUrl || undefined,
         logoFill: node.clientFields?.logoFill ?? undefined,
       })),
+    stack: (data.stackItems?.nodes ?? []).map((node) => ({
+      name: plain(node.title),
+      group: plain(node.stackFields?.group ?? ""),
+    })),
+    comparison: (data.comparisonRows?.nodes ?? []).map((node) => ({
+      dimension: plain(node.title),
+      inHouse: plain(node.comparisonFields?.inHouse ?? ""),
+      freelancer: plain(node.comparisonFields?.freelancer ?? ""),
+      us: plain(node.comparisonFields?.us ?? ""),
+    })),
+    clocks: (data.clocks?.nodes ?? []).map((node) => ({
+      city: plain(node.title),
+      timeZone: plain(node.clockFields?.timeZone ?? ""),
+      short: plain(node.clockFields?.short ?? ""),
+    })),
   };
 
   return collections;
@@ -385,18 +409,32 @@ export interface WpPost extends WpPostCard {
   seo: WpSeo;
 }
 
-export interface WpPage {
+/**
+ * The banner and the intro band of one page, as an editor wrote them.
+ *
+ * Every field can be empty: the designed pages treat this as an override, so
+ * an empty heading leaves the one in the code — and the figures a page counts
+ * from its own content stay accurate unless someone deliberately replaces them.
+ */
+export interface WpOpener {
+  eyebrow: string;
+  /** One line per line: the home page sets each on its own line of the H1. */
+  heading: string[];
+  lede: string;
+  highlights: { label: string; value: string }[];
+  intro: { eyebrow: string; title: string; subtitle: string; body: string[]; points: { title: string; text: string }[]; jump: { label: string; href: string }[] } | null;
+  /** The list that belongs to this page and to no other. */
+  list: { title: string; body: string }[];
+}
+
+export interface WpPage extends WpOpener {
   slug: string;
   title: string;
   content: string;
   modified: string;
   image: WpImage | null;
-  /** The opener, from the Page fields group; the title is used when they are empty. */
-  eyebrow: string;
-  lede: string;
   /** The first lines of the content — a meta description for a page that has none. */
   excerpt: string;
-  intro: { title: string; subtitle: string; body: string[] } | null;
   seo: WpSeo;
 }
 
@@ -478,8 +516,33 @@ interface RawPage {
   content: string | null;
   modifiedGmt: string | null;
   featuredImage: RawImage | null;
-  pageFields: { eyebrow: string | null; lede: string | null; introTitle: string | null; introSubtitle: string | null; introBody: string | null } | null;
+  pageFields: {
+    eyebrow: string | null;
+    heading: string | null;
+    lede: string | null;
+    highlights: string | null;
+    introEyebrow: string | null;
+    introTitle: string | null;
+    introSubtitle: string | null;
+    introBody: string | null;
+    introPoints: string | null;
+    jumpLinks: string | null;
+  } | null;
+  securityFields: { practices: string | null } | null;
+  partnerFields: { steps: string | null } | null;
+  aboutFields: { values: string | null } | null;
   seo: RawSeo | null;
+}
+
+/** A textarea of "left | right" lines — how this install stores a list of pairs. */
+function pairs(value: string | null | undefined): { left: string; right: string }[] {
+  return lines(value)
+    .map((line) => {
+      const at = line.indexOf("|");
+      if (at < 0) return { left: plain(line), right: "" };
+      return { left: plain(line.slice(0, at)), right: plain(line.slice(at + 1)) };
+    })
+    .filter((pair) => pair.left);
 }
 
 /** The opening of a page's own text, cut on a word so it does not end mid-syllable. */
@@ -502,20 +565,50 @@ export async function wpPage(uri: string): Promise<WpPage | null> {
   const node = data?.page;
   if (!node) return null;
 
-  const fields = node.pageFields;
-  const body = lines(fields?.introBody);
   return {
     slug: node.slug,
     title: plain(node.title),
     content: node.content ?? "",
     modified: gmt(node.modifiedGmt),
     image: toImage(node.featuredImage),
-    eyebrow: plain(fields?.eyebrow ?? ""),
-    lede: plain(fields?.lede ?? ""),
     excerpt: summarise(node.content ?? ""),
-    intro: fields?.introTitle ? { title: plain(fields.introTitle), subtitle: plain(fields.introSubtitle ?? ""), body } : null,
     seo: toSeo(node.seo),
+    ...toOpener(node),
   };
+}
+
+/** The opener and the page's own list, shared by the page route and the designed pages. */
+function toOpener(node: RawPage): WpOpener {
+  const fields = node.pageFields;
+  const listSource = node.securityFields?.practices || node.partnerFields?.steps || node.aboutFields?.values || "";
+  return {
+    eyebrow: plain(fields?.eyebrow ?? ""),
+    heading: lines(fields?.heading).map(plain),
+    lede: plain(fields?.lede ?? ""),
+    highlights: pairs(fields?.highlights).map(({ left, right }) => ({ label: left, value: right })),
+    intro: fields?.introTitle
+      ? {
+          eyebrow: plain(fields.introEyebrow ?? ""),
+          title: plain(fields.introTitle),
+          subtitle: plain(fields.introSubtitle ?? ""),
+          body: lines(fields.introBody).map(plain),
+          points: pairs(fields.introPoints).map(({ left, right }) => ({ title: left, text: right })),
+          jump: pairs(fields.jumpLinks).map(({ left, right }) => ({ label: left, href: right })),
+        }
+      : null,
+    list: pairs(listSource).map(({ left, right }) => ({ title: left, body: right })),
+  };
+}
+
+/**
+ * The opener for one of the designed pages.
+ *
+ * Same read as wpPage, but the caller only wants the banner and the intro —
+ * the page's sections are built from the content types, not from page content.
+ */
+export async function wpOpener(uri: string): Promise<WpOpener | null> {
+  const page = await wpPage(uri);
+  return page ? { eyebrow: page.eyebrow, heading: page.heading, lede: page.lede, highlights: page.highlights, intro: page.intro, list: page.list } : null;
 }
 
 export interface WpSlugs {

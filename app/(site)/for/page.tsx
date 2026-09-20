@@ -12,27 +12,37 @@ export const metadata: Metadata = {
 };
 
 export default async function ForIndexPage() {
-  const [types, promises] = await Promise.all([cms.getAgencyTypes(), cms.getPromises()]);
+  const [types, promises, opener] = await Promise.all([cms.getAgencyTypes(), cms.getPromises(), cms.getOpener("/for")]);
   const short = (list: typeof types) => list.map((t) => t.name.replace(/ agencies$/i, "")).join(" · ");
   const noContact = promises.find((p) => p.id === "no-contact");
   return (
     <>
       <PageHero
         crumbs={[{ name: "For agencies", href: "/for" }]}
-        eyebrow="Who we help"
-        title="Built for agencies that have already sold the work."
-        lede="You own the client, the strategy and the invoice. We take the part that is blocking your calendar. Pick the kind of agency you are and see how the engagement runs."
-        highlights={[
-          { label: "Built for", value: short(types.slice(0, 3)) },
-          { label: "And for", value: short(types.slice(3)) },
-          ...(noContact ? [{ label: "Commitment", value: noContact.label }] : []),
-        ]}
+        eyebrow={opener?.eyebrow || "Who we help"}
+        title={opener?.heading.join(" ") || "Built for agencies that have already sold the work."}
+        lede={
+          opener?.lede ||
+          "You own the client, the strategy and the invoice. We take the part that is blocking your calendar. Pick the kind of agency you are and see how the engagement runs."
+        }
+        highlights={
+          opener?.highlights.length
+            ? opener.highlights
+            : [
+                { label: "Built for", value: short(types.slice(0, 3)) },
+                { label: "And for", value: short(types.slice(3)) },
+                ...(noContact ? [{ label: "Commitment", value: noContact.label }] : []),
+              ]
+        }
       />
       <PageIntro
-        eyebrow="How this works"
-        title="Your agency stays the agency."
-        subtitle="We are the production team behind the name on the invoice — never a second supplier your client has to meet."
-        body={[
+        eyebrow={opener?.intro?.eyebrow || "How this works"}
+        title={opener?.intro?.title || "Your agency stays the agency."}
+        subtitle={opener?.intro?.subtitle || "We are the production team behind the name on the invoice — never a second supplier your client has to meet."}
+        body={
+          opener?.intro?.body.length
+            ? opener.intro.body
+            : [
           <>
             Most of the agencies we work with are three to thirty people. They have won a website, a migration, a store, an automation or a retainer, and the
             work is bigger than the calendar. Rather than hiring for a spike, they hand the production to us and keep everything the client sees: the
@@ -43,17 +53,26 @@ export default async function ForIndexPage() {
             arrives from a branding studio. Pick the closest one and you will see the services that fit it, how a typical engagement runs, and what we need
             from you at each step.
           </>,
-        ]}
-        points={[
-          { title: "You own the client", text: "We never contact them, and never appear in a meeting unless you ask." },
-          { title: "Under your brand", text: "Staging links, documents and handover carry your agency's name." },
-          { title: "Fixed price per brief", text: "Scoped and agreed in writing before the work starts." },
-          { title: "No retainer to start", text: "The first project is a project. A plan only follows if it suits you." },
-        ]}
-        jump={[
-          { label: "Kinds of agency", href: "#agency-types" },
-          { label: "Send a brief", href: "/contact" },
-        ]}
+              ]
+        }
+        points={
+          opener?.intro?.points.length
+            ? opener.intro.points
+            : [
+                { title: "You own the client", text: "We never contact them, and never appear in a meeting unless you ask." },
+                { title: "Under your brand", text: "Staging links, documents and handover carry your agency's name." },
+                { title: "Fixed price per brief", text: "Scoped and agreed in writing before the work starts." },
+                { title: "No retainer to start", text: "The first project is a project. A plan only follows if it suits you." },
+              ]
+        }
+        jump={
+          opener?.intro?.jump.length
+            ? opener.intro.jump
+            : [
+                { label: "Kinds of agency", href: "#agency-types" },
+                { label: "Send a brief", href: "/contact" },
+              ]
+        }
       />
 
       <section id="agency-types" className="container-x border-t border-line py-14 md:py-20" aria-labelledby="agency-types-title">

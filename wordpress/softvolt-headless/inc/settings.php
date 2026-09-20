@@ -41,6 +41,7 @@ add_action('admin_init', static function (): void {
         'cta'       => ['Calls to action', 'The buttons that repeat across the site.', ['cta_primary_label', 'cta_primary_href', 'cta_secondary_label', 'cta_secondary_href', 'header_cta_label', 'header_cta_href']],
         'footer'    => ['Footer', 'The closing band above the legal line.', ['footer_blurb', 'footer_note', 'social_links']],
         'forms'     => ['Forms', 'Contact Form 7 ids, so the front end can post to the right form.', ['cf7_brief_id', 'cf7_contact_id']],
+        'comparison' => ['Comparison table', 'The one outside figure the home page quotes, and where a reader can check it.', ['comparison_source_label', 'comparison_source_url']],
     ];
 
     $schema = softvolt_settings_schema();

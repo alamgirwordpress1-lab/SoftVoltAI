@@ -30,7 +30,7 @@ export async function POST(req: Request) {
   ].join("\n");
 
   // WordPress first when it is configured: the same submission, delivered by CF7.
-  if (cf7FormId("contact")) {
+  if (await cf7FormId("contact")) {
     const result = await sendToCf7("contact", { ...data, website: undefined });
     if (result.sent) return NextResponse.json({ ok: true, delivered: true, via: "cf7" });
     console.error("[contact] CF7 rejected the submission", result);
