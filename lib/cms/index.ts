@@ -1,8 +1,13 @@
 /**
  * Content access layer. Pages import from here only.
- * Today this reads typed local content; the WordPress adapter (WPGraphQL)
- * will implement the same functions in Phase 4 without touching any page.
+ *
+ * Two sources sit behind it. WordPress is asked first whenever WP_GRAPHQL_URL
+ * is set; the typed files in /content answer whenever it is not, or whenever
+ * WordPress has nothing for that collection yet. That is deliberate: content
+ * can move across one type at a time, and a CMS that is down or half-migrated
+ * never takes the site with it.
  */
+import { cache } from "react";
 import { pillars } from "@/content/pillars";
 import { agencyTypes } from "@/content/agency-types";
 import { process } from "@/content/process";
@@ -19,10 +24,20 @@ import { buildDetails } from "@/content/service-details-build";
 import { automateDetails } from "@/content/service-details-automate";
 import { growDetails } from "@/content/service-details-grow";
 import { supportDetails } from "@/content/service-details-support";
+import { wpAgencyTypes, wpCollections, wpServices, wpWork } from "@/lib/cms/wordpress";
 import type { Service, ServiceDetail, PillarGroup, AgencyType } from "@/lib/cms/types";
 
 const details: Record<string, ServiceDetail> = { ...buildDetails, ...automateDetails, ...growDetails, ...supportDetails };
 const services: Service[] = pillars.flatMap((p) => p.services);
+
+/**
+ * One WordPress read per collection per request, however many sections ask
+ * for it. `cache` is request-scoped; the fetch layer caches across requests.
+ */
+const fromWpServices = cache(wpServices);
+const fromWpAgencyTypes = cache(wpAgencyTypes);
+const fromWpWork = cache(wpWork);
+const fromWpCollections = cache(wpCollections);
 
 export interface ServicePage extends Service, ServiceDetail {
   pillarGroup: PillarGroup;
@@ -31,53 +46,118 @@ export interface ServicePage extends Service, ServiceDetail {
 }
 
 export const cms = {
-  getPillars: async () => pillars,
-  getServices: async () => services,
+  getPillars: async (): Promise<PillarGroup[]> => (await fromWpServices())?.pillars ?? pillars,
+
+  getServices: async (): Promise<Service[]> => (await fromWpServices())?.services ?? services,
+
   getService: async (slug: string): Promise<ServicePage | null> => {
-    const service = services.find((s) => s.slug === slug);
-    const detail = details[slug];
+    const wp = await fromWpServices();
+    const allServices = wp?.services ?? services;
+    const allDetails = wp?.details ?? details;
+    const allPillars = wp?.pillars ?? pillars;
+    const allAgencies = (await fromWpAgencyTypes()) ?? agencyTypes;
+
+    const service = allServices.find((s) => s.slug === slug);
+    const detail = allDetails[slug];
     if (!service || !detail) return null;
-    const pillarGroup = pillars.find((p) => p.id === service.pillar)!;
+
+    const pillarGroup = allPillars.find((p) => p.id === service.pillar) ?? allPillars[0];
     return {
       ...service,
       ...detail,
       pillarGroup,
-      related: pillarGroup.services.filter((s) => s.slug !== slug).slice(0, 4),
-      agencies: (detail.agencyTypes ?? []).map((slug) => agencyTypes.find((a) => a.slug === slug)).filter((a): a is AgencyType => Boolean(a)),
+      related: (pillarGroup?.services ?? []).filter((s) => s.slug !== slug).slice(0, 4),
+      agencies: (detail.agencyTypes ?? []).map((s) => allAgencies.find((a) => a.slug === s)).filter((a): a is AgencyType => Boolean(a)),
     };
   },
-  getAgencyTypes: async () => agencyTypes,
+
+  getAgencyTypes: async (): Promise<AgencyType[]> => (await fromWpAgencyTypes()) ?? agencyTypes,
+
   getAgencyType: async (slug: string) => {
-    const type = agencyTypes.find((a) => a.slug === slug);
+    const allTypes = (await fromWpAgencyTypes()) ?? agencyTypes;
+    const allServices = (await fromWpServices())?.services ?? services;
+    const type = allTypes.find((a) => a.slug === slug);
     if (!type) return null;
-    return { ...type, serviceItems: type.services.map((s) => services.find((x) => x.slug === s)).filter((s): s is Service => Boolean(s)) };
+    return { ...type, serviceItems: type.services.map((s) => allServices.find((x) => x.slug === s)).filter((s): s is Service => Boolean(s)) };
   },
-  getProcess: async () => process,
-  getWork: async () => work,
-  getWorkCategories: async () => workCategories,
+
+  getProcess: async () => {
+    const wp = await fromWpCollections();
+    return wp?.process.length ? wp.process : process;
+  },
+
+  getWork: async () => (await fromWpWork())?.work ?? work,
+
+  getWorkCategories: async () => (await fromWpWork())?.categories ?? workCategories,
+
   getWorkItem: async (slug: string) => {
-    const item = work.find((w) => w.slug === slug);
+    const all = (await fromWpWork())?.work ?? work;
+    const item = all.find((w) => w.slug === slug);
     if (!item) return null;
-    const related = work.filter((w) => w.slug !== slug && w.category === item.category).slice(0, 3);
-    return { ...item, related: related.length ? related : work.filter((w) => w.slug !== slug).slice(0, 3) };
+    const related = all.filter((w) => w.slug !== slug && w.category === item.category).slice(0, 3);
+    return { ...item, related: related.length ? related : all.filter((w) => w.slug !== slug).slice(0, 3) };
   },
-  getPromises: async () => promises,
-  getProtectionClauses: async () => protectionClauses,
-  getFaqs: async () => faqs,
-  getPricingFaqs: async () => pricingFaqs,
+
+  getPromises: async () => {
+    const wp = await fromWpCollections();
+    return wp?.promises.length ? wp.promises : promises;
+  },
+
+  getProtectionClauses: async () => {
+    const wp = await fromWpCollections();
+    return wp?.clauses.length ? wp.clauses : protectionClauses;
+  },
+
+  getFaqs: async () => {
+    const wp = await fromWpCollections();
+    return wp?.faqs.length ? wp.faqs : faqs;
+  },
+
+  getPricingFaqs: async () => {
+    const wp = await fromWpCollections();
+    return wp?.pricingFaqs.length ? wp.pricingFaqs : pricingFaqs;
+  },
+
+  // the stack list and the clocks are structural, not editorial: they stay in code
   getStack: async () => stack,
   getClocks: async () => clocks,
-  getEngagementModels: async () => engagementModels,
-  getTeam: async () => team,
-  getClients: async () => clients,
-  getGlobeLocations: async () => globeLocations,
-  // preview photos win on this machine only; the folder they come from is git-ignored
-  getGlobeCards: async () => {
-    const preview = placeholderClients();
-    return preview.length ? clientOrbit(preview) : globeCards;
+
+  getEngagementModels: async () => {
+    const wp = await fromWpCollections();
+    return wp?.plans.length ? wp.plans : engagementModels;
   },
+
+  getTeam: async () => {
+    const wp = await fromWpCollections();
+    return wp?.team.length ? wp.team : team;
+  },
+
+  getClients: async () => {
+    const wp = await fromWpCollections();
+    return wp?.clients.length ? wp.clients : clients;
+  },
+
+  getGlobeLocations: async () => globeLocations,
+
+  getGlobeCards: async () => {
+    // preview photos win on this machine only; the folder they come from is git-ignored
+    const preview = placeholderClients();
+    if (preview.length) return clientOrbit(preview);
+
+    const wp = await fromWpCollections();
+    if (wp?.featuredClients.length) {
+      const { logoOrbit } = await import("@/content/clients");
+      return logoOrbit(wp.featuredClients);
+    }
+    return globeCards;
+  },
+
   getComparison: async () => ({ rows: comparison, source: comparisonSource }),
-  getTestimonials: async () => testimonials,
+
+  getTestimonials: async () => {
+    const wp = await fromWpCollections();
+    return wp?.testimonials.length ? wp.testimonials : testimonials;
+  },
 };
 
 export type Cms = typeof cms;

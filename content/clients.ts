@@ -198,7 +198,7 @@ export const clientOrbit = (people: RecommendingClient[]): GlobeCard[] =>
     people.slice(0, MAX_GLOBE_CARDS).map((p) => ({ id: `client-${p.id}`, kind: "client", name: p.name, role: p.role, company: p.company, country: p.country, photo: p.photo, az: 0, lat: 0 })),
   );
 
-const logoOrbit = (businesses: FeaturedClient[]): GlobeCard[] =>
+export const logoOrbit = (businesses: FeaturedClient[]): GlobeCard[] =>
   countryOrbit(businesses.slice(0, MAX_GLOBE_CARDS).map((b) => ({ id: `logo-${b.id}`, kind: "logo", name: b.name, work: b.work, country: b.country, logo: b.logo, logoFill: b.logoFill, az: 0, lat: 0 })));
 
 /**

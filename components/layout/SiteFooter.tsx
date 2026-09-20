@@ -2,8 +2,9 @@ import Link from "next/link";
 import { siFacebook, siInstagram, siX } from "simple-icons";
 import { Logo } from "@/components/layout/Logo";
 import { BackToTop } from "@/components/layout/BackToTop";
-import { companyLinks, site, socials } from "@/content/site";
+import { companyLinks, socials } from "@/content/site";
 import { pillars } from "@/content/pillars";
+import type { SiteChrome } from "@/lib/cms/site";
 
 function SocialIcon({ icon }: { icon: (typeof socials)[number]["icon"] }) {
   if (icon === "linkedin") return <span className="ui text-[15px] font-bold leading-none">in</span>;
@@ -40,23 +41,24 @@ function Column({ title, links }: { title: string; links: { label: string; href:
   );
 }
 
-export function SiteFooter() {
+/** The chrome comes from the layout, which has already merged WordPress over /content. */
+export function SiteFooter({ chrome }: { chrome: SiteChrome }) {
   const year = new Date().getFullYear();
   const servicePillars = pillars.filter((p) => p.id === "grow" || p.id === "support");
-  const liveSocials = socials.filter((s) => s.href);
+  const liveSocials = chrome.socials.filter((s) => s.href);
 
   return (
     <footer className="relative bg-[#0a0f0c] text-er-ink">
       <div className="wide-x relative pt-20 md:pt-28">
         <div className="grid gap-14 lg:grid-cols-12 lg:gap-10">
           <div className="lg:col-span-4">
-            <Link href="/" aria-label={`${site.name} — home`} className="inline-block">
+            <Link href="/" aria-label={`${chrome.name} — home`} className="inline-block">
               <Logo dark id="logo-footer" />
             </Link>
-            <p className="ui mt-7 max-w-[30ch] text-lg font-semibold leading-snug text-er-ink">The white-label production &amp; growth team behind agencies.</p>
+            <p className="ui mt-7 max-w-[30ch] text-lg font-semibold leading-snug text-er-ink">{chrome.tagline}</p>
             <p className="mt-4 max-w-[46ch] text-[15px] leading-relaxed text-er-muted">
-              SoftVolt AI helps agencies across the UK, US, Canada, Australia and the EU deliver websites, apps, automation, SEO
-              and paid media without hiring in-house — fully white-labelled, always under your brand.
+              {chrome.footerBlurb ||
+                `${chrome.name} helps agencies across the UK, US, Canada, Australia and the EU deliver websites, apps, automation, SEO and paid media without hiring in-house — fully white-labelled, always under your brand.`}
             </p>
 
             <p className="ui mt-9 text-[15px] font-bold text-er-ink">Follow us</p>
@@ -77,19 +79,23 @@ export function SiteFooter() {
           </div>
 
           <div className="grid gap-12 sm:grid-cols-3 lg:col-span-7 lg:col-start-6 lg:gap-8">
-            {servicePillars.map((p) => (
-              <Column key={p.id} title={p.name} links={p.services.map((s) => ({ label: s.name, href: `/services/${s.slug}` }))} />
-            ))}
-            <Column title="Company" links={companyLinks} />
+            {chrome.footerColumns ? (
+              chrome.footerColumns.map((column) => <Column key={column.title} title={column.title} links={column.links} />)
+            ) : (
+              <>
+                {servicePillars.map((p) => (
+                  <Column key={p.id} title={p.name} links={p.services.map((s) => ({ label: s.name, href: `/services/${s.slug}` }))} />
+                ))}
+                <Column title="Company" links={companyLinks} />
+              </>
+            )}
           </div>
         </div>
 
         <div className="mt-20 grid gap-6 border-t border-er-line py-10 text-[14px] text-er-muted md:mt-28 md:grid-cols-3 md:items-center">
-          <p>
-            © {year} {site.name}. All rights reserved.
-          </p>
+          <p>{chrome.footerNote || `© ${year} ${chrome.name}. All rights reserved.`}</p>
           <p className="mono uppercase tracking-[0.1em] md:text-center">
-            {site.location} · {site.utcOffset} · UK &amp; US overlap
+            {chrome.location} · {chrome.utcOffset} · UK &amp; US overlap
           </p>
           <div className="md:justify-self-end">
             <BackToTop />

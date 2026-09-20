@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { nav, aboutLinks, headerCta, cta, site } from "@/content/site";
+import type { SiteChrome } from "@/lib/cms/site";
 import { pillars } from "@/content/pillars";
 import { agencyTypes } from "@/content/agency-types";
 import { Logo } from "@/components/layout/Logo";
@@ -33,7 +33,9 @@ function MobileGroup({ title, children }: { title: string; children: React.React
   );
 }
 
-export function SiteHeader() {
+/** Labels, calls to action and the About menu come from WordPress when it has them. */
+export function SiteHeader({ chrome }: { chrome: SiteChrome }) {
+  const { nav, aboutLinks, headerCta, cta, name: siteName } = chrome;
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
@@ -64,7 +66,7 @@ export function SiteHeader() {
     >
       {/* not `relative`: the mega menu panel positions against the full-width header */}
       <div className="wide-x flex h-16 items-center gap-6 md:h-20 lg:gap-4 xl:gap-6">
-        <Link href="/" className="flex items-center gap-2.5" aria-label={`${site.name} — home`} onClick={close}>
+        <Link href="/" className="flex items-center gap-2.5" aria-label={`${siteName} — home`} onClick={close}>
           <Logo id="logo-header" />
         </Link>
 

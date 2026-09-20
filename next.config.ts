@@ -14,7 +14,12 @@ const nextConfig: NextConfig = {
   // into the home directory looking for a lockfile.
   outputFileTracingRoot: path.join(process.cwd()),
   turbopack: { root: path.join(process.cwd()) },
-  images: { formats: ["image/avif", "image/webp"] },
+  images: {
+    formats: ["image/avif", "image/webp"],
+    // media lives on the WordPress install; Next optimises it and caches the
+    // result at the edge, so the CMS serves each original once
+    remotePatterns: [{ protocol: "https", hostname: "cms.charguty.online", pathname: "/wp-content/uploads/**" }],
+  },
   async headers() {
     return [{ source: "/(.*)", headers: securityHeaders }];
   },

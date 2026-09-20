@@ -1,11 +1,13 @@
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { Button } from "@/components/ui/Button";
+import { getSiteChrome } from "@/lib/cms/site";
 
-export default function NotFound() {
+export default async function NotFound() {
+  const chrome = await getSiteChrome();
   return (
     <>
-      <SiteHeader />
+      <SiteHeader chrome={chrome} />
       <main className="container-x section min-h-[60vh]">
         <span className="eyebrow">404</span>
         <h1 className="display display-lg mt-4">This page is not on the staging server.</h1>
@@ -14,7 +16,7 @@ export default function NotFound() {
           Back to the homepage
         </Button>
       </main>
-      <SiteFooter />
+      <SiteFooter chrome={chrome} />
     </>
   );
 }
