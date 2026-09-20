@@ -77,7 +77,7 @@ export const searchPages: SearchPage[] = [
   {
     title: "Send us a brief",
     url: "/contact",
-    description: "Four short steps. A named producer replies within one business day; a scope and fixed price follow within two.",
+    description: "One short form. A named producer replies within one business day; a scope and fixed price follow within two.",
     keywords: ["contact", "brief", "quote", "estimate", "hire", "start a project", "email", "get in touch"],
   },
   {

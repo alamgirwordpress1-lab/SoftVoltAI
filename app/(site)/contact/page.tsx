@@ -1,14 +1,13 @@
 import type { Metadata } from "next";
 import { PageHero } from "@/components/ui/PageHero";
 import { PageIntro } from "@/components/ui/PageIntro";
-import { BriefForm } from "@/components/sections/BriefForm";
 import { ContactForm } from "@/components/sections/ContactForm";
 import { site } from "@/content/site";
 import { cms } from "@/lib/cms";
 
 export const metadata: Metadata = {
-  title: "Send us a brief",
-  description: "Send a white-label brief: a named producer replies in one business day with a written scope and a fixed price. NDA before any client detail.",
+  title: "Contact — send us a message",
+  description: "Message the SoftVolt AI team: a named producer replies in one business day with a written scope and a fixed price. NDA before any client detail.",
   alternates: { canonical: "/contact" },
 };
 
@@ -20,18 +19,19 @@ export default async function ContactPage() {
     <>
       <PageHero
         crumbs={[{ name: "Contact", href: "/contact" }]}
-        eyebrow="Send us a brief"
-        title="Four short steps. A scope and a fixed price within two business days."
+        eyebrow="Contact"
+        title="Tell us what you need. A written scope follows."
         lede="Client names can wait until the NDA is signed. Tell us what exists, what is needed and when — a named producer replies within one business day."
         highlights={[
-          { label: "The brief", value: "Four short steps" },
           ...(brief ? [{ label: brief.name, value: brief.turnaround }] : []),
           ...(scope ? [{ label: scope.name, value: scope.turnaround }] : []),
+          { label: "Before client details", value: "Mutual NDA on request" },
         ]}
       />
+
       <PageIntro
         eyebrow="Before you write"
-        title="A brief, not a discovery call."
+        title="A message, not a discovery call."
         subtitle="Five minutes of typing gets you a written scope with a fixed price — no meeting required to find out what something costs."
         body={[
           <>
@@ -51,19 +51,26 @@ export default async function ContactPage() {
           { title: "Prefer to talk?", text: "A 20-minute scoping call is free and booked in your time zone." },
         ]}
         jump={[
-          { label: "The brief form", href: "#brief-form" },
-          { label: "Just a message", href: "#message" },
+          { label: "Send a message", href: "#message" },
           { label: "Book a call", href: "#call" },
         ]}
       />
 
-      <section id="brief-form" className="container-x relative pb-20 md:pb-28" aria-label="Brief form and contact details">
-        <div className="relative grid gap-10 lg:grid-cols-12 lg:gap-14">
-          <div className="lg:col-span-7" data-reveal>
-            <BriefForm />
-          </div>
-          <aside className="lg:col-span-5" data-reveal style={{ ["--reveal-delay" as string]: "100ms" }}>
-            <dl className="card shadow-soft space-y-6 p-6 text-[15px] md:p-8">
+      <section id="message" className="border-t border-line bg-surface" aria-labelledby="message-title">
+        <div className="container-x grid gap-10 py-14 md:py-20 lg:grid-cols-12 lg:gap-14">
+          <div className="lg:sticky lg:top-28 lg:col-span-5 lg:self-start" data-reveal>
+            <div className="flex items-center gap-3">
+              <span className="h-px w-8 bg-accent" aria-hidden="true" />
+              <span className="eyebrow">Send us a brief</span>
+            </div>
+            <h2 id="message-title" className="display display-lg mt-5 max-w-[15ch]">
+              Write to us. That is the whole process.
+            </h2>
+            <p className="ui mt-5 max-w-[40ch] text-lg font-semibold leading-snug text-ink md:text-xl">
+              A brief, a question, an introduction or an idea that is not a project yet — the same person answers all four.
+            </p>
+
+            <dl className="mt-9 space-y-5 text-[15px]">
               <div id="call">
                 <dt className="mono text-[11px] uppercase tracking-[0.1em] text-muted">Prefer to talk?</dt>
                 <dd className="mt-1 text-ink">
@@ -72,7 +79,7 @@ export default async function ContactPage() {
                       Book a 20-minute scoping call ↗
                     </a>
                   ) : (
-                    <>A 20-minute scoping call is free — ask for a slot in the brief and we will send times in your time zone.</>
+                    <>A 20-minute scoping call is free — ask for a slot in your message and we will send times in your time zone.</>
                   )}
                 </dd>
               </div>
@@ -92,48 +99,11 @@ export default async function ContactPage() {
               </div>
               <div>
                 <dt className="mono text-[11px] uppercase tracking-[0.1em] text-muted">NDA first?</dt>
-                <dd className="mt-1 text-ink">Tick the box in the last step. The mutual NDA arrives before any client detail is discussed.</dd>
+                <dd className="mt-1 text-ink">Tick the box in the form. The mutual NDA arrives before any client detail is discussed.</dd>
               </div>
               <div>
                 <dt className="mono text-[11px] uppercase tracking-[0.1em] text-muted">What happens next</dt>
                 <dd className="mt-1 text-ink">Reply within 1 business day → scope and fixed price within 2 → work starts on your written approval.</dd>
-              </div>
-            </dl>
-          </aside>
-        </div>
-      </section>
-
-      <section id="message" className="border-t border-line bg-surface" aria-labelledby="message-title">
-        <div className="container-x grid gap-10 py-14 md:py-20 lg:grid-cols-12 lg:gap-14">
-          <div className="lg:sticky lg:top-28 lg:col-span-5 lg:self-start" data-reveal>
-            <div className="flex items-center gap-3">
-              <span className="h-px w-8 bg-accent" aria-hidden="true" />
-              <span className="eyebrow">Not a brief yet?</span>
-            </div>
-            <h2 id="message-title" className="display display-lg mt-5 max-w-[15ch]">
-              Then just write to us.
-            </h2>
-            <p className="ui mt-5 max-w-[40ch] text-lg font-semibold leading-snug text-ink md:text-xl">
-              A question, an introduction, or a project that is still an idea — the same person answers all three.
-            </p>
-            <dl className="mt-9 space-y-5 text-[15px]">
-              <div>
-                <dt className="mono text-[11px] uppercase tracking-[0.1em] text-muted">Or email</dt>
-                <dd className="mt-1">
-                  <a href={`mailto:${site.email}`} className="text-ink underline decoration-line underline-offset-4 hover:decoration-accent">
-                    {site.email}
-                  </a>
-                </dd>
-              </div>
-              <div>
-                <dt className="mono text-[11px] uppercase tracking-[0.1em] text-muted">Hours</dt>
-                <dd className="mt-1 text-ink">
-                  {site.location} · {site.utcOffset} · UK and US overlap, daily
-                </dd>
-              </div>
-              <div>
-                <dt className="mono text-[11px] uppercase tracking-[0.1em] text-muted">Confidentiality</dt>
-                <dd className="mt-1 text-ink">Tick the NDA box and the mutual NDA arrives before anything else.</dd>
               </div>
             </dl>
           </div>
