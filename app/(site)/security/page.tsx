@@ -86,9 +86,13 @@ export default async function SecurityPage() {
       />
 
       <section id="practices" className="container-x border-t border-line py-14 md:py-20" aria-labelledby="practices-title">
-        <span className="eyebrow">Practices</span>
+        <span className="eyebrow">{opener?.sections.practices?.eyebrow || "Practices"}</span>
         <h2 id="practices-title" className="display display-md mt-4">
-          <span className="capitalize">{countWord(practices.length)}</span> things that are true on every project.
+          {opener?.sections.practices?.title || (
+            <>
+              <span className="capitalize">{countWord(practices.length)}</span> things that are true on every project.
+            </>
+          )}
         </h2>
         <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {practices.map((p, i) => (

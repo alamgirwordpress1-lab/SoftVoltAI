@@ -644,6 +644,7 @@ add_action('acf/init', static function (): void {
             softvolt_field(['key' => 'field_sv_page_highlights', 'label' => 'Banner facts', 'name' => 'highlights', 'type' => 'textarea', 'rows' => 4, 'instructions' => 'Up to three, one per line, as "Label | Value". These are the cards on the banner, so each one has to be true. Left empty, the page counts them from its own content.']),
             softvolt_field(['key' => 'field_sv_page_points', 'label' => 'Intro points', 'name' => 'intro_points', 'type' => 'textarea', 'rows' => 5, 'instructions' => 'Up to four, one per line, as "Heading | Text". They sit under the intro copy.']),
             softvolt_field(['key' => 'field_sv_page_jump', 'label' => 'On this page', 'name' => 'jump_links', 'type' => 'textarea', 'rows' => 4, 'instructions' => 'One per line, as "Label | #anchor". These are the links that jump into the sections below.']),
+            softvolt_field(['key' => 'field_sv_page_sections', 'label' => 'Section headings', 'name' => 'sections', 'type' => 'textarea', 'rows' => 6, 'instructions' => 'The headings of the bands further down this page, one per line, as "anchor | Eyebrow | Heading". Leave the heading empty to keep the one the page writes for itself, which is usually counting something.']),
         ]
     ));
 

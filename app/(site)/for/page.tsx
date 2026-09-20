@@ -76,9 +76,9 @@ export default async function ForIndexPage() {
       />
 
       <section id="agency-types" className="container-x border-t border-line py-14 md:py-20" aria-labelledby="agency-types-title">
-        <span className="eyebrow">Who we work with</span>
+        <span className="eyebrow">{opener?.sections["agency-types"]?.eyebrow || "Who we work with"}</span>
         <h2 id="agency-types-title" className="display display-md mt-4 max-w-[20ch]">
-          Pick the kind of agency you are.
+          {opener?.sections["agency-types"]?.title || "Pick the kind of agency you are."}
         </h2>
         <ul className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
           {types.map((a, i) => (

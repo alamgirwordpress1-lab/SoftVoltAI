@@ -85,9 +85,9 @@ export default async function PartnerProgrammePage() {
       />
 
       <section id="steps" className="container-x border-t border-line py-14 md:py-20" aria-labelledby="steps-title">
-        <span className="eyebrow">How it starts</span>
+        <span className="eyebrow">{opener?.sections.steps?.eyebrow || "How it starts"}</span>
         <h2 id="steps-title" className="display display-md mt-4">
-          From first brief to standing retainer.
+          {opener?.sections.steps?.title || "From first brief to standing retainer."}
         </h2>
         <ol className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
           {steps.map((s, i) => (
@@ -103,9 +103,13 @@ export default async function PartnerProgrammePage() {
       <section id="models" className="er relative overflow-hidden" aria-labelledby="models-title">
         <div className="glow -right-24 -top-24 h-[420px] w-[420px]" aria-hidden="true" />
         <div className="container-x relative py-14 md:py-20">
-          <span className="eyebrow">Ways to work</span>
+          <span className="eyebrow">{opener?.sections.models?.eyebrow || "Ways to work"}</span>
           <h2 id="models-title" className="display display-md mt-4">
-            <span className="capitalize">{countWord(models.length)}</span> engagement models.
+            {opener?.sections.models?.title || (
+              <>
+                <span className="capitalize">{countWord(models.length)}</span> engagement models.
+              </>
+            )}
           </h2>
           <ul className="mt-10 grid gap-4 md:grid-cols-3">
             {models.map((m) => (
@@ -129,9 +133,9 @@ export default async function PartnerProgrammePage() {
       </section>
 
       <section id="terms" className="container-x py-14 md:py-20" aria-labelledby="terms-title">
-        <span className="eyebrow">Signed once</span>
+        <span className="eyebrow">{opener?.sections.terms?.eyebrow || "Signed once"}</span>
         <h2 id="terms-title" className="display display-md mt-4">
-          What every partner gets in writing.
+          {opener?.sections.terms?.title || "What every partner gets in writing."}
         </h2>
         <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
           {promises.map((p) => (

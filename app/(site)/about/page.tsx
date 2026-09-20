@@ -87,9 +87,13 @@ export default async function AboutPage() {
       <Founder team={team} />
 
       <section id="why" className="section container-x border-t border-line" aria-labelledby="why-title">
-        <span className="eyebrow">Why SoftVolt AI</span>
+        <span className="eyebrow">{opener?.sections.why?.eyebrow || "Why SoftVolt AI"}</span>
         <h2 id="why-title" className="display display-lg mt-4 max-w-[20ch]">
-          <span className="capitalize">{countWord(values.length)}</span> rules we keep on every project.
+          {opener?.sections.why?.title || (
+            <>
+              <span className="capitalize">{countWord(values.length)}</span> rules we keep on every project.
+            </>
+          )}
         </h2>
         <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {values.map((v, i) => (

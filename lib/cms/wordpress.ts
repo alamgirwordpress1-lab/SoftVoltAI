@@ -425,6 +425,8 @@ export interface WpOpener {
   intro: { eyebrow: string; title: string; subtitle: string; body: string[]; points: { title: string; text: string }[]; jump: { label: string; href: string }[] } | null;
   /** The list that belongs to this page and to no other. */
   list: { title: string; body: string }[];
+  /** The bands further down, by their anchor. A missing title keeps the page's own. */
+  sections: Record<string, { eyebrow: string; title: string }>;
 }
 
 export interface WpPage extends WpOpener {
@@ -527,6 +529,7 @@ interface RawPage {
     introBody: string | null;
     introPoints: string | null;
     jumpLinks: string | null;
+    sections: string | null;
   } | null;
   securityFields: { practices: string | null } | null;
   partnerFields: { steps: string | null } | null;
@@ -597,6 +600,12 @@ function toOpener(node: RawPage): WpOpener {
         }
       : null,
     list: pairs(listSource).map(({ left, right }) => ({ title: left, body: right })),
+    sections: Object.fromEntries(
+      lines(fields?.sections).map((line) => {
+        const [anchor = "", eyebrow = "", title = ""] = line.split("|").map((part) => plain(part));
+        return [anchor, { eyebrow, title }];
+      }),
+    ),
   };
 }
 
@@ -608,7 +617,9 @@ function toOpener(node: RawPage): WpOpener {
  */
 export async function wpOpener(uri: string): Promise<WpOpener | null> {
   const page = await wpPage(uri);
-  return page ? { eyebrow: page.eyebrow, heading: page.heading, lede: page.lede, highlights: page.highlights, intro: page.intro, list: page.list } : null;
+  if (!page) return null;
+  const { eyebrow, heading, lede, highlights, intro, list, sections } = page;
+  return { eyebrow, heading, lede, highlights, intro, list, sections };
 }
 
 export interface WpSlugs {
