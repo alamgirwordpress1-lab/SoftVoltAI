@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { cf7FormId, sendToCf7 } from "@/lib/forms/cf7";
 import { contactSchema } from "@/lib/forms/contact-schema";
 
 export const runtime = "nodejs";
@@ -27,6 +28,14 @@ export async function POST(req: Request) {
     "",
     data.message,
   ].join("\n");
+
+  // WordPress first when it is configured: the same submission, delivered by CF7.
+  if (cf7FormId("contact")) {
+    const result = await sendToCf7("contact", { ...data, website: undefined });
+    if (result.sent) return NextResponse.json({ ok: true, delivered: true, via: "cf7" });
+    console.error("[contact] CF7 rejected the submission", result);
+    return NextResponse.json({ ok: false, error: result.message || "We could not send that just now. Email us directly and we will reply within a business day." }, { status: 502 });
+  }
 
   const apiKey = process.env.RESEND_API_KEY;
   const to = process.env.BRIEF_TO_EMAIL;

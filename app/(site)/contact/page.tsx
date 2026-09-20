@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { PageHero } from "@/components/ui/PageHero";
 import { PageIntro } from "@/components/ui/PageIntro";
 import { ContactForm } from "@/components/sections/ContactForm";
@@ -6,8 +7,8 @@ import { site } from "@/content/site";
 import { cms } from "@/lib/cms";
 
 export const metadata: Metadata = {
-  title: "Contact — send us a message",
-  description: "Message the SoftVolt AI team: a named producer replies in one business day with a written scope and a fixed price. NDA before any client detail.",
+  title: "Contact — ask us anything",
+  description: "Ask SoftVolt AI a question, flag an issue on live work or introduce your agency. A named producer replies within one business day.",
   alternates: { canonical: "/contact" },
 };
 
@@ -20,8 +21,8 @@ export default async function ContactPage() {
       <PageHero
         crumbs={[{ name: "Contact", href: "/contact" }]}
         eyebrow="Contact"
-        title="Tell us what you need. A written scope follows."
-        lede="Client names can wait until the NDA is signed. Tell us what exists, what is needed and when — a named producer replies within one business day."
+        title="Ask us anything. A person answers, not a queue."
+        lede="A question about how we work, an issue on something live, an introduction, or a project that is still an idea — it all comes to the same inbox, and a named producer replies within one business day."
         highlights={[
           ...(brief ? [{ label: brief.name, value: brief.turnaround }] : []),
           ...(scope ? [{ label: scope.name, value: scope.turnaround }] : []),
@@ -31,21 +32,23 @@ export default async function ContactPage() {
 
       <PageIntro
         eyebrow="Before you write"
-        title="A message, not a discovery call."
-        subtitle="Five minutes of typing gets you a written scope with a fixed price — no meeting required to find out what something costs."
+        title="No form maze, no sales sequence."
+        subtitle="One short form, read by the person who would do the work — and if it turns into a project, the scope and the price follow in writing."
         body={[
           <>
-            Tell us what exists today, what the client needs, and the date it has to be live. If there is a Figma file, a staging link or a ticket list,
-            point at it. If the client cannot be named yet, describe them instead — the NDA comes before we ask for anything identifying.
+            Use this page for anything that is not a project brief yet: how we price, whether we cover a platform, what happens to credentials, a problem on
+            work already running, or simply an introduction so the name is familiar when you do have something to send.
           </>,
           <>
-            {brief ? `${brief.name}: ${brief.turnaround.toLowerCase()}. ` : ""}A named producer reads it, asks anything missing in one message rather than
-            five, and sends the scope{scope ? ` ${scope.turnaround.toLowerCase()}` : " within two business days"} — line by line, priced, with the assumptions
-            written down. Nothing starts until you approve it.
+            If what you have <em>is</em> a project, the four-step brief form on the <Link href="/#brief" className="text-ink underline decoration-line underline-offset-4 hover:decoration-accent">homepage</Link>{" "}
+            asks the questions we would otherwise have to ask you: the platform, the deadline and the budget.{" "}
+            {brief ? `${brief.name}: ${brief.turnaround.toLowerCase()}. ` : ""}The scope follows
+            {scope ? ` ${scope.turnaround.toLowerCase()}` : " within two business days"} — line by line, priced, and nothing starts until you approve it.
           </>,
         ]}
         points={[
           { title: "NDA first", text: "Mutual, signed before client details change hands." },
+          { title: "Already working with us?", text: "Say so in the message — it goes straight to your producer." },
           { title: "One reply, not a thread", text: "Every open question comes back in a single message." },
           { title: "Fixed price", text: "The scope carries the number. Changes are priced, not assumed." },
           { title: "Prefer to talk?", text: "A 20-minute scoping call is free and booked in your time zone." },
@@ -61,13 +64,13 @@ export default async function ContactPage() {
           <div className="lg:sticky lg:top-28 lg:col-span-5 lg:self-start" data-reveal>
             <div className="flex items-center gap-3">
               <span className="h-px w-8 bg-accent" aria-hidden="true" />
-              <span className="eyebrow">Send us a brief</span>
+              <span className="eyebrow">Write to us</span>
             </div>
             <h2 id="message-title" className="display display-lg mt-5 max-w-[15ch]">
-              Write to us. That is the whole process.
+              One form. One person. One reply.
             </h2>
             <p className="ui mt-5 max-w-[40ch] text-lg font-semibold leading-snug text-ink md:text-xl">
-              A brief, a question, an introduction or an idea that is not a project yet — the same person answers all four.
+              A question, an issue on live work, an introduction or an idea — the same producer answers all four.
             </p>
 
             <dl className="mt-9 space-y-5 text-[15px]">
@@ -100,6 +103,15 @@ export default async function ContactPage() {
               <div>
                 <dt className="mono text-[11px] uppercase tracking-[0.1em] text-muted">NDA first?</dt>
                 <dd className="mt-1 text-ink">Tick the box in the form. The mutual NDA arrives before any client detail is discussed.</dd>
+              </div>
+              <div>
+                <dt className="mono text-[11px] uppercase tracking-[0.1em] text-muted">Ready to brief a project?</dt>
+                <dd className="mt-1 text-ink">
+                  <Link href="/#brief" className="underline decoration-line underline-offset-4 hover:decoration-accent">
+                    The four-step brief form
+                  </Link>{" "}
+                  asks for the platform, the deadline and the budget in one pass.
+                </dd>
               </div>
               <div>
                 <dt className="mono text-[11px] uppercase tracking-[0.1em] text-muted">What happens next</dt>

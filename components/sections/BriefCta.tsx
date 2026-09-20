@@ -4,8 +4,8 @@ import { site } from "@/content/site";
 
 export function BriefCta() {
   return (
-    <section id="brief" className="section container-x relative" aria-labelledby="brief-title">
-      <div className="relative grid gap-8 lg:grid-cols-12 lg:gap-12">
+    <section id="brief" className="border-t border-line bg-surface" aria-labelledby="brief-title">
+      <div className="container-x section relative grid gap-8 lg:grid-cols-12 lg:gap-12">
         <div className="lg:col-span-5" data-reveal>
           <span className="eyebrow">Send us a brief</span>
           <h2 id="brief-title" className="display display-md mt-4">
@@ -53,6 +53,7 @@ export function BriefCta() {
                 { label: "See what we have built", href: "/case-studies" },
                 { label: "How pricing works", href: "/rates" },
                 { label: "Partner programme", href: "/partner-programme" },
+                { label: "Just a question? Contact us", href: "/contact" },
               ].map((l) => (
                 <li key={l.href}>
                   <Link href={l.href} className="ui text-[15px] font-semibold text-ink underline decoration-line underline-offset-4 transition-colors hover:decoration-accent">

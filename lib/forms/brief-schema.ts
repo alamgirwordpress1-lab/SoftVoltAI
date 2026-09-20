@@ -16,6 +16,12 @@ export const PLATFORMS = [
   "Shopify",
   "Webflow",
   "AI automation",
+  "SEO",
+  "Google Ads",
+  "Meta Ads",
+  "Maintenance & care plan",
+  "Migration",
+  "Analytics & tracking",
   "Other",
 ] as const;
 export const BUDGETS = ["Under £2k", "£2k–5k", "£5k–15k", "£15k+", "Monthly retainer", "Not sure yet"] as const;

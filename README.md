@@ -233,19 +233,46 @@ To add a service, add one entry to `pillars.ts` and its copy to the matching det
 
 `/contact` carries two: the four-step brief (`components/sections/BriefForm.tsx`, posting to `/api/brief`) for a project ready to be scoped, and the short message form (`components/sections/ContactForm.tsx`, posting to `/api/contact`) for everything else. Both send through Resend; with no `RESEND_API_KEY` set they log to the server console instead, so development never needs a key.
 
-The short form is deliberately plain — no form library, native validation — so it maps field for field onto Contact Form 7 or any other WordPress form plugin:
+### Running both forms headless on Contact Form 7
 
-| Field on this site | Contact Form 7 |
+Neither form talks to an email service directly: each posts to its own route handler, which validates and then delivers. Delivery is CF7 when a WordPress install is configured and Resend otherwise, so switching is three environment variables and no code:
+
+```
+CF7_BASE_URL=https://cms.example.com
+CF7_BRIEF_FORM_ID=123
+CF7_CONTACT_FORM_ID=124
+```
+
+Build the two forms in CF7 with exactly these tag names — `lib/forms/cf7.ts` maps our fields onto them, and CF7 validates against them:
+
+**The brief form** (`/api/brief`)
+
+| Field | Contact Form 7 tag |
+| --- | --- |
+| workType | `[radio your-work-type use_label_element "Build" "Automate" "Grow" "Support"]` |
+| platforms | `[checkbox your-platforms use_label_element …]` — options from `PLATFORMS` |
+| figmaUrl / liveUrl | `[url your-figma]` · `[url your-live-url]` |
+| brief | `[textarea* your-brief]` |
+| deadline | `[text your-deadline]` |
+| budget | `[select* your-budget …]` — options from `BUDGETS` |
+| name / agency / email | `[text* your-name]` · `[text* your-agency]` · `[email* your-email]` |
+| timeZone | `[text your-timezone]` |
+| nda | `[checkbox your-nda "Send the mutual NDA first"]` |
+
+**The short message form** (`/api/contact`)
+
+| Field | Contact Form 7 tag |
 | --- | --- |
 | name | `[text* your-name]` |
 | email | `[email* your-email]` |
 | company | `[text your-company]` |
 | phone | `[tel your-phone]` |
-| topic | `[select* your-topic]` — options from `CONTACT_TOPICS` |
-| budget | `[select your-budget]` — options from `CONTACT_BUDGETS` |
+| topic | `[select* your-topic …]` — options from `CONTACT_TOPICS` |
+| budget | `[select your-budget …]` — options from `CONTACT_BUDGETS` |
 | message | `[textarea* your-message]` |
 | nda | `[checkbox your-nda "Send me the mutual NDA first"]` |
-| website (honeypot) | `[text website class:hidden]` — hide with CSS and drop any submission that fills it |
+
+The honeypot (`website`) is never forwarded: a submission that fills it is dropped here, before WordPress sees it. Add `[text website class:hidden]` in CF7 too if the same form is ever posted to directly.
 
 ### Trying photos on the globe
 
