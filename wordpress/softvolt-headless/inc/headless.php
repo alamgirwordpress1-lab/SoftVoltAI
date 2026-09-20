@@ -32,6 +32,12 @@ function softvolt_is_system_request(): bool
     if (is_user_logged_in()) {
         return true; // an editor clicking "view" gets the preview flow, not a redirect
     }
+    // WordPress checks a theme or plugin edit by loading the site with these two
+    // keys and reading what comes back. A redirect looks like a fatal error to
+    // it, and the edit is thrown away — so the scrape request sees the theme.
+    if (isset($_GET["wp_scrape_key"]) || isset($_GET["wp_scrape_nonce"])) {
+        return true;
+    }
 
     $uri = isset($_SERVER['REQUEST_URI']) ? (string) $_SERVER['REQUEST_URI'] : '';
     foreach (['/wp-admin', '/wp-login.php', '/wp-json', '/graphql', '/wp-cron.php', '/wp-content/', '/wp-includes/', '/xmlrpc.php', '/robots.txt', '/favicon.ico', '/.well-known/'] as $path) {
