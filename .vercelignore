@@ -1,0 +1,15 @@
+# Uploaded by the Vercel CLI, so it needs its own list — .gitignore is not enough
+# when a deploy is made from this folder rather than from git.
+
+node_modules
+.next
+out
+
+# preview-only client photos: placeholders for judging the hero globe locally.
+# They are not our clients, and they must never reach a deployed site.
+public/clients/people/*
+!public/clients/people/.gitkeep
+
+# private planning notes
+business-plane.md
+White_Label_Digital_Production_Agency_Website_Development_Plan_Expanded.md
