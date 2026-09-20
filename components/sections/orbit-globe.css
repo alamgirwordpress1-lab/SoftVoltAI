@@ -358,3 +358,30 @@
     animation: none;
   }
 }
+
+/* On a phone the globe is about 350px wide, where a name plate would be 5px
+   type and the context tiles unreadable. The cards drop to what still reads at
+   that size — the client's face or mark, and the country beside it. The names
+   are on the case-study cards further down the page. */
+@container (max-width: 430px) {
+  .og-client,
+  .og-card--cities,
+  .og-card--brand,
+  .og-card--stack,
+  .og-card--hours {
+    display: none;
+  }
+  .og-card--client,
+  .og-card--logo {
+    width: 17cqw;
+  }
+  .og-avatar .og-avatar-flag,
+  .og-badge .og-avatar-flag {
+    font-size: max(8px, 1.9cqw);
+    padding: 0.2em 0.35em;
+    border-radius: 0.3em;
+  }
+  .og-badge-initials {
+    font-size: 4.6cqw;
+  }
+}

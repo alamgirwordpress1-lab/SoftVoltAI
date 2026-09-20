@@ -43,6 +43,14 @@
   letter-spacing: -0.045em;
   line-height: 1;
 }
+/* On a phone the left column is the whole screen, so the lines have to be
+   measured against the screen instead of a column: 2.3rem keeps the longest
+   line on one line down to about 480px, below that it has to scale. */
+@media (max-width: 640px) {
+  .hero-title {
+    font-size: clamp(1.4rem, 7.2vw, 2.3rem);
+  }
+}
 .hero-title [data-line] {
   white-space: nowrap;
 }
@@ -128,7 +136,9 @@
 .hero-stage {
   --lx: 68%;
   --ly: 42%;
-  --r: 120px;
+  /* the lens is sized against the screen on phones, where the stage is the screen:
+     a fixed radius swallowed the whole mock at 320px */
+  --r: clamp(72px, 27vw, 120px);
   --brand: #2b4c7e;
   position: relative;
   width: 100%;

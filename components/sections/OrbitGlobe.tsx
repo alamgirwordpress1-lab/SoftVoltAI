@@ -14,8 +14,8 @@ const MAX_TILT = 80 * DEG; // stop just short of the poles so the globe never fl
 const START_ROT = -45 * DEG; // opens with London and Dhaka both on the front face
 const ORBIT = 0.43; // card orbit radius, fraction of the stage
 const EARTH = 0.3; // earth radius, fraction of the stage — big enough to read the world map
-const LINK_FADE = 0.58; // a card starts reaching for its country once this near the front
-const LINK_FULL = 0.92; // ...and the line is at full strength by here
+const LINK_FADE = 0.54; // a card reaches for its country as soon as it is this visible
+const LINK_FULL = 0.76; // ...and the line is at full strength by here, well before the card is centred
 const BASE_SPEED = 0.0016; // radians per 60fps frame
 const HOVER_SPEED = 0.0005;
 
@@ -336,7 +336,7 @@ export function OrbitGlobe({ cards, locations, label }: { cards: GlobeCard[]; lo
           // the card's own anchor: the line ends under the card, which hides the join
           x: (v.x / 100) * W,
           y: (v.y / 100) * W,
-          o: v.o * Math.min(1, (p.z - 0.06) * 6),
+          o: Math.min(1, (v.o - LINK_FADE) / (LINK_FULL - LINK_FADE)) * Math.min(1, (p.z - 0.06) * 6),
         });
       }
       // faintest first, so the nearest card's line is drawn over the others
@@ -344,7 +344,7 @@ export function OrbitGlobe({ cards, locations, label }: { cards: GlobeCard[]; lo
       for (const link of candidates) {
         const dx = link.x - link.sx;
         const dy = link.y - link.sy;
-        ctx.globalAlpha = st.earth * Math.min(1, (link.o - LINK_FADE) / (LINK_FULL - LINK_FADE));
+        ctx.globalAlpha = st.earth * link.o;
         const path = new Path2D();
         path.moveTo(link.sx, link.sy);
         // a gentle bow, so it reads as a signal rather than a ruler
