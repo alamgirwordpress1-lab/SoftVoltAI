@@ -14,8 +14,8 @@ const MAX_TILT = 80 * DEG; // stop just short of the poles so the globe never fl
 const START_ROT = -45 * DEG; // opens with London and Dhaka both on the front face
 const ORBIT = 0.43; // card orbit radius, fraction of the stage
 const EARTH = 0.3; // earth radius, fraction of the stage — big enough to read the world map
-const MAX_LINKS = 3; // client-to-country lines drawn at once
-const LINK_FADE = 0.8; // a card joins its country only once this near the front
+const LINK_FADE = 0.58; // a card starts reaching for its country once this near the front
+const LINK_FULL = 0.92; // ...and the line is at full strength by here
 const BASE_SPEED = 0.0016; // radians per 60fps frame
 const HOVER_SPEED = 0.0005;
 
@@ -314,10 +314,10 @@ export function OrbitGlobe({ cards, locations, label }: { cards: GlobeCard[]; lo
         }
       }
 
-      // leader lines: the cards nearest the front are joined to the country they
-      // are in, in the same dashed signal as the arcs. Only a few at a time —
-      // every card at once would be a cat's cradle, and a line to a card behind
-      // the globe would read as cutting through it.
+      // leader lines: every card is joined to the country it is in, in the same
+      // dashed signal as the arcs. The line fades up as the card swings to the
+      // front, so the nearest ones read clearly and the ones going round the back
+      // thin out instead of crossing the globe.
       const linked = new Set<string>();
       const candidates: { id: string; sx: number; sy: number; x: number; y: number; o: number }[] = [];
       for (let i = 0; i < cards.length; i++) {
@@ -339,11 +339,12 @@ export function OrbitGlobe({ cards, locations, label }: { cards: GlobeCard[]; lo
           o: v.o * Math.min(1, (p.z - 0.06) * 6),
         });
       }
-      candidates.sort((a, b) => b.o - a.o);
-      for (const link of candidates.slice(0, MAX_LINKS)) {
+      // faintest first, so the nearest card's line is drawn over the others
+      candidates.sort((a, b) => a.o - b.o);
+      for (const link of candidates) {
         const dx = link.x - link.sx;
         const dy = link.y - link.sy;
-        ctx.globalAlpha = st.earth * Math.min(1, (link.o - LINK_FADE) * 6);
+        ctx.globalAlpha = st.earth * Math.min(1, (link.o - LINK_FADE) / (LINK_FULL - LINK_FADE));
         const path = new Path2D();
         path.moveTo(link.sx, link.sy);
         // a gentle bow, so it reads as a signal rather than a ruler

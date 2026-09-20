@@ -33,6 +33,8 @@ const IMAGE = /\.(avif|jpe?g|png|webp)$/i;
 
 /** Placeholder people, or an empty list when the folder is empty — which is always the case in the repo. */
 export function placeholderClients(): RecommendingClient[] {
+  // a way to see what the deployed site will show while the preview photos stay in place
+  if (process.env.SOFTVOLT_NO_PREVIEW_PHOTOS === "1") return [];
   const dir = path.join(process.cwd(), "public", "clients", "people");
   let files: string[] = [];
   try {

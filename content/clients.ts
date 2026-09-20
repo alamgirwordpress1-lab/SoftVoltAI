@@ -80,45 +80,6 @@ export const featuredClients: FeaturedClient[] = [
   { id: "md24", name: "MobileDokan24", work: "WooCommerce catalogue", country: "BD" },
 ];
 
-const MAX_GLOBE_CARDS = 12;
-/** Neighbouring cards alternate high and low so they never sit on top of each other. */
-const ORBIT_LATITUDES = [6, -28, 30, -6, 24, -30, 14, -18];
-
-/** Round cards spread evenly round the orbit, with the context tiles spaced out between them. */
-function roundOrbit(cards: GlobeCard[]): GlobeCard[] {
-  // with many cards, keep only the two tiles that say where and when
-  const extras: GlobeCard[] = cards.length > 8 ? [tiles.brand, tiles.hours] : [tiles.cities, tiles.brand, tiles.stack, tiles.hours];
-  const every = Math.max(1, Math.round(cards.length / extras.length));
-  const ordered: GlobeCard[] = [];
-  let next = 0;
-  cards.forEach((card, i) => {
-    ordered.push(card);
-    if ((i + 1) % every === 0 && next < extras.length) ordered.push(extras[next++]);
-  });
-  ordered.push(...extras.slice(next));
-  return ordered.map((card, i) => ({ ...card, az: Math.round((i * 360) / ordered.length), lat: ORBIT_LATITUDES[i % ORBIT_LATITUDES.length], scale: undefined }));
-}
-
-/** Photo cards for people who recommend us — real ones from `recommendingClients`, or local preview photos. */
-export const clientOrbit = (people: RecommendingClient[]): GlobeCard[] =>
-  roundOrbit(
-    people.slice(0, MAX_GLOBE_CARDS).map((p) => ({ id: `client-${p.id}`, kind: "client", name: p.name, role: p.role, company: p.company, country: p.country, photo: p.photo, az: 0, lat: 0 })),
-  );
-
-const logoOrbit = (businesses: FeaturedClient[]): GlobeCard[] =>
-  roundOrbit(businesses.slice(0, MAX_GLOBE_CARDS).map((b) => ({ id: `logo-${b.id}`, kind: "logo", name: b.name, work: b.work, country: b.country, logo: b.logo, logoFill: b.logoFill, az: 0, lat: 0 })));
-
-/**
- * The cards orbiting the hero globe, in order of preference: clients who
- * recommend us (photos), then the clients we have delivered for (badges), then
- * the delivered projects themselves.
- */
-export const globeCards: GlobeCard[] = recommendingClients.length
-  ? clientOrbit(recommendingClients)
-  : featuredClients.length
-    ? logoOrbit(featuredClients)
-    : projectOrbit;
-
 /**
  * Globe markers. "market" = one of the markets we serve, as published in
  * `site.markets`: each is labelled on the globe and gets an arc from Dhaka.
@@ -165,3 +126,88 @@ export const globeLocations: GlobeLocation[] = [
   { id: "es", label: "Spain", lat: 40.42, lon: -3.7, kind: "coverage" },
   { id: "pt", label: "Portugal", lat: 38.72, lon: -9.14, kind: "coverage" },
 ];
+
+const MAX_GLOBE_CARDS = 12;
+/** Neighbouring cards alternate high and low so they never sit on top of each other. */
+const ORBIT_LATITUDES = [6, -28, 30, -6, 24, -30, 14, -18];
+
+/** How far ahead of its own country a card rides, in degrees: far enough that the country stays in view beside it. */
+const CARD_PHASE = 38;
+/** No two cards closer than this on the orbit, so a country's clients fan out instead of stacking up. */
+const MIN_GAP = 24;
+
+const norm = (deg: number) => ((deg % 360) + 360) % 360;
+
+/** Where a country sits on the map: its own pin, home for Bangladesh, the European pin for anywhere else we serve. */
+function lonOf(country: string) {
+  const code = country.toLowerCase();
+  const pin =
+    globeLocations.find((l) => l.id === code) ??
+    (code === "bd" ? globeLocations.find((l) => l.kind === "hq") : globeLocations.find((l) => l.id === "eu"));
+  return pin?.lon ?? 0;
+}
+
+/**
+ * Cards ride above the country they belong to — a card swings to the side of
+ * the globe just as its country turns to face us, so the line drawn between
+ * the two is always in view. Cards that would land on top of each other are
+ * pushed apart, and the context tiles fill the widest gaps left over.
+ */
+function countryOrbit(cards: GlobeCard[]): GlobeCard[] {
+  const placed = cards
+    .map((card) => ({ card, az: norm(lonOf("country" in card ? card.country : "") + CARD_PHASE) }))
+    .sort((a, b) => a.az - b.az);
+
+  for (let pass = 0; pass < 80 && placed.length > 1; pass++) {
+    let moved = false;
+    for (let i = 0; i < placed.length; i++) {
+      const next = placed[(i + 1) % placed.length];
+      const gap = norm(next.az - placed[i].az);
+      if (gap >= MIN_GAP) continue;
+      const push = (MIN_GAP - gap) / 2;
+      placed[i].az = norm(placed[i].az - push);
+      next.az = norm(next.az + push);
+      moved = true;
+    }
+    if (!moved) break;
+    placed.sort((a, b) => a.az - b.az);
+  }
+
+  const out: GlobeCard[] = placed.map((p) => ({ ...p.card, az: Math.round(p.az) }));
+  // with many clients, keep only the two tiles that say where and when
+  const extras: GlobeCard[] = cards.length > 8 ? [tiles.brand, tiles.hours] : [tiles.cities, tiles.brand, tiles.stack, tiles.hours];
+  for (const tile of extras) {
+    let at = 0;
+    let widest = -1;
+    for (let i = 0; i < out.length; i++) {
+      const gap = norm(out[(i + 1) % out.length].az - out[i].az);
+      if (gap > widest) {
+        widest = gap;
+        at = i;
+      }
+    }
+    out.splice(at + 1, 0, { ...tile, az: Math.round(norm(out[at].az + widest / 2)) });
+  }
+  // neighbours alternate high and low, so no two sit on top of each other
+  return out.map((card, i) => ({ ...card, lat: ORBIT_LATITUDES[i % ORBIT_LATITUDES.length], scale: undefined }));
+}
+
+/** Photo cards for people who recommend us — real ones from `recommendingClients`, or local preview photos. */
+export const clientOrbit = (people: RecommendingClient[]): GlobeCard[] =>
+  countryOrbit(
+    people.slice(0, MAX_GLOBE_CARDS).map((p) => ({ id: `client-${p.id}`, kind: "client", name: p.name, role: p.role, company: p.company, country: p.country, photo: p.photo, az: 0, lat: 0 })),
+  );
+
+const logoOrbit = (businesses: FeaturedClient[]): GlobeCard[] =>
+  countryOrbit(businesses.slice(0, MAX_GLOBE_CARDS).map((b) => ({ id: `logo-${b.id}`, kind: "logo", name: b.name, work: b.work, country: b.country, logo: b.logo, logoFill: b.logoFill, az: 0, lat: 0 })));
+
+/**
+ * The cards orbiting the hero globe, in order of preference: clients who
+ * recommend us (photos), then the clients we have delivered for (badges), then
+ * the delivered projects themselves.
+ */
+export const globeCards: GlobeCard[] = recommendingClients.length
+  ? clientOrbit(recommendingClients)
+  : featuredClients.length
+    ? logoOrbit(featuredClients)
+    : projectOrbit;
