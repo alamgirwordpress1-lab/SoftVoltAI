@@ -22,7 +22,7 @@ export function CtaBand({
   const tail = title === undefined ? (accent ?? DEFAULT_ACCENT) : accent;
 
   return (
-    <section className="er relative overflow-hidden" aria-labelledby="cta-band-title">
+    <section id="next-step" className="er relative overflow-hidden" aria-labelledby="cta-band-title">
       <div className="grid-lines" aria-hidden="true" />
       <div className="glow -bottom-72 left-1/2 h-[560px] w-[min(1100px,90vw)] -translate-x-1/2" aria-hidden="true" />
       <div className="container-x section relative grid gap-8 lg:grid-cols-12 lg:items-center lg:gap-12">

@@ -80,7 +80,7 @@ export default async function SecurityPage() {
         </ul>
       </section>
       <div className="border-t border-line">
-        <Protection clauses={clauses} />
+        <Protection clauses={clauses} linkToSecurity={false} />
       </div>
       <CtaBand title="Want the NDA before you say anything else? Ask for it in the brief." lede="It arrives before any client detail is discussed." />
     </>

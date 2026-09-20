@@ -1,7 +1,15 @@
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { ArrowLink } from "@/components/ui/ArrowLink";
 
 /** Agency protection, shown as the document it actually is: a contract, signed. */
-export function Protection({ clauses }: { clauses: { title: string; body: string }[] }) {
+export function Protection({
+  clauses,
+  /** The security page carries these same clauses, so it does not link to itself. */
+  linkToSecurity = true,
+}: {
+  clauses: { title: string; body: string }[];
+  linkToSecurity?: boolean;
+}) {
   return (
     <section id="protection" className="section container-x" aria-labelledby="protection-title">
       <div className="grid gap-10 lg:grid-cols-12 lg:gap-12">
@@ -11,6 +19,7 @@ export function Protection({ clauses }: { clauses: { title: string; body: string
             title={<span id="protection-title">Your client stays yours. In writing.</span>}
             lede="Most white-label sites mention an NDA once. These are the terms we work under on every project — the full text goes into your contract."
             layout="stack"
+            aside={linkToSecurity ? <ArrowLink href="/security">How credentials and client data are handled</ArrowLink> : undefined}
           />
           <div className="draw card shadow-float relative mt-10 max-w-md overflow-hidden p-6" data-reveal aria-hidden="true">
             <div className="mono relative text-[11px] uppercase tracking-[0.1em] text-muted">Agency protection agreement · schedule A</div>

@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import type { ProcessStep } from "@/lib/cms/types";
+import { ArrowLink } from "@/components/ui/ArrowLink";
 import { cn } from "@/lib/utils";
 
 /**
@@ -39,10 +40,17 @@ export function ProcessEngine({ steps }: { steps: ProcessStep[] }) {
               Five steps. Each one leaves a document you can forward to your client.
             </h2>
           </div>
-          <p className="lede max-w-[46ch] lg:col-span-5 lg:pb-1.5">
-            No black box. Every stage produces something written — a scope, a staging link, a checklist, a handover — so you
-            always know where the work is without asking.
-          </p>
+          <div className="lg:col-span-5 lg:pb-1.5">
+            <p className="lede max-w-[46ch]">
+              No black box. Every stage produces something written — a scope, a staging link, a checklist, a handover — so you
+              always know where the work is without asking.
+            </p>
+            <div className="mt-5">
+              <ArrowLink href="/partner-programme" dark>
+                What happens after the first brief
+              </ArrowLink>
+            </div>
+          </div>
         </div>
 
         <div className="mt-12 grid gap-8 lg:grid-cols-12 lg:gap-12">

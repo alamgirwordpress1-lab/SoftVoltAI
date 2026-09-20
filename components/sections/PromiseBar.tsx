@@ -18,7 +18,7 @@ const ICONS: Record<string, React.ReactNode> = {
  */
 export function PromiseBar({ promises }: { promises: SitePromise[] }) {
   return (
-    <section aria-label="Our commitments" className="py-12 md:py-16">
+    <section id="commitments" aria-label="Our commitments" className="py-12 md:py-16">
       <ul className="grid grid-cols-1 gap-px border-y border-line bg-line sm:grid-cols-2 lg:grid-cols-5">
         {promises.map((p, i) => (
           <li
