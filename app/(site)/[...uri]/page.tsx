@@ -39,7 +39,9 @@ export async function generateMetadata({ params }: { params: Promise<{ uri: stri
   const page = await read(uri);
   if (!page) return {};
   const path = `/${uri.join("/")}`;
-  const description = page.seo.description || page.lede;
+  // Yoast first, then the editor's lede, then the page's own opening lines: a
+  // page an editor added in a hurry still reaches search with a description.
+  const description = page.seo.description || page.lede || page.excerpt;
   return {
     title: page.title,
     description: description || undefined,
@@ -58,6 +60,7 @@ export default async function WordPressPage({ params }: { params: Promise<{ uri:
   const page = await read(uri);
   if (!page) notFound();
   const path = `/${uri.join("/")}`;
+  const description = page.seo.description || page.lede || page.excerpt;
 
   return (
     <>
@@ -66,7 +69,7 @@ export default async function WordPressPage({ params }: { params: Promise<{ uri:
           "@context": "https://schema.org",
           "@type": "WebPage",
           name: page.title,
-          description: page.seo.description || page.lede || undefined,
+          description: description || undefined,
           url: `${site.url}${path}`,
           dateModified: page.modified || undefined,
           isPartOf: { "@type": "WebSite", name: site.name, url: site.url },

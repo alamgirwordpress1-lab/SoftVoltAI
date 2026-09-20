@@ -394,6 +394,8 @@ export interface WpPage {
   /** The opener, from the Page fields group; the title is used when they are empty. */
   eyebrow: string;
   lede: string;
+  /** The first lines of the content — a meta description for a page that has none. */
+  excerpt: string;
   intro: { title: string; subtitle: string; body: string[] } | null;
   seo: WpSeo;
 }
@@ -480,6 +482,14 @@ interface RawPage {
   seo: RawSeo | null;
 }
 
+/** The opening of a page's own text, cut on a word so it does not end mid-syllable. */
+function summarise(html: string, limit = 155): string {
+  const text = plain(html).replace(/\s+/g, " ").trim();
+  if (text.length <= limit) return text;
+  const cut = text.slice(0, limit);
+  return `${cut.slice(0, cut.lastIndexOf(" ")).replace(/[\s,;:—-]+$/, "")}…`;
+}
+
 /** WordPress stores a path; the permalink filter hands back a front-end URL. Both are accepted. */
 export function pageUri(value: string): string {
   const path = value.replace(/^https?:\/\/[^/]+/, "");
@@ -502,6 +512,7 @@ export async function wpPage(uri: string): Promise<WpPage | null> {
     image: toImage(node.featuredImage),
     eyebrow: plain(fields?.eyebrow ?? ""),
     lede: plain(fields?.lede ?? ""),
+    excerpt: summarise(node.content ?? ""),
     intro: fields?.introTitle ? { title: plain(fields.introTitle), subtitle: plain(fields.introSubtitle ?? ""), body } : null,
     seo: toSeo(node.seo),
   };
