@@ -49,7 +49,9 @@ export function PageIntro({
   return (
     <section id={id} aria-labelledby={headingId} className={cn("border-b border-line bg-surface", className)}>
       <div className="container-x grid gap-10 py-14 md:py-[4.5rem] lg:grid-cols-12 lg:gap-14">
-        <div className="lg:col-span-5" data-reveal>
+        {/* the right column is usually the taller one, so the heading rides with it
+            instead of leaving a column of empty space beside it */}
+        <div className="lg:sticky lg:top-28 lg:col-span-5 lg:self-start" data-reveal>
           <div className="flex items-center gap-3">
             <span className="h-px w-8 bg-accent" aria-hidden="true" />
             <span className="eyebrow">{eyebrow}</span>

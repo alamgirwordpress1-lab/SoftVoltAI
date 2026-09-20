@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { PageHero } from "@/components/ui/PageHero";
 import { PageIntro } from "@/components/ui/PageIntro";
 import { BriefForm } from "@/components/sections/BriefForm";
+import { ContactForm } from "@/components/sections/ContactForm";
 import { site } from "@/content/site";
 import { cms } from "@/lib/cms";
 
@@ -51,6 +52,7 @@ export default async function ContactPage() {
         ]}
         jump={[
           { label: "The brief form", href: "#brief-form" },
+          { label: "Just a message", href: "#message" },
           { label: "Book a call", href: "#call" },
         ]}
       />
@@ -98,6 +100,47 @@ export default async function ContactPage() {
               </div>
             </dl>
           </aside>
+        </div>
+      </section>
+
+      <section id="message" className="border-t border-line bg-surface" aria-labelledby="message-title">
+        <div className="container-x grid gap-10 py-14 md:py-20 lg:grid-cols-12 lg:gap-14">
+          <div className="lg:sticky lg:top-28 lg:col-span-5 lg:self-start" data-reveal>
+            <div className="flex items-center gap-3">
+              <span className="h-px w-8 bg-accent" aria-hidden="true" />
+              <span className="eyebrow">Not a brief yet?</span>
+            </div>
+            <h2 id="message-title" className="display display-lg mt-5 max-w-[15ch]">
+              Then just write to us.
+            </h2>
+            <p className="ui mt-5 max-w-[40ch] text-lg font-semibold leading-snug text-ink md:text-xl">
+              A question, an introduction, or a project that is still an idea — the same person answers all three.
+            </p>
+            <dl className="mt-9 space-y-5 text-[15px]">
+              <div>
+                <dt className="mono text-[11px] uppercase tracking-[0.1em] text-muted">Or email</dt>
+                <dd className="mt-1">
+                  <a href={`mailto:${site.email}`} className="text-ink underline decoration-line underline-offset-4 hover:decoration-accent">
+                    {site.email}
+                  </a>
+                </dd>
+              </div>
+              <div>
+                <dt className="mono text-[11px] uppercase tracking-[0.1em] text-muted">Hours</dt>
+                <dd className="mt-1 text-ink">
+                  {site.location} · {site.utcOffset} · UK and US overlap, daily
+                </dd>
+              </div>
+              <div>
+                <dt className="mono text-[11px] uppercase tracking-[0.1em] text-muted">Confidentiality</dt>
+                <dd className="mt-1 text-ink">Tick the NDA box and the mutual NDA arrives before anything else.</dd>
+              </div>
+            </dl>
+          </div>
+
+          <div className="lg:col-span-7" data-reveal style={{ ["--reveal-delay" as string]: "90ms" }}>
+            <ContactForm />
+          </div>
         </div>
       </section>
     </>

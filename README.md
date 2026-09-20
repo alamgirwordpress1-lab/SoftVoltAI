@@ -225,8 +225,27 @@ Pages never import from `content/` directly. They call `cms` from `lib/cms`, whi
 | Search: extra pages, popular searches, quick links | `content/search.ts` (services, case studies, agency pages and FAQs are indexed automatically) |
 | Testimonials | `content/testimonials.ts` (while empty, the honest placeholder panel shows) |
 | Brief form platforms and budgets | `lib/forms/brief-schema.ts` |
+| Short contact form topics and budgets | `lib/forms/contact-schema.ts` |
 
 To add a service, add one entry to `pillars.ts` and its copy to the matching details file. Its page, sitemap entry, navigation link, search result and structured data are all generated from those two entries.
+
+### The two forms, and rebuilding them in WordPress
+
+`/contact` carries two: the four-step brief (`components/sections/BriefForm.tsx`, posting to `/api/brief`) for a project ready to be scoped, and the short message form (`components/sections/ContactForm.tsx`, posting to `/api/contact`) for everything else. Both send through Resend; with no `RESEND_API_KEY` set they log to the server console instead, so development never needs a key.
+
+The short form is deliberately plain — no form library, native validation — so it maps field for field onto Contact Form 7 or any other WordPress form plugin:
+
+| Field on this site | Contact Form 7 |
+| --- | --- |
+| name | `[text* your-name]` |
+| email | `[email* your-email]` |
+| company | `[text your-company]` |
+| phone | `[tel your-phone]` |
+| topic | `[select* your-topic]` — options from `CONTACT_TOPICS` |
+| budget | `[select your-budget]` — options from `CONTACT_BUDGETS` |
+| message | `[textarea* your-message]` |
+| nda | `[checkbox your-nda "Send me the mutual NDA first"]` |
+| website (honeypot) | `[text website class:hidden]` — hide with CSS and drop any submission that fills it |
 
 ### Trying photos on the globe
 
