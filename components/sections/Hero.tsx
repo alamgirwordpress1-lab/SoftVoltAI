@@ -53,7 +53,8 @@ export function Hero({ cards, locations }: { cards: GlobeCard[]; locations: Glob
       <div className="hero-glow" aria-hidden="true" />
 
       <div className="wide-x relative grid items-center gap-6 lg:min-h-[min(940px,calc(100svh-80px))] lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)]">
-        <div className="relative z-10 pt-10 md:pt-16 lg:py-16">
+        {/* Below 768px the globe leads and this column follows it — see the globe's order-first */}
+        <div className="relative z-10 pb-12 md:pb-0 md:pt-16 lg:py-16">
           <span className="eyebrow" data-after>
             White-label production &amp; growth partner
           </span>
@@ -99,7 +100,7 @@ export function Hero({ cards, locations }: { cards: GlobeCard[]; locations: Glob
           </ul>
         </div>
 
-        <div className="relative pb-14 lg:py-8">
+        <div className="relative order-first pb-2 pt-8 md:order-none md:pb-14 md:pt-0 lg:py-8">
           <OrbitGlobe
             cards={cards}
             locations={locations}
