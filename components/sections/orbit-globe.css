@@ -80,7 +80,8 @@
   border-radius: 50%;
 }
 /* two classes: .og-flag is declared further down and would otherwise win */
-.og-avatar .og-avatar-flag {
+.og-avatar .og-avatar-flag,
+.og-badge .og-avatar-flag {
   position: absolute;
   right: 2%;
   bottom: 6%;
@@ -127,6 +128,61 @@
 }
 :root[data-theme="dark"] .og-avatar,
 :root[data-theme="dark"] .og-client {
+  box-shadow:
+    0 1px 1px rgba(0, 0, 0, 0.3),
+    0 2cqw 4cqw -2cqw rgba(0, 0, 0, 0.8);
+}
+
+/* client badge: the client's own mark on a round disc, with the name plate under it */
+.og-card--logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 13cqw;
+  overflow: visible;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+.og-badge {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 0.55cqw solid var(--color-surface);
+  /* white in both themes: these marks are drawn for a light background */
+  background: #ffffff;
+  box-shadow:
+    0 0 0 1px var(--color-line),
+    0 1px 1px rgba(18, 22, 20, 0.08),
+    0 2cqw 4cqw -2cqw rgba(18, 22, 20, 0.5);
+}
+/* no logo file: the initials stand in, quietly */
+.og-badge--mono {
+  background: linear-gradient(180deg, #ffffff, #edf1ea);
+}
+/* rounded rather than clipped by the badge, so the country chip can sit on the rim */
+.og-badge-img {
+  border-radius: 50%;
+  object-fit: contain;
+  /* keeps a wide wordmark clear of the rim */
+  padding: 12%;
+}
+.og-badge-img--fill {
+  object-fit: cover;
+  padding: 0;
+}
+.og-badge-initials {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 3.1cqw;
+  letter-spacing: 0.04em;
+  /* the disc stays white, so this ink is fixed too */
+  color: #38443d;
+}
+:root[data-theme="dark"] .og-badge {
   box-shadow:
     0 1px 1px rgba(0, 0, 0, 0.3),
     0 2cqw 4cqw -2cqw rgba(0, 0, 0, 0.8);

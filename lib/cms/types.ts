@@ -114,6 +114,22 @@ export interface RecommendingClient {
   consent: string;
 }
 
+/**
+ * A delivered client shown as a round badge on the globe — the client's own
+ * business, not a person. Only clients whose site our founder actually built.
+ */
+export interface FeaturedClient {
+  id: string;
+  name: string;
+  /** What was delivered, in a few words. */
+  work: string;
+  country: Client["country"];
+  /** Square logo under /public/clients/logos/. Leave it out to show the client's initials instead. */
+  logo?: string;
+  /** Set when the logo file is a full-bleed coloured tile, so it fills the badge instead of sitting on white. */
+  logoFill?: boolean;
+}
+
 interface GlobeCardBase {
   id: string;
   /** Longitude-like position on the orbit, degrees. */
@@ -126,6 +142,7 @@ interface GlobeCardBase {
 export type GlobeCard = GlobeCardBase &
   (
     | { kind: "client"; name: string; role: string; company: string; country: string; photo: string }
+    | { kind: "logo"; name: string; work: string; country: string; logo?: string; logoFill?: boolean }
     | { kind: "site"; title: string; country: Client["country"]; work: string; image: string }
     | { kind: "cities"; lines: string[] }
     | { kind: "brand"; title: string; sub: string }

@@ -14,6 +14,17 @@ const LINES = ["You win the client.", "We deliver the work.", "Your brand gets t
     from content/promises.ts so the two lists can never drift apart. */
 const TRUST = promises.map((p) => p.label);
 
+const GLOBE_BASE = "A globe with Dhaka marked as our base and arcs to the markets we serve — the UK, the USA, Canada, Australia and Europe";
+
+/** The globe is decoration, so it is announced as one image: the map, then whoever is orbiting it. */
+function globeLabel(cards: GlobeCard[]) {
+  const people = cards.flatMap((c) => (c.kind === "client" ? [`${c.name}, ${c.role} at ${c.company}`] : []));
+  if (people.length) return `${GLOBE_BASE} — orbited by clients who recommend SoftVolt AI: ${people.join("; ")}.`;
+  const badges = cards.flatMap((c) => (c.kind === "logo" ? [`${c.name} (${c.country}), ${c.work}`] : []));
+  if (badges.length) return `${GLOBE_BASE} — orbited by clients we have delivered for: ${badges.join("; ")}.`;
+  return `${GLOBE_BASE} — orbited by websites delivered for clients in the UK, US and Bangladesh.`;
+}
+
 export function Hero({ cards, locations }: { cards: GlobeCard[]; locations: GlobeLocation[] }) {
   const rootRef = useRef<HTMLElement>(null);
 
@@ -92,13 +103,7 @@ export function Hero({ cards, locations }: { cards: GlobeCard[]; locations: Glob
           <OrbitGlobe
             cards={cards}
             locations={locations}
-            label={
-              cards.some((c) => c.kind === "client")
-                ? `A globe with Dhaka marked as our base and arcs to the markets we serve — the UK, the USA, Canada, Australia and Europe — orbited by clients who recommend SoftVolt AI: ${cards
-                    .flatMap((c) => (c.kind === "client" ? [`${c.name}, ${c.role} at ${c.company}`] : []))
-                    .join("; ")}.`
-                : "A globe with Dhaka marked as our base and arcs to the markets we serve — the UK, the USA, Canada, Australia and Europe — orbited by websites delivered for clients in the UK, US and Bangladesh."
-            }
+            label={globeLabel(cards)}
           />
           <ul className="mono mt-2 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-[11px] uppercase tracking-[0.1em] text-muted" data-after>
             <li className="flex items-center gap-2">

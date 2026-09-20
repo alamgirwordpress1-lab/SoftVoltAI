@@ -1,4 +1,4 @@
-import type { Client, GlobeCard, GlobeLocation, RecommendingClient } from "@/lib/cms/types";
+import type { Client, FeaturedClient, GlobeCard, GlobeLocation, RecommendingClient } from "@/lib/cms/types";
 
 /**
  * Businesses our founder has delivered websites for — as developer, project
@@ -61,24 +61,32 @@ const projectOrbit: GlobeCard[] = [
   tiles.hours,
 ];
 
-const MAX_GLOBE_CLIENTS = 12;
+/**
+ * TODO(owner): the clients shown as round badges around the globe, best first —
+ * businesses whose sites our founder built, all named on this site already.
+ * Trim this list to the ones you want on the hero; the rest still appear in the
+ * case studies. A `logo` is the client's own mark, saved square in
+ * public/clients/logos/; leave it out and the badge shows the client's initials.
+ * Remove a client here if they ask not to be shown.
+ */
+export const featuredClients: FeaturedClient[] = [
+  { id: "hp4p", name: "Heat Pumps 4 Pools", work: "WooCommerce store", country: "UK", logo: "/clients/logos/heat-pumps-4-pools.png" },
+  { id: "ascent", name: "Ascent Energy", work: "WooCommerce build", country: "UK", logo: "/clients/logos/ascent-energy.png" },
+  { id: "seo", name: "SEO Agency in Essex", work: "Technical-SEO site", country: "UK", logo: "/clients/logos/seo-agency-in-essex.png" },
+  { id: "ronvil", name: "Ronemus & Vilensky", work: "Law firm website", country: "US", logo: "/clients/logos/ronemus-vilensky.png", logoFill: true },
+  { id: "yume", name: "Yume Nihongo", work: "Education website", country: "BD", logo: "/clients/logos/yume-nihongo.png" },
+  { id: "bbm", name: "The Bulk Bag Man", work: "Headless WordPress + Next.js", country: "UK" },
+  { id: "patriot", name: "Patriot Insurance Group", work: "Full-stack WordPress", country: "US" },
+  { id: "md24", name: "MobileDokan24", work: "WooCommerce catalogue", country: "BD" },
+];
+
+const MAX_GLOBE_CARDS = 12;
 /** Neighbouring cards alternate high and low so they never sit on top of each other. */
 const ORBIT_LATITUDES = [6, -28, 30, -6, 24, -30, 14, -18];
 
-/** Client photos spread evenly round the orbit, with the context tiles spaced out between them. */
-function clientOrbit(people: RecommendingClient[]): GlobeCard[] {
-  const cards: GlobeCard[] = people.slice(0, MAX_GLOBE_CLIENTS).map((p) => ({
-    id: `client-${p.id}`,
-    kind: "client",
-    name: p.name,
-    role: p.role,
-    company: p.company,
-    country: p.country,
-    photo: p.photo,
-    az: 0,
-    lat: 0,
-  }));
-  // with many people, keep only the two tiles that say where and when
+/** Round cards spread evenly round the orbit, with the context tiles spaced out between them. */
+function roundOrbit(cards: GlobeCard[]): GlobeCard[] {
+  // with many cards, keep only the two tiles that say where and when
   const extras: GlobeCard[] = cards.length > 8 ? [tiles.brand, tiles.hours] : [tiles.cities, tiles.brand, tiles.stack, tiles.hours];
   const every = Math.max(1, Math.round(cards.length / extras.length));
   const ordered: GlobeCard[] = [];
@@ -91,8 +99,24 @@ function clientOrbit(people: RecommendingClient[]): GlobeCard[] {
   return ordered.map((card, i) => ({ ...card, az: Math.round((i * 360) / ordered.length), lat: ORBIT_LATITUDES[i % ORBIT_LATITUDES.length], scale: undefined }));
 }
 
-/** The cards orbiting the hero globe: recommending clients once there are any, delivered projects until then. */
-export const globeCards: GlobeCard[] = recommendingClients.length ? clientOrbit(recommendingClients) : projectOrbit;
+const clientOrbit = (people: RecommendingClient[]): GlobeCard[] =>
+  roundOrbit(
+    people.slice(0, MAX_GLOBE_CARDS).map((p) => ({ id: `client-${p.id}`, kind: "client", name: p.name, role: p.role, company: p.company, country: p.country, photo: p.photo, az: 0, lat: 0 })),
+  );
+
+const logoOrbit = (businesses: FeaturedClient[]): GlobeCard[] =>
+  roundOrbit(businesses.slice(0, MAX_GLOBE_CARDS).map((b) => ({ id: `logo-${b.id}`, kind: "logo", name: b.name, work: b.work, country: b.country, logo: b.logo, logoFill: b.logoFill, az: 0, lat: 0 })));
+
+/**
+ * The cards orbiting the hero globe, in order of preference: clients who
+ * recommend us (photos), then the clients we have delivered for (badges), then
+ * the delivered projects themselves.
+ */
+export const globeCards: GlobeCard[] = recommendingClients.length
+  ? clientOrbit(recommendingClients)
+  : featuredClients.length
+    ? logoOrbit(featuredClients)
+    : projectOrbit;
 
 /**
  * Globe markers. "market" = one of the markets we serve, as published in

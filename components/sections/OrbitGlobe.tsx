@@ -501,6 +501,21 @@ export function OrbitGlobe({ cards, locations, label }: { cards: GlobeCard[]; lo
   );
 }
 
+/** Stands in for a client with no logo file: "The Bulk Bag Man" → "BB", "MobileDokan24" → "MD". */
+function initials(name: string) {
+  const words = name.split(/\s+/).filter((w) => !/^(the|and|of|in|for|an?|&)$/i.test(w));
+  if (words.length > 1)
+    return words
+      .slice(0, 2)
+      .map((w) => w[0])
+      .join("")
+      .toUpperCase();
+  const word = words[0] ?? name;
+  // a compound name has its own capitals to borrow: MobileDokan24
+  const caps = word.match(/[A-Z]/g);
+  return (caps && caps.length > 1 ? caps.slice(0, 2).join("") : word.slice(0, 2)).toUpperCase();
+}
+
 function CardBody({ card }: { card: GlobeCard }) {
   switch (card.kind) {
     case "client":
@@ -515,6 +530,30 @@ function CardBody({ card }: { card: GlobeCard }) {
             <span className="og-client-role">
               {card.role} · {card.company}
             </span>
+          </span>
+        </>
+      );
+    case "logo":
+      return (
+        <>
+          <span className={card.logo ? "og-badge" : "og-badge og-badge--mono"}>
+            {card.logo ? (
+              <Image
+                src={card.logo}
+                alt=""
+                fill
+                sizes="(min-width: 1024px) 130px, 24vw"
+                className={`og-badge-img${card.logoFill ? " og-badge-img--fill" : ""}`}
+                draggable={false}
+              />
+            ) : (
+              <span className="og-badge-initials">{initials(card.name)}</span>
+            )}
+            <span className="og-flag og-avatar-flag">{card.country}</span>
+          </span>
+          <span className="og-client">
+            <span className="og-client-name">{card.name}</span>
+            <span className="og-client-role">{card.work}</span>
           </span>
         </>
       );
