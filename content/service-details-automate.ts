@@ -19,7 +19,7 @@ export const automateDetails: Record<string, ServiceDetail> = {
       "Reporting or lead handling is late because a person is the bottleneck",
     ],
     stack: ["Claude API", "OpenAI API", "n8n", "Node.js", "PostgreSQL", "Vector search"],
-    seo: "White-label AI automation for agencies: lead qualification, reporting, content pipelines and support triage built on the Claude and OpenAI APIs, with guardrails.",
+    seo: "White-label AI automation for agencies: lead qualification, reporting, content pipelines and support triage on the Claude and OpenAI APIs, with guardrails.",
     agencyTypes: ["full-service-agencies", "digital-marketing-agencies", "google-ads-agencies"],
   },
   "workflow-automation": {

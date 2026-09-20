@@ -79,7 +79,7 @@ export const agencyTypes: AgencyType[] = [
       "Daily progress in your shared channel; staging under your brand from day one.",
       "QA, handover, and a care plan you can resell if the client wants one.",
     ],
-    seo: "Overflow web development capacity for web design agencies: white-label WordPress, WooCommerce, Shopify and Webflow builds with a named producer and fixed deadlines.",
+    seo: "Overflow capacity for web design agencies: white-label WordPress, WooCommerce, Shopify and Webflow builds with a named producer and a fixed deadline.",
   },
   {
     slug: "full-service-agencies",
