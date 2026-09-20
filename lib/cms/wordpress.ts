@@ -2,7 +2,7 @@ import "server-only";
 import type { AgencyType, Client, EngagementModel, Faq, PillarGroup, Pillar, ProcessStep, Promise as SitePromise, Service, ServiceDetail, Testimonial, WorkItem } from "@/lib/cms/types";
 import type { TeamMember } from "@/content/founder";
 import { lines, plain, wpTry } from "@/lib/wp/client";
-import { AGENCY_TYPES, CASE_STUDIES, MENUS, SERVICES, SIMPLE_COLLECTIONS, SITE_SETTINGS } from "@/lib/wp/queries";
+import { AGENCY_TYPES, ALL_SLUGS, CASE_STUDIES, MENUS, PAGE_BY_URI, POST_BY_SLUG, POSTS, SERVICES, SIMPLE_COLLECTIONS, SITE_SETTINGS } from "@/lib/wp/queries";
 
 /**
  * WordPress, mapped onto the types the pages already use.
@@ -347,4 +347,191 @@ export async function wpCollections(): Promise<WpCollections | null> {
   };
 
   return collections;
+}
+
+/* -------------------------------------------------------- posts and pages */
+
+/**
+ * What Yoast knows about one entry. Only the description and the social
+ * strings are used: the title and the canonical Yoast builds carry the CMS's
+ * own site name and hostname, which are not this site's.
+ */
+export interface WpSeo {
+  description: string;
+  ogTitle: string;
+  ogDescription: string;
+}
+
+export interface WpImage {
+  src: string;
+  alt: string;
+}
+
+export interface WpPostCard {
+  slug: string;
+  title: string;
+  excerpt: string;
+  /** ISO 8601, UTC. */
+  date: string;
+  modified: string;
+  image: WpImage | null;
+  categories: { name: string; slug: string }[];
+  author: string;
+}
+
+export interface WpPost extends WpPostCard {
+  /** The editor's HTML, rendered inside .prose-site. */
+  content: string;
+  seo: WpSeo;
+}
+
+export interface WpPage {
+  slug: string;
+  title: string;
+  content: string;
+  modified: string;
+  image: WpImage | null;
+  /** The opener, from the Page fields group; the title is used when they are empty. */
+  eyebrow: string;
+  lede: string;
+  intro: { title: string; subtitle: string; body: string[] } | null;
+  seo: WpSeo;
+}
+
+interface RawSeo {
+  title: string | null;
+  metaDesc: string | null;
+  canonical: string | null;
+  opengraphTitle: string | null;
+  opengraphDescription: string | null;
+  schema: { raw: string | null } | null;
+}
+
+interface RawImage {
+  node: { sourceUrl: string; altText: string | null } | null;
+}
+
+interface RawPost {
+  slug: string;
+  title: string;
+  content?: string | null;
+  excerpt: string | null;
+  dateGmt: string | null;
+  modifiedGmt: string | null;
+  featuredImage: RawImage | null;
+  categories: { nodes: { name: string; slug: string }[] } | null;
+  author: { node: { name: string } | null } | null;
+  seo?: RawSeo | null;
+}
+
+/** WPGraphQL returns GMT without the marker, so it has to be said explicitly. */
+function gmt(value: string | null | undefined): string {
+  if (!value) return "";
+  return /(Z|[+-]\d\d:\d\d)$/.test(value) ? value : `${value}Z`;
+}
+
+function toSeo(raw: RawSeo | null | undefined): WpSeo {
+  return {
+    description: plain(raw?.metaDesc ?? ""),
+    ogTitle: plain(raw?.opengraphTitle ?? ""),
+    ogDescription: plain(raw?.opengraphDescription ?? ""),
+  };
+}
+
+function toImage(raw: RawImage | null | undefined): WpImage | null {
+  const node = raw?.node;
+  return node?.sourceUrl ? { src: node.sourceUrl, alt: plain(node.altText ?? "") } : null;
+}
+
+function toCard(node: RawPost): WpPostCard {
+  return {
+    slug: node.slug,
+    title: plain(node.title),
+    excerpt: plain(node.excerpt ?? ""),
+    date: gmt(node.dateGmt),
+    modified: gmt(node.modifiedGmt),
+    image: toImage(node.featuredImage),
+    categories: (node.categories?.nodes ?? []).map((c) => ({ name: plain(c.name), slug: c.slug })),
+    author: plain(node.author?.node?.name ?? ""),
+  };
+}
+
+/** The blog index. An empty blog returns an empty list, not null: that is not a failure. */
+export async function wpPosts(first = 24): Promise<WpPostCard[] | null> {
+  const data = await wpTry<{ posts: { nodes: RawPost[] } }>(POSTS, { variables: { first }, tags: ["wp:post"] });
+  if (!data?.posts) return null;
+  return (data.posts.nodes ?? []).map(toCard);
+}
+
+export async function wpPost(slug: string, preview = false): Promise<WpPost | null> {
+  const data = await wpTry<{ post: RawPost | null }>(POST_BY_SLUG, { variables: { slug }, tags: ["wp:post", `wp:post:${slug}`], preview });
+  const node = data?.post;
+  if (!node) return null;
+  return { ...toCard(node), content: node.content ?? "", seo: toSeo(node.seo) };
+}
+
+interface RawPage {
+  slug: string;
+  title: string;
+  content: string | null;
+  modifiedGmt: string | null;
+  featuredImage: RawImage | null;
+  pageFields: { eyebrow: string | null; lede: string | null; introTitle: string | null; introSubtitle: string | null; introBody: string | null } | null;
+  seo: RawSeo | null;
+}
+
+/** WordPress stores a path; the permalink filter hands back a front-end URL. Both are accepted. */
+export function pageUri(value: string): string {
+  const path = value.replace(/^https?:\/\/[^/]+/, "");
+  return `/${path.replace(/^\/+|\/+$/g, "")}`;
+}
+
+export async function wpPage(uri: string): Promise<WpPage | null> {
+  const path = pageUri(uri);
+  const data = await wpTry<{ page: RawPage | null }>(PAGE_BY_URI, { variables: { uri: path }, tags: ["wp:page", `wp:page:${path.slice(1)}`] });
+  const node = data?.page;
+  if (!node) return null;
+
+  const fields = node.pageFields;
+  const body = lines(fields?.introBody);
+  return {
+    slug: node.slug,
+    title: plain(node.title),
+    content: node.content ?? "",
+    modified: gmt(node.modifiedGmt),
+    image: toImage(node.featuredImage),
+    eyebrow: plain(fields?.eyebrow ?? ""),
+    lede: plain(fields?.lede ?? ""),
+    intro: fields?.introTitle ? { title: plain(fields.introTitle), subtitle: plain(fields.introSubtitle ?? ""), body } : null,
+    seo: toSeo(node.seo),
+  };
+}
+
+export interface WpSlugs {
+  services: { slug: string; modified: string }[];
+  agencyTypes: { slug: string; modified: string }[];
+  caseStudies: { slug: string; modified: string }[];
+  posts: { slug: string; modified: string }[];
+  pages: { uri: string; modified: string }[];
+}
+
+/** Everything WordPress publishes, for the sitemap and for static generation. */
+export async function wpSlugs(): Promise<WpSlugs | null> {
+  const data = await wpTry<{
+    services: { nodes: { slug: string; modifiedGmt: string | null }[] };
+    agencyTypes: { nodes: { slug: string; modifiedGmt: string | null }[] };
+    caseStudies: { nodes: { slug: string; modifiedGmt: string | null }[] };
+    posts: { nodes: { slug: string; modifiedGmt: string | null }[] };
+    pages: { nodes: { uri: string; modifiedGmt: string | null }[] };
+  }>(ALL_SLUGS, { tags: ["wp:all"] });
+  if (!data) return null;
+
+  const list = (nodes: { slug: string; modifiedGmt: string | null }[] | undefined) => (nodes ?? []).map((n) => ({ slug: n.slug, modified: gmt(n.modifiedGmt) }));
+  return {
+    services: list(data.services?.nodes),
+    agencyTypes: list(data.agencyTypes?.nodes),
+    caseStudies: list(data.caseStudies?.nodes),
+    posts: list(data.posts?.nodes),
+    pages: (data.pages?.nodes ?? []).map((n) => ({ uri: pageUri(n.uri), modified: gmt(n.modifiedGmt) })),
+  };
 }

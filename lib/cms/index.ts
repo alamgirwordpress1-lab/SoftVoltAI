@@ -24,7 +24,7 @@ import { buildDetails } from "@/content/service-details-build";
 import { automateDetails } from "@/content/service-details-automate";
 import { growDetails } from "@/content/service-details-grow";
 import { supportDetails } from "@/content/service-details-support";
-import { wpAgencyTypes, wpCollections, wpServices, wpWork } from "@/lib/cms/wordpress";
+import { wpAgencyTypes, wpCollections, wpPage, wpPost, wpPosts, wpServices, wpSlugs, wpWork } from "@/lib/cms/wordpress";
 import type { Service, ServiceDetail, PillarGroup, AgencyType } from "@/lib/cms/types";
 
 const details: Record<string, ServiceDetail> = { ...buildDetails, ...automateDetails, ...growDetails, ...supportDetails };
@@ -158,6 +158,19 @@ export const cms = {
     const wp = await fromWpCollections();
     return wp?.testimonials.length ? wp.testimonials : testimonials;
   },
+
+  /* ---------------------------------------------------- WordPress-only content
+     Posts and pages have no local twin: they exist in WordPress or not at all,
+     so these return an empty list rather than falling back to /content. */
+
+  getPosts: async (first = 24) => (await wpPosts(first)) ?? [],
+
+  getPost: async (slug: string) => wpPost(slug),
+
+  getPage: async (uri: string) => wpPage(uri),
+
+  /** Every slug WordPress publishes — the sitemap and generateStaticParams read this. */
+  getWpSlugs: async () => wpSlugs(),
 };
 
 export type Cms = typeof cms;

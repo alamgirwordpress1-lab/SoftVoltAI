@@ -58,6 +58,10 @@ export default async function PreviewPage({ searchParams }: { searchParams: Prom
   const draft = await loadDraft(id);
   if (!draft) notFound();
 
+  // a draft that has never been saved carries 0000-00-00, which is not a date
+  const modified = new Date(`${draft.modified}Z`);
+  const updated = Number.isNaN(modified.getTime()) ? "" : modified.toLocaleString("en-GB", { dateStyle: "medium", timeStyle: "short" });
+
   const lines = (value: unknown): string[] => (typeof value === "string" ? value.split(/\r?\n/).map((l) => l.trim()).filter(Boolean) : []);
 
   return (
@@ -65,8 +69,11 @@ export default async function PreviewPage({ searchParams }: { searchParams: Prom
       <div className="er">
         <div className="container-x flex flex-wrap items-center justify-between gap-4 py-3 text-[13px]">
           <p className="ui font-semibold text-er-ink">
-            Draft preview — {draft.status} · updated {new Date(draft.modified + "Z").toLocaleString("en-GB", { dateStyle: "medium", timeStyle: "short" })}
+            Draft preview — {draft.status}
+            {updated ? ` · updated ${updated}` : ""}
           </p>
+          {/* a real navigation, not a client transition: the route clears the draft cookie and redirects */}
+          {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
           <a href="/api/preview/exit" className="ui font-semibold text-volt underline decoration-volt/40 underline-offset-4">
             Leave preview
           </a>

@@ -62,6 +62,15 @@ export async function sendToCf7(form: Cf7Form, values: Record<string, string | s
 
   const names = CF7_FIELDS[form] as Record<string, string>;
   const body = new FormData();
+  // CF7 rejects a submission that carries no unit tag ("There is no valid unit
+  // tag."): on a WordPress page these are printed as hidden inputs, so a
+  // headless caller has to send them itself. The tag only has to be a non-empty
+  // alphanumeric string — CF7 uses it to tell two copies of one form apart.
+  body.append("_wpcf7", target.id);
+  body.append("_wpcf7_unit_tag", `wpcf7-f${target.id}-o1`);
+  body.append("_wpcf7_version", "6.1");
+  body.append("_wpcf7_locale", process.env.CF7_LOCALE || "en_GB");
+  body.append("_wpcf7_container_post", "0");
   for (const [key, name] of Object.entries(names)) {
     const value = values[key];
     if (value === undefined || value === "") continue;
