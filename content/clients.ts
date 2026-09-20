@@ -99,7 +99,8 @@ function roundOrbit(cards: GlobeCard[]): GlobeCard[] {
   return ordered.map((card, i) => ({ ...card, az: Math.round((i * 360) / ordered.length), lat: ORBIT_LATITUDES[i % ORBIT_LATITUDES.length], scale: undefined }));
 }
 
-const clientOrbit = (people: RecommendingClient[]): GlobeCard[] =>
+/** Photo cards for people who recommend us — real ones from `recommendingClients`, or local preview photos. */
+export const clientOrbit = (people: RecommendingClient[]): GlobeCard[] =>
   roundOrbit(
     people.slice(0, MAX_GLOBE_CARDS).map((p) => ({ id: `client-${p.id}`, kind: "client", name: p.name, role: p.role, company: p.company, country: p.country, photo: p.photo, az: 0, lat: 0 })),
   );

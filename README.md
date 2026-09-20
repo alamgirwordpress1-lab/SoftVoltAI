@@ -199,6 +199,8 @@ lib/
 public/
 ├── brand/                   logo mark and lockups (SVG, PNG)
 ├── clients/                 screenshots of delivered client sites
+│   ├── logos/               client marks shown as round badges on the hero globe
+│   └── people/              preview-only photos, git-ignored (see below)
 └── founder.png · team-likhon.png · hero-grid.svg
 docs/                        images used in this README
 ```
@@ -213,7 +215,7 @@ Pages never import from `content/` directly. They call `cms` from `lib/cms`, whi
 | Services and their pillars | `content/pillars.ts` (the list) + `content/service-details-*.ts` (the page copy) |
 | Agency solution pages | `content/agency-types.ts` |
 | Case studies and gallery filters | `content/work.ts` + a screenshot in `public/clients/` |
-| Globe cards and map markers | `content/clients.ts`. Clients who recommend SoftVolt AI go in `recommendingClients` (name, role, company, country, photo in `public/clients/people/`, and a record of their written consent); as soon as there is one, their photos replace the project cards around the globe |
+| Globe cards and map markers | `content/clients.ts`. The globe orbits round badges of delivered clients (`featuredClients`, with a square mark in `public/clients/logos/` or their initials). Clients who recommend SoftVolt AI go in `recommendingClients` (name, role, company, country, photo in `public/clients/people/`, and a record of their written consent); as soon as there is one, their photos take the badges' place |
 | Commitments and protection clauses | `content/promises.ts` |
 | Process steps and turnarounds | `content/process.ts` |
 | Tech stack, city clocks, plans and prices | `content/stack.ts` |
@@ -225,6 +227,10 @@ Pages never import from `content/` directly. They call `cms` from `lib/cms`, whi
 | Brief form platforms and budgets | `lib/forms/brief-schema.ts` |
 
 To add a service, add one entry to `pillars.ts` and its copy to the matching details file. Its page, sitemap entry, navigation link, search result and structured data are all generated from those two entries.
+
+### Trying photos on the globe
+
+Any square image dropped into `public/clients/people/` shows up as a client photo on the hero globe **on that machine only** — the folder is git-ignored, so those images never reach the repo or the deployed site, and the placeholder names ("Jane Doe, Founder at Sample Agency") make clear they are not real endorsements. It is there to judge the layout with faces on it. Real people only go live through `recommendingClients`, with their own name and their permission on record.
 
 ## Design system
 

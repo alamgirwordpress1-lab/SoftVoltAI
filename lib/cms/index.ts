@@ -11,7 +11,8 @@ import { promises, protectionClauses } from "@/content/promises";
 import { faqs, pricingFaqs } from "@/content/faqs";
 import { stack, clocks, engagementModels } from "@/content/stack";
 import { team } from "@/content/founder";
-import { clients, globeCards, globeLocations } from "@/content/clients";
+import { clientOrbit, clients, globeCards, globeLocations } from "@/content/clients";
+import { placeholderClients } from "@/lib/cms/placeholder-clients";
 import { comparison, comparisonSource } from "@/content/comparison";
 import { testimonials } from "@/content/testimonials";
 import { buildDetails } from "@/content/service-details-build";
@@ -70,7 +71,11 @@ export const cms = {
   getTeam: async () => team,
   getClients: async () => clients,
   getGlobeLocations: async () => globeLocations,
-  getGlobeCards: async () => globeCards,
+  // preview photos win on this machine only; the folder they come from is git-ignored
+  getGlobeCards: async () => {
+    const preview = placeholderClients();
+    return preview.length ? clientOrbit(preview) : globeCards;
+  },
   getComparison: async () => ({ rows: comparison, source: comparisonSource }),
   getTestimonials: async () => testimonials,
 };

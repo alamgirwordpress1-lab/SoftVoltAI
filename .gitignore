@@ -27,3 +27,7 @@ Thumbs.db
 # private planning notes — kept on this machine, out of the public repo
 business-plane.md
 White_Label_Digital_Production_Agency_Website_Development_Plan_Expanded.md
+
+# preview-only client photos: placeholders for judging the hero globe, never published
+public/clients/people/*
+!public/clients/people/.gitkeep
