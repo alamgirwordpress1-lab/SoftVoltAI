@@ -1,6 +1,6 @@
 import "server-only";
 import { cache } from "react";
-import { aboutLinks, companyLinks, cta, headerCta, nav, resourceLinks, site, socials } from "@/content/site";
+import { aboutLinks, cta, headerCta, nav, site, socials } from "@/content/site";
 import { wpMenus, wpSettings, type WpMenuItem } from "@/lib/cms/wordpress";
 
 /**
@@ -141,6 +141,3 @@ export const getSiteChrome = cache(async (): Promise<SiteChrome> => {
     source: "wordpress",
   };
 });
-
-/** The two columns the footer builds from content rather than from a menu. */
-export const footerFallbackColumns = { companyLinks, resourceLinks };

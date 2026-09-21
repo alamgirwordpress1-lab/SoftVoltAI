@@ -33,5 +33,3 @@ export const contactSchema = z.object({
   /** Honeypot: a real person never sees this field, so anything in it is a bot. */
   website: z.string().max(200).optional().default(""),
 });
-
-export type ContactValues = z.infer<typeof contactSchema>;

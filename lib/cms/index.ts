@@ -16,7 +16,7 @@ import { promises, protectionClauses } from "@/content/promises";
 import { faqs, pricingFaqs } from "@/content/faqs";
 import { stack, clocks, engagementModels } from "@/content/stack";
 import { team } from "@/content/founder";
-import { clientOrbit, clients, globeCards, globeLocations } from "@/content/clients";
+import { clientOrbit, globeCards, globeLocations } from "@/content/clients";
 import { placeholderClients } from "@/lib/cms/placeholder-clients";
 import { comparison, comparisonSource } from "@/content/comparison";
 import { testimonials } from "@/content/testimonials";
@@ -140,11 +140,6 @@ export const cms = {
     return wp?.team.length ? wp.team : team;
   },
 
-  getClients: async () => {
-    const wp = await fromWpCollections();
-    return wp?.clients.length ? wp.clients : clients;
-  },
-
   getGlobeLocations: async () => globeLocations,
 
   getGlobeCards: async () => {
@@ -186,5 +181,3 @@ export const cms = {
   /** Every slug WordPress publishes — the sitemap and generateStaticParams read this. */
   getWpSlugs: async () => wpSlugs(),
 };
-
-export type Cms = typeof cms;

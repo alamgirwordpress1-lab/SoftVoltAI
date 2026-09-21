@@ -274,7 +274,6 @@ export interface WpCollections {
   clauses: { title: string; body: string }[];
   team: TeamMember[];
   testimonials: Testimonial[];
-  clients: Client[];
   featuredClients: { id: string; name: string; work: string; country: Client["country"]; logo?: string; logoFill?: boolean }[];
   stack: TechItem[];
   comparison: ComparisonRow[];
@@ -337,12 +336,6 @@ export async function wpCollections(): Promise<WpCollections | null> {
         country: plain(node.testimonialFields?.country ?? ""),
         work: plain(node.testimonialFields?.work ?? ""),
       })),
-    clients: (data.clients?.nodes ?? []).map((node) => ({
-      name: plain(node.title),
-      country: (plain(node.clientFields?.country ?? "UK") as Client["country"]) || "UK",
-      work: plain(node.clientFields?.work ?? ""),
-      url: node.clientFields?.url || undefined,
-    })),
     featuredClients: (data.clients?.nodes ?? [])
       .filter((node) => node.clientFields?.featured)
       .map((node) => ({
