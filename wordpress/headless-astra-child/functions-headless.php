@@ -1558,8 +1558,12 @@ function softvolt_is_system_request(): bool
     if (defined('GRAPHQL_HTTP_REQUEST') && GRAPHQL_HTTP_REQUEST) {
         return true;
     }
-    if (is_user_logged_in()) {
-        return true; // an editor clicking "view" gets the preview flow, not a redirect
+    // Editors are sent on too: Preview already opens the front end's preview
+    // route and every View link points at the real site, so all this domain
+    // could show them is the bare parent theme. WordPress's own ?preview=true
+    // and the Customizer still render here.
+    if (is_user_logged_in() && (is_preview() || is_customize_preview())) {
+        return true;
     }
     // WordPress checks a theme or plugin edit by loading the site with these two
     // keys and reading what comes back. A redirect looks like a fatal error to
