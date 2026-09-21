@@ -4,7 +4,7 @@ export const site = {
   // — which is what Vercel does when it imports the keys out of .env.example —
   // would otherwise leave us with an empty origin, and `new URL("")` throws
   // during the build.
-  url: process.env.NEXT_PUBLIC_SITE_URL || "https://softvoltai.com",
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://www.softvoltai.com",
   tagline: "The white-label production and growth team behind agencies.",
   /** Meta description and Open Graph copy: kept under 160 characters so search results do not cut it off. */
   description:

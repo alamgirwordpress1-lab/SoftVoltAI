@@ -7,7 +7,7 @@
 **The white-label production & growth team behind agencies.**<br />
 You win the client. We deliver the work. Your brand gets the credit.
 
-[softvoltai.com](https://softvoltai.com) · Next.js 16 · React 19 · TypeScript · Tailwind CSS 4 · Vercel
+[www.softvoltai.com](https://www.softvoltai.com) · Next.js 16 · React 19 · TypeScript · Tailwind CSS 4 · Vercel
 
 </div>
 
@@ -130,7 +130,7 @@ Every variable is optional for local development. Copy `.env.example` to `.env.l
 
 | Variable | Used for | If it is not set |
 | --- | --- | --- |
-| `NEXT_PUBLIC_SITE_URL` | Canonical URLs, sitemap, Open Graph, structured data | Falls back to `https://softvoltai.com` |
+| `NEXT_PUBLIC_SITE_URL` | Canonical URLs, sitemap, Open Graph, structured data | Falls back to `https://www.softvoltai.com` |
 | `NEXT_PUBLIC_CAL_URL` | Booking link next to the brief form (e.g. a Cal.com event) | The link is hidden |
 | `RESEND_API_KEY` | Sending briefs by email through Resend | Briefs are written to the server log, not emailed |
 | `BRIEF_TO_EMAIL` | The inbox that receives briefs | Same as above |
