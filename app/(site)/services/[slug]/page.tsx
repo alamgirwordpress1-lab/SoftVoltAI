@@ -7,7 +7,9 @@ import { Button } from "@/components/ui/Button";
 import { Chip } from "@/components/ui/Chip";
 import { CtaBand } from "@/components/sections/CtaBand";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { site, cta } from "@/content/site";
+import { site } from "@/content/site";
+import { Rich } from "@/components/ui/Rich";
+import { getSiteChrome } from "@/lib/cms/site";
 import { cms } from "@/lib/cms";
 import { getCopy } from "@/lib/cms/copy";
 import { servicesCopy } from "@/content/copy/services";
@@ -34,8 +36,18 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
   const { slug } = await params;
   const service = await cms.getService(slug);
   if (!service) notFound();
-  const process = await cms.getProcess();
+  const [process, chrome] = await Promise.all([cms.getProcess(), getSiteChrome()]);
   const scope = process.find((p) => p.id === "scope");
+  // the words are the "Every service page" tabs on the Services page in WordPress
+  const copy = await getCopy(servicesCopy, {
+    service: service.name,
+    pillar: service.pillarGroup.name,
+    deliverables: String(service.deliverables.length),
+    tools: service.stack.join(", "),
+    often_for: service.agencies.length ? `It is the brief we see most often from ${service.agencies.map((a) => midSentence(a.name)).join(", ")}. ` : "",
+  });
+  const top = copy.detail_top;
+  const band = copy.detail_sections;
 
   return (
     <>
@@ -57,62 +69,49 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
           { name: "Services", href: "/services" },
           { name: service.name, href: `/services/${slug}` },
         ]}
-        eyebrow={`${service.pillarGroup.name} · white-label`}
+        eyebrow={top.eyebrow}
         title={service.title}
         lede={service.intro}
         highlights={[
-          { label: "Tooling", value: service.stack.slice(0, 3).join(" · ") },
-          ...(service.agencies[0] ? [{ label: "Best for", value: service.agencies[0].name }] : []),
+          { label: top.fact_tools, value: service.stack.slice(0, 3).join(" · ") },
+          ...(service.agencies[0] ? [{ label: top.fact_best_for, value: service.agencies[0].name }] : []),
           ...(scope ? [{ label: scope.name, value: scope.turnaround }] : []),
         ]}
       >
         <div className="flex flex-wrap items-center gap-3">
-          <Button href={cta.primary.href}>{cta.primary.label}</Button>
-          <Button href={cta.secondary.href} variant="secondary">
-            {cta.secondary.label}
+          <Button href={chrome.cta.primary.href}>{chrome.cta.primary.label}</Button>
+          <Button href={chrome.cta.secondary.href} variant="secondary">
+            {chrome.cta.secondary.label}
           </Button>
         </div>
       </PageHero>
 
       <PageIntro
-        eyebrow="At a glance"
-        title={`${service.name}, run the way agencies need it run.`}
+        eyebrow={top.intro_eyebrow}
+        title={top.intro_heading}
         subtitle={service.pillarGroup.tagline}
-        body={[
-          <>
-            Send the brief and a named producer turns it into a written scope: {service.deliverables.length} deliverables, each priced, with the assumptions
-            and the tools listed — {service.stack.join(", ")}. Nothing is built until you have agreed that document, and the price on it is the price you
-            pay.
-          </>,
-          <>
-            {service.agencies.length
-              ? `It is the brief we see most often from ${service.agencies.map((a) => midSentence(a.name)).join(", ")}. `
-              : ""}
-            Everything ships under your agency&apos;s name — the staging link, the commits, the checklist and the handover — and your client never learns we
-            were involved.
-          </>,
-        ]}
+        body={[<Rich key="p1" text={top.intro_p1} />, <Rich key="p2" text={top.intro_p2} />]}
         points={[
-          { title: "Pillar", text: `${service.pillarGroup.name} — ${service.pillarGroup.tagline}` },
-          { title: "Tooling", text: service.stack.join(" · ") },
-          ...(service.agencies[0] ? [{ title: "Most often for", text: service.agencies[0].name }] : []),
+          { title: top.point_pillar, text: `${service.pillarGroup.name} — ${service.pillarGroup.tagline}` },
+          { title: top.point_tools, text: service.stack.join(" · ") },
+          ...(service.agencies[0] ? [{ title: top.point_often, text: service.agencies[0].name }] : []),
           ...(scope ? [{ title: scope.name, text: `${scope.turnaround} — ${scope.artefact}` }] : []),
         ]}
         jump={[
-          { label: "What ships", href: "#deliverables" },
-          { label: "When to send it", href: "#signals" },
-          ...(service.agencies.length ? [{ label: "Who it is for", href: "#who-for" }] : []),
-          { label: "Related services", href: "#related" },
+          { label: top.jump_ships, href: "#deliverables" },
+          { label: top.jump_signals, href: "#signals" },
+          ...(service.agencies.length ? [{ label: top.jump_who, href: "#who-for" }] : []),
+          { label: top.jump_related, href: "#related" },
         ]}
       />
 
       <section id="deliverables" className="container-x grid gap-10 border-t border-line py-14 md:py-20 lg:grid-cols-12" aria-labelledby="deliverables-title">
         <div className="lg:col-span-4" data-reveal>
-          <span className="eyebrow">What ships</span>
+          <span className="eyebrow">{band.ships_eyebrow}</span>
           <h2 id="deliverables-title" className="display display-md mt-4">
-            What you get, written into the scope.
+            {band.ships_heading}
           </h2>
-          <p className="mt-4 text-[15px] leading-relaxed text-muted">Every item here appears in the scope document with a price against it. Nothing starts until you approve it.</p>
+          {band.ships_text ? <p className="mt-4 text-[15px] leading-relaxed text-muted">{band.ships_text}</p> : null}
         </div>
         <ul className="grid gap-4 sm:grid-cols-2 lg:col-span-8">
           {service.deliverables.map((d, i) => (
@@ -128,9 +127,9 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         <div className="glow -right-20 -top-20 h-[420px] w-[420px]" aria-hidden="true" />
         <div className="container-x relative grid gap-10 py-14 md:py-20 lg:grid-cols-12">
           <div className="lg:col-span-5" data-reveal>
-            <span className="eyebrow">When to send this brief</span>
+            <span className="eyebrow">{band.signals_eyebrow}</span>
             <h2 id="signals-title" className="display display-md mt-4">
-              You will recognise the moment.
+              {band.signals_heading}
             </h2>
             <ul className="mt-6 space-y-3">
               {service.signals.map((s) => (
@@ -142,7 +141,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
             </ul>
           </div>
           <div className="lg:col-span-6 lg:col-start-7" data-reveal style={{ ["--reveal-delay" as string]: "120ms" }}>
-            <span className="eyebrow">How it runs</span>
+            <span className="eyebrow">{band.runs_eyebrow}</span>
             <ol className="mt-6 space-y-4">
               {process.map((step, i) => (
                 <li key={step.id} className="grid grid-cols-[40px_1fr] gap-3 border-t border-er-line pt-4">
@@ -155,7 +154,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
               ))}
             </ol>
             <div className="mt-8">
-              <span className="eyebrow">Tooling</span>
+              <span className="eyebrow">{band.tools_eyebrow}</span>
               <ul className="mt-3 flex flex-wrap gap-2">
                 {service.stack.map((t) => (
                   <li key={t}>
@@ -170,9 +169,9 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
 
       {service.agencies.length ? (
         <section id="who-for" className="container-x py-14 md:py-20" aria-labelledby="for-title">
-          <span className="eyebrow">Built for</span>
+          <span className="eyebrow">{band.who_eyebrow}</span>
           <h2 id="for-title" className="display display-md mt-4">
-            Agencies that send this brief most often.
+            {band.who_heading}
           </h2>
           <ul className="mt-8 grid gap-4 md:grid-cols-3">
             {service.agencies.map((a, i) => (
@@ -180,7 +179,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
                 <Link href={`/for/${a.slug}`} className="card card-lift shadow-soft group flex h-full flex-col p-6">
                   <h3 className="text-lg font-semibold text-ink">{a.name}</h3>
                   <p className="mt-2 text-[14px] leading-relaxed text-muted">{a.relief}</p>
-                  <span className="mono mt-auto pt-5 text-[11px] uppercase tracking-[0.1em] text-accent">How we work with you →</span>
+                  {band.who_link ? <span className="mono mt-auto pt-5 text-[11px] uppercase tracking-[0.1em] text-accent">{band.who_link}</span> : null}
                 </Link>
               </li>
             ))}
@@ -189,9 +188,9 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
       ) : null}
 
       <section id="related" className="container-x border-t border-line py-14 md:py-20" aria-labelledby="related-title">
-        <span className="eyebrow">Also in {service.pillarGroup.name}</span>
+        <span className="eyebrow">{band.related_eyebrow}</span>
         <h2 id="related-title" className="display display-md mt-4">
-          Related services.
+          {band.related_heading}
         </h2>
         <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {service.related.map((r) => (
@@ -206,7 +205,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
       </section>
 
       {/* the closing band's words live on the Services page in WordPress, one set for every service */}
-      <CtaBand copy={(await getCopy(servicesCopy, { service: service.name })).detail_cta} />
+      <CtaBand copy={copy.detail_cta} />
     </>
   );
 }

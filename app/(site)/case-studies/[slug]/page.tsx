@@ -7,10 +7,13 @@ import { PageIntro } from "@/components/ui/PageIntro";
 import { Button } from "@/components/ui/Button";
 import { Chip } from "@/components/ui/Chip";
 import { CtaBand } from "@/components/sections/CtaBand";
-import { site, cta } from "@/content/site";
+import { site } from "@/content/site";
+import { Rich } from "@/components/ui/Rich";
+import { getSiteChrome } from "@/lib/cms/site";
 import { cms } from "@/lib/cms";
 import { getCopy } from "@/lib/cms/copy";
 import { caseStudiesCopy } from "@/content/copy/case-studies";
+import { midSentence } from "@/lib/utils";
 
 export async function generateStaticParams() {
   const work = await cms.getWork();
@@ -21,11 +24,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const item = await cms.getWorkItem(slug);
   if (!item) return {};
-  const head = `${item.title} — ${item.category} build for a ${item.client.toLowerCase()} in ${item.region}. `;
+  const head = `${item.title} — ${item.category} build for a ${midSentence(item.client)} in ${item.region}. `;
   // meta descriptions are cut off past about 160 characters, so the summary fills whatever is left
   const description = (head + item.summary).slice(0, 157).replace(/[\s,;:—-]+$/, "") + "…";
+  const { detail_top: top } = await getCopy(caseStudiesCopy, { title: item.title });
   return {
-    title: `${item.title} — case study`,
+    title: top.seo_title,
     description,
     alternates: { canonical: `/case-studies/${slug}` },
     openGraph: { title: `${item.title} · SoftVolt AI case study`, description, url: `${site.url}/case-studies/${slug}` },
@@ -36,7 +40,21 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
   const { slug } = await params;
   const item = await cms.getWorkItem(slug);
   if (!item) notFound();
-  const process = await cms.getProcess();
+  const [process, chrome] = await Promise.all([cms.getProcess(), getSiteChrome()]);
+  // the words are the "Every case study page" tabs on the Case Studies page in WordPress
+  const copy = await getCopy(caseStudiesCopy, {
+    title: item.title,
+    category: item.category,
+    // mid-sentence casing keeps "UK" and brand names upright: "a UK aggregates supplier"
+    client: midSentence(item.client),
+    region: item.region,
+    role: midSentence(item.role),
+    delivered: String(item.delivered.length),
+    stack: item.stack.join(", "),
+    live_note: item.url ? ", and the site is still live — open it and check the claims against the real thing." : ".",
+  });
+  const top = copy.detail_top;
+  const band = copy.detail_sections;
 
   return (
     <>
@@ -49,19 +67,19 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
         title={item.title}
         lede={item.summary}
         highlights={[
-          { label: "Client", value: item.client },
-          { label: "Region", value: item.region },
-          { label: "Stack", value: item.stack.slice(0, 3).join(" · ") },
+          { label: top.fact_client, value: item.client },
+          { label: top.fact_region, value: item.region },
+          { label: top.fact_stack, value: item.stack.slice(0, 3).join(" · ") },
         ]}
       >
         <div className="flex flex-wrap items-center gap-3">
-          {item.url ? (
+          {item.url && top.live_button ? (
             <Button href={item.url} target="_blank" rel="noopener noreferrer">
-              Open the live site <span aria-hidden="true">↗</span>
+              {top.live_button}
             </Button>
           ) : null}
-          <Button href={cta.primary.href} variant="secondary">
-            {cta.primary.label}
+          <Button href={chrome.cta.primary.href} variant="secondary">
+            {chrome.cta.primary.label}
           </Button>
         </div>
       </PageHero>
@@ -81,53 +99,43 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
       ) : null}
 
       <PageIntro
-        eyebrow="At a glance"
-        title={`${item.category} for a ${item.client.toLowerCase()}.`}
+        eyebrow={top.intro_eyebrow}
+        title={top.intro_heading}
         subtitle={item.role}
-        body={[
-          <>
-            This one is on the site because it can be checked. It was delivered for a {item.client.toLowerCase()} in {item.region}, our founder&apos;s part
-            in it was {item.role.toLowerCase()}, and everything claimed below is either visible in the running site or in the code behind it.
-          </>,
-          <>
-            {item.delivered.length} things shipped in this build, listed in full below. It was made with {item.stack.join(", ")} for a client in{" "}
-            {item.region}
-            {item.url ? ", and the site is still live — open it and check the claims against the real thing." : "."}
-          </>,
-        ]}
+        body={[<Rich key="p1" text={top.intro_p1} />, <Rich key="p2" text={top.intro_p2} />]}
         points={[
-          { title: "Client", text: item.client },
-          { title: "Market", text: item.region },
-          { title: "Our role", text: item.role },
-          { title: "Built with", text: item.stack.join(" · ") },
+          { title: top.point_client, text: item.client },
+          { title: top.point_market, text: item.region },
+          { title: top.point_role, text: item.role },
+          { title: top.point_stack, text: item.stack.join(" · ") },
         ]}
         jump={[
-          { label: "What shipped", href: "#delivered" },
-          { label: "As a partner brief", href: "#as-partner" },
-          { label: "Related builds", href: "#related" },
+          { label: top.jump_delivered, href: "#delivered" },
+          { label: top.jump_partner, href: "#as-partner" },
+          { label: top.jump_related, href: "#related" },
         ]}
       />
 
       <section id="delivered" className="container-x border-t border-line py-14 md:py-20" aria-labelledby="delivered-title">
         <div className="grid gap-10 lg:grid-cols-12 lg:gap-14">
           <div className="lg:col-span-4" data-reveal>
-            <span className="eyebrow">What shipped</span>
+            <span className="eyebrow">{band.delivered_eyebrow}</span>
             <h2 id="delivered-title" className="display display-md mt-4">
-              The work, in plain terms.
+              {band.delivered_heading}
             </h2>
             <dl className="mt-8 space-y-5 text-[15px]">
               <div>
-                <dt className="mono text-[11px] uppercase tracking-[0.1em] text-muted">Client</dt>
+                <dt className="mono text-[11px] uppercase tracking-[0.1em] text-muted">{band.label_client}</dt>
                 <dd className="mt-1 text-ink">
                   {item.client} · {item.region}
                 </dd>
               </div>
               <div>
-                <dt className="mono text-[11px] uppercase tracking-[0.1em] text-muted">Role</dt>
+                <dt className="mono text-[11px] uppercase tracking-[0.1em] text-muted">{band.label_role}</dt>
                 <dd className="mt-1 text-ink">{item.role}</dd>
               </div>
               <div>
-                <dt className="mono text-[11px] uppercase tracking-[0.1em] text-muted">Stack</dt>
+                <dt className="mono text-[11px] uppercase tracking-[0.1em] text-muted">{band.label_stack}</dt>
                 <dd className="mt-2 flex flex-wrap gap-1.5">
                   {item.stack.map((s) => (
                     <Chip key={s}>{s}</Chip>
@@ -147,24 +155,22 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
           </ul>
         </div>
 
-        <p className="mono mt-10 max-w-[70ch] text-[12px] leading-relaxed text-muted" data-reveal>
-          No traffic, revenue or ranking figures are published here. We only publish numbers we can show you — a Lighthouse run, a
-          Search Console export, an error rate — and for this project we do not hold them.
-        </p>
+        {band.delivered_note ? (
+          <p className="mono mt-10 max-w-[70ch] text-[12px] leading-relaxed text-muted" data-reveal>
+            {band.delivered_note}
+          </p>
+        ) : null}
       </section>
 
       <section id="as-partner" className="er relative overflow-hidden" aria-labelledby="as-partner-title">
         <div className="grid-lines" aria-hidden="true" />
         <div className="container-x relative grid gap-10 py-14 md:py-20 lg:grid-cols-12">
           <div className="lg:col-span-5" data-reveal>
-            <span className="eyebrow">If this were your brief</span>
+            <span className="eyebrow">{band.partner_eyebrow}</span>
             <h2 id="as-partner-title" className="display display-md mt-4">
-              The same build, delivered under your brand.
+              {band.partner_heading}
             </h2>
-            <p className="lede mt-5">
-              As a white-label project this runs through the same five steps, with your agency on the staging URL, the commits and
-              the handover — and our name nowhere.
-            </p>
+            {band.partner_lede ? <p className="lede mt-5">{band.partner_lede}</p> : null}
           </div>
           <ol className="lg:col-span-6 lg:col-start-7" data-reveal style={{ ["--reveal-delay" as string]: "100ms" }}>
             {process.map((step, i) => (
@@ -181,9 +187,9 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
       </section>
 
       <section id="related" className="container-x py-14 md:py-20" aria-labelledby="related-title">
-        <span className="eyebrow">More work</span>
+        <span className="eyebrow">{band.related_eyebrow}</span>
         <h2 id="related-title" className="display display-md mt-4">
-          Related builds.
+          {band.related_heading}
         </h2>
         <ul className="mt-8 grid gap-4 md:grid-cols-3">
           {item.related.map((r, i) => (
@@ -208,7 +214,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
       </section>
 
       {/* the closing band's words live on the Case Studies page in WordPress */}
-      <CtaBand copy={(await getCopy(caseStudiesCopy)).detail_cta} />
+      <CtaBand copy={copy.detail_cta} />
     </>
   );
 }

@@ -5,11 +5,13 @@ import { PageHero } from "@/components/ui/PageHero";
 import { PageIntro } from "@/components/ui/PageIntro";
 import { Button } from "@/components/ui/Button";
 import { CtaBand } from "@/components/sections/CtaBand";
-import { site, cta } from "@/content/site";
+import { site } from "@/content/site";
+import { Rich } from "@/components/ui/Rich";
+import { getSiteChrome } from "@/lib/cms/site";
 import { cms } from "@/lib/cms";
 import { getCopy } from "@/lib/cms/copy";
 import { forCopy } from "@/content/copy/for";
-import { midSentence } from "@/lib/utils";
+import { countWord, midSentence } from "@/lib/utils";
 
 export async function generateStaticParams() {
   const types = await cms.getAgencyTypes();
@@ -20,21 +22,38 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const type = await cms.getAgencyType(slug);
   if (!type) return {};
+  const { detail_top: top } = await getCopy(forCopy, { agency: midSentence(type.name) });
   return {
-    title: `White-label for ${midSentence(type.name)}`,
+    title: top.seo_title,
     description: type.seo,
     alternates: { canonical: `/for/${slug}` },
-    openGraph: { title: `For ${midSentence(type.name)} · SoftVolt AI`, description: type.seo, url: `${site.url}/for/${slug}` },
+    openGraph: { title: `${top.seo_title} · SoftVolt AI`, description: type.seo, url: `${site.url}/for/${slug}` },
   };
 }
+
+const capital = (word: string) => word.charAt(0).toUpperCase() + word.slice(1);
 
 export default async function AgencyTypePage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const type = await cms.getAgencyType(slug);
   if (!type) notFound();
-  const [promises, process] = await Promise.all([cms.getPromises(), cms.getProcess()]);
+  const [promises, process, chrome] = await Promise.all([cms.getPromises(), cms.getProcess(), getSiteChrome()]);
   const scope = process.find((p) => p.id === "scope");
   const noContact = promises.find((p) => p.id === "no-contact");
+  // the words are the "Every agency page" tabs on the Agency Solutions page in WordPress
+  const copy = await getCopy(forCopy, {
+    agency: midSentence(type.name),
+    problem: type.problem,
+    scope_time: scope ? scope.turnaround.toLowerCase() : "within two business days",
+    top_services: type.serviceItems
+      .slice(0, 4)
+      .map((s) => midSentence(s.name))
+      .join(", "),
+    commitment: noContact ? `${noContact.label}: ${noContact.detail}` : "",
+    Count: capital(countWord(type.workflow.length)),
+  });
+  const top = copy.detail_top;
+  const band = copy.detail_sections;
 
   return (
     <>
@@ -43,60 +62,51 @@ export default async function AgencyTypePage({ params }: { params: Promise<{ slu
           { name: "For agencies", href: "/for" },
           { name: type.name, href: `/for/${slug}` },
         ]}
-        eyebrow="Who we help"
-        title={`For ${midSentence(type.name)}`}
+        eyebrow={top.eyebrow}
+        title={top.heading}
         lede={type.intro}
         highlights={[
-          { label: "Services that fit", value: type.serviceItems.slice(0, 2).map((s) => s.name).join(" · ") },
+          { label: top.fact_services, value: type.serviceItems.slice(0, 2).map((s) => s.name).join(" · ") },
           ...(scope ? [{ label: scope.name, value: scope.turnaround }] : []),
-          ...(noContact ? [{ label: "Commitment", value: noContact.label }] : []),
+          ...(noContact ? [{ label: top.fact_commitment, value: noContact.label }] : []),
         ]}
       >
         <div className="flex flex-wrap items-center gap-3">
-          <Button href={cta.primary.href}>{cta.primary.label}</Button>
-          <Button href={cta.secondary.href} variant="secondary">
-            {cta.secondary.label}
+          <Button href={chrome.cta.primary.href}>{chrome.cta.primary.label}</Button>
+          <Button href={chrome.cta.secondary.href} variant="secondary">
+            {chrome.cta.secondary.label}
           </Button>
         </div>
       </PageHero>
 
       <PageIntro
-        eyebrow="At a glance"
-        title={`What ${midSentence(type.name)} hand over.`}
+        eyebrow={top.intro_eyebrow}
+        title={top.intro_heading}
         subtitle={type.relief}
-        body={[
-          <>
-            {type.problem} That is the part we take. The brief comes to a named producer, goes back to you as a written scope with a fixed price
-            {scope ? ` ${scope.turnaround.toLowerCase()}` : ""}, and the build runs under your agency&apos;s name from the staging link to the handover.
-          </>,
-          <>
-            The services that fit this kind of agency most often are {type.serviceItems.slice(0, 4).map((s) => midSentence(s.name)).join(", ")} — but the
-            list below is the full set, and a brief can mix them. {noContact ? `${noContact.label}: ${noContact.detail}` : ""}
-          </>,
-        ]}
+        body={[<Rich key="p1" text={top.intro_p1} />, <Rich key="p2" text={top.intro_p2} />]}
         points={[
-          { title: "The blocker", text: type.problem },
-          { title: "What changes", text: type.relief },
+          { title: top.point_problem, text: type.problem },
+          { title: top.point_relief, text: type.relief },
           ...(scope ? [{ title: scope.name, text: `${scope.turnaround} — ${scope.artefact}` }] : []),
           ...(noContact ? [{ title: noContact.label, text: noContact.detail }] : []),
         ]}
         jump={[
-          { label: "The problem", href: "#problem" },
-          { label: "How it runs", href: "#workflow" },
-          { label: "Services that fit", href: "#services-for" },
-          { label: "What you get in writing", href: "#promises" },
+          { label: top.jump_problem, href: "#problem" },
+          { label: top.jump_workflow, href: "#workflow" },
+          { label: top.jump_services, href: "#services-for" },
+          { label: top.jump_promises, href: "#promises" },
         ]}
       />
 
       <section id="problem" className="container-x grid gap-10 border-t border-line py-14 md:py-20 lg:grid-cols-12" aria-labelledby="problem-title">
         <div className="lg:col-span-5" data-reveal>
-          <span className="eyebrow">The problem</span>
+          <span className="eyebrow">{band.problem_eyebrow}</span>
           <h2 id="problem-title" className="display display-md mt-4">
             {type.problem}
           </h2>
         </div>
         <div className="lg:col-span-6 lg:col-start-7" data-reveal style={{ ["--reveal-delay" as string]: "100ms" }}>
-          <span className="eyebrow">What changes</span>
+          <span className="eyebrow">{band.relief_eyebrow}</span>
           <p className="display display-md mt-4 text-accent">{type.relief}</p>
         </div>
       </section>
@@ -104,9 +114,9 @@ export default async function AgencyTypePage({ params }: { params: Promise<{ slu
       <section id="workflow" className="er relative overflow-hidden" aria-labelledby="workflow-title">
         <div className="glow -left-24 -bottom-24 h-[420px] w-[420px]" aria-hidden="true" />
         <div className="container-x relative py-14 md:py-20">
-          <span className="eyebrow">How the engagement runs</span>
+          <span className="eyebrow">{band.workflow_eyebrow}</span>
           <h2 id="workflow-title" className="display display-md mt-4 max-w-[22ch]">
-            Four steps, each one written down.
+            {band.workflow_heading}
           </h2>
           <ol className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
             {type.workflow.map((w, i) => (
@@ -120,9 +130,9 @@ export default async function AgencyTypePage({ params }: { params: Promise<{ slu
       </section>
 
       <section id="services-for" className="container-x py-14 md:py-20" aria-labelledby="services-for-title">
-        <span className="eyebrow">Services that fit</span>
+        <span className="eyebrow">{band.services_eyebrow}</span>
         <h2 id="services-for-title" className="display display-md mt-4">
-          What {midSentence(type.name)} usually send us.
+          {band.services_heading}
         </h2>
         <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {type.serviceItems.map((s, i) => (
@@ -138,9 +148,9 @@ export default async function AgencyTypePage({ params }: { params: Promise<{ slu
       </section>
 
       <section id="promises" className="container-x border-t border-line py-14 md:py-20" aria-labelledby="promises-title">
-        <span className="eyebrow">On every project</span>
+        <span className="eyebrow">{band.promises_eyebrow}</span>
         <h2 id="promises-title" className="display display-md mt-4">
-          The commitments.
+          {band.promises_heading}
         </h2>
         <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
           {promises.map((p) => (
@@ -153,7 +163,7 @@ export default async function AgencyTypePage({ params }: { params: Promise<{ slu
       </section>
 
       {/* the closing band's words live on the Agency Solutions page in WordPress */}
-      <CtaBand copy={(await getCopy(forCopy)).detail_cta} />
+      <CtaBand copy={copy.detail_cta} />
     </>
   );
 }

@@ -1,4 +1,4 @@
-import { page, section, text } from "@/content/copy/schema";
+import { page, para, section, text } from "@/content/copy/schema";
 import { LIVE_FIGURES, banner, ctaBand, intro, seo } from "@/content/copy/sections";
 
 /** /for — who we work with. The agency cards come from Agency types. */
@@ -46,6 +46,53 @@ export const forCopy = page("for", "/for", "Agency Solutions", {
   ),
 
   cta: ctaBand(),
+
+  detail_top: section(
+    "Every agency page — top of the page",
+    {
+      seo_title: text("Page title in Google", "White-label for {agency}", "\"· SoftVolt AI\" is added after it. The description comes from each agency type's SEO description."),
+      eyebrow: text("Small line above the headline", "Who we help"),
+      heading: text("Headline", "For {agency}"),
+      fact_services: text("Fact card — services label", "Services that fit"),
+      fact_commitment: text("Fact card — commitment label", "Commitment"),
+      intro_eyebrow: text("Intro — small line above the heading", "At a glance"),
+      intro_heading: text("Intro — heading", "What {agency} hand over."),
+      intro_p1: para(
+        "Intro — first paragraph",
+        "{problem} That is the part we take. The brief comes to a named producer, goes back to you as a written scope with a fixed price {scope_time}, and the build runs under your agency's name from the staging link to the handover.",
+        undefined,
+        4,
+      ),
+      intro_p2: para(
+        "Intro — second paragraph",
+        "The services that fit this kind of agency most often are {top_services} — but the list below is the full set, and a brief can mix them. {commitment}",
+        "{top_services} becomes the first four services linked to the agency type; {commitment} becomes the no-contact commitment in full.",
+        4,
+      ),
+      point_problem: text("Key point — problem label", "The blocker"),
+      point_relief: text("Key point — change label", "What changes"),
+      jump_problem: text("\"On this page\" — the problem", "The problem"),
+      jump_workflow: text("\"On this page\" — how it runs", "How it runs"),
+      jump_services: text("\"On this page\" — services", "Services that fit"),
+      jump_promises: text("\"On this page\" — commitments", "What you get in writing"),
+    },
+    "The same words on every agency page. The paragraph under the headline and the lists come from each agency type under Agency types. In these fields {agency} is the kind of agency (\"SEO agencies\"), {problem} its problem line, and {scope_time} how fast a scope comes back.",
+  ),
+
+  detail_sections: section(
+    "Every agency page — sections below",
+    {
+      problem_eyebrow: text("The problem — small line", "The problem"),
+      relief_eyebrow: text("What changes — small line", "What changes"),
+      workflow_eyebrow: text("How it runs — small line", "How the engagement runs"),
+      workflow_heading: text("How it runs — heading", "{Count} steps, each one written down.", "{Count} becomes the number of steps the agency type lists, as a word."),
+      services_eyebrow: text("Services — small line", "Services that fit"),
+      services_heading: text("Services — heading", "What {agency} usually send us."),
+      promises_eyebrow: text("Commitments — small line", "On every project"),
+      promises_heading: text("Commitments — heading", "The commitments."),
+    },
+    "The bands under the intro, the same on every agency page.",
+  ),
 
   detail_cta: {
     ...ctaBand(),

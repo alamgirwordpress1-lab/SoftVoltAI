@@ -134,6 +134,63 @@ export const caseStudiesCopy = page("case-studies", "/case-studies", "Case Studi
 
   cta: ctaBand(),
 
+  detail_top: section(
+    "Every case study page — top of the page",
+    {
+      seo_title: text("Page title in Google", "{title} — case study", "\"· SoftVolt AI\" is added after it."),
+      fact_client: text("Fact card — client label", "Client"),
+      fact_region: text("Fact card — region label", "Region"),
+      fact_stack: text("Fact card — stack label", "Stack"),
+      live_button: text("Button to the live site", "Open the live site ↗", "Shown only when the case study has a live URL."),
+      intro_eyebrow: text("Intro — small line above the heading", "At a glance"),
+      intro_heading: text("Intro — heading", "{category} for a {client}."),
+      intro_p1: para(
+        "Intro — first paragraph",
+        "This one is on the site because it can be checked. It was delivered for a {client} in {region}, our founder's part in it was {role}, and everything claimed below is either visible in the running site or in the code behind it.",
+        undefined,
+        4,
+      ),
+      intro_p2: para(
+        "Intro — second paragraph",
+        "{delivered} things shipped in this build, listed in full below. It was made with {stack} for a client in {region}{live_note}",
+        "{live_note} becomes \", and the site is still live — open it and check the claims against the real thing.\" when there is a live URL, and a full stop when there is not.",
+        4,
+      ),
+      point_client: text("Key point — client label", "Client"),
+      point_market: text("Key point — market label", "Market"),
+      point_role: text("Key point — role label", "Our role"),
+      point_stack: text("Key point — stack label", "Built with"),
+      jump_delivered: text("\"On this page\" — what shipped", "What shipped"),
+      jump_partner: text("\"On this page\" — as a partner brief", "As a partner brief"),
+      jump_related: text("\"On this page\" — related", "Related builds"),
+    },
+    "The same words on every case study page. The title, the summary and the lists come from each case study under Case studies. In these fields {title}, {category}, {client}, {region}, {role} and {stack} come from the case study, and {delivered} is how many things it lists as shipped.",
+  ),
+
+  detail_sections: section(
+    "Every case study page — sections below",
+    {
+      delivered_eyebrow: text("What shipped — small line", "What shipped"),
+      delivered_heading: text("What shipped — heading", "The work, in plain terms."),
+      label_client: text("What shipped — client label", "Client"),
+      label_role: text("What shipped — role label", "Role"),
+      label_stack: text("What shipped — stack label", "Stack"),
+      delivered_note: para(
+        "What shipped — note under the list",
+        "No traffic, revenue or ranking figures are published here. We only publish numbers we can show you — a Lighthouse run, a Search Console export, an error rate — and for this project we do not hold them.",
+      ),
+      partner_eyebrow: text("As a partner brief — small line", "If this were your brief"),
+      partner_heading: text("As a partner brief — heading", "The same build, delivered under your brand."),
+      partner_lede: para(
+        "As a partner brief — paragraph",
+        "As a white-label project this runs through the same five steps, with your agency on the staging URL, the commits and the handover — and our name nowhere.",
+      ),
+      related_eyebrow: text("Related — small line", "More work"),
+      related_heading: text("Related — heading", "Related builds."),
+    },
+    "The bands under the intro, the same on every case study page.",
+  ),
+
   detail_cta: {
     ...ctaBand({
       heading: "Send the brief —",
