@@ -18,11 +18,7 @@ const nextConfig: NextConfig = {
     formats: ["image/avif", "image/webp"],
     // media lives on the WordPress install; Next optimises it and caches the
     // result at the edge, so the CMS serves each original once
-    remotePatterns: [
-      { protocol: "https", hostname: "cms.softvoltai.com", pathname: "/wp-content/uploads/**" },
-      // the CMS's first address, kept while pages cached before the move still point at it
-      { protocol: "https", hostname: "cms.charguty.online", pathname: "/wp-content/uploads/**" },
-    ],
+    remotePatterns: [{ protocol: "https", hostname: "cms.softvoltai.com", pathname: "/wp-content/uploads/**" }],
   },
   async headers() {
     return [{ source: "/(.*)", headers: securityHeaders }];
