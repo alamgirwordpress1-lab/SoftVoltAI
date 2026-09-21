@@ -46,6 +46,7 @@ export const companyLinks = [
   { label: "About", href: "/about" },
   { label: "Partner programme", href: "/partner-programme" },
   { label: "Security & confidentiality", href: "/security" },
+  { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
 ];
 
