@@ -1,9 +1,10 @@
 import type { TechItem } from "@/lib/cms/types";
 import { LiveVitals } from "@/components/sections/LiveVitals";
 import { Chip } from "@/components/ui/Chip";
+import type { HeadingLedeCopy } from "@/lib/cms/copy-types";
 
 /** Engine room #2: the stack, and this site measured live in the visitor's own browser. */
-export function StackPanel({ stack }: { stack: TechItem[] }) {
+export function StackPanel({ stack, copy }: { stack: TechItem[]; copy: HeadingLedeCopy }) {
   const groups = Array.from(new Set(stack.map((s) => s.group)));
   return (
     <section id="stack" className="er section" aria-labelledby="stack-title">
@@ -12,15 +13,11 @@ export function StackPanel({ stack }: { stack: TechItem[] }) {
             the full width underneath, so neither column is left with a void */}
         <div className="grid gap-10 lg:grid-cols-12 lg:gap-12">
           <div className="lg:col-span-6" data-reveal>
-            <span className="eyebrow">Stack &amp; proof</span>
+            <span className="eyebrow">{copy.eyebrow}</span>
             <h2 id="stack-title" className="display display-lg mt-4">
-              We sell headless WordPress and Next.js. This site is one.
+              {copy.heading}
             </h2>
-            <p className="lede mt-5">
-              Most white-label shops sell headless builds from an Elementor page. This site is a Next.js App Router build with
-              server components, self-hosted fonts and no tracking cookies — measured below in your browser, right now, not in a
-              lab screenshot.
-            </p>
+            <p className="lede mt-5">{copy.lede}</p>
           </div>
 
           <div className="lg:col-span-6" data-reveal style={{ ["--reveal-delay" as string]: "120ms" }}>

@@ -4,13 +4,14 @@ import { useEffect, useRef, useState } from "react";
 import type { ProcessStep } from "@/lib/cms/types";
 import { ArrowLink } from "@/components/ui/ArrowLink";
 import { cn } from "@/lib/utils";
+import type { LinkedHeadingCopy } from "@/lib/cms/copy-types";
 
 /**
  * Engine room #1. The step list scrolls; the artefact panel stays pinned and
  * swaps to the document that step produces. Plain sticky positioning plus an
  * IntersectionObserver — no scroll hijacking, works with reduced motion.
  */
-export function ProcessEngine({ steps }: { steps: ProcessStep[] }) {
+export function ProcessEngine({ steps, copy }: { steps: ProcessStep[]; copy: LinkedHeadingCopy }) {
   const [active, setActive] = useState(0);
   const listRef = useRef<HTMLOListElement>(null);
 
@@ -35,21 +36,20 @@ export function ProcessEngine({ steps }: { steps: ProcessStep[] }) {
         {/* split heading: H2 left, lede right, so the top row uses the full width */}
         <div className="grid gap-6 lg:grid-cols-12 lg:items-end lg:gap-10" data-reveal>
           <div className="lg:col-span-7">
-            <span className="eyebrow">How it works</span>
+            <span className="eyebrow">{copy.eyebrow}</span>
             <h2 id="process-title" className="display display-lg mt-4">
-              Five steps. Each one leaves a document you can forward to your client.
+              {copy.heading}
             </h2>
           </div>
           <div className="lg:col-span-5 lg:pb-1.5">
-            <p className="lede max-w-[46ch]">
-              No black box. Every stage produces something written — a scope, a staging link, a checklist, a handover — so you
-              always know where the work is without asking.
-            </p>
-            <div className="mt-5">
-              <ArrowLink href="/partner-programme" dark>
-                What happens after the first brief
-              </ArrowLink>
-            </div>
+            <p className="lede max-w-[46ch]">{copy.lede}</p>
+            {copy.link.text ? (
+              <div className="mt-5">
+                <ArrowLink href={copy.link.url} dark>
+                  {copy.link.text}
+                </ArrowLink>
+              </div>
+            ) : null}
           </div>
         </div>
 

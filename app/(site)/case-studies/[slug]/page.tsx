@@ -9,6 +9,8 @@ import { Chip } from "@/components/ui/Chip";
 import { CtaBand } from "@/components/sections/CtaBand";
 import { site, cta } from "@/content/site";
 import { cms } from "@/lib/cms";
+import { getCopy } from "@/lib/cms/copy";
+import { caseStudiesCopy } from "@/content/copy/case-studies";
 
 export async function generateStaticParams() {
   const work = await cms.getWork();
@@ -205,7 +207,8 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
         </ul>
       </section>
 
-      <CtaBand title="Send the brief —" accent="get a fixed price within two business days." />
+      {/* the closing band's words live on the Case Studies page in WordPress */}
+      <CtaBand copy={(await getCopy(caseStudiesCopy)).detail_cta} />
     </>
   );
 }

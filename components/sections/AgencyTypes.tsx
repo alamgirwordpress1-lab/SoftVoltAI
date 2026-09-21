@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { AgencyType } from "@/lib/cms/types";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ArrowLink } from "@/components/ui/ArrowLink";
+import type { LinkedHeadingCopy } from "@/lib/cms/copy-types";
 
 const GLYPHS: Record<string, React.ReactNode> = {
   "digital-marketing-agencies": <path d="M3 10v4h3l7 4V6l-7 4H3Zm13-1a3 3 0 0 1 0 6m2-9a6 6 0 0 1 0 12" />,
@@ -12,15 +13,15 @@ const GLYPHS: Record<string, React.ReactNode> = {
   "full-service-agencies": <path d="M12 3 3 8l9 5 9-5-9-5Zm-9 9 9 5 9-5m-18 4 9 5 9-5" />,
 };
 
-export function AgencyTypes({ items }: { items: AgencyType[] }) {
+export function AgencyTypes({ items, copy }: { items: AgencyType[]; copy: LinkedHeadingCopy }) {
   return (
     <section id="who-we-help" className="section section-alt" aria-labelledby="who-title">
       <div className="container-x">
         <SectionHeading
-          eyebrow="Who we help"
-          title={<span id="who-title">Built for agencies that have already sold the work.</span>}
-          lede="You own the client, the strategy and the invoice. We take the part that is blocking your calendar."
-          aside={<ArrowLink href="/for">How we work with each agency type</ArrowLink>}
+          eyebrow={copy.eyebrow}
+          title={<span id="who-title">{copy.heading}</span>}
+          lede={copy.lede}
+          aside={copy.link.text ? <ArrowLink href={copy.link.url}>{copy.link.text}</ArrowLink> : undefined}
         />
 
         <ul className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">

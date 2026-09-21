@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { StickyCta } from "@/components/layout/StickyCta";
 import { Hero } from "@/components/sections/Hero";
 import { CapabilityMarquee } from "@/components/sections/CapabilityMarquee";
@@ -15,12 +16,22 @@ import { Founder } from "@/components/sections/Founder";
 import { Rates } from "@/components/sections/Rates";
 import { Faq } from "@/components/sections/Faq";
 import { BriefCta } from "@/components/sections/BriefCta";
+import { homeCopy } from "@/content/copy/home";
 import { cms } from "@/lib/cms";
+import { getCopy } from "@/lib/cms/copy";
+import { copyMetadata } from "@/lib/cms/meta";
+import { getSiteChrome } from "@/lib/cms/site";
+
+export async function generateMetadata(): Promise<Metadata> {
+  return copyMetadata(homeCopy, { absoluteTitle: true });
+}
 
 export default async function HomePage() {
-  const [opener, comparison, globeCards, globeLocations, promises, agencyTypes, pillars, process, work, workCategories, clocks, stack, clauses, team, models, faqs] =
+  const chrome = await getSiteChrome();
+  const [copy, comparison, globeCards, globeLocations, promises, agencyTypes, pillars, process, work, workCategories, clocks, stack, clauses, team, models, faqs] =
     await Promise.all([
-      cms.getOpener("/home"),
+      // every word on this page is in WordPress, on the page called "Home"
+      getCopy(homeCopy, { email: chrome.email, location: chrome.location, offset: chrome.utcOffset }),
       cms.getComparison(),
       cms.getGlobeCards(),
       cms.getGlobeLocations(),
@@ -45,28 +56,29 @@ export default async function HomePage() {
       <Hero
         cards={globeCards}
         locations={globeLocations}
-        eyebrow={opener?.eyebrow}
-        lines={opener?.heading}
-        lede={opener?.lede}
+        eyebrow={copy.banner.eyebrow}
+        lines={copy.banner.headline}
+        lede={copy.banner.lede}
         trust={promises.map((promise) => promise.label)}
+        cta={chrome.cta}
       />
       <PromiseBar promises={promises} />
-      <EngineRoomDemo />
+      <EngineRoomDemo copy={copy.demo} />
       <CapabilityMarquee pillars={pillars} />
-      <ServicePillars pillars={pillars} />
-      <StackPanel stack={stack} />
-      <Protection clauses={clauses} />
-      <FollowTheSun clocks={clocks} />
-      <Comparison rows={comparison.rows} source={comparison.source} />
-      <ProcessEngine steps={process} />
-      <Rates models={models} />
-      <AgencyTypes items={agencyTypes} />
-      <WorkGrid items={work} categories={workCategories} limit={6} />
-      <Founder team={team} />
-      <Faq faqs={faqs} />
+      <ServicePillars pillars={pillars} copy={copy.services} />
+      <StackPanel stack={stack} copy={copy.stack} />
+      <Protection clauses={clauses} copy={copy.protection} />
+      <FollowTheSun clocks={clocks} copy={copy.hours} />
+      <Comparison rows={comparison.rows} source={comparison.source} copy={copy.comparison} />
+      <ProcessEngine steps={process} copy={copy.process} />
+      <Rates models={models} copy={copy.rates} />
+      <AgencyTypes items={agencyTypes} copy={copy.agencies} />
+      <WorkGrid items={work} categories={workCategories} limit={6} copy={copy.work} />
+      <Founder team={team} copy={copy.team} />
+      <Faq faqs={faqs} copy={copy.faq} />
       {/* the brief form is the page’s closing call: a CtaBand under it would only repeat the ask */}
-      <BriefCta />
-      <StickyCta />
+      <BriefCta copy={copy.brief} />
+      <StickyCta cta={chrome.cta} />
     </>
   );
 }

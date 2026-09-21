@@ -197,25 +197,30 @@ add_action('acf/init', static function (): void {
         ]
     ));
 
-    // ------------------------------------------------- pages: the SEO opener
+    // ------------------------------------- pages an editor adds in WordPress
+    /*
+     * The designed pages (Home, Services, About…) have a field group each, in
+     * page-copy.php. Every other page — a policy, a landing page — is written
+     * in the editor and gets just a banner and an optional intro band.
+     */
+    $editor_pages = [['param' => 'post_type', 'operator' => '==', 'value' => 'page']];
+    foreach (softvolt_page_copy_ids() as $designed) {
+        $editor_pages[] = ['param' => 'page', 'operator' => '!=', 'value' => (string) $designed];
+    }
     acf_add_local_field_group(softvolt_field_group(
         'group_softvolt_page',
-        'Page opener',
+        'Banner and intro',
         'pageFields',
         ['Page'],
-        [[['param' => 'post_type', 'operator' => '==', 'value' => 'page']]],
+        [$editor_pages],
         [
-            softvolt_field(['key' => 'field_sv_page_eyebrow', 'label' => 'Eyebrow', 'name' => 'eyebrow', 'type' => 'text', 'instructions' => 'The small line above the H1.']),
-            softvolt_field(['key' => 'field_sv_page_heading', 'label' => 'Heading (H1)', 'name' => 'heading', 'type' => 'textarea', 'rows' => 3, 'instructions' => 'The headline on the banner. Leave it empty and the page title is used. On the home page each line is set on its own line of the headline.']),
-            softvolt_field(['key' => 'field_sv_page_lede', 'label' => 'Lede', 'name' => 'lede', 'type' => 'textarea', 'rows' => 3, 'instructions' => 'The paragraph under the H1.']),
-            softvolt_field(['key' => 'field_sv_page_intro_eyebrow', 'label' => 'Intro eyebrow', 'name' => 'intro_eyebrow', 'type' => 'text', 'instructions' => 'The small line above the intro heading, e.g. "What we cover".']),
-            softvolt_field(['key' => 'field_sv_page_intro_title', 'label' => 'Intro heading', 'name' => 'intro_title', 'type' => 'text', 'instructions' => 'The band under the banner — leave empty and the band is skipped.']),
-            softvolt_field(['key' => 'field_sv_page_intro_sub', 'label' => 'Intro sub-heading', 'name' => 'intro_subtitle', 'type' => 'textarea', 'rows' => 2]),
-            softvolt_field(['key' => 'field_sv_page_intro_body', 'label' => 'Intro body', 'name' => 'intro_body', 'type' => 'textarea', 'rows' => 8, 'instructions' => 'One paragraph per line.']),
-            softvolt_field(['key' => 'field_sv_page_highlights', 'label' => 'Banner facts', 'name' => 'highlights', 'type' => 'textarea', 'rows' => 4, 'instructions' => 'Up to three, one per line, as "Label | Value". These are the cards on the banner, so each one has to be true. Left empty, the page counts them from its own content.']),
-            softvolt_field(['key' => 'field_sv_page_points', 'label' => 'Intro points', 'name' => 'intro_points', 'type' => 'textarea', 'rows' => 5, 'instructions' => 'Up to four, one per line, as "Heading | Text". They sit under the intro copy.']),
-            softvolt_field(['key' => 'field_sv_page_jump', 'label' => 'On this page', 'name' => 'jump_links', 'type' => 'textarea', 'rows' => 4, 'instructions' => 'One per line, as "Label | #anchor". These are the links that jump into the sections below.']),
-            softvolt_field(['key' => 'field_sv_page_sections', 'label' => 'Section headings', 'name' => 'sections', 'type' => 'textarea', 'rows' => 6, 'instructions' => 'The headings of the bands further down this page, one per line, as "anchor | Eyebrow | Heading". Leave the heading empty to keep the one the page writes for itself, which is usually counting something.']),
+            softvolt_field(['key' => 'field_sv_page_eyebrow', 'label' => 'Small line above the headline', 'name' => 'eyebrow', 'type' => 'text']),
+            softvolt_field(['key' => 'field_sv_page_heading', 'label' => 'Headline', 'name' => 'heading', 'type' => 'text', 'instructions' => 'Leave empty to use the page title.']),
+            softvolt_field(['key' => 'field_sv_page_lede', 'label' => 'Paragraph under the headline', 'name' => 'lede', 'type' => 'textarea', 'rows' => 3, 'new_lines' => '']),
+            softvolt_field(['key' => 'field_sv_page_intro_eyebrow', 'label' => 'Intro — small line above the heading', 'name' => 'intro_eyebrow', 'type' => 'text']),
+            softvolt_field(['key' => 'field_sv_page_intro_title', 'label' => 'Intro — heading', 'name' => 'intro_title', 'type' => 'text', 'instructions' => 'The band under the banner. Leave it empty and the page has no intro band.']),
+            softvolt_field(['key' => 'field_sv_page_intro_sub', 'label' => 'Intro — line under the heading', 'name' => 'intro_subtitle', 'type' => 'textarea', 'rows' => 2, 'new_lines' => '']),
+            softvolt_field(['key' => 'field_sv_page_intro_body', 'label' => 'Intro — paragraphs', 'name' => 'intro_body', 'type' => 'textarea', 'rows' => 6, 'new_lines' => '', 'instructions' => 'One paragraph per line.']),
         ]
     ));
 
@@ -257,39 +262,4 @@ add_action('acf/init', static function (): void {
             softvolt_field(['key' => 'field_sv_clock_short', 'label' => 'Short code', 'name' => 'short', 'type' => 'text', 'required' => 1, 'instructions' => 'Three letters, e.g. LON. The city name is the post title.']),
         ]
     ));
-
-    /*
-     * The lists that belong to one page and to no other.
-     *
-     * ACF without the repeater add-on has no repeating rows, so each list is a
-     * textarea written as "Heading | Body", one item per line — the same shape
-     * the rest of this install uses for lists. The location rule is resolved
-     * from the page's slug at registration, so nothing here holds a post ID.
-     */
-    $page_rule = static function (string $slug): array {
-        $page = get_page_by_path($slug);
-        return $page ? [[['param' => 'page', 'operator' => '==', 'value' => (string) $page->ID]]] : [];
-    };
-
-    $page_list = static function (string $slug, string $group_key, string $title, string $graphql_name, string $field_key, string $name, string $label, string $help) use ($page_rule): void {
-        $location = $page_rule($slug);
-        if (!$location) {
-            return; // the page has not been created yet: nothing to attach to
-        }
-        acf_add_local_field_group(softvolt_field_group(
-            $group_key,
-            $title,
-            $graphql_name,
-            ['Page'],
-            $location,
-            [
-                softvolt_field(['key' => $field_key, 'label' => $label, 'name' => $name, 'type' => 'textarea', 'rows' => 12, 'instructions' => $help]),
-            ]
-        ));
-    };
-
-    $lines_help = 'One per line, written as "Heading | Body".';
-    $page_list('security', 'group_softvolt_page_security', 'Security practices', 'securityFields', 'field_sv_page_practices', 'practices', 'Practices', $lines_help . ' Each one is a public commitment about client data.');
-    $page_list('partner-programme', 'group_softvolt_page_partner', 'Partner steps', 'partnerFields', 'field_sv_page_steps', 'steps', 'How it works', $lines_help);
-    $page_list('about', 'group_softvolt_page_about', 'About values', 'aboutFields', 'field_sv_page_values', 'values', 'What we hold to', $lines_help);
 });

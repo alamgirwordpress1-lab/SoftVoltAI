@@ -1,19 +1,22 @@
 import type { Metadata } from "next";
 import { PageHero } from "@/components/ui/PageHero";
 import { PageIntro } from "@/components/ui/PageIntro";
+import { bannerProps, introProps } from "@/components/ui/copy-props";
 import { CaseByMarketAndStack, CaseByType, CaseSpotlight } from "@/components/sections/CaseAngles";
 import { WorkGrid } from "@/components/sections/WorkGrid";
 import { CtaBand } from "@/components/sections/CtaBand";
+import { caseStudiesCopy } from "@/content/copy/case-studies";
 import { cms } from "@/lib/cms";
+import { getCopy } from "@/lib/cms/copy";
+import { copyMetadata } from "@/lib/cms/meta";
+import { countWord } from "@/lib/utils";
 
-export const metadata: Metadata = {
-  title: "Case studies — builds you can open",
-  description: "Eight live builds you can open: headless WordPress on Next.js, WooCommerce stores and technical-SEO sites, read by type, market and stack.",
-  alternates: { canonical: "/case-studies" },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  return copyMetadata(caseStudiesCopy);
+}
 
 export default async function CaseStudiesPage() {
-  const [work, categories, opener] = await Promise.all([cms.getWork(), cms.getWorkCategories(), cms.getOpener("/case-studies")]);
+  const [work, categories] = await Promise.all([cms.getWork(), cms.getWorkCategories()]);
   const regions = [...new Set(work.map((w) => w.region))];
   const toolCount = new Map<string, number>();
   for (const tool of work.flatMap((w) => w.stack)) toolCount.set(tool, (toolCount.get(tool) ?? 0) + 1);
@@ -22,106 +25,46 @@ export default async function CaseStudiesPage() {
     .slice(0, 3)
     .map(([tool]) => tool);
   const spotlight = work[0];
+  // the words are the WordPress page "Case Studies"; {count} and {regions} come from the builds
+  const copy = await getCopy(caseStudiesCopy, { count: countWord(work.length), regions: regions.join(", ") });
 
   return (
     <>
       <PageHero
         crumbs={[{ name: "Case studies", href: "/case-studies" }]}
-        eyebrow={opener?.eyebrow || "Case studies"}
-        title={opener?.heading.join(" ") || "Builds you can open, not logos you have to trust."}
-        lede={
-          opener?.lede ||
-          "White-label means partner work is never shown without written permission — and when it is, it carries your name. What we can show are builds our founder delivered as developer, project manager and team lead at a UK agency."
-        }
-        highlights={
-          opener?.highlights.length
-            ? opener.highlights
-            : [
-                { label: "Case studies", value: `${work.length} builds you can open` },
-                { label: "Delivered in", value: regions.join(" · ") },
-                { label: "Most used", value: topTools.join(" · ") },
-              ]
-        }
+        {...bannerProps(copy.banner, [
+          { label: "Case studies", value: `${work.length} builds you can open` },
+          { label: "Delivered in", value: regions.join(" · ") },
+          { label: "Most used", value: topTools.join(" · ") },
+        ])}
       />
 
-      <PageIntro
-        eyebrow={opener?.intro?.eyebrow || "How to read these"}
-        title={opener?.intro?.title || "Eight builds, four ways in."}
-        subtitle={opener?.intro?.subtitle || "Every one is live, public and linked — open them before you read a word we wrote."}
-        body={
-          opener?.intro?.body.length
-            ? opener.intro.body
-            : [
-          <>
-            Most agency portfolios are a wall of logos. This page is the opposite: {work.length} finished websites, each with the brief it answered, the
-            stack it was built on and a link to the running site. They were delivered for clients in {regions.join(", ")} — WooCommerce stores, headless
-            WordPress front ends on Next.js, and corporate sites where the forms have to work every day.
-          </>,
-          <>
-            Read them the way that matches your brief. Start with the spotlight, browse by the kind of work, check the market and the stack, or filter the
-            full set at the bottom. Whichever way you come in, the facts are the same ones — nothing on this page is an outcome we cannot show you.
-          </>,
-              ]
-        }
-        points={
-          opener?.intro?.points.length
-            ? opener.intro.points
-            : [
-          { title: "Delivered, not pitched", text: "Each build shipped and is still live. The links go to the real site, not a screenshot." },
-          { title: "Named honestly", text: "These are our founder's builds at a UK agency, said plainly on every card." },
-          { title: "Your name on the next one", text: "Partner work only appears with written permission — and under your agency's brand." },
-          { title: "Same team, same hours", text: "The people who built these are the ones who take your brief, on UK and US hours." },
-              ]
-        }
-        jump={
-          opener?.intro?.jump.length
-            ? opener.intro.jump
-            : [
-                { label: "Spotlight", href: "#spotlight" },
-                { label: "By what we built", href: "#by-type" },
-                { label: "By market and stack", href: "#by-market" },
-                { label: "Every build", href: "#work" },
-                { label: "How we publish", href: "#format" },
-              ]
-        }
-      />
+      <PageIntro {...introProps(copy.intro)} />
 
-      {spotlight ? <CaseSpotlight item={spotlight} /> : null}
+      {spotlight ? <CaseSpotlight item={spotlight} copy={copy.spotlight} /> : null}
 
-      <CaseByType items={work} categories={categories} />
+      <CaseByType items={work} categories={categories} copy={copy.by_type} />
 
-      <CaseByMarketAndStack items={work} />
+      <CaseByMarketAndStack items={work} copy={copy.by_market} />
 
-      <WorkGrid
-        items={work}
-        categories={categories}
-        eyebrow="Every build"
-        title="All eight, filtered the way you work."
-        lede="The full set, in one grid. Filter by the kind of build, open the live site from the card, or read the case study behind it."
-        aside={null}
-      />
+      <WorkGrid items={work} categories={categories} copy={copy.work} />
 
       <section id="format" className="container-x border-t border-line py-14 md:py-20" aria-labelledby="format-title">
         <div className="grid gap-10 lg:grid-cols-12 lg:gap-14">
           <div className="lg:col-span-5" data-reveal>
-            <span className="eyebrow">The format</span>
+            <span className="eyebrow">{copy.format.eyebrow}</span>
             <h2 id="format-title" className="display display-md mt-4">
-              Anonymised at the partner&apos;s request. Verified outcomes only.
+              {copy.format.heading}
             </h2>
           </div>
           <div className="space-y-5 text-[15px] leading-relaxed text-muted lg:col-span-6 lg:col-start-7 md:text-base" data-reveal>
-            <p>
-              As partner projects launch, their case studies appear here in a fixed shape: the kind of agency and where it is, the brief as it arrived, the
-              stack, what shipped, and the outcome we can prove — a Lighthouse score before and after, a checkout error rate, a migration with no lost URLs.
-            </p>
-            <p className="text-ink">
-              Never a business metric we cannot see, never a client name without the agency&apos;s written permission, and never a logo we have not earned.
-            </p>
+            <p>{copy.format.paragraph}</p>
+            {copy.format.closing ? <p className="text-ink">{copy.format.closing}</p> : null}
           </div>
         </div>
       </section>
 
-      <CtaBand />
+      <CtaBand copy={copy.cta} />
     </>
   );
 }

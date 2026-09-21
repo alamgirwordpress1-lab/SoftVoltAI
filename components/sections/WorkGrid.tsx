@@ -8,28 +8,23 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ArrowLink } from "@/components/ui/ArrowLink";
 import { Chip } from "@/components/ui/Chip";
 import { cn } from "@/lib/utils";
+import type { LinkedHeadingCopy } from "@/lib/cms/copy-types";
 
 /** Filterable gallery — the cards themselves are unchanged, only the set shown. */
 export function WorkGrid({
   items,
   categories,
+  copy,
   showHeading = true,
   limit,
-  eyebrow = "Work",
-  title = "Builds you can open, not logos you have to trust.",
-  lede = "Delivered by our founder as developer and team lead at a UK agency. Partner work is only ever shown here with written permission — and with your name on it, not ours.",
-  aside = <ArrowLink href="/case-studies">See all case studies</ArrowLink>,
 }: {
   items: WorkItem[];
   categories: string[];
+  /** The heading above the filters, from the page's "Builds" tab. */
+  copy: LinkedHeadingCopy;
   showHeading?: boolean;
   /** Cap the cards shown after filtering — the homepage shows six, /work shows everything. */
   limit?: number;
-  /** The heading above the filters. The defaults are the homepage's; /case-studies passes its own. */
-  eyebrow?: string;
-  title?: React.ReactNode;
-  lede?: React.ReactNode;
-  aside?: React.ReactNode;
 }) {
   const [active, setActive] = useState(categories[0] ?? "All");
 
@@ -45,7 +40,12 @@ export function WorkGrid({
   return (
     <section id="work" className={showHeading ? "section container-x" : "container-x py-14 md:py-20"} aria-labelledby={showHeading ? "work-title" : undefined} aria-label={showHeading ? undefined : "Live builds"}>
       {showHeading ? (
-        <SectionHeading eyebrow={eyebrow} title={<span id="work-title">{title}</span>} lede={lede} aside={aside} />
+        <SectionHeading
+          eyebrow={copy.eyebrow}
+          title={<span id="work-title">{copy.heading}</span>}
+          lede={copy.lede}
+          aside={copy.link.text ? <ArrowLink href={copy.link.url}>{copy.link.text}</ArrowLink> : undefined}
+        />
       ) : null}
 
       <div className={cn("flex flex-wrap items-center gap-2", showHeading ? "mt-12" : "")} role="group" aria-label="Filter work by type" data-reveal>

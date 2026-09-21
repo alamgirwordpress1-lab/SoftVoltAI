@@ -1,12 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { cta } from "@/content/site";
+import { cta as localCta } from "@/content/site";
 import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
 
 /** One primary CTA pinned to the bottom of small screens once the hero has scrolled away. */
-export function StickyCta() {
+export function StickyCta({ cta = localCta }: { cta?: { primary: { label: string; href: string } } }) {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {

@@ -29,6 +29,8 @@ define('SOFTVOLT_SETTINGS_KEY', 'softvolt_headless');
 
 require_once SOFTVOLT_HEADLESS_DIR . 'inc/helpers.php';
 require_once SOFTVOLT_HEADLESS_DIR . 'inc/post-types.php';
+require_once SOFTVOLT_HEADLESS_DIR . 'inc/page-copy-data.php';
+require_once SOFTVOLT_HEADLESS_DIR . 'inc/page-copy.php';
 require_once SOFTVOLT_HEADLESS_DIR . 'inc/fields.php';
 require_once SOFTVOLT_HEADLESS_DIR . 'inc/settings.php';
 require_once SOFTVOLT_HEADLESS_DIR . 'inc/graphql.php';

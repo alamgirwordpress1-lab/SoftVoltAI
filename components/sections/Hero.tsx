@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import type { GlobeCard, GlobeLocation } from "@/lib/cms/types";
 import { gsap, prefersReducedMotion } from "@/lib/motion/gsap";
-import { cta } from "@/content/site";
+import { cta as localCta } from "@/content/site";
 import { promises } from "@/content/promises";
 import { Button } from "@/components/ui/Button";
 import { OrbitGlobe } from "@/components/sections/OrbitGlobe";
@@ -36,9 +36,12 @@ export function Hero({
   lines,
   lede,
   trust,
+  cta = localCta,
 }: {
   cards: GlobeCard[];
   locations: GlobeLocation[];
+  /** The two calls to action from the settings screen. */
+  cta?: { primary: { label: string; href: string }; secondary: { label: string; href: string } };
   /** From the WordPress page at "/" — each one falls back to the copy above. */
   eyebrow?: string;
   lines?: string[];

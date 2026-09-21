@@ -410,26 +410,10 @@ export interface WpPost extends WpPostCard {
 }
 
 /**
- * The banner and the intro band of one page, as an editor wrote them.
- *
- * Every field can be empty: the designed pages treat this as an override, so
- * an empty heading leaves the one in the code — and the figures a page counts
- * from its own content stay accurate unless someone deliberately replaces them.
+ * A page an editor added in WordPress — a policy, a landing page. The designed
+ * pages are read through lib/cms/copy.ts instead, field by field.
  */
-export interface WpOpener {
-  eyebrow: string;
-  /** One line per line: the home page sets each on its own line of the H1. */
-  heading: string[];
-  lede: string;
-  highlights: { label: string; value: string }[];
-  intro: { eyebrow: string; title: string; subtitle: string; body: string[]; points: { title: string; text: string }[]; jump: { label: string; href: string }[] } | null;
-  /** The list that belongs to this page and to no other. */
-  list: { title: string; body: string }[];
-  /** The bands further down, by their anchor. A missing title keeps the page's own. */
-  sections: Record<string, { eyebrow: string; title: string }>;
-}
-
-export interface WpPage extends WpOpener {
+export interface WpPage {
   slug: string;
   title: string;
   content: string;
@@ -438,6 +422,11 @@ export interface WpPage extends WpOpener {
   /** The first lines of the content — a meta description for a page that has none. */
   excerpt: string;
   seo: WpSeo;
+  eyebrow: string;
+  /** The banner headline when it should differ from the page title. */
+  heading: string;
+  lede: string;
+  intro: { eyebrow: string; title: string; subtitle: string; body: string[] } | null;
 }
 
 interface RawSeo {
@@ -522,30 +511,12 @@ interface RawPage {
     eyebrow: string | null;
     heading: string | null;
     lede: string | null;
-    highlights: string | null;
     introEyebrow: string | null;
     introTitle: string | null;
     introSubtitle: string | null;
     introBody: string | null;
-    introPoints: string | null;
-    jumpLinks: string | null;
-    sections: string | null;
   } | null;
-  securityFields: { practices: string | null } | null;
-  partnerFields: { steps: string | null } | null;
-  aboutFields: { values: string | null } | null;
   seo: RawSeo | null;
-}
-
-/** A textarea of "left | right" lines — how this install stores a list of pairs. */
-function pairs(value: string | null | undefined): { left: string; right: string }[] {
-  return lines(value)
-    .map((line) => {
-      const at = line.indexOf("|");
-      if (at < 0) return { left: plain(line), right: "" };
-      return { left: plain(line.slice(0, at)), right: plain(line.slice(at + 1)) };
-    })
-    .filter((pair) => pair.left);
 }
 
 /** The opening of a page's own text, cut on a word so it does not end mid-syllable. */
@@ -568,6 +539,7 @@ export async function wpPage(uri: string): Promise<WpPage | null> {
   const node = data?.page;
   if (!node) return null;
 
+  const fields = node.pageFields;
   return {
     slug: node.slug,
     title: plain(node.title),
@@ -576,51 +548,20 @@ export async function wpPage(uri: string): Promise<WpPage | null> {
     image: toImage(node.featuredImage),
     excerpt: summarise(node.content ?? ""),
     seo: toSeo(node.seo),
-    ...toOpener(node),
-  };
-}
-
-/** The opener and the page's own list, shared by the page route and the designed pages. */
-function toOpener(node: RawPage): WpOpener {
-  const fields = node.pageFields;
-  const listSource = node.securityFields?.practices || node.partnerFields?.steps || node.aboutFields?.values || "";
-  return {
     eyebrow: plain(fields?.eyebrow ?? ""),
-    heading: lines(fields?.heading).map(plain),
+    heading: plain(fields?.heading ?? ""),
     lede: plain(fields?.lede ?? ""),
-    highlights: pairs(fields?.highlights).map(({ left, right }) => ({ label: left, value: right })),
     intro: fields?.introTitle
       ? {
           eyebrow: plain(fields.introEyebrow ?? ""),
           title: plain(fields.introTitle),
           subtitle: plain(fields.introSubtitle ?? ""),
           body: lines(fields.introBody).map(plain),
-          points: pairs(fields.introPoints).map(({ left, right }) => ({ title: left, text: right })),
-          jump: pairs(fields.jumpLinks).map(({ left, right }) => ({ label: left, href: right })),
         }
       : null,
-    list: pairs(listSource).map(({ left, right }) => ({ title: left, body: right })),
-    sections: Object.fromEntries(
-      lines(fields?.sections).map((line) => {
-        const [anchor = "", eyebrow = "", title = ""] = line.split("|").map((part) => plain(part));
-        return [anchor, { eyebrow, title }];
-      }),
-    ),
   };
 }
 
-/**
- * The opener for one of the designed pages.
- *
- * Same read as wpPage, but the caller only wants the banner and the intro —
- * the page's sections are built from the content types, not from page content.
- */
-export async function wpOpener(uri: string): Promise<WpOpener | null> {
-  const page = await wpPage(uri);
-  if (!page) return null;
-  const { eyebrow, heading, lede, highlights, intro, list, sections } = page;
-  return { eyebrow, heading, lede, highlights, intro, list, sections };
-}
 
 export interface WpSlugs {
   services: { slug: string; modified: string }[];

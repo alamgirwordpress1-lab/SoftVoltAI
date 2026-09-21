@@ -2,6 +2,18 @@ import type { ComparisonRow } from "@/lib/cms/types";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { LogoMark } from "@/components/layout/Logo";
 import { Button } from "@/components/ui/Button";
+import type { HeadingLedeCopy, LinkCopy } from "@/lib/cms/copy-types";
+
+export interface ComparisonCopy extends HeadingLedeCopy {
+  heading_accent: string;
+  col_dimension: string;
+  col_in_house: string;
+  col_freelancer: string;
+  footnote: string;
+  closing: string;
+  closing_button: LinkCopy;
+  closing_link: LinkCopy;
+}
 
 function Cross() {
   return (
@@ -23,17 +35,17 @@ function Check() {
 }
 
 /** Build-or-buy table: a real <table> for screen readers and search, styled as one card with a highlighted column. */
-export function Comparison({ rows, source }: { rows: ComparisonRow[]; source: { label: string; href: string } }) {
+export function Comparison({ rows, source, copy }: { rows: ComparisonRow[]; source: { label: string; href: string }; copy: ComparisonCopy }) {
   return (
     <section id="comparison" className="section container-x" aria-labelledby="comparison-title">
       <SectionHeading
-        eyebrow="The comparison"
+        eyebrow={copy.eyebrow}
         title={
           <span id="comparison-title">
-            In-house hire vs. freelancer vs. <span className="text-accent">a white-label partner.</span>
+            {copy.heading} {copy.heading_accent ? <span className="text-accent">{copy.heading_accent}</span> : null}
           </span>
         }
-        lede="Every agency hits the same build-or-buy decision once client demand stops arriving on a predictable schedule. Here is how the three options compare on the things that decide your margin."
+        lede={copy.lede}
       />
 
       <div className="card shadow-float relative mt-12 overflow-hidden" data-reveal>
@@ -41,17 +53,19 @@ export function Comparison({ rows, source }: { rows: ComparisonRow[]; source: { 
         <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-[30%] bg-accent-soft/50 lg:block" aria-hidden="true" />
         <div className="relative overflow-x-auto">
           <table className="w-full min-w-[920px] text-left">
-            <caption className="sr-only">An in-house hire, a freelancer and SoftVolt AI compared across nine dimensions</caption>
+            <caption className="sr-only">
+              {copy.col_in_house}, {copy.col_freelancer.toLowerCase()} and SoftVolt AI compared across {rows.length} dimensions
+            </caption>
             <thead>
               <tr className="border-b border-line">
                 <th scope="col" className="ui w-[22%] px-6 py-6 align-bottom text-[12px] font-bold uppercase tracking-[0.12em] text-muted">
-                  Dimension
+                  {copy.col_dimension}
                 </th>
                 <th scope="col" className="ui w-[24%] px-6 py-6 align-bottom text-[16px] font-bold text-ink">
-                  In-house hire
+                  {copy.col_in_house}
                 </th>
                 <th scope="col" className="ui w-[24%] px-6 py-6 align-bottom text-[16px] font-bold text-ink">
-                  Freelancer
+                  {copy.col_freelancer}
                 </th>
                 <th scope="col" className="w-[30%] px-6 py-5 align-bottom">
                   <span className="ui inline-flex items-center gap-2.5 rounded-full bg-ink px-4 py-2 text-[15px] font-bold text-paper">
@@ -93,7 +107,7 @@ export function Comparison({ rows, source }: { rows: ComparisonRow[]; source: { 
       </div>
 
       <p className="mono mt-4 text-[11px] leading-relaxed text-muted">
-        * Median annual pay for web developers in the US, May 2025, excluding benefits, taxes and equipment. Source:{" "}
+        {copy.footnote}{" "}
         <a href={source.href} target="_blank" rel="noopener noreferrer" className="underline decoration-line underline-offset-2 hover:decoration-accent">
           {source.label}
         </a>
@@ -101,15 +115,14 @@ export function Comparison({ rows, source }: { rows: ComparisonRow[]; source: { 
       </p>
 
       <div className="card shadow-soft mt-6 flex flex-col items-start justify-between gap-6 p-7 md:flex-row md:items-center" data-reveal>
-        <p className="max-w-[62ch] text-[15px] leading-relaxed text-muted md:text-base">
-          If hiring is what is capping your agency&apos;s growth, this table usually settles it. Start with one brief and judge the
-          delivery, not the pitch.
-        </p>
+        <p className="max-w-[62ch] text-[15px] leading-relaxed text-muted md:text-base">{copy.closing}</p>
         <div className="flex flex-wrap gap-3">
-          <Button href="/contact">Send us a brief</Button>
-          <Button href="/about#how-it-works" variant="secondary">
-            See how it runs
-          </Button>
+          {copy.closing_button.text ? <Button href={copy.closing_button.url}>{copy.closing_button.text}</Button> : null}
+          {copy.closing_link.text ? (
+            <Button href={copy.closing_link.url} variant="secondary">
+              {copy.closing_link.text}
+            </Button>
+          ) : null}
         </div>
       </div>
     </section>

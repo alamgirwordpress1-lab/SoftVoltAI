@@ -1,85 +1,46 @@
 import type { Metadata } from "next";
 import { PageHero } from "@/components/ui/PageHero";
 import { PageIntro } from "@/components/ui/PageIntro";
+import { bannerProps, introProps } from "@/components/ui/copy-props";
 import { Rates } from "@/components/sections/Rates";
 import { Faq } from "@/components/sections/Faq";
 import { CtaBand } from "@/components/sections/CtaBand";
+import { ratesCopy } from "@/content/copy/rates";
 import { cms } from "@/lib/cms";
+import { getCopy } from "@/lib/cms/copy";
+import { copyMetadata } from "@/lib/cms/meta";
+import { getSiteChrome } from "@/lib/cms/site";
 
-export const metadata: Metadata = {
-  title: "Rates — simple monthly plans for agencies",
-  description: "White-label pricing for agencies: monthly plans sized by how many client projects you run, with anything outside a plan scoped and quoted first.",
-  alternates: { canonical: "/rates" },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  return copyMetadata(ratesCopy);
+}
 
 export default async function RatesPage() {
-  const [models, pricingFaqs, process, opener] = await Promise.all([cms.getEngagementModels(), cms.getPricingFaqs(), cms.getProcess(), cms.getOpener("/rates")]);
+  const [models, pricingFaqs, process, chrome] = await Promise.all([cms.getEngagementModels(), cms.getPricingFaqs(), cms.getProcess(), getSiteChrome()]);
   const scope = process.find((p) => p.id === "scope");
+  // the words are the WordPress page "Rates"
+  const copy = await getCopy(ratesCopy, {
+    scope_time: scope ? scope.turnaround.toLowerCase() : "within two business days",
+    email: chrome.email,
+  });
+
   return (
     <>
       <PageHero
         crumbs={[{ name: "Rates", href: "/rates" }]}
-        eyebrow={opener?.eyebrow || "Rates"}
-        title={opener?.heading.join(" ") || "Simple monthly plans, priced up front."}
-        lede={
-          opener?.lede ||
-          "Match your spend to your actual client workload instead of committing to a full-time salary. Pick the plan that fits how many active projects you run, and move up or down as that number changes."
-        }
-        highlights={
-          opener?.highlights.length
-            ? opener.highlights
-            : [
-                { label: "Plans", value: `${models.length} monthly tiers` },
-                { label: "Outside a plan", value: "Scoped and quoted in writing" },
-                ...(scope ? [{ label: scope.name, value: scope.turnaround }] : []),
-              ]
-        }
+        {...bannerProps(copy.banner, [
+          { label: "Plans", value: `${models.length} monthly tiers` },
+          { label: "Outside a plan", value: "Scoped and quoted in writing" },
+          ...(scope ? [{ label: scope.name, value: scope.turnaround }] : []),
+        ])}
       />
-      <PageIntro
-        eyebrow={opener?.intro?.eyebrow || "How pricing works"}
-        title={opener?.intro?.title || "Priced by workload, not by hours."}
-        subtitle={opener?.intro?.subtitle || "A plan covers the projects you run in parallel; anything bigger is scoped and quoted before it starts."}
-        body={
-          opener?.intro?.body.length
-            ? opener.intro.body
-            : [
-          <>
-            Hourly billing punishes the agency for asking questions and rewards the supplier for being slow. We do the opposite. Pick the monthly plan that
-            matches how many client projects you have open at once, and the production capacity comes with it — builds, fixes, automation, SEO
-            implementation and the maintenance that keeps a site alive.
-          </>,
-          <>
-            Work that sits outside a plan — a migration, a store from scratch, a rescue — gets its own written scope with a fixed price, sent
-            {scope ? ` ${scope.turnaround.toLowerCase()}` : " within two business days"} of the brief. No plan is required to send that first brief, and
-            moving between tiers takes a message, not a renegotiation.
-          </>,
-              ]
-        }
-        points={
-          opener?.intro?.points.length
-            ? opener.intro.points
-            : [
-                { title: "No lock-in", text: "Monthly, cancel or change tier as your pipeline changes." },
-                { title: "Fixed-price projects", text: "Every scope is agreed in writing before work begins." },
-                { title: "Your margin is yours", text: "What you charge your client is never our business." },
-                { title: "Nothing hidden", text: "Third-party costs are passed through at cost, listed by name." },
-              ]
-        }
-        jump={
-          opener?.intro?.jump.length
-            ? opener.intro.jump
-            : [
-                { label: "The plans", href: "#rates" },
-                { label: "Pricing questions", href: "#faq" },
-              ]
-        }
-      />
+      <PageIntro {...introProps(copy.intro)} />
 
-      <Rates models={models} showHeading={false} />
+      <Rates models={models} copy={copy.plans} showHeading={false} />
       <div className="border-t border-line">
-        <Faq faqs={pricingFaqs} />
+        <Faq faqs={pricingFaqs} copy={copy.faq} />
       </div>
-      <CtaBand />
+      <CtaBand copy={copy.cta} />
     </>
   );
 }

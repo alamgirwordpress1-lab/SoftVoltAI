@@ -1,6 +1,7 @@
 import Image from "next/image";
 import type { TeamMember } from "@/content/founder";
 import { ArrowLink } from "@/components/ui/ArrowLink";
+import type { HeadingCopy, LinkCopy } from "@/lib/cms/copy-types";
 
 /**
  * Leadership cards. One card per person, side by side once there are two —
@@ -8,19 +9,19 @@ import { ArrowLink } from "@/components/ui/ArrowLink";
  * `headline` and `quote` are optional: a quote is that person's own words, so
  * the card just omits the block until they have written one.
  */
-export function Founder({ team }: { team: TeamMember[] }) {
+export function Founder({ team, copy }: { team: TeamMember[]; copy: HeadingCopy & { link: LinkCopy } }) {
   return (
     <section id="founder" className="section section-alt" aria-labelledby="founder-title">
       <div className="container-x">
         {/* heading left, one action right — same arrangement as the reference */}
         <div className="flex flex-wrap items-end justify-between gap-6" data-reveal>
           <div>
-            <span className="eyebrow">Who does the work</span>
+            <span className="eyebrow">{copy.eyebrow}</span>
             <h2 id="founder-title" className="display display-lg mt-4 max-w-[18ch]">
-              A named person, not a pool.
+              {copy.heading}
             </h2>
           </div>
-          <ArrowLink href="/about">More about the team</ArrowLink>
+          {copy.link.text ? <ArrowLink href={copy.link.url}>{copy.link.text}</ArrowLink> : null}
         </div>
 
         {/* Always two columns: one card keeps the reference proportions, and the

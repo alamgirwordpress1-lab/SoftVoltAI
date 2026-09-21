@@ -1,44 +1,45 @@
 import Link from "next/link";
 import type { Faq as FaqItem } from "@/lib/cms/types";
 import { Button } from "@/components/ui/Button";
-import { site } from "@/content/site";
+import { Rich } from "@/components/ui/Rich";
+import type { HeadingCopy, LinkCopy } from "@/lib/cms/copy-types";
+
+export interface FaqCopy extends HeadingCopy {
+  card_title: string;
+  card_text: string;
+  card_button: LinkCopy;
+  card_link: LinkCopy;
+}
 
 /**
  * Native <details> accordion: readable without JavaScript and indexable as
  * visible HTML (FAQ rich results no longer exist, so the markup buys nothing).
  */
-export function Faq({
-  faqs,
-  eyebrow = "FAQ",
-  title = "The questions agencies ask before the first brief.",
-}: {
-  faqs: FaqItem[];
-  eyebrow?: string;
-  title?: string;
-}) {
+export function Faq({ faqs, copy }: { faqs: FaqItem[]; copy: FaqCopy }) {
   return (
     <section id="faq" className="section container-x" aria-labelledby="faq-title">
       <div className="grid gap-8 lg:grid-cols-12 lg:gap-12">
         <div className="lg:col-span-4">
           <div className="lg:sticky lg:top-28" data-reveal>
-            <span className="eyebrow">{eyebrow}</span>
+            <span className="eyebrow">{copy.eyebrow}</span>
             <h2 id="faq-title" className="display display-lg mt-4">
-              {title}
+              {copy.heading}
             </h2>
             <div className="card shadow-soft mt-8 p-6">
-              <p className="ui text-[15px] font-bold text-ink">Still unanswered?</p>
+              <p className="ui text-[15px] font-bold text-ink">{copy.card_title}</p>
               <p className="mt-2 text-[14px] leading-relaxed text-muted">
-                A 20-minute scoping call costs nothing and usually answers it. Or email{" "}
-                <a href={`mailto:${site.email}`} className="text-ink underline decoration-line underline-offset-4 hover:decoration-accent">
-                  {site.email}
-                </a>
-                .
+                <Rich text={copy.card_text} />
               </p>
               <div className="mt-5 flex flex-wrap gap-3">
-                <Button href="/contact">Send us a brief</Button>
-                <Link href="/contact#call" className="ui inline-flex items-center gap-2 py-3 text-[14px] font-semibold text-ink underline decoration-line underline-offset-4 hover:decoration-accent">
-                  Book a call <span aria-hidden="true">→</span>
-                </Link>
+                {copy.card_button.text ? <Button href={copy.card_button.url}>{copy.card_button.text}</Button> : null}
+                {copy.card_link.text ? (
+                  <Link
+                    href={copy.card_link.url}
+                    className="ui inline-flex items-center gap-2 py-3 text-[14px] font-semibold text-ink underline decoration-line underline-offset-4 hover:decoration-accent"
+                  >
+                    {copy.card_link.text} <span aria-hidden="true">→</span>
+                  </Link>
+                ) : null}
               </div>
             </div>
           </div>

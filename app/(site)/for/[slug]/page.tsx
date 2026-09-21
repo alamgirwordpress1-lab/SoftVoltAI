@@ -7,6 +7,8 @@ import { Button } from "@/components/ui/Button";
 import { CtaBand } from "@/components/sections/CtaBand";
 import { site, cta } from "@/content/site";
 import { cms } from "@/lib/cms";
+import { getCopy } from "@/lib/cms/copy";
+import { forCopy } from "@/content/copy/for";
 import { midSentence } from "@/lib/utils";
 
 export async function generateStaticParams() {
@@ -150,7 +152,8 @@ export default async function AgencyTypePage({ params }: { params: Promise<{ slu
         </ul>
       </section>
 
-      <CtaBand />
+      {/* the closing band's words live on the Agency Solutions page in WordPress */}
+      <CtaBand copy={(await getCopy(forCopy)).detail_cta} />
     </>
   );
 }

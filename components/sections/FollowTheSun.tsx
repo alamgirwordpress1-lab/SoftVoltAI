@@ -5,6 +5,13 @@ import type { CityClock } from "@/lib/cms/types";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { useNow } from "@/lib/hooks/useNow";
 import { cn } from "@/lib/utils";
+import type { HeadingLedeCopy } from "@/lib/cms/copy-types";
+
+export interface HoursCopy extends HeadingLedeCopy {
+  city_label: string;
+  overlap_label: string;
+  footnote: string;
+}
 
 // TODO(owner): coverage window in Dhaka local time — a public commitment.
 const COVERAGE = { start: 9, end: 23 };
@@ -39,7 +46,7 @@ function overlapHours(a: [number, number][], b: [number, number][]) {
   return total;
 }
 
-export function FollowTheSun({ clocks }: { clocks: CityClock[] }) {
+export function FollowTheSun({ clocks, copy }: { clocks: CityClock[]; copy: HoursCopy }) {
   const now = useNow(30_000);
 
   const rows = useMemo(() => {
@@ -63,21 +70,21 @@ export function FollowTheSun({ clocks }: { clocks: CityClock[] }) {
     <section id="hours" className="section section-alt" aria-labelledby="hours-title">
       <div className="container-x">
       <SectionHeading
-        eyebrow="Follow the sun"
-        title={<span id="hours-title">Brief us at 5pm London. Review it at 9am.</span>}
-        lede={`Dhaka is UTC+6 with no daylight saving, and we cover ${String(COVERAGE.start).padStart(2, "0")}:00–${COVERAGE.end}:00 local. Here is what that overlap looks like against your working day — including where it is thin.`}
+        eyebrow={copy.eyebrow}
+        title={<span id="hours-title">{copy.heading}</span>}
+        lede={copy.lede}
       />
 
       <div className="card mt-10 overflow-x-auto bg-paper p-5 md:p-8" data-reveal>
         <div className="min-w-[640px]">
           <div className="mono mb-3 grid grid-cols-[150px_1fr_70px] items-end gap-4 text-[11px] uppercase tracking-[0.08em] text-muted">
-            <span>City · local time</span>
+            <span>{copy.city_label}</span>
             <div className="relative flex justify-between">
               {[0, 6, 12, 18, 24].map((h) => (
                 <span key={h}>{String(h).padStart(2, "0")}:00 UTC</span>
               ))}
             </div>
-            <span className="text-right">Overlap</span>
+            <span className="text-right">{copy.overlap_label}</span>
           </div>
 
           <ul className="space-y-2.5">
@@ -123,9 +130,7 @@ export function FollowTheSun({ clocks }: { clocks: CityClock[] }) {
             ))}
           </ul>
 
-          <p className="mono mt-5 text-[11px] uppercase tracking-[0.08em] text-muted">
-            Volt = your 09:00–18:00 that falls inside our coverage. Computed from your browser&apos;s clock, daylight saving included.
-          </p>
+          {copy.footnote ? <p className="mono mt-5 text-[11px] uppercase tracking-[0.08em] text-muted">{copy.footnote}</p> : null}
         </div>
       </div>
       </div>

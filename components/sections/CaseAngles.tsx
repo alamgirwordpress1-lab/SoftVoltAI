@@ -3,21 +3,10 @@ import Link from "next/link";
 import type { WorkItem } from "@/lib/cms/types";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ArrowLink } from "@/components/ui/ArrowLink";
+import type { HeadingLedeCopy } from "@/lib/cms/copy-types";
 
-/** What each category means, so a group reads as a kind of work rather than a tag. */
-const CATEGORY_NOTE: Record<string, string> = {
-  "Headless & Next.js": "WordPress stays the editor the client already knows; the front end is a Next.js app on its own deploy.",
-  "E-commerce": "WooCommerce stores — catalogue, checkout, payment, and the maintenance that follows the launch.",
-  Corporate: "Sites where the pages have to be exact, the forms have to work and nothing may break on a Friday.",
-  "Agency & SEO": "Builds where the technical SEO shaped the structure instead of being a plugin added at the end.",
-};
-
-/** What working from Dhaka means for each market. Hours, not claims. */
-const MARKET_NOTE: Record<string, string> = {
-  "United Kingdom": "Dhaka is UTC+6. A brief sent at 5pm London is picked up the next morning, with the reply waiting when you open.",
-  "United States": "The Dhaka day ends as the US east coast starts, so overnight progress is the normal rhythm rather than the exception.",
-  Bangladesh: "Where the team sits. These are builds we can walk through end to end, from the first wireframe to the live site.",
-};
+type Notes = { name: string; note: string }[];
+const noteFor = (notes: Notes, name: string) => notes.find((n) => n.name.trim().toLowerCase() === name.trim().toLowerCase())?.note;
 
 /** Tools that have a service page of their own; anything else stays a plain chip. */
 const TOOL_SERVICE: Record<string, string> = {
@@ -34,13 +23,13 @@ const TOOL_SERVICE: Record<string, string> = {
 };
 
 /** The build that shows the most of how we work — the first one in the content file. */
-export function CaseSpotlight({ item }: { item: WorkItem }) {
+export function CaseSpotlight({ item, copy }: { item: WorkItem; copy: HeadingLedeCopy & { link: string } }) {
   return (
     <section id="spotlight" className="container-x border-b border-line py-14 md:py-20" aria-labelledby="spotlight-title">
       <SectionHeading
-        eyebrow="Spotlight"
-        title={<span id="spotlight-title">Start with the one that shows the most.</span>}
-        lede="One build in full: what the brief needed, what was actually made, and the link to open it yourself."
+        eyebrow={copy.eyebrow}
+        title={<span id="spotlight-title">{copy.heading}</span>}
+        lede={copy.lede}
       />
 
       <div className="card shadow-soft mt-10 grid gap-0 overflow-hidden lg:grid-cols-12" data-reveal>
@@ -64,7 +53,7 @@ export function CaseSpotlight({ item }: { item: WorkItem }) {
             ))}
           </ul>
           <div className="mt-7 flex flex-wrap items-center gap-x-6 gap-y-3">
-            <ArrowLink href={`/case-studies/${item.slug}`}>Read the case study</ArrowLink>
+            {copy.link ? <ArrowLink href={`/case-studies/${item.slug}`}>{copy.link}</ArrowLink> : null}
             {item.url ? (
               <a href={item.url} target="_blank" rel="noopener noreferrer" className="ui text-[14px] font-semibold text-muted underline-offset-4 hover:text-ink hover:underline">
                 Open the live site
@@ -78,18 +67,18 @@ export function CaseSpotlight({ item }: { item: WorkItem }) {
 }
 
 /** Angle one: the kind of work, with every build in the group listed by name. */
-export function CaseByType({ items, categories }: { items: WorkItem[]; categories: string[] }) {
+export function CaseByType({ items, categories, copy }: { items: WorkItem[]; categories: string[]; copy: HeadingLedeCopy & { notes: Notes } }) {
   const groups = categories
     .filter((c) => c !== categories[0])
-    .map((name) => ({ name, note: CATEGORY_NOTE[name], builds: items.filter((w) => w.category === name) }))
+    .map((name) => ({ name, note: noteFor(copy.notes, name), builds: items.filter((w) => w.category === name) }))
     .filter((g) => g.builds.length);
 
   return (
     <section id="by-type" className="container-x border-b border-line py-14 md:py-20" aria-labelledby="by-type-title">
       <SectionHeading
-        eyebrow="By what we built"
-        title={<span id="by-type-title">Four kinds of brief, eight finished builds.</span>}
-        lede="The same four kinds of work an agency sends us today. Each group lists the builds it covers, so you can go straight to the one closest to your client&rsquo;s brief."
+        eyebrow={copy.eyebrow}
+        title={<span id="by-type-title">{copy.heading}</span>}
+        lede={copy.lede}
       />
 
       <ul className="mt-10 grid gap-4 md:grid-cols-2">
@@ -122,10 +111,18 @@ export function CaseByType({ items, categories }: { items: WorkItem[]; categorie
 }
 
 /** Angles two and three, side by side: the market a build was for, and what it was made with. */
-export function CaseByMarketAndStack({ items }: { items: WorkItem[] }) {
+export interface MarketCopy extends HeadingLedeCopy {
+  markets_heading: string;
+  markets: Notes;
+  stack_heading: string;
+  stack_lede: string;
+  stack_note: string;
+}
+
+export function CaseByMarketAndStack({ items, copy }: { items: WorkItem[]; copy: MarketCopy }) {
   const regions = [...new Set(items.map((w) => w.region))].map((region) => ({
     region,
-    note: MARKET_NOTE[region],
+    note: noteFor(copy.markets, region),
     builds: items.filter((w) => w.region === region),
   }));
 
@@ -136,14 +133,14 @@ export function CaseByMarketAndStack({ items }: { items: WorkItem[] }) {
   return (
     <section id="by-market" className="container-x border-b border-line py-14 md:py-20" aria-labelledby="by-market-title">
       <SectionHeading
-        eyebrow="By market and by stack"
-        title={<span id="by-market-title">Where each build was for, and what it was made with.</span>}
-        lede="Two more ways to read the same eight builds: the market the client sells in, and the tools the work actually used."
+        eyebrow={copy.eyebrow}
+        title={<span id="by-market-title">{copy.heading}</span>}
+        lede={copy.lede}
       />
 
       <div className="mt-10 grid gap-10 lg:grid-cols-12 lg:gap-14">
         <div className="lg:col-span-6">
-          <h3 className="ui text-[15px] font-bold text-ink">The markets</h3>
+          <h3 className="ui text-[15px] font-bold text-ink">{copy.markets_heading}</h3>
           <ul className="mt-5 space-y-4">
             {regions.map((r, i) => (
               <li key={r.region} className="card shadow-soft p-5 md:p-6" data-reveal style={{ ["--reveal-delay" as string]: `${i * 60}ms` }}>
@@ -170,10 +167,8 @@ export function CaseByMarketAndStack({ items }: { items: WorkItem[] }) {
         </div>
 
         <div className="lg:col-span-6">
-          <h3 className="ui text-[15px] font-bold text-ink">The stack, counted</h3>
-          <p className="mt-2 text-[14px] leading-relaxed text-muted">
-            Every tool named in a case study, with the number of builds it appears in. The ones we offer as a service link through to it.
-          </p>
+          <h3 className="ui text-[15px] font-bold text-ink">{copy.stack_heading}</h3>
+          <p className="mt-2 text-[14px] leading-relaxed text-muted">{copy.stack_lede}</p>
           <ul className="mt-5 flex flex-wrap gap-2" data-reveal>
             {ranked.map(([tool, n]) => {
               const href = TOOL_SERVICE[tool];
@@ -200,9 +195,7 @@ export function CaseByMarketAndStack({ items }: { items: WorkItem[] }) {
               );
             })}
           </ul>
-          <p className="mt-6 text-[14px] leading-relaxed text-muted">
-            Nothing here is a logo wall: every count comes from a build listed on this page, and every tool is one the team uses in production.
-          </p>
+          {copy.stack_note ? <p className="mt-6 text-[14px] leading-relaxed text-muted">{copy.stack_note}</p> : null}
         </div>
       </div>
     </section>

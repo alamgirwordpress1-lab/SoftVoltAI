@@ -1,13 +1,16 @@
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ArrowLink } from "@/components/ui/ArrowLink";
+import type { LinkedHeadingCopy } from "@/lib/cms/copy-types";
 
 /** Agency protection, shown as the document it actually is: a contract, signed. */
 export function Protection({
   clauses,
+  copy,
   /** The security page carries these same clauses, so it does not link to itself. */
   linkToSecurity = true,
 }: {
   clauses: { title: string; body: string }[];
+  copy: LinkedHeadingCopy;
   linkToSecurity?: boolean;
 }) {
   return (
@@ -15,11 +18,11 @@ export function Protection({
       <div className="grid gap-10 lg:grid-cols-12 lg:gap-12">
         <div className="lg:col-span-5">
           <SectionHeading
-            eyebrow="Agency protection"
-            title={<span id="protection-title">Your client stays yours. In writing.</span>}
-            lede="Most white-label sites mention an NDA once. These are the terms we work under on every project — the full text goes into your contract."
+            eyebrow={copy.eyebrow}
+            title={<span id="protection-title">{copy.heading}</span>}
+            lede={copy.lede}
             layout="stack"
-            aside={linkToSecurity ? <ArrowLink href="/security">How credentials and client data are handled</ArrowLink> : undefined}
+            aside={linkToSecurity && copy.link.text ? <ArrowLink href={copy.link.url}>{copy.link.text}</ArrowLink> : undefined}
           />
           <div className="draw card shadow-float relative mt-10 max-w-md overflow-hidden p-6" data-reveal aria-hidden="true">
             <div className="mono relative text-[11px] uppercase tracking-[0.1em] text-muted">Agency protection agreement · schedule A</div>

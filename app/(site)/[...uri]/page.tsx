@@ -79,13 +79,13 @@ export default async function WordPressPage({ params }: { params: Promise<{ uri:
       <PageHero
         crumbs={[{ name: page.title, href: path }]}
         eyebrow={page.eyebrow || "SoftVolt AI"}
-        title={page.title}
+        title={page.heading || page.title}
         lede={page.lede || undefined}
       />
 
       {page.intro ? (
         <PageIntro
-          eyebrow={page.eyebrow || "In short"}
+          eyebrow={page.intro.eyebrow || page.eyebrow || "In short"}
           title={page.intro.title}
           subtitle={page.intro.subtitle || undefined}
           body={page.intro.body.length ? page.intro.body.map((paragraph, i) => <span key={i}>{paragraph}</span>) : [<span key="0">{page.lede}</span>]}

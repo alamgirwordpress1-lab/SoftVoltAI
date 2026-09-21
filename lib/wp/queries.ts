@@ -185,10 +185,7 @@ export const PAGE_BY_URI = /* GraphQL */ `
       content
       modifiedGmt
       featuredImage { node { sourceUrl altText } }
-      pageFields { eyebrow heading lede highlights introEyebrow introTitle introSubtitle introBody introPoints jumpLinks sections }
-      securityFields { practices }
-      partnerFields { steps }
-      aboutFields { values }
+      pageFields { eyebrow heading lede introEyebrow introTitle introSubtitle introBody }
       ${SEO}
     }
   }

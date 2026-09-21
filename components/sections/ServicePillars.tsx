@@ -5,24 +5,34 @@ import { ArrowLink } from "@/components/ui/ArrowLink";
 import { Button } from "@/components/ui/Button";
 import { Chip } from "@/components/ui/Chip";
 import { cn } from "@/lib/utils";
+import type { LinkCopy, LinkedHeadingCopy } from "@/lib/cms/copy-types";
+
+export interface ServicesCopy extends LinkedHeadingCopy {
+  includes: { label: string; text: string }[];
+  card_pill: string;
+  card_heading: string;
+  card_steps: { title: string; when: string }[];
+  card_button: LinkCopy;
+  card_note: string;
+}
 
 /**
  * The page's one bento block. Build is the wide cell with its six most-sent
  * briefs; the rest of its list lives on the services page.
  */
-export function ServicePillars({ pillars }: { pillars: PillarGroup[] }) {
+export function ServicePillars({ pillars, copy }: { pillars: PillarGroup[]; copy: ServicesCopy }) {
   const byId = Object.fromEntries(pillars.map((p) => [p.id, p])) as Record<string, PillarGroup>;
   return (
     <section id="services" className="section container-x" aria-labelledby="services-title">
       <SectionHeading
-        eyebrow="Services"
-        title={<span id="services-title">Build, automate, grow, support — one partner, one contract.</span>}
-        lede="Most white-label shops sell hours of development. Agencies also need the automation, the SEO implementation, the ad execution and the maintenance that keep a client. We cover all four."
-        aside={<ArrowLink href="/services">Explore every service</ArrowLink>}
+        eyebrow={copy.eyebrow}
+        title={<span id="services-title">{copy.heading}</span>}
+        lede={copy.lede}
+        aside={copy.link.text ? <ArrowLink href={copy.link.url}>{copy.link.text}</ArrowLink> : undefined}
       />
 
       <div className="mt-10 grid gap-5 lg:grid-cols-3">
-        <PillarCard pillar={byId.build} className="lg:col-span-2" visual={<BuildVisual />} wide featured={8} />
+        <PillarCard pillar={byId.build} className="lg:col-span-2" visual={<BuildVisual includes={copy.includes} />} wide featured={8} />
         <PillarCard pillar={byId.automate} visual={<AutomateVisual />} delay={80} />
         <PillarCard pillar={byId.grow} visual={<GrowVisual />} delay={120} />
         <PillarCard pillar={byId.support} visual={<SupportVisual />} delay={160} />
@@ -30,30 +40,28 @@ export function ServicePillars({ pillars }: { pillars: PillarGroup[] }) {
         <article data-reveal style={{ ["--reveal-delay" as string]: "200ms" }} className="er relative flex flex-col justify-between overflow-hidden rounded-[var(--radius-lg)] p-6 md:p-8">
           <div className="grid-lines" aria-hidden="true" />
           <div className="relative">
-            <span className="pill">Not sure where it fits?</span>
-            <h3 className="display mt-5 text-[26px] leading-[1.1]">Send the brief. The scope tells you which service — and what it costs.</h3>
+            {copy.card_pill ? <span className="pill">{copy.card_pill}</span> : null}
+            <h3 className="display mt-5 text-[26px] leading-[1.1]">{copy.card_heading}</h3>
             {/* what the brief actually gets back, so the card is an answer rather than a slogan */}
             <ol className="mt-7 space-y-3.5">
-              {[
-                { k: "01", t: "A named producer replies", m: "Within 1 business day" },
-                { k: "02", t: "Scope, line by line, priced", m: "Within 2 business days" },
-                { k: "03", t: "Work starts on your approval", m: "Fixed price, your brand" },
-              ].map((s) => (
-                <li key={s.k} className="grid grid-cols-[28px_1fr] gap-3 border-t border-er-line pt-3.5">
-                  <span className="mono text-[12px] text-volt">{s.k}</span>
+              {copy.card_steps.map((s, i) => (
+                <li key={s.title} className="grid grid-cols-[28px_1fr] gap-3 border-t border-er-line pt-3.5">
+                  <span className="mono text-[12px] text-volt">{String(i + 1).padStart(2, "0")}</span>
                   <span>
-                    <span className="ui block text-[14px] font-bold leading-snug text-er-ink">{s.t}</span>
-                    <span className="mono mt-1 block text-[11px] uppercase tracking-[0.08em] text-er-muted">{s.m}</span>
+                    <span className="ui block text-[14px] font-bold leading-snug text-er-ink">{s.title}</span>
+                    {s.when ? <span className="mono mt-1 block text-[11px] uppercase tracking-[0.08em] text-er-muted">{s.when}</span> : null}
                   </span>
                 </li>
               ))}
             </ol>
           </div>
           <div className="relative mt-8">
-            <Button href="/contact" variant="onDark">
-              Send us a brief
-            </Button>
-            <p className="mt-4 text-[13px] leading-relaxed text-er-muted">Client names can wait until the NDA is signed.</p>
+            {copy.card_button.text ? (
+              <Button href={copy.card_button.url} variant="onDark">
+                {copy.card_button.text}
+              </Button>
+            ) : null}
+            {copy.card_note ? <p className="mt-4 text-[13px] leading-relaxed text-er-muted">{copy.card_note}</p> : null}
           </div>
         </article>
       </div>
@@ -148,21 +156,15 @@ function PillarCard({
 /* ---------- visuals: illustrative, drawn in code, no stock imagery ---------- */
 
 /** What every build ships with, under the mock — it fills the column beside the service list. */
-const BUILD_INCLUDES = [
-  { k: "Staging", v: "A password-protected link on your domain, from day one" },
-  { k: "QA", v: "A checklist signed off before anything reaches your client" },
-  { k: "Handover", v: "A document your client can read, and the repo if you want it" },
-];
-
-function BuildVisual() {
+function BuildVisual({ includes }: { includes: { label: string; text: string }[] }) {
   return (
     <div>
       <Mocks />
       <dl className="mt-8 space-y-3">
-        {BUILD_INCLUDES.map((i) => (
-          <div key={i.k} className="grid grid-cols-[76px_1fr] gap-3 border-t border-line pt-3">
-            <dt className="mono text-[11px] uppercase tracking-[0.08em] text-accent">{i.k}</dt>
-            <dd className="text-[13px] leading-snug text-muted">{i.v}</dd>
+        {includes.map((i) => (
+          <div key={i.label} className="grid grid-cols-[76px_1fr] gap-3 border-t border-line pt-3">
+            <dt className="mono text-[11px] uppercase tracking-[0.08em] text-accent">{i.label}</dt>
+            <dd className="text-[13px] leading-snug text-muted">{i.text}</dd>
           </div>
         ))}
       </dl>

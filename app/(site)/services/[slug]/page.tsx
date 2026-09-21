@@ -9,6 +9,8 @@ import { CtaBand } from "@/components/sections/CtaBand";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { site, cta } from "@/content/site";
 import { cms } from "@/lib/cms";
+import { getCopy } from "@/lib/cms/copy";
+import { servicesCopy } from "@/content/copy/services";
 import { midSentence } from "@/lib/utils";
 
 export async function generateStaticParams() {
@@ -203,11 +205,8 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         </ul>
       </section>
 
-      <CtaBand
-        title="Send the brief —"
-        accent="get a fixed price within two business days."
-        lede={`Tell us what the ${service.name} project needs and when. Client names can wait until the NDA is signed; a named producer replies within one business day.`}
-      />
+      {/* the closing band's words live on the Services page in WordPress, one set for every service */}
+      <CtaBand copy={(await getCopy(servicesCopy, { service: service.name })).detail_cta} />
     </>
   );
 }

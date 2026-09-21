@@ -5,77 +5,33 @@ import { PageHero } from "@/components/ui/PageHero";
 import { PageIntro } from "@/components/ui/PageIntro";
 import { Button } from "@/components/ui/Button";
 import { Chip } from "@/components/ui/Chip";
-import { site } from "@/content/site";
+import { bannerProps, introProps } from "@/components/ui/copy-props";
+import { blogCopy } from "@/content/copy/blog";
 import { cms } from "@/lib/cms";
+import { getCopy } from "@/lib/cms/copy";
+import { copyMetadata } from "@/lib/cms/meta";
 
-export const metadata: Metadata = {
-  title: "Blog",
-  description:
-    "Notes on white-label delivery: how agency work is scoped, built, automated and reported on. Written by the people who do the work, published from our own CMS.",
-  alternates: { canonical: "/blog" },
-  openGraph: { title: "Blog · SoftVolt AI", url: `${site.url}/blog` },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  return copyMetadata(blogCopy);
+}
 
 const dateFormat = new Intl.DateTimeFormat("en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" });
 
 export default async function BlogPage() {
-  const [posts, opener] = await Promise.all([cms.getPosts(24), cms.getOpener("/blog")]);
+  const posts = await cms.getPosts(24);
+  // the words are the WordPress page "Blog"; {count} is the number of posts
+  const copy = await getCopy(blogCopy, { count: String(posts.length) });
 
   return (
     <>
-      <PageHero
-        crumbs={[{ name: "Blog", href: "/blog" }]}
-        eyebrow={opener?.eyebrow || "Blog"}
-        title={opener?.heading.join(" ") || "What we learn on agency work, written down."}
-        lede={
-          opener?.lede ||
-          "Scoping, build notes, automation patterns and the reporting agencies actually forward to their clients. Every post is written by whoever did the work."
-        }
-        highlights={
-          opener?.highlights.length
-            ? opener.highlights
-            : [
-                { label: "Written by", value: "The delivery team" },
-                { label: "Published from", value: "Our own CMS" },
-                { label: "Posts", value: String(posts.length) },
-              ]
-        }
-      />
+      <PageHero crumbs={[{ name: "Blog", href: "/blog" }]} {...bannerProps(copy.banner)} />
 
-      <PageIntro
-        eyebrow={opener?.intro?.eyebrow || "What you will find here"}
-        title={opener?.intro?.title || "Method, not marketing."}
-        subtitle={opener?.intro?.subtitle || "The same notes we send partners when they ask how something was done."}
-        body={
-          opener?.intro?.body.length
-            ? opener.intro.body
-            : [
-          <>
-            This is the working half of the site. The service pages say what we deliver; these posts say how a particular job went — the constraint that shaped
-            it, the approach we took, and what we would do differently next time.
-          </>,
-          <>
-            Everything here is published from the same WordPress install that runs the rest of the site, so an editor can post without a developer and the page
-            you are reading updates within seconds.
-          </>,
-              ]
-        }
-        points={opener?.intro?.points.length ? opener.intro.points : undefined}
-        jump={
-          opener?.intro?.jump.length
-            ? opener.intro.jump
-            : [
-                { label: "All services", href: "/services" },
-                { label: "Case studies", href: "/case-studies" },
-                { label: "Talk to us", href: "/contact" },
-              ]
-        }
-      />
+      <PageIntro {...introProps(copy.intro)} />
 
       <section id="posts" aria-labelledby="posts-title" className="border-b border-line">
         <div className="container-x py-16 md:py-24">
           <h2 id="posts-title" className="display display-lg max-w-[18ch]">
-            {posts.length ? "Latest posts" : "Nothing published yet"}
+            {posts.length ? copy.posts.heading : copy.posts.empty_heading}
           </h2>
 
           {posts.length ? (
@@ -125,7 +81,7 @@ export default async function BlogPage() {
                           prefetch={false}
                           className="ui inline-flex items-center gap-1.5 text-[15px] font-semibold text-ink underline decoration-line underline-offset-4 transition-colors group-hover:decoration-accent"
                         >
-                          Read the post
+                          {copy.posts.read_more}
                           <span aria-hidden="true">→</span>
                         </Link>
                       </div>
@@ -136,14 +92,14 @@ export default async function BlogPage() {
             </ul>
           ) : (
             <div className="card mt-10 max-w-[60ch] p-8">
-              <p className="text-[15px] leading-relaxed text-muted">
-                The first posts are being written. In the meantime the case studies carry the same detail — what was built, on what stack, and what it changed.
-              </p>
+              <p className="text-[15px] leading-relaxed text-muted">{copy.posts.empty_text}</p>
               <div className="mt-6 flex flex-wrap gap-3">
-                <Button href="/case-studies">Read the case studies</Button>
-                <Button href="/contact" variant="secondary">
-                  Ask us something
-                </Button>
+                {copy.posts.empty_button.text ? <Button href={copy.posts.empty_button.url}>{copy.posts.empty_button.text}</Button> : null}
+                {copy.posts.empty_button_secondary.text ? (
+                  <Button href={copy.posts.empty_button_secondary.url} variant="secondary">
+                    {copy.posts.empty_button_secondary.text}
+                  </Button>
+                ) : null}
               </div>
             </div>
           )}

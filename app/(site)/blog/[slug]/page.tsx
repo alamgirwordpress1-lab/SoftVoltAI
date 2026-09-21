@@ -6,7 +6,10 @@ import { PageHero } from "@/components/ui/PageHero";
 import { Button } from "@/components/ui/Button";
 import { Chip } from "@/components/ui/Chip";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { site, cta } from "@/content/site";
+import { site } from "@/content/site";
+import { blogCopy } from "@/content/copy/blog";
+import { getCopy } from "@/lib/cms/copy";
+import { getSiteChrome } from "@/lib/cms/site";
 import { cms } from "@/lib/cms";
 
 /** Posts published after the last build render on first request, then cache. */
@@ -51,7 +54,9 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   const post = await cms.getPost(slug);
   if (!post) notFound();
 
-  const others = (await cms.getPosts(4)).filter((p) => p.slug !== slug).slice(0, 3);
+  const [all, chrome, copy] = await Promise.all([cms.getPosts(4), getSiteChrome(), getCopy(blogCopy)]);
+  const others = all.filter((p) => p.slug !== slug).slice(0, 3);
+  const words = copy.post;
   const published = post.date ? dateFormat.format(new Date(post.date)) : "";
 
   return (
@@ -82,8 +87,8 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         title={post.title}
         lede={post.excerpt || undefined}
         highlights={[
-          ...(published ? [{ label: "Published", value: published }] : []),
-          ...(post.author ? [{ label: "Written by", value: post.author }] : []),
+          ...(published ? [{ label: words.published_label, value: published }] : []),
+          ...(post.author ? [{ label: words.author_label, value: post.author }] : []),
           ...(post.categories.length ? [{ label: "Filed under", value: post.categories.map((c) => c.name).join(" · ") }] : []),
         ]}
       />
@@ -110,11 +115,11 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
           <aside className="lg:col-span-4" aria-label="About this post">
             <div className="card sticky top-28 p-7">
-              <p className="eyebrow">This post</p>
+              <p className="eyebrow">{words.card_title}</p>
               <dl className="mt-5 space-y-4 text-[15px]">
                 {published ? (
                   <div>
-                    <dt className="mono text-[12px] uppercase tracking-[0.08em] text-muted">Published</dt>
+                    <dt className="mono text-[12px] uppercase tracking-[0.08em] text-muted">{words.published_label}</dt>
                     <dd className="mt-1 text-ink">
                       <time dateTime={post.date}>{published}</time>
                     </dd>
@@ -122,7 +127,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                 ) : null}
                 {post.author ? (
                   <div>
-                    <dt className="mono text-[12px] uppercase tracking-[0.08em] text-muted">Written by</dt>
+                    <dt className="mono text-[12px] uppercase tracking-[0.08em] text-muted">{words.author_label}</dt>
                     <dd className="mt-1 text-ink">{post.author}</dd>
                   </div>
                 ) : null}
@@ -136,9 +141,9 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                   ))}
                 </ul>
               ) : null}
-              <p className="mt-6 text-[15px] leading-relaxed text-muted">Got a job like the one in this post? Tell us what you are building and we will scope it.</p>
+              {words.card_text ? <p className="mt-6 text-[15px] leading-relaxed text-muted">{words.card_text}</p> : null}
               <div className="mt-6">
-                <Button href={cta.primary.href}>{cta.primary.label}</Button>
+                <Button href={chrome.cta.primary.href}>{chrome.cta.primary.label}</Button>
               </div>
             </div>
           </aside>
@@ -149,7 +154,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         <section id="more" aria-labelledby="more-title" className="border-b border-line">
           <div className="container-x py-16 md:py-20">
             <h2 id="more-title" className="display display-lg max-w-[18ch]">
-              More from the blog
+              {words.more_heading}
             </h2>
             <ul className="mt-8 grid gap-6 md:grid-cols-3">
               {others.map((p) => (

@@ -1,6 +1,7 @@
 import type { EngagementModel } from "@/lib/cms/types";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ArrowLink } from "@/components/ui/ArrowLink";
+import type { LinkCopy, LinkedHeadingCopy } from "@/lib/cms/copy-types";
 import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
 
@@ -19,7 +20,15 @@ function Tick() {
  * quoted per scope, which is true today. Set `from` in content/stack.ts and the
  * figure renders in its place; no placeholder number is ever shown.
  */
-export function Rates({ models, showHeading = true }: { models: EngagementModel[]; showHeading?: boolean }) {
+export interface RatesCopy extends LinkedHeadingCopy {
+  button: LinkCopy;
+  price_note: string;
+  no_price: string;
+  no_price_note: string;
+  note: string;
+}
+
+export function Rates({ models, copy, showHeading = true }: { models: EngagementModel[]; copy: RatesCopy; showHeading?: boolean }) {
   return (
     <section
       id="rates"
@@ -29,10 +38,10 @@ export function Rates({ models, showHeading = true }: { models: EngagementModel[
     >
       {showHeading ? (
         <SectionHeading
-          eyebrow="Rates"
-          title={<span id="rates-title">Simple monthly plans built for how agencies actually work.</span>}
-          lede="Match your spend to your actual client workload instead of committing to a full-time salary. Pick the plan that fits how many active projects you run, and change plans as that number changes."
-          aside={<ArrowLink href="/rates">How pricing works</ArrowLink>}
+          eyebrow={copy.eyebrow}
+          title={<span id="rates-title">{copy.heading}</span>}
+          lede={copy.lede}
+          aside={copy.link.text ? <ArrowLink href={copy.link.url}>{copy.link.text}</ArrowLink> : undefined}
         />
       ) : null}
 
@@ -62,10 +71,10 @@ export function Rates({ models, showHeading = true }: { models: EngagementModel[
                     {m.period ? <span className="mono text-[13px] text-muted">{m.period}</span> : null}
                   </p>
                 ) : (
-                  <p className="display text-[32px] leading-none text-ink">Let&apos;s talk</p>
+                  <p className="display text-[32px] leading-none text-ink">{copy.no_price}</p>
                 )}
                 <p className="mono mt-2 text-[12px] leading-relaxed text-muted">
-                  {m.from ? "Billed monthly · no long-term contract" : "Scoped and quoted around your volume"}
+                  {m.from ? copy.price_note : copy.no_price_note}
                 </p>
               </div>
 
@@ -79,7 +88,7 @@ export function Rates({ models, showHeading = true }: { models: EngagementModel[
               </ul>
 
               <div className="px-7 pb-7 [&>*]:w-full [&>*]:justify-center">
-                <Button href="/contact">Send us a brief</Button>
+                {copy.button.text ? <Button href={copy.button.url}>{copy.button.text}</Button> : null}
               </div>
             </article>
           </li>
@@ -87,10 +96,11 @@ export function Rates({ models, showHeading = true }: { models: EngagementModel[
       </ul>
 
       {/* Every card already carries the action, so this is a note, not another button. */}
-      <p className="mt-7 text-[14px] leading-relaxed text-muted" data-reveal>
-        Billed monthly — move up or down a plan as your client workload changes. Prefer to talk first? The scoping call is 20
-        minutes and free.
-      </p>
+      {copy.note ? (
+        <p className="mt-7 text-[14px] leading-relaxed text-muted" data-reveal>
+          {copy.note}
+        </p>
+      ) : null}
     </section>
   );
 }
