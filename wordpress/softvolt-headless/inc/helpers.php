@@ -16,7 +16,7 @@ function softvolt_settings_schema(): array
     return [
         // the front end
         'site_url'          => ['label' => 'Front-end URL', 'type' => 'url', 'default' => '', 'help' => 'Where visitors actually go, e.g. https://softvoltai.com. Used for the front-end redirect, previews and revalidation.'],
-        'revalidate_secret' => ['label' => 'Revalidate secret', 'type' => 'password', 'default' => '', 'help' => 'Must match REVALIDATE_SECRET in the Next.js environment. Publishing sends this so the front end knows the request is ours.'],
+        'revalidate_secret' => ['label' => 'Revalidate secret', 'type' => 'password', 'default' => '', 'help' => 'Must match WP_PREVIEW_SECRET in the Next.js environment (Vercel → Settings → Environment Variables). Publishing and previews send it so the front end knows the request is ours.'],
 
         // identity, shown in the header, the footer and the schema
         'brand_name'        => ['label' => 'Brand name', 'type' => 'text', 'default' => 'SoftVolt AI'],
