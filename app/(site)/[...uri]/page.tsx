@@ -5,6 +5,7 @@ import { PageHero } from "@/components/ui/PageHero";
 import { PageIntro } from "@/components/ui/PageIntro";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { site } from "@/content/site";
+import { shareMetadata } from "@/lib/seo/share";
 import { cms } from "@/lib/cms";
 
 /**
@@ -46,12 +47,8 @@ export async function generateMetadata({ params }: { params: Promise<{ uri: stri
     title: page.title,
     description: description || undefined,
     alternates: { canonical: path },
-    openGraph: {
-      title: page.seo.ogTitle || page.title,
-      description: page.seo.ogDescription || description || undefined,
-      url: `${site.url}${path}`,
-      images: page.image ? [{ url: page.image.src }] : undefined,
-    },
+    // a catch-all folder cannot hold an opengraph-image file, so these pages share the home page's card
+    ...shareMetadata({ title: page.seo.ogTitle || page.title, description: page.seo.ogDescription || description || undefined, path, image: "/opengraph-image" }),
   };
 }
 

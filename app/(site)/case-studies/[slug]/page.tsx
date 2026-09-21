@@ -7,7 +7,7 @@ import { PageIntro } from "@/components/ui/PageIntro";
 import { Button } from "@/components/ui/Button";
 import { Chip } from "@/components/ui/Chip";
 import { CtaBand } from "@/components/sections/CtaBand";
-import { site } from "@/content/site";
+import { shareMetadata } from "@/lib/seo/share";
 import { Rich } from "@/components/ui/Rich";
 import { getSiteChrome } from "@/lib/cms/site";
 import { cms } from "@/lib/cms";
@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     title: top.seo_title,
     description,
     alternates: { canonical: `/case-studies/${slug}` },
-    openGraph: { title: `${item.title} · SoftVolt AI case study`, description, url: `${site.url}/case-studies/${slug}` },
+    ...shareMetadata({ title: `${item.title} · SoftVolt AI case study`, description, path: `/case-studies/${slug}` }),
   };
 }
 

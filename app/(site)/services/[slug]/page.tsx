@@ -8,6 +8,7 @@ import { Chip } from "@/components/ui/Chip";
 import { CtaBand } from "@/components/sections/CtaBand";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { site } from "@/content/site";
+import { shareMetadata } from "@/lib/seo/share";
 import { Rich } from "@/components/ui/Rich";
 import { getSiteChrome } from "@/lib/cms/site";
 import { cms } from "@/lib/cms";
@@ -28,7 +29,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     title: service.title,
     description: service.seo,
     alternates: { canonical: `/services/${slug}` },
-    openGraph: { title: `${service.title} · SoftVolt AI`, description: service.seo, url: `${site.url}/services/${slug}` },
+    ...shareMetadata({ title: `${service.title} · SoftVolt AI`, description: service.seo, path: `/services/${slug}` }),
   };
 }
 

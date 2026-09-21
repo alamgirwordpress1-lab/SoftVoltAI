@@ -3,6 +3,7 @@ import { Plus_Jakarta_Sans, Inter, Manrope, Roboto } from "next/font/google";
 import { site } from "@/content/site";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { organizationSchema, websiteSchema } from "@/lib/seo/schema";
+import { shareMetadata } from "@/lib/seo/share";
 import { MotionRoot } from "@/components/motion/MotionRoot";
 import { THEME_COLORS, themeInitScript } from "@/lib/theme";
 import "./globals.css";
@@ -57,19 +58,7 @@ export const metadata: Metadata = {
     "white label Google Ads management",
     "agency development partner",
   ],
-  openGraph: {
-    type: "website",
-    locale: "en_GB",
-    url: site.url,
-    siteName: site.name,
-    title,
-    description: site.description,
-  },
-  twitter: {
-    card: "summary_large_image",
-    title,
-    description: site.description,
-  },
+  ...shareMetadata({ title, description: site.description, path: "/" }),
   robots: { index: true, follow: true },
 };
 

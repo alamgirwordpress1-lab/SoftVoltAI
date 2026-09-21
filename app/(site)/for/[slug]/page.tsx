@@ -5,7 +5,7 @@ import { PageHero } from "@/components/ui/PageHero";
 import { PageIntro } from "@/components/ui/PageIntro";
 import { Button } from "@/components/ui/Button";
 import { CtaBand } from "@/components/sections/CtaBand";
-import { site } from "@/content/site";
+import { shareMetadata } from "@/lib/seo/share";
 import { Rich } from "@/components/ui/Rich";
 import { getSiteChrome } from "@/lib/cms/site";
 import { cms } from "@/lib/cms";
@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     title: top.seo_title,
     description: type.seo,
     alternates: { canonical: `/for/${slug}` },
-    openGraph: { title: `${top.seo_title} · SoftVolt AI`, description: type.seo, url: `${site.url}/for/${slug}` },
+    ...shareMetadata({ title: `${top.seo_title} · SoftVolt AI`, description: type.seo, path: `/for/${slug}` }),
   };
 }
 

@@ -1,8 +1,8 @@
 import "server-only";
 import type { Metadata } from "next";
 import type { PageCopy, Section, TextField, ParaField } from "@/content/copy/schema";
-import { site } from "@/content/site";
 import { getCopy } from "@/lib/cms/copy";
+import { shareMetadata } from "@/lib/seo/share";
 
 type SeoPage = PageCopy<{ seo: Section<{ title: TextField; description: ParaField }> } & Record<string, Section>>;
 
@@ -13,12 +13,10 @@ type SeoPage = PageCopy<{ seo: Section<{ title: TextField; description: ParaFiel
  */
 export async function copyMetadata(page: SeoPage, options: { absoluteTitle?: boolean } = {}): Promise<Metadata> {
   const { seo } = await getCopy(page);
-  const url = `${site.url}${page.uri === "/" ? "" : page.uri}`;
   return {
     title: options.absoluteTitle ? { absolute: seo.title } : seo.title,
     description: seo.description,
     alternates: { canonical: page.uri },
-    openGraph: { title: seo.title, description: seo.description, url },
-    twitter: { title: seo.title, description: seo.description },
+    ...shareMetadata({ title: seo.title, description: seo.description, path: page.uri }),
   };
 }

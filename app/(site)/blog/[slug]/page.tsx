@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/Button";
 import { Chip } from "@/components/ui/Chip";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { site } from "@/content/site";
+import { shareMetadata } from "@/lib/seo/share";
 import { blogCopy } from "@/content/copy/blog";
 import { getCopy } from "@/lib/cms/copy";
 import { getSiteChrome } from "@/lib/cms/site";
@@ -35,15 +36,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     title: post.title,
     description,
     alternates: { canonical: `/blog/${slug}` },
-    openGraph: {
-      type: "article",
+    // the card itself, featured image included, is this folder's opengraph-image
+    ...shareMetadata({
       title: post.seo.ogTitle || post.title,
       description: post.seo.ogDescription || description,
-      url: `${site.url}/blog/${slug}`,
-      publishedTime: post.date || undefined,
-      modifiedTime: post.modified || undefined,
-      images: post.image ? [{ url: post.image.src }] : undefined,
-    },
+      path: `/blog/${slug}`,
+      article: { publishedTime: post.date || undefined, modifiedTime: post.modified || undefined },
+    }),
   };
 }
 
