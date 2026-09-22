@@ -33,11 +33,18 @@ export async function POST(req: Request) {
   const text = lines.join("\n");
 
   // WordPress first when it is configured: the same submission, delivered by CF7.
+  // A submission it refuses as spam is the end of it; one it accepts but cannot
+  // post — WordPress on a container with no mail server — falls through to
+  // email below rather than losing a brief someone spent four steps writing.
+  let cf7Reason = "";
   if (await cf7FormId("brief")) {
     const result = await sendToCf7("brief", { ...data, website: undefined, recaptcha: undefined }, data.recaptcha);
     if (result.sent) return NextResponse.json({ ok: true, delivered: true, via: "cf7" });
-    console.error("[brief] CF7 rejected the submission", result);
-    return NextResponse.json({ ok: false, reason: result.reason, error: result.message || "We could not send that just now. Email us directly and we will reply within a business day." }, { status: 502 });
+    cf7Reason = result.reason ?? "";
+    console.error("[brief] CF7 did not send the submission", result);
+    if (cf7Reason === "spam") {
+      return NextResponse.json({ ok: false, reason: cf7Reason, error: result.message || "That did not go through. Please try again, or email us directly." }, { status: 403 });
+    }
   }
 
   const apiKey = process.env.RESEND_API_KEY;
@@ -60,7 +67,7 @@ export async function POST(req: Request) {
       text,
     });
     if (error) throw new Error(error.message);
-    return NextResponse.json({ ok: true, delivered: true });
+    return NextResponse.json({ ok: true, delivered: true, via: cf7Reason ? "email-after-cf7" : "email" });
   } catch (err) {
     console.error("[brief] delivery failed", err);
     return NextResponse.json({ ok: false, error: "We could not send that just now. Email us directly and we will reply within a business day." }, { status: 502 });
