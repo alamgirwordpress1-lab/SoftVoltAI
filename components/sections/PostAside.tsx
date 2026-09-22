@@ -2,88 +2,75 @@ import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 import { Chip } from "@/components/ui/Chip";
+import { BlogSearch } from "@/components/search/BlogSearch";
 import type { WpPostCard } from "@/lib/cms/wordpress";
 
 export interface PostAsideCopy {
-  published_label: string;
-  updated_label: string;
-  author_label: string;
-  filed_label: string;
-  card_title: string;
-  recent_heading: string;
+  search_heading: string;
+  search_placeholder: string;
   categories_heading: string;
+  tags_heading: string;
+  recent_heading: string;
   cta_heading: string;
   cta_text: string;
 }
 
-const dateFormat = new Intl.DateTimeFormat("en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" });
 const shortDate = new Intl.DateTimeFormat("en-GB", { day: "numeric", month: "short", year: "numeric", timeZone: "UTC" });
+const longDate = new Intl.DateTimeFormat("en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" });
 
 /**
- * The column beside a post: what this post is, what else is worth reading, the
- * topics the blog covers, and the one thing we want a reader to do. It sticks
- * to the top of the viewport on a wide screen and simply stacks under the post
- * on a narrow one.
+ * The column beside a post: search, the topics the blog covers, its tags, what
+ * else is worth reading, and the one thing we want a reader to do. It sticks to
+ * the top of the viewport on a wide screen and stacks under the post on a
+ * narrow one. What this particular post is — published, author, filed under —
+ * sits above the words instead, where a reader looks for it.
  */
 export function PostAside({
-  post,
   recent,
   categories,
+  tags,
   cta,
   copy,
 }: {
-  post: { date: string; modified: string; author: string; categories: { name: string; slug: string }[] };
   recent: WpPostCard[];
   categories: { name: string; slug: string }[];
+  tags: { name: string; slug: string }[];
   cta: { label: string; href: string };
   copy: PostAsideCopy;
 }) {
-  const published = post.date ? dateFormat.format(new Date(post.date)) : "";
-  const updated = post.modified && post.modified.slice(0, 10) !== post.date.slice(0, 10) ? dateFormat.format(new Date(post.modified)) : "";
-
   return (
-    <aside className="lg:col-span-4" aria-label={copy.card_title}>
-      <div className="lg:sticky lg:top-28 lg:space-y-6">
-        <div className="card p-6">
-          <p className="eyebrow">{copy.card_title}</p>
-          <dl className="mt-5 space-y-4 text-[15px]">
-            {published ? (
-              <div>
-                <dt className="mono text-[11px] uppercase tracking-[0.08em] text-muted">{copy.published_label}</dt>
-                <dd className="mt-1 text-ink">
-                  <time dateTime={post.date}>{published}</time>
-                </dd>
-              </div>
-            ) : null}
-            {updated ? (
-              <div>
-                <dt className="mono text-[11px] uppercase tracking-[0.08em] text-muted">{copy.updated_label}</dt>
-                <dd className="mt-1 text-ink">
-                  <time dateTime={post.modified}>{updated}</time>
-                </dd>
-              </div>
-            ) : null}
-            {post.author ? (
-              <div>
-                <dt className="mono text-[11px] uppercase tracking-[0.08em] text-muted">{copy.author_label}</dt>
-                <dd className="mt-1 text-ink">{post.author}</dd>
-              </div>
-            ) : null}
-            {post.categories.length ? (
-              <div>
-                <dt className="mono text-[11px] uppercase tracking-[0.08em] text-muted">{copy.filed_label}</dt>
-                <dd className="mt-2 flex flex-wrap gap-1.5">
-                  {post.categories.map((c) => (
-                    <Chip key={c.slug}>{c.name}</Chip>
-                  ))}
-                </dd>
-              </div>
-            ) : null}
-          </dl>
-        </div>
+    <aside className="lg:col-span-4" aria-label={copy.recent_heading}>
+      <div className="space-y-6 lg:sticky lg:top-28">
+        <BlogSearch label={copy.search_heading} placeholder={copy.search_placeholder} />
+
+        {categories.length ? (
+          <div className="card p-6">
+            <p className="eyebrow">{copy.categories_heading}</p>
+            <ul className="mt-5 flex flex-wrap gap-2">
+              {categories.map((c) => (
+                <li key={c.slug}>
+                  <Chip>{c.name}</Chip>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ) : null}
+
+        {tags.length ? (
+          <div className="card p-6">
+            <p className="eyebrow">{copy.tags_heading}</p>
+            <ul className="mt-5 flex flex-wrap gap-2">
+              {tags.map((t) => (
+                <li key={t.slug}>
+                  <Chip>{t.name}</Chip>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ) : null}
 
         {recent.length ? (
-          <div className="card mt-6 p-6 lg:mt-0">
+          <div className="card p-6">
             <p className="eyebrow">{copy.recent_heading}</p>
             <ul className="mt-5 space-y-4">
               {recent.map((p) => (
@@ -109,21 +96,8 @@ export function PostAside({
           </div>
         ) : null}
 
-        {categories.length ? (
-          <div className="card mt-6 p-6 lg:mt-0">
-            <p className="eyebrow">{copy.categories_heading}</p>
-            <ul className="mt-5 flex flex-wrap gap-2">
-              {categories.map((c) => (
-                <li key={c.slug}>
-                  <Chip>{c.name}</Chip>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ) : null}
-
         {/* the one dark card on a light page: .er carries the ground and the ink, the way the service card does */}
-        <div className="er mt-6 overflow-hidden rounded-[var(--radius-lg)] p-6 lg:mt-0">
+        <div className="er overflow-hidden rounded-[var(--radius-lg)] p-6">
           <p className="ui text-lg font-bold text-er-ink">{copy.cta_heading}</p>
           {copy.cta_text ? <p className="mt-2 text-[14px] leading-relaxed text-er-muted">{copy.cta_text}</p> : null}
           <div className="mt-5">
@@ -134,5 +108,59 @@ export function PostAside({
         </div>
       </div>
     </aside>
+  );
+}
+
+/**
+ * What this post is, as a strip above the words: when it was published, when it
+ * was last changed, who wrote it and what it is filed under.
+ */
+export function PostMeta({
+  post,
+  copy,
+}: {
+  post: { date: string; modified: string; author: string; categories: { name: string; slug: string }[] };
+  copy: { title: string; published_label: string; updated_label: string; author_label: string; filed_label: string };
+}) {
+  const published = post.date ? longDate.format(new Date(post.date)) : "";
+  const updated = post.modified && post.modified.slice(0, 10) !== post.date.slice(0, 10) ? longDate.format(new Date(post.modified)) : "";
+
+  return (
+    <section className="card mt-9 p-6" aria-label={copy.title} data-reveal>
+      <dl className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        {published ? (
+          <div>
+            <dt className="mono text-[11px] uppercase tracking-[0.08em] text-muted">{copy.published_label}</dt>
+            <dd className="mt-1.5 text-[15px] text-ink">
+              <time dateTime={post.date}>{published}</time>
+            </dd>
+          </div>
+        ) : null}
+        {updated ? (
+          <div>
+            <dt className="mono text-[11px] uppercase tracking-[0.08em] text-muted">{copy.updated_label}</dt>
+            <dd className="mt-1.5 text-[15px] text-ink">
+              <time dateTime={post.modified}>{updated}</time>
+            </dd>
+          </div>
+        ) : null}
+        {post.author ? (
+          <div>
+            <dt className="mono text-[11px] uppercase tracking-[0.08em] text-muted">{copy.author_label}</dt>
+            <dd className="mt-1.5 text-[15px] text-ink">{post.author}</dd>
+          </div>
+        ) : null}
+        {post.categories.length ? (
+          <div>
+            <dt className="mono text-[11px] uppercase tracking-[0.08em] text-muted">{copy.filed_label}</dt>
+            <dd className="mt-2 flex flex-wrap gap-1.5">
+              {post.categories.map((c) => (
+                <Chip key={c.slug}>{c.name}</Chip>
+              ))}
+            </dd>
+          </div>
+        ) : null}
+      </dl>
+    </section>
   );
 }

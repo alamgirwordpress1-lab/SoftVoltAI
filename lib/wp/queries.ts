@@ -207,6 +207,7 @@ export const POSTS = /* GraphQL */ `
         modifiedGmt
         featuredImage { node { sourceUrl altText } }
         categories { nodes { name slug } }
+        tags { nodes { name slug } }
         author { node { name } }
       }
     }
@@ -225,6 +226,7 @@ export const POST_BY_SLUG = /* GraphQL */ `
       modifiedGmt
       featuredImage { node { sourceUrl altText } }
       categories { nodes { name slug } }
+      tags { nodes { name slug } }
       author { node { name } }
       commentStatus
       comments(first: 100, where: { order: ASC, orderby: COMMENT_DATE }) {

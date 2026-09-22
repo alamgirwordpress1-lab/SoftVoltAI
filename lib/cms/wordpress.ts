@@ -406,6 +406,8 @@ export interface WpPostCard {
   modified: string;
   image: WpImage | null;
   categories: { name: string; slug: string }[];
+  /** WordPress tags, which the blog sidebar lists beside the categories. */
+  tags: { name: string; slug: string }[];
   author: string;
 }
 
@@ -483,6 +485,7 @@ interface RawPost {
   modifiedGmt: string | null;
   featuredImage: RawImage | null;
   categories: { nodes: { name: string; slug: string }[] } | null;
+  tags?: { nodes: { name: string; slug: string }[] } | null;
   author: { node: { name: string } | null } | null;
   seo?: RawSeo | null;
 }
@@ -515,6 +518,7 @@ function toCard(node: RawPost): WpPostCard {
     modified: gmt(node.modifiedGmt),
     image: toImage(node.featuredImage),
     categories: (node.categories?.nodes ?? []).map((c) => ({ name: plain(c.name), slug: c.slug })),
+    tags: (node.tags?.nodes ?? []).map((t) => ({ name: plain(t.name), slug: t.slug })),
     author: plain(node.author?.node?.name ?? ""),
   };
 }

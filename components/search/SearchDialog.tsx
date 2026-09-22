@@ -116,14 +116,14 @@ function Option({
   );
 }
 
-export function SearchDialog({ open, onClose }: { open: boolean; onClose: () => void }) {
+export function SearchDialog({ open, onClose, initialQuery = "" }: { open: boolean; onClose: () => void; /** What the box starts with — the blog sidebar opens it with what was typed there. */ initialQuery?: string }) {
   const dialog = useRef<HTMLDialogElement>(null);
   const input = useRef<HTMLInputElement>(null);
   const body = useRef<HTMLDivElement>(null);
   const lastPath = useRef<string | null>(null);
   const [index, setIndex] = useState<PreparedIndex | null>(null);
   const [failed, setFailed] = useState(false);
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState(initialQuery);
   const [filter, setFilter] = useState<Filter>("all");
   const [cursor, setCursor] = useState({ key: "", index: 0 });
   const [recent, setRecent] = useState<string[]>(readRecent);

@@ -1,5 +1,5 @@
-import { link, page, para, section, text } from "@/content/copy/schema";
-import { banner, intro, seo } from "@/content/copy/sections";
+import { items, link, page, para, section, text } from "@/content/copy/schema";
+import { FACT_FIELDS, banner, ctaBand, intro, seo } from "@/content/copy/sections";
 
 /** /blog and every post page. The posts themselves are ordinary WordPress posts. */
 export const blogCopy = page("blog", "/blog", "Blog", {
@@ -38,7 +38,9 @@ export const blogCopy = page("blog", "/blog", "Blog", {
   posts: section(
     "The posts",
     {
-      heading: text("Heading above the posts", "Latest posts"),
+      featured_eyebrow: text("Small line above the newest post", "Latest post"),
+      heading: text("Heading above the other posts", "More from the blog", "Shown once there is a second post."),
+      filter_all: text("First filter button", "All topics", "The rest of the buttons are the categories the posts are filed under."),
       read_more: text("Link on each post card", "Read the post"),
       empty_heading: text("Heading when nothing is published", "Nothing published yet"),
       empty_text: para(
@@ -48,8 +50,15 @@ export const blogCopy = page("blog", "/blog", "Blog", {
       empty_button: link("Button when nothing is published", "Read the case studies", "/case-studies"),
       empty_button_secondary: link("Second button when nothing is published", "Ask us something", "/contact"),
     },
-    "The list of posts. The posts themselves are written under Posts in the menu on the left.",
+    "The newest post is shown on its own at the top; the rest follow as cards, with a button per topic above them. The posts themselves are written under Posts in the menu on the left.",
   ),
+
+  cta: ctaBand({
+    pill: "Next step",
+    heading: "Want this written about your project —",
+    accent: "under your brand?",
+    lede: "Everything here was built for an agency first. Send the brief and get a written scope with a fixed price within two business days.",
+  }),
 
   post_banner: section(
     "Every post page — banner",
@@ -59,6 +68,17 @@ export const blogCopy = page("blog", "/blog", "Blog", {
       lede: para(
         "Paragraph under the heading",
         "Scoping decisions, build notes and the reporting agencies forward to their clients — written up as the job finishes.",
+      ),
+      facts: items(
+        "Fact cards beside the heading",
+        "Fact",
+        FACT_FIELDS,
+        [
+          { label: "Written by", value: "The delivery team" },
+          { label: "Published from", value: "Our own CMS" },
+          { label: "Read next", value: "Case studies" },
+        ],
+        { help: "Up to three short facts shown as cards on the right, on large screens — the same as every other page's banner. They are the same on every post.", slots: 3 },
       ),
     },
     "The same banner at the top of every post. The post's own title, picture and words are under it, written under Posts in the menu on the left.",
@@ -72,15 +92,19 @@ export const blogCopy = page("blog", "/blog", "Blog", {
       filed_label: text("\"Filed under\" label", "Filed under"),
       reading_time: text("Reading time", "{minutes} min read", "{minutes} is counted from the post itself."),
       updated_label: text("\"Updated\" label", "Updated", "Shown only when a post was changed after it was published."),
-      card_title: text("Side card — title", "This post"),
-      cta_text: para("Side card — text on the last card", "Got a job like the one in this post? Tell us what you are building and we will scope it."),
-      recent_heading: text("Side card — heading above the other posts", "Recent posts"),
-      categories_heading: text("Side card — heading above the topics", "Topics"),
-      cta_heading: text("Side card — heading on the last card", "Send us a brief"),
+      card_title: text("Strip above the post — title", "This post", "Read by screen readers; the labels below are what a visitor sees."),
+      search_heading: text("Sidebar — heading above the search box", "Search"),
+      search_placeholder: text("Sidebar — grey text inside the search box", "Search the site"),
+      categories_heading: text("Sidebar — heading above the categories", "Categories"),
+      tags_heading: text("Sidebar — heading above the tags", "Tags"),
+      recent_heading: text("Sidebar — heading above the other posts", "Recent posts"),
+      cta_heading: text("Sidebar — heading on the last card", "Send us a brief"),
+      cta_text: para("Sidebar — text on the last card", "Got a job like the one in this post? Tell us what you are building and we will scope it."),
       prev_label: text("Link to the post before", "Previous post"),
       next_label: text("Link to the post after", "Next post"),
+      all_posts: text("Link shown when a post has no neighbours", "All posts"),
     },
-    "Everything on a post page except the post and the comments: the labels beside the date, the cards down the right and the two links to the posts either side.",
+    "Everything on a post page except the post and the comments: the strip above the words, the cards down the right (search, categories, tags, recent posts) and the two links to the posts either side. The categories and tags are whatever the posts are filed under.",
   ),
 
   post_comments: section(

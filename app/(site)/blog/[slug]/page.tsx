@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { PageHero } from "@/components/ui/PageHero";
 import { Chip } from "@/components/ui/Chip";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { PostAside } from "@/components/sections/PostAside";
+import { PostAside, PostMeta } from "@/components/sections/PostAside";
 import { PostComments } from "@/components/sections/PostComments";
 import { PostNav } from "@/components/sections/PostNav";
 import { site } from "@/content/site";
@@ -74,6 +74,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   const older = index >= 0 && index < all.length - 1 ? all[index + 1] : null;
   const recent = all.filter((p) => p.slug !== slug).slice(0, 4);
   const categories = Array.from(new Map(all.flatMap((p) => p.categories).map((c) => [c.slug, c])).values());
+  const tags = Array.from(new Map(all.flatMap((p) => p.tags).map((t) => [t.slug, t])).values());
 
   const published = post.date ? dateFormat.format(new Date(post.date)) : "";
   const minutes = words.reading_time.replace("{minutes}", String(readingMinutes(post.content)));
@@ -108,6 +109,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         eyebrow={copy.post_banner.eyebrow}
         title={copy.post_banner.heading}
         lede={copy.post_banner.lede}
+        highlights={copy.post_banner.facts}
         titleAs="p"
       />
 
@@ -131,6 +133,17 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             </p>
           ) : null}
 
+          <PostMeta
+            post={post}
+            copy={{
+              title: words.card_title,
+              published_label: words.published_label,
+              updated_label: words.updated_label,
+              author_label: words.author_label,
+              filed_label: words.filed_label,
+            }}
+          />
+
           {post.image ? (
             <figure className="mt-9 overflow-hidden rounded-lg border border-line bg-raised" data-reveal>
               <div className="relative aspect-[16/9]">
@@ -144,22 +157,20 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
           <PostComments postId={post.id} open={post.commentsOpen} comments={post.comments} copy={copy.post_comments} />
 
-          <PostNav previous={older} next={newer} labels={{ previous: words.prev_label, next: words.next_label }} />
+          <PostNav previous={older} next={newer} labels={{ previous: words.prev_label, next: words.next_label, all: words.all_posts }} />
         </article>
 
         <PostAside
-          post={post}
           recent={recent}
           categories={categories}
+          tags={tags}
           cta={chrome.cta.primary}
           copy={{
-            published_label: words.published_label,
-            updated_label: words.updated_label,
-            author_label: words.author_label,
-            filed_label: words.filed_label,
-            card_title: words.card_title,
-            recent_heading: words.recent_heading,
+            search_heading: words.search_heading,
+            search_placeholder: words.search_placeholder,
             categories_heading: words.categories_heading,
+            tags_heading: words.tags_heading,
+            recent_heading: words.recent_heading,
             cta_heading: words.cta_heading,
             cta_text: words.cta_text,
           }}

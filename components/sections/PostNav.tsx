@@ -6,8 +6,30 @@ import type { WpPostCard } from "@/lib/cms/wordpress";
  * The two posts either side of this one, in publishing order: older on the
  * left, newer on the right, each one a card a thumb can hit.
  */
-export function PostNav({ previous, next, labels }: { previous: WpPostCard | null; next: WpPostCard | null; labels: { previous: string; next: string } }) {
-  if (!previous && !next) return null;
+export function PostNav({
+  previous,
+  next,
+  labels,
+}: {
+  previous: WpPostCard | null;
+  next: WpPostCard | null;
+  labels: { previous: string; next: string; all: string };
+}) {
+  // the first post on a new blog has neither neighbour: send the reader back to
+  // the list rather than leaving the foot of the page empty
+  if (!previous && !next) {
+    return (
+      <nav aria-label={labels.all} className="mt-14 border-t border-line pt-10">
+        <Link
+          href="/blog"
+          className="card card-lift shadow-soft group flex items-center justify-center gap-2 p-5 text-[15px] font-semibold text-ink transition-colors hover:text-accent"
+        >
+          <span aria-hidden="true">←</span>
+          {labels.all}
+        </Link>
+      </nav>
+    );
+  }
 
   return (
     <nav aria-label="More posts" className="mt-14 grid gap-4 border-t border-line pt-10 sm:grid-cols-2">
