@@ -29,6 +29,9 @@ function globeLabel(cards: GlobeCard[]) {
   return `${GLOBE_BASE} — orbited by websites delivered for clients in the UK, US and Bangladesh.`;
 }
 
+/** The key under the globe, when WordPress has nothing to say about it. */
+const LEGEND = { hq: "Dhaka HQ", markets: "Markets we serve", eu: "EU member states", drag: "Drag to rotate · any direction" };
+
 export function Hero({
   cards,
   locations,
@@ -36,6 +39,7 @@ export function Hero({
   lines,
   lede,
   trust,
+  legend,
   cta = localCta,
 }: {
   cards: GlobeCard[];
@@ -47,7 +51,9 @@ export function Hero({
   lines?: string[];
   lede?: string;
   trust?: string[];
+  legend?: Partial<typeof LEGEND>;
 }) {
+  const key = { ...LEGEND, ...legend };
   const headline = lines?.length ? lines : LINES;
   const chips = trust?.length ? trust : TRUST;
   const rootRef = useRef<HTMLElement>(null);
@@ -131,16 +137,22 @@ export function Hero({
             label={globeLabel(cards)}
           />
           <ul className="mono mt-2 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-[11px] uppercase tracking-[0.1em] text-muted" data-after>
-            <li className="flex items-center gap-2">
-              <span className="h-2.5 w-2.5 rounded-full border-2 border-ink bg-volt" aria-hidden="true" /> Dhaka HQ
-            </li>
-            <li className="flex items-center gap-2">
-              <span className="h-2.5 w-2.5 rounded-full bg-accent" aria-hidden="true" /> Markets we serve
-            </li>
-            <li className="flex items-center gap-2">
-              <span className="h-2.5 w-2.5 rounded-full border-2 border-muted" aria-hidden="true" /> EU member states
-            </li>
-            <li className="hidden sm:block">Drag to rotate · any direction</li>
+            {key.hq ? (
+              <li className="flex items-center gap-2">
+                <span className="h-2.5 w-2.5 rounded-full border-2 border-ink bg-volt" aria-hidden="true" /> {key.hq}
+              </li>
+            ) : null}
+            {key.markets ? (
+              <li className="flex items-center gap-2">
+                <span className="h-2.5 w-2.5 rounded-full bg-accent" aria-hidden="true" /> {key.markets}
+              </li>
+            ) : null}
+            {key.eu ? (
+              <li className="flex items-center gap-2">
+                <span className="h-2.5 w-2.5 rounded-full border-2 border-muted" aria-hidden="true" /> {key.eu}
+              </li>
+            ) : null}
+            {key.drag ? <li className="hidden sm:block">{key.drag}</li> : null}
           </ul>
         </div>
       </div>

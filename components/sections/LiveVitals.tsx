@@ -19,7 +19,14 @@ const EMPTY: Vitals = { lcp: null, cls: null, ttfb: null, jsKb: null, cssKb: nul
  * resource timing API. Nothing is sent anywhere; nothing is faked. When an API
  * is unavailable (older Safari for LCP/CLS) the tile says so.
  */
-export function LiveVitals() {
+/** What the card says when WordPress has nothing to say about it. */
+const HEADING = "This page, in your browser";
+const POINTS = [
+  "Rendered on the server, hydrated only where something moves",
+  "Dashes mean your browser does not expose that metric — we do not guess",
+];
+
+export function LiveVitals({ heading = HEADING, points = POINTS }: { heading?: string; points?: string[] }) {
   const [v, setV] = useState<Vitals>(EMPTY);
   const [measuredAt, setMeasuredAt] = useState<string>("");
 
@@ -95,7 +102,7 @@ export function LiveVitals() {
   return (
     <div className="card p-6 md:p-8">
       <div className="flex flex-wrap items-baseline justify-between gap-2">
-        <h3 className="text-lg font-semibold text-er-ink">This page, in your browser</h3>
+        <h3 className="text-lg font-semibold text-er-ink">{heading}</h3>
         <span className="mono text-[11px] uppercase tracking-[0.1em] text-er-muted">{measuredAt ? `measured ${measuredAt}` : "measuring…"}</span>
       </div>
       <dl className="mt-6 grid grid-cols-2 gap-x-6 gap-y-6 sm:grid-cols-3">
@@ -111,12 +118,11 @@ export function LiveVitals() {
         <li>
           <span className="text-volt">✓</span> {v.requests === null ? "—" : `${v.requests} requests`} for the whole page, cookies: none
         </li>
-        <li>
-          <span className="text-volt">✓</span> Rendered on the server, hydrated only where something moves
-        </li>
-        <li>
-          <span className="text-volt">✓</span> Dashes mean your browser does not expose that metric — we do not guess
-        </li>
+        {points.map((point) => (
+          <li key={point}>
+            <span className="text-volt">✓</span> {point}
+          </li>
+        ))}
       </ul>
     </div>
   );

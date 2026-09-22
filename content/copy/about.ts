@@ -46,6 +46,7 @@ export const aboutCopy = page("about", "/about", "About", {
         { title: "Honest numbers", text: "We publish measurements we can prove and nothing we cannot. No invented client counts, no guaranteed rankings." },
       ]),
     },
+    "A written band: the rules are the rows below, not a list from the menu.",
   ),
 
   process: processSection(),

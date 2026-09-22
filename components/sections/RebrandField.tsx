@@ -7,16 +7,21 @@ export function RebrandField({
   color,
   onName,
   onColor,
+  label = "Your agency name — try it",
+  colourLabel = "Brand colour",
 }: {
   name: string;
   color: string;
   onName: (v: string) => void;
   onColor: (v: string) => void;
+  /** Both labels are written on the home page in WordPress. */
+  label?: string;
+  colourLabel?: string;
 }) {
   return (
     <div className="mt-4 flex flex-wrap items-end gap-3">
       <label className="flex min-w-[200px] flex-1 flex-col gap-1.5">
-        <span className="mono text-[11px] uppercase tracking-[0.1em] text-muted">Your agency name — try it</span>
+        <span className="mono text-[11px] uppercase tracking-[0.1em] text-muted">{label}</span>
         <input
           id="hero-agency-name"
           type="text"
@@ -29,7 +34,7 @@ export function RebrandField({
         />
       </label>
       <fieldset className="flex items-center gap-2">
-        <legend className="mono mb-1.5 text-[11px] uppercase tracking-[0.1em] text-muted">Brand colour</legend>
+        <legend className="mono mb-1.5 text-[11px] uppercase tracking-[0.1em] text-muted">{colourLabel}</legend>
         {BRAND_PRESETS.map((c) => (
           <button
             key={c}

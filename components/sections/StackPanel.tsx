@@ -4,7 +4,7 @@ import { Chip } from "@/components/ui/Chip";
 import type { HeadingLedeCopy } from "@/lib/cms/copy-types";
 
 /** Engine room #2: the stack, and this site measured live in the visitor's own browser. */
-export function StackPanel({ stack, copy }: { stack: TechItem[]; copy: HeadingLedeCopy }) {
+export function StackPanel({ stack, copy }: { stack: TechItem[]; copy: HeadingLedeCopy & { vitals_heading: string; vitals_points: string[] } }) {
   const groups = Array.from(new Set(stack.map((s) => s.group)));
   return (
     <section id="stack" className="er section" aria-labelledby="stack-title">
@@ -21,7 +21,7 @@ export function StackPanel({ stack, copy }: { stack: TechItem[]; copy: HeadingLe
           </div>
 
           <div className="lg:col-span-6" data-reveal style={{ ["--reveal-delay" as string]: "120ms" }}>
-            <LiveVitals />
+            <LiveVitals heading={copy.vitals_heading} points={copy.vitals_points} />
           </div>
         </div>
 

@@ -60,6 +60,7 @@ export const partnerProgrammeCopy = page("partner-programme", "/partner-programm
         { title: "Resell what we maintain", text: "Care plans, hosting management and reporting are built to be resold under your brand at your margin." },
       ]),
     },
+    "A written band: the steps are the rows below, not a list from the menu.",
   ),
 
   models: section(

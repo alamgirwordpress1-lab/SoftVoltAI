@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { BriefForm } from "@/components/sections/BriefForm";
+import type { BriefFormCopy } from "@/lib/cms/copy-types";
 import { getSiteChrome } from "@/lib/cms/site";
 import type { HeadingLedeCopy } from "@/lib/cms/copy-types";
 
@@ -19,7 +20,7 @@ export interface BriefCopy extends HeadingLedeCopy {
  * reach us beside it. The words are the home page's "Brief form" tab; the
  * booking link and the email are the site settings.
  */
-export async function BriefCta({ copy }: { copy: BriefCopy }) {
+export async function BriefCta({ copy, form }: { copy: BriefCopy; form: BriefFormCopy }) {
   const { calUrl, email } = await getSiteChrome();
 
   return (
@@ -76,7 +77,7 @@ export async function BriefCta({ copy }: { copy: BriefCopy }) {
           ) : null}
         </div>
         <div className="lg:col-span-7" data-reveal style={{ ["--reveal-delay" as string]: "100ms" }}>
-          <BriefForm />
+          <BriefForm copy={form} />
         </div>
       </div>
     </section>

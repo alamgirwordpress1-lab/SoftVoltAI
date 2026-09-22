@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import { gsap, prefersReducedMotion } from "@/lib/motion/gsap";
 import { slugify } from "@/lib/utils";
+import type { DemoSiteCopy } from "@/lib/cms/copy-types";
 
 /**
  * Two copies of the same deliverable sit on top of each other: the client's
@@ -13,9 +14,10 @@ import { slugify } from "@/lib/utils";
  * The stage is `keep-light`: it shows a client's website, so it stays light
  * when the visitor switches this site to the dark theme.
  */
-export function HeroStage({ agency, brand }: { agency: string; brand: string }) {
+export function HeroStage({ agency, brand, site }: { agency: string; brand: string; site: DemoSiteCopy }) {
   const stageRef = useRef<HTMLDivElement>(null);
   const slug = slugify(agency);
+  const clientSlug = slugify(site.client_name) || "client";
   const name = agency.trim() || "Your Agency";
 
   useEffect(() => {
@@ -114,32 +116,32 @@ export function HeroStage({ agency, brand }: { agency: string; brand: string }) 
         <i />
         <i />
         <i />
-        <span className="url">harbour-dental.co.uk</span>
+        <span className="url">{site.client_url}</span>
         <span className="hidden whitespace-nowrap sm:inline">
-          Website by <span className="mock-brand font-medium">{name}</span>
+          {site.credit} <span className="mock-brand font-medium">{name}</span>
         </span>
       </div>
 
       {/* ---------- surface: what the client sees ---------- */}
       <div className="hero-layer hero-surface" aria-hidden="true">
         <div className="mock-piece flex items-center justify-between rounded-lg border border-line px-3 py-2 text-[12px]">
-          <span className="mock-brand font-semibold">Harbour Dental</span>
+          <span className="mock-brand font-semibold">{site.client_name}</span>
           <span className="hidden gap-3 text-muted sm:flex">
-            <span>Treatments</span>
-            <span>Team</span>
-            <span>Fees</span>
+            {site.client_menu.map((item) => (
+              <span key={item}>{item}</span>
+            ))}
           </span>
-          <span className="mock-brand-bg rounded-md px-2 py-1 text-[11px] font-medium text-white">Book online</span>
+          <span className="mock-brand-bg rounded-md px-2 py-1 text-[11px] font-medium text-white">{site.client_button}</span>
         </div>
 
         <div className="mock-piece mock-block flex flex-col justify-end p-4 sm:p-6">
-          <p className="display text-[clamp(1.4rem,3vw,2.4rem)] leading-[1.02]">Gentle dentistry, five minutes from the harbour.</p>
-          <p className="mt-2 max-w-[34ch] text-[12px] text-muted sm:text-[13px]">Same-week appointments for new patients. Emergency slots held every morning.</p>
-          <span className="mock-brand-bg mt-3 inline-block w-max rounded-md px-3 py-1.5 text-[11px] font-medium text-white">Book a check-up</span>
+          <p className="display text-[clamp(1.4rem,3vw,2.4rem)] leading-[1.02]">{site.client_heading}</p>
+          <p className="mt-2 max-w-[34ch] text-[12px] text-muted sm:text-[13px]">{site.client_lede}</p>
+          <span className="mock-brand-bg mt-3 inline-block w-max rounded-md px-3 py-1.5 text-[11px] font-medium text-white">{site.client_cta}</span>
         </div>
 
         <div className="mock-piece grid grid-cols-3 gap-2 text-[11px]">
-          {["Check-ups", "Whitening", "Emergency"].map((t) => (
+          {site.client_cards.map((t) => (
             <div key={t} className="rounded-lg border border-line p-2.5">
               <span className="mock-brand-bg mb-2 block h-1.5 w-6 rounded-full" />
               <span className="font-medium">{t}</span>
@@ -148,9 +150,9 @@ export function HeroStage({ agency, brand }: { agency: string; brand: string }) 
         </div>
 
         <div className="mock-piece flex items-center justify-between border-t border-line pt-2 text-[10px] text-muted">
-          <span>© Harbour Dental</span>
+          <span>© {site.client_name}</span>
           <span>
-            Website by <span className="mock-brand font-semibold">{name}</span>
+            {site.credit} <span className="mock-brand font-semibold">{name}</span>
           </span>
         </div>
       </div>
@@ -159,7 +161,7 @@ export function HeroStage({ agency, brand }: { agency: string; brand: string }) 
       <div className="hero-layer hero-engine code" aria-hidden="true">
         <div className="mock-piece flex items-center justify-between rounded-lg border border-er-line px-3 py-2 text-[11px]">
           <span className="text-volt">staging.{slug}.co.uk</span>
-          <span className="hidden text-er-muted sm:inline">branch {slug}/harbour-dental</span>
+          <span className="hidden text-er-muted sm:inline">branch {slug}/{clientSlug}</span>
         </div>
 
         {/* two columns spread top to bottom, so the lens finds something to show wherever it drifts */}
@@ -220,7 +222,7 @@ export function HeroStage({ agency, brand }: { agency: string; brand: string }) 
 
         <div className="mock-piece flex items-center justify-between border-t border-er-line pt-2 text-[10px]">
           <span className="text-er-muted">handover → {slug}</span>
-          <span className="text-volt">client never sees this</span>
+          <span className="text-volt">{site.engine_note}</span>
         </div>
       </div>
 

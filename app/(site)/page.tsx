@@ -60,6 +60,7 @@ export default async function HomePage() {
         lines={copy.banner.headline}
         lede={copy.banner.lede}
         trust={promises.map((promise) => promise.label)}
+        legend={{ hq: copy.banner.legend_hq, markets: copy.banner.legend_markets, eu: copy.banner.legend_eu, drag: copy.banner.legend_drag }}
         cta={chrome.cta}
       />
       <PromiseBar promises={promises} />
@@ -77,7 +78,7 @@ export default async function HomePage() {
       <Founder team={team} copy={copy.team} />
       <Faq faqs={faqs} copy={copy.faq} />
       {/* the brief form is the page’s closing call: a CtaBand under it would only repeat the ask */}
-      <BriefCta copy={copy.brief} />
+      <BriefCta copy={copy.brief} form={copy.brief_form} />
       <StickyCta cta={chrome.cta} />
     </>
   );

@@ -10,7 +10,7 @@ export function Protection({
   linkToSecurity = true,
 }: {
   clauses: { title: string; body: string }[];
-  copy: LinkedHeadingCopy;
+  copy: LinkedHeadingCopy & { artefact: string };
   linkToSecurity?: boolean;
 }) {
   return (
@@ -25,7 +25,7 @@ export function Protection({
             aside={linkToSecurity && copy.link.text ? <ArrowLink href={copy.link.url}>{copy.link.text}</ArrowLink> : undefined}
           />
           <div className="draw card shadow-float relative mt-10 max-w-md overflow-hidden p-6" data-reveal aria-hidden="true">
-            <div className="mono relative text-[11px] uppercase tracking-[0.1em] text-muted">Agency protection agreement · schedule A</div>
+            <div className="mono relative text-[11px] uppercase tracking-[0.1em] text-muted">{copy.artefact}</div>
             <div className="relative mt-4 space-y-2">
               {[88, 72, 80, 60].map((w, i) => (
                 <span key={i} className="block h-2 rounded bg-raised" style={{ width: `${w}%` }} />

@@ -67,6 +67,7 @@ export const securityCopy = page("security", "/security", "Security & confidenti
         { help: "Each one is a public commitment about client data — only what is true on every project." },
       ),
     },
+    "A written band: the practices are the rows below, not a list from the menu.",
   ),
 
   protection: protectionSection(),

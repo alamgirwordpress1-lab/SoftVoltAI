@@ -117,6 +117,19 @@ export const processSection = () =>
         "No black box. Every stage produces something written — a scope, a staging link, a checklist, a handover — so you always know where the work is without asking.",
       ),
       link: link("Text link", "What happens after the first brief", "/partner-programme"),
+      artefacts: items(
+        "Document cards",
+        "Card",
+        { title: { label: "Title", kind: "text" }, meta: { label: "Line on the right", kind: "text" } },
+        [
+          { title: "Brief received", meta: "northwind-digital · 17:04 London" },
+          { title: "Scope & quote", meta: "v1 · within 2 business days" },
+          { title: "Production", meta: "staging.northwind-digital.co.uk" },
+          { title: "QA checklist", meta: "42 checks · published" },
+          { title: "Handover", meta: "northwind-digital · launch day" },
+        ],
+        { help: "The card that slides in beside each step, in the same order as the steps. What is written inside each card is part of the illustration.", slots: 6 },
+      ),
     },
     "The steps themselves are edited under Process steps in the menu on the left.",
   );
@@ -154,6 +167,7 @@ export const protectionSection = () =>
         "Most white-label sites mention an NDA once. These are the terms we work under on every project — the full text goes into your contract.",
       ),
       link: link("Text link", "How credentials and client data are handled", "/security", "Not shown on the Security page, which is where it points."),
+      artefact: text("Label on the document card", "Agency protection agreement · schedule A", "The card is an illustration of the signed agreement; only this line is written."),
     },
     "The clauses themselves are edited under Protection clauses in the menu on the left.",
   );

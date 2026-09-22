@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import { gsap, prefersReducedMotion } from "@/lib/motion/gsap";
 import { slugify } from "@/lib/utils";
 import { HeroStage } from "@/components/sections/HeroStage";
+import type { DemoSiteCopy } from "@/lib/cms/copy-types";
 
 /**
  * The workbench: the finished client site in the centre and the invisible
@@ -11,7 +12,7 @@ import { HeroStage } from "@/components/sections/HeroStage";
  * own side and settles; afterwards they bob gently and shift with the
  * pointer by depth.
  */
-export function HeroBench({ agency, brand }: { agency: string; brand: string }) {
+export function HeroBench({ agency, brand, site }: { agency: string; brand: string; site: DemoSiteCopy }) {
   const ref = useRef<HTMLDivElement>(null);
   const slug = slugify(agency);
 
@@ -105,7 +106,7 @@ export function HeroBench({ agency, brand }: { agency: string; brand: string }) 
 
   return (
     <div ref={ref} className="bench">
-      <HeroStage agency={agency} brand={brand} />
+      <HeroStage agency={agency} brand={brand} site={site} />
 
       <div className="bench-cards-mobile">
         <div className="bench-card c-staging lg-only" data-depth="0.3" aria-hidden="true">

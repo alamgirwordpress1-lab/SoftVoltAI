@@ -8,6 +8,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { briefSchema, WORK_TYPES, PLATFORMS, BUDGETS, type BriefInput } from "@/lib/forms/brief-schema";
 import { SubmitButton } from "@/components/ui/Button";
 import { site } from "@/content/site";
+import type { BriefFormCopy } from "@/lib/cms/copy-types";
 import { cn } from "@/lib/utils";
 
 const STEPS: { title: string; fields: FieldPath<BriefInput>[] }[] = [
@@ -26,8 +27,9 @@ const input =
   "w-full rounded-md border border-line-strong bg-surface px-3 py-2.5 text-[15px] text-ink outline-none transition-colors focus:border-ink aria-[invalid=true]:border-danger";
 const label = "mono mb-1.5 block text-[11px] uppercase tracking-[0.1em] text-muted";
 
-export function BriefForm() {
+export function BriefForm({ copy }: { copy: BriefFormCopy }) {
   const router = useRouter();
+  const steps = STEPS.map((step, i) => ({ ...step, title: copy.steps[i]?.title || step.title }));
   const [step, setStep] = useState(0);
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
   const [serverError, setServerError] = useState("");
@@ -73,15 +75,12 @@ export function BriefForm() {
   if (status === "sent") {
     return (
       <div className="card p-8 md:p-10" role="status">
-        <span className="eyebrow">Brief received</span>
-        <h3 className="display display-md mt-4">Thank you. You will hear from a named producer within one business day.</h3>
-        <p className="mt-4 max-w-[56ch] text-muted">
-          The scope and fixed price follow within two business days. If you asked for the NDA first, it arrives before any client
-          detail is discussed.
-        </p>
+        <span className="eyebrow">{copy.sent_eyebrow}</span>
+        <h3 className="display display-md mt-4">{copy.sent_heading}</h3>
+        <p className="mt-4 max-w-[56ch] text-muted">{copy.sent_lede}</p>
         {site.calUrl ? (
           <a href={site.calUrl} target="_blank" rel="noopener noreferrer" className="mt-6 inline-block text-ink underline underline-offset-4">
-            Want to talk it through sooner? Book the 20-minute scoping call ↗
+            {copy.sent_call}
           </a>
         ) : null}
       </div>
@@ -92,14 +91,14 @@ export function BriefForm() {
     <form onSubmit={onSubmit} noValidate className="card shadow-float p-6 md:p-8" aria-labelledby="brief-form-title">
       <div className="flex items-center justify-between gap-4">
         <h3 id="brief-form-title" className="text-lg font-semibold text-ink">
-          {STEPS[step].title}
+          {steps[step].title}
         </h3>
         <span className="mono text-[12px] uppercase tracking-[0.1em] text-muted">
-          Step {step + 1} of {STEPS.length}
+          {copy.step_counter.replace("{step}", String(step + 1)).replace("{total}", String(steps.length))}
         </span>
       </div>
       <div className="mt-3 flex gap-1.5" aria-hidden="true">
-        {STEPS.map((s, i) => (
+        {steps.map((s, i) => (
           <span key={s.title} className={cn("h-1 flex-1 rounded-full transition-colors duration-300", i <= step ? "bg-accent" : "bg-raised")} />
         ))}
       </div>
@@ -107,7 +106,7 @@ export function BriefForm() {
       {/* step 1 */}
       <fieldset hidden={step !== 0} className="mt-7 space-y-6">
         <div>
-          <span className={label}>Kind of work</span>
+          <span className={label}>{copy.work_label}</span>
           <div className="flex flex-wrap gap-2" role="radiogroup" aria-label="Kind of work">
             {WORK_TYPES.map((w) => (
               <label key={w} className={chip(workType === w)}>
@@ -119,7 +118,7 @@ export function BriefForm() {
           <FieldError msg={errors.workType?.message} />
         </div>
         <div>
-          <span className={label}>Platform — pick any that apply</span>
+          <span className={label}>{copy.platform_label}</span>
           <div className="flex flex-wrap gap-2">
             {PLATFORMS.map((p) => (
               <label key={p} className={chip(platforms?.includes(p))}>
@@ -137,27 +136,27 @@ export function BriefForm() {
         <div className="grid gap-5 sm:grid-cols-2">
           <div>
             <label htmlFor="brief-figma" className={label}>
-              Figma URL (optional)
+              {copy.figma_label}
             </label>
-            <input id="brief-figma" type="url" placeholder="https://www.figma.com/…" {...register("figmaUrl")} aria-invalid={!!errors.figmaUrl} className={input} />
+            <input id="brief-figma" type="url" placeholder={copy.figma_placeholder} {...register("figmaUrl")} aria-invalid={!!errors.figmaUrl} className={input} />
             <FieldError msg={errors.figmaUrl?.message} />
           </div>
           <div>
             <label htmlFor="brief-live" className={label}>
-              Live or staging URL (optional)
+              {copy.live_label}
             </label>
-            <input id="brief-live" type="url" placeholder="https://" {...register("liveUrl")} aria-invalid={!!errors.liveUrl} className={input} />
+            <input id="brief-live" type="url" placeholder={copy.live_placeholder} {...register("liveUrl")} aria-invalid={!!errors.liveUrl} className={input} />
             <FieldError msg={errors.liveUrl?.message} />
           </div>
         </div>
         <div>
           <label htmlFor="brief-text" className={label}>
-            The brief, in your words
+            {copy.brief_label}
           </label>
           <textarea
             id="brief-text"
             rows={6}
-            placeholder="What the client needs, what exists today, what 'done' looks like. Client names can wait until the NDA."
+            placeholder={copy.brief_placeholder}
             {...register("brief")}
             aria-invalid={!!errors.brief}
             className={input}
@@ -170,12 +169,12 @@ export function BriefForm() {
       <fieldset hidden={step !== 2} className="mt-7 space-y-6">
         <div>
           <label htmlFor="brief-deadline" className={label}>
-            Deadline (a date, or &quot;flexible&quot;)
+            {copy.deadline_label}
           </label>
-          <input id="brief-deadline" type="text" placeholder="e.g. client launch 24 October, or flexible" {...register("deadline")} className={input} />
+          <input id="brief-deadline" type="text" placeholder={copy.deadline_placeholder} {...register("deadline")} className={input} />
         </div>
         <div>
-          <span className={label}>Budget range</span>
+          <span className={label}>{copy.budget_label}</span>
           <div className="flex flex-wrap gap-2" role="radiogroup" aria-label="Budget range">
             {BUDGETS.map((b) => (
               <label key={b} className={chip(budget === b)}>
@@ -193,14 +192,14 @@ export function BriefForm() {
         <div className="grid gap-5 sm:grid-cols-2">
           <div>
             <label htmlFor="brief-name" className={label}>
-              Your name
+              {copy.name_label}
             </label>
             <input id="brief-name" type="text" autoComplete="name" {...register("name")} aria-invalid={!!errors.name} className={input} />
             <FieldError msg={errors.name?.message} />
           </div>
           <div>
             <label htmlFor="brief-agency" className={label}>
-              Agency
+              {copy.agency_label}
             </label>
             <input id="brief-agency" type="text" autoComplete="organization" {...register("agency")} aria-invalid={!!errors.agency} className={input} />
             <FieldError msg={errors.agency?.message} />
@@ -208,7 +207,7 @@ export function BriefForm() {
         </div>
         <div>
           <label htmlFor="brief-email" className={label}>
-            Work email
+            {copy.email_label}
           </label>
           <input id="brief-email" type="email" autoComplete="email" {...register("email")} aria-invalid={!!errors.email} className={input} />
           <FieldError msg={errors.email?.message} />
@@ -220,15 +219,20 @@ export function BriefForm() {
         </div>
         <label className="flex items-start gap-3 text-[15px] text-ink">
           <input id="brief-nda" type="checkbox" {...register("nda")} className="mt-1 h-4 w-4 accent-accent" />
-          Send me your mutual NDA before I share client details
+          {copy.nda_label}
         </label>
         <label className="flex items-start gap-3 text-[15px] text-ink">
           <input id="brief-consent" type="checkbox" {...register("consent")} aria-invalid={!!errors.consent} className="mt-1 h-4 w-4 accent-accent" />
           <span>
-            You may use these details to reply about this brief. Nothing else, no newsletter —{" "}
-            <Link href={site.privacyPath} target="_blank" className="underline decoration-line underline-offset-4 hover:decoration-accent">
-              privacy policy
-            </Link>
+            {copy.consent_label}
+            {copy.privacy_link ? (
+              <>
+                {" — "}
+                <Link href={site.privacyPath} target="_blank" className="underline decoration-line underline-offset-4 hover:decoration-accent">
+                  {copy.privacy_link}
+                </Link>
+              </>
+            ) : null}
             .
             <FieldError msg={errors.consent?.message} />
           </span>
@@ -244,17 +248,17 @@ export function BriefForm() {
       <div className="mt-8 flex flex-wrap items-center gap-3">
         {step > 0 ? (
           <button type="button" onClick={() => setStep((s) => s - 1)} className="rounded-md border border-line-strong px-5 py-3 text-[15px] font-medium text-ink hover:border-ink">
-            Back
+            {copy.back}
           </button>
         ) : null}
         {step < STEPS.length - 1 ? (
           <button type="button" onClick={next} className="rounded-md bg-ink px-5 py-3 text-[15px] font-medium text-paper hover:bg-ink-hover">
-            Continue
+            {copy.next}
           </button>
         ) : (
-          <SubmitButton disabled={status === "sending"}>{status === "sending" ? "Sending…" : "Send the brief"}</SubmitButton>
+          <SubmitButton disabled={status === "sending"}>{status === "sending" ? copy.sending : copy.submit}</SubmitButton>
         )}
-        <p className="mono text-[11px] uppercase tracking-[0.08em] text-muted">Reply within 1 business day</p>
+        <p className="mono text-[11px] uppercase tracking-[0.08em] text-muted">{copy.reply_note}</p>
       </div>
     </form>
   );

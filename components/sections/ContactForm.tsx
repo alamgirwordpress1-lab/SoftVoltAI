@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { CONTACT_BUDGETS, CONTACT_TOPICS } from "@/lib/forms/contact-schema";
 import { site } from "@/content/site";
+import type { MessageFormCopy } from "@/lib/cms/copy-types";
 import { cn } from "@/lib/utils";
 
 /**
@@ -29,7 +30,12 @@ import { cn } from "@/lib/utils";
 const field = "w-full rounded-md border border-line-strong bg-surface px-3.5 py-2.5 text-[15px] text-ink outline-none transition-colors placeholder:text-muted/70 focus:border-ink";
 const label = "mono mb-1.5 block text-[11px] uppercase tracking-[0.1em] text-muted";
 
-export function ContactForm() {
+/** The mark beside a question that has to be answered; an editor hides it with a dash. */
+function Required({ mark }: { mark: string }) {
+  return mark ? <span className="text-accent">{mark}</span> : null;
+}
+
+export function ContactForm({ copy }: { copy: MessageFormCopy }) {
   const router = useRouter();
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
   const [error, setError] = useState("");
@@ -87,47 +93,47 @@ export function ContactForm() {
     <form onSubmit={onSubmit} className="card shadow-float p-6 md:p-8" aria-labelledby="message-form-title">
       <div className="flex flex-wrap items-baseline justify-between gap-4">
         <h3 id="message-form-title" className="text-lg font-semibold text-ink">
-          Send a message
+          {copy.title}
         </h3>
-        <span className="mono text-[12px] uppercase tracking-[0.1em] text-muted">Reply within 1 business day</span>
+        <span className="mono text-[12px] uppercase tracking-[0.1em] text-muted">{copy.reply_note}</span>
       </div>
 
       <div className="mt-7 grid gap-5 sm:grid-cols-2">
         <div>
           <label className={label} htmlFor="contact-name">
-            Your name <span className="text-accent">*</span>
+            {copy.name_label} <Required mark={copy.required_note} />
           </label>
-          <input id="contact-name" name="name" type="text" required minLength={2} maxLength={80} autoComplete="name" placeholder="Alex Roe" className={field} />
+          <input id="contact-name" name="name" type="text" required minLength={2} maxLength={80} autoComplete="name" placeholder={copy.name_placeholder} className={field} />
         </div>
 
         <div>
           <label className={label} htmlFor="contact-email">
-            Email <span className="text-accent">*</span>
+            {copy.email_label} <Required mark={copy.required_note} />
           </label>
-          <input id="contact-email" name="email" type="email" required maxLength={160} autoComplete="email" placeholder="alex@agency.com" className={field} />
+          <input id="contact-email" name="email" type="email" required maxLength={160} autoComplete="email" placeholder={copy.email_placeholder} className={field} />
         </div>
 
         <div>
           <label className={label} htmlFor="contact-company">
-            Agency or company
+            {copy.company_label}
           </label>
-          <input id="contact-company" name="company" type="text" maxLength={120} autoComplete="organization" placeholder="Northwind Digital" className={field} />
+          <input id="contact-company" name="company" type="text" maxLength={120} autoComplete="organization" placeholder={copy.company_placeholder} className={field} />
         </div>
 
         <div>
           <label className={label} htmlFor="contact-phone">
-            Phone <span className="normal-case tracking-normal">(optional)</span>
+            {copy.phone_label}
           </label>
-          <input id="contact-phone" name="phone" type="tel" maxLength={40} autoComplete="tel" placeholder="+44 7700 900123" className={field} />
+          <input id="contact-phone" name="phone" type="tel" maxLength={40} autoComplete="tel" placeholder={copy.phone_placeholder} className={field} />
         </div>
 
         <div>
           <label className={label} htmlFor="contact-topic">
-            What is it about? <span className="text-accent">*</span>
+            {copy.topic_label} <Required mark={copy.required_note} />
           </label>
           <select id="contact-topic" name="topic" required defaultValue="" className={cn(field, "appearance-none bg-[length:14px] bg-[right_0.9rem_center] bg-no-repeat pr-10 contact-select")}>
             <option value="" disabled>
-              Pick one
+              {copy.topic_placeholder}
             </option>
             {CONTACT_TOPICS.map((t) => (
               <option key={t} value={t}>
@@ -139,10 +145,10 @@ export function ContactForm() {
 
         <div>
           <label className={label} htmlFor="contact-budget">
-            Budget <span className="normal-case tracking-normal">(optional)</span>
+            {copy.budget_label}
           </label>
           <select id="contact-budget" name="budget" defaultValue="" className={cn(field, "appearance-none bg-[length:14px] bg-[right_0.9rem_center] bg-no-repeat pr-10 contact-select")}>
-            <option value="">Prefer not to say</option>
+            <option value="">{copy.budget_empty}</option>
             {CONTACT_BUDGETS.map((b) => (
               <option key={b} value={b}>
                 {b}
@@ -153,7 +159,7 @@ export function ContactForm() {
 
         <div className="sm:col-span-2">
           <label className={label} htmlFor="contact-message">
-            Message <span className="text-accent">*</span>
+            {copy.message_label} <Required mark={copy.required_note} />
           </label>
           <textarea
             id="contact-message"
@@ -162,7 +168,7 @@ export function ContactForm() {
             minLength={10}
             maxLength={4000}
             rows={6}
-            placeholder="What exists today, what the client needs, and when it has to be live. Client names can wait until the NDA is signed."
+            placeholder={copy.message_placeholder}
             className={cn(field, "resize-y leading-relaxed")}
           />
         </div>
@@ -176,7 +182,7 @@ export function ContactForm() {
 
       <label className="mt-6 flex cursor-pointer items-start gap-3 text-[14px] leading-relaxed text-ink">
         <input name="nda" type="checkbox" className="mt-0.5 h-4 w-4 shrink-0 rounded border-line-strong accent-[var(--color-accent)]" />
-        Send me the mutual NDA first — before any client detail is discussed.
+        {copy.nda_label}
       </label>
 
       <div className="mt-7 flex flex-wrap items-center gap-x-5 gap-y-3 border-t border-line pt-6">
@@ -185,13 +191,18 @@ export function ContactForm() {
           disabled={status === "sending"}
           className="ui inline-flex items-center justify-center gap-2 rounded-md bg-ink px-5 py-3 text-[15px] font-semibold text-paper transition-[background-color,transform] duration-200 hover:bg-ink-hover active:translate-y-px disabled:opacity-60"
         >
-          {status === "sending" ? "Sending…" : "Send message"}
+          {status === "sending" ? copy.sending : copy.submit}
         </button>
         <p className="text-[13px] leading-relaxed text-muted">
-          We reply from a person, never a sales sequence. Your details are used to answer you and nothing else —{" "}
-          <Link href={site.privacyPath} target="_blank" className="underline decoration-line underline-offset-4 hover:text-ink hover:decoration-accent">
-            privacy policy
-          </Link>
+          {copy.consent}
+          {copy.privacy_link ? (
+            <>
+              {" — "}
+              <Link href={site.privacyPath} target="_blank" className="underline decoration-line underline-offset-4 hover:text-ink hover:decoration-accent">
+                {copy.privacy_link}
+              </Link>
+            </>
+          ) : null}
           .
         </p>
       </div>

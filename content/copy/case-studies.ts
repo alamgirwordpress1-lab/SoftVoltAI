@@ -79,6 +79,7 @@ export const caseStudiesCopy = page("case-studies", "/case-studies", "Case Studi
         { help: "The name has to match a Build type used on the case studies, or the note has nowhere to go." },
       ),
     },
+    "Which builds fall into which group is decided by each build’s category, under Case studies in the menu on the left.",
   ),
 
   by_market: section(
@@ -109,6 +110,7 @@ export const caseStudiesCopy = page("case-studies", "/case-studies", "Case Studi
         "Nothing here is a logo wall: every count comes from a build listed on this page, and every tool is one the team uses in production.",
       ),
     },
+    "The markets and the tools are read from the builds themselves, under Case studies in the menu on the left.",
   ),
 
   work: { ...work, fields: { ...work.fields, link: link("Text link", "-", "/case-studies", "Type - (a dash) as the link text to show no link.") } },
@@ -130,6 +132,7 @@ export const caseStudiesCopy = page("case-studies", "/case-studies", "Case Studi
         "Set in darker type under the paragraph.",
       ),
     },
+    "A written band: nothing in it is read from a list.",
   ),
 
   cta: ctaBand(),
