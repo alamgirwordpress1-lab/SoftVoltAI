@@ -52,6 +52,14 @@ function softvolt_settings_schema(): array
         'comparison_source_label' => ['label' => 'Comparison source', 'type' => 'text', 'default' => '', 'help' => 'The publication the figure in the table is quoted from. It is printed under the table, so it has to be checkable.'],
         'comparison_source_url'   => ['label' => 'Comparison source link', 'type' => 'url', 'default' => ''],
 
+        // the cookie banner, which lives on the front end, not on this install
+        'cookie_script'     => [
+            'label' => 'Cookie banner script',
+            'type'  => 'url',
+            'default' => '',
+            'help'  => 'The address of the consent banner script, e.g. https://cdn-cookieyes.com/client_data/<key>/script.js from a connected CookieYes account. The front end loads it on every page. Leave it empty for no banner. The CookieYes plugin on this install only shows its banner on WordPress pages, which visitors never see.',
+        ],
+
         // the forms
         'cf7_brief_id'      => ['label' => 'Contact Form 7 — brief form ID', 'type' => 'text', 'default' => ''],
         'cf7_contact_id'    => ['label' => 'Contact Form 7 — message form ID', 'type' => 'text', 'default' => ''],

@@ -59,6 +59,8 @@ export interface SiteChrome {
   mega: { resources: string; footer: string };
   /** Set when Contact Form 7 has reCAPTCHA on: the forms then send it a token. */
   recaptchaSiteKey: string;
+  /** A consent banner script to load on every page, or "" for none. */
+  cookieScript: string;
   /** Where this came from — useful in the admin, and in a bug report. */
   source: "wordpress" | "content";
 }
@@ -108,6 +110,7 @@ export const getSiteChrome = cache(async (): Promise<SiteChrome> => {
     logoDark: null,
     mega: { resources: "Proof, pricing and where to start.", footer: "Not sure which service fits? Send the brief — the scope tells you." },
     recaptchaSiteKey: "",
+    cookieScript: "",
     socials,
     source: "content",
   };
@@ -169,6 +172,7 @@ export const getSiteChrome = cache(async (): Promise<SiteChrome> => {
       footer: settings.megaFooterNote || local.mega.footer,
     },
     recaptchaSiteKey: settings.recaptchaSiteKey || "",
+    cookieScript: settings.cookieScript || "",
     source: "wordpress",
   };
 });

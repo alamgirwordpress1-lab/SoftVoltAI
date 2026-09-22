@@ -51,6 +51,8 @@ export interface WpSettings {
   cf7ContactId: string;
   /** Contact Form 7's reCAPTCHA site key, or "" when reCAPTCHA is off. */
   recaptchaSiteKey: string;
+  /** The consent banner's script, loaded by the front end. Empty for no banner. */
+  cookieScript: string;
 }
 
 /** A picture chosen in the media library, as the settings screen hands it over. */

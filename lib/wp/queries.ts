@@ -44,6 +44,7 @@ export const SITE_SETTINGS = /* GraphQL */ `
       cf7BriefId
       cf7ContactId
       recaptchaSiteKey
+      cookieScript
       comparisonSource { label href }
     }
   }

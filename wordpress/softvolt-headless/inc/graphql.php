@@ -58,6 +58,7 @@ add_action('graphql_register_types', static function (): void {
             'megaFooterNote'    => ['type' => 'String'],
             'cf7BriefId'   => ['type' => 'String'],
             'recaptchaSiteKey' => ['type' => 'String'],
+            'cookieScript' => ['type' => 'String'],
             'cf7ContactId' => ['type' => 'String'],
             'comparisonSource' => ['type' => 'SoftVoltLink'],
         ],
@@ -100,6 +101,7 @@ add_action('graphql_register_types', static function (): void {
                 // Contact Form 7 keeps the pair; only the site key is public, and the
                 // front end needs it to ask Google for a token before it posts a form
                 'recaptchaSiteKey' => softvolt_recaptcha_site_key(),
+                'cookieScript' => (string) softvolt_setting('cookie_script'),
                 'cf7ContactId' => (string) softvolt_setting('cf7_contact_id'),
                 'comparisonSource' => ['label' => (string) softvolt_setting('comparison_source_label'), 'href' => (string) softvolt_setting('comparison_source_url')],
             ];

@@ -112,6 +112,14 @@ function softvolt_settings_schema(): array
         'comparison_source_label' => ['label' => 'Comparison source', 'type' => 'text', 'default' => '', 'help' => 'The publication the figure in the table is quoted from. It is printed under the table, so it has to be checkable.'],
         'comparison_source_url'   => ['label' => 'Comparison source link', 'type' => 'url', 'default' => ''],
 
+        // the cookie banner, which lives on the front end, not on this install
+        'cookie_script'     => [
+            'label' => 'Cookie banner script',
+            'type'  => 'url',
+            'default' => '',
+            'help'  => 'The address of the consent banner script, e.g. https://cdn-cookieyes.com/client_data/<key>/script.js from a connected CookieYes account. The front end loads it on every page. Leave it empty for no banner. The CookieYes plugin on this install only shows its banner on WordPress pages, which visitors never see.',
+        ],
+
         // the forms
         'cf7_brief_id'      => ['label' => 'Contact Form 7 — brief form ID', 'type' => 'text', 'default' => ''],
         'cf7_contact_id'    => ['label' => 'Contact Form 7 — message form ID', 'type' => 'text', 'default' => ''],
@@ -1141,6 +1149,11 @@ add_action('admin_init', static function (): void {
             ['footer_blurb', 'footer_note', 'social_links'],
         ],
         'forms'     => ['Forms', 'Contact Form 7 ids, so the front end can post to the right form.', ['cf7_brief_id', 'cf7_contact_id']],
+        'consent'   => [
+            'Cookie banner',
+            'The banner visitors see on softvoltai.com. A plugin on this install cannot show it there — WordPress has no front end here — so the front end loads a script instead. Connect the CookieYes plugin to a free CookieYes account, register the site as www.softvoltai.com, and paste the script address it gives you.',
+            ['cookie_script'],
+        ],
         'comparison' => ['Comparison table', 'The one outside figure the home page quotes, and where a reader can check it.', ['comparison_source_label', 'comparison_source_url']],
     ];
 
@@ -1358,6 +1371,7 @@ add_action('graphql_register_types', static function (): void {
             'megaFooterNote'    => ['type' => 'String'],
             'cf7BriefId'   => ['type' => 'String'],
             'recaptchaSiteKey' => ['type' => 'String'],
+            'cookieScript' => ['type' => 'String'],
             'cf7ContactId' => ['type' => 'String'],
             'comparisonSource' => ['type' => 'SoftVoltLink'],
         ],
@@ -1400,6 +1414,7 @@ add_action('graphql_register_types', static function (): void {
                 // Contact Form 7 keeps the pair; only the site key is public, and the
                 // front end needs it to ask Google for a token before it posts a form
                 'recaptchaSiteKey' => softvolt_recaptcha_site_key(),
+                'cookieScript' => (string) softvolt_setting('cookie_script'),
                 'cf7ContactId' => (string) softvolt_setting('cf7_contact_id'),
                 'comparisonSource' => ['label' => (string) softvolt_setting('comparison_source_label'), 'href' => (string) softvolt_setting('comparison_source_url')],
             ];

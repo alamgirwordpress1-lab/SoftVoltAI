@@ -90,6 +90,11 @@ add_action('admin_init', static function (): void {
             ['footer_blurb', 'footer_note', 'social_links'],
         ],
         'forms'     => ['Forms', 'Contact Form 7 ids, so the front end can post to the right form.', ['cf7_brief_id', 'cf7_contact_id']],
+        'consent'   => [
+            'Cookie banner',
+            'The banner visitors see on softvoltai.com. A plugin on this install cannot show it there — WordPress has no front end here — so the front end loads a script instead. Connect the CookieYes plugin to a free CookieYes account, register the site as www.softvoltai.com, and paste the script address it gives you.',
+            ['cookie_script'],
+        ],
         'comparison' => ['Comparison table', 'The one outside figure the home page quotes, and where a reader can check it.', ['comparison_source_label', 'comparison_source_url']],
     ];
 
