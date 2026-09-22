@@ -23,6 +23,16 @@ add_action('graphql_register_types', static function (): void {
         ],
     ]);
 
+    register_graphql_object_type('SoftVoltImage', [
+        'description' => __('A picture chosen in the media library.', 'softvolt-headless'),
+        'fields'      => [
+            'src'    => ['type' => 'String'],
+            'alt'    => ['type' => 'String'],
+            'width'  => ['type' => 'Int'],
+            'height' => ['type' => 'Int'],
+        ],
+    ]);
+
     register_graphql_object_type('SoftVoltSettings', [
         'description' => __('Site-wide settings from the Headless screen: the header, the footer and the identity.', 'softvolt-headless'),
         'fields'      => [
@@ -42,6 +52,10 @@ add_action('graphql_register_types', static function (): void {
             'ctaPrimary'   => ['type' => 'SoftVoltLink'],
             'ctaSecondary' => ['type' => 'SoftVoltLink'],
             'headerCta'    => ['type' => 'SoftVoltLink'],
+            'logo'         => ['type' => 'SoftVoltImage'],
+            'logoDark'     => ['type' => 'SoftVoltImage'],
+            'megaResourcesNote' => ['type' => 'String'],
+            'megaFooterNote'    => ['type' => 'String'],
             'cf7BriefId'   => ['type' => 'String'],
             'cf7ContactId' => ['type' => 'String'],
             'comparisonSource' => ['type' => 'SoftVoltLink'],
@@ -77,6 +91,10 @@ add_action('graphql_register_types', static function (): void {
                 'ctaPrimary'   => ['label' => (string) softvolt_setting('cta_primary_label'), 'href' => (string) softvolt_setting('cta_primary_href')],
                 'ctaSecondary' => ['label' => (string) softvolt_setting('cta_secondary_label'), 'href' => (string) softvolt_setting('cta_secondary_href')],
                 'headerCta'    => ['label' => (string) softvolt_setting('header_cta_label'), 'href' => (string) softvolt_setting('header_cta_href')],
+                'logo'         => softvolt_setting_image('logo'),
+                'logoDark'     => softvolt_setting_image('logo_dark'),
+                'megaResourcesNote' => (string) softvolt_setting('mega_resources_note'),
+                'megaFooterNote'    => (string) softvolt_setting('mega_footer_note'),
                 'cf7BriefId'   => (string) softvolt_setting('cf7_brief_id'),
                 'cf7ContactId' => (string) softvolt_setting('cf7_contact_id'),
                 'comparisonSource' => ['label' => (string) softvolt_setting('comparison_source_label'), 'href' => (string) softvolt_setting('comparison_source_url')],

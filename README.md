@@ -211,9 +211,26 @@ docs/                        images used in this README
 
 ## Editing content
 
-Pages never import from `content/` directly. They call `cms` from `lib/cms`, which currently returns the typed local data. A future CMS adapter (WordPress through WPGraphQL, or Payload) only needs to implement the same functions.
+The site is edited in WordPress at [cms.softvoltai.com](https://cms.softvoltai.com/wp-admin). Nothing on it needs a deploy, and nobody needs to touch this repo to change a word or a picture:
 
-| To change… | Edit |
+| To change… | In WordPress |
+| --- | --- |
+| The words on a page | **Pages** → open the page. Every band of the page is a tab down the left, in the order a visitor reads them — banner, each section, the closing call to action, and what Google shows |
+| The header | **Headless → Header**: the logo, the button on the right and the two lines inside the Services menu. The menu itself is **Appearance → Menus**, "Header navigation" |
+| The footer | **Appearance → Menus**, "Footer navigation" for the columns and "Legal links" for the small row; **Headless → Footer** for the blurb, the note and the social links |
+| The cards and lists inside a page | Their own menu: Services, Agency types, Case studies, Plans, FAQs, Commitments, Protection clauses, Process steps, Stack, Comparison, Clocks, Team, Clients |
+| Any picture | The item that owns it — a case study's, a client's or a post's featured image, a team member's photo — chosen from the Media library |
+| The blog | **Posts** |
+
+The full map is printed at the top of the **Headless settings** screen. A change is live about a minute after Update: WordPress calls `/api/revalidate` with the tags it touched.
+
+**Shipping a change that touches both sides:** the front end asks WordPress for exactly the fields it knows about, so a new field has to exist in WordPress *before* the front end asks for it. Update the theme's `functions.php` first (see `wordpress/`), then push. The other way round, one unknown field makes the whole settings read fail and every page falls back to the copy in `content/`.
+
+### The copy in this repo
+
+Pages never import from `content/` directly. They call `cms` from `lib/cms`, which reads WordPress and falls back to these typed files when it is unreachable or empty. They are also the starting value of every field in WordPress, so the two can never drift.
+
+| To change the fallback… | Edit |
 | --- | --- |
 | Company details, navigation, footer links, social profiles, calls to action | `content/site.ts` |
 | Services and their pillars | `content/pillars.ts` (the list) + `content/service-details-*.ts` (the page copy) |

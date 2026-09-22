@@ -130,6 +130,10 @@ export async function wpQuery<T>(query: string, { variables, tags = [], revalida
   }
 
   const body = (await res.json()) as { data?: T; errors?: { message: string }[] };
+  // A GraphQL error arrives as a 200, so Next has already cached it against the
+  // revalidate window: asking WordPress for a field it does not have yet keeps
+  // failing for an hour, even after the field exists. Update the theme first,
+  // then deploy — and clear .next/cache/fetch-cache if a local build got one.
   if (body.errors?.length) {
     throw new WpError(body.errors.map((e) => e.message).join("; "), body.errors);
   }

@@ -1,3 +1,5 @@
+import Image from "next/image";
+import type { SiteLogo } from "@/lib/cms/site";
 import { cn } from "@/lib/utils";
 
 /**
@@ -29,13 +31,53 @@ export function LogoMark({ size = 28, id = "lm", className }: { size?: number; i
   );
 }
 
-export function Logo({ dark = false, className, id = "lm" }: { dark?: boolean; className?: string; id?: string }) {
+/** The wordmark as it is drawn in the design: the second word carries the accent. */
+function Wordmark({ name, dark }: { name: string; dark: boolean }) {
+  const words = name.trim().split(/\s+/);
+  const last = words.length > 1 ? words.pop() : "";
+  return (
+    <span className={cn("whitespace-nowrap font-display text-[19px] font-extrabold tracking-[-0.035em]", dark ? "text-er-ink" : "text-ink")}>
+      {words.join(" ")}
+      {last ? <span className={dark ? "text-volt" : "text-accent"}> {last}</span> : null}
+    </span>
+  );
+}
+
+/**
+ * The brand, in the header and the footer. An editor who uploads a logo on the
+ * Headless settings screen gets that picture instead of the built-in mark and
+ * wordmark — unoptimised, because a logo is usually an SVG or a small PNG and
+ * both should reach the page exactly as they were drawn.
+ */
+export function Logo({
+  dark = false,
+  className,
+  id = "lm",
+  name = "SoftVolt AI",
+  image = null,
+}: {
+  dark?: boolean;
+  className?: string;
+  id?: string;
+  /** The brand name from the settings screen. */
+  name?: string;
+  /** The uploaded logo, when there is one. */
+  image?: SiteLogo | null;
+}) {
+  if (image?.src) {
+    const height = 34;
+    const width = image.width && image.height ? Math.round((image.width / image.height) * height) : height * 4;
+    return (
+      <span className={cn("inline-flex items-center", className)}>
+        <Image src={image.src} alt={image.alt || name} width={width} height={height} unoptimized className="h-[34px] w-auto" priority />
+      </span>
+    );
+  }
+
   return (
     <span className={cn("inline-flex items-center gap-2.5", className)}>
       <LogoMark size={30} id={id} />
-      <span className={cn("whitespace-nowrap font-display text-[19px] font-extrabold tracking-[-0.035em]", dark ? "text-er-ink" : "text-ink")}>
-        SoftVolt<span className={dark ? "text-volt" : "text-accent"}> AI</span>
-      </span>
+      <Wordmark name={name} dark={dark} />
     </span>
   );
 }

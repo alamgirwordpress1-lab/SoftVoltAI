@@ -37,6 +37,10 @@ export const SITE_SETTINGS = /* GraphQL */ `
       ctaPrimary { label href }
       ctaSecondary { label href }
       headerCta { label href }
+      logo { src alt width height }
+      logoDark { src alt width height }
+      megaResourcesNote
+      megaFooterNote
       cf7BriefId
       cf7ContactId
       comparisonSource { label href }

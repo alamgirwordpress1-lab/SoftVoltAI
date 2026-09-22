@@ -12,7 +12,16 @@ import { cn } from "@/lib/utils";
  * Opens on hover intent, focus or click; closes on leave, Escape, outside
  * click, navigation or focus leaving the panel.
  */
-export function MegaMenu({ pillars, active = false }: { pillars: PillarGroup[]; active?: boolean }) {
+export function MegaMenu({
+  pillars,
+  active = false,
+  notes = { resources: "Proof, pricing and where to start.", footer: "Not sure which service fits? Send the brief — the scope tells you." },
+}: {
+  pillars: PillarGroup[];
+  active?: boolean;
+  /** The two written lines in this panel, from Headless settings → Header. */
+  notes?: { resources: string; footer: string };
+}) {
   const [open, setOpen] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
   const closeTimer = useRef<number | undefined>(undefined);
@@ -122,13 +131,13 @@ export function MegaMenu({ pillars, active = false }: { pillars: PillarGroup[]; 
             style={{ transitionDelay: open ? "170ms" : "0ms" }}
           >
             <span className="eyebrow">Resources</span>
-            <p className="mt-2 text-[13px] leading-snug text-muted">Proof, pricing and where to start.</p>
+            <p className="mt-2 text-[13px] leading-snug text-muted">{notes.resources}</p>
             <ul className="mt-4 grid">{resourceLinks.map((l, i) => link(l.href, l.label, 220 + i * 22))}</ul>
           </div>
         </div>
 
         <div className="er flex flex-wrap items-center justify-between gap-4 rounded-b-[15px] px-6 py-4 lg:px-8">
-          <p className="text-[14px] text-er-ink">Not sure which service fits? Send the brief — the scope tells you.</p>
+          <p className="text-[14px] text-er-ink">{notes.footer}</p>
           <div className="flex flex-wrap items-center gap-5">
             <Link href="/contact" onClick={close} tabIndex={open ? 0 : -1} className="ui inline-flex items-center gap-2 text-[13px] font-semibold uppercase tracking-[0.1em] text-volt hover:underline">
               Send us a brief <span aria-hidden="true">→</span>

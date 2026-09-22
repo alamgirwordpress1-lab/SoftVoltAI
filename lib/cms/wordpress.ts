@@ -42,8 +42,21 @@ export interface WpSettings {
   ctaPrimary: WpLink;
   ctaSecondary: WpLink;
   headerCta: WpLink;
+  /** The logo an editor uploaded on the settings screen, or null for the built-in mark. */
+  logo: WpSettingsImage | null;
+  logoDark: WpSettingsImage | null;
+  megaResourcesNote: string;
+  megaFooterNote: string;
   cf7BriefId: string;
   cf7ContactId: string;
+}
+
+/** A picture chosen in the media library, as the settings screen hands it over. */
+export interface WpSettingsImage {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
 }
 
 export async function wpSettings(): Promise<WpSettings | null> {

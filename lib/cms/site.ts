@@ -24,6 +24,13 @@ export interface ChromeColumn {
   links: ChromeLink[];
 }
 
+export interface SiteLogo {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+}
+
 export interface SiteChrome {
   name: string;
   tagline: string;
@@ -45,6 +52,11 @@ export interface SiteChrome {
   footerBlurb: string;
   footerNote: string;
   socials: typeof socials;
+  /** An uploaded logo, or null when the site uses its built-in mark. */
+  logo: SiteLogo | null;
+  logoDark: SiteLogo | null;
+  /** The two written lines inside the Services mega menu. */
+  mega: { resources: string; footer: string };
   /** Where this came from — useful in the admin, and in a bug report. */
   source: "wordpress" | "content";
 }
@@ -90,6 +102,9 @@ export const getSiteChrome = cache(async (): Promise<SiteChrome> => {
     legalLinks: [...legalLinks],
     footerBlurb: "",
     footerNote: "",
+    logo: null,
+    logoDark: null,
+    mega: { resources: "Proof, pricing and where to start.", footer: "Not sure which service fits? Send the brief — the scope tells you." },
     socials,
     source: "content",
   };
@@ -144,6 +159,12 @@ export const getSiteChrome = cache(async (): Promise<SiteChrome> => {
     footerBlurb: settings.footerBlurb || "",
     footerNote: settings.footerNote || "",
     socials: wpSocials ?? local.socials,
+    logo: settings.logo?.src ? settings.logo : null,
+    logoDark: settings.logoDark?.src ? settings.logoDark : (settings.logo?.src ? settings.logo : null),
+    mega: {
+      resources: settings.megaResourcesNote || local.mega.resources,
+      footer: settings.megaFooterNote || local.mega.footer,
+    },
     source: "wordpress",
   };
 });

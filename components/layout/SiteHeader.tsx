@@ -67,13 +67,13 @@ export function SiteHeader({ chrome }: { chrome: SiteChrome }) {
       {/* not `relative`: the mega menu panel positions against the full-width header */}
       <div className="wide-x flex h-16 items-center gap-6 md:h-20 lg:gap-4 xl:gap-6">
         <Link href="/" className="flex items-center gap-2.5" aria-label={`${siteName} — home`} onClick={close}>
-          <Logo id="logo-header" />
+          <Logo id="logo-header" name={siteName} image={chrome.logo} />
         </Link>
 
         <nav aria-label="Primary" className="ml-auto hidden lg:block">
           <ul className="flex items-center gap-4 xl:gap-8">
             <li>
-              <MegaMenu pillars={menuPillars} active={isActive(nav.services.href)} />
+              <MegaMenu pillars={menuPillars} active={isActive(nav.services.href)} notes={chrome.mega} />
             </li>
             <li>
               <NavDropdown

@@ -28,6 +28,12 @@ function softvolt_settings_schema(): array
         'utc_offset'        => ['label' => 'UTC offset label', 'type' => 'text', 'default' => 'UTC+6'],
         'cal_url'           => ['label' => 'Booking link', 'type' => 'url', 'default' => '', 'help' => 'Cal.com or similar. Left empty, the front end asks for a slot in the brief instead.'],
 
+        // the header: the logo, the button on the right, and the two lines inside the Services menu
+        'logo'              => ['label' => 'Logo', 'type' => 'media', 'default' => '', 'help' => 'Optional. A PNG or SVG used in the header and the footer instead of the built-in mark. Leave it empty to keep the built-in one.'],
+        'logo_dark'         => ['label' => 'Logo for dark backgrounds', 'type' => 'media', 'default' => '', 'help' => 'Optional. Used in the footer and in dark mode, where the logo above would be hard to read. Falls back to the logo above.'],
+        'mega_resources_note' => ['label' => 'Services menu — line under "Resources"', 'type' => 'text', 'default' => 'Proof, pricing and where to start.'],
+        'mega_footer_note'  => ['label' => 'Services menu — line in the dark bar', 'type' => 'text', 'default' => 'Not sure which service fits? Send the brief — the scope tells you.'],
+
         // the two calls to action, used in the header, the hero and every band
         'cta_primary_label' => ['label' => 'Primary CTA label', 'type' => 'text', 'default' => 'Send us a brief'],
         'cta_primary_href'  => ['label' => 'Primary CTA link', 'type' => 'text', 'default' => '/contact'],
@@ -49,6 +55,29 @@ function softvolt_settings_schema(): array
         // the forms
         'cf7_brief_id'      => ['label' => 'Contact Form 7 — brief form ID', 'type' => 'text', 'default' => ''],
         'cf7_contact_id'    => ['label' => 'Contact Form 7 — message form ID', 'type' => 'text', 'default' => ''],
+    ];
+}
+
+/**
+ * A media setting as the front end wants it: the file, its alt text and its
+ * size. Empty when nothing is chosen, so the built-in artwork stays.
+ */
+function softvolt_setting_image(string $key): ?array
+{
+    $id = (int) softvolt_setting($key);
+    if (!$id) {
+        return null;
+    }
+    $src = wp_get_attachment_image_url($id, 'full');
+    if (!$src) {
+        return null;
+    }
+    $meta = wp_get_attachment_metadata($id);
+    return [
+        'src'    => $src,
+        'alt'    => (string) get_post_meta($id, '_wp_attachment_image_alt', true),
+        'width'  => (int) ($meta['width'] ?? 0),
+        'height' => (int) ($meta['height'] ?? 0),
     ];
 }
 
