@@ -409,9 +409,24 @@ export interface WpPostCard {
   author: string;
 }
 
+/** One approved comment, as the post page shows it. */
+export interface WpComment {
+  id: number;
+  parent: number;
+  date: string;
+  /** The comment's own HTML, already filtered by WordPress. */
+  html: string;
+  author: string;
+}
+
 export interface WpPost extends WpPostCard {
+  /** WordPress's own id, which a new comment has to be posted against. */
+  id: number;
   /** The editor's HTML, rendered inside .prose-site. */
   content: string;
+  /** False when an editor closed comments on this post. */
+  commentsOpen: boolean;
+  comments: WpComment[];
   seo: WpSeo;
 }
 
@@ -448,10 +463,21 @@ interface RawImage {
   node: { sourceUrl: string; altText: string | null } | null;
 }
 
+interface RawComment {
+  databaseId: number;
+  parentDatabaseId: number | null;
+  dateGmt: string | null;
+  content: string | null;
+  author: { node: { name: string } | null } | null;
+}
+
 interface RawPost {
+  databaseId?: number;
   slug: string;
   title: string;
   content?: string | null;
+  commentStatus?: string | null;
+  comments?: { nodes: RawComment[] } | null;
   excerpt: string | null;
   dateGmt: string | null;
   modifiedGmt: string | null;
@@ -507,7 +533,21 @@ export async function wpPost(slug: string, preview = false): Promise<WpPost | nu
   const data = await wpQuery<{ post: RawPost | null }>(POST_BY_SLUG, { variables: { slug }, tags: ["wp:post", `wp:post:${slug}`], preview });
   const node = data?.post;
   if (!node) return null;
-  return { ...toCard(node), content: node.content ?? "", seo: toSeo(node.seo) };
+  return {
+    ...toCard(node),
+    id: node.databaseId ?? 0,
+    content: node.content ?? "",
+    commentsOpen: (node.commentStatus ?? "open") === "open",
+    // WordPress only returns approved comments to a reader who is not logged in
+    comments: (node.comments?.nodes ?? []).map((c) => ({
+      id: c.databaseId,
+      parent: c.parentDatabaseId ?? 0,
+      date: gmt(c.dateGmt),
+      html: c.content ?? "",
+      author: plain(c.author?.node?.name ?? ""),
+    })),
+    seo: toSeo(node.seo),
+  };
 }
 
 interface RawPage {

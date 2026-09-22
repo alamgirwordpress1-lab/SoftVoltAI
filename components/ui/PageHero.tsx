@@ -19,6 +19,7 @@ export function PageHero({
   children,
   highlights,
   dark = false,
+  titleAs: Title = "h1",
 }: {
   /** Left out only on the 404, which has no place in the trail. */
   crumbs?: Crumb[];
@@ -29,6 +30,12 @@ export function PageHero({
   /** Facts shown on the banner's floating cards; each must come from the page's own content. */
   highlights?: PageHighlight[];
   dark?: boolean;
+  /**
+   * Normally the banner carries the page's one H1. A blog post is the exception:
+   * the banner is the same on every post, so the post's own title downstairs is
+   * the heading, and this one steps out of the outline.
+   */
+  titleAs?: "h1" | "p";
 }) {
   const visual = Boolean(highlights?.length);
   return (
@@ -41,7 +48,7 @@ export function PageHero({
         <div>
           {crumbs ? <Breadcrumbs crumbs={crumbs} dark={dark} /> : null}
           <span className={cn("eyebrow block", crumbs && "mt-8")}>{eyebrow}</span>
-          <h1 className="display display-xl mt-5 max-w-[16ch]">{title}</h1>
+          <Title className="display display-xl mt-5 max-w-[16ch]">{title}</Title>
           {lede ? <p className="lede mt-6 max-w-[64ch]">{lede}</p> : null}
           {children ? <div className="mt-8">{children}</div> : null}
         </div>

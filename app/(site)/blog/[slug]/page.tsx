@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import { PageHero } from "@/components/ui/PageHero";
-import { Button } from "@/components/ui/Button";
 import { Chip } from "@/components/ui/Chip";
 import { JsonLd } from "@/components/seo/JsonLd";
+import { PostAside } from "@/components/sections/PostAside";
+import { PostComments } from "@/components/sections/PostComments";
+import { PostNav } from "@/components/sections/PostNav";
 import { site } from "@/content/site";
 import { shareMetadata } from "@/lib/seo/share";
 import { blogCopy } from "@/content/copy/blog";
@@ -48,15 +49,34 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 const dateFormat = new Intl.DateTimeFormat("en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" });
 
+/** About 200 words a minute, counted from the post's own words. */
+function readingMinutes(html: string) {
+  const words = html
+    .replace(/<[^>]*>/g, " ")
+    .trim()
+    .split(/\s+/)
+    .filter(Boolean).length;
+  return Math.max(1, Math.round(words / 200));
+}
+
 export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const post = await cms.getPost(slug);
   if (!post) notFound();
 
-  const [all, chrome, copy] = await Promise.all([cms.getPosts(4), getSiteChrome(), getCopy(blogCopy)]);
-  const others = all.filter((p) => p.slug !== slug).slice(0, 3);
+  const [all, chrome, copy] = await Promise.all([cms.getPosts(24), getSiteChrome(), getCopy(blogCopy)]);
   const words = copy.post;
+
+  // getPosts returns newest first, so the post before this one in the list is
+  // the newer one and the post after it is the older one
+  const index = all.findIndex((p) => p.slug === slug);
+  const newer = index > 0 ? all[index - 1] : null;
+  const older = index >= 0 && index < all.length - 1 ? all[index + 1] : null;
+  const recent = all.filter((p) => p.slug !== slug).slice(0, 4);
+  const categories = Array.from(new Map(all.flatMap((p) => p.categories).map((c) => [c.slug, c])).values());
+
   const published = post.date ? dateFormat.format(new Date(post.date)) : "";
+  const minutes = words.reading_time.replace("{minutes}", String(readingMinutes(post.content)));
 
   return (
     <>
@@ -74,105 +94,77 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           author: { "@type": post.author ? "Person" : "Organization", name: post.author || site.name },
           publisher: { "@type": "Organization", name: site.name, url: site.url },
           mainEntityOfPage: { "@type": "WebPage", "@id": `${site.url}/blog/${slug}` },
+          commentCount: post.comments.length || undefined,
         }}
       />
 
+      {/* the same banner on every post: the post's own title belongs to the
+          article below it, where a reader expects to find it */}
       <PageHero
         crumbs={[
           { name: "Blog", href: "/blog" },
           { name: post.title, href: `/blog/${slug}` },
         ]}
-        eyebrow={post.categories[0]?.name ?? "Blog"}
-        title={post.title}
-        lede={post.excerpt || undefined}
-        highlights={[
-          ...(published ? [{ label: words.published_label, value: published }] : []),
-          ...(post.author ? [{ label: words.author_label, value: post.author }] : []),
-          ...(post.categories.length ? [{ label: "Filed under", value: post.categories.map((c) => c.name).join(" · ") }] : []),
-        ]}
+        eyebrow={copy.post_banner.eyebrow}
+        title={copy.post_banner.heading}
+        lede={copy.post_banner.lede}
+        titleAs="p"
       />
 
-      {post.image ? (
-        <section className="container-x pb-14 pt-14 md:pb-20 md:pt-20" aria-label={`${post.title} illustration`}>
-          <div className="card shadow-float overflow-hidden" data-reveal>
-            <div className="relative aspect-[16/9] bg-raised">
-              <Image src={post.image.src} alt={post.image.alt || post.title} fill sizes="(min-width: 1024px) 80vw, 100vw" className="object-cover" priority />
-            </div>
-          </div>
-        </section>
-      ) : null}
-
-      <section id="post" aria-labelledby="post-title" className="border-b border-line bg-surface">
-        <div className="container-x grid gap-10 py-16 md:py-24 lg:grid-cols-12 lg:gap-14">
-          <div className="lg:col-span-8">
-            <h2 id="post-title" className="sr-only">
-              {post.title}
-            </h2>
-            {/* the editor's own HTML: headings, lists and links, styled by .prose-site */}
-            <div className="prose-site max-w-[68ch]" dangerouslySetInnerHTML={{ __html: post.content }} />
+      <div className="container-x grid gap-10 py-14 md:py-20 lg:grid-cols-12 lg:gap-14">
+        <article className="lg:col-span-8">
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-2" data-reveal>
+            {post.categories.length ? <Chip>{post.categories[0].name}</Chip> : null}
+            <span className="mono text-[12px] uppercase tracking-[0.08em] text-muted">
+              {published ? <time dateTime={post.date}>{published}</time> : null}
+              {published && minutes ? " · " : null}
+              {minutes}
+            </span>
           </div>
 
-          <aside className="lg:col-span-4" aria-label="About this post">
-            <div className="card sticky top-28 p-7">
-              <p className="eyebrow">{words.card_title}</p>
-              <dl className="mt-5 space-y-4 text-[15px]">
-                {published ? (
-                  <div>
-                    <dt className="mono text-[12px] uppercase tracking-[0.08em] text-muted">{words.published_label}</dt>
-                    <dd className="mt-1 text-ink">
-                      <time dateTime={post.date}>{published}</time>
-                    </dd>
-                  </div>
-                ) : null}
-                {post.author ? (
-                  <div>
-                    <dt className="mono text-[12px] uppercase tracking-[0.08em] text-muted">{words.author_label}</dt>
-                    <dd className="mt-1 text-ink">{post.author}</dd>
-                  </div>
-                ) : null}
-              </dl>
-              {post.categories.length ? (
-                <ul className="mt-6 flex flex-wrap gap-1.5">
-                  {post.categories.map((c) => (
-                    <li key={c.slug}>
-                      <Chip>{c.name}</Chip>
-                    </li>
-                  ))}
-                </ul>
-              ) : null}
-              {words.card_text ? <p className="mt-6 text-[15px] leading-relaxed text-muted">{words.card_text}</p> : null}
-              <div className="mt-6">
-                <Button href={chrome.cta.primary.href}>{chrome.cta.primary.label}</Button>
+          <h1 className="display display-lg mt-5 max-w-[24ch]" data-reveal>
+            {post.title}
+          </h1>
+          {post.excerpt ? (
+            <p className="lede mt-5 max-w-[62ch]" data-reveal>
+              {post.excerpt}
+            </p>
+          ) : null}
+
+          {post.image ? (
+            <figure className="mt-9 overflow-hidden rounded-lg border border-line bg-raised" data-reveal>
+              <div className="relative aspect-[16/9]">
+                <Image src={post.image.src} alt={post.image.alt || post.title} fill sizes="(min-width: 1024px) 66vw, 100vw" className="object-cover" priority />
               </div>
-            </div>
-          </aside>
-        </div>
-      </section>
+            </figure>
+          ) : null}
 
-      {others.length ? (
-        <section id="more" aria-labelledby="more-title" className="border-b border-line">
-          <div className="container-x py-16 md:py-20">
-            <h2 id="more-title" className="display display-lg max-w-[18ch]">
-              {words.more_heading}
-            </h2>
-            <ul className="mt-8 grid gap-6 md:grid-cols-3">
-              {others.map((p) => (
-                <li key={p.slug}>
-                  <article className="card card-lift shadow-soft h-full p-6">
-                    {p.categories.length ? <span className="eyebrow">{p.categories[0].name}</span> : null}
-                    <h3 className="mt-3 text-xl font-semibold tracking-[-0.01em] text-ink">
-                      <Link href={`/blog/${p.slug}`} prefetch={false} className="transition-colors hover:text-accent">
-                        {p.title}
-                      </Link>
-                    </h3>
-                    {p.excerpt ? <p className="mt-3 text-[15px] leading-relaxed text-muted">{p.excerpt}</p> : null}
-                  </article>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </section>
-      ) : null}
+          {/* the editor's own HTML: headings, lists and links, styled by .prose-site */}
+          <div className="prose-site mt-10 max-w-[68ch]" dangerouslySetInnerHTML={{ __html: post.content }} />
+
+          <PostComments postId={post.id} open={post.commentsOpen} comments={post.comments} copy={copy.post_comments} />
+
+          <PostNav previous={older} next={newer} labels={{ previous: words.prev_label, next: words.next_label }} />
+        </article>
+
+        <PostAside
+          post={post}
+          recent={recent}
+          categories={categories}
+          cta={chrome.cta.primary}
+          copy={{
+            published_label: words.published_label,
+            updated_label: words.updated_label,
+            author_label: words.author_label,
+            filed_label: words.filed_label,
+            card_title: words.card_title,
+            recent_heading: words.recent_heading,
+            categories_heading: words.categories_heading,
+            cta_heading: words.cta_heading,
+            cta_text: words.cta_text,
+          }}
+        />
+      </div>
     </>
   );
 }

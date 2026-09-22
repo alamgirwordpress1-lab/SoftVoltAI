@@ -7,7 +7,7 @@ import path from "node:path";
  * headless back end ships as one appendable file built from the same sources.
  */
 const root = path.join(import.meta.dirname, "softvolt-headless");
-const order = ["inc/helpers.php", "inc/post-types.php", "inc/page-copy-data.php", "inc/page-copy.php", "inc/fields.php", "inc/settings.php", "inc/graphql.php", "inc/preview.php", "inc/media.php", "inc/revalidate.php", "inc/headless.php"];
+const order = ["inc/helpers.php", "inc/post-types.php", "inc/page-copy-data.php", "inc/page-copy.php", "inc/fields.php", "inc/settings.php", "inc/graphql.php", "inc/preview.php", "inc/media.php", "inc/revalidate.php", "inc/comments.php", "inc/headless.php"];
 
 const strip = (src) =>
   src

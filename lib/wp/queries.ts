@@ -226,6 +226,16 @@ export const POST_BY_SLUG = /* GraphQL */ `
       featuredImage { node { sourceUrl altText } }
       categories { nodes { name slug } }
       author { node { name } }
+      commentStatus
+      comments(first: 100, where: { order: ASC, orderby: COMMENT_DATE }) {
+        nodes {
+          databaseId
+          parentDatabaseId
+          dateGmt
+          content
+          author { node { name } }
+        }
+      }
       ${SEO}
     }
   }

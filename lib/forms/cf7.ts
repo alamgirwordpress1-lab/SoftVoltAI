@@ -49,6 +49,10 @@ export const CF7_FIELDS = {
 export type Cf7Form = keyof typeof CF7_FIELDS;
 
 /** The WordPress origin: whatever CF7_BASE_URL says, or the REST root we already talk to. */
+export function wpBase() {
+  return cf7Base();
+}
+
 function cf7Base() {
   const base =
     process.env.CF7_BASE_URL || process.env.WP_REST_URL?.replace(/\/wp-json\/?$/, "") || process.env.WP_GRAPHQL_URL?.replace(/\/graphql\/?$/, "") || "";
