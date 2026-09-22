@@ -47,8 +47,9 @@ export const briefSchema = z.object({
   timeZone: z.string().trim().max(80),
   nda: z.boolean(),
   consent: z.literal(true, { message: "We need your permission to reply" }),
-  // honeypot — humans never see it
-  website: z.string().max(0).optional(),
+  // honeypot — humans never see it. A filled one is accepted here on purpose:
+  // the route answers with a pretend success, so a bot never learns the name.
+  website: z.string().max(200).optional(),
 });
 
 export type BriefInput = z.infer<typeof briefSchema>;
