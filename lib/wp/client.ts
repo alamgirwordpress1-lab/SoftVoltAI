@@ -40,12 +40,53 @@ interface WpQueryOptions {
   preview?: boolean;
 }
 
+/**
+ * A build asks WordPress for everything at once, and the CMS container is
+ * small: under that burst it answers 503 for a moment and is fine a second
+ * later. One reply lost that way used to become a page baked as a 404, so a
+ * request that failed on the connection or with a 5xx is tried again.
+ */
+const pause = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+
+/** A build has time to wait for a container that is restarting; a visitor does not. */
+const BUILDING = process.env.NEXT_PHASE === "phase-production-build";
+const RETRY_PAUSES_MS = BUILDING ? [1000, 2000, 4000, 8000, 15000] : [700, 1800];
+
+/**
+ * How many questions WordPress is asked at once.
+ *
+ * A build renders pages in parallel and each page asks its own questions. That
+ * put more at once on the CMS than its container could answer: it slowed to
+ * seconds a request, then refused connections altogether and took the build
+ * with it. During a build the questions are therefore asked one at a time —
+ * most of them are answered from Next's own fetch cache anyway, so the handful
+ * that reach WordPress cost the build seconds, not minutes. A visitor's request
+ * is never part of a burst like that, so it keeps a normal allowance.
+ */
+const MAX_IN_FLIGHT = BUILDING ? 1 : 8;
+let inFlight = 0;
+const queue: (() => void)[] = [];
+
+async function takeSlot(): Promise<void> {
+  if (inFlight < MAX_IN_FLIGHT) {
+    inFlight++;
+    return;
+  }
+  await new Promise<void>((resolve) => queue.push(resolve));
+  inFlight++;
+}
+
+function freeSlot(): void {
+  inFlight--;
+  queue.shift()?.();
+}
+
 export async function wpQuery<T>(query: string, { variables, tags = [], revalidate, preview = false }: WpQueryOptions = {}): Promise<T> {
   if (!WP_URL) {
     throw new WpError("WP_GRAPHQL_URL is not set");
   }
 
-  const res = await fetch(WP_URL, {
+  const init: RequestInit = {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -56,7 +97,33 @@ export async function wpQuery<T>(query: string, { variables, tags = [], revalida
     ...(preview
       ? { cache: "no-store" as const }
       : { next: { tags: ["wp:all", ...tags], revalidate: revalidate === false ? undefined : (revalidate ?? DEFAULT_REVALIDATE) } }),
-  });
+  };
+
+  let res: Response | undefined;
+  let lastError: unknown;
+  for (let attempt = 0; attempt <= RETRY_PAUSES_MS.length; attempt++) {
+    if (attempt) await pause(RETRY_PAUSES_MS[attempt - 1]);
+    await takeSlot();
+    try {
+      res = await fetch(WP_URL, init);
+    } catch (error) {
+      lastError = error;
+      res = undefined;
+      continue;
+    } finally {
+      freeSlot();
+    }
+    // 5xx is the container catching its breath; 4xx is an answer, and repeating it changes nothing
+    if (res.status < 500) break;
+    lastError = new WpError(`WordPress answered ${res.status}`, await res.text().catch(() => ""));
+    res = undefined;
+  }
+
+  if (!res) {
+    throw lastError instanceof WpError
+      ? lastError
+      : new WpError(`WordPress could not be reached: ${lastError instanceof Error ? lastError.message : lastError}`, lastError);
+  }
 
   if (!res.ok) {
     throw new WpError(`WordPress answered ${res.status}`, await res.text().catch(() => ""));

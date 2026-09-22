@@ -1,7 +1,7 @@
 import "server-only";
 import type { AgencyType, CityClock, Client, ComparisonRow, EngagementModel, Faq, PillarGroup, Pillar, ProcessStep, Promise as SitePromise, Service, ServiceDetail, TechItem, Testimonial, WorkItem } from "@/lib/cms/types";
 import type { TeamMember } from "@/content/founder";
-import { lines, plain, wpTry } from "@/lib/wp/client";
+import { lines, plain, wpQuery, wpReady, wpTry } from "@/lib/wp/client";
 import { AGENCY_TYPES, ALL_SLUGS, CASE_STUDIES, MENUS, PAGE_BY_URI, POST_BY_SLUG, POSTS, SERVICES, SIMPLE_COLLECTIONS, SITE_SETTINGS } from "@/lib/wp/queries";
 
 /**
@@ -488,7 +488,10 @@ export async function wpPosts(first = 24): Promise<WpPostCard[] | null> {
 }
 
 export async function wpPost(slug: string, preview = false): Promise<WpPost | null> {
-  const data = await wpTry<{ post: RawPost | null }>(POST_BY_SLUG, { variables: { slug }, tags: ["wp:post", `wp:post:${slug}`], preview });
+  if (!wpReady()) return null;
+  // wpQuery, not wpTry: see wpPage — a post that could not be fetched must not
+  // be cached as a 404 just because WordPress was busy for a second.
+  const data = await wpQuery<{ post: RawPost | null }>(POST_BY_SLUG, { variables: { slug }, tags: ["wp:post", `wp:post:${slug}`], preview });
   const node = data?.post;
   if (!node) return null;
   return { ...toCard(node), content: node.content ?? "", seo: toSeo(node.seo) };
@@ -527,8 +530,16 @@ export function pageUri(value: string): string {
 }
 
 export async function wpPage(uri: string): Promise<WpPage | null> {
+  if (!wpReady()) return null;
   const path = pageUri(uri);
-  const data = await wpTry<{ page: RawPage | null }>(PAGE_BY_URI, { variables: { uri: path }, tags: ["wp:page", `wp:page:${path.slice(1)}`] });
+  /*
+   * wpQuery, not wpTry. Everywhere else a WordPress failure falls back to the
+   * typed content in /content, which is always right. Here there is nothing to
+   * fall back to: the caller answers 404, and a build would write that 404 into
+   * a static file and serve it for an hour. Better to fail the build loudly —
+   * the last good deployment stays up — than to publish a missing page.
+   */
+  const data = await wpQuery<{ page: RawPage | null }>(PAGE_BY_URI, { variables: { uri: path }, tags: ["wp:page", `wp:page:${path.slice(1)}`] });
   const node = data?.page;
   if (!node) return null;
 

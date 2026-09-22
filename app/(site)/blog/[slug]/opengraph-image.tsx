@@ -17,7 +17,10 @@ const dateFormat = new Intl.DateTimeFormat("en-GB", { day: "numeric", month: "lo
 /** A post's card: its date, title and excerpt, with the featured image beside them when the post has one. */
 export default async function Image({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const post = await cms.getPost(slug);
+  // A page that cannot reach WordPress fails loudly, because a wrong page is
+  // worse than none. A card is only a picture, so it falls back to the generic
+  // one instead of taking the build down with it.
+  const post = await cms.getPost(slug).catch(() => null);
   if (!post) return shareCard({ eyebrow: "Blog", title: "Notes from the team behind agencies" });
   const date = post.date ? dateFormat.format(new Date(post.date)) : "";
   return shareCard({
