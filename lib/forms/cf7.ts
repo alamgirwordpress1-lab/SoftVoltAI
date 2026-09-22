@@ -76,7 +76,7 @@ export async function cf7FormId(form: Cf7Form) {
  * of "mail_sent" on success and with "validation_failed" or "mail_failed"
  * otherwise, so the status is what decides, not the HTTP code.
  */
-export async function sendToCf7(form: Cf7Form, values: Record<string, string | string[] | boolean | undefined>) {
+export async function sendToCf7(form: Cf7Form, values: Record<string, string | string[] | boolean | undefined>, recaptcha?: string) {
   const target = await cf7FormId(form);
   if (!target) return { sent: false as const, reason: "not-configured" };
 
@@ -88,6 +88,9 @@ export async function sendToCf7(form: Cf7Form, values: Record<string, string | s
   // alphanumeric string — CF7 uses it to tell two copies of one form apart.
   body.append("_wpcf7", target.id);
   body.append("_wpcf7_unit_tag", `wpcf7-f${target.id}-o1`);
+  // Contact Form 7's reCAPTCHA module reads this one; without it a submission
+  // is marked as spam and the mail is never sent
+  if (recaptcha) body.append("_wpcf7_recaptcha_response", recaptcha);
   body.append("_wpcf7_version", "6.1");
   body.append("_wpcf7_locale", process.env.CF7_LOCALE || "en_GB");
   body.append("_wpcf7_container_post", "0");

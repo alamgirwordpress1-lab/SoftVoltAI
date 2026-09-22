@@ -43,6 +43,7 @@ export const SITE_SETTINGS = /* GraphQL */ `
       megaFooterNote
       cf7BriefId
       cf7ContactId
+      recaptchaSiteKey
       comparisonSource { label href }
     }
   }

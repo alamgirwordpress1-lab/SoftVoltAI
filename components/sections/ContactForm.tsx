@@ -1,11 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { CONTACT_BUDGETS, CONTACT_TOPICS } from "@/lib/forms/contact-schema";
 import { site } from "@/content/site";
 import type { MessageFormCopy } from "@/lib/cms/copy-types";
+import { loadRecaptcha, recaptchaToken } from "@/lib/forms/recaptcha";
 import { cn } from "@/lib/utils";
 
 /**
@@ -35,10 +36,16 @@ function Required({ mark }: { mark: string }) {
   return mark ? <span className="text-accent">{mark}</span> : null;
 }
 
-export function ContactForm({ copy }: { copy: MessageFormCopy }) {
+export function ContactForm({ copy, recaptchaKey = "" }: { copy: MessageFormCopy; /** From WordPress: empty when reCAPTCHA is off. */ recaptchaKey?: string }) {
   const router = useRouter();
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
   const [error, setError] = useState("");
+
+  // Google's script is fetched as the form appears, so the token is ready by the
+  // time someone presses send rather than adding a wait to the submit
+  useEffect(() => {
+    if (recaptchaKey) loadRecaptcha(recaptchaKey).catch(() => {});
+  }, [recaptchaKey]);
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -47,6 +54,7 @@ export function ContactForm({ copy }: { copy: MessageFormCopy }) {
     setStatus("sending");
     setError("");
     try {
+      const recaptcha = await recaptchaToken(recaptchaKey, "contact");
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -59,6 +67,7 @@ export function ContactForm({ copy }: { copy: MessageFormCopy }) {
           budget: String(data.get("budget") ?? "") || undefined,
           message: String(data.get("message") ?? ""),
           nda: data.get("nda") === "on",
+          recaptcha,
           website: String(data.get("website") ?? ""),
         }),
       });

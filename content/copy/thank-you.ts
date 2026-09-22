@@ -1,5 +1,5 @@
 import { items, link, page, para, section, text } from "@/content/copy/schema";
-import { POINT_FIELDS, seo } from "@/content/copy/sections";
+import { FACT_FIELDS, POINT_FIELDS, seo } from "@/content/copy/sections";
 import { PAGE_LINK_FIELDS } from "@/content/copy/not-found";
 
 /**
@@ -9,6 +9,24 @@ import { PAGE_LINK_FIELDS } from "@/content/copy/not-found";
  */
 export const thankYouCopy = page("thank-you", "/thank-you", "Thank you", {
   seo: seo("Thank you", "Your message reached a person at SoftVolt AI. A named producer replies within one business day."),
+
+  banner: section(
+    "Banner — the cards on the right",
+    {
+      facts: items(
+        "Fact cards beside the heading",
+        "Fact",
+        FACT_FIELDS,
+        [
+          { label: "First reply", value: "Within 1 business day" },
+          { label: "Written scope", value: "Within 2 business days" },
+          { label: "NDA", value: "Before any client detail" },
+        ],
+        { help: "Up to three short facts shown as cards on the right of the banner, on large screens.", slots: 3 },
+      ),
+    },
+    "The same three cards on both thank-you pages. The headline beside them is written in the two tabs below.",
+  ),
 
   message: section(
     "After the message form",

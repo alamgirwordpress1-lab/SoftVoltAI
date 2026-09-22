@@ -9,6 +9,7 @@ import { briefSchema, WORK_TYPES, PLATFORMS, BUDGETS, type BriefInput } from "@/
 import { SubmitButton } from "@/components/ui/Button";
 import { site } from "@/content/site";
 import type { BriefFormCopy } from "@/lib/cms/copy-types";
+import { loadRecaptcha, recaptchaToken } from "@/lib/forms/recaptcha";
 import { cn } from "@/lib/utils";
 
 const STEPS: { title: string; fields: FieldPath<BriefInput>[] }[] = [
@@ -27,7 +28,7 @@ const input =
   "w-full rounded-md border border-line-strong bg-surface px-3 py-2.5 text-[15px] text-ink outline-none transition-colors focus:border-ink aria-[invalid=true]:border-danger";
 const label = "mono mb-1.5 block text-[11px] uppercase tracking-[0.1em] text-muted";
 
-export function BriefForm({ copy }: { copy: BriefFormCopy }) {
+export function BriefForm({ copy, recaptchaKey = "" }: { copy: BriefFormCopy; /** From WordPress: empty when reCAPTCHA is off. */ recaptchaKey?: string }) {
   const router = useRouter();
   const steps = STEPS.map((step, i) => ({ ...step, title: copy.steps[i]?.title || step.title }));
   const [step, setStep] = useState(0);
@@ -47,6 +48,11 @@ export function BriefForm({ copy }: { copy: BriefFormCopy }) {
     } catch {}
   }, [setValue]);
 
+  // fetched as the form appears, so the token costs nothing at submit time
+  useEffect(() => {
+    if (recaptchaKey) loadRecaptcha(recaptchaKey).catch(() => {});
+  }, [recaptchaKey]);
+
   const workType = useWatch({ control, name: "workType" });
   const platforms = useWatch({ control, name: "platforms" });
   const budget = useWatch({ control, name: "budget" });
@@ -60,7 +66,8 @@ export function BriefForm({ copy }: { copy: BriefFormCopy }) {
     setStatus("sending");
     setServerError("");
     try {
-      const res = await fetch("/api/brief", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(data) });
+      const recaptcha = await recaptchaToken(recaptchaKey, "brief");
+      const res = await fetch("/api/brief", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ ...data, recaptcha }) });
       const json = await res.json();
       if (!res.ok || !json.ok) throw new Error(json.error || "Something went wrong");
       setStatus("sent");

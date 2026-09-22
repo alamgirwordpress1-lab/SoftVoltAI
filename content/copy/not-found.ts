@@ -1,5 +1,5 @@
 import { items, link, page, para, section, text } from "@/content/copy/schema";
-import { seo } from "@/content/copy/sections";
+import { FACT_FIELDS, seo } from "@/content/copy/sections";
 
 /** A title, a line under it and where it goes — one card in a list of links. */
 export const PAGE_LINK_FIELDS = {
@@ -26,6 +26,17 @@ export const notFoundCopy = page("not-found", "/not-found", "Page not found", {
       ),
       button: link("Main button", "Back to the homepage", "/"),
       button_secondary: link("Second button", "Send us a message", "/contact"),
+      facts: items(
+        "Fact cards beside the heading",
+        "Fact",
+        FACT_FIELDS,
+        [
+          { label: "Search the site", value: "Press Ctrl K" },
+          { label: "Ask a person", value: "Reply within 1 business day" },
+          { label: "Everything we do", value: "Services and case studies" },
+        ],
+        { help: "Up to three short facts shown as cards on the right, on large screens — the same as every other page's banner.", slots: 3 },
+      ),
     },
     "The top of the page every broken or old link lands on.",
   ),

@@ -49,6 +49,16 @@ export default async function TopicPage({ params }: { params: Promise<{ slug: st
   const shown = filed(posts, slug);
   const copy = await getCopy(blogCopy, { topic: name, count: String(shown.length) });
 
+  // the same cards every other banner has: what an editor wrote, or the two
+  // facts the page can work out for itself
+  const newest = shown[0]?.date ? new Intl.DateTimeFormat("en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" }).format(new Date(shown[0].date)) : "";
+  const facts = copy.topic.facts.length
+    ? copy.topic.facts
+    : [
+        { label: "Posts", value: String(shown.length) },
+        ...(newest ? [{ label: "Newest", value: newest }] : []),
+      ];
+
   return (
     <>
       <PageHero
@@ -59,6 +69,7 @@ export default async function TopicPage({ params }: { params: Promise<{ slug: st
         eyebrow={copy.topic.eyebrow}
         title={copy.topic.heading}
         lede={copy.topic.lede}
+        highlights={facts}
       >
         {copy.topic.back.text ? <ArrowLink href={copy.topic.back.url}>{copy.topic.back.text}</ArrowLink> : null}
       </PageHero>

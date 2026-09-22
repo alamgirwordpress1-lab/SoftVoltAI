@@ -21,10 +21,13 @@ interface PageLink {
  */
 export function ThankYou({
   crumb,
+  facts,
   sent,
   next,
 }: {
   crumb: { name: string; href: string };
+  /** The three cards on the right of the banner, the same on both pages. */
+  facts: { label: string; value: string }[];
   sent: { eyebrow: string; heading: string; lede: string; steps: Step[] };
   next: { steps_eyebrow: string; eyebrow: string; heading: string; links: PageLink[]; call: string; button: { text: string; url: string } };
 }) {
@@ -33,7 +36,7 @@ export function ThankYou({
 
   return (
     <>
-      <PageHero crumbs={[{ name: "Contact", href: "/contact" }, crumb]} eyebrow={sent.eyebrow} title={sent.heading} lede={sent.lede}>
+      <PageHero crumbs={[{ name: "Contact", href: "/contact" }, crumb]} eyebrow={sent.eyebrow} title={sent.heading} lede={sent.lede} highlights={facts}>
         <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
           <Button href={next.button.url}>{next.button.text}</Button>
           {site.calUrl && next.call ? (

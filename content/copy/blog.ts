@@ -68,6 +68,16 @@ export const blogCopy = page("blog", "/blog", "Blog", {
       lede: para("Paragraph under the heading", "Every post filed under {topic}, newest first."),
       heading_list: text("Heading above the posts", "Posts on this topic"),
       back: link("Link back to the blog", "All posts", "/blog"),
+      facts: items(
+        "Fact cards beside the heading",
+        "Fact",
+        FACT_FIELDS,
+        [],
+        {
+          help: "Up to three short facts shown as cards on the right, on large screens. Left empty, the page counts its own posts and shows the newest.",
+          slots: 3,
+        },
+      ),
     },
     "The page a reader lands on after clicking a category or a tag. The posts on it are whatever is filed under that name.",
   ),

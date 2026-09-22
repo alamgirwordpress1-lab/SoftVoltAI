@@ -21,7 +21,7 @@ export interface BriefCopy extends HeadingLedeCopy {
  * booking link and the email are the site settings.
  */
 export async function BriefCta({ copy, form }: { copy: BriefCopy; form: BriefFormCopy }) {
-  const { calUrl, email } = await getSiteChrome();
+  const { calUrl, email, recaptchaSiteKey } = await getSiteChrome();
 
   return (
     <section id="brief" className="border-t border-line bg-surface" aria-labelledby="brief-title">
@@ -77,7 +77,7 @@ export async function BriefCta({ copy, form }: { copy: BriefCopy; form: BriefFor
           ) : null}
         </div>
         <div className="lg:col-span-7" data-reveal style={{ ["--reveal-delay" as string]: "100ms" }}>
-          <BriefForm copy={form} />
+          <BriefForm copy={form} recaptchaKey={recaptchaSiteKey} />
         </div>
       </div>
     </section>

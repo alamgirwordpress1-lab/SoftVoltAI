@@ -105,7 +105,7 @@ export default async function ContactPage() {
           </div>
 
           <div className="lg:col-span-7" data-reveal style={{ ["--reveal-delay" as string]: "90ms" }}>
-            <ContactForm copy={copy.form} />
+            <ContactForm copy={copy.form} recaptchaKey={chrome.recaptchaSiteKey} />
           </div>
         </div>
       </section>

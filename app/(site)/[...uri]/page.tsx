@@ -7,6 +7,7 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { site } from "@/content/site";
 import { shareMetadata } from "@/lib/seo/share";
 import { cms } from "@/lib/cms";
+import { getSiteChrome } from "@/lib/cms/site";
 
 /**
  * Whatever an editor publishes as a WordPress page.
@@ -59,6 +60,13 @@ export default async function WordPressPage({ params }: { params: Promise<{ uri:
   const path = `/${uri.join("/")}`;
   const description = page.seo.description || page.lede || page.excerpt;
   const updated = page.modified ? new Intl.DateTimeFormat("en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" }).format(new Date(page.modified)) : "";
+  const chrome = await getSiteChrome();
+  // what a page like this is always asked: when it changed, who it covers, where to ask
+  const fallbackFacts = [
+    ...(updated ? [{ label: "Last updated", value: updated }] : []),
+    { label: "Applies to", value: new URL(chrome.url || site.url).host.replace(/^www\./, "") },
+    ...(chrome.email ? [{ label: "Questions", value: chrome.email }] : []),
+  ];
 
   return (
     <>
@@ -82,7 +90,7 @@ export default async function WordPressPage({ params }: { params: Promise<{ uri:
         eyebrow={page.eyebrow || "SoftVolt AI"}
         title={page.heading || page.title}
         lede={page.lede || undefined}
-        highlights={page.facts.length ? page.facts : updated ? [{ label: "Last updated", value: updated }] : undefined}
+        highlights={page.facts.length ? page.facts : fallbackFacts}
       />
 
       {page.intro ? (

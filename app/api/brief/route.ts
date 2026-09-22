@@ -34,7 +34,7 @@ export async function POST(req: Request) {
 
   // WordPress first when it is configured: the same submission, delivered by CF7.
   if (await cf7FormId("brief")) {
-    const result = await sendToCf7("brief", { ...data, website: undefined });
+    const result = await sendToCf7("brief", { ...data, website: undefined, recaptcha: undefined }, data.recaptcha);
     if (result.sent) return NextResponse.json({ ok: true, delivered: true, via: "cf7" });
     console.error("[brief] CF7 rejected the submission", result);
     return NextResponse.json({ ok: false, error: result.message || "We could not send that just now. Email us directly and we will reply within a business day." }, { status: 502 });

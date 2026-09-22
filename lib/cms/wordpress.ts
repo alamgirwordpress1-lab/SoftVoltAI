@@ -49,6 +49,8 @@ export interface WpSettings {
   megaFooterNote: string;
   cf7BriefId: string;
   cf7ContactId: string;
+  /** Contact Form 7's reCAPTCHA site key, or "" when reCAPTCHA is off. */
+  recaptchaSiteKey: string;
 }
 
 /** A picture chosen in the media library, as the settings screen hands it over. */

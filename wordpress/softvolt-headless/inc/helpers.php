@@ -81,6 +81,24 @@ function softvolt_setting_image(string $key): ?array
     ];
 }
 
+/**
+ * Contact Form 7's reCAPTCHA site key, or an empty string when reCAPTCHA is not
+ * set up. The secret stays here; the site key is meant to be public, and the
+ * front end cannot ask Google for a token without it.
+ */
+function softvolt_recaptcha_site_key(): string
+{
+    if (!class_exists('WPCF7')) {
+        return '';
+    }
+    $keys = WPCF7::get_option('recaptcha');
+    if (!is_array($keys) || !$keys) {
+        return '';
+    }
+    $sitekey = (string) array_key_first($keys);
+    return $sitekey;
+}
+
 /** One setting, with the default when it has never been saved. */
 function softvolt_setting(string $key, mixed $fallback = null): mixed
 {

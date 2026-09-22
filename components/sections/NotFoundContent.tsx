@@ -18,7 +18,7 @@ export async function NotFoundContent() {
   return (
     <>
       <DocumentTitle title={`${seo.title} · ${chrome.name}`} />
-      <PageHero eyebrow={banner.eyebrow} title={banner.heading} lede={banner.lede}>
+      <PageHero eyebrow={banner.eyebrow} title={banner.heading} lede={banner.lede} highlights={banner.facts}>
         <div className="flex flex-wrap items-center gap-3">
           <Button href={banner.button.url}>{banner.button.text}</Button>
           {banner.button_secondary.text ? (

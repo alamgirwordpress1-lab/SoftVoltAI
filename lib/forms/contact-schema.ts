@@ -30,6 +30,8 @@ export const contactSchema = z.object({
   budget: z.enum(CONTACT_BUDGETS).optional(),
   message: z.string().trim().min(10, "A sentence or two is enough").max(4000),
   nda: z.boolean().optional().default(false),
+  /** A reCAPTCHA v3 token, when WordPress has reCAPTCHA switched on. */
+  recaptcha: z.string().max(4000).optional(),
   /** Honeypot: a real person never sees this field, so anything in it is a bot. */
   website: z.string().max(200).optional().default(""),
 });

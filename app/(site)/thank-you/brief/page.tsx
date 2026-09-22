@@ -12,5 +12,5 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function BriefThankYouPage() {
   const copy = await getCopy(thankYouCopy);
-  return <ThankYou crumb={{ name: "Brief received", href: "/thank-you/brief" }} sent={copy.brief} next={copy.next} />;
+  return <ThankYou facts={copy.banner.facts} crumb={{ name: "Brief received", href: "/thank-you/brief" }} sent={copy.brief} next={copy.next} />;
 }

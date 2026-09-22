@@ -57,6 +57,8 @@ export interface SiteChrome {
   logoDark: SiteLogo | null;
   /** The two written lines inside the Services mega menu. */
   mega: { resources: string; footer: string };
+  /** Set when Contact Form 7 has reCAPTCHA on: the forms then send it a token. */
+  recaptchaSiteKey: string;
   /** Where this came from — useful in the admin, and in a bug report. */
   source: "wordpress" | "content";
 }
@@ -105,6 +107,7 @@ export const getSiteChrome = cache(async (): Promise<SiteChrome> => {
     logo: null,
     logoDark: null,
     mega: { resources: "Proof, pricing and where to start.", footer: "Not sure which service fits? Send the brief — the scope tells you." },
+    recaptchaSiteKey: "",
     socials,
     source: "content",
   };
@@ -165,6 +168,7 @@ export const getSiteChrome = cache(async (): Promise<SiteChrome> => {
       resources: settings.megaResourcesNote || local.mega.resources,
       footer: settings.megaFooterNote || local.mega.footer,
     },
+    recaptchaSiteKey: settings.recaptchaSiteKey || "",
     source: "wordpress",
   };
 });
