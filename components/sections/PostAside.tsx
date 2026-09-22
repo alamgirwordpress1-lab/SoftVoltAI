@@ -49,7 +49,9 @@ export function PostAside({
             <ul className="mt-5 flex flex-wrap gap-2">
               {categories.map((c) => (
                 <li key={c.slug}>
-                  <Chip>{c.name}</Chip>
+                  <Link href={`/blog/topic/${c.slug}`} prefetch={false} className="inline-block transition-colors hover:text-ink">
+                    <Chip className="hover:border-line-strong">{c.name}</Chip>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -62,7 +64,9 @@ export function PostAside({
             <ul className="mt-5 flex flex-wrap gap-2">
               {tags.map((t) => (
                 <li key={t.slug}>
-                  <Chip>{t.name}</Chip>
+                  <Link href={`/blog/topic/${t.slug}`} prefetch={false} className="inline-block transition-colors hover:text-ink">
+                    <Chip className="hover:border-line-strong">{t.name}</Chip>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -117,17 +121,20 @@ export function PostAside({
  */
 export function PostMeta({
   post,
+  reading,
   copy,
 }: {
   post: { date: string; modified: string; author: string; categories: { name: string; slug: string }[] };
-  copy: { title: string; published_label: string; updated_label: string; author_label: string; filed_label: string };
+  /** "4 min read", counted from the post itself. */
+  reading: string;
+  copy: { title: string; published_label: string; updated_label: string; author_label: string; reading_label: string; filed_label: string };
 }) {
   const published = post.date ? longDate.format(new Date(post.date)) : "";
   const updated = post.modified && post.modified.slice(0, 10) !== post.date.slice(0, 10) ? longDate.format(new Date(post.modified)) : "";
 
   return (
     <section className="card mt-9 p-6" aria-label={copy.title} data-reveal>
-      <dl className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      <dl className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
         {published ? (
           <div>
             <dt className="mono text-[11px] uppercase tracking-[0.08em] text-muted">{copy.published_label}</dt>
@@ -150,12 +157,20 @@ export function PostMeta({
             <dd className="mt-1.5 text-[15px] text-ink">{post.author}</dd>
           </div>
         ) : null}
+        {reading ? (
+          <div>
+            <dt className="mono text-[11px] uppercase tracking-[0.08em] text-muted">{copy.reading_label}</dt>
+            <dd className="mt-1.5 text-[15px] text-ink">{reading}</dd>
+          </div>
+        ) : null}
         {post.categories.length ? (
           <div>
             <dt className="mono text-[11px] uppercase tracking-[0.08em] text-muted">{copy.filed_label}</dt>
             <dd className="mt-2 flex flex-wrap gap-1.5">
               {post.categories.map((c) => (
-                <Chip key={c.slug}>{c.name}</Chip>
+                <Link key={c.slug} href={`/blog/topic/${c.slug}`} prefetch={false} className="inline-block transition-colors hover:text-ink">
+                  <Chip className="hover:border-line-strong">{c.name}</Chip>
+                </Link>
               ))}
             </dd>
           </div>

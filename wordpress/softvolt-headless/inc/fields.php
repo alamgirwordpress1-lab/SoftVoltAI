@@ -221,6 +221,12 @@ add_action('acf/init', static function (): void {
             softvolt_field(['key' => 'field_sv_page_intro_title', 'label' => 'Intro — heading', 'name' => 'intro_title', 'type' => 'text', 'instructions' => 'The band under the banner. Leave it empty and the page has no intro band.']),
             softvolt_field(['key' => 'field_sv_page_intro_sub', 'label' => 'Intro — line under the heading', 'name' => 'intro_subtitle', 'type' => 'textarea', 'rows' => 2, 'new_lines' => '']),
             softvolt_field(['key' => 'field_sv_page_intro_body', 'label' => 'Intro — paragraphs', 'name' => 'intro_body', 'type' => 'textarea', 'rows' => 6, 'new_lines' => '', 'instructions' => 'One paragraph per line.']),
+            softvolt_field(['key' => 'field_sv_page_fact_1_label', 'label' => 'Banner card 1 — small label', 'name' => 'fact_1_label', 'type' => 'text', 'instructions' => 'Up to three short facts shown as cards on the right of the banner, on large screens. Leave them empty and the banner shows when the page was last updated.']),
+            softvolt_field(['key' => 'field_sv_page_fact_1_value', 'label' => 'Banner card 1 — fact', 'name' => 'fact_1_value', 'type' => 'text']),
+            softvolt_field(['key' => 'field_sv_page_fact_2_label', 'label' => 'Banner card 2 — small label', 'name' => 'fact_2_label', 'type' => 'text']),
+            softvolt_field(['key' => 'field_sv_page_fact_2_value', 'label' => 'Banner card 2 — fact', 'name' => 'fact_2_value', 'type' => 'text']),
+            softvolt_field(['key' => 'field_sv_page_fact_3_label', 'label' => 'Banner card 3 — small label', 'name' => 'fact_3_label', 'type' => 'text']),
+            softvolt_field(['key' => 'field_sv_page_fact_3_value', 'label' => 'Banner card 3 — fact', 'name' => 'fact_3_value', 'type' => 'text']),
         ]
     ));
 

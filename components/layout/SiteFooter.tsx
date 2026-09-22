@@ -92,9 +92,14 @@ export function SiteFooter({ chrome }: { chrome: SiteChrome }) {
           </div>
         </div>
 
-        <div className="mt-20 grid gap-6 border-t border-er-line py-10 text-[14px] text-er-muted md:mt-28 md:grid-cols-3 md:items-center">
-          <div className="flex flex-col gap-2">
-            <p>{chrome.footerNote || `© ${year} ${chrome.name}. All rights reserved.`}</p>
+        {/* copyright left, where it is read first; the two legal pages on the right,
+            beside the back-to-top, which is where a reader goes looking for them */}
+        <div className="mt-20 grid gap-6 border-t border-er-line py-10 text-[14px] text-er-muted md:mt-28 md:grid-cols-[1fr_auto_auto] md:items-center md:gap-8">
+          <p>{chrome.footerNote || `© ${year} ${chrome.name}. All rights reserved.`}</p>
+          <p className="mono uppercase tracking-[0.1em]">
+            {chrome.location} · {chrome.utcOffset} · UK &amp; US overlap
+          </p>
+          <div className="flex flex-wrap items-center gap-x-5 gap-y-3 md:justify-self-end">
             {chrome.legalLinks.length ? (
               <nav aria-label="Legal">
                 <ul className="flex flex-wrap gap-x-5 gap-y-1">
@@ -108,11 +113,6 @@ export function SiteFooter({ chrome }: { chrome: SiteChrome }) {
                 </ul>
               </nav>
             ) : null}
-          </div>
-          <p className="mono uppercase tracking-[0.1em] md:text-center">
-            {chrome.location} · {chrome.utcOffset} · UK &amp; US overlap
-          </p>
-          <div className="md:justify-self-end">
             <BackToTop />
           </div>
         </div>

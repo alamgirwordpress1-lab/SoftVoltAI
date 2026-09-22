@@ -16,8 +16,10 @@ export function FeaturedPost({ post, eyebrow, readMore }: { post: WpPostCard; ey
   return (
     <section className="container-x pt-14 md:pt-20" aria-labelledby="featured-title">
       {eyebrow ? <span className="eyebrow">{eyebrow}</span> : null}
-      <article className="card card-lift shadow-float group mt-6 grid overflow-hidden lg:grid-cols-[1.05fr_1fr]" data-reveal>
-        <Link href={`/blog/${post.slug}`} prefetch={false} aria-label={post.title} tabIndex={-1} className="block">
+      {/* one link over the whole card: the title carries it and stretches across, so
+          clicking the picture or "read the post" opens the post too */}
+      <article className="card card-lift shadow-float group relative mt-6 grid cursor-pointer overflow-hidden lg:grid-cols-[1.05fr_1fr]" data-reveal>
+        <div className="block">
           <div className="relative aspect-[16/10] overflow-hidden border-b border-line bg-raised lg:h-full lg:border-b-0 lg:border-r">
             {post.image ? (
               <Image
@@ -30,7 +32,7 @@ export function FeaturedPost({ post, eyebrow, readMore }: { post: WpPostCard; ey
               />
             ) : null}
           </div>
-        </Link>
+        </div>
 
         <div className="flex flex-col justify-center p-7 md:p-10">
           <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
@@ -44,7 +46,7 @@ export function FeaturedPost({ post, eyebrow, readMore }: { post: WpPostCard; ey
           </div>
 
           <h2 id="featured-title" className="display display-md mt-5">
-            <Link href={`/blog/${post.slug}`} prefetch={false} className="transition-colors hover:text-accent">
+            <Link href={`/blog/${post.slug}`} prefetch={false} className="transition-colors after:absolute after:inset-0 after:content-[''] hover:text-accent">
               {post.title}
             </Link>
           </h2>

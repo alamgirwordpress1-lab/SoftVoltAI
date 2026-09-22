@@ -444,6 +444,8 @@ export interface WpPage {
   image: WpImage | null;
   /** The first lines of the content — a meta description for a page that has none. */
   excerpt: string;
+  /** Up to three cards on the right of the banner, as an editor wrote them. */
+  facts: { label: string; value: string }[];
   seo: WpSeo;
   eyebrow: string;
   /** The banner headline when it should differ from the page title. */
@@ -568,6 +570,12 @@ interface RawPage {
     introTitle: string | null;
     introSubtitle: string | null;
     introBody: string | null;
+    fact1Label?: string | null;
+    fact1Value?: string | null;
+    fact2Label?: string | null;
+    fact2Value?: string | null;
+    fact3Label?: string | null;
+    fact3Value?: string | null;
   } | null;
   seo: RawSeo | null;
 }
@@ -612,6 +620,12 @@ export async function wpPage(uri: string): Promise<WpPage | null> {
     eyebrow: plain(fields?.eyebrow ?? ""),
     heading: plain(fields?.heading ?? ""),
     lede: plain(fields?.lede ?? ""),
+    // the three cards on the right of the banner; an empty pair is simply not shown
+    facts: [
+      { label: plain(fields?.fact1Label ?? ""), value: plain(fields?.fact1Value ?? "") },
+      { label: plain(fields?.fact2Label ?? ""), value: plain(fields?.fact2Value ?? "") },
+      { label: plain(fields?.fact3Label ?? ""), value: plain(fields?.fact3Value ?? "") },
+    ].filter((f) => f.label && f.value),
     intro: fields?.introTitle
       ? {
           eyebrow: plain(fields.introEyebrow ?? ""),

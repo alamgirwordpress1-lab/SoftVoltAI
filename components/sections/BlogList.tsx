@@ -61,8 +61,8 @@ export function BlogList({
       <ul className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {shown.map((post, i) => (
           <li key={post.slug} data-reveal style={{ ["--reveal-delay" as string]: `${(i % 3) * 80}ms` }}>
-            <article className="card card-lift shadow-soft group flex h-full flex-col overflow-hidden">
-              <Link href={`/blog/${post.slug}`} prefetch={false} className="block" aria-label={post.title} tabIndex={-1}>
+            <article className="card card-lift shadow-soft group relative flex h-full cursor-pointer flex-col overflow-hidden">
+              <div className="block">
                 <div className="relative aspect-[16/10] overflow-hidden border-b border-line bg-raised">
                   {post.image ? (
                     <Image
@@ -74,11 +74,11 @@ export function BlogList({
                     />
                   ) : null}
                 </div>
-              </Link>
+              </div>
               <div className="flex flex-1 flex-col p-6">
                 {post.categories.length ? <span className="eyebrow">{post.categories[0].name}</span> : null}
                 <h3 className="mt-3 text-xl font-semibold leading-snug tracking-[-0.01em] text-ink">
-                  <Link href={`/blog/${post.slug}`} prefetch={false} className="transition-colors hover:text-accent">
+                  <Link href={`/blog/${post.slug}`} prefetch={false} className="transition-colors after:absolute after:inset-0 after:content-[''] hover:text-accent">
                     {post.title}
                   </Link>
                 </h3>
@@ -92,8 +92,10 @@ export function BlogList({
                 {post.categories.length > 1 ? (
                   <ul className="mt-4 flex flex-wrap gap-1.5">
                     {post.categories.slice(1).map((c) => (
-                      <li key={c.slug}>
-                        <Chip>{c.name}</Chip>
+                      <li key={c.slug} className="relative z-10">
+                        <Link href={`/blog/topic/${c.slug}`} prefetch={false} className="inline-block transition-colors hover:text-ink">
+                          <Chip className="hover:border-line-strong">{c.name}</Chip>
+                        </Link>
                       </li>
                     ))}
                   </ul>

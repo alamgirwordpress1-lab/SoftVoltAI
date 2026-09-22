@@ -58,6 +58,7 @@ export default async function WordPressPage({ params }: { params: Promise<{ uri:
   if (!page) notFound();
   const path = `/${uri.join("/")}`;
   const description = page.seo.description || page.lede || page.excerpt;
+  const updated = page.modified ? new Intl.DateTimeFormat("en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" }).format(new Date(page.modified)) : "";
 
   return (
     <>
@@ -73,11 +74,15 @@ export default async function WordPressPage({ params }: { params: Promise<{ uri:
         }}
       />
 
+      {/* the banner carries the same cards every other page's does: what an editor
+          wrote on the page, or, failing that, when the page was last changed —
+          a policy's most useful fact and the one nobody remembers to type */}
       <PageHero
         crumbs={[{ name: page.title, href: path }]}
         eyebrow={page.eyebrow || "SoftVolt AI"}
         title={page.heading || page.title}
         lede={page.lede || undefined}
+        highlights={page.facts.length ? page.facts : updated ? [{ label: "Last updated", value: updated }] : undefined}
       />
 
       {page.intro ? (
@@ -104,8 +109,10 @@ export default async function WordPressPage({ params }: { params: Promise<{ uri:
           <h2 id="content-title" className="sr-only">
             {page.title}
           </h2>
-          {/* the editor's own HTML, styled by .prose-site */}
-          <div className="prose-site max-w-[70ch]" dangerouslySetInnerHTML={{ __html: page.content }} />
+          {/* the editor's own HTML, styled by .prose-site. Full width on the owner's
+              instruction: a policy is skimmed for a heading more often than read
+              from end to end, and these pages carry tables and long lists. */}
+          <div className="prose-site max-w-none" dangerouslySetInnerHTML={{ __html: page.content }} />
         </div>
       </section>
     </>

@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { PageHero } from "@/components/ui/PageHero";
-import { Chip } from "@/components/ui/Chip";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { PostAside, PostMeta } from "@/components/sections/PostAside";
 import { PostComments } from "@/components/sections/PostComments";
@@ -47,8 +46,6 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   };
 }
 
-const dateFormat = new Intl.DateTimeFormat("en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" });
-
 /** About 200 words a minute, counted from the post's own words. */
 function readingMinutes(html: string) {
   const words = html
@@ -76,7 +73,6 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   const categories = Array.from(new Map(all.flatMap((p) => p.categories).map((c) => [c.slug, c])).values());
   const tags = Array.from(new Map(all.flatMap((p) => p.tags).map((t) => [t.slug, t])).values());
 
-  const published = post.date ? dateFormat.format(new Date(post.date)) : "";
   const minutes = words.reading_time.replace("{minutes}", String(readingMinutes(post.content)));
 
   return (
@@ -115,16 +111,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
       <div className="container-x grid gap-10 py-14 md:py-20 lg:grid-cols-12 lg:gap-14">
         <article className="lg:col-span-8">
-          <div className="flex flex-wrap items-center gap-x-4 gap-y-2" data-reveal>
-            {post.categories.length ? <Chip>{post.categories[0].name}</Chip> : null}
-            <span className="mono text-[12px] uppercase tracking-[0.08em] text-muted">
-              {published ? <time dateTime={post.date}>{published}</time> : null}
-              {published && minutes ? " · " : null}
-              {minutes}
-            </span>
-          </div>
-
-          <h1 className="display display-lg mt-5 max-w-[24ch]" data-reveal>
+          <h1 className="display display-lg max-w-[24ch]" data-reveal>
             {post.title}
           </h1>
           {post.excerpt ? (
@@ -135,11 +122,13 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
           <PostMeta
             post={post}
+            reading={minutes}
             copy={{
               title: words.card_title,
               published_label: words.published_label,
               updated_label: words.updated_label,
               author_label: words.author_label,
+              reading_label: words.reading_label,
               filed_label: words.filed_label,
             }}
           />

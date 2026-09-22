@@ -60,6 +60,18 @@ export const blogCopy = page("blog", "/blog", "Blog", {
     lede: "Everything here was built for an agency first. Send the brief and get a written scope with a fixed price within two business days.",
   }),
 
+  topic: section(
+    "Every topic page — banner",
+    {
+      eyebrow: text("Small line above the heading", "Filed under"),
+      heading: text("Heading", "{topic}", "{topic} becomes the category or tag a reader clicked."),
+      lede: para("Paragraph under the heading", "Every post filed under {topic}, newest first."),
+      heading_list: text("Heading above the posts", "Posts on this topic"),
+      back: link("Link back to the blog", "All posts", "/blog"),
+    },
+    "The page a reader lands on after clicking a category or a tag. The posts on it are whatever is filed under that name.",
+  ),
+
   post_banner: section(
     "Every post page — banner",
     {
@@ -90,6 +102,7 @@ export const blogCopy = page("blog", "/blog", "Blog", {
       published_label: text("\"Published\" label", "Published"),
       author_label: text("\"Written by\" label", "Written by"),
       filed_label: text("\"Filed under\" label", "Filed under"),
+      reading_label: text("\"Reading time\" label", "Reading time"),
       reading_time: text("Reading time", "{minutes} min read", "{minutes} is counted from the post itself."),
       updated_label: text("\"Updated\" label", "Updated", "Shown only when a post was changed after it was published."),
       card_title: text("Strip above the post — title", "This post", "Read by screen readers; the labels below are what a visitor sees."),

@@ -189,7 +189,7 @@ export const PAGE_BY_URI = /* GraphQL */ `
       content
       modifiedGmt
       featuredImage { node { sourceUrl altText } }
-      pageFields { eyebrow heading lede introEyebrow introTitle introSubtitle introBody }
+      pageFields { eyebrow heading lede introEyebrow introTitle introSubtitle introBody fact1Label fact1Value fact2Label fact2Value fact3Label fact3Value }
       ${SEO}
     }
   }
