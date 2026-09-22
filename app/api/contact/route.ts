@@ -50,6 +50,15 @@ export async function POST(req: Request) {
 
   if (!apiKey || !to || !from) {
     console.info("[contact] RESEND_API_KEY not set — message logged instead of emailed:\n" + text);
+    // Nothing delivered it, so do not say it sent. A live site always has
+    // WordPress configured, so "nothing configured at all" only ever happens in
+    // development, where logging it is the point.
+    if (cf7Reason || process.env.WP_GRAPHQL_URL || process.env.CF7_BASE_URL) {
+      return NextResponse.json(
+        { ok: false, reason: cf7Reason || "no-delivery-configured", error: "We could not send that just now. Email us directly and we will reply within a business day." },
+        { status: 502 },
+      );
+    }
     return NextResponse.json({ ok: true, delivered: false });
   }
 
