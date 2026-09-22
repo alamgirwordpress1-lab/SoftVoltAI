@@ -94,9 +94,11 @@ export function SiteFooter({ chrome }: { chrome: SiteChrome }) {
 
         {/* copyright left, where it is read first; the two legal pages on the right,
             beside the back-to-top, which is where a reader goes looking for them */}
-        <div className="mt-20 grid gap-6 border-t border-er-line py-10 text-[14px] text-er-muted md:mt-28 md:grid-cols-[1fr_auto_auto] md:items-center md:gap-8">
+        <div className="mt-20 grid gap-6 border-t border-er-line py-10 text-[14px] text-er-muted md:mt-28 md:grid-cols-3 md:items-center md:gap-8">
           <p>{chrome.footerNote || `© ${year} ${chrome.name}. All rights reserved.`}</p>
-          <p className="mono uppercase tracking-[0.1em]">
+          {/* three equal columns, so this one sits in the middle of the row, not
+              wherever the two beside it happen to end */}
+          <p className="mono uppercase tracking-[0.1em] md:text-center">
             {chrome.location} · {chrome.utcOffset} · UK &amp; US overlap
           </p>
           <div className="flex flex-wrap items-center gap-x-5 gap-y-3 md:justify-self-end">
