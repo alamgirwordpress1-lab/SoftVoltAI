@@ -1,7 +1,10 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { CONTACT_BUDGETS, CONTACT_TOPICS } from "@/lib/forms/contact-schema";
+import { site } from "@/content/site";
 import { cn } from "@/lib/utils";
 
 /**
@@ -27,6 +30,7 @@ const field = "w-full rounded-md border border-line-strong bg-surface px-3.5 py-
 const label = "mono mb-1.5 block text-[11px] uppercase tracking-[0.1em] text-muted";
 
 export function ContactForm() {
+  const router = useRouter();
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
   const [error, setError] = useState("");
 
@@ -56,6 +60,8 @@ export function ContactForm() {
       if (!res.ok || !body.ok) throw new Error(body.error || "That did not send.");
       form.reset();
       setStatus("sent");
+      // the thank-you page is its own address, so an ads or analytics tool can count it as a conversion
+      router.push("/thank-you");
     } catch (err) {
       setError(err instanceof Error ? err.message : "That did not send.");
       setStatus("error");
@@ -182,7 +188,11 @@ export function ContactForm() {
           {status === "sending" ? "Sending…" : "Send message"}
         </button>
         <p className="text-[13px] leading-relaxed text-muted">
-          We reply from a person, never a sales sequence. Your details are used to answer you and nothing else.
+          We reply from a person, never a sales sequence. Your details are used to answer you and nothing else —{" "}
+          <Link href={site.privacyPath} target="_blank" className="underline decoration-line underline-offset-4 hover:text-ink hover:decoration-accent">
+            privacy policy
+          </Link>
+          .
         </p>
       </div>
 

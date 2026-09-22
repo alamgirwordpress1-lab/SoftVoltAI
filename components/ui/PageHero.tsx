@@ -20,7 +20,8 @@ export function PageHero({
   highlights,
   dark = false,
 }: {
-  crumbs: Crumb[];
+  /** Left out only on the 404, which has no place in the trail. */
+  crumbs?: Crumb[];
   eyebrow: string;
   title: React.ReactNode;
   lede?: React.ReactNode;
@@ -38,8 +39,8 @@ export function PageHero({
           hairline so the banner ends as a band of its own. */}
       <div className={cn("wide-x relative pb-16 pt-10 md:pb-24 md:pt-16", visual && "xl:grid xl:grid-cols-[minmax(0,1fr)_minmax(0,0.78fr)] xl:items-center xl:gap-16")}>
         <div>
-          <Breadcrumbs crumbs={crumbs} dark={dark} />
-          <span className="eyebrow mt-8 block">{eyebrow}</span>
+          {crumbs ? <Breadcrumbs crumbs={crumbs} dark={dark} /> : null}
+          <span className={cn("eyebrow block", crumbs && "mt-8")}>{eyebrow}</span>
           <h1 className="display display-xl mt-5 max-w-[16ch]">{title}</h1>
           {lede ? <p className="lede mt-6 max-w-[64ch]">{lede}</p> : null}
           {children ? <div className="mt-8">{children}</div> : null}

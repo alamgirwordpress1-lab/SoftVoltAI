@@ -93,7 +93,22 @@ export function SiteFooter({ chrome }: { chrome: SiteChrome }) {
         </div>
 
         <div className="mt-20 grid gap-6 border-t border-er-line py-10 text-[14px] text-er-muted md:mt-28 md:grid-cols-3 md:items-center">
-          <p>{chrome.footerNote || `© ${year} ${chrome.name}. All rights reserved.`}</p>
+          <div className="flex flex-col gap-2">
+            <p>{chrome.footerNote || `© ${year} ${chrome.name}. All rights reserved.`}</p>
+            {chrome.legalLinks.length ? (
+              <nav aria-label="Legal">
+                <ul className="flex flex-wrap gap-x-5 gap-y-1">
+                  {chrome.legalLinks.map((l) => (
+                    <li key={l.href}>
+                      <Link href={l.href} prefetch={false} className="underline decoration-er-line underline-offset-4 transition-colors hover:text-er-ink">
+                        {l.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            ) : null}
+          </div>
           <p className="mono uppercase tracking-[0.1em] md:text-center">
             {chrome.location} · {chrome.utcOffset} · UK &amp; US overlap
           </p>

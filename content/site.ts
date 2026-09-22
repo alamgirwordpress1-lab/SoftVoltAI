@@ -19,6 +19,9 @@ export const site = {
   utcOffset: "UTC+6",
   calUrl: process.env.NEXT_PUBLIC_CAL_URL ?? "",
   founderLinkedIn: "https://www.linkedin.com/in/wordpress-developer-alan/",
+  /** The two legal pages. They are WordPress pages (rendered by the catch-all route), so these are their slugs there. */
+  privacyPath: "/privacy-policy",
+  termsPath: "/terms-and-conditions",
   markets: ["United Kingdom", "United States", "Canada", "Australia", "European Union"],
 };
 
@@ -48,6 +51,12 @@ export const companyLinks = [
   { label: "Security & confidentiality", href: "/security" },
   { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
+];
+
+/** The footer's bottom row, until WordPress has a menu in the "Legal links" location. */
+export const legalLinks = [
+  { label: "Privacy policy", href: site.privacyPath },
+  { label: "Terms and conditions", href: site.termsPath },
 ];
 
 export const resourceLinks = [

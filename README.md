@@ -96,11 +96,15 @@ The site follows three content rules, and the code is built around them:
 | `/partner-programme` | How an agency partnership starts and grows |
 | `/about` | Story, team, coverage hours and process |
 | `/contact` | The four-step brief form, plus a booking link when one is configured |
+| `/thank-you` · `/thank-you/brief` | Where each form lands once it has sent — an address of its own, so a conversion can be counted. Both are `noindex` and stay out of the sitemap |
+| `/privacy-policy` · `/terms-and-conditions` | WordPress pages, linked from the footer's bottom row and from both forms |
 | `POST /api/brief` | Validates a brief, then emails it or logs it |
 | `/search-index.json` | The site search index, built from the content (kept out of search engines in `robots.txt`) |
 | `/sitemap.xml` · `/robots.txt` · `/opengraph-image` | Generated from the same content as the pages |
 
 `/work` permanently redirects to `/case-studies`.
+
+A wrong or old link gets the designed 404: the banner, then the four pages people usually want. `app/(site)/not-found.tsx` answers inside the site group, where the layout already draws the header and the footer; `app/not-found.tsx` draws them itself for anything outside it.
 
 ## Getting started
 

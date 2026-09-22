@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useForm, useWatch, type FieldPath } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { briefSchema, WORK_TYPES, PLATFORMS, BUDGETS, type BriefInput } from "@/lib/forms/brief-schema";
@@ -25,6 +27,7 @@ const input =
 const label = "mono mb-1.5 block text-[11px] uppercase tracking-[0.1em] text-muted";
 
 export function BriefForm() {
+  const router = useRouter();
   const [step, setStep] = useState(0);
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
   const [serverError, setServerError] = useState("");
@@ -59,6 +62,8 @@ export function BriefForm() {
       const json = await res.json();
       if (!res.ok || !json.ok) throw new Error(json.error || "Something went wrong");
       setStatus("sent");
+      // its own address, so an ads or analytics tool can count a sent brief as a conversion
+      router.push("/thank-you/brief");
     } catch (err) {
       setStatus("error");
       setServerError(err instanceof Error ? err.message : "Something went wrong");
@@ -220,7 +225,11 @@ export function BriefForm() {
         <label className="flex items-start gap-3 text-[15px] text-ink">
           <input id="brief-consent" type="checkbox" {...register("consent")} aria-invalid={!!errors.consent} className="mt-1 h-4 w-4 accent-accent" />
           <span>
-            You may use these details to reply about this brief. Nothing else, no newsletter.
+            You may use these details to reply about this brief. Nothing else, no newsletter —{" "}
+            <Link href={site.privacyPath} target="_blank" className="underline decoration-line underline-offset-4 hover:decoration-accent">
+              privacy policy
+            </Link>
+            .
             <FieldError msg={errors.consent?.message} />
           </span>
         </label>

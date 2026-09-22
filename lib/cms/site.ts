@@ -1,6 +1,6 @@
 import "server-only";
 import { cache } from "react";
-import { aboutLinks, cta, headerCta, nav, site, socials } from "@/content/site";
+import { aboutLinks, cta, headerCta, legalLinks, nav, site, socials } from "@/content/site";
 import { wpMenus, wpSettings, type WpMenuItem } from "@/lib/cms/wordpress";
 
 /**
@@ -40,6 +40,8 @@ export interface SiteChrome {
   headerCta: ChromeLink;
   cta: { primary: ChromeLink; secondary: ChromeLink };
   footerColumns: ChromeColumn[] | null;
+  /** The footer's bottom row: the privacy policy and the terms. */
+  legalLinks: ChromeLink[];
   footerBlurb: string;
   footerNote: string;
   socials: typeof socials;
@@ -85,6 +87,7 @@ export const getSiteChrome = cache(async (): Promise<SiteChrome> => {
     headerCta,
     cta,
     footerColumns: null,
+    legalLinks: [...legalLinks],
     footerBlurb: "",
     footerNote: "",
     socials,
@@ -97,6 +100,7 @@ export const getSiteChrome = cache(async (): Promise<SiteChrome> => {
   const menus = (await wpMenus(settings.siteUrl)) ?? {};
   const header = menus.header ?? [];
   const footer = menus.footer ?? [];
+  const legal = menus.legal ?? [];
 
   const wpSocials = settings.socialLinks?.length
     ? settings.socialLinks.map((link) => ({
@@ -135,6 +139,8 @@ export const getSiteChrome = cache(async (): Promise<SiteChrome> => {
           links: item.children.length ? item.children.map(({ label, href }) => ({ label, href })) : [{ label: item.label, href: item.href }],
         }))
       : null,
+    // the "Legal links" menu location; until an editor fills it, the two pages from /content
+    legalLinks: legal.length ? legal.map(({ label, href, external }) => ({ label, href, external })) : local.legalLinks,
     footerBlurb: settings.footerBlurb || "",
     footerNote: settings.footerNote || "",
     socials: wpSocials ?? local.socials,

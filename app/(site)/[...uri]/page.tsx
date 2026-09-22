@@ -20,7 +20,7 @@ import { cms } from "@/lib/cms";
 export const dynamicParams = true;
 
 /** Paths that belong to this app; a WordPress page cannot take one over. */
-const RESERVED = new Set(["about", "api", "blog", "case-studies", "contact", "for", "home", "partner-programme", "preview", "rates", "security", "services"]);
+const RESERVED = new Set(["about", "api", "blog", "case-studies", "contact", "for", "home", "not-found", "partner-programme", "preview", "rates", "security", "services", "thank-you"]);
 
 export async function generateStaticParams() {
   const slugs = await cms.getWpSlugs();

@@ -3,7 +3,7 @@ import { site } from "@/content/site";
 import { cms } from "@/lib/cms";
 
 /** Top-level paths this app owns; a WordPress page with the same slug is never reachable. */
-const RESERVED = new Set(["about", "api", "blog", "case-studies", "contact", "for", "home", "partner-programme", "preview", "rates", "security", "services"]);
+const RESERVED = new Set(["about", "api", "blog", "case-studies", "contact", "for", "home", "not-found", "partner-programme", "preview", "rates", "security", "services", "thank-you"]);
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const [services, agencyTypes, work, wp] = await Promise.all([cms.getServices(), cms.getAgencyTypes(), cms.getWork(), cms.getWpSlugs()]);

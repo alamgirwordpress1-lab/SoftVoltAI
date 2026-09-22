@@ -230,6 +230,7 @@ add_action('after_setup_theme', static function (): void {
     register_nav_menus([
         'header' => 'Header navigation',
         'footer' => 'Footer navigation',
+        'legal'  => 'Legal links (footer, bottom row)',
     ]);
 });
 
