@@ -71,7 +71,7 @@ The site follows three content rules, and the code is built around them:
 | Framework | [Next.js 16.3](https://nextjs.org): App Router, React Server Components, Turbopack |
 | Language & UI | TypeScript 5.9 (strict), React 19.3 |
 | Styling | [Tailwind CSS 4.3](https://tailwindcss.com) with CSS-first design tokens (`@theme` in `app/globals.css`) |
-| Motion | [GSAP 3.15](https://gsap.com) (ScrollTrigger, SplitText), [Lenis](https://lenis.darkroom.engineering) smooth scroll |
+| Motion | [GSAP 3.15](https://gsap.com), [Lenis](https://lenis.darkroom.engineering) smooth scroll |
 | Forms | React Hook Form 7 + Zod 4, with one schema shared by the form and the API route |
 | Email | [Resend](https://resend.com), optional: without it, briefs are logged instead |
 | Fonts | Plus Jakarta Sans, Inter, Manrope and Roboto through `next/font`, self-hosted at build time |
@@ -205,7 +205,7 @@ public/
 ├── clients/                 screenshots of delivered client sites
 │   ├── logos/               client marks shown as round badges on the hero globe
 │   └── people/              preview-only photos, git-ignored (see below)
-└── founder.png · team-likhon.png · hero-grid.svg
+└── founder.png · team-likhon.png
 docs/                        images used in this README
 ```
 

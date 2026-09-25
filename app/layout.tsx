@@ -6,6 +6,7 @@ import { organizationSchema, websiteSchema } from "@/lib/seo/schema";
 import { shareMetadata } from "@/lib/seo/share";
 import { MotionRoot } from "@/components/motion/MotionRoot";
 import { THEME_COLORS, themeInitScript } from "@/lib/theme";
+import { deferredLayoutScript } from "@/lib/motion/deferred-layout";
 import "./globals.css";
 
 // Four families, one job each: display headings, body copy, interface, data.
@@ -76,8 +77,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en-GB" className={`${jakarta.variable} ${inter.variable} ${manrope.variable} ${roboto.variable}`} suppressHydrationWarning>
       <head>
         {/* Before first paint: marks JS as present (the hero intro never flashes its final
-            state) and applies a stored dark theme (the page never flashes light). */}
-        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+            state), applies a stored dark theme (the page never flashes light) and says
+            whether the home page may defer laying out its lower sections. */}
+        <script dangerouslySetInnerHTML={{ __html: `${themeInitScript};${deferredLayoutScript}` }} />
       </head>
       {/* browser extensions such as Grammarly add attributes to <body> before React loads */}
       <body suppressHydrationWarning>

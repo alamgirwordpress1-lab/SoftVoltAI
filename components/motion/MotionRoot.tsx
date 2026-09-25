@@ -3,7 +3,8 @@
 import { useEffect } from "react";
 import { usePathname } from "next/navigation";
 import Lenis from "lenis";
-import { gsap, ScrollTrigger, prefersReducedMotion } from "@/lib/motion/gsap";
+import { gsap, prefersReducedMotion } from "@/lib/motion/gsap";
+import { layOutFully, layoutDeferred } from "@/lib/motion/deferred-layout";
 
 let lenis: Lenis | null = null;
 
@@ -16,7 +17,8 @@ export function scrollToTop() {
 /**
  * Site-wide motion plumbing.
  *  - Lenis smooth scroll wired into GSAP's ticker (skipped under reduced motion)
- *  - same-page hash links scroll smoothly
+ *  - same-page hash links scroll smoothly, after turning deferred layout off
+ *    (lib/motion/deferred-layout.ts) so they land on real heights
  *  - [data-reveal]: whatever is already on screen at first load is marked .is-in
  *    before html.reveal-on turns hiding on, so nothing above the fold blinks and
  *    nothing stays hidden if this never runs. Re-scans on every route change and
@@ -30,7 +32,6 @@ export function MotionRoot() {
     let raf: ((time: number) => void) | undefined;
     if (!reduced) {
       lenis = new Lenis({ lerp: 0.11, wheelMultiplier: 1, touchMultiplier: 1.5 });
-      lenis.on("scroll", ScrollTrigger.update);
       raf = (time: number) => lenis?.raf(time * 1000);
       gsap.ticker.add(raf);
       gsap.ticker.lagSmoothing(500, 33);
@@ -44,6 +45,8 @@ export function MotionRoot() {
       const el = document.getElementById(decodeURIComponent(url.hash.slice(1)));
       if (!el) return;
       e.preventDefault();
+      // real heights above the target, or the jump lands short of it
+      layOutFully();
       if (lenis) lenis.scrollTo(el, { offset: -88, duration: 1.2 });
       else el.scrollIntoView({ behavior: reduced ? "auto" : "smooth", block: "start" });
       history.replaceState(null, "", url.hash);
@@ -63,6 +66,8 @@ export function MotionRoot() {
     const reduced = prefersReducedMotion();
     const firstRun = !root.classList.contains("reveal-on");
     const tracked = new WeakSet<Element>();
+    // a move between pages may land anywhere on the next one: no deferred layout from here on
+    if (!firstRun) layOutFully();
 
     const io = reduced
       ? null
@@ -78,6 +83,18 @@ export function MotionRoot() {
         );
 
     const viewportHeight = window.innerHeight;
+    const inView = (el: Element) => {
+      const r = el.getBoundingClientRect();
+      return r.top < viewportHeight && r.bottom > 0;
+    };
+    // Measuring inside a section that is skipping its layout would force that
+    // layout; the section's own box is known without it, and when that is off
+    // screen, so is everything in it.
+    const deferred = layoutDeferred();
+    const onScreen = (el: Element) => {
+      const section = deferred ? el.closest("#hero ~ section, footer") : null;
+      return (!section || inView(section)) && inView(el);
+    };
     const track = (el: Element) => {
       if (tracked.has(el) || el.classList.contains("is-in")) return;
       tracked.add(el);
@@ -85,12 +102,9 @@ export function MotionRoot() {
         el.classList.add("is-in");
         return;
       }
-      if (firstRun) {
-        const r = el.getBoundingClientRect();
-        if (r.top < viewportHeight && r.bottom > 0) {
-          el.classList.add("is-in");
-          return;
-        }
+      if (firstRun && onScreen(el)) {
+        el.classList.add("is-in");
+        return;
       }
       io.observe(el);
     };
