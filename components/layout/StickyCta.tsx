@@ -31,6 +31,12 @@ export function StickyCta({ cta = localCta }: { cta?: { primary: { label: string
     return () => io.disconnect();
   }, []);
 
+  // Volt's launcher reads this to sit above the bar instead of under it.
+  useEffect(() => {
+    document.documentElement.toggleAttribute("data-sticky-cta", visible);
+    return () => document.documentElement.removeAttribute("data-sticky-cta");
+  }, [visible]);
+
   return (
     <div
       className={cn(

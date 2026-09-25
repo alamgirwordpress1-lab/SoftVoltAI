@@ -1,0 +1,150 @@
+/* Volt: the launcher, the panel's show/hide, and the three small animations
+   (the live orb, the typing dots, the listening bars). Everything else is
+   Tailwind on the components. This file is not in a layer on purpose: its
+   [hidden] rules must beat the `flex` utility on the panel. */
+
+.volt-launcher {
+  position: fixed;
+  right: max(16px, env(safe-area-inset-right));
+  bottom: max(16px, env(safe-area-inset-bottom));
+  z-index: 40;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  height: 48px;
+  padding: 0 18px 0 16px;
+  border: 1px solid var(--color-er-line);
+  border-radius: 999px;
+  background: var(--color-er-bg);
+  color: var(--color-er-ink);
+  font-size: 15px;
+  font-weight: 600;
+  box-shadow: 0 12px 32px -12px rgb(0 0 0 / 0.5);
+  transition:
+    transform 200ms var(--ease-hover),
+    border-color 200ms var(--ease-hover);
+}
+
+.volt-launcher:hover {
+  border-color: var(--color-volt);
+  transform: translateY(-1px);
+}
+
+.volt-launcher:focus-visible {
+  outline: 2px solid var(--color-volt);
+  outline-offset: 3px;
+}
+
+.volt-launcher[hidden],
+.volt-panel[hidden] {
+  display: none;
+}
+
+/* On phones the home page pins a call to action to the bottom; sit above it. */
+@media (max-width: 639px) {
+  html[data-sticky-cta] .volt-launcher {
+    bottom: calc(84px + env(safe-area-inset-bottom));
+  }
+}
+
+.volt-orb {
+  flex: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--color-volt);
+  animation: volt-pulse 2.4s var(--ease-out-quart) infinite;
+}
+
+.volt-orb.is-active {
+  animation-duration: 1s;
+}
+
+@keyframes volt-pulse {
+  0% {
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--color-volt) 55%, transparent);
+  }
+  70%,
+  100% {
+    box-shadow: 0 0 0 10px transparent;
+  }
+}
+
+.volt-typing {
+  display: inline-flex;
+  gap: 4px;
+}
+
+.volt-typing span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-muted);
+  animation: volt-dot 1.2s ease-in-out infinite;
+}
+
+.volt-typing span:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.volt-typing span:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+@keyframes volt-dot {
+  0%,
+  80%,
+  100% {
+    opacity: 0.3;
+    transform: translateY(0);
+  }
+  40% {
+    opacity: 1;
+    transform: translateY(-3px);
+  }
+}
+
+.volt-bars {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  height: 16px;
+}
+
+.volt-bars span {
+  width: 3px;
+  height: 100%;
+  border-radius: 2px;
+  background: currentColor;
+  animation: volt-bar 0.9s ease-in-out infinite;
+}
+
+.volt-bars span:nth-child(2) {
+  animation-delay: 0.12s;
+}
+
+.volt-bars span:nth-child(3) {
+  animation-delay: 0.24s;
+}
+
+.volt-bars span:nth-child(4) {
+  animation-delay: 0.36s;
+}
+
+@keyframes volt-bar {
+  0%,
+  100% {
+    transform: scaleY(0.35);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .volt-orb,
+  .volt-typing span,
+  .volt-bars span {
+    animation: none;
+  }
+}
