@@ -1,4 +1,4 @@
-import { z } from "zod";
+import * as z from "./zod";
 
 /**
  * The short contact form — the one for a question, an introduction or a job

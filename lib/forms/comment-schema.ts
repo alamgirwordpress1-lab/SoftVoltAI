@@ -1,4 +1,4 @@
-import { z } from "zod";
+import * as z from "./zod";
 
 /**
  * A comment on a blog post. The same shape is checked in the browser, in the

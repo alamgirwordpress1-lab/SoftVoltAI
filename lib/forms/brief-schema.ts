@@ -1,4 +1,4 @@
-import { z } from "zod";
+import * as z from "./zod";
 
 export const WORK_TYPES = ["Build", "Automate", "Grow", "Support"] as const;
 // Every option here is something we actually build — keep it that way, and keep
