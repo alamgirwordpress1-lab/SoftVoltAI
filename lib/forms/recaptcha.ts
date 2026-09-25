@@ -46,6 +46,32 @@ export function loadRecaptcha(siteKey: string): Promise<void> {
 }
 
 /**
+ * Loads the script once the page has finished loading and the browser is idle, so
+ * Google's ~800 KB never competes with the page's own first paint. Every visitor
+ * still gets it and the badge still shows, a moment later; someone who sends the
+ * form before then gets the script at that point instead (see recaptchaToken).
+ * Returns a cancel for effect cleanup.
+ */
+export function loadRecaptchaWhenIdle(siteKey: string): () => void {
+  if (!siteKey || typeof window === "undefined") return () => {};
+  let idle: number | undefined;
+  let timer: number | undefined;
+  const start = () => {
+    const load = () => void loadRecaptcha(siteKey).catch(() => {});
+    // Safari has no requestIdleCallback
+    if (typeof window.requestIdleCallback === "function") idle = window.requestIdleCallback(load, { timeout: 4000 });
+    else timer = window.setTimeout(load, 1500);
+  };
+  if (document.readyState === "complete") start();
+  else window.addEventListener("load", start, { once: true });
+  return () => {
+    window.removeEventListener("load", start);
+    if (idle !== undefined) window.cancelIdleCallback(idle);
+    if (timer !== undefined) window.clearTimeout(timer);
+  };
+}
+
+/**
  * A token for one submission. Returns "" when reCAPTCHA is off or unreachable —
  * the form still posts, and WordPress decides what to do with it.
  */
