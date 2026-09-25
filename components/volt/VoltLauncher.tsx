@@ -43,7 +43,16 @@ export function VoltLauncher({ endpoint }: { endpoint: string }) {
         aria-label="Talk to Voice Agent: Power, SoftVolt AI's assistant"
         className="volt-launcher ui"
       >
-        <span className="volt-orb" aria-hidden="true" />
+        {/* a support headset, with the live dot on its corner */}
+        <span className="volt-launcher-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path d="M3.5 12v-2a6.5 6.5 0 0 1 13 0v2" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+            <rect x="2.5" y="11" width="3.5" height="5" rx="1.5" stroke="currentColor" strokeWidth="1.6" />
+            <rect x="14" y="11" width="3.5" height="5" rx="1.5" stroke="currentColor" strokeWidth="1.6" />
+            <path d="M15.75 16v.5a2 2 0 0 1-2 2H11" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+          </svg>
+          <span className="volt-orb" />
+        </span>
         <span>Talk to Voice Agent</span>
       </button>
     </>
