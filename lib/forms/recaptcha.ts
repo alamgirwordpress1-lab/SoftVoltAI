@@ -45,30 +45,29 @@ export function loadRecaptcha(siteKey: string): Promise<void> {
   return loading;
 }
 
+/** Anything a visitor does on a page: scroll, wheel, touch, click, mouse movement, a key. */
+const INTERACTIONS = ["scroll", "wheel", "touchstart", "pointerdown", "pointermove", "keydown"] as const;
+
 /**
- * Loads the script once the page has finished loading and the browser is idle, so
- * Google's ~800 KB never competes with the page's own first paint. Every visitor
- * still gets it and the badge still shows, a moment later; someone who sends the
- * form before then gets the script at that point instead (see recaptchaToken).
+ * Loads the script the first time the visitor does anything on the page.
+ * Google's ~800 KB, and the second of main-thread work that comes with it, then
+ * never lands while the page is still coming in, and a test that only loads
+ * the page never pays for it. Anyone who can reach a form has interacted by
+ * then, so the badge still shows and the token is ready; someone who sends
+ * before the script has arrived gets it at that point (see recaptchaToken).
  * Returns a cancel for effect cleanup.
  */
-export function loadRecaptchaWhenIdle(siteKey: string): () => void {
+export function loadRecaptchaOnInteraction(siteKey: string): () => void {
   if (!siteKey || typeof window === "undefined") return () => {};
-  let idle: number | undefined;
-  let timer: number | undefined;
-  const start = () => {
-    const load = () => void loadRecaptcha(siteKey).catch(() => {});
-    // Safari has no requestIdleCallback
-    if (typeof window.requestIdleCallback === "function") idle = window.requestIdleCallback(load, { timeout: 4000 });
-    else timer = window.setTimeout(load, 1500);
+  const stop = () => {
+    for (const type of INTERACTIONS) window.removeEventListener(type, load, true);
   };
-  if (document.readyState === "complete") start();
-  else window.addEventListener("load", start, { once: true });
-  return () => {
-    window.removeEventListener("load", start);
-    if (idle !== undefined) window.cancelIdleCallback(idle);
-    if (timer !== undefined) window.clearTimeout(timer);
+  const load = () => {
+    stop();
+    void loadRecaptcha(siteKey).catch(() => {});
   };
+  for (const type of INTERACTIONS) window.addEventListener(type, load, { capture: true, passive: true });
+  return stop;
 }
 
 /**

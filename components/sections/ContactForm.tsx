@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import { CONTACT_BUDGETS, CONTACT_TOPICS } from "@/lib/forms/contact-schema";
 import { site } from "@/content/site";
 import type { MessageFormCopy } from "@/lib/cms/copy-types";
-import { loadRecaptchaWhenIdle, recaptchaToken } from "@/lib/forms/recaptcha";
+import { loadRecaptchaOnInteraction, recaptchaToken } from "@/lib/forms/recaptcha";
 import { cn } from "@/lib/utils";
 
 /**
@@ -41,9 +41,9 @@ export function ContactForm({ copy, recaptchaKey = "" }: { copy: MessageFormCopy
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
   const [error, setError] = useState("");
 
-  // Google's script is fetched once the page has loaded, so the token is ready by
-  // the time someone presses send rather than adding a wait to the submit
-  useEffect(() => loadRecaptchaWhenIdle(recaptchaKey), [recaptchaKey]);
+  // Google's script is fetched at the visitor's first interaction, so the token is
+  // ready by the time someone presses send rather than adding a wait to the submit
+  useEffect(() => loadRecaptchaOnInteraction(recaptchaKey), [recaptchaKey]);
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();

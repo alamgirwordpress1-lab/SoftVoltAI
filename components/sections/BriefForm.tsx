@@ -9,7 +9,7 @@ import { briefSchema, WORK_TYPES, PLATFORMS, BUDGETS, type BriefInput } from "@/
 import { SubmitButton } from "@/components/ui/Button";
 import { site } from "@/content/site";
 import type { BriefFormCopy } from "@/lib/cms/copy-types";
-import { loadRecaptchaWhenIdle, recaptchaToken } from "@/lib/forms/recaptcha";
+import { loadRecaptchaOnInteraction, recaptchaToken } from "@/lib/forms/recaptcha";
 import { cn } from "@/lib/utils";
 
 const STEPS: { title: string; fields: FieldPath<BriefInput>[] }[] = [
@@ -48,8 +48,8 @@ export function BriefForm({ copy, recaptchaKey = "" }: { copy: BriefFormCopy; /*
     } catch {}
   }, [setValue]);
 
-  // fetched once the page has loaded, so the token costs nothing at submit time
-  useEffect(() => loadRecaptchaWhenIdle(recaptchaKey), [recaptchaKey]);
+  // fetched at the visitor's first interaction, so the token costs nothing at submit time
+  useEffect(() => loadRecaptchaOnInteraction(recaptchaKey), [recaptchaKey]);
 
   const workType = useWatch({ control, name: "workType" });
   const platforms = useWatch({ control, name: "platforms" });
