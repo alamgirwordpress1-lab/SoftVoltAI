@@ -182,11 +182,14 @@ export function OrbitGlobe({ cards, locations, label }: { cards: GlobeCard[]; lo
 
       let px = 0;
       let dpr = 1;
+      // resizing a canvas resets its context, the label font with it
+      let textReady = false;
       const resize = () => {
         px = root.clientWidth;
         dpr = Math.min(2, window.devicePixelRatio || 1);
         canvas.width = Math.round(px * dpr);
         canvas.height = Math.round(px * dpr);
+        textReady = false;
       };
       resize();
 
@@ -380,9 +383,14 @@ export function OrbitGlobe({ cards, locations, label }: { cards: GlobeCard[]; lo
         }
         ctx.globalAlpha = st.earth;
 
-        // markers + labels
-        ctx.font = `600 ${11 * dpr}px ${fontFamily}`;
-        ctx.textBaseline = "middle";
+        // markers + labels. The font is set once per canvas size, not every frame:
+        // each assignment makes the browser recompute the whole page's styles first.
+        if (!textReady) {
+          ctx.font = `600 ${11 * dpr}px ${fontFamily}`;
+          ctx.textBaseline = "middle";
+          ctx.direction = "ltr";
+          textReady = true;
+        }
         const labelBoxes: number[][] = [];
         for (const l of locs) {
           const p = view(l.v.x, l.v.y, l.v.z, cr, sr, cT, sT);
@@ -494,8 +502,8 @@ export function OrbitGlobe({ cards, locations, label }: { cards: GlobeCard[]; lo
           st.tiltSpeed = pitch;
         }
         if (reduced) {
-          placeCards();
           draw();
+          placeCards();
         }
       };
       const onUp = (e: PointerEvent) => {
@@ -545,8 +553,8 @@ export function OrbitGlobe({ cards, locations, label }: { cards: GlobeCard[]; lo
       root.classList.add("og-live");
 
       if (reduced) {
-        placeCards();
         draw();
+        placeCards();
         return detach;
       }
 
@@ -568,8 +576,11 @@ export function OrbitGlobe({ cards, locations, label }: { cards: GlobeCard[]; lo
             st.tiltSpeed *= Math.pow(0.9, dr);
           }
         }
-        placeCards();
+        // Canvas first, cards second: both read the same state, so the frame is the
+        // same, but the canvas text calls no longer find styles the cards just
+        // changed and make the browser recompute them on the spot, every frame.
         draw();
+        placeCards();
       };
       gsap.ticker.add(tick);
 
