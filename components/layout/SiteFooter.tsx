@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { siFacebook, siInstagram, siX } from "simple-icons";
 import { Logo } from "@/components/layout/Logo";
-import { BackToTop } from "@/components/layout/BackToTop";
 import { companyLinks, socials } from "@/content/site";
 import { pillars } from "@/content/pillars";
 import type { SiteChrome } from "@/lib/cms/site";
@@ -115,7 +114,6 @@ export function SiteFooter({ chrome }: { chrome: SiteChrome }) {
                 </ul>
               </nav>
             ) : null}
-            <BackToTop />
           </div>
         </div>
       </div>

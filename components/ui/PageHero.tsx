@@ -39,7 +39,8 @@ export function PageHero({
 }) {
   const visual = Boolean(highlights?.length);
   return (
-    <section className={cn("relative overflow-hidden", dark ? "er" : "grid-bg border-b border-line")}>
+    // data-hero: the floating back-to-top button stays hidden while this banner is on screen
+    <section data-hero="" className={cn("relative overflow-hidden", dark ? "er" : "grid-bg border-b border-line")}>
       {/* wide-x, not container-x: the opener shares the full-bleed rail with the
           header and the homepage hero, so their left edges line up. The top matches
           the homepage hero's inner column; the bottom leaves a wider gap before the

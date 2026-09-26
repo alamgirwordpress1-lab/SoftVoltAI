@@ -781,3 +781,11 @@ details.faq[open] .faq-body {
   padding: 0.7em 0.6em;
   text-align: left;
 }
+
+/* Google's floating reCAPTCHA badge would sit on the corner buttons (back to top,
+   the voice agent). Hidden with visibility, not display: Google's FAQ allows this
+   when each protected form carries the reCAPTCHA notice (components/ui/RecaptchaNotice),
+   and display: none can stop the check from running. */
+.grecaptcha-badge {
+  visibility: hidden;
+}

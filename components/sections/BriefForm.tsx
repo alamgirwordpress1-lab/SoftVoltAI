@@ -10,6 +10,7 @@ import { SubmitButton } from "@/components/ui/Button";
 import { site } from "@/content/site";
 import type { BriefFormCopy } from "@/lib/cms/copy-types";
 import { loadRecaptchaOnInteraction, recaptchaToken } from "@/lib/forms/recaptcha";
+import { RecaptchaNotice } from "@/components/ui/RecaptchaNotice";
 import { cn } from "@/lib/utils";
 
 const STEPS: { title: string; fields: FieldPath<BriefInput>[] }[] = [
@@ -265,6 +266,7 @@ export function BriefForm({ copy, recaptchaKey = "" }: { copy: BriefFormCopy; /*
         )}
         <p className="mono text-[11px] uppercase tracking-[0.08em] text-muted">{copy.reply_note}</p>
       </div>
+      {recaptchaKey ? <RecaptchaNotice className="mt-4" /> : null}
     </form>
   );
 }

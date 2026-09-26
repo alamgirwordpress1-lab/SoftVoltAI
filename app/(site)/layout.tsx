@@ -1,6 +1,7 @@
 import Script from "next/script";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SiteFooter } from "@/components/layout/SiteFooter";
+import { BackToTop } from "@/components/layout/BackToTop";
 import { VoltLauncher } from "@/components/volt/VoltLauncher";
 import { getSiteChrome } from "@/lib/cms/site";
 
@@ -24,6 +25,7 @@ export default async function SiteLayout({ children }: { children: React.ReactNo
       <SiteHeader chrome={chrome} />
       <main id="main">{children}</main>
       <SiteFooter chrome={chrome} />
+      <BackToTop aboveLauncher={voltEnabled} />
       {voltEnabled ? <VoltLauncher endpoint="/api/volt" /> : null}
     </>
   );

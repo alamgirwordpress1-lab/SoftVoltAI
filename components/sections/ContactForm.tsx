@@ -7,6 +7,7 @@ import { CONTACT_BUDGETS, CONTACT_TOPICS } from "@/lib/forms/contact-schema";
 import { site } from "@/content/site";
 import type { MessageFormCopy } from "@/lib/cms/copy-types";
 import { loadRecaptchaOnInteraction, recaptchaToken } from "@/lib/forms/recaptcha";
+import { RecaptchaNotice } from "@/components/ui/RecaptchaNotice";
 import { cn } from "@/lib/utils";
 
 /**
@@ -213,6 +214,7 @@ export function ContactForm({ copy, recaptchaKey = "" }: { copy: MessageFormCopy
           .
         </p>
       </div>
+      {recaptchaKey ? <RecaptchaNotice className="mt-3" /> : null}
 
       {status === "error" ? (
         <p role="alert" className="mt-4 text-[14px] text-danger">

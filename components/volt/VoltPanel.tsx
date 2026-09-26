@@ -5,6 +5,7 @@ import { useEffect, useRef, useState, type FormEvent, type KeyboardEvent } from 
 import { site } from "@/content/site";
 import { cn } from "@/lib/utils";
 import { canListen, canSpeak, createRecognition, speak, stopSpeaking, warmUpSpeech, type Recognition } from "./speech";
+import { SupportIcon } from "./SupportIcon";
 
 type Role = "bot" | "user";
 
@@ -287,7 +288,7 @@ export function VoltPanel({ endpoint, open, onClose }: { endpoint: string; open:
       className="volt-panel ui fixed inset-0 z-50 flex flex-col overflow-hidden bg-surface text-ink sm:inset-auto sm:bottom-6 sm:right-6 sm:h-[min(620px,calc(100dvh-3rem))] sm:w-[390px] sm:rounded-[var(--radius-xl)] sm:border sm:border-line sm:shadow-2xl"
     >
       <header className="flex items-center gap-3 bg-er-bg px-4 py-3 text-er-ink">
-        <span className={cn("volt-orb", phase !== "idle" && "is-active")} aria-hidden="true" />
+        <SupportIcon active={phase !== "idle"} />
         <div className="min-w-0 flex-1">
           <p className="text-[15px] font-semibold leading-tight">Power · SoftVolt AI</p>
           <p className="truncate text-xs text-er-muted" aria-live="polite">
