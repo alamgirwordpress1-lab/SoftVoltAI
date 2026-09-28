@@ -52,7 +52,7 @@ export function SiteFooter({ chrome }: { chrome: SiteChrome }) {
         <div className="grid gap-14 lg:grid-cols-12 lg:gap-10">
           <div className="lg:col-span-4">
             <Link href="/" aria-label={`${chrome.name} — home`} className="inline-block">
-              <Logo dark id="logo-footer" name={chrome.name} image={chrome.logoDark} />
+              <Logo name={chrome.name} image={chrome.logoDark} height={82} heightClassName="h-[60px] md:h-[82px]" />
             </Link>
             <p className="ui mt-7 max-w-[30ch] text-lg font-semibold leading-snug text-er-ink">{chrome.tagline}</p>
             <p className="mt-4 max-w-[46ch] text-[15px] leading-relaxed text-er-muted">

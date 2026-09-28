@@ -31,53 +31,62 @@ export function LogoMark({ size = 28, id = "lm", className }: { size?: number; i
   );
 }
 
-/** The wordmark as it is drawn in the design: the second word carries the accent. */
-function Wordmark({ name, dark }: { name: string; dark: boolean }) {
-  const words = name.trim().split(/\s+/);
-  const last = words.length > 1 ? words.pop() : "";
-  return (
-    <span className={cn("whitespace-nowrap font-display text-[19px] font-extrabold tracking-[-0.035em]", dark ? "text-er-ink" : "text-ink")}>
-      {words.join(" ")}
-      {last ? <span className={dark ? "text-volt" : "text-accent"}> {last}</span> : null}
-    </span>
-  );
-}
-
 /**
- * The brand, in the header and the footer. An editor who uploads a logo on the
- * Headless settings screen gets that picture instead of the built-in mark and
- * wordmark — unoptimised, because a logo is usually an SVG or a small PNG and
- * both should reach the page exactly as they were drawn.
+ * The brand, in the header and the footer: the logo picture from the Headless
+ * settings screen, or the pair in /public/brand. A PNG goes through the image
+ * optimiser like the rest of the WordPress media (an upload is often 2000px
+ * wide and 100 KB, for a logo shown 82px tall); an SVG reaches the page as drawn.
+ *
+ * Given a second picture for dark backgrounds (`imageDark`), that one takes
+ * over in dark mode, so the name never disappears on a dark header.
  */
 export function Logo({
-  dark = false,
-  className,
-  id = "lm",
+  image,
+  imageDark = null,
   name = "SoftVolt AI",
-  image = null,
+  height,
+  heightClassName,
+  eager = false,
+  className,
 }: {
-  dark?: boolean;
-  className?: string;
-  id?: string;
-  /** The brand name from the settings screen. */
+  image: SiteLogo;
+  /** Shown instead of `image` in dark mode. */
+  imageDark?: SiteLogo | null;
+  /** The brand name, for the alt text when the picture has none. */
   name?: string;
-  /** The uploaded logo, when there is one. */
-  image?: SiteLogo | null;
+  /** The largest display height in px (sets the intrinsic size). */
+  height: number;
+  /** The display height, as utility classes. */
+  heightClassName: string;
+  /** Fetch it first: the header's logo is in the first screen, the footer's is not. */
+  eager?: boolean;
+  className?: string;
 }) {
-  if (image?.src) {
-    const height = 34;
-    const width = image.width && image.height ? Math.round((image.width / image.height) * height) : height * 4;
-    return (
-      <span className={cn("inline-flex items-center", className)}>
-        <Image src={image.src} alt={image.alt || name} width={width} height={height} unoptimized className="h-[34px] w-auto" priority />
-      </span>
-    );
-  }
-
+  const widthFor = (img: SiteLogo) => (img.width && img.height ? Math.round((img.width / img.height) * height) : height * 4);
+  const isSvg = (img: SiteLogo) => /\.svg($|\?)/i.test(img.src);
+  const swap = imageDark?.src && imageDark.src !== image.src ? imageDark : null;
   return (
-    <span className={cn("inline-flex items-center gap-2.5", className)}>
-      <LogoMark size={30} id={id} />
-      <Wordmark name={name} dark={dark} />
+    <span className={cn("inline-flex items-center", className)}>
+      <Image
+        src={image.src}
+        alt={image.alt || name}
+        width={widthFor(image)}
+        height={height}
+        unoptimized={isSvg(image)}
+        loading={eager ? "eager" : undefined}
+        fetchPriority={eager ? "high" : undefined}
+        className={cn("w-auto max-w-none", heightClassName, swap && "logo-img-light")}
+      />
+      {swap ? (
+        <Image
+          src={swap.src}
+          alt={swap.alt || name}
+          width={widthFor(swap)}
+          height={height}
+          unoptimized={isSvg(swap)}
+          className={cn("logo-img-dark w-auto max-w-none", heightClassName)}
+        />
+      ) : null}
     </span>
   );
 }

@@ -6,6 +6,13 @@ export const site = {
   // during the build.
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://www.softvoltai.com",
   tagline: "The white-label production and growth team behind agencies.",
+  /**
+   * The logo, and the white version for dark backgrounds (the footer, and the
+   * header in dark mode). Both live in /public/brand; uploads on the Headless
+   * settings screen replace them.
+   */
+  logo: { src: "/brand/softvoltai-logo.png", alt: "SoftVolt AI", width: 669, height: 246 },
+  logoDark: { src: "/brand/softvoltai-logo-white.png", alt: "SoftVolt AI", width: 663, height: 246 },
   /** Meta description and Open Graph copy: kept under 160 characters so search results do not cut it off. */
   description:
     "White-label production and growth for agencies: WordPress, WooCommerce, headless Next.js, SEO and paid media, built under your brand from Dhaka.",

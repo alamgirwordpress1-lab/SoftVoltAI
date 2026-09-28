@@ -134,6 +134,17 @@
   stroke-width: 1.5px;
 }
 
+/* the logo pair: the version for dark backgrounds takes over in dark mode */
+.logo-img-dark {
+  display: none;
+}
+:root[data-theme="dark"] .logo-img-light {
+  display: none;
+}
+:root[data-theme="dark"] .logo-img-dark {
+  display: block;
+}
+
 html {
   background: var(--color-paper);
   scroll-behavior: smooth;

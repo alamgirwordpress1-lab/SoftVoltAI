@@ -52,9 +52,10 @@ export interface SiteChrome {
   footerBlurb: string;
   footerNote: string;
   socials: typeof socials;
-  /** An uploaded logo, or null when the site uses its built-in mark. */
-  logo: SiteLogo | null;
-  logoDark: SiteLogo | null;
+  /** The logo: an upload from the settings screen, or the one in /content/site.ts. */
+  logo: SiteLogo;
+  /** The logo for dark backgrounds: the footer, and the header in dark mode. */
+  logoDark: SiteLogo;
   /** The two written lines inside the Services mega menu. */
   mega: { resources: string; footer: string };
   /** Set when Contact Form 7 has reCAPTCHA on: the forms then send it a token. */
@@ -106,8 +107,8 @@ export const getSiteChrome = cache(async (): Promise<SiteChrome> => {
     legalLinks: [...legalLinks],
     footerBlurb: "",
     footerNote: "",
-    logo: null,
-    logoDark: null,
+    logo: site.logo,
+    logoDark: site.logoDark,
     mega: { resources: "Proof, pricing and where to start.", footer: "Not sure which service fits? Send the brief — the scope tells you." },
     recaptchaSiteKey: "",
     cookieScript: "",
@@ -165,8 +166,9 @@ export const getSiteChrome = cache(async (): Promise<SiteChrome> => {
     footerBlurb: settings.footerBlurb || "",
     footerNote: settings.footerNote || "",
     socials: wpSocials ?? local.socials,
-    logo: settings.logo?.src ? settings.logo : null,
-    logoDark: settings.logoDark?.src ? settings.logoDark : (settings.logo?.src ? settings.logo : null),
+    logo: settings.logo?.src ? settings.logo : local.logo,
+    // an uploaded logo with no dark version is used for both, as the settings screen says
+    logoDark: settings.logoDark?.src ? settings.logoDark : settings.logo?.src ? settings.logo : local.logoDark,
     mega: {
       resources: settings.megaResourcesNote || local.mega.resources,
       footer: settings.megaFooterNote || local.mega.footer,
