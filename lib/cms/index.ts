@@ -20,12 +20,14 @@ import { clientOrbit, globeCards, globeLocations } from "@/content/clients";
 import { placeholderClients } from "@/lib/cms/placeholder-clients";
 import { comparison, comparisonSource } from "@/content/comparison";
 import { testimonials } from "@/content/testimonials";
+import { products } from "@/content/products";
+import { productDetails } from "@/content/product-details";
 import { buildDetails } from "@/content/service-details-build";
 import { automateDetails } from "@/content/service-details-automate";
 import { growDetails } from "@/content/service-details-grow";
 import { supportDetails } from "@/content/service-details-support";
 import { wpAgencyTypes, wpCollections, wpPage, wpPost, wpPosts, wpServices, wpSettings, wpSlugs, wpWork } from "@/lib/cms/wordpress";
-import type { Service, ServiceDetail, PillarGroup, AgencyType } from "@/lib/cms/types";
+import type { Service, ServiceDetail, PillarGroup, AgencyType, Product, ProductDetail } from "@/lib/cms/types";
 
 const details: Record<string, ServiceDetail> = { ...buildDetails, ...automateDetails, ...growDetails, ...supportDetails };
 const services: Service[] = pillars.flatMap((p) => p.services);
@@ -39,6 +41,11 @@ const fromWpAgencyTypes = cache(wpAgencyTypes);
 const fromWpWork = cache(wpWork);
 const fromWpCollections = cache(wpCollections);
 const fromWpSettings = cache(wpSettings);
+
+export interface ProductPage extends Product, ProductDetail {
+  /** The other products, for the closing row. */
+  others: Product[];
+}
 
 export interface ServicePage extends Service, ServiceDetail {
   pillarGroup: PillarGroup;
@@ -166,6 +173,16 @@ export const cms = {
   getTestimonials: async () => {
     const wp = await fromWpCollections();
     return wp?.testimonials.length ? wp.testimonials : testimonials;
+  },
+
+  // the plugins and themes live in /content until there are enough to want a WordPress type of their own
+  getProducts: async (): Promise<Product[]> => products,
+
+  getProduct: async (slug: string): Promise<ProductPage | null> => {
+    const product = products.find((p) => p.slug === slug);
+    const detail = productDetails[slug];
+    if (!product || !detail) return null;
+    return { ...product, ...detail, others: products.filter((p) => p.slug !== slug) };
   },
 
   /* ---------------------------------------------------- WordPress-only content

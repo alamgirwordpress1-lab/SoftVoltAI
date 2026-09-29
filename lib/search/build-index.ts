@@ -13,9 +13,10 @@ const firstSentence = (text: string) => text.match(/^.+?[.!?](?=\s|$)/)?.[0] ?? 
 const unique = (list: string[]) => [...new Set(list.map((s) => s.trim()).filter(Boolean))];
 
 export async function buildSearchIndex(): Promise<SearchIndex> {
-  const [pillars, agencyTypes, work, workCategories, faqs, pricingFaqs, team] = await Promise.all([
+  const [pillars, agencyTypes, products, work, workCategories, faqs, pricingFaqs, team] = await Promise.all([
     cms.getPillars(),
     cms.getAgencyTypes(),
+    cms.getProducts(),
     cms.getWork(),
     cms.getWorkCategories(),
     cms.getFaqs(),
@@ -68,6 +69,32 @@ export async function buildSearchIndex(): Promise<SearchIndex> {
       meta: `${w.region} · ${w.category}`,
       keywords: unique([w.category, w.client, w.region, ...w.stack]),
       body: [w.summary, w.role, ...w.delivered].join(" "),
+    });
+  }
+
+  // a product is a page of its own; the "Page" kind keeps search's layout as it is
+  items.push({
+    id: "page:/products",
+    kind: "page",
+    title: "Our products",
+    url: "/products",
+    description: "WordPress plugins and themes built by SoftVolt AI.",
+    meta: "Page",
+    keywords: ["products", "plugins", "themes", "wordpress plugin", "wordpress theme", "download"],
+    body: "",
+  });
+  for (const product of products) {
+    const page = await cms.getProduct(product.slug);
+    if (!page) continue;
+    items.push({
+      id: `page:/products/${product.slug}`,
+      kind: "page",
+      title: product.name,
+      url: `/products/${product.slug}`,
+      description: product.tagline,
+      meta: product.kind === "theme" ? "WordPress theme" : "WordPress plugin",
+      keywords: unique([product.name, ...product.keywords]),
+      body: [page.intro, ...page.features.map((f) => `${f.title}. ${f.text}`)].join(" "),
     });
   }
 

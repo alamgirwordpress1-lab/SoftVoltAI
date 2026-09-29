@@ -42,7 +42,7 @@ export interface SiteChrome {
   calUrl: string;
   url: string;
   markets: string[];
-  nav: { services: ChromeLink; agencies: ChromeLink; caseStudies: ChromeLink; about: ChromeLink };
+  nav: { services: ChromeLink; agencies: ChromeLink; products: ChromeLink; caseStudies: ChromeLink; about: ChromeLink };
   aboutLinks: ChromeLink[];
   headerCta: ChromeLink;
   cta: { primary: ChromeLink; secondary: ChromeLink };
@@ -82,6 +82,7 @@ function navFromMenu(items: WpMenuItem[]) {
   return {
     services: find("/services", "service") ?? nav.services,
     agencies: find("/for", "agency", "solutions") ?? nav.agencies,
+    products: find("/products", "product") ?? nav.products,
     caseStudies: find("/case-studies", "case") ?? nav.caseStudies,
     about: find("/about", "about") ?? nav.about,
   };

@@ -6,8 +6,10 @@ import { usePathname } from "next/navigation";
 import type { SiteChrome } from "@/lib/cms/site";
 import { pillars } from "@/content/pillars";
 import { agencyTypes } from "@/content/agency-types";
+import { products } from "@/content/products";
 import { Logo } from "@/components/layout/Logo";
 import { MegaMenu } from "@/components/layout/MegaMenu";
+import { ProductsMenu } from "@/components/layout/ProductsMenu";
 import { NavDropdown } from "@/components/layout/NavDropdown";
 import { Button } from "@/components/ui/Button";
 import { SiteSearch } from "@/components/search/SiteSearch";
@@ -70,8 +72,9 @@ export function SiteHeader({ chrome }: { chrome: SiteChrome }) {
           <Logo eager name={siteName} image={chrome.logo} imageDark={chrome.logoDark} height={77} heightClassName="h-[60px] md:h-[77px]" />
         </Link>
 
-        <nav aria-label="Primary" className="ml-auto hidden lg:block">
-          <ul className="flex items-center gap-4 xl:gap-8">
+        {/* five menus beside a 77px logo: the full menu needs xl, and the search box stays an icon until 2xl */}
+        <nav aria-label="Primary" className="ml-auto hidden xl:block">
+          <ul className="flex items-center gap-5 2xl:gap-8">
             <li>
               <MegaMenu pillars={menuPillars} active={isActive(nav.services.href)} notes={chrome.mega} />
             </li>
@@ -83,6 +86,9 @@ export function SiteHeader({ chrome }: { chrome: SiteChrome }) {
                 active={isActive(nav.agencies.href)}
                 width={300}
               />
+            </li>
+            <li>
+              <ProductsMenu label={nav.products.label} href={nav.products.href} active={isActive(nav.products.href)} />
             </li>
             <li>
               <Link
@@ -103,7 +109,7 @@ export function SiteHeader({ chrome }: { chrome: SiteChrome }) {
           </ul>
         </nav>
 
-        <div className="ml-auto flex items-center gap-2 lg:ml-2 xl:ml-6 xl:gap-3">
+        <div className="ml-auto flex items-center gap-2 xl:ml-4 xl:gap-3 2xl:ml-6">
           <SiteSearch />
           <ThemeToggle />
           <div className="hidden sm:block">
@@ -111,7 +117,7 @@ export function SiteHeader({ chrome }: { chrome: SiteChrome }) {
           </div>
           <button
             type="button"
-            className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-line-strong lg:hidden"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-line-strong xl:hidden"
             aria-expanded={open}
             aria-controls="mobile-nav"
             aria-label={open ? "Close menu" : "Open menu"}
@@ -126,7 +132,7 @@ export function SiteHeader({ chrome }: { chrome: SiteChrome }) {
         </div>
       </div>
 
-      <div id="mobile-nav" hidden={!open} className="max-h-[calc(100dvh-64px)] overflow-y-auto border-t border-line bg-surface lg:hidden">
+      <div id="mobile-nav" hidden={!open} className="max-h-[calc(100dvh-64px)] overflow-y-auto border-t border-line bg-surface xl:hidden">
         <nav aria-label="Mobile" className="wide-x py-4">
           <MobileGroup title={nav.services.label}>
             <div className="grid gap-5 sm:grid-cols-2">
@@ -162,6 +168,22 @@ export function SiteHeader({ chrome }: { chrome: SiteChrome }) {
             </ul>
             <Link href={nav.agencies.href} onClick={close} className="mono mt-4 inline-block text-[12px] uppercase tracking-[0.1em] text-accent">
               All agency solutions →
+            </Link>
+          </MobileGroup>
+
+          <MobileGroup title={nav.products.label}>
+            <ul className="space-y-3">
+              {products.map((p) => (
+                <li key={p.slug}>
+                  <Link href={`/products/${p.slug}`} onClick={close} className="block">
+                    <span className="ui block text-[15px] font-semibold text-ink">{p.name}</span>
+                    <span className="block text-[13px] text-muted">{p.tagline}</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            <Link href={nav.products.href} onClick={close} className="mono mt-4 inline-block text-[12px] uppercase tracking-[0.1em] text-accent">
+              All products →
             </Link>
           </MobileGroup>
 

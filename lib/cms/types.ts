@@ -202,3 +202,68 @@ export interface EngagementModel {
   /** Optional badge on the plan card. Keep it to something we can stand behind. */
   badge?: string;
 }
+
+/** A WordPress plugin or theme on the "Our Products" menu and the /products page. */
+export interface Product {
+  slug: string;
+  name: string;
+  kind: "plugin" | "theme";
+  /** A short flag beside the name: "New", "Popular". Keep it to something we can stand behind. */
+  badge?: string;
+  /** One line under the name in the menu. */
+  tagline: string;
+  /** The paragraph on the /products page. */
+  summary: string;
+  /** Which drawn icon to show — see components/products/ProductIcon.tsx. */
+  icon: "voice-agent";
+  /** The price in a few words, for cards: "Free · Pro coming soon". */
+  price: string;
+  /** Where the free version can be had, or when it will be. */
+  availability: string;
+  /** Words people might search for that the name does not contain. */
+  keywords: string[];
+}
+
+/** A button on a product page: its words and where it goes. `demo` opens the voice agent on this site. */
+export interface ProductAction {
+  label: string;
+  href: string;
+  kind?: "primary" | "secondary" | "demo";
+}
+
+/** One tier in a product's price card. */
+export interface ProductPlan {
+  name: string;
+  /** "$0", or "Coming soon" while a tier is not on sale. */
+  price: string;
+  /** Next to the price: "forever", "/ year". */
+  period?: string;
+  note: string;
+  points: string[];
+  action: ProductAction;
+}
+
+/** Everything a product's own page needs beyond the summary. Keyed by product slug. */
+export interface ProductDetail {
+  /** The H1: the product and the platform, "SoftVolt AI Voice Agent for WordPress". */
+  title: string;
+  /** Two sentences: what it does and for whom. */
+  intro: string;
+  /** SEO description, under 160 characters. */
+  seo: string;
+  /** The buttons under the intro, in order. */
+  actions: ProductAction[];
+  /** The price card beside the banner: the free tier first. */
+  plans: ProductPlan[];
+  why: { heading: string; paragraphs: string[]; points: { title: string; text: string }[] };
+  steps: { title: string; text: string }[];
+  help: { title: string; text: string; action?: ProductAction }[];
+  features: { title: string; text: string }[];
+  /** Free against Pro, row by row: [in the free plugin, in Pro]. */
+  compare: { label: string; free: boolean; pro: boolean }[];
+  /** What Pro will add, for the Compare tab. */
+  pro: { heading: string; text: string; features: { title: string; text: string }[] };
+  /** Label → value facts for the Info tab. */
+  info: { label: string; value: string }[];
+  faqs: Faq[];
+}

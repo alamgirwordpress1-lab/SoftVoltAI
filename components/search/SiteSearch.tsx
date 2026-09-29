@@ -69,13 +69,13 @@ export function SiteSearch({ className }: { className?: string }) {
         aria-label="Search the site"
         className={cn(
           "inline-flex h-10 w-10 shrink-0 items-center justify-center gap-2 rounded-md border border-line-strong bg-surface text-ink transition-colors duration-150 hover:border-ink",
-          "xl:w-[196px] xl:justify-start xl:px-3 xl:text-muted xl:hover:text-ink",
+          "2xl:w-[196px] 2xl:justify-start 2xl:px-3 2xl:text-muted 2xl:hover:text-ink",
           className,
         )}
       >
         <SearchIcon className="shrink-0" />
-        <span className="ui hidden text-[14px] xl:inline">Search</span>
-        <kbd className="mono ml-auto hidden rounded border border-line bg-raised px-1.5 py-0.5 text-[11px] leading-none text-muted xl:inline">{shortcut}</kbd>
+        <span className="ui hidden text-[14px] 2xl:inline">Search</span>
+        <kbd className="mono ml-auto hidden rounded border border-line bg-raised px-1.5 py-0.5 text-[11px] leading-none text-muted 2xl:inline">{shortcut}</kbd>
       </button>
       {mounted && <SearchDialog open={open} onClose={hide} />}
     </>

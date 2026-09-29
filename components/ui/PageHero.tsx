@@ -20,6 +20,7 @@ export function PageHero({
   highlights,
   dark = false,
   titleAs: Title = "h1",
+  aside,
 }: {
   /** Left out only on the 404, which has no place in the trail. */
   crumbs?: Crumb[];
@@ -36,8 +37,14 @@ export function PageHero({
    * the heading, and this one steps out of the outline.
    */
   titleAs?: "h1" | "p";
+  /**
+   * A card beside the headline in place of the orbit visual — a product's
+   * price card. Unlike the orbit it is content, so it shows at every size:
+   * beside the words from lg up, under them below that.
+   */
+  aside?: React.ReactNode;
 }) {
-  const visual = Boolean(highlights?.length);
+  const visual = Boolean(highlights?.length) && !aside;
   return (
     // data-hero: the floating back-to-top button stays hidden while this banner is on screen
     <section data-hero="" className={cn("relative overflow-hidden", dark ? "er" : "grid-bg border-b border-line")}>
@@ -45,7 +52,13 @@ export function PageHero({
           header and the homepage hero, so their left edges line up. The top matches
           the homepage hero's inner column; the bottom leaves a wider gap before the
           hairline so the banner ends as a band of its own. */}
-      <div className={cn("wide-x relative pb-16 pt-10 md:pb-24 md:pt-16", visual && "xl:grid xl:grid-cols-[minmax(0,1fr)_minmax(0,0.78fr)] xl:items-center xl:gap-16")}>
+      <div
+        className={cn(
+          "wide-x relative pb-16 pt-10 md:pb-24 md:pt-16",
+          visual && "xl:grid xl:grid-cols-[minmax(0,1fr)_minmax(0,0.78fr)] xl:items-center xl:gap-16",
+          aside ? "lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(320px,400px)] lg:items-center lg:gap-14" : null,
+        )}
+      >
         <div>
           {crumbs ? <Breadcrumbs crumbs={crumbs} dark={dark} /> : null}
           <span className={cn("eyebrow block", crumbs && "mt-8")}>{eyebrow}</span>
@@ -58,6 +71,7 @@ export function PageHero({
             <PageHeroVisual highlights={highlights} />
           </div>
         ) : null}
+        {aside ? <div className="mt-12 lg:mt-0">{aside}</div> : null}
       </div>
     </section>
   );

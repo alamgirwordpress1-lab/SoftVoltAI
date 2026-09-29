@@ -3,10 +3,10 @@ import { site } from "@/content/site";
 import { cms } from "@/lib/cms";
 
 /** Top-level paths this app owns; a WordPress page with the same slug is never reachable. */
-const RESERVED = new Set(["about", "api", "blog", "case-studies", "contact", "for", "home", "not-found", "partner-programme", "preview", "rates", "security", "services", "thank-you"]);
+const RESERVED = new Set(["about", "api", "blog", "case-studies", "contact", "for", "home", "not-found", "partner-programme", "preview", "products", "rates", "security", "services", "thank-you"]);
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const [services, agencyTypes, work, wp] = await Promise.all([cms.getServices(), cms.getAgencyTypes(), cms.getWork(), cms.getWpSlugs()]);
+  const [services, agencyTypes, products, work, wp] = await Promise.all([cms.getServices(), cms.getAgencyTypes(), cms.getProducts(), cms.getWork(), cms.getWpSlugs()]);
   const now = new Date();
   const page = (path: string, priority: number, changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"] = "monthly", lastModified: Date | string = now) => ({
     url: `${site.url}${path}`,
@@ -25,6 +25,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...services.map((s) => page(`/services/${s.slug}`, 0.8)),
     page("/for", 0.8),
     ...agencyTypes.map((a) => page(`/for/${a.slug}`, 0.7)),
+    page("/products", 0.7),
+    ...products.map((p) => page(`/products/${p.slug}`, 0.7)),
     page("/case-studies", 0.8),
     ...work.map((w) => page(`/case-studies/${w.slug}`, 0.6)),
     page("/rates", 0.7),

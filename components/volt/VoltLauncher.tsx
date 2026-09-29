@@ -1,7 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { SupportIcon } from "./SupportIcon";
 import "./volt.css";
 
@@ -20,6 +20,25 @@ export function VoltLauncher({ endpoint }: { endpoint: string }) {
   const [mounted, setMounted] = useState(false);
   const buttonRef = useRef<HTMLButtonElement>(null);
 
+  const openPanel = useCallback(() => {
+    setMounted(true);
+    setOpen(true);
+    // the back-to-top button in this corner steps aside while the panel is open
+    document.documentElement.setAttribute("data-volt-open", "");
+  }, []);
+
+  // a page can open the agent too (a product page's "Try the live demo"): it
+  // checks data-volt-ready, then sends a "volt:open" event
+  useEffect(() => {
+    const root = document.documentElement;
+    root.setAttribute("data-volt-ready", "");
+    window.addEventListener("volt:open", openPanel);
+    return () => {
+      root.removeAttribute("data-volt-ready");
+      window.removeEventListener("volt:open", openPanel);
+    };
+  }, [openPanel]);
+
   function close() {
     setOpen(false);
     document.documentElement.removeAttribute("data-volt-open");
@@ -35,12 +54,7 @@ export function VoltLauncher({ endpoint }: { endpoint: string }) {
         ref={buttonRef}
         type="button"
         hidden={open}
-        onClick={() => {
-          setMounted(true);
-          setOpen(true);
-          // the back-to-top button in this corner steps aside while the panel is open
-          document.documentElement.setAttribute("data-volt-open", "");
-        }}
+        onClick={openPanel}
         onPointerEnter={preload}
         onFocus={preload}
         aria-haspopup="dialog"

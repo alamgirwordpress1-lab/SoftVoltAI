@@ -6,6 +6,7 @@ import { forCopy } from "@/content/copy/for";
 import { homeCopy } from "@/content/copy/home";
 import { notFoundCopy } from "@/content/copy/not-found";
 import { partnerProgrammeCopy } from "@/content/copy/partner-programme";
+import { productsCopy } from "@/content/copy/products";
 import { ratesCopy } from "@/content/copy/rates";
 import { securityCopy } from "@/content/copy/security";
 import { servicesCopy } from "@/content/copy/services";
@@ -20,6 +21,7 @@ export const pageCopies = [
   homeCopy,
   servicesCopy,
   forCopy,
+  productsCopy,
   caseStudiesCopy,
   ratesCopy,
   securityCopy,
@@ -40,6 +42,7 @@ export {
   homeCopy,
   notFoundCopy,
   partnerProgrammeCopy,
+  productsCopy,
   ratesCopy,
   securityCopy,
   servicesCopy,
