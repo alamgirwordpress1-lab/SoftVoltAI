@@ -20,14 +20,14 @@ import { clientOrbit, globeCards, globeLocations } from "@/content/clients";
 import { placeholderClients } from "@/lib/cms/placeholder-clients";
 import { comparison, comparisonSource } from "@/content/comparison";
 import { testimonials } from "@/content/testimonials";
-import { products } from "@/content/products";
+import { productGroups, products } from "@/content/products";
 import { productDetails } from "@/content/product-details";
 import { buildDetails } from "@/content/service-details-build";
 import { automateDetails } from "@/content/service-details-automate";
 import { growDetails } from "@/content/service-details-grow";
 import { supportDetails } from "@/content/service-details-support";
-import { wpAgencyTypes, wpCollections, wpPage, wpPost, wpPosts, wpServices, wpSettings, wpSlugs, wpWork } from "@/lib/cms/wordpress";
-import type { Service, ServiceDetail, PillarGroup, AgencyType, Product, ProductDetail } from "@/lib/cms/types";
+import { wpAgencyTypes, wpCollections, wpPage, wpPost, wpPosts, wpProducts, wpServices, wpSettings, wpSlugs, wpWork } from "@/lib/cms/wordpress";
+import type { Service, ServiceDetail, PillarGroup, AgencyType, Product, ProductDetail, ProductGroup } from "@/lib/cms/types";
 
 const details: Record<string, ServiceDetail> = { ...buildDetails, ...automateDetails, ...growDetails, ...supportDetails };
 const services: Service[] = pillars.flatMap((p) => p.services);
@@ -41,6 +41,11 @@ const fromWpAgencyTypes = cache(wpAgencyTypes);
 const fromWpWork = cache(wpWork);
 const fromWpCollections = cache(wpCollections);
 const fromWpSettings = cache(wpSettings);
+/** WordPress's products, or null while it has none — the Voice Agent in /content stands in until then. */
+const fromWpProducts = cache(async () => {
+  const wp = await wpProducts();
+  return wp?.products.length ? wp : null;
+});
 
 export interface ProductPage extends Product, ProductDetail {
   /** The other products, for the closing row. */
@@ -175,14 +180,20 @@ export const cms = {
     return wp?.testimonials.length ? wp.testimonials : testimonials;
   },
 
-  // the plugins and themes live in /content until there are enough to want a WordPress type of their own
-  getProducts: async (): Promise<Product[]> => products,
+  getProducts: async (): Promise<Product[]> => (await fromWpProducts())?.products ?? products,
+
+  getProductGroups: async (): Promise<ProductGroup[]> => {
+    const wp = await fromWpProducts();
+    return wp?.groups.length ? wp.groups : productGroups;
+  },
 
   getProduct: async (slug: string): Promise<ProductPage | null> => {
-    const product = products.find((p) => p.slug === slug);
-    const detail = productDetails[slug];
+    const wp = await fromWpProducts();
+    const all = wp?.products ?? products;
+    const product = all.find((p) => p.slug === slug);
+    const detail = (wp?.details ?? productDetails)[slug];
     if (!product || !detail) return null;
-    return { ...product, ...detail, others: products.filter((p) => p.slug !== slug) };
+    return { ...product, ...detail, others: all.filter((p) => p.slug !== slug) };
   },
 
   /* ---------------------------------------------------- WordPress-only content

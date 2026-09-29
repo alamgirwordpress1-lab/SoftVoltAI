@@ -129,6 +129,23 @@ function softvolt_post_type_schema(): array
             'supports'  => ['title', 'revisions', 'page-attributes'],
             'taxonomies' => [],
         ],
+        // "sv_" because WooCommerce owns "product": this install should be able to run it one day
+        'sv_product' => [
+            'singular'  => 'Product',
+            'plural'    => 'Products',
+            'gql'       => ['svProduct', 'svProducts'],
+            'icon'      => 'dashicons-products',
+            'supports'  => ['title', 'thumbnail', 'revisions', 'page-attributes'],
+            'taxonomies' => ['product_group'],
+            // the Featured image is the product's icon, so it is called that
+            'labels'    => [
+                'featured_image'        => 'Icon',
+                'set_featured_image'    => 'Set icon',
+                'remove_featured_image' => 'Remove icon',
+                'use_featured_image'    => 'Use as icon',
+                'attributes'            => 'Order in the menu',
+            ],
+        ],
     ];
 }
 
@@ -163,6 +180,14 @@ function softvolt_taxonomy_schema(): array
             'types'    => ['faq'],
             'hierarchical' => true,
         ],
+        // the headings in the Our Products menu: WordPress plugins, WordPress themes…
+        'product_group' => [
+            'singular' => 'Product group',
+            'plural'   => 'Product groups',
+            'gql'      => ['productGroup', 'productGroups'],
+            'types'    => ['sv_product'],
+            'hierarchical' => true,
+        ],
     ];
 }
 
@@ -170,7 +195,7 @@ function softvolt_register_post_types(): void
 {
     foreach (softvolt_post_type_schema() as $slug => $type) {
         register_post_type($slug, [
-            'labels' => [
+            'labels' => array_merge([
                 'name'          => $type['plural'],
                 'singular_name' => $type['singular'],
                 'add_new_item'  => sprintf('Add %s', strtolower($type['singular'])),
@@ -178,7 +203,7 @@ function softvolt_register_post_types(): void
                 'search_items'  => sprintf('Search %s', strtolower($type['plural'])),
                 'not_found'     => sprintf('No %s yet', strtolower($type['plural'])),
                 'menu_name'     => $type['plural'],
-            ],
+            ], $type['labels'] ?? []),
             'public'              => true,
             // the front end is Next.js: these exist to be queried, not browsed
             'publicly_queryable'  => true,
@@ -209,6 +234,12 @@ function softvolt_register_taxonomies(): void
                 'name'          => $tax['plural'],
                 'singular_name' => $tax['singular'],
                 'menu_name'     => $tax['plural'],
+                'add_new_item'  => sprintf('Add %s', strtolower($tax['singular'])),
+                'edit_item'     => sprintf('Edit %s', strtolower($tax['singular'])),
+                'update_item'   => sprintf('Update %s', strtolower($tax['singular'])),
+                'new_item_name' => sprintf('New %s name', strtolower($tax['singular'])),
+                'search_items'  => sprintf('Search %s', strtolower($tax['plural'])),
+                'not_found'     => sprintf('No %s yet', strtolower($tax['plural'])),
             ],
             'public'              => true,
             'publicly_queryable'  => false,

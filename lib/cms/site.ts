@@ -2,6 +2,8 @@ import "server-only";
 import { cache } from "react";
 import { aboutLinks, cta, headerCta, legalLinks, nav, site, socials } from "@/content/site";
 import { wpMenus, wpSettings, type WpMenuItem } from "@/lib/cms/wordpress";
+import { cms } from "@/lib/cms";
+import type { Product, ProductGroup } from "@/lib/cms/types";
 
 /**
  * The header, the footer and the identity, from WordPress when it has them.
@@ -58,6 +60,9 @@ export interface SiteChrome {
   logoDark: SiteLogo;
   /** The two written lines inside the Services mega menu. */
   mega: { resources: string; footer: string };
+  /** The Our Products menu: each product's card, and the groups they are listed under. */
+  products: Pick<Product, "slug" | "name" | "group" | "badge" | "tagline" | "image">[];
+  productGroups: ProductGroup[];
   /** Set when Contact Form 7 has reCAPTCHA on: the forms then send it a token. */
   recaptchaSiteKey: string;
   /** A consent banner script to load on every page, or "" for none. */
@@ -89,6 +94,10 @@ function navFromMenu(items: WpMenuItem[]) {
 }
 
 export const getSiteChrome = cache(async (): Promise<SiteChrome> => {
+  // WordPress's products, or the ones in /content; only what the menu draws goes to the browser
+  const [allProducts, productGroups] = await Promise.all([cms.getProducts(), cms.getProductGroups()]);
+  const products = allProducts.map(({ slug, name, group, badge, tagline, image }) => ({ slug, name, group, badge, tagline, image }));
+
   const local: SiteChrome = {
     name: site.name,
     tagline: site.tagline,
@@ -111,6 +120,8 @@ export const getSiteChrome = cache(async (): Promise<SiteChrome> => {
     logo: site.logo,
     logoDark: site.logoDark,
     mega: { resources: "Proof, pricing and where to start.", footer: "Not sure which service fits? Send the brief — the scope tells you." },
+    products,
+    productGroups,
     recaptchaSiteKey: "",
     cookieScript: "",
     socials,

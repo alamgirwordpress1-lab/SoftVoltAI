@@ -207,21 +207,31 @@ export interface EngagementModel {
 export interface Product {
   slug: string;
   name: string;
-  kind: "plugin" | "theme";
+  /** The product group it is listed under: "plugins", "themes". */
+  group: string;
+  /** What it is, in two or three words: "WordPress plugin". */
+  kind: string;
   /** A short flag beside the name: "New", "Popular". Keep it to something we can stand behind. */
   badge?: string;
   /** One line under the name in the menu. */
   tagline: string;
   /** The paragraph on the /products page. */
   summary: string;
-  /** Which drawn icon to show — see components/products/ProductIcon.tsx. */
-  icon: "voice-agent";
+  /** An uploaded icon. Without one the product's drawn icon, or its initials, are shown. */
+  image?: { src: string; alt: string; width: number; height: number } | null;
   /** The price in a few words, for cards: "Free · Pro coming soon". */
   price: string;
   /** Where the free version can be had, or when it will be. */
   availability: string;
   /** Words people might search for that the name does not contain. */
   keywords: string[];
+}
+
+/** A heading in the Our Products menu and on /products, with what to say while it has no products. */
+export interface ProductGroup {
+  slug: string;
+  title: string;
+  empty: string;
 }
 
 /** A button on a product page: its words and where it goes. `demo` opens the voice agent on this site. */
@@ -255,6 +265,8 @@ export interface ProductDetail {
   actions: ProductAction[];
   /** The price card beside the banner: the free tier first. */
   plans: ProductPlan[];
+  /** The headings of the sections below; the small labels above them stay in code. */
+  headings: { steps: string; help: string; features: string; compare: string; info: string; faq: string };
   why: { heading: string; paragraphs: string[]; points: { title: string; text: string }[] };
   steps: { title: string; text: string }[];
   help: { title: string; text: string; action?: ProductAction }[];
@@ -266,4 +278,6 @@ export interface ProductDetail {
   /** Label → value facts for the Info tab. */
   info: { label: string; value: string }[];
   faqs: Faq[];
+  /** The dark closing band. */
+  cta: { pill: string; heading: string; accent: string; lede: string };
 }

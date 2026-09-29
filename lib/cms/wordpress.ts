@@ -1,8 +1,10 @@
 import "server-only";
-import type { AgencyType, CityClock, Client, ComparisonRow, EngagementModel, Faq, PillarGroup, Pillar, ProcessStep, Promise as SitePromise, Service, ServiceDetail, TechItem, Testimonial, WorkItem } from "@/lib/cms/types";
+import type { AgencyType, CityClock, Client, ComparisonRow, EngagementModel, Faq, PillarGroup, Pillar, ProcessStep, Product, ProductDetail, ProductGroup, ProductPlan, Promise as SitePromise, Service, ServiceDetail, TechItem, Testimonial, WorkItem } from "@/lib/cms/types";
 import type { TeamMember } from "@/content/founder";
 import { lines, plain, wpQuery, wpReady, wpTry } from "@/lib/wp/client";
-import { AGENCY_TYPES, ALL_SLUGS, CASE_STUDIES, MENUS, PAGE_BY_URI, POST_BY_SLUG, POSTS, SERVICES, SIMPLE_COLLECTIONS, SITE_SETTINGS } from "@/lib/wp/queries";
+import { AGENCY_TYPES, ALL_SLUGS, CASE_STUDIES, MENUS, PAGE_BY_URI, POST_BY_SLUG, POSTS, PRODUCTS, SERVICES, SIMPLE_COLLECTIONS, SITE_SETTINGS } from "@/lib/wp/queries";
+import { mergeCopy, type Raw } from "@/lib/cms/copy";
+import { productTemplate } from "@/content/copy/product";
 
 /**
  * WordPress, mapped onto the types the pages already use.
@@ -668,5 +670,109 @@ export async function wpSlugs(): Promise<WpSlugs | null> {
     caseStudies: list(data.caseStudies?.nodes),
     posts: list(data.posts?.nodes),
     pages: (data.pages?.nodes ?? []).map((n) => ({ uri: pageUri(n.uri), modified: gmt(n.modifiedGmt) })),
+  };
+}
+
+/* --------------------------------------------------------------- products */
+
+interface RawProduct {
+  slug: string;
+  title: string;
+  productCopy: string | null;
+  featuredImage: { node: { sourceUrl: string | null; altText: string | null; mediaDetails: { width: number | null; height: number | null } | null } } | null;
+  productGroups: { nodes: { slug: string }[] } | null;
+}
+
+export interface WpProducts {
+  products: Product[];
+  details: Record<string, ProductDetail>;
+  groups: ProductGroup[];
+}
+
+/** A tick in the Compare table: an editor types yes or no. */
+const ticked = (value: string) => /^(y|yes|true|1|✓|✔)$/i.test(value.trim());
+
+/** One product post: its card for the menu and lists, and everything its page shows. */
+function toProduct(node: RawProduct): { product: Product; detail: ProductDetail } {
+  let raw: Record<string, Raw> | null = null;
+  try {
+    raw = node.productCopy ? (JSON.parse(node.productCopy) as Record<string, Raw>) : null;
+  } catch {
+    console.warn(`[wp] product ${node.slug}: its fields are not valid JSON`);
+  }
+  const c = mergeCopy(productTemplate, raw);
+  const name = plain(node.title);
+  const picture = node.featuredImage?.node;
+
+  const product: Product = {
+    slug: node.slug,
+    name,
+    group: node.productGroups?.nodes?.[0]?.slug ?? "plugins",
+    kind: c.card.kind || "WordPress plugin",
+    badge: c.card.badge || undefined,
+    tagline: c.card.tagline,
+    summary: c.card.summary,
+    image: picture?.sourceUrl
+      ? { src: picture.sourceUrl, alt: picture.altText || name, width: picture.mediaDetails?.width ?? 0, height: picture.mediaDetails?.height ?? 0 }
+      : null,
+    price: c.card.price,
+    availability: c.card.availability,
+    keywords: c.card.keywords,
+  };
+
+  const plans: ProductPlan[] = [];
+  if (c.plans.main_name) {
+    plans.push({
+      name: c.plans.main_name,
+      price: c.plans.main_price,
+      period: c.plans.main_period || undefined,
+      note: c.plans.main_note,
+      points: c.plans.main_points,
+      action: { label: c.plans.main_button.text || "Get it", href: c.plans.main_button.url || "/contact", kind: "primary" },
+    });
+  }
+  if (c.plans.next_name) {
+    plans.push({
+      name: c.plans.next_name,
+      price: c.plans.next_price,
+      note: c.plans.next_note,
+      points: c.plans.next_points,
+      action: { label: c.plans.next_button.text || "Find out more", href: c.plans.next_button.url || "/contact", kind: "secondary" },
+    });
+  }
+
+  const detail: ProductDetail = {
+    title: c.banner.title || name,
+    intro: c.banner.intro,
+    seo: c.banner.seo || product.tagline,
+    actions: c.banner.buttons
+      .filter((b) => b.text && b.url)
+      .map((b, i) => ({ label: b.text, href: b.url, kind: b.url === "#demo" ? ("demo" as const) : i === 0 ? ("primary" as const) : ("secondary" as const) })),
+    plans,
+    headings: { steps: c.steps.heading, help: c.help.heading, features: c.features.heading, compare: c.compare.heading, info: c.info.heading, faq: c.faq.heading },
+    why: { heading: c.why.heading, paragraphs: c.why.paragraphs.map((p) => p.text), points: c.why.points },
+    steps: c.steps.list,
+    help: c.help.list.map((h) => ({ title: h.title, text: h.text, action: h.link_text && h.link_url ? { label: h.link_text, href: h.link_url } : undefined })),
+    features: c.features.list,
+    compare: c.compare.rows.map((r) => ({ label: r.label, free: ticked(r.free), pro: ticked(r.pro) })),
+    pro: { heading: c.compare.pro_heading, text: c.compare.text, features: c.compare.pro_list },
+    info: c.info.rows,
+    faqs: c.faq.list.map((f) => ({ q: f.q, a: f.a })),
+    cta: c.cta,
+  };
+  return { product, detail };
+}
+
+/** The products an editor published, in their menu order, and the groups they sit in. */
+export async function wpProducts(): Promise<WpProducts | null> {
+  const data = await wpTry<{ svProducts: { nodes: RawProduct[] } | null; productGroups: { nodes: { slug: string; name: string; description: string | null }[] } | null }>(PRODUCTS, {
+    tags: ["wp:sv_product"],
+  });
+  if (!data?.svProducts) return null;
+  const mapped = data.svProducts.nodes.map(toProduct);
+  return {
+    products: mapped.map((m) => m.product),
+    details: Object.fromEntries(mapped.map((m) => [m.product.slug, m.detail])),
+    groups: (data.productGroups?.nodes ?? []).map((g) => ({ slug: g.slug, title: plain(g.name), empty: plain(g.description ?? "") || "Coming soon." })),
   };
 }

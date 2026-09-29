@@ -72,6 +72,7 @@ add_action('template_redirect', static function (): void {
                 'service'     => '/services/',
                 'agency_type' => '/for/',
                 'case_study'  => '/case-studies/',
+                'sv_product'  => '/products/',
             ];
             if (isset($map[$post->post_type])) {
                 $target = $front . $map[$post->post_type] . $post->post_name;
@@ -153,6 +154,7 @@ function softvolt_public_permalink($link, $post)
         'service'     => '/services/',
         'agency_type' => '/for/',
         'case_study'  => '/case-studies/',
+        'sv_product'  => '/products/',
     ];
     if (!isset($map[$post->post_type])) {
         return $link;

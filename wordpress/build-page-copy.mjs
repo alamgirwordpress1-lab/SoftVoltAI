@@ -1,7 +1,10 @@
 /**
  * Writes wordpress/softvolt-headless/inc/page-copy-data.php from the page
  * definitions in content/copy — the list of every editable word on the
- * designed pages, which inc/page-copy.php turns into ACF fields.
+ * designed pages, which inc/page-copy.php turns into ACF fields — and
+ * inc/product-copy-data.php: the fields of one product (content/copy/product.ts)
+ * and the products WordPress is seeded with (content/products.ts and
+ * product-details.ts), which inc/products.php reads.
  *
  * Run from the repo root, then rebuild the theme file:
  *   node --experimental-strip-types --import ./wordpress/alias-loader.mjs wordpress/build-page-copy.mjs
@@ -13,8 +16,11 @@ import { fileURLToPath } from "node:url";
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const { pageCopies } = await import("@/content/copy/index");
+const { productTemplate } = await import("@/content/copy/product");
+const { products, productGroups } = await import("@/content/products");
+const { productDetails } = await import("@/content/product-details");
 
-const pages = pageCopies.map((page) => ({
+const describe = (page) => ({
   slug: page.slug,
   id: page.slug.replace(/-/g, "_"),
   title: page.title,
@@ -36,11 +42,13 @@ const pages = pageCopies.map((page) => ({
       return base;
     }),
   })),
-}));
+});
+const pages = pageCopies.map(describe);
+const template = describe(productTemplate);
 
 // ACF keys are built from these names; a double underscore is reserved for the
 // generated ones, and no two fields in a section may produce the same name.
-for (const page of pages) {
+for (const page of [...pages, template]) {
   for (const section of page.sections) {
     const names = new Set();
     for (const field of section.fields) {
@@ -54,10 +62,14 @@ for (const page of pages) {
   }
 }
 
-// One page per line: readable in the theme editor, and a change to one page is a one-line diff.
-const json = `[\n${pages.map((p) => JSON.stringify(p)).join(",\n")}\n]`;
 // PHP ends a nowdoc at any line that starts with its marker, not only at "JSON);"
-if (/^\s*JSON\b/m.test(json)) throw new Error("a line of the data starts with the nowdoc terminator");
+const nowdocSafe = (text) => {
+  if (/^\s*JSON\b/m.test(text)) throw new Error("a line of the data starts with the nowdoc terminator");
+  return text;
+};
+
+// One page per line: readable in the theme editor, and a change to one page is a one-line diff.
+const json = nowdocSafe(`[\n${pages.map((p) => JSON.stringify(p)).join(",\n")}\n]`);
 
 const php = `<?php
 /**
@@ -83,3 +95,90 @@ fs.writeFileSync(out, php);
 
 const fields = pages.reduce((n, p) => n + p.sections.reduce((m, s) => m + s.fields.reduce((k, f) => k + (f.kind === "items" ? f.slots * f.sub.length : f.kind === "link" ? 2 : 1), 0), 0), 0);
 console.log(`${out}\n${pages.length} pages, ${pages.reduce((n, p) => n + p.sections.length, 0)} sections, ${fields} inputs, ${php.length} chars`);
+
+/* ---------------------------------------------------------------- products */
+
+// The seed is written the way ACF stores a product: section => field => value,
+// a list as rows "list_1", "list_2"…, a link as {text, url}, lines as one string.
+const rows = (key, list, map) => Object.fromEntries(list.map((item, i) => [`${key}_${i + 1}`, map(item)]));
+const tier = (plan, prefix) => ({
+  [`${prefix}_name`]: plan?.name ?? "",
+  [`${prefix}_price`]: plan?.price ?? "",
+  ...(prefix === "main" ? { main_period: plan?.period ?? "" } : {}),
+  [`${prefix}_note`]: plan?.note ?? "",
+  [`${prefix}_points`]: (plan?.points ?? []).join("\n"),
+  [`${prefix}_button`]: { text: plan?.action.label ?? "", url: plan?.action.href ?? "" },
+});
+const pair = ({ title, text }) => ({ title, text });
+
+const seedProducts = products.map((p, order) => {
+  const d = productDetails[p.slug];
+  if (!d) throw new Error(`${p.slug} has no entry in content/product-details.ts`);
+  const [main, next] = d.plans;
+  return {
+    slug: p.slug,
+    title: p.name,
+    group: p.group,
+    order,
+    values: {
+      card: { kind: p.kind, badge: p.badge ?? "", tagline: p.tagline, summary: p.summary, price: p.price, availability: p.availability, keywords: p.keywords.join("\n") },
+      banner: { title: d.title, intro: d.intro, seo: d.seo, ...rows("buttons", d.actions, (a) => ({ text: a.label, url: a.href })) },
+      plans: { ...tier(main, "main"), ...tier(next, "next") },
+      why: { heading: d.why.heading, ...rows("paragraphs", d.why.paragraphs, (text) => ({ text })), ...rows("points", d.why.points, pair) },
+      steps: { heading: d.headings.steps, ...rows("list", d.steps, pair) },
+      help: { heading: d.headings.help, ...rows("list", d.help, (h) => ({ title: h.title, text: h.text, link_text: h.action?.label ?? "", link_url: h.action?.href ?? "" })) },
+      features: { heading: d.headings.features, ...rows("list", d.features, pair) },
+      compare: {
+        heading: d.headings.compare,
+        text: d.pro.text,
+        ...rows("rows", d.compare, (r) => ({ label: r.label, free: r.free ? "yes" : "no", pro: r.pro ? "yes" : "no" })),
+        pro_heading: d.pro.heading,
+        ...rows("pro_list", d.pro.features, pair),
+      },
+      info: { heading: d.headings.info, ...rows("rows", d.info, ({ label, value }) => ({ label, value })) },
+      faq: { heading: d.headings.faq, ...rows("list", d.faqs, ({ q, a }) => ({ q, a })) },
+      cta: { ...d.cta },
+    },
+  };
+});
+
+// every seeded value must have a field to land in: no unknown field, no list longer than its rows
+for (const product of seedProducts) {
+  for (const [sectionKey, values] of Object.entries(product.values)) {
+    const section = template.sections.find((s) => s.key === sectionKey);
+    if (!section) throw new Error(`${product.slug}: no section called ${sectionKey}`);
+    const names = new Set(section.fields.flatMap((f) => (f.kind === "items" ? Array.from({ length: f.slots }, (_, i) => `${f.key}_${i + 1}`) : [f.key])));
+    for (const key of Object.keys(values)) {
+      if (!names.has(key)) throw new Error(`${product.slug}.${sectionKey}.${key}: no such field (a list longer than its rows?)`);
+    }
+  }
+}
+
+const seed = { groups: productGroups.map((g) => ({ slug: g.slug, name: g.title, description: g.empty })), products: seedProducts };
+const productPhp = `<?php
+/**
+ * GENERATED by wordpress/build-page-copy.mjs from content/copy/product.ts,
+ * content/products.ts and content/product-details.ts — do not edit here.
+ */
+
+declare(strict_types=1);
+
+if (!defined('ABSPATH')) {
+    exit;
+}
+
+if (!defined('SOFTVOLT_PRODUCT_COPY')) {
+    define('SOFTVOLT_PRODUCT_COPY', <<<'JSON'
+${nowdocSafe(JSON.stringify(template))}
+JSON);
+}
+
+if (!defined('SOFTVOLT_PRODUCT_SEED')) {
+    define('SOFTVOLT_PRODUCT_SEED', <<<'JSON'
+${nowdocSafe(JSON.stringify(seed))}
+JSON);
+}
+`;
+const productOut = path.join(here, "softvolt-headless", "inc", "product-copy-data.php");
+fs.writeFileSync(productOut, productPhp);
+console.log(`${productOut}\n${template.sections.length} product sections, ${seedProducts.length} seeded product(s), ${productPhp.length} chars`);

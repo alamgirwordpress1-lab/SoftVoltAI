@@ -2,23 +2,37 @@
 
 import { useEffect, useId, useRef, useState } from "react";
 import Link from "next/link";
-import { productGroups, products } from "@/content/products";
+import type { SiteChrome } from "@/lib/cms/site";
 import { ProductIcon } from "@/components/products/ProductIcon";
 import { cn } from "@/lib/utils";
 
 /**
- * "Our Products" mega menu: the WordPress plugins and themes, each with its
- * icon, a flag and one line, a "What's new" card beside them, and the same
- * dark action bar as the Services panel. Same interaction model as the other
+ * "Our Products" mega menu: the product groups (WordPress plugins, themes…)
+ * with each product's icon, flag and one line, a "What's new" card beside
+ * them, and the same dark action bar as the Services panel. The products come
+ * from WordPress (Products) through the chrome. Same interaction model as the other
  * header menus: hover intent, focus or click to open; leave, Escape, outside
  * click, navigation or focus leaving the panel to close.
  */
-export function ProductsMenu({ label, href, active = false }: { label: string; href: string; active?: boolean }) {
+export function ProductsMenu({
+  label,
+  href,
+  products,
+  groups,
+  active = false,
+}: {
+  label: string;
+  href: string;
+  products: SiteChrome["products"];
+  groups: SiteChrome["productGroups"];
+  active?: boolean;
+}) {
   const [open, setOpen] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
   const closeTimer = useRef<number | undefined>(undefined);
   const panelId = useId();
-  const featured = products[0];
+  // the newest-flagged product, or the first
+  const featured = products.find((p) => p.badge) ?? products[0];
 
   const show = () => {
     window.clearTimeout(closeTimer.current);
@@ -83,10 +97,10 @@ export function ProductsMenu({ label, href, active = false }: { label: string; h
         <span aria-hidden="true" className="absolute inset-x-0 -top-3 h-3" />
         <div className="grid gap-8 p-6 lg:grid-cols-[minmax(0,1.9fr)_minmax(0,1fr)] lg:gap-10 lg:p-8">
           <div className="grid gap-7">
-            {productGroups.map((group, g) => {
-              const list = products.filter((p) => p.kind === group.kind);
+            {groups.map((group, g) => {
+              const list = products.filter((p) => p.group === group.slug);
               return (
-                <div key={group.kind} {...reveal(60 + g * 60)}>
+                <div key={group.slug} {...reveal(60 + g * 60)}>
                   <span className="eyebrow">{group.title}</span>
                   <ul className="mt-4 grid gap-2 sm:grid-cols-2">
                     {list.length ? (
@@ -100,7 +114,7 @@ export function ProductsMenu({ label, href, active = false }: { label: string; h
                             tabIndex={open ? 0 : -1}
                             className="group -mx-2 flex items-start gap-3.5 rounded-xl px-2 py-2.5 transition-colors duration-150 hover:bg-paper"
                           >
-                            <ProductIcon icon={p.icon} size={44} className="transition-transform duration-300 ease-[var(--ease-out-quint)] group-hover:-translate-y-0.5" />
+                            <ProductIcon product={p} size={44} className="transition-transform duration-300 ease-[var(--ease-out-quint)] group-hover:-translate-y-0.5" />
                             <span className="min-w-0">
                               <span className="flex flex-wrap items-center gap-2">
                                 <span className="ui text-[15px] font-bold leading-snug text-ink">{p.name}</span>
@@ -113,7 +127,7 @@ export function ProductsMenu({ label, href, active = false }: { label: string; h
                       ))
                     ) : (
                       <li className="-mx-2 flex items-start gap-3.5 px-2 py-2.5">
-                        <ProductIcon icon="placeholder" size={44} />
+                        <ProductIcon product="placeholder" size={44} />
                         <span>
                           <span className="ui block text-[15px] font-bold leading-snug text-ink">Coming soon</span>
                           <span className="mt-1 block text-[13px] leading-snug text-muted">{group.empty}</span>
@@ -136,13 +150,11 @@ export function ProductsMenu({ label, href, active = false }: { label: string; h
                 tabIndex={open ? 0 : -1}
                 className="group mt-4 block rounded-xl border border-line bg-paper p-5 transition-colors duration-200 hover:border-line-strong"
               >
-                <ProductIcon icon={featured.icon} size={40} />
-                <p className="ui mt-4 text-[15px] font-bold leading-snug text-ink">{featured.name} 1.0</p>
-                <p className="mt-2 text-[13px] leading-snug text-muted">
-                  Voice and text chat, bookings, WooCommerce product cards and lead alerts. Free, with a Pro add-on on the way.
-                </p>
+                <ProductIcon product={featured} size={40} />
+                <p className="ui mt-4 text-[15px] font-bold leading-snug text-ink">{featured.name}</p>
+                <p className="mt-2 text-[13px] leading-snug text-muted">{featured.tagline}</p>
                 <span className="ui mt-4 inline-flex items-center gap-2 text-[13px] font-semibold text-accent">
-                  Explore the plugin <span aria-hidden="true" className="transition-transform duration-200 group-hover:translate-x-0.5">→</span>
+                  Explore it <span aria-hidden="true" className="transition-transform duration-200 group-hover:translate-x-0.5">→</span>
                 </span>
               </Link>
             </div>

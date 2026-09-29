@@ -12,7 +12,7 @@ import { wpTry } from "@/lib/wp/client";
  * One small query per page, however many words it holds.
  */
 
-type Raw = Record<string, unknown> | null | undefined;
+export type Raw = Record<string, unknown> | null | undefined;
 
 const PAGE_COPY = /* GraphQL */ `
   query PageCopy($uri: ID!) {
@@ -88,10 +88,11 @@ const readPage = cache(async (slug: string, uri: string): Promise<Record<string,
   }
 });
 
-export async function getCopy<P extends PageCopy>(page: P, tokens: Record<string, string> = {}): Promise<CopyOf<P>> {
-  // the home page lives at "/" on the site but at /home/ in WordPress
-  const wp = await readPage(page.slug, page.uri === "/" ? `/${page.slug}/` : page.uri);
-
+/**
+ * Words from WordPress (section => field => value, as pageCopy and productCopy
+ * send them) laid over a definition: anything empty keeps the definition's value.
+ */
+export function mergeCopy<P extends PageCopy>(page: P, wp: Record<string, Raw> | null, tokens: Record<string, string> = {}): CopyOf<P> {
   const merged = Object.fromEntries(
     Object.entries(page.sections).map(([key, section]) => {
       const raw = wp?.[key] ?? null;
@@ -100,4 +101,10 @@ export async function getCopy<P extends PageCopy>(page: P, tokens: Record<string
   );
 
   return fill(merged, tokens) as CopyOf<P>;
+}
+
+export async function getCopy<P extends PageCopy>(page: P, tokens: Record<string, string> = {}): Promise<CopyOf<P>> {
+  // the home page lives at "/" on the site but at /home/ in WordPress
+  const wp = await readPage(page.slug, page.uri === "/" ? `/${page.slug}/` : page.uri);
+  return mergeCopy(page, wp, tokens);
 }

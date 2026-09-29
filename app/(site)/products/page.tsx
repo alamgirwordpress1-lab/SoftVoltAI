@@ -5,7 +5,6 @@ import { bannerProps } from "@/components/ui/copy-props";
 import { Button } from "@/components/ui/Button";
 import { CtaBand } from "@/components/sections/CtaBand";
 import { ProductIcon } from "@/components/products/ProductIcon";
-import { productGroups } from "@/content/products";
 import { productsCopy } from "@/content/copy/products";
 import { cms } from "@/lib/cms";
 import { getCopy } from "@/lib/cms/copy";
@@ -15,10 +14,11 @@ export async function generateMetadata(): Promise<Metadata> {
   return copyMetadata(productsCopy);
 }
 
-const kindLabel = { plugin: "WordPress plugin", theme: "WordPress theme" } as const;
-
 export default async function ProductsPage() {
-  const [copy, products] = await Promise.all([getCopy(productsCopy), cms.getProducts()]);
+  const [copy, products, groups] = await Promise.all([getCopy(productsCopy), cms.getProducts(), cms.getProductGroups()]);
+  // each product's own first button (Get early access, Download…) goes on its card too
+  const pages = await Promise.all(products.map((p) => cms.getProduct(p.slug)));
+  const detailOf = (slug: string) => pages.find((d) => d?.slug === slug);
 
   return (
     <>
@@ -30,16 +30,19 @@ export default async function ProductsPage() {
           {copy.list.heading}
         </h2>
 
-        {productGroups.map((group) => {
-          const list = products.filter((p) => p.kind === group.kind);
+        {groups.map((group) => {
+          const list = products.filter((p) => p.group === group.slug);
           return (
-            <div key={group.kind} className="mt-12">
+            <div key={group.slug} className="mt-12">
               <h3 className="ui text-[13px] font-bold uppercase tracking-[0.12em] text-muted">{group.title}</h3>
               <ul className="mt-5 grid gap-4">
                 {list.length ? (
-                  list.map((p) => (
+                  list.map((p) => {
+                    const detail = detailOf(p.slug);
+                    const action = detail?.actions.find((a) => a.kind !== "demo" && !a.href.startsWith("#"));
+                    return (
                     <li key={p.slug} className="card shadow-soft grid gap-6 p-6 md:grid-cols-[auto_minmax(0,1fr)] md:gap-8 md:p-8" data-reveal>
-                      <ProductIcon icon={p.icon} size={72} />
+                      <ProductIcon product={p} size={72} />
                       <div>
                         <div className="flex flex-wrap items-center gap-2.5">
                           <h4 className="ui text-[22px] font-bold leading-tight tracking-[-0.01em] text-ink">
@@ -48,27 +51,32 @@ export default async function ProductsPage() {
                             </Link>
                           </h4>
                           {p.badge ? <span className="mono rounded-full bg-ok-bg px-2 py-0.5 text-[10px] uppercase tracking-[0.08em] text-ok-fg">{p.badge}</span> : null}
-                          <span className="mono rounded-full border border-line px-2 py-0.5 text-[10px] uppercase tracking-[0.08em] text-muted">{kindLabel[p.kind]}</span>
+                          {p.kind ? <span className="mono rounded-full border border-line px-2 py-0.5 text-[10px] uppercase tracking-[0.08em] text-muted">{p.kind}</span> : null}
                         </div>
                         <p className="mt-3 max-w-[78ch] text-[15px] leading-relaxed text-muted md:text-base">{p.summary}</p>
                         <p className="mono mt-4 text-[11px] uppercase tracking-[0.08em] text-ink">
-                          {p.price} <span className="text-muted">· {p.availability}</span>
+                          {p.price} {p.availability ? <span className="text-muted">· {p.availability}</span> : null}
                         </p>
                         <div className="mt-6 flex flex-wrap gap-3">
                           <Button href={`/products/${p.slug}`}>Read more</Button>
-                          <Button href={`/products/${p.slug}#compare`} variant="secondary">
-                            Free and Pro
-                          </Button>
-                          <Button href="/contact" variant="ghost">
-                            Get early access
-                          </Button>
+                          {detail?.compare.length ? (
+                            <Button href={`/products/${p.slug}#compare`} variant="secondary">
+                              Compare plans
+                            </Button>
+                          ) : null}
+                          {action ? (
+                            <Button href={action.href} variant="ghost">
+                              {action.label}
+                            </Button>
+                          ) : null}
                         </div>
                       </div>
                     </li>
-                  ))
+                    );
+                  })
                 ) : (
                   <li className="flex items-center gap-5 rounded-[var(--radius-lg)] border border-dashed border-line-strong p-6 md:p-8">
-                    <ProductIcon icon="placeholder" size={56} />
+                    <ProductIcon product="placeholder" size={56} />
                     <div>
                       <p className="ui text-[17px] font-bold text-ink">Coming soon</p>
                       <p className="mt-1 text-[15px] text-muted">{group.empty}</p>

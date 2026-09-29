@@ -255,3 +255,24 @@ export const ALL_SLUGS = /* GraphQL */ `
     pages(first: 200, where: { status: PUBLISH }) { nodes { uri modifiedGmt } }
   }
 `;
+
+/**
+ * The products and their groups. A query of its own: products came later, and a
+ * CMS without them answers with an error that must not take the rest down.
+ */
+export const PRODUCTS = /* GraphQL */ `
+  query Products {
+    svProducts(first: 100, where: { orderby: { field: MENU_ORDER, order: ASC } }) {
+      nodes {
+        slug
+        title
+        productCopy
+        featuredImage { node { sourceUrl altText mediaDetails { width height } } }
+        productGroups { nodes { slug } }
+      }
+    }
+    productGroups(first: 50, where: { hideEmpty: false }) {
+      nodes { slug name description }
+    }
+  }
+`;

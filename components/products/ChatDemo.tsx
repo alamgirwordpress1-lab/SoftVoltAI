@@ -40,7 +40,7 @@ export function ChatDemo({ className }: { className?: string }) {
   return (
     <figure className={cn("card shadow-float mx-auto w-full max-w-[440px] overflow-hidden", className)}>
       <div className="er flex items-center gap-3 px-5 py-4">
-        <ProductIcon icon="voice-agent" size={36} />
+        <ProductIcon product={{ slug: "softvolt-ai-voice-agent", name: "Voice agent" }} size={36} />
         <div>
           <p className="ui text-[15px] font-bold leading-tight text-er-ink">QuickFix Plumbing</p>
           <p className="mono mt-1 flex items-center gap-1.5 text-[10px] uppercase tracking-[0.08em] text-volt">

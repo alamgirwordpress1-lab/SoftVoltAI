@@ -44,6 +44,14 @@ export const productDetails: Record<string, ProductDetail> = {
         action: { label: "Tell me when it is ready", href: "/contact", kind: "secondary" },
       },
     ],
+    headings: {
+      steps: "From install to your first lead, in five steps.",
+      help: "You are not on your own with it.",
+      features: "Everything in the free plugin.",
+      compare: "Free and Pro, side by side.",
+      info: "The technical facts.",
+      faq: "Questions people ask first.",
+    },
     why: {
       heading: "Why choose SoftVolt AI Voice Agent?",
       paragraphs: [
@@ -200,5 +208,11 @@ export const productDetails: Record<string, ProductDetail> = {
         a: "Pro is being built as a separate add-on: WhatsApp and Messenger, natural voices, calendar booking, payments in the chat and tools for agencies. Everything in the free plugin stays free and keeps working without it.",
       },
     ],
+    cta: {
+      pill: "Custom AI agents",
+      heading: "Need an agent built around your business?",
+      accent: "We build those too.",
+      lede: "Custom AI agents, integrations and automation, delivered under your brand. Send the brief and get a written scope.",
+    },
   },
 };

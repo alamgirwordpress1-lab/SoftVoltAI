@@ -67,6 +67,11 @@ function softvolt_paths_for_post(int $post_id): array
         case 'testimonial':
             $paths[] = '/case-studies';
             break;
+        case 'sv_product':
+            // the Our Products menu is in every page's header; the wp:all tag refreshes that
+            $paths[] = '/products';
+            $paths[] = "/products/$slug";
+            break;
         case 'stack_item':
         case 'comparison_row':
         case 'clock':

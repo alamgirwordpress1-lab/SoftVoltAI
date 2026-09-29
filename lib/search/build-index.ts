@@ -92,7 +92,7 @@ export async function buildSearchIndex(): Promise<SearchIndex> {
       title: product.name,
       url: `/products/${product.slug}`,
       description: product.tagline,
-      meta: product.kind === "theme" ? "WordPress theme" : "WordPress plugin",
+      meta: product.kind,
       keywords: unique([product.name, ...product.keywords]),
       body: [page.intro, ...page.features.map((f) => `${f.title}. ${f.text}`)].join(" "),
     });

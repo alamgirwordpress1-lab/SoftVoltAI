@@ -16,5 +16,5 @@ export default async function Image({ params }: { params: Promise<{ slug: string
   const { slug } = await params;
   const product = await cms.getProduct(slug);
   if (!product) return shareCard({ eyebrow: "Our products", title: "WordPress plugins and themes by SoftVolt AI" });
-  return shareCard({ eyebrow: `${product.kind === "theme" ? "WordPress theme" : "WordPress plugin"} · ${product.price}`, title: product.title, subtitle: product.seo });
+  return shareCard({ eyebrow: [product.kind, product.price].filter(Boolean).join(" · "), title: product.title, subtitle: product.seo });
 }

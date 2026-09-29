@@ -31,10 +31,16 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   };
 }
 
-const kindLabel = { plugin: "WordPress plugin", theme: "WordPress theme" } as const;
-
 /** The same test the layout uses: without a DeepSeek key there is no agent in the corner to try. */
 const agentLive = Boolean(process.env.DEEPSEEK_API_KEY);
+
+/** Products with a visual drawn for them in code, shown beside "Why choose it". */
+const DEMOS: Record<string, { visual: React.ReactNode; caption: string }> = {
+  "softvolt-ai-voice-agent": {
+    visual: <ChatDemo />,
+    caption: agentLive ? "An example conversation. The agent in the corner of this page is live — try it." : "An example conversation.",
+  },
+};
 
 function Yes() {
   return (
@@ -57,7 +63,7 @@ function Features({ product }: { product: ProductPage }) {
     <section className="container-x py-14 md:py-20" aria-labelledby="features-title">
       <span className="eyebrow">Features</span>
       <h2 id="features-title" className="display display-md mt-4 max-w-[26ch]">
-        Everything in the free plugin.
+        {product.headings.features || "What it does."}
       </h2>
       <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {product.features.map((f, i) => (
@@ -80,10 +86,10 @@ function Compare({ product }: { product: ProductPage }) {
         <div className="lg:col-span-7">
           <span className="eyebrow">Free and Pro</span>
           <h2 id="compare-title" className="display display-md mt-4 max-w-[22ch]">
-            Free and Pro, side by side.
+            {product.headings.compare || "Side by side."}
           </h2>
         </div>
-        <p className="lede max-w-[46ch] lg:col-span-5 lg:pb-1.5">{product.pro.text}</p>
+        {product.pro.text ? <p className="lede max-w-[46ch] lg:col-span-5 lg:pb-1.5">{product.pro.text}</p> : null}
       </div>
 
       <div className="card shadow-float mt-10 overflow-hidden">
@@ -120,16 +126,20 @@ function Compare({ product }: { product: ProductPage }) {
         </div>
       </div>
 
-      <h3 className="ui mt-14 text-[20px] font-bold tracking-[-0.01em] text-ink">{product.pro.heading}</h3>
-      <ul className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {product.pro.features.map((f) => (
-          <li key={f.title} className="card p-6">
-            <span className="mono rounded-full border border-line px-2 py-0.5 text-[10px] uppercase tracking-[0.08em] text-muted">Planned</span>
-            <p className="ui mt-4 text-[16px] font-bold leading-snug text-ink">{f.title}</p>
-            <p className="mt-2 text-[14px] leading-relaxed text-muted">{f.text}</p>
-          </li>
-        ))}
-      </ul>
+      {product.pro.features.length ? (
+        <>
+          <h3 className="ui mt-14 text-[20px] font-bold tracking-[-0.01em] text-ink">{product.pro.heading || "What is planned"}</h3>
+          <ul className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {product.pro.features.map((f) => (
+              <li key={f.title} className="card p-6">
+                <span className="mono rounded-full border border-line px-2 py-0.5 text-[10px] uppercase tracking-[0.08em] text-muted">Planned</span>
+                <p className="ui mt-4 text-[16px] font-bold leading-snug text-ink">{f.title}</p>
+                <p className="mt-2 text-[14px] leading-relaxed text-muted">{f.text}</p>
+              </li>
+            ))}
+          </ul>
+        </>
+      ) : null}
       {pro ? (
         <div className="mt-8">
           <Button href={pro.action.href} variant="secondary">
@@ -146,7 +156,7 @@ function Info({ product }: { product: ProductPage }) {
     <section className="container-x py-14 md:py-20" aria-labelledby="info-title">
       <span className="eyebrow">Info</span>
       <h2 id="info-title" className="display display-md mt-4">
-        The technical facts.
+        {product.headings.info || "The technical facts."}
       </h2>
       <dl className="card shadow-soft mt-10 divide-y divide-line">
         {product.info.map((row) => (
@@ -165,7 +175,7 @@ function Questions({ product }: { product: ProductPage }) {
     <section className="container-x py-14 md:py-20" aria-labelledby="faq-title">
       <span className="eyebrow">FAQ</span>
       <h2 id="faq-title" className="display display-md mt-4">
-        Questions people ask first.
+        {product.headings.faq || "Questions people ask first."}
       </h2>
       <ul className="mt-10 grid gap-3">
         {product.faqs.map((f, i) => (
@@ -191,11 +201,99 @@ function Questions({ product }: { product: ProductPage }) {
   );
 }
 
+function Why({ product, demo }: { product: ProductPage; demo?: { visual: React.ReactNode; caption: string } }) {
+  return (
+    <section id="why" className="container-x grid gap-12 py-14 md:py-20 lg:grid-cols-12 lg:gap-10" aria-labelledby="why-title">
+      <div className={demo ? "lg:col-span-6" : "lg:col-span-8"} data-reveal>
+        <span className="eyebrow">Why this {product.kind.split(" ").pop()?.toLowerCase() || "product"}</span>
+        <h2 id="why-title" className="display display-md mt-4 max-w-[20ch]">
+          {product.why.heading}
+        </h2>
+        {product.why.paragraphs.map((p) => (
+          <p key={p.slice(0, 24)} className="mt-5 max-w-[62ch] text-[16px] leading-relaxed text-muted">
+            {p}
+          </p>
+        ))}
+        <ul className="mt-8 grid gap-4 sm:grid-cols-2">
+          {product.why.points.map((pt) => (
+            <li key={pt.title} className="border-t border-line pt-4">
+              <p className="ui text-[15px] font-bold text-ink">{pt.title}</p>
+              <p className="mt-1 text-[14px] leading-snug text-muted">{pt.text}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
+      {demo ? (
+        <div id="demo" className="scroll-mt-28 lg:col-span-5 lg:col-start-8" data-reveal style={{ ["--reveal-delay" as string]: "120ms" }}>
+          {demo.visual}
+          <p className="mt-4 text-center text-[13px] text-muted">{demo.caption}</p>
+        </div>
+      ) : null}
+    </section>
+  );
+}
+
+function Steps({ product }: { product: ProductPage }) {
+  return (
+    <section id="how-it-works" className="er relative scroll-mt-20 overflow-hidden" aria-labelledby="how-title">
+      <div className="glow -right-24 -top-24 h-[420px] w-[420px]" aria-hidden="true" />
+      <div className="container-x relative py-14 md:py-20">
+        <span className="eyebrow">How it works</span>
+        <h2 id="how-title" className="display display-md mt-4 max-w-[24ch]">
+          {product.headings.steps || "How it works."}
+        </h2>
+        <ol className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-[repeat(auto-fit,minmax(200px,1fr))] lg:gap-6">
+          {product.steps.map((step, i) => (
+            <li key={step.title} className="border-t border-er-line pt-5" data-reveal style={{ ["--reveal-delay" as string]: `${i * 60}ms` }}>
+              <span className="mono text-[12px] text-volt">{String(i + 1).padStart(2, "0")}</span>
+              <h3 className="ui mt-3 text-[17px] font-bold leading-snug text-er-ink">{step.title}</h3>
+              <p className="mt-2 text-[14px] leading-relaxed text-er-muted">{step.text}</p>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+  );
+}
+
+function Help({ product }: { product: ProductPage }) {
+  return (
+    <section id="help" className="container-x py-14 md:py-20" aria-labelledby="help-title">
+      <span className="eyebrow">How we help you</span>
+      <h2 id="help-title" className="display display-md mt-4 max-w-[26ch]">
+        {product.headings.help || "You are not on your own with it."}
+      </h2>
+      <ul className="mt-10 grid gap-4 md:grid-cols-3">
+        {product.help.map((h, i) => (
+          <li key={h.title} className="card shadow-soft flex flex-col p-6" data-reveal style={{ ["--reveal-delay" as string]: `${i * 60}ms` }}>
+            <span className="mono text-[12px] text-accent">{String(i + 1).padStart(2, "0")}</span>
+            <h3 className="mt-3 text-lg font-semibold tracking-[-0.01em] text-ink">{h.title}</h3>
+            <p className="mt-2 text-[14px] leading-relaxed text-muted">{h.text}</p>
+            {h.action ? (
+              <Link href={h.action.href} className="ui mt-auto inline-flex items-center gap-2 pt-5 text-[14px] font-semibold text-accent hover:underline">
+                {h.action.label} <span aria-hidden="true">→</span>
+              </Link>
+            ) : null}
+          </li>
+        ))}
+      </ul>
+    </section>
+  );
+}
+
 export default async function ProductPageRoute({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const product = await cms.getProduct(slug);
   if (!product) notFound();
   const url = `${site.url}/products/${slug}`;
+  const free = /^(\$?0([.,]0+)?|free)$/i.test(product.plans[0]?.price.trim() ?? "");
+  const demo = DEMOS[slug];
+  const tabs = [
+    product.features.length ? { id: "features", label: "Features", count: product.features.length, content: <Features product={product} /> } : null,
+    product.compare.length ? { id: "compare", label: "Compare", content: <Compare product={product} /> } : null,
+    product.info.length ? { id: "info", label: "Info", content: <Info product={product} /> } : null,
+    product.faqs.length ? { id: "faq", label: "FAQ", count: product.faqs.length, content: <Questions product={product} /> } : null,
+  ].filter((t) => t !== null);
   const actions = product.actions.filter((a) => a.kind !== "demo" || agentLive);
 
   return (
@@ -209,7 +307,7 @@ export default async function ProductPageRoute({ params }: { params: Promise<{ s
           applicationCategory: "BusinessApplication",
           operatingSystem: "WordPress",
           softwareVersion: product.info.find((i) => i.label === "Version")?.value,
-          offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+          ...(free ? { offers: { "@type": "Offer", price: "0", priceCurrency: "USD" } } : {}),
           publisher: { "@id": `${site.url}/#organization` },
           url,
         }}
@@ -220,10 +318,10 @@ export default async function ProductPageRoute({ params }: { params: Promise<{ s
           { name: "Our Products", href: "/products" },
           { name: product.name, href: `/products/${slug}` },
         ]}
-        eyebrow={`${kindLabel[product.kind]} · ${product.price}`}
+        eyebrow={[product.kind, product.price].filter(Boolean).join(" · ")}
         title={product.title}
         lede={product.intro}
-        aside={<PlanCard product={product} plans={product.plans} />}
+        aside={product.plans.length ? <PlanCard product={product} plans={product.plans} /> : undefined}
       >
         <div className="flex flex-wrap items-center gap-3">
           {actions.map((a) =>
@@ -236,88 +334,18 @@ export default async function ProductPageRoute({ params }: { params: Promise<{ s
             ),
           )}
         </div>
-        <p className="mono mt-5 text-[11px] uppercase tracking-[0.08em] text-muted">{product.availability}</p>
+        {product.availability ? <p className="mono mt-5 text-[11px] uppercase tracking-[0.08em] text-muted">{product.availability}</p> : null}
       </PageHero>
 
-      <section id="why" className="container-x grid gap-12 py-14 md:py-20 lg:grid-cols-12 lg:gap-10" aria-labelledby="why-title">
-        <div className="lg:col-span-6" data-reveal>
-          <span className="eyebrow">Why this plugin</span>
-          <h2 id="why-title" className="display display-md mt-4 max-w-[20ch]">
-            {product.why.heading}
-          </h2>
-          {product.why.paragraphs.map((p) => (
-            <p key={p.slice(0, 24)} className="mt-5 max-w-[62ch] text-[16px] leading-relaxed text-muted">
-              {p}
-            </p>
-          ))}
-          <ul className="mt-8 grid gap-4 sm:grid-cols-2">
-            {product.why.points.map((pt) => (
-              <li key={pt.title} className="border-t border-line pt-4">
-                <p className="ui text-[15px] font-bold text-ink">{pt.title}</p>
-                <p className="mt-1 text-[14px] leading-snug text-muted">{pt.text}</p>
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div id="demo" className="scroll-mt-28 lg:col-span-5 lg:col-start-8" data-reveal style={{ ["--reveal-delay" as string]: "120ms" }}>
-          <ChatDemo />
-          <p className="mt-4 text-center text-[13px] text-muted">
-            {agentLive ? "An example conversation. The agent in the corner of this page is live — try it." : "An example conversation."}
-          </p>
-        </div>
-      </section>
+      {product.why.heading || product.why.paragraphs.length ? <Why product={product} demo={demo} /> : null}
+      {product.steps.length ? <Steps product={product} /> : null}
+      {product.help.length ? <Help product={product} /> : null}
 
-      <section id="how-it-works" className="er relative scroll-mt-20 overflow-hidden" aria-labelledby="how-title">
-        <div className="glow -right-24 -top-24 h-[420px] w-[420px]" aria-hidden="true" />
-        <div className="container-x relative py-14 md:py-20">
-          <span className="eyebrow">How it works</span>
-          <h2 id="how-title" className="display display-md mt-4 max-w-[24ch]">
-            From install to your first lead, in five steps.
-          </h2>
-          <ol className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-5 lg:gap-6">
-            {product.steps.map((step, i) => (
-              <li key={step.title} className="border-t border-er-line pt-5" data-reveal style={{ ["--reveal-delay" as string]: `${i * 60}ms` }}>
-                <span className="mono text-[12px] text-volt">{String(i + 1).padStart(2, "0")}</span>
-                <h3 className="ui mt-3 text-[17px] font-bold leading-snug text-er-ink">{step.title}</h3>
-                <p className="mt-2 text-[14px] leading-relaxed text-er-muted">{step.text}</p>
-              </li>
-            ))}
-          </ol>
+      {tabs.length ? (
+        <div id="details" className="border-t border-line">
+          <ProductTabs label={`About ${product.name}`} tabs={tabs} />
         </div>
-      </section>
-
-      <section id="help" className="container-x py-14 md:py-20" aria-labelledby="help-title">
-        <span className="eyebrow">How we help you</span>
-        <h2 id="help-title" className="display display-md mt-4 max-w-[26ch]">
-          You are not on your own with it.
-        </h2>
-        <ul className="mt-10 grid gap-4 md:grid-cols-3">
-          {product.help.map((h, i) => (
-            <li key={h.title} className="card shadow-soft flex flex-col p-6" data-reveal style={{ ["--reveal-delay" as string]: `${i * 60}ms` }}>
-              <span className="mono text-[12px] text-accent">{String(i + 1).padStart(2, "0")}</span>
-              <h3 className="mt-3 text-lg font-semibold tracking-[-0.01em] text-ink">{h.title}</h3>
-              <p className="mt-2 text-[14px] leading-relaxed text-muted">{h.text}</p>
-              {h.action ? (
-                <Link href={h.action.href} className="ui mt-auto inline-flex items-center gap-2 pt-5 text-[14px] font-semibold text-accent hover:underline">
-                  {h.action.label} <span aria-hidden="true">→</span>
-                </Link>
-              ) : null}
-            </li>
-          ))}
-        </ul>
-      </section>
-
-      <div id="details" className="border-t border-line">
-        <ProductTabs
-          label={`About ${product.name}`}
-          tabs={[
-            { id: "features", label: "Features", count: product.features.length, content: <Features product={product} /> },
-            { id: "compare", label: "Compare", content: <Compare product={product} /> },
-            { id: "info", label: "Info", content: <Info product={product} /> },
-            { id: "faq", label: "FAQ", count: product.faqs.length, content: <Questions product={product} /> },
-          ]}
-        />
-      </div>
+      ) : null}
 
       {product.others.length ? (
         <section className="container-x border-t border-line py-14 md:py-20" aria-labelledby="more-title">
@@ -329,7 +357,7 @@ export default async function ProductPageRoute({ params }: { params: Promise<{ s
             {product.others.map((p) => (
               <li key={p.slug}>
                 <Link href={`/products/${p.slug}`} className="card card-lift flex gap-4 p-6">
-                  <ProductIcon icon={p.icon} size={44} />
+                  <ProductIcon product={p} size={44} />
                   <span>
                     <span className="ui block text-[16px] font-bold text-ink">{p.name}</span>
                     <span className="mt-1 block text-[14px] leading-snug text-muted">{p.tagline}</span>
@@ -342,12 +370,11 @@ export default async function ProductPageRoute({ params }: { params: Promise<{ s
       ) : null}
 
       <CtaBand
-        copy={{
-          pill: "Custom AI agents",
-          heading: "Need an agent built around your business?",
-          accent: "We build those too.",
-          lede: "Custom AI agents, integrations and automation, delivered under your brand. Send the brief and get a written scope.",
-        }}
+        copy={
+          product.cta.heading
+            ? product.cta
+            : { pill: "Custom work", heading: "Need something built for your business?", accent: "We do that too.", lede: "Send the brief and get a written scope." }
+        }
       />
     </>
   );

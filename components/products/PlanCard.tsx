@@ -16,14 +16,14 @@ function Tick() {
  * white card, the next one on the dark strip underneath — the same white card
  * and dark bar the header menus use.
  */
-export function PlanCard({ product, plans }: { product: Pick<Product, "icon" | "name">; plans: ProductPlan[] }) {
+export function PlanCard({ product, plans }: { product: Pick<Product, "slug" | "name" | "image">; plans: ProductPlan[] }) {
   const [main, next] = plans;
   if (!main) return null;
   return (
     <div className="card shadow-float overflow-hidden">
       <div className="p-6 md:p-7">
         <div className="flex items-center justify-between gap-4">
-          <ProductIcon icon={product.icon} size={44} />
+          <ProductIcon product={product} size={44} />
           <span className="mono rounded-full bg-ok-bg px-2.5 py-1 text-[11px] uppercase tracking-[0.08em] text-ok-fg">{main.name}</span>
         </div>
         <p className="mt-6 flex items-baseline gap-2">

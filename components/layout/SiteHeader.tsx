@@ -6,7 +6,6 @@ import { usePathname } from "next/navigation";
 import type { SiteChrome } from "@/lib/cms/site";
 import { pillars } from "@/content/pillars";
 import { agencyTypes } from "@/content/agency-types";
-import { products } from "@/content/products";
 import { Logo } from "@/components/layout/Logo";
 import { MegaMenu } from "@/components/layout/MegaMenu";
 import { ProductsMenu } from "@/components/layout/ProductsMenu";
@@ -37,7 +36,7 @@ function MobileGroup({ title, children }: { title: string; children: React.React
 
 /** Labels, calls to action and the About menu come from WordPress when it has them. */
 export function SiteHeader({ chrome }: { chrome: SiteChrome }) {
-  const { nav, aboutLinks, headerCta, cta, name: siteName } = chrome;
+  const { nav, aboutLinks, headerCta, cta, name: siteName, products } = chrome;
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
@@ -88,7 +87,13 @@ export function SiteHeader({ chrome }: { chrome: SiteChrome }) {
               />
             </li>
             <li>
-              <ProductsMenu label={nav.products.label} href={nav.products.href} active={isActive(nav.products.href)} />
+              <ProductsMenu
+                label={nav.products.label}
+                href={nav.products.href}
+                products={products}
+                groups={chrome.productGroups}
+                active={isActive(nav.products.href)}
+              />
             </li>
             <li>
               <Link
