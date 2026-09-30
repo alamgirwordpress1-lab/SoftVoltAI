@@ -110,6 +110,8 @@ const tier = (plan, prefix) => ({
   [`${prefix}_button`]: { text: plan?.action.label ?? "", url: plan?.action.href ?? "" },
 });
 const pair = ({ title, text }) => ({ title, text });
+// The guide's screenshots ship with the site; WordPress copies them into its media library from here.
+const LIVE = "https://www.softvoltai.com";
 
 const seedProducts = products.map((p, order) => {
   const d = productDetails[p.slug];
@@ -126,6 +128,11 @@ const seedProducts = products.map((p, order) => {
       plans: { ...tier(main, "main"), ...tier(next, "next") },
       why: { heading: d.why.heading, ...rows("paragraphs", d.why.paragraphs, (text) => ({ text })), ...rows("points", d.why.points, pair) },
       steps: { heading: d.headings.steps, ...rows("list", d.steps, pair) },
+      guide: {
+        heading: d.guide.heading,
+        intro: d.guide.intro,
+        ...rows("steps", d.guide.steps, (g) => ({ title: g.title, text: g.text, image: g.image.startsWith("/") ? LIVE + g.image : g.image })),
+      },
       help: { heading: d.headings.help, ...rows("list", d.help, (h) => ({ title: h.title, text: h.text, link_text: h.action?.label ?? "", link_url: h.action?.href ?? "" })) },
       features: { heading: d.headings.features, ...rows("list", d.features, pair) },
       compare: {

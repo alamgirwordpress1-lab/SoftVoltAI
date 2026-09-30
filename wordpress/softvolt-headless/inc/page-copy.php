@@ -121,10 +121,25 @@ function softvolt_page_copy_items(string $prefix, array $field): array
         $name = $field['key'] . '_' . $i;
         $sub  = [];
         foreach ($field['sub'] as $part) {
+            // generated keys use a double underscore, which no field name can contain
+            $sub_key = $prefix . '__' . $name . '__' . $part['key'];
+            if ($part['kind'] === 'image') {
+                // a picture from the media library; the page reads its address
+                $sub[] = [
+                    'key'           => $sub_key,
+                    'label'         => (string) $part['label'],
+                    'name'          => (string) $part['key'],
+                    'type'          => 'image',
+                    'return_format' => 'url',
+                    'preview_size'  => 'medium',
+                    'library'       => 'all',
+                    'mime_types'    => 'png, jpg, jpeg, webp, gif',
+                ];
+                continue;
+            }
             $value = (string) ($row[$part['key']] ?? '');
             $sub[] = [
-                // generated keys use a double underscore, which no field name can contain
-                'key'                => $prefix . '__' . $name . '__' . $part['key'],
+                'key'                => $sub_key,
                 'label'              => (string) $part['label'],
                 'name'               => (string) $part['key'],
                 'type'               => $part['kind'] === 'para' ? 'textarea' : 'text',

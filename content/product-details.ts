@@ -76,6 +76,72 @@ export const productDetails: Record<string, ProductDetail> = {
       { title: "Place the button", text: "The floating button is on by default — drag it into place in the live preview. Or use the header menu, the block, the widget or the shortcode." },
       { title: "Get the leads", text: "Visitors talk or type. Bookings and hand-offs are saved under Voice Agent → Leads and sent to you by email, Telegram or n8n." },
     ],
+    guide: {
+      heading: "Set it up in ten minutes, step by step.",
+      intro: "Every screen below is the real plugin, set up for an example plumbing business. Follow the steps in order and the agent is live on your site by the end.",
+      steps: [
+        {
+          title: "Install and activate the plugin",
+          text: "In WordPress go to Plugins → Add New, upload the plugin (or install it from WordPress.org once it is listed) and press Activate. A Voice Agent item appears in the admin menu.",
+          image: "/guides/softvolt-ai-voice-agent/01-install.webp",
+        },
+        {
+          title: "Open the Voice Agent dashboard",
+          text: "The dashboard shows whether the agent is live, what is left to set up, new leads, messages per day and a health check. Talk to your agent tries it right there, the way a visitor would.",
+          image: "/guides/softvolt-ai-voice-agent/02-dashboard.webp",
+        },
+        {
+          title: "Connect an AI model",
+          text: "On the AI model tab, pick a free provider (OpenRouter, Groq or Gemini) or a paid one (DeepSeek, OpenAI, Claude). Each has step-by-step instructions for getting a key. Paste the key and press Test connection. On WordPress 7 you can choose WordPress AI connection instead.",
+          image: "/guides/softvolt-ai-voice-agent/03-ai-model.webp",
+        },
+        {
+          title: "Teach it your business",
+          text: "On the Knowledge tab, choose your kind of site and press Learn from my site: it reads your pages, shop and booking plugin and fills in your services, prices and common questions. Check them, drag them into order, and save.",
+          image: "/guides/softvolt-ai-voice-agent/04-knowledge.webp",
+        },
+        {
+          title: "Choose how it talks and listens",
+          text: "On Chat & voice, set the greeting, the quick replies, the details it collects before booking, and the language it listens and speaks in.",
+          image: "/guides/softvolt-ai-voice-agent/05-chat.webp",
+        },
+        {
+          title: "Decide where leads go",
+          text: "On Alerts, turn on email (replies go straight to the visitor), Telegram through your own bot, or a webhook for n8n, Make or Zapier. Send a test to check each one.",
+          image: "/guides/softvolt-ai-voice-agent/06-alerts.webp",
+        },
+        {
+          title: "Place the button",
+          text: "On Look & placement, drag the floating button into place in the live preview and pick its colours. You can also put it in your header menu, drop the Voice Agent Button block anywhere, or use the shortcode [softvolt_voice_agent].",
+          image: "/guides/softvolt-ai-voice-agent/07-placement.webp",
+        },
+        {
+          title: "Visitors talk or type",
+          text: "On your site, visitors tap the button and ask by voice or text. The agent answers from your facts, recommends what fits, collects the details and books the job — or hands them to a person.",
+          image: "/guides/softvolt-ai-voice-agent/08-on-site.webp",
+        },
+        {
+          title: "In a shop, it shows products",
+          text: "With WooCommerce, the agent searches your live products and shows them as cards with the price, stock and an Add to cart button. Customers pay at your normal checkout.",
+          image: "/guides/softvolt-ai-voice-agent/09-shop.webp",
+        },
+        {
+          title: "Every lead lands in WordPress",
+          text: "Voice Agent → Leads lists every booking and hand-off with its status. Filter by status, and export them to CSV when you need them elsewhere.",
+          image: "/guides/softvolt-ai-voice-agent/10-leads.webp",
+        },
+        {
+          title: "Open a lead and follow it up",
+          text: "Each lead keeps the visitor's details, what they wanted and the whole conversation. Set its status and add notes as you follow it up.",
+          image: "/guides/softvolt-ai-voice-agent/11-lead.webp",
+        },
+        {
+          title: "Optional: send leads on with n8n",
+          text: "The n8n tab has a ready-made workflow to import and a guide to hosting n8n for free, so leads can go on to Google Sheets, a CRM or WhatsApp.",
+          image: "/guides/softvolt-ai-voice-agent/12-n8n.webp",
+        },
+      ],
+    },
     help: [
       {
         title: "Step-by-step guides in the plugin",

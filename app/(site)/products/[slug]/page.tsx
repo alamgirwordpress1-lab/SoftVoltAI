@@ -7,12 +7,14 @@ import { CtaBand } from "@/components/sections/CtaBand";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { ChatDemo } from "@/components/products/ChatDemo";
 import { DemoButton } from "@/components/products/DemoButton";
+import { GuideShot } from "@/components/products/GuideShot";
 import { PlanCard } from "@/components/products/PlanCard";
 import { ProductIcon } from "@/components/products/ProductIcon";
 import { ProductTabs } from "@/components/products/ProductTabs";
 import { site } from "@/content/site";
 import { cms, type ProductPage } from "@/lib/cms";
 import { shareMetadata } from "@/lib/seo/share";
+import { cn } from "@/lib/utils";
 
 export async function generateStaticParams() {
   const products = await cms.getProducts();
@@ -256,6 +258,37 @@ function Steps({ product }: { product: ProductPage }) {
   );
 }
 
+/** The setup guide: each step's words beside its screenshot, sides alternating. */
+function Guide({ product }: { product: ProductPage }) {
+  return (
+    <section id="setup" className="container-x scroll-mt-20 border-t border-line py-14 md:py-20" aria-labelledby="setup-title">
+      <div className="max-w-3xl" data-reveal>
+        <span className="eyebrow">Setup guide</span>
+        <h2 id="setup-title" className="display display-md mt-4">
+          {product.guide.heading || "Setup guide."}
+        </h2>
+        {product.guide.intro ? <p className="lede mt-5">{product.guide.intro}</p> : null}
+      </div>
+      <ol className="mt-12 space-y-16 md:mt-16 md:space-y-24">
+        {product.guide.steps.map((step, i) => (
+          <li key={`${i}-${step.title}`} id={`setup-${i + 1}`} className="grid scroll-mt-28 items-center gap-8 lg:grid-cols-12 lg:gap-12" data-reveal>
+            <div className={cn("lg:col-span-5", i % 2 === 1 && "lg:order-2")}>
+              <span className="mono inline-flex rounded-full bg-ok-bg px-3 py-1 text-[11px] uppercase tracking-[0.08em] text-ok-fg">Step {String(i + 1).padStart(2, "0")}</span>
+              <h3 className="display mt-4 text-[26px] leading-tight tracking-[-0.02em] text-ink md:text-[30px]">{step.title}</h3>
+              {step.text ? <p className="mt-4 max-w-[52ch] text-[16px] leading-relaxed text-muted">{step.text}</p> : null}
+            </div>
+            {step.image ? (
+              <div className={cn("lg:col-span-7", i % 2 === 1 && "lg:order-1")}>
+                <GuideShot src={step.image} alt={`Step ${i + 1}: ${step.title}`} />
+              </div>
+            ) : null}
+          </li>
+        ))}
+      </ol>
+    </section>
+  );
+}
+
 function Help({ product }: { product: ProductPage }) {
   return (
     <section id="help" className="container-x py-14 md:py-20" aria-labelledby="help-title">
@@ -339,6 +372,7 @@ export default async function ProductPageRoute({ params }: { params: Promise<{ s
 
       {product.why.heading || product.why.paragraphs.length ? <Why product={product} demo={demo} /> : null}
       {product.steps.length ? <Steps product={product} /> : null}
+      {product.guide.steps.length ? <Guide product={product} /> : null}
       {product.help.length ? <Help product={product} /> : null}
 
       {tabs.length ? (

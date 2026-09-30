@@ -752,6 +752,7 @@ function toProduct(node: RawProduct): { product: Product; detail: ProductDetail 
     headings: { steps: c.steps.heading, help: c.help.heading, features: c.features.heading, compare: c.compare.heading, info: c.info.heading, faq: c.faq.heading },
     why: { heading: c.why.heading, paragraphs: c.why.paragraphs.map((p) => p.text), points: c.why.points },
     steps: c.steps.list,
+    guide: { heading: c.guide.heading, intro: c.guide.intro, steps: c.guide.steps.filter((s) => s.title || s.text || s.image) },
     help: c.help.list.map((h) => ({ title: h.title, text: h.text, action: h.link_text && h.link_url ? { label: h.link_text, href: h.link_url } : undefined })),
     features: c.features.list,
     compare: c.compare.rows.map((r) => ({ label: r.label, free: ticked(r.free), pro: ticked(r.pro) })),

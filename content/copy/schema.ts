@@ -56,7 +56,8 @@ export interface ItemsField<K extends string = string> extends BaseField {
   item: string;
   /** How many rows the editor gets. Always a couple more than the page starts with. */
   slots: number;
-  fields: Record<K, { label: string; kind: "text" | "para" }>;
+  /** "image" is a picture from the media library; the page receives its address. */
+  fields: Record<K, { label: string; kind: "text" | "para" | "image" }>;
   value: Record<K, string>[];
 }
 
@@ -89,7 +90,7 @@ export const link = (label: string, textValue: string, url: string, help?: strin
 export function items<K extends string>(
   label: string,
   item: string,
-  fields: Record<K, { label: string; kind: "text" | "para" }>,
+  fields: Record<K, { label: string; kind: "text" | "para" | "image" }>,
   value: Record<K, string>[],
   options: { help?: string; slots?: number } = {},
 ): ItemsField<K> {

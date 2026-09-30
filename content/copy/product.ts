@@ -71,6 +71,26 @@ export const productTemplate = page("product", "/products/", "Product", {
     list: items("Steps", "Step", POINT_FIELDS, [], { slots: 8 }),
   }),
 
+  guide: section(
+    "Setup guide",
+    {
+      heading: text("Heading", ""),
+      intro: para("Paragraph under the heading", ""),
+      steps: items(
+        "Steps",
+        "Step",
+        {
+          title: { label: "Title", kind: "text" },
+          text: { label: "What to do, and what you see", kind: "para" },
+          image: { label: "Screenshot", kind: "image" },
+        },
+        [],
+        { help: "A screenshot for each step. Wide pictures read best: 1600 × 1000.", slots: 16 },
+      ),
+    },
+    "Step by step with screenshots: installing it, connecting the AI, teaching it the business, placing it, and what visitors and you see afterwards.",
+  ),
+
   help: section("How we help you", {
     heading: text("Heading", ""),
     list: items(

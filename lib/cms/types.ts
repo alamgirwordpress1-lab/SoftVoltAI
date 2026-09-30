@@ -269,6 +269,8 @@ export interface ProductDetail {
   headings: { steps: string; help: string; features: string; compare: string; info: string; faq: string };
   why: { heading: string; paragraphs: string[]; points: { title: string; text: string }[] };
   steps: { title: string; text: string }[];
+  /** The step-by-step guide: each step's words and the address of its screenshot. */
+  guide: { heading: string; intro: string; steps: { title: string; text: string; image: string }[] };
   help: { title: string; text: string; action?: ProductAction }[];
   features: { title: string; text: string }[];
   /** Free against Pro, row by row: [in the free plugin, in Pro]. */

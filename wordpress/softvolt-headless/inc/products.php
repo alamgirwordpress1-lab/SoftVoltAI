@@ -185,7 +185,78 @@ add_action('admin_init', static function (): void {
             wp_set_object_terms((int) $post_id, [$term_ids[$group]], 'product_group');
         }
         foreach ((array) $product['values'] as $section => $values) {
+            if ($section === 'guide') {
+                continue; // its screenshots are copied in by the guide seeder below
+            }
             update_field('field_svp_' . $section, $values, (int) $post_id);
         }
+    }
+});
+
+/** A picture copied in from an address earlier, found by that address — so a retry never duplicates it. */
+function softvolt_sideloaded_image(string $url, int $post_id, string $title): int
+{
+    $existing = get_posts([
+        'post_type'   => 'attachment',
+        'post_status' => 'inherit',
+        'meta_key'    => '_source_url', // phpcs:ignore WordPress.DB.SlowDBQuery -- once, on seeding
+        'meta_value'  => $url,          // phpcs:ignore WordPress.DB.SlowDBQuery
+        'fields'      => 'ids',
+        'numberposts' => 1,
+    ]);
+    if ($existing) {
+        return (int) $existing[0];
+    }
+    $id = media_sideload_image($url, $post_id, $title, 'id');
+    return is_wp_error($id) ? 0 : (int) $id;
+}
+
+/**
+ * Fills a seeded product's empty setup guide once its screenshots are on the
+ * live site: each picture is copied into the media library, then the rows are
+ * saved. Until every picture has arrived it tries again on a later admin
+ * visit, at most every ten minutes; after that, never again. A guide an
+ * editor has already written is left alone.
+ */
+add_action('admin_init', static function (): void {
+    if (get_option('softvolt_products_guides_seeded') || get_transient('softvolt_products_guides_wait') || !current_user_can('upload_files') || !function_exists('update_field') || !defined('SOFTVOLT_PRODUCT_SEED')) {
+        return;
+    }
+    set_transient('softvolt_products_guides_wait', 1, 10 * MINUTE_IN_SECONDS);
+    $seed = json_decode((string) SOFTVOLT_PRODUCT_SEED, true);
+    if (!is_array($seed)) {
+        return;
+    }
+    require_once ABSPATH . 'wp-admin/includes/media.php';
+    require_once ABSPATH . 'wp-admin/includes/file.php';
+    require_once ABSPATH . 'wp-admin/includes/image.php';
+
+    $done = true;
+    foreach ((array) ($seed['products'] ?? []) as $product) {
+        $guide = $product['values']['guide'] ?? null;
+        $post  = get_page_by_path((string) $product['slug'], OBJECT, 'sv_product');
+        if (!is_array($guide) || !$post) {
+            continue;
+        }
+        $current = get_field('svp_guide', $post->ID);
+        if (is_array($current) && !empty($current['steps_1']['title'])) {
+            continue;
+        }
+        foreach ($guide as $key => $row) {
+            if (!is_array($row) || empty($row['image'])) {
+                continue;
+            }
+            $id = softvolt_sideloaded_image((string) $row['image'], (int) $post->ID, (string) ($row['title'] ?? ''));
+            if (!$id) {
+                $done = false;
+                continue 2; // this product waits for the next try
+            }
+            $guide[$key]['image'] = $id;
+        }
+        update_field('field_svp_guide', $guide, (int) $post->ID);
+        softvolt_revalidate(softvolt_paths_for_post((int) $post->ID), softvolt_tags_for_post((int) $post->ID));
+    }
+    if ($done) {
+        update_option('softvolt_products_guides_seeded', SOFTVOLT_HEADLESS_VERSION, false);
     }
 });
