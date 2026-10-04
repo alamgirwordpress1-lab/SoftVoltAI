@@ -28,7 +28,7 @@ export const productTemplate = page("product", "/products/", "Product", {
   banner: section(
     "Top of the page",
     {
-      title: text("Page heading (H1)", "", "The product and the platform: SoftVolt AI Voice Agent for WordPress."),
+      title: text("Page heading (H1)", "", "The product and the platform: SoftVoltAI Voice Agent for WordPress."),
       intro: para("Paragraph under the heading", ""),
       seo: para("Description in Google", "", "Under 160 characters: the two lines under the title in search results and link previews."),
       buttons: items(

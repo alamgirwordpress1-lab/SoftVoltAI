@@ -11,12 +11,12 @@ import type { ProductDetail } from "@/lib/cms/types";
  */
 export const productDetails: Record<string, ProductDetail> = {
   "softvolt-ai-voice-agent": {
-    title: "SoftVolt AI Voice Agent for WordPress",
+    title: "SoftVoltAI Voice Agent for WordPress",
     intro:
       "Put an AI sales agent on your WordPress site. Visitors talk or type; it answers from your own facts, recommends the right service or product, books it, and sends you the lead by email, Telegram or n8n.",
     seo: "A free WordPress plugin that puts an AI voice and chat sales agent on your site: answers from your facts, books services, WooCommerce cards, lead alerts.",
     actions: [
-      { label: "Get early access", href: "/contact", kind: "primary" },
+      { label: "Download free", href: "https://wordpress.org/plugins/softvoltai-voice-agent/", kind: "primary" },
       { label: "Try the live demo", href: "#demo", kind: "demo" },
       { label: "How it works", href: "#how-it-works", kind: "secondary" },
       { label: "Free and Pro", href: "#compare", kind: "secondary" },
@@ -34,7 +34,7 @@ export const productDetails: Record<string, ProductDetail> = {
           "WooCommerce product cards",
           "Free or paid AI models",
         ],
-        action: { label: "Get early access", href: "/contact", kind: "primary" },
+        action: { label: "Download free", href: "https://wordpress.org/plugins/softvoltai-voice-agent/", kind: "primary" },
       },
       {
         name: "Pro add-on",
@@ -53,7 +53,7 @@ export const productDetails: Record<string, ProductDetail> = {
       faq: "Questions people ask first.",
     },
     why: {
-      heading: "Why choose SoftVolt AI Voice Agent?",
+      heading: "Why choose SoftVoltAI Voice Agent?",
       paragraphs: [
         "Most chat plugins answer questions. This one sells. It asks one question at a time, recommends the services or products that fit, collects the details you choose in the order you choose, confirms them and books the job — then hands you a lead you can act on.",
         "It only uses what you give it: your services, prices, questions and pages. So it never makes up a price or a promise. When a visitor would rather speak to a person, it hands them over as a hot lead, with a note of what they wanted and what it already explained.",
@@ -82,7 +82,7 @@ export const productDetails: Record<string, ProductDetail> = {
       steps: [
         {
           title: "Install and activate the plugin",
-          text: "In WordPress go to Plugins → Add New, upload the plugin (or install it from WordPress.org once it is listed) and press Activate. A Voice Agent item appears in the admin menu.",
+          text: "In WordPress go to Plugins → Add New, search for SoftVoltAI Voice Agent, press Install Now and then Activate. A Voice Agent item appears in the admin menu.",
           image: "/guides/softvolt-ai-voice-agent/01-install.webp",
         },
         {
@@ -112,7 +112,7 @@ export const productDetails: Record<string, ProductDetail> = {
         },
         {
           title: "Place the button",
-          text: "On Look & placement, drag the floating button into place in the live preview and pick its colours. You can also put it in your header menu, drop the Voice Agent Button block anywhere, or use the shortcode [softvolt_voice_agent].",
+          text: "On Look & placement, drag the floating button into place in the live preview and pick its colours. You can also put it in your header menu, drop the Voice Agent Button block anywhere, or use the shortcode [softvoltai_voice_agent].",
           image: "/guides/softvolt-ai-voice-agent/07-placement.webp",
         },
         {
@@ -211,7 +211,7 @@ export const productDetails: Record<string, ProductDetail> = {
     info: [
       { label: "Version", value: "1.0.0" },
       { label: "Price", value: "Free. A Pro add-on is coming." },
-      { label: "Where to get it", value: "WordPress.org listing coming soon. Until then, ask us for early access." },
+      { label: "Where to get it", value: "Free from the WordPress.org plugin directory: wordpress.org/plugins/softvoltai-voice-agent" },
       { label: "Requires WordPress", value: "6.3 or later" },
       { label: "Tested up to", value: "WordPress 7.1" },
       { label: "Requires PHP", value: "7.4 or later" },
@@ -220,7 +220,7 @@ export const productDetails: Record<string, ProductDetail> = {
       { label: "Voice languages", value: "31 languages, 39 regional options. Which ones work depends on the visitor's browser." },
       { label: "AI providers", value: "OpenRouter, Groq, Google Gemini, DeepSeek, OpenAI, Anthropic Claude, any OpenAI-compatible service, or the WordPress AI Client" },
       { label: "Alerts", value: "Email, Telegram, and a webhook for n8n, Make or Zapier" },
-      { label: "Placement", value: "Floating button, header menu, block, widget, menu item, shortcode [softvolt_voice_agent]" },
+      { label: "Placement", value: "Floating button, header menu, block, widget, menu item, shortcode [softvoltai_voice_agent]" },
       { label: "Works with", value: "WooCommerce, block and classic themes, Elementor and other page builders, caching plugins" },
       { label: "Your data", value: "Leads stay in your own WordPress database. API keys are stored encrypted." },
     ],
@@ -230,8 +230,8 @@ export const productDetails: Record<string, ProductDetail> = {
         a: "Yes. The plugin is free and complete. You pay nothing unless you choose a paid AI provider, and then you pay that provider directly for what you use.",
       },
       {
-        q: "When can I download it?",
-        a: "We are preparing it for the WordPress.org plugin directory. Until it is listed there, ask for early access and we will send it to you.",
+        q: "Where do I download it?",
+        a: "From the WordPress.org plugin directory, for free. In your WordPress dashboard go to Plugins → Add New and search for SoftVoltAI Voice Agent, or download it from wordpress.org/plugins/softvoltai-voice-agent.",
       },
       {
         q: "How does it know what my site sells?",
@@ -263,7 +263,7 @@ export const productDetails: Record<string, ProductDetail> = {
       },
       {
         q: "Does it work with Elementor and other page builders?",
-        a: "Yes. Add the shortcode [softvolt_voice_agent] with the builder's shortcode element, or give any button the CSS class svava-open.",
+        a: "Yes. Add the shortcode [softvoltai_voice_agent] with the builder's shortcode element, or give any button the CSS class svava-open.",
       },
       {
         q: "Does it work with caching plugins?",

@@ -13,7 +13,7 @@ import type { Product, ProductGroup } from "@/lib/cms/types";
 export const products: Product[] = [
   {
     slug: "softvolt-ai-voice-agent",
-    name: "SoftVolt AI Voice Agent",
+    name: "SoftVoltAI Voice Agent",
     group: "plugins",
     kind: "WordPress plugin",
     badge: "New",
@@ -21,7 +21,7 @@ export const products: Product[] = [
     summary:
       "Put an AI sales agent on any WordPress site. Visitors talk or type; it answers from the facts you give it, recommends the right service or product, books it, and hands a hot lead to a person when they ask. Every lead is saved in WordPress and sent to you by email, Telegram or n8n. It works with free AI models or your own key, and the voice costs nothing — speech happens in the visitor's browser.",
     price: "Free · Pro coming soon",
-    availability: "WordPress.org listing coming soon",
+    availability: "Free on WordPress.org",
     keywords: ["voice agent", "AI chatbot", "chatbot", "voice assistant", "sales agent", "lead generation", "WooCommerce", "n8n", "plugin"],
   },
 ];

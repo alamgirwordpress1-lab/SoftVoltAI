@@ -13,7 +13,7 @@ export const productsCopy = page("products", "/products", "Our Products", {
     heading: "WordPress plugins and themes, built by a team that ships sites every day.",
     lede: "The tools we build for our own client work, packaged for everyone. The free versions are complete, and Pro add-ons are coming for the businesses that need more.",
     facts: [
-      { label: "First plugin", value: "SoftVolt AI Voice Agent" },
+      { label: "First plugin", value: "SoftVoltAI Voice Agent" },
       { label: "Price", value: "Free, Pro add-ons coming" },
       { label: "Built to", value: "WordPress.org standards" },
     ],

@@ -255,7 +255,7 @@ export interface ProductPlan {
 
 /** Everything a product's own page needs beyond the summary. Keyed by product slug. */
 export interface ProductDetail {
-  /** The H1: the product and the platform, "SoftVolt AI Voice Agent for WordPress". */
+  /** The H1: the product and the platform, "SoftVoltAI Voice Agent for WordPress". */
   title: string;
   /** Two sentences: what it does and for whom. */
   intro: string;
