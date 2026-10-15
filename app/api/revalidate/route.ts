@@ -1,5 +1,6 @@
 import { revalidatePath, revalidateTag } from "next/cache";
-import { NextResponse } from "next/server";
+import { after, NextResponse } from "next/server";
+import { pingIndexNow } from "@/lib/seo/indexnow";
 
 export const runtime = "nodejs";
 
@@ -39,6 +40,11 @@ export async function POST(req: Request) {
   for (const tag of tags.length ? tags : ["wp:all"]) revalidateTag(tag, { expire: 0 });
   // "page" is the whole route, which is what a content change means here
   for (const path of paths) revalidatePath(path, "page");
+
+  // Bing, Yandex and the rest hear about the changed pages now rather than on
+  // their next crawl. after() sends it once the response is out, so WordPress is
+  // not kept waiting; a body-less "everything" ping names no paths and sends nothing.
+  if (paths.length) after(() => pingIndexNow(paths));
 
   return NextResponse.json({ ok: true, revalidated: { paths, tags: tags.length ? tags : ["wp:all"] }, at: Date.now() });
 }
