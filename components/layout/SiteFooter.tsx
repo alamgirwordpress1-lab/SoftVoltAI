@@ -25,7 +25,9 @@ function SocialIcon({ icon }: { icon: (typeof socials)[number]["icon"] }) {
 function Column({ title, links }: { title: string; links: { label: string; href: string }[] }) {
   return (
     <div>
-      <h2 className="ui text-[15px] font-bold text-er-ink">{title}</h2>
+      {/* a label, not a heading: the footer repeats on every page, and its column
+          names have no place in each page's outline */}
+      <p className="ui text-[15px] font-bold text-er-ink">{title}</p>
       <ul className="mt-6 space-y-3.5">
         {links.map((l) => (
           <li key={l.href}>

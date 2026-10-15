@@ -126,6 +126,8 @@ export async function wpMenus(siteUrl = ""): Promise<Record<string, WpMenuItem[]
 interface RawService {
   slug: string;
   title: string;
+  /** The service's own editor: the long-form body, HTML already formatted by WordPress. */
+  content: string | null;
   orderIndex: number;
   pillars: { nodes: { slug: string; name: string; description: string | null }[] };
   serviceFields: {
@@ -138,6 +140,41 @@ interface RawService {
     seoDescription: string | null;
     agencyTypes: { nodes: { slug: string }[] } | null;
   } | null;
+}
+
+/** An H2 that opens the questions: "Questions agencies ask…", "FAQ", "Frequently asked questions". */
+const FAQ_HEADING = /<h2\b[^>]*>(?:(?!<\/h2>)[\s\S])*?\b(?:questions|faqs?)\b(?:(?!<\/h2>)[\s\S])*<\/h2>/i;
+const QUESTION = /<h3\b[^>]*>([\s\S]*?)<\/h3>/gi;
+
+/**
+ * The long-form body and its questions, from one editor. Everything above an
+ * H2 about questions is the body; under that H2, each H3 is a question and
+ * whatever follows it, up to the next H3, is its answer. The questions then
+ * render in the page's own FAQ band, so an editor writes one document and the
+ * design stays the design. A body with no such H2 is all body.
+ */
+function splitServiceBody(html: string | null | undefined): { body?: string; faqHeading?: string; faqs: { question: string; answer: string }[] } {
+  const content = html?.trim();
+  if (!content) return { faqs: [] };
+
+  const heading = FAQ_HEADING.exec(content);
+  if (!heading) return { body: content, faqs: [] };
+
+  const body = content.slice(0, heading.index).trim() || undefined;
+  const rest = content.slice(heading.index + heading[0].length);
+  const marks = [...rest.matchAll(QUESTION)];
+  const faqs = marks
+    .map((mark, i) => {
+      const start = (mark.index ?? 0) + mark[0].length;
+      const end = i + 1 < marks.length ? (marks.at(i + 1)?.index ?? rest.length) : rest.length;
+      // an answer of several paragraphs reads as one, with a space where each paragraph ended
+      const answer = plain(rest.slice(start, end).replace(/<\/(p|li|div)>/gi, " ").replace(/\s+/g, " "));
+      return { question: plain(mark[1]), answer };
+    })
+    .filter((faq) => faq.question && faq.answer);
+
+  // an H2 about questions with no H3 under it is ordinary body text after all
+  return faqs.length ? { body, faqHeading: plain(heading[0]) || undefined, faqs } : { body: content, faqs: [] };
 }
 
 export interface WpServices {
@@ -159,6 +196,7 @@ export async function wpServices(): Promise<WpServices | null> {
     const term = node.pillars?.nodes?.[0];
     const pillar = term && isPillar(term.slug) ? term.slug : "build";
     const fields = node.serviceFields;
+    const { body, faqHeading, faqs } = splitServiceBody(node.content);
 
     const service: Service = {
       slug: node.slug,
@@ -176,6 +214,10 @@ export async function wpServices(): Promise<WpServices | null> {
       stack: lines(fields?.stack),
       seo: plain(fields?.seoDescription ?? ""),
       agencyTypes: (fields?.agencyTypes?.nodes ?? []).map((a) => a.slug),
+      // the service's editor: the body, and the questions under its FAQ heading; an empty editor is no section at all
+      body,
+      faqHeading,
+      faqs,
     };
 
     if (term && isPillar(term.slug) && !groups.has(pillar)) {

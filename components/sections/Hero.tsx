@@ -11,7 +11,7 @@ import "./hero.css";
 
 /** What the banner says when WordPress has nothing to say about it. */
 const LINES = ["You win the client.", "We deliver the work.", "Your brand gets the credit."];
-const EYEBROW = "White-label production & growth partner";
+const EYEBROW = "White-label web development, SEO & AI automation for agencies";
 const LEDE =
   "WordPress, WooCommerce, Shopify and Webflow builds, Next.js apps on Payload, Sanity or PostgreSQL, AI automation, SEO and paid media — delivered under your brand by a senior team in Dhaka, working UK and US hours.";
 /** The chips under the buttons are the published commitments, verbatim — the
@@ -85,12 +85,14 @@ export function Hero({
       <div className="wide-x relative grid items-center gap-6 lg:min-h-[min(940px,calc(100svh-80px))] lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)]">
         {/* Below 768px the globe leads and this column follows it — see the globe's order-first */}
         <div className="relative z-10 pb-12 md:pb-0 md:pt-16 lg:py-16">
-          <span className="eyebrow" data-after>
+          {/* The eyebrow is the page's H1: it names the service in the words agencies
+              search with. The thesis under it stays the biggest type on the page. */}
+          <h1 className="eyebrow" data-after>
             {eyebrow || EYEBROW}
-          </span>
+          </h1>
 
           {/* One sentence per line: the thesis is the typography. */}
-          <h1 id="hero-title" className="display hero-title mt-7">
+          <p id="hero-title" className="display hero-title mt-7">
             {headline.map((line, i) => (
               // the closing line carries the accent, however many lines an editor writes
               <span key={line} className={`split-mask block pb-[0.08em] ${i < headline.length - 1 ? "hero-line-lead" : ""}`}>
@@ -100,7 +102,7 @@ export function Hero({
                 </span>
               </span>
             ))}
-          </h1>
+          </p>
 
           <p className="lede mt-8 max-w-[56ch]" data-after>
             {lede || LEDE}

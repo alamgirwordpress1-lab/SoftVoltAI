@@ -139,6 +139,7 @@ Every variable is optional for local development. Copy `.env.example` to `.env.l
 | `RESEND_API_KEY` | Sending briefs by email through Resend | Briefs are written to the server log, not emailed |
 | `BRIEF_TO_EMAIL` | The inbox that receives briefs | Same as above |
 | `BRIEF_FROM_EMAIL` | Sender address, which must be on a domain verified in Resend | Same as above |
+| `INDEXNOW_KEY` | Swaps the IndexNow key in `lib/seo/indexnow.ts`; deploy a matching `public/<key>.txt` with it. Production tells IndexNow (Bing, Yandex…) about every page WordPress revalidates | The key in the repo is used |
 
 `NEXT_PUBLIC_*` values are built into the pages at build time, so redeploy after you change them.
 
