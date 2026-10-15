@@ -13,6 +13,20 @@ export function organizationSchema() {
     url: site.url,
     description: site.longDescription,
     email: site.email,
+    // the logo search engines may show beside the name in results and knowledge panels
+    logo: { "@type": "ImageObject", url: `${site.url}${site.logo.src}`, width: site.logo.width, height: site.logo.height },
+    image: `${site.url}${site.logo.src}`,
+    contactPoint: [
+      {
+        "@type": "ContactPoint",
+        contactType: "sales",
+        email: site.email,
+        areaServed: ["GB", "US", "CA", "AU"],
+        availableLanguage: ["en"],
+      },
+    ],
+    // no profiles, no key: an empty sameAs says nothing
+    ...(site.sameAs.length ? { sameAs: site.sameAs } : {}),
     address: {
       "@type": "PostalAddress",
       addressLocality: "Dhaka",
