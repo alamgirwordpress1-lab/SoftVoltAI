@@ -29,7 +29,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
-  const { names } = await topics();
+  const { posts, names } = await topics();
   const name = names.get(slug);
   if (!name) return {};
   const copy = await getCopy(blogCopy, { topic: name });
@@ -37,6 +37,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     title: copy.topic.heading,
     description: copy.topic.lede,
     alternates: { canonical: `/blog/topic/${slug}` },
+    // a topic with a handful of posts is a thin list of links the blog already
+    // has: kept out of the index until it has five, its links still followed
+    ...(filed(posts, slug).length < 5 ? { robots: { index: false, follow: true } } : {}),
   };
 }
 
