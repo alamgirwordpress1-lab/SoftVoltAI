@@ -6,10 +6,10 @@ export const homeCopy = page("home", "/", "Home", {
   seo: section(
     "Google & sharing",
     {
-      title: text("Page title in Google", "SoftVolt AI — White-label production for agencies", "The blue link in search results and the browser tab. On the home page it is used exactly as written."),
+      title: text("Page title in Google", "White-label web development & SEO for agencies · SoftVolt AI", "The blue link in search results and the browser tab. On the home page it is used exactly as written."),
       description: para(
         "Description in Google",
-        "White-label production and growth for agencies: WordPress, WooCommerce, headless Next.js, SEO and paid media, built under your brand from Dhaka.",
+        "White-label web development, SEO and AI automation for UK, US, Canadian and Australian agencies: WordPress, Next.js and Laravel, built under your brand.",
         "The two lines under the title in search results and link previews. Keep it under 160 characters.",
       ),
     },
@@ -19,7 +19,7 @@ export const homeCopy = page("home", "/", "Home", {
   banner: section(
     "Banner",
     {
-      eyebrow: text("Small line above the headline", "White-label production & growth partner"),
+      eyebrow: text("Small line above the headline", "White-label web development, SEO & AI automation for agencies"),
       headline: lines(
         "Headline",
         ["You win the client.", "We deliver the work.", "Your brand gets the credit."],

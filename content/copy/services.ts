@@ -60,6 +60,7 @@ export const servicesCopy = page("services", "/services", "Services", {
       jump_ships: text("\"On this page\" — what ships", "What ships"),
       jump_signals: text("\"On this page\" — when to send it", "When to send it"),
       jump_who: text("\"On this page\" — who it is for", "Who it is for"),
+      jump_faq: text("\"On this page\" — questions", "Questions"),
       jump_related: text("\"On this page\" — related", "Related services"),
     },
     "The same words on every service page. The headline, the paragraph under it and the lists come from each service under Services. In these fields {service} is the service's name, {pillar} its pillar, {deliverables} how many deliverables it lists and {tools} its tooling.",
@@ -78,10 +79,12 @@ export const servicesCopy = page("services", "/services", "Services", {
       who_eyebrow: text("Built for — small line", "Built for"),
       who_heading: text("Built for — heading", "Agencies that send this brief most often."),
       who_link: text("Built for — link on each card", "How we work with you →"),
+      faq_eyebrow: text("Questions — small line", "Questions"),
+      faq_heading: text("Questions — heading", "Questions agencies ask about {service}."),
       related_eyebrow: text("Related — small line", "Also in {pillar}"),
       related_heading: text("Related — heading", "Related services."),
     },
-    "The bands under the intro, the same on every service page. {pillar} is the service's pillar.",
+    "The bands under the intro, the same on every service page. {pillar} is the service's pillar and {service} its name. The questions themselves come from each service's editor: under an H2 about questions (\"Questions agencies ask…\" or \"FAQ\"), each H3 is a question and the text under it the answer. The band only shows on a service that has some.",
   ),
 
   detail_cta: {
