@@ -211,7 +211,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
           <div className="lg:sticky lg:top-28 lg:col-span-4 lg:self-start" data-reveal>
             <span className="eyebrow">{band.faq_eyebrow}</span>
             <h2 id="faq-title" className="display display-md mt-4">
-              {band.faq_heading}
+              {service.faqHeading || band.faq_heading}
             </h2>
           </div>
           <FaqList faqs={faqs} className="lg:col-span-8" />
