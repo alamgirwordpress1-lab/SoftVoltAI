@@ -32,6 +32,8 @@ export interface ServiceDetail {
   agencyTypes?: string[];
   /** The long-form body under the deliverables: the service's editor in WordPress, above its FAQ heading, rendered inside .prose-site. */
   body?: string;
+  /** The editor's own FAQ heading, used as the band's heading in place of the shared one. */
+  faqHeading?: string;
   /** The questions shown above the related services: the H3s under the editor's FAQ heading, in order. */
   faqs?: { question: string; answer: string }[];
 }

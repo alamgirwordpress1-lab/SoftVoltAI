@@ -153,7 +153,7 @@ const QUESTION = /<h3\b[^>]*>([\s\S]*?)<\/h3>/gi;
  * render in the page's own FAQ band, so an editor writes one document and the
  * design stays the design. A body with no such H2 is all body.
  */
-function splitServiceBody(html: string | null | undefined): { body?: string; faqs: { question: string; answer: string }[] } {
+function splitServiceBody(html: string | null | undefined): { body?: string; faqHeading?: string; faqs: { question: string; answer: string }[] } {
   const content = html?.trim();
   if (!content) return { faqs: [] };
 
@@ -174,7 +174,7 @@ function splitServiceBody(html: string | null | undefined): { body?: string; faq
     .filter((faq) => faq.question && faq.answer);
 
   // an H2 about questions with no H3 under it is ordinary body text after all
-  return faqs.length ? { body, faqs } : { body: content, faqs: [] };
+  return faqs.length ? { body, faqHeading: plain(heading[0]) || undefined, faqs } : { body: content, faqs: [] };
 }
 
 export interface WpServices {
@@ -196,7 +196,7 @@ export async function wpServices(): Promise<WpServices | null> {
     const term = node.pillars?.nodes?.[0];
     const pillar = term && isPillar(term.slug) ? term.slug : "build";
     const fields = node.serviceFields;
-    const { body, faqs } = splitServiceBody(node.content);
+    const { body, faqHeading, faqs } = splitServiceBody(node.content);
 
     const service: Service = {
       slug: node.slug,
@@ -216,6 +216,7 @@ export async function wpServices(): Promise<WpServices | null> {
       agencyTypes: (fields?.agencyTypes?.nodes ?? []).map((a) => a.slug),
       // the service's editor: the body, and the questions under its FAQ heading; an empty editor is no section at all
       body,
+      faqHeading,
       faqs,
     };
 
