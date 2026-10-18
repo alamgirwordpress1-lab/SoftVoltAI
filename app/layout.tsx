@@ -7,6 +7,7 @@ import { shareMetadata } from "@/lib/seo/share";
 import { MotionRoot } from "@/components/motion/MotionRoot";
 import { THEME_COLORS, themeInitScript } from "@/lib/theme";
 import { deferredLayoutScript } from "@/lib/motion/deferred-layout";
+import Script from "next/script";
 import "./globals.css";
 
 // Four families, one job each: display headings, body copy, interface, data.
@@ -84,6 +85,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       {/* browser extensions such as Grammarly add attributes to <body> before React loads */}
       <body suppressHydrationWarning>
         <JsonLd data={[organizationSchema(), websiteSchema()]} />
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-6EZYE7PW66" strategy="afterInteractive" />
+        <Script id="ga4" strategy="afterInteractive" dangerouslySetInnerHTML={{ __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-6EZYE7PW66');` }} />
         <MotionRoot />
         {children}
       </body>
