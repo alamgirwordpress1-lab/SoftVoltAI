@@ -6,6 +6,7 @@ import { PageIntro } from "@/components/ui/PageIntro";
 import { Button } from "@/components/ui/Button";
 import { Chip } from "@/components/ui/Chip";
 import { CtaBand } from "@/components/sections/CtaBand";
+import { FaqList } from "@/components/sections/Faq";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { site } from "@/content/site";
 import { shareMetadata } from "@/lib/seo/share";
@@ -49,6 +50,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
   });
   const top = copy.detail_top;
   const band = copy.detail_sections;
+  const faqs = (service.faqs ?? []).map((f) => ({ q: f.question, a: f.answer }));
 
   return (
     <>
@@ -59,6 +61,9 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
           name: service.title,
           description: service.seo,
           serviceType: service.name,
+          category: service.pillarGroup.name,
+          // who buys it: the service is sold to agencies, not to their clients
+          audience: { "@type": "BusinessAudience", audienceType: "Digital, web design, SEO and marketing agencies" },
           provider: { "@id": `${site.url}/#organization` },
           areaServed: site.markets.map((name) => ({ "@type": "Country", name })),
           url: `${site.url}/services/${slug}`,
@@ -102,6 +107,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
           { label: top.jump_ships, href: "#deliverables" },
           { label: top.jump_signals, href: "#signals" },
           ...(service.agencies.length ? [{ label: top.jump_who, href: "#who-for" }] : []),
+          ...(faqs.length ? [{ label: top.jump_faq, href: "#faq" }] : []),
           { label: top.jump_related, href: "#related" },
         ]}
       />
@@ -123,6 +129,17 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
           ))}
         </ul>
       </section>
+
+      {service.body ? (
+        <section id="overview" className="container-x grid gap-10 border-t border-line py-14 md:py-20 lg:grid-cols-12">
+          {/* the long-form body from the service in WordPress: the editor's own HTML,
+              headings, tables and lists, styled by .prose-site like a blog post and
+              set under the deliverables it expands on. The opening heading drops its
+              top margin (important, to beat the unlayered .prose-site h2 rule) so the
+              band keeps the same padding as the others. */}
+          <div className="prose-site max-w-[68ch] lg:col-span-8 lg:col-start-5 [&>:first-child]:mt-0!" dangerouslySetInnerHTML={{ __html: service.body }} />
+        </section>
+      ) : null}
 
       <section id="signals" className="er relative overflow-hidden" aria-labelledby="signals-title">
         <div className="glow -right-20 -top-20 h-[420px] w-[420px]" aria-hidden="true" />
@@ -185,6 +202,19 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
               </li>
             ))}
           </ul>
+        </section>
+      ) : null}
+
+      {/* the questions are each service's FAQs field; the heading beside them is the same on every service */}
+      {faqs.length ? (
+        <section id="faq" className="container-x grid gap-10 border-t border-line py-14 md:py-20 lg:grid-cols-12" aria-labelledby="faq-title">
+          <div className="lg:sticky lg:top-28 lg:col-span-4 lg:self-start" data-reveal>
+            <span className="eyebrow">{band.faq_eyebrow}</span>
+            <h2 id="faq-title" className="display display-md mt-4">
+              {service.faqHeading || band.faq_heading}
+            </h2>
+          </div>
+          <FaqList faqs={faqs} className="lg:col-span-8" />
         </section>
       ) : null}
 

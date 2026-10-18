@@ -15,7 +15,7 @@ export const site = {
   logoDark: { src: "/brand/softvoltai-logo-white.png", alt: "SoftVolt AI", width: 663, height: 246 },
   /** Meta description and Open Graph copy: kept under 160 characters so search results do not cut it off. */
   description:
-    "White-label production and growth for agencies: WordPress, WooCommerce, headless Next.js, SEO and paid media, built under your brand from Dhaka.",
+    "White-label web development, SEO and AI automation for UK, US, Canadian and Australian agencies: WordPress, Next.js and Laravel, built under your brand.",
   /** The longer description, for schema.org where length is not penalised. */
   longDescription:
     "SoftVolt AI is the white-label production and growth team behind agencies in the UK, US, Canada and Australia. WordPress, WooCommerce, headless Next.js, Payload, Sanity, Shopify, Webflow, AI automation, SEO and paid media — delivered under your brand from Dhaka, with UK and US overlap hours.",
@@ -30,6 +30,13 @@ export const site = {
   privacyPath: "/privacy-policy",
   termsPath: "/terms-and-conditions",
   markets: ["United Kingdom", "United States", "Canada", "Australia", "European Union"],
+  /**
+   * The company's own profiles elsewhere, listed as `sameAs` in the
+   * organisation schema: they tell search engines these accounts and this site
+   * are the same business. Only profiles that exist and belong to the company.
+   */
+  // TODO(owner): add the LinkedIn company page, Clutch and GoodFirms profile URLs once they exist.
+  sameAs: ["https://www.facebook.com/softvoltai/"] as string[],
 };
 
 /**

@@ -7,7 +7,18 @@ const securityHeaders = [
   { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
   // the microphone is allowed for this origin only: Volt, the site's assistant, listens when a visitor talks to it
   { key: "Permissions-Policy", value: "camera=(), microphone=(self), geolocation=()" },
+  // HTTPS only, for two years, on this host and anything under it
+  { key: "Strict-Transport-Security", value: "max-age=63072000; includeSubDomains" },
 ];
+
+/**
+ * Vercel sets VERCEL_ENV on every deployment: "production" for the live site,
+ * "preview" for every branch and pull request. A preview is a full copy of the
+ * site on a public URL, so it tells search engines to stay out: a preview in
+ * the index competes with the real page. Production, and a build anywhere
+ * else, sends nothing extra.
+ */
+const isPreviewDeployment = Boolean(process.env.VERCEL_ENV) && process.env.VERCEL_ENV !== "production";
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
@@ -28,6 +39,7 @@ const nextConfig: NextConfig = {
   async headers() {
     return [
       { source: "/(.*)", headers: securityHeaders },
+      ...(isPreviewDeployment ? [{ source: "/(.*)", headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }] }] : []),
       // Pictures in /public keep their names across deploys, so a browser keeps
       // them a day and refreshes them in the background for a week after. The
       // hashed files under /_next are left alone: they are already immutable.

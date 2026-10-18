@@ -79,6 +79,7 @@ export const SERVICES = /* GraphQL */ `
       nodes {
         slug
         title
+        content
         orderIndex
         pillars { nodes { slug name description } }
         serviceFields {
