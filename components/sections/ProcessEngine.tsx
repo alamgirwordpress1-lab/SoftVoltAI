@@ -34,22 +34,22 @@ export function ProcessEngine({ steps, copy }: { steps: ProcessStep[]; copy: Lin
     <section id="how-it-works" className="er section" aria-labelledby="process-title">
       <div className="container-x">
         {/* split heading: H2 left, lede right, so the top row uses the full width */}
-        <div className="grid gap-6 lg:grid-cols-12 lg:items-end lg:gap-10" data-reveal>
-          <div className="lg:col-span-7">
-            <span className="eyebrow">{copy.eyebrow}</span>
-            <h2 id="process-title" className="display display-lg mt-4">
+        <div data-reveal>
+          <span className="eyebrow">{copy.eyebrow}</span>
+          <div className="mt-4 grid gap-6 lg:grid-cols-12 lg:items-start lg:gap-10">
+            <h2 id="process-title" className="display display-lg lg:col-span-7">
               {copy.heading}
             </h2>
-          </div>
-          <div className="lg:col-span-5 lg:pb-1.5">
-            <p className="lede max-w-[46ch]">{copy.lede}</p>
-            {copy.link.text ? (
-              <div className="mt-5">
-                <ArrowLink href={copy.link.url} dark>
-                  {copy.link.text}
-                </ArrowLink>
-              </div>
-            ) : null}
+            <div className="lg:col-span-5 lg:pt-1">
+              <p className="lede max-w-[46ch]">{copy.lede}</p>
+              {copy.link.text ? (
+                <div className="mt-5">
+                  <ArrowLink href={copy.link.url} dark>
+                    {copy.link.text}
+                  </ArrowLink>
+                </div>
+              ) : null}
+            </div>
           </div>
         </div>
 

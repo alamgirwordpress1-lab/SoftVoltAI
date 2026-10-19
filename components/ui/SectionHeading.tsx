@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils";
 /**
  * Every section opens the same way. "split" (default): eyebrow and H2 on the
  * left, the short explanation and an optional action on the right, aligned to
- * the heading's baseline. "stack": everything in one column, for headings that
+ * the top of the heading so the two columns start on the same line. "stack": everything in one column, for headings that
  * live inside a narrow side column.
  */
 export function SectionHeading({
@@ -34,17 +34,17 @@ export function SectionHeading({
     );
   }
   return (
-    <div className={cn("grid gap-6 lg:grid-cols-12 lg:items-end lg:gap-10", className)} data-reveal>
-      <div className="lg:col-span-7">
-        <span className="eyebrow">{eyebrow}</span>
-        <Heading className="display display-lg mt-4 max-w-[18ch]">{title}</Heading>
+    <div className={cn(className)} data-reveal>
+      <span className="eyebrow">{eyebrow}</span>
+      <div className="mt-4 grid gap-6 lg:grid-cols-12 lg:items-start lg:gap-10">
+        <Heading className="display display-lg max-w-[18ch] lg:col-span-7">{title}</Heading>
+        {lede || aside ? (
+          <div className="lg:col-span-5 lg:pt-1">
+            {lede ? <p className="lede max-w-[46ch]">{lede}</p> : null}
+            {aside ? <div className={lede ? "mt-5" : ""}>{aside}</div> : null}
+          </div>
+        ) : null}
       </div>
-      {lede || aside ? (
-        <div className="lg:col-span-5 lg:pb-1.5">
-          {lede ? <p className="lede max-w-[46ch]">{lede}</p> : null}
-          {aside ? <div className={lede ? "mt-5" : ""}>{aside}</div> : null}
-        </div>
-      ) : null}
     </div>
   );
 }
