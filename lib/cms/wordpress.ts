@@ -300,7 +300,9 @@ export async function wpWork(): Promise<WpWork | null> {
     summary: plain(node.caseStudyFields?.summary ?? ""),
     stack: lines(node.caseStudyFields?.stack),
     url: node.caseStudyFields?.liveUrl || undefined,
-    image: node.featuredImage?.node?.sourceUrl || undefined,
+    // WordPress shrinks tall uploads (full-page screenshots) to a "-scaled" copy and keeps the
+    // original beside it, so point at the original to keep the screenshot sharp.
+    image: node.featuredImage?.node?.sourceUrl?.replace(/-scaled(\.[a-z0-9]+)$/i, "$1") || undefined,
     role: plain(node.caseStudyFields?.role ?? ""),
     delivered: lines(node.caseStudyFields?.delivered),
   }));
