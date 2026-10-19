@@ -84,14 +84,12 @@ function Compare({ product }: { product: ProductPage }) {
   const [free, pro] = product.plans;
   return (
     <section className="container-x py-14 md:py-20" aria-labelledby="compare-title">
-      <div className="grid gap-6 lg:grid-cols-12 lg:items-end lg:gap-10">
-        <div className="lg:col-span-7">
-          <span className="eyebrow">Free and Pro</span>
-          <h2 id="compare-title" className="display display-md mt-4 max-w-[22ch]">
-            {product.headings.compare || "Side by side."}
-          </h2>
-        </div>
-        {product.pro.text ? <p className="lede max-w-[46ch] lg:col-span-5 lg:pb-1.5">{product.pro.text}</p> : null}
+      <span className="eyebrow">Free and Pro</span>
+      <div className="mt-4 grid gap-6 lg:grid-cols-12 lg:items-start lg:gap-10">
+        <h2 id="compare-title" className="display display-md max-w-[22ch] lg:col-span-7">
+          {product.headings.compare || "Side by side."}
+        </h2>
+        {product.pro.text ? <p className="lede max-w-[46ch] lg:col-span-5 lg:pt-1">{product.pro.text}</p> : null}
       </div>
 
       <div className="card shadow-float mt-10 overflow-hidden">
