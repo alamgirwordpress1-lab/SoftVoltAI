@@ -82,7 +82,7 @@ export function WorkGrid({
                       alt={`${w.title} — homepage screenshot`}
                       fill
                       sizes="(min-width: 768px) 33vw, 100vw"
-                      className="object-cover object-top transition-transform duration-700 ease-[var(--ease-out-quint)] group-hover:scale-[1.04]"
+                      className="object-cover object-top transition-[object-position,transform] duration-700 ease-[var(--ease-out-quint)] group-hover:scale-[1.04] group-hover:object-bottom group-hover:duration-[9000ms] group-hover:ease-linear"
                     />
                   ) : null}
                 </div>
