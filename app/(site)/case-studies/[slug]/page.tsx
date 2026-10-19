@@ -92,7 +92,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
               <span className="url">{item.url?.replace(/^https?:\/\//, "").replace(/\/$/, "")}</span>
             </div>
             <div className="relative aspect-[16/10] bg-raised">
-              <Image src={item.image} alt={`${item.title} — homepage`} fill sizes="(min-width: 1024px) 80vw, 100vw" className="object-cover object-top" priority />
+              <Image src={item.image} alt={`${item.title} — homepage`} fill sizes="(min-width: 1024px) 80vw, 100vw" className="object-cover object-top transition-[object-position] duration-1000 ease-out hover:object-bottom hover:duration-[14000ms] hover:ease-linear" priority />
             </div>
           </div>
         </section>
