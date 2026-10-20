@@ -62,7 +62,8 @@ export function Hero({
     const root = rootRef.current;
     if (!root) return;
     const ready = () => root.classList.add("hero-ready");
-    if (prefersReducedMotion()) {
+    // phones and tablets get the CSS intro in hero.css, which starts at first paint
+    if (prefersReducedMotion() || window.matchMedia("(max-width: 1023px)").matches) {
       ready();
       return;
     }
