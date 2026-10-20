@@ -193,7 +193,7 @@ function Questions({ product }: { product: ProductPage }) {
                 </span>
               </summary>
               <div className="faq-body px-6 pb-6 pl-[4.25rem]">
-                <p className="max-w-[68ch] text-[15px] leading-relaxed text-muted md:text-base">{f.a}</p>
+                <p className="text-[15px] leading-relaxed text-muted md:text-base">{f.a}</p>
               </div>
             </details>
           </li>
@@ -212,7 +212,7 @@ function Why({ product, demo }: { product: ProductPage; demo?: { visual: React.R
           {product.why.heading}
         </h2>
         {product.why.paragraphs.map((p) => (
-          <p key={p.slice(0, 24)} className="mt-5 max-w-[62ch] text-[16px] leading-relaxed text-muted">
+          <p key={p.slice(0, 24)} className="mt-5 text-[16px] leading-relaxed text-muted">
             {p}
           </p>
         ))}
