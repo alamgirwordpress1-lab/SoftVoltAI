@@ -185,7 +185,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
               while the long read scrolls, the tools and the main call to action.
               Shown from lg up, where the column would otherwise sit empty. */}
           <aside className="hidden lg:col-span-4 lg:block" aria-label={service.name}>
-            <div className="sticky top-28 max-w-[300px] space-y-8" data-reveal>
+            <div className="sticky top-28 max-w-[340px] space-y-8" data-reveal>
               {body.toc.length > 1 ? (
                 <div>
                   <span className="eyebrow">{service.name}</span>
@@ -207,7 +207,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
               <Button href={chrome.cta.primary.href}>{chrome.cta.primary.label}</Button>
             </div>
           </aside>
-          <div className="prose-site max-w-[68ch] lg:col-span-8 [&>:first-child]:mt-0!" dangerouslySetInnerHTML={{ __html: body.html }} />
+          <div className="prose-site lg:col-span-8 [&>:first-child]:mt-0!" dangerouslySetInnerHTML={{ __html: body.html }} />
         </section>
       ) : null}
 
