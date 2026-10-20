@@ -92,6 +92,14 @@
   left: 5%;
   bottom: 6%;
 }
+.js .phv-orbit-outer {
+  animation: phv-spin 90s linear infinite;
+}
+@keyframes phv-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
 .js .phv-card {
   animation: bob 7s ease-in-out infinite;
 }
