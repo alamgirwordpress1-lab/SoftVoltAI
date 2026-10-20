@@ -10,6 +10,7 @@ import { cms } from "@/lib/cms";
 import { getCopy } from "@/lib/cms/copy";
 import { copyMetadata } from "@/lib/cms/meta";
 import { countWord } from "@/lib/utils";
+import { ServiceArt } from "@/components/illustrations/ServiceArt";
 
 export async function generateMetadata(): Promise<Metadata> {
   return copyMetadata(caseStudiesCopy);
@@ -56,6 +57,8 @@ export default async function CaseStudiesPage() {
             <h2 id="format-title" className="display display-md mt-4">
               {copy.format.heading}
             </h2>
+            {/* a finished build and its result: our own drawing, no words */}
+            <ServiceArt variant="work" className="mt-10 max-w-[360px]" />
           </div>
           <div className="space-y-5 text-[15px] leading-relaxed text-muted lg:col-span-6 lg:col-start-7 md:text-base" data-reveal>
             <p>{copy.format.paragraph}</p>
