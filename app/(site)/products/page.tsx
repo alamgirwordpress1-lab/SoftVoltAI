@@ -58,7 +58,9 @@ export default async function ProductsPage() {
                           {p.price} {p.availability ? <span className="text-muted">· {p.availability}</span> : null}
                         </p>
                         <div className="mt-6 flex flex-wrap gap-3">
-                          <Button href={`/products/${p.slug}`}>Read more</Button>
+                          <Button href={`/products/${p.slug}`}>
+                          Read more<span className="sr-only"> about {p.name}</span>
+                        </Button>
                           {detail?.compare.length ? (
                             <Button href={`/products/${p.slug}#compare`} variant="secondary">
                               Compare plans
