@@ -70,6 +70,21 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         }}
       />
 
+      {/* the questions under the FAQ heading, as FAQPage data: answer engines and AI search quote it directly */}
+      {faqs.length ? (
+        <JsonLd
+          data={{
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: faqs.map((f) => ({
+              "@type": "Question",
+              name: f.q,
+              acceptedAnswer: { "@type": "Answer", text: String(f.a).replace(/<[^>]+>/g, "").trim() },
+            })),
+          }}
+        />
+      ) : null}
+
       <PageHero
         crumbs={[
           { name: "Services", href: "/services" },
