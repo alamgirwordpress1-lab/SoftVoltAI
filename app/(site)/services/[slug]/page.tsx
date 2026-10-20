@@ -18,6 +18,30 @@ import { servicesCopy } from "@/content/copy/services";
 import { midSentence } from "@/lib/utils";
 import { ServiceArt, pillarArt } from "@/components/illustrations/ServiceArt";
 import { BandDecor } from "@/components/illustrations/BandDecor";
+import { BodyToc, type TocItem } from "@/components/sections/BodyToc";
+
+const ENTITIES: Record<string, string> = { amp: "&", nbsp: " ", quot: '"', "#39": "'", "#039": "'", rsquo: "\u2019", lsquo: "\u2018", "#8217": "\u2019", "#8216": "\u2018", ndash: "\u2013", "#8211": "\u2013", hellip: "\u2026", "#8230": "\u2026" };
+
+/** Gives each H2 in the body an id and returns the list for the side menu. The words are the body's own headings. */
+function withHeadingIds(html: string): { html: string; toc: TocItem[] } {
+  const toc: TocItem[] = [];
+  const used = new Set<string>();
+  const out = html.replace(/<h2([^>]*)>([\s\S]*?)<\/h2>/gi, (match, attrs: string, inner: string) => {
+    const label = inner
+      .replace(/<[^>]+>/g, "")
+      .replace(/&([a-z0-9#]+);/gi, (e, k: string) => ENTITIES[k.toLowerCase()] ?? e)
+      .replace(/\s+/g, " ")
+      .trim();
+    if (!label) return match;
+    const existing = attrs.match(/\sid=["']([^"']+)["']/i)?.[1];
+    let id = existing ?? `about-${label.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")}`;
+    while (!existing && used.has(id)) id += "-2";
+    used.add(id);
+    toc.push({ id, label });
+    return existing ? match : `<h2${attrs} id="${id}">${inner}</h2>`;
+  });
+  return { html: out, toc };
+}
 
 export async function generateStaticParams() {
   const services = await cms.getServices();
@@ -53,6 +77,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
   const top = copy.detail_top;
   const band = copy.detail_sections;
   const faqs = (service.faqs ?? []).map((f) => ({ q: f.question, a: f.answer }));
+  const body = service.body ? withHeadingIds(service.body) : null;
 
   return (
     <>
@@ -149,14 +174,40 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         </ul>
       </section>
 
-      {service.body ? (
+      {body ? (
         <section id="overview" className="container-x grid gap-10 border-t border-line py-14 md:py-20 lg:grid-cols-12">
           {/* the long-form body from the service in WordPress: the editor's own HTML,
               headings, tables and lists, styled by .prose-site like a blog post and
               set under the deliverables it expands on. The opening heading drops its
               top margin (important, to beat the unlayered .prose-site h2 rule) so the
               band keeps the same padding as the others. */}
-          <div className="prose-site max-w-[68ch] lg:col-span-8 lg:col-start-5 [&>:first-child]:mt-0!" dangerouslySetInnerHTML={{ __html: service.body }} />
+          {/* the left four columns: the body's headings as a menu that stays in view
+              while the long read scrolls, the tools and the main call to action.
+              Shown from lg up, where the column would otherwise sit empty. */}
+          <aside className="hidden lg:col-span-4 lg:block" aria-label={service.name}>
+            <div className="sticky top-28 max-w-[300px] space-y-8" data-reveal>
+              {body.toc.length > 1 ? (
+                <div>
+                  <span className="eyebrow">{service.name}</span>
+                  <div className="mt-4">
+                    <BodyToc items={body.toc} label={service.name} />
+                  </div>
+                </div>
+              ) : null}
+              <div>
+                <span className="eyebrow">{band.tools_eyebrow}</span>
+                <ul className="mt-3 flex flex-wrap gap-2">
+                  {service.stack.map((t) => (
+                    <li key={t}>
+                      <Chip>{t}</Chip>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <Button href={chrome.cta.primary.href}>{chrome.cta.primary.label}</Button>
+            </div>
+          </aside>
+          <div className="prose-site max-w-[68ch] lg:col-span-8 [&>:first-child]:mt-0!" dangerouslySetInnerHTML={{ __html: body.html }} />
         </section>
       ) : null}
 
