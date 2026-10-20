@@ -4,6 +4,15 @@ import { Button } from "@/components/ui/Button";
 import { Rich } from "@/components/ui/Rich";
 import type { HeadingCopy, LinkCopy } from "@/lib/cms/copy-types";
 import { cn } from "@/lib/utils";
+import { JsonLd } from "@/components/seo/JsonLd";
+
+/** Plain text for structured data: no tags, and [label](url) links reduced to their label. */
+const plain = (text: string) =>
+  text
+    .replace(/<[^>]+>/g, "")
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
+    .replace(/\s+/g, " ")
+    .trim();
 
 export interface FaqCopy extends HeadingCopy {
   card_title: string;
@@ -14,11 +23,21 @@ export interface FaqCopy extends HeadingCopy {
 
 /**
  * Native <details> accordion: readable without JavaScript and indexable as
- * visible HTML (FAQ rich results no longer exist, so the markup buys nothing).
+ * visible HTML. Google no longer shows FAQ rich results, but the FAQPage data
+ * below is still read by answer engines (AI Overviews, ChatGPT, Perplexity).
  */
 export function Faq({ faqs, copy }: { faqs: FaqItem[]; copy: FaqCopy }) {
   return (
     <section id="faq" className="section container-x" aria-labelledby="faq-title">
+      {faqs.length ? (
+        <JsonLd
+          data={{
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: faqs.map((f) => ({ "@type": "Question", name: plain(f.q), acceptedAnswer: { "@type": "Answer", text: plain(f.a) } })),
+          }}
+        />
+      ) : null}
       <div className="grid gap-8 lg:grid-cols-12 lg:gap-12">
         <div className="lg:col-span-4">
           <div className="lg:sticky lg:top-28" data-reveal>
