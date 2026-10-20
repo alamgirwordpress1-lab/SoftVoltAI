@@ -44,6 +44,9 @@ const isPreviewDeployment = Boolean(process.env.VERCEL_ENV) && process.env.VERCE
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
+  // the site's CSS goes into the HTML instead of four separate files the browser
+  // must fetch before it can paint: removes the render-blocking requests on mobile
+  experimental: { inlineCss: true },
   // OneDrive + Windows: pin the tracing/turbopack root so Next never walks up
   // into the home directory looking for a lockfile.
   outputFileTracingRoot: path.join(process.cwd()),
