@@ -165,3 +165,19 @@
   box-shadow: 0 0 0 5px rgba(101, 245, 69, 0.12);
 }
 .reveal-on .step-line.is-in .step-line-dot { animation: sva-pop 0.6s var(--ease-out-quint) backwards; }
+
+/* ---------- on a dark engine-room band ----------
+   The drawings read their colours from the site tokens, so on .er they simply
+   take the engine-room set: dark cards, er hairlines, volt for the accent. */
+.er .sva {
+  --color-surface: var(--color-er-surface);
+  --color-raised: var(--color-er-raised);
+  --color-line: var(--color-er-line);
+  --color-line-strong: #34433a;
+  --color-ink: var(--color-er-ink);
+  --color-muted: var(--color-er-muted);
+  --color-accent: var(--color-volt);
+  --color-accent-soft: rgba(101, 245, 69, 0.12);
+}
+.er .sva .sva-card { filter: drop-shadow(0 18px 26px rgba(0, 0, 0, 0.55)); }
+.er .sva .sva-dot { opacity: 0.35; }
