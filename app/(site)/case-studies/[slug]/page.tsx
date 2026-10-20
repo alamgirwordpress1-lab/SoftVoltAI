@@ -25,8 +25,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const item = await cms.getWorkItem(slug);
   if (!item) return {};
   const head = `${item.title} — ${item.category} build for a ${midSentence(item.client)} in ${item.region}. `;
-  // meta descriptions are cut off past about 160 characters, so the summary fills whatever is left
-  const description = (head + item.summary).slice(0, 157).replace(/[\s,;:—-]+$/, "") + "…";
+  // meta descriptions are cut off past about 155 characters, so the summary fills whatever is left (150 + the ellipsis)
+  const description = (head + item.summary).slice(0, 150).replace(/[\s,;:—-]+$/, "") + "…";
   const { detail_top: top } = await getCopy(caseStudiesCopy, { title: item.title });
   return {
     title: top.seo_title,
@@ -197,7 +197,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
               <Link href={`/case-studies/${r.slug}`} className="card card-lift shadow-soft flex h-full flex-col overflow-hidden">
                 {r.image ? (
                   <span className="relative block aspect-[16/10] border-b border-line bg-raised">
-                    <Image src={r.image} alt="" fill sizes="(min-width: 768px) 33vw, 100vw" className="object-cover object-top" />
+                    <Image src={r.image} alt={`${r.title} website screenshot`} fill sizes="(min-width: 768px) 33vw, 100vw" className="object-cover object-top" />
                   </span>
                 ) : null}
                 <span className="flex flex-1 flex-col p-5">
