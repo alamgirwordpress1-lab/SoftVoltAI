@@ -1,0 +1,65 @@
+/* Closing band: the volt light breathes and pulses upward from the bottom
+   edge. Rings start small at the bottom centre, swell and fade; sparks drift
+   up. Only with JS (.js) and never under reduced motion (global rule). */
+.cta-pulse {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.cta-wave {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: min(1100px, 95vw);
+  aspect-ratio: 2 / 1;
+  border-radius: 9999px 9999px 0 0;
+  border: 1px solid rgba(101, 245, 69, 0.35);
+  border-bottom: 0;
+  background: radial-gradient(ellipse at 50% 100%, rgba(101, 245, 69, 0.16), rgba(101, 245, 69, 0.04) 45%, transparent 70%);
+  translate: -50% 0;
+  transform-origin: 50% 100%;
+  scale: 0;
+  opacity: 0;
+}
+.js .cta-wave {
+  animation: cta-wave 6s cubic-bezier(0.22, 0.61, 0.36, 1) infinite;
+}
+.js .cta-wave:nth-child(2) { animation-delay: -2s; }
+.js .cta-wave:nth-child(3) { animation-delay: -4s; }
+@keyframes cta-wave {
+  0% { scale: 0.08; opacity: 0; }
+  15% { opacity: 1; }
+  100% { scale: 1; opacity: 0; }
+}
+
+.cta-spark {
+  position: absolute;
+  bottom: -8px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--color-volt);
+  box-shadow: 0 0 10px 2px rgba(101, 245, 69, 0.55);
+  opacity: 0;
+}
+.js .cta-spark {
+  animation: cta-spark 9s linear infinite;
+}
+.cta-spark:nth-child(even) { width: 3px; height: 3px; }
+@keyframes cta-spark {
+  0% { translate: 0 0; opacity: 0; }
+  10% { opacity: 0.9; }
+  70% { opacity: 0.5; }
+  100% { translate: 18px -340px; opacity: 0; }
+}
+
+/* the existing glow breathes in time with the rings */
+.js .cta-glow {
+  animation: cta-breathe 6s ease-in-out infinite;
+  transform-origin: 50% 100%;
+}
+@keyframes cta-breathe {
+  0%, 100% { opacity: 0.75; scale: 0.94; }
+  50% { opacity: 1; scale: 1.06; }
+}
