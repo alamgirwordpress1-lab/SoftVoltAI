@@ -41,8 +41,11 @@
   background-clip: text;
   opacity: 0;
 }
-.js .footer-wordmark::after {
-  animation: footer-sweep 7s ease-in-out infinite;
+/* desktop only: on phones the sweep would repaint the big text every frame for little gain */
+@media (hover: hover) and (pointer: fine) {
+  .js .footer-wordmark::after {
+    animation: footer-sweep 7s ease-in-out infinite;
+  }
 }
 @keyframes footer-sweep {
   0% { background-position: 130% 0; opacity: 0; }
