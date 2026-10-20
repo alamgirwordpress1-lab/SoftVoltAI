@@ -3,6 +3,7 @@ import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { BackToTop } from "@/components/layout/BackToTop";
 import { VoltLauncher } from "@/components/volt/VoltLauncher";
+import { PageFx } from "@/components/motion/PageFx";
 import { getSiteChrome } from "@/lib/cms/site";
 
 /** Volt, the sales assistant, answers from /api/volt; without a DeepSeek key there is no assistant on the site. */
@@ -28,6 +29,8 @@ export default async function SiteLayout({ children }: { children: React.ReactNo
       <SiteFooter chrome={chrome} />
       <BackToTop aboveLauncher={voltEnabled} />
       {voltEnabled ? <VoltLauncher endpoint="/api/volt" /> : null}
+      {/* cursor light on .fx-spot cards and parallax on [data-parallax] drawings */}
+      <PageFx />
     </>
   );
 }
