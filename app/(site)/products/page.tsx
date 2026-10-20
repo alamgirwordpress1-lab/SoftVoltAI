@@ -60,7 +60,7 @@ export default async function ProductsPage() {
                           {p.badge ? <span className="mono rounded-full bg-ok-bg px-2 py-0.5 text-[10px] uppercase tracking-[0.08em] text-ok-fg">{p.badge}</span> : null}
                           {p.kind ? <span className="mono rounded-full border border-line px-2 py-0.5 text-[10px] uppercase tracking-[0.08em] text-muted">{p.kind}</span> : null}
                         </div>
-                        <p className="mt-3 max-w-[78ch] text-[15px] leading-relaxed text-muted md:text-base">{p.summary}</p>
+                        <p className="mt-3 text-[15px] leading-relaxed text-muted md:text-base">{p.summary}</p>
                         <p className="mono mt-4 text-[11px] uppercase tracking-[0.08em] text-ink">
                           {p.price} {p.availability ? <span className="text-muted">· {p.availability}</span> : null}
                         </p>
