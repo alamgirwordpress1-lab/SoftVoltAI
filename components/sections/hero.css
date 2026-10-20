@@ -466,3 +466,34 @@
     transform: none;
   }
 }
+
+/* ---------- phones and tablets: the grid drawn with CSS ----------
+   The grid backdrop is a 4068px SVG. On a phone the browser takes it for the
+   page's largest paint and waits on it; the same grid drawn with gradients on a
+   faded pseudo-element looks the same and paints with the first frame. */
+@media (max-width: 1023px) {
+  .hero,
+  :root[data-theme="dark"] .hero {
+    background-image: linear-gradient(180deg, rgba(30, 122, 50, 0.1), rgba(30, 122, 50, 0.035) 45%, transparent 80%);
+    background-size: 100% max(50vw, 560px);
+  }
+  :root[data-theme="dark"] .hero {
+    background-image: linear-gradient(180deg, rgba(93, 208, 106, 0.08), rgba(93, 208, 106, 0.025) 45%, transparent 80%);
+  }
+  .hero::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto;
+    height: 560px;
+    pointer-events: none;
+    background-image:
+      repeating-linear-gradient(90deg, rgba(192, 192, 192, 0.55) 0 1px, transparent 1px 46px),
+      repeating-linear-gradient(180deg, rgba(192, 192, 192, 0.55) 0 1px, transparent 1px 46px);
+    background-position: center top;
+    -webkit-mask-image: linear-gradient(180deg, #000, transparent 55%);
+    mask-image: linear-gradient(180deg, #000, transparent 55%);
+  }
+  :root[data-theme="dark"] .hero::before {
+    opacity: 0.2;
+  }
+}
