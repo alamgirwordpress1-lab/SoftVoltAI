@@ -558,13 +558,40 @@ export function OrbitGlobe({ cards, locations, label }: { cards: GlobeCard[]; lo
         return detach;
       }
 
-      // intro: the earth fades up, then the cards burst out of it while the spin settles
+      // Phones and tablets: the globe is drawn whole at once and only starts spinning on
+      // the visitor's first touch or scroll (or after eight seconds), then at 30fps.
+      // 24,000 dots every frame on a slow phone CPU is what kept the main thread busy
+      // while the page was still loading.
+      const lite = window.matchMedia("(max-width: 1023px), (pointer: coarse)").matches;
+      let live = !lite;
+      let frame = 0;
+      let wakeTimer = 0;
+      const wake = () => {
+        live = true;
+        window.clearTimeout(wakeTimer);
+        window.removeEventListener("pointerdown", wake);
+        window.removeEventListener("scroll", wake);
+        window.removeEventListener("keydown", wake);
+      };
+
       placeCards();
-      gsap.to(st, { earth: 1, duration: 1.4, ease: "power2.out", delay: 0.15 });
-      gsap.to(st, { spread: 1, duration: 2.4, ease: "expo.out", delay: 0.4 });
+      if (lite) {
+        st.earth = 1;
+        st.spread = 1;
+        draw();
+        placeCards();
+        wakeTimer = window.setTimeout(wake, 8000);
+        window.addEventListener("pointerdown", wake, { passive: true });
+        window.addEventListener("scroll", wake, { passive: true });
+        window.addEventListener("keydown", wake);
+      } else {
+        // intro: the earth fades up, then the cards burst out of it while the spin settles
+        gsap.to(st, { earth: 1, duration: 1.4, ease: "power2.out", delay: 0.15 });
+        gsap.to(st, { spread: 1, duration: 2.4, ease: "expo.out", delay: 0.4 });
+      }
 
       const tick = (_time: number, deltaTime: number) => {
-        if (!visible || document.hidden) return;
+        if (!live || !visible || document.hidden) return;
         const dr = gsap.ticker.deltaRatio(60);
         st.time += deltaTime / 1000;
         if (!dragging) {
@@ -576,6 +603,8 @@ export function OrbitGlobe({ cards, locations, label }: { cards: GlobeCard[]; lo
             st.tiltSpeed *= Math.pow(0.9, dr);
           }
         }
+        // on phones only every other frame is drawn; the spin itself keeps full speed
+        if (lite && frame++ % 2) return;
         // Canvas first, cards second: both read the same state, so the frame is the
         // same, but the canvas text calls no longer find styles the cards just
         // changed and make the browser recompute them on the spot, every frame.
@@ -585,6 +614,7 @@ export function OrbitGlobe({ cards, locations, label }: { cards: GlobeCard[]; lo
       gsap.ticker.add(tick);
 
       return () => {
+        wake();
         gsap.ticker.remove(tick);
         gsap.killTweensOf(st);
         detach();
