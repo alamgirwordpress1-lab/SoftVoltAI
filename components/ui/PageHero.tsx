@@ -3,7 +3,7 @@ import { PageHeroVisual, type PageHighlight } from "@/components/ui/PageHeroVisu
 import { cn } from "@/lib/utils";
 
 /**
- * Inner-page opener: breadcrumbs, mono eyebrow, one H1, one lede — and, from xl
+ * Inner-page opener: breadcrumbs, mono eyebrow, one H1, one lede — and, from lg
  * up, the orbit visual carrying up to three of the page's key facts.
  *
  * Sits on the full-bleed `wide-x` rail so its left edge lines up with the header
@@ -64,7 +64,7 @@ export function PageHero({
       <div
         className={cn(
           "wide-x relative pb-16 pt-10 md:pb-24 md:pt-16",
-          visual && "xl:grid xl:grid-cols-[minmax(0,1fr)_minmax(0,0.78fr)] xl:items-center xl:gap-16",
+          visual && "lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(0,0.78fr)] lg:items-center lg:gap-10 xl:gap-16",
           aside ? "lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(320px,400px)] lg:items-center lg:gap-14" : null,
         )}
       >
@@ -76,7 +76,7 @@ export function PageHero({
           {children ? <div className="mt-8">{children}</div> : null}
         </div>
         {visual && highlights ? (
-          <div className="hidden xl:block">
+          <div className="hidden lg:block">
             <PageHeroVisual highlights={highlights} />
           </div>
         ) : null}

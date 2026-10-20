@@ -30,7 +30,10 @@ export function MotionRoot() {
   useEffect(() => {
     const reduced = prefersReducedMotion();
     let raf: ((time: number) => void) | undefined;
-    if (!reduced) {
+    // smooth wheel scrolling is for mice and trackpads; on a phone the browser's own
+    // touch scroll is already smooth, and Lenis would only keep a frame loop running
+    const finePointer = window.matchMedia("(pointer: fine)").matches;
+    if (!reduced && finePointer) {
       lenis = new Lenis({ lerp: 0.11, wheelMultiplier: 1, touchMultiplier: 1.5 });
       raf = (time: number) => lenis?.raf(time * 1000);
       gsap.ticker.add(raf);
