@@ -26,7 +26,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const product = await cms.getProduct(slug);
   if (!product) return {};
   return {
-    title: product.title,
+    // Google shows about 60 characters; a long product title drops the " · SoftVolt AI" suffix instead of being cut off
+    title: product.title.length > 46 ? { absolute: product.title } : product.title,
     description: product.seo,
     alternates: { canonical: `/products/${slug}` },
     ...shareMetadata({ title: `${product.title} · SoftVolt AI`, description: product.seo, path: `/products/${slug}` }),
