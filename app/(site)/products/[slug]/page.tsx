@@ -15,6 +15,7 @@ import { site } from "@/content/site";
 import { cms, type ProductPage } from "@/lib/cms";
 import { shareMetadata } from "@/lib/seo/share";
 import { cn } from "@/lib/utils";
+import { ServiceArt } from "@/components/illustrations/ServiceArt";
 
 export async function generateStaticParams() {
   const products = await cms.getProducts();
@@ -224,6 +225,8 @@ function Why({ product, demo }: { product: ProductPage; demo?: { visual: React.R
           ))}
         </ul>
       </div>
+      {/* without a demo the right third would sit empty: our own drawing goes there */}
+      {!demo ? <ServiceArt variant="product" className="hidden max-w-[380px] lg:col-span-4 lg:block lg:self-center lg:justify-self-end" /> : null}
       {demo ? (
         <div id="demo" className="scroll-mt-28 lg:col-span-5 lg:col-start-8" data-reveal style={{ ["--reveal-delay" as string]: "120ms" }}>
           {demo.visual}
