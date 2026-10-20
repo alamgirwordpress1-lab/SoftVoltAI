@@ -116,7 +116,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             {post.title}
           </h1>
           {post.excerpt ? (
-            <p className="lede mt-5 max-w-[62ch]" data-reveal>
+            <p className="lede mt-5" data-reveal>
               {post.excerpt}
             </p>
           ) : null}
@@ -143,7 +143,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           ) : null}
 
           {/* the editor's own HTML: headings, lists and links, styled by .prose-site */}
-          <div className="prose-site mt-10 max-w-[68ch]" dangerouslySetInnerHTML={{ __html: post.content }} />
+          <div className="prose-site mt-10" dangerouslySetInnerHTML={{ __html: post.content }} />
 
           <PostComments postId={post.id} open={post.commentsOpen} comments={post.comments} copy={copy.post_comments} />
 
