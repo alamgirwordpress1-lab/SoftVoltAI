@@ -97,7 +97,7 @@ export function SiteFooter({ chrome }: { chrome: SiteChrome }) {
         {/* the brand name set huge in the gap above the bottom bar: outline only,
             fading into the background, with a volt light sweeping across it.
             Decoration (the name is already in the logo), so hidden from readers. */}
-        <div className="footer-wordmark-wrap mt-10 md:-mt-6 lg:-mt-28" aria-hidden="true">
+        <div className="footer-wordmark-wrap mt-10 md:mt-0 lg:-mt-16" aria-hidden="true">
           <p className="footer-wordmark" data-text={chrome.name}>
             {chrome.name}
           </p>
