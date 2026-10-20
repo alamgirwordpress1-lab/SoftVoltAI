@@ -1,0 +1,38 @@
+/* Cursor light on cards in a .fx-spot list (PageFx sets --mx/--my).
+   A soft wash over the card plus a brighter rim where the pointer is.
+   Nothing shows on touch screens: the hover never happens. */
+.fx-spot .card {
+  position: relative;
+  isolation: isolate;
+}
+.fx-spot .card::before,
+.fx-spot .card::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+.fx-spot .card::after {
+  z-index: -1;
+  background: radial-gradient(280px circle at var(--mx, 50%) var(--my, 50%), rgba(101, 245, 69, 0.13), transparent 65%);
+}
+.fx-spot .card::before {
+  padding: 1px;
+  background: radial-gradient(200px circle at var(--mx, 50%) var(--my, 50%), var(--color-accent), transparent 70%);
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+.er .fx-spot .card::before,
+.er.fx-spot .card::before {
+  background: radial-gradient(200px circle at var(--mx, 50%) var(--my, 50%), var(--color-volt), transparent 70%);
+}
+.fx-spot .card:hover::before,
+.fx-spot .card:hover::after {
+  opacity: 1;
+}
