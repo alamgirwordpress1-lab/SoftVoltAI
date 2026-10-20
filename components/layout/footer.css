@@ -1,0 +1,49 @@
+/* Footer wordmark: the brand name, huge, as a see-through outline that fades
+   into the footer background. A volt light sweeps across it now and then. */
+.footer-wordmark-wrap {
+  position: relative;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to bottom, #000 35%, rgba(0, 0, 0, 0.35) 75%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 35%, rgba(0, 0, 0, 0.35) 75%, transparent 100%);
+  user-select: none;
+}
+.footer-wordmark {
+  position: relative;
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(3rem, 13.5vw, 16rem);
+  line-height: 0.9;
+  letter-spacing: -0.05em;
+  text-align: center;
+  white-space: nowrap;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(101, 245, 69, 0.22);
+  background: linear-gradient(180deg, rgba(242, 244, 241, 0.09), rgba(242, 244, 241, 0.015) 80%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  padding-bottom: 0.06em;
+}
+/* the sweeping light, a copy of the name clipped to a moving gradient */
+.footer-wordmark::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  color: transparent;
+  -webkit-text-stroke: 1px transparent;
+  background: linear-gradient(100deg, transparent 38%, rgba(101, 245, 69, 0.55) 50%, transparent 62%);
+  background-size: 260% 100%;
+  background-position: 130% 0;
+  -webkit-background-clip: text;
+  background-clip: text;
+  opacity: 0;
+}
+.js .footer-wordmark::after {
+  animation: footer-sweep 7s ease-in-out infinite;
+}
+@keyframes footer-sweep {
+  0% { background-position: 130% 0; opacity: 0; }
+  10% { opacity: 1; }
+  55% { background-position: -30% 0; opacity: 1; }
+  65%, 100% { background-position: -30% 0; opacity: 0; }
+}
