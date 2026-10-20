@@ -12,6 +12,8 @@ import { getCopy } from "@/lib/cms/copy";
 import { copyMetadata } from "@/lib/cms/meta";
 import { getSiteChrome } from "@/lib/cms/site";
 import { countWord } from "@/lib/utils";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { site } from "@/content/site";
 
 export async function generateMetadata(): Promise<Metadata> {
   return copyMetadata(aboutCopy);
@@ -25,6 +27,19 @@ export default async function AboutPage() {
 
   return (
     <>
+      {/* the people behind the work, as Person data tied to the company: answer engines weigh named, checkable experts */}
+      <JsonLd
+        data={team.map((m) => ({
+          "@context": "https://schema.org",
+          "@type": "Person",
+          name: m.name,
+          jobTitle: m.role,
+          ...(m.bio ? { description: m.bio.replace(/\[([^\]]+)\]\([^)]+\)/g, "$1") } : {}),
+          ...(m.photo ? { image: m.photo.startsWith("http") ? m.photo : `${site.url}${m.photo}` } : {}),
+          ...(m.linkedin ? { sameAs: [m.linkedin] } : {}),
+          worksFor: { "@id": `${site.url}/#organization` },
+        }))}
+      />
       <PageHero
         crumbs={[{ name: "About", href: "/about" }]}
         {...bannerProps(copy.banner, [
