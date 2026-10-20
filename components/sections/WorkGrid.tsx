@@ -35,7 +35,11 @@ export function WorkGrid({
   }, [categories, items]);
 
   const filtered = active === categories[0] ? items : items.filter((w) => w.category === active);
-  const shown = limit ? filtered.slice(0, limit) : filtered;
+  // without a fixed limit (the case studies page), show nine and let "Load more" add the next nine
+  const STEP = 9;
+  const [page, setPage] = useState(STEP);
+  const cap = limit ?? page;
+  const shown = filtered.slice(0, cap);
 
   return (
     <section id="work" className={showHeading ? "section container-x" : "container-x py-14 md:py-20"} aria-labelledby={showHeading ? "work-title" : undefined} aria-label={showHeading ? undefined : "Live builds"}>
@@ -54,7 +58,10 @@ export function WorkGrid({
             key={c}
             type="button"
             aria-pressed={active === c}
-            onClick={() => setActive(c)}
+            onClick={() => {
+                  setActive(c);
+                  setPage(STEP);
+                }}
             className={cn(
               "ui inline-flex items-center gap-2 rounded-full border px-4 py-2 text-[14px] font-semibold transition-colors duration-200",
               active === c ? "border-ink bg-ink text-paper" : "border-line-strong bg-surface text-ink hover:border-ink",
@@ -126,6 +133,19 @@ export function WorkGrid({
           </li>
         ))}
       </ul>
+
+      {!limit && filtered.length > cap ? (
+        <div className="mt-12 flex justify-center">
+          <button
+            type="button"
+            onClick={() => setPage((n) => n + STEP)}
+            className="ui inline-flex items-center gap-2 rounded-full border border-line-strong px-6 py-3 text-[15px] font-semibold text-ink transition-colors duration-200 hover:border-ink hover:bg-ink hover:text-paper"
+          >
+            Load more builds
+            <span className="mono text-[12px] opacity-70">+{Math.min(STEP, filtered.length - cap)}</span>
+          </button>
+        </div>
+      ) : null}
     </section>
   );
 }
