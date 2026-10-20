@@ -158,7 +158,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
         </div>
 
         {band.delivered_note ? (
-          <p className="mono mt-10 max-w-[70ch] text-[12px] leading-relaxed text-muted" data-reveal>
+          <p className="mono mt-10 text-[12px] leading-relaxed text-muted" data-reveal>
             {band.delivered_note}
           </p>
         ) : null}
