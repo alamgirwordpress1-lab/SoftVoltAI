@@ -3,9 +3,10 @@
 .footer-wordmark-wrap {
   position: relative;
   overflow: hidden;
-  -webkit-mask-image: linear-gradient(to bottom, #000 35%, rgba(0, 0, 0, 0.35) 75%, transparent 100%);
-  mask-image: linear-gradient(to bottom, #000 35%, rgba(0, 0, 0, 0.35) 75%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, #000 45%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 45%, transparent 100%);
   user-select: none;
+  pointer-events: none;
 }
 .footer-wordmark {
   position: relative;
@@ -18,8 +19,9 @@
   text-align: center;
   white-space: nowrap;
   color: transparent;
-  -webkit-text-stroke: 1px rgba(101, 245, 69, 0.22);
-  background: linear-gradient(180deg, rgba(242, 244, 241, 0.09), rgba(242, 244, 241, 0.015) 80%);
+  -webkit-text-stroke: 1px rgba(242, 244, 241, 0.08);
+  /* white at the top, melting into the footer background towards the bottom */
+  background: linear-gradient(180deg, rgba(242, 244, 241, 0.92) 0%, rgba(242, 244, 241, 0.5) 40%, rgba(242, 244, 241, 0.12) 75%, rgba(242, 244, 241, 0) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   padding-bottom: 0.06em;
@@ -31,7 +33,7 @@
   inset: 0;
   color: transparent;
   -webkit-text-stroke: 1px transparent;
-  background: linear-gradient(100deg, transparent 38%, rgba(101, 245, 69, 0.55) 50%, transparent 62%);
+  background: linear-gradient(100deg, transparent 38%, rgba(101, 245, 69, 0.9) 50%, transparent 62%);
   background-size: 260% 100%;
   background-position: 130% 0;
   -webkit-background-clip: text;
