@@ -49,7 +49,7 @@ function NavCard({ post, label, side }: { post: WpPostCard; label: string; side:
     >
       {post.image ? (
         <span className="relative block h-16 w-16 shrink-0 overflow-hidden rounded-md bg-raised">
-          <Image src={post.image.src} alt="" fill sizes="64px" className="object-cover" />
+          <Image src={post.image.src} alt={post.image.alt || post.title} fill sizes="64px" className="object-cover" />
         </span>
       ) : null}
       <span className="min-w-0">
