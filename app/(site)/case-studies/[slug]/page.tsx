@@ -14,6 +14,8 @@ import { cms } from "@/lib/cms";
 import { getCopy } from "@/lib/cms/copy";
 import { caseStudiesCopy } from "@/content/copy/case-studies";
 import { midSentence } from "@/lib/utils";
+import { BandDecor } from "@/components/illustrations/BandDecor";
+import { ServiceArt } from "@/components/illustrations/ServiceArt";
 
 export async function generateStaticParams() {
   const work = await cms.getWork();
@@ -25,8 +27,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const item = await cms.getWorkItem(slug);
   if (!item) return {};
   const head = `${item.title} — ${item.category} build for a ${midSentence(item.client)} in ${item.region}. `;
-  // meta descriptions are cut off past about 160 characters, so the summary fills whatever is left
-  const description = (head + item.summary).slice(0, 157).replace(/[\s,;:—-]+$/, "") + "…";
+  // meta descriptions are cut off past about 155 characters, so the summary fills whatever is left (150 + the ellipsis)
+  const description = (head + item.summary).slice(0, 150).replace(/[\s,;:—-]+$/, "") + "…";
   const { detail_top: top } = await getCopy(caseStudiesCopy, { title: item.title });
   return {
     title: top.seo_title,
@@ -118,7 +120,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
 
       <section id="delivered" className="container-x border-t border-line py-14 md:py-20" aria-labelledby="delivered-title">
         <div className="grid gap-10 lg:grid-cols-12 lg:gap-14">
-          <div className="lg:col-span-4" data-reveal>
+          <div className="lg:sticky lg:top-28 lg:col-span-4 lg:self-start" data-reveal>
             <span className="eyebrow">{band.delivered_eyebrow}</span>
             <h2 id="delivered-title" className="display display-md mt-4">
               {band.delivered_heading}
@@ -145,7 +147,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
             </dl>
           </div>
 
-          <ul className="grid gap-4 sm:grid-cols-2 lg:col-span-8">
+          <ul className="fx-spot grid content-start gap-4 sm:grid-cols-2 lg:col-span-8">
             {item.delivered.map((d, i) => (
               <li key={d} data-reveal style={{ ["--reveal-delay" as string]: `${i * 60}ms` }} className="card shadow-soft flex gap-3 p-5">
                 <span className="mono mt-0.5 text-[12px] text-accent">{String(i + 1).padStart(2, "0")}</span>
@@ -156,7 +158,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
         </div>
 
         {band.delivered_note ? (
-          <p className="mono mt-10 max-w-[70ch] text-[12px] leading-relaxed text-muted" data-reveal>
+          <p className="mono mt-10 text-[12px] leading-relaxed text-muted" data-reveal>
             {band.delivered_note}
           </p>
         ) : null}
@@ -164,13 +166,16 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
 
       <section id="as-partner" className="er relative overflow-hidden" aria-labelledby="as-partner-title">
         <div className="grid-lines" aria-hidden="true" />
+        <BandDecor side="left" />
         <div className="container-x relative grid gap-10 py-14 md:py-20 lg:grid-cols-12">
-          <div className="lg:col-span-5" data-reveal>
+          <div className="lg:sticky lg:top-28 lg:col-span-5 lg:self-start" data-reveal>
             <span className="eyebrow">{band.partner_eyebrow}</span>
             <h2 id="as-partner-title" className="display display-md mt-4">
               {band.partner_heading}
             </h2>
             {band.partner_lede ? <p className="lede mt-5">{band.partner_lede}</p> : null}
+            {/* your brand out front, our team behind it: our own drawing, no words */}
+            <ServiceArt variant="agency" className="mt-10 hidden max-w-[400px] lg:block" />
           </div>
           <ol className="lg:col-span-6 lg:col-start-7" data-reveal style={{ ["--reveal-delay" as string]: "100ms" }}>
             {process.map((step, i) => (
@@ -197,7 +202,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
               <Link href={`/case-studies/${r.slug}`} className="card card-lift shadow-soft flex h-full flex-col overflow-hidden">
                 {r.image ? (
                   <span className="relative block aspect-[16/10] border-b border-line bg-raised">
-                    <Image src={r.image} alt="" fill sizes="(min-width: 768px) 33vw, 100vw" className="object-cover object-top" />
+                    <Image src={r.image} alt={`${r.title} website screenshot`} fill sizes="(min-width: 768px) 33vw, 100vw" className="object-cover object-top" />
                   </span>
                 ) : null}
                 <span className="flex flex-1 flex-col p-5">

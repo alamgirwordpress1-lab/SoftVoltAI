@@ -15,6 +15,7 @@ import { site } from "@/content/site";
 import { cms, type ProductPage } from "@/lib/cms";
 import { shareMetadata } from "@/lib/seo/share";
 import { cn } from "@/lib/utils";
+import { ServiceArt } from "@/components/illustrations/ServiceArt";
 
 export async function generateStaticParams() {
   const products = await cms.getProducts();
@@ -26,7 +27,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const product = await cms.getProduct(slug);
   if (!product) return {};
   return {
-    title: product.title,
+    // Google shows about 60 characters; a long product title drops the " · SoftVolt AI" suffix instead of being cut off
+    title: product.title.length > 46 ? { absolute: product.title } : product.title,
     description: product.seo,
     alternates: { canonical: `/products/${slug}` },
     ...shareMetadata({ title: `${product.title} · SoftVolt AI`, description: product.seo, path: `/products/${slug}` }),
@@ -191,7 +193,7 @@ function Questions({ product }: { product: ProductPage }) {
                 </span>
               </summary>
               <div className="faq-body px-6 pb-6 pl-[4.25rem]">
-                <p className="max-w-[68ch] text-[15px] leading-relaxed text-muted md:text-base">{f.a}</p>
+                <p className="text-[15px] leading-relaxed text-muted md:text-base">{f.a}</p>
               </div>
             </details>
           </li>
@@ -210,7 +212,7 @@ function Why({ product, demo }: { product: ProductPage; demo?: { visual: React.R
           {product.why.heading}
         </h2>
         {product.why.paragraphs.map((p) => (
-          <p key={p.slice(0, 24)} className="mt-5 max-w-[62ch] text-[16px] leading-relaxed text-muted">
+          <p key={p.slice(0, 24)} className="mt-5 text-[16px] leading-relaxed text-muted">
             {p}
           </p>
         ))}
@@ -223,6 +225,8 @@ function Why({ product, demo }: { product: ProductPage; demo?: { visual: React.R
           ))}
         </ul>
       </div>
+      {/* without a demo the right third would sit empty: our own drawing goes there */}
+      {!demo ? <ServiceArt variant="product" className="hidden max-w-[380px] lg:col-span-4 lg:block lg:self-center lg:justify-self-end" /> : null}
       {demo ? (
         <div id="demo" className="scroll-mt-28 lg:col-span-5 lg:col-start-8" data-reveal style={{ ["--reveal-delay" as string]: "120ms" }}>
           {demo.visual}

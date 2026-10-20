@@ -12,6 +12,9 @@ import { getCopy } from "@/lib/cms/copy";
 import { copyMetadata } from "@/lib/cms/meta";
 import { getSiteChrome } from "@/lib/cms/site";
 import { countWord } from "@/lib/utils";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { site } from "@/content/site";
+import { ServiceArt } from "@/components/illustrations/ServiceArt";
 
 export async function generateMetadata(): Promise<Metadata> {
   return copyMetadata(aboutCopy);
@@ -25,6 +28,19 @@ export default async function AboutPage() {
 
   return (
     <>
+      {/* the people behind the work, as Person data tied to the company: answer engines weigh named, checkable experts */}
+      <JsonLd
+        data={team.map((m) => ({
+          "@context": "https://schema.org",
+          "@type": "Person",
+          name: m.name,
+          jobTitle: m.role,
+          ...(m.bio ? { description: m.bio.replace(/\[([^\]]+)\]\([^)]+\)/g, "$1") } : {}),
+          ...(m.photo ? { image: m.photo.startsWith("http") ? m.photo : `${site.url}${m.photo}` } : {}),
+          ...(m.linkedin ? { sameAs: [m.linkedin] } : {}),
+          worksFor: { "@id": `${site.url}/#organization` },
+        }))}
+      />
       <PageHero
         crumbs={[{ name: "About", href: "/about" }]}
         {...bannerProps(copy.banner, [
@@ -52,11 +68,17 @@ export default async function AboutPage() {
       <Founder team={team} copy={copy.team} />
 
       <section id="why" className="section container-x border-t border-line" aria-labelledby="why-title">
-        <span className="eyebrow">{copy.values.eyebrow}</span>
-        <h2 id="why-title" className="display display-lg mt-4 max-w-[20ch]">
-          {copy.values.heading}
-        </h2>
-        <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid items-center gap-10 lg:grid-cols-12">
+          <div className="lg:col-span-7" data-reveal>
+            <span className="eyebrow">{copy.values.eyebrow}</span>
+            <h2 id="why-title" className="display display-lg mt-4 max-w-[20ch]">
+              {copy.values.heading}
+            </h2>
+          </div>
+          {/* one team across time zones: our own drawing, no words */}
+          <ServiceArt variant="team" className="max-w-[360px] lg:col-span-5 lg:ml-auto lg:max-w-[420px]" />
+        </div>
+        <ul className="fx-spot mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {copy.values.list.map((v, i) => (
             <li key={v.title} data-reveal style={{ ["--reveal-delay" as string]: `${i * 60}ms` }} className="card shadow-soft p-6">
               <span className="mono text-[12px] text-accent">{String(i + 1).padStart(2, "0")}</span>

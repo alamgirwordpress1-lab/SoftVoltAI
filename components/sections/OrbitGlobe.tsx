@@ -643,7 +643,7 @@ function CardBody({ card }: { card: GlobeCard }) {
             {card.logo ? (
               <Image
                 src={card.logo}
-                alt=""
+                alt={`${card.name} logo`}
                 fill
                 sizes="(min-width: 1024px) 130px, 24vw"
                 className={`og-badge-img${card.logoFill ? " og-badge-img--fill" : ""}`}

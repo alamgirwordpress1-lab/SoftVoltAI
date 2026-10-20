@@ -16,6 +16,32 @@ import { cms } from "@/lib/cms";
 import { getCopy } from "@/lib/cms/copy";
 import { servicesCopy } from "@/content/copy/services";
 import { midSentence } from "@/lib/utils";
+import { ServiceArt, pillarArt } from "@/components/illustrations/ServiceArt";
+import { BandDecor } from "@/components/illustrations/BandDecor";
+import { BodyToc, type TocItem } from "@/components/sections/BodyToc";
+
+const ENTITIES: Record<string, string> = { amp: "&", nbsp: " ", quot: '"', "#39": "'", "#039": "'", rsquo: "\u2019", lsquo: "\u2018", "#8217": "\u2019", "#8216": "\u2018", ndash: "\u2013", "#8211": "\u2013", hellip: "\u2026", "#8230": "\u2026" };
+
+/** Gives each H2 in the body an id and returns the list for the side menu. The words are the body's own headings. */
+function withHeadingIds(html: string): { html: string; toc: TocItem[] } {
+  const toc: TocItem[] = [];
+  const used = new Set<string>();
+  const out = html.replace(/<h2([^>]*)>([\s\S]*?)<\/h2>/gi, (match, attrs: string, inner: string) => {
+    const label = inner
+      .replace(/<[^>]+>/g, "")
+      .replace(/&([a-z0-9#]+);/gi, (e, k: string) => ENTITIES[k.toLowerCase()] ?? e)
+      .replace(/\s+/g, " ")
+      .trim();
+    if (!label) return match;
+    const existing = attrs.match(/\sid=["']([^"']+)["']/i)?.[1];
+    let id = existing ?? `about-${label.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")}`;
+    while (!existing && used.has(id)) id += "-2";
+    used.add(id);
+    toc.push({ id, label });
+    return existing ? match : `<h2${attrs} id="${id}">${inner}</h2>`;
+  });
+  return { html: out, toc };
+}
 
 export async function generateStaticParams() {
   const services = await cms.getServices();
@@ -51,6 +77,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
   const top = copy.detail_top;
   const band = copy.detail_sections;
   const faqs = (service.faqs ?? []).map((f) => ({ q: f.question, a: f.answer }));
+  const body = service.body ? withHeadingIds(service.body) : null;
 
   return (
     <>
@@ -69,6 +96,21 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
           url: `${site.url}/services/${slug}`,
         }}
       />
+
+      {/* the questions under the FAQ heading, as FAQPage data: answer engines and AI search quote it directly */}
+      {faqs.length ? (
+        <JsonLd
+          data={{
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: faqs.map((f) => ({
+              "@type": "Question",
+              name: f.q,
+              acceptedAnswer: { "@type": "Answer", text: String(f.a).replace(/<[^>]+>/g, "").trim() },
+            })),
+          }}
+        />
+      ) : null}
 
       <PageHero
         crumbs={[
@@ -119,8 +161,10 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
             {band.ships_heading}
           </h2>
           {band.ships_text ? <p className="mt-4 text-[15px] leading-relaxed text-muted">{band.ships_text}</p> : null}
+          {/* our own drawing for the service's pillar: decoration only, no words */}
+          <ServiceArt variant={pillarArt(service.pillarGroup.name)} className="mt-10 max-w-[360px] lg:max-w-none" />
         </div>
-        <ul className="grid gap-4 sm:grid-cols-2 lg:col-span-8">
+        <ul className="fx-spot grid content-start gap-4 sm:grid-cols-2 lg:col-span-8">
           {service.deliverables.map((d, i) => (
             <li key={d} data-reveal style={{ ["--reveal-delay" as string]: `${i * 50}ms` }} className="card shadow-soft flex gap-3 p-5">
               <span className="mono mt-0.5 text-[12px] text-accent">{String(i + 1).padStart(2, "0")}</span>
@@ -130,21 +174,48 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         </ul>
       </section>
 
-      {service.body ? (
+      {body ? (
         <section id="overview" className="container-x grid gap-10 border-t border-line py-14 md:py-20 lg:grid-cols-12">
           {/* the long-form body from the service in WordPress: the editor's own HTML,
               headings, tables and lists, styled by .prose-site like a blog post and
               set under the deliverables it expands on. The opening heading drops its
               top margin (important, to beat the unlayered .prose-site h2 rule) so the
               band keeps the same padding as the others. */}
-          <div className="prose-site max-w-[68ch] lg:col-span-8 lg:col-start-5 [&>:first-child]:mt-0!" dangerouslySetInnerHTML={{ __html: service.body }} />
+          {/* the left four columns: the body's headings as a menu that stays in view
+              while the long read scrolls, the tools and the main call to action.
+              Shown from lg up, where the column would otherwise sit empty. */}
+          <aside className="hidden lg:col-span-4 lg:block" aria-label={service.name}>
+            <div className="sticky top-28 max-w-[340px] space-y-8" data-reveal>
+              {body.toc.length > 1 ? (
+                <div>
+                  <span className="eyebrow">{service.name}</span>
+                  <div className="mt-4">
+                    <BodyToc items={body.toc} label={service.name} />
+                  </div>
+                </div>
+              ) : null}
+              <div>
+                <span className="eyebrow">{band.tools_eyebrow}</span>
+                <ul className="mt-3 flex flex-wrap gap-2">
+                  {service.stack.map((t) => (
+                    <li key={t}>
+                      <Chip>{t}</Chip>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <Button href={chrome.cta.primary.href}>{chrome.cta.primary.label}</Button>
+            </div>
+          </aside>
+          <div className="prose-site lg:col-span-8 [&>:first-child]:mt-0!" dangerouslySetInnerHTML={{ __html: body.html }} />
         </section>
       ) : null}
 
       <section id="signals" className="er relative overflow-hidden" aria-labelledby="signals-title">
         <div className="glow -right-20 -top-20 h-[420px] w-[420px]" aria-hidden="true" />
+        <BandDecor />
         <div className="container-x relative grid gap-10 py-14 md:py-20 lg:grid-cols-12">
-          <div className="lg:col-span-5" data-reveal>
+          <div className="lg:sticky lg:top-28 lg:col-span-5 lg:self-start" data-reveal>
             <span className="eyebrow">{band.signals_eyebrow}</span>
             <h2 id="signals-title" className="display display-md mt-4">
               {band.signals_heading}
@@ -157,6 +228,8 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
                 </li>
               ))}
             </ul>
+            {/* the brief on its way: fills the column beside the longer process list */}
+            <ServiceArt variant="contact" className="mt-10 hidden max-w-[400px] lg:block" />
           </div>
           <div className="lg:col-span-6 lg:col-start-7" data-reveal style={{ ["--reveal-delay" as string]: "120ms" }}>
             <span className="eyebrow">{band.runs_eyebrow}</span>
@@ -191,7 +264,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
           <h2 id="for-title" className="display display-md mt-4">
             {band.who_heading}
           </h2>
-          <ul className="mt-8 grid gap-4 md:grid-cols-3">
+          <ul className="fx-spot mt-8 grid gap-4 md:grid-cols-3">
             {service.agencies.map((a, i) => (
               <li key={a.slug} data-reveal style={{ ["--reveal-delay" as string]: `${i * 60}ms` }}>
                 <Link href={`/for/${a.slug}`} className="card card-lift shadow-soft group flex h-full flex-col p-6">
@@ -223,7 +296,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         <h2 id="related-title" className="display display-md mt-4">
           {band.related_heading}
         </h2>
-        <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <ul className="fx-spot mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {service.related.map((r) => (
             <li key={r.slug}>
               <Link href={`/services/${r.slug}`} className="card card-lift shadow-soft flex h-full flex-col p-5">

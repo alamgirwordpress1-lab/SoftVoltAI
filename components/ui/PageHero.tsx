@@ -45,6 +45,15 @@ export function PageHero({
   aside?: React.ReactNode;
 }) {
   const visual = Boolean(highlights?.length) && !aside;
+  // long headlines step the type down a size and widen the measure, so a banner
+  // title always settles in three lines or fewer instead of stacking into four
+  const titleLength = typeof title === "string" ? title.length : 0;
+  const titleSize =
+    titleLength > 55
+      ? "max-w-[26ch] text-[clamp(2.1rem,3.8vw,4rem)]!"
+      : titleLength > 32
+        ? "max-w-[22ch] text-[clamp(2.25rem,4.4vw,4.5rem)]!"
+        : "max-w-[16ch]";
   return (
     // data-hero: the floating back-to-top button stays hidden while this banner is on screen
     <section data-hero="" className={cn("relative overflow-hidden", dark ? "er" : "grid-bg border-b border-line")}>
@@ -62,7 +71,7 @@ export function PageHero({
         <div>
           {crumbs ? <Breadcrumbs crumbs={crumbs} dark={dark} /> : null}
           <span className={cn("eyebrow block", crumbs && "mt-8")}>{eyebrow}</span>
-          <Title className="display display-xl mt-5 max-w-[16ch]">{title}</Title>
+          <Title className={cn("display display-xl mt-5", titleSize)}>{title}</Title>
           {lede ? <p className="lede mt-6 max-w-[64ch]">{lede}</p> : null}
           {children ? <div className="mt-8">{children}</div> : null}
         </div>

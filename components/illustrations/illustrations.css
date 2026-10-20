@@ -1,0 +1,183 @@
+/* ------------------------------------------------------------------
+   Service and agency illustrations (ServiceArt), the dark-band decor
+   (BandDecor) and the step line over workflow cards (StepLine).
+   Every moving part is keyed to .reveal-on/.is-in like the rest of the
+   site, so without JS the drawings simply sit complete, and the global
+   reduced-motion rule stops the loops.
+   ------------------------------------------------------------------ */
+.sva {
+  position: relative;
+  width: 100%;
+  max-width: 460px;
+}
+.sva svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+.sva svg * {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+/* palette, from the site tokens so light and dark both work */
+.sva-dot { fill: var(--color-line-strong); opacity: 0.55; }
+.sva-ring { stroke: var(--color-line-strong); stroke-width: 1; stroke-dasharray: 4 7; }
+.sva-ring2 { stroke: var(--color-line); stroke-width: 1; }
+.sva-glow { fill: rgba(101, 245, 69, 0.1); filter: blur(18px); }
+.sva-card {
+  fill: var(--color-surface);
+  stroke: var(--color-line-strong);
+  stroke-width: 1.2;
+  filter: drop-shadow(0 18px 26px rgba(18, 22, 20, 0.12));
+}
+:root[data-theme="dark"] .sva-card { filter: drop-shadow(0 18px 26px rgba(0, 0, 0, 0.5)); }
+.sva-stroke-line { stroke: var(--color-line); stroke-width: 1.2; }
+.sva-stroke-line-strong { stroke: var(--color-line-strong); }
+.sva-stroke-acc { stroke: var(--color-accent); }
+.sva-stroke-ink { stroke: var(--color-ink); }
+.sva-stroke-volt { stroke: var(--color-volt); }
+.sva-stroke-surface { stroke: var(--color-surface); stroke-width: 1.5; }
+.sva-fill-ink { fill: var(--color-ink); }
+.sva-fill-muted { fill: var(--color-muted); opacity: 0.35; }
+.sva-fill-raised { fill: var(--color-raised); }
+.sva-fill-soft { fill: var(--color-accent-soft); }
+.sva-fill-acc { fill: var(--color-accent); }
+.sva-fill-volt { fill: var(--color-volt); }
+.sva-fill-er { fill: var(--color-er-bg); stroke: var(--color-er-line); stroke-width: 1.2; }
+.sva-fill-er-line { fill: var(--color-er-line); }
+.sva-fill-danger { fill: #f0806f; }
+.sva-fill-warn { fill: #f0c56b; }
+.sva-halo { fill: rgba(101, 245, 69, 0.14); stroke: rgba(101, 245, 69, 0.45); stroke-dasharray: 3 6; }
+.sva-halo-er { fill: rgba(101, 245, 69, 0.12); }
+.sva-w2 { stroke-width: 2; }
+.sva-w3 { stroke-width: 3; }
+.sva-w5 { stroke-width: 5; }
+.sva-w8 { stroke-width: 8; }
+.sva-dash { stroke-dasharray: 3 6; }
+.sva-ring-arc { stroke-dasharray: 1; transform: rotate(-90deg); }
+
+/* data running along a wire */
+.sva-flow {
+  stroke: var(--color-volt);
+  stroke-width: 3;
+  stroke-dasharray: 10 90;
+  stroke-dashoffset: 100;
+  opacity: 0;
+}
+.js .sva-flow {
+  animation: sva-flow 2.4s linear infinite;
+}
+.js .sva-flow-rev { animation-direction: reverse; }
+.js .sva-flow-slow { animation-duration: 4.5s; }
+@keyframes sva-flow {
+  0% { stroke-dashoffset: 100; opacity: 0; }
+  12% { opacity: 1; }
+  88% { opacity: 1; }
+  100% { stroke-dashoffset: 0; opacity: 0; }
+}
+
+/* idle loops */
+.js .sva-spin { animation: sva-spin 60s linear infinite; }
+.js .sva-gear { animation: sva-spin 9s linear infinite; }
+.js .sva-bob { animation: bob 6s ease-in-out infinite; }
+.js .sva-bob-2 { animation-delay: -3s; }
+.js .sva-cursor { animation: sva-cursor 7s var(--ease-out-quint) infinite; }
+.js .sva-twinkle { animation: sva-twinkle 3.2s ease-in-out infinite; }
+.js .sva-twinkle-2 { animation-delay: -1.6s; }
+@keyframes sva-spin { to { transform: rotate(360deg); } }
+@keyframes sva-cursor {
+  0%, 100% { translate: 0 0; }
+  30% { translate: -110px -28px; }
+  55% { translate: 60px 46px; }
+  80% { translate: 104px -60px; }
+}
+@keyframes sva-twinkle {
+  0%, 100% { opacity: 0.35; scale: 0.8; }
+  50% { opacity: 1; scale: 1.1; }
+}
+
+/* entrance, when the block reveals */
+.reveal-on .sva:not(.is-in) :is(.sva-grow-x, .sva-pop, .sva-rise, .sva-bar) { opacity: 0; }
+.reveal-on .sva.is-in .sva-grow-x { transform-origin: left center; animation: sva-grow-x 0.9s var(--ease-out-quint) 0.1s backwards; }
+.reveal-on .sva.is-in .sva-pop { animation: sva-pop 0.7s var(--ease-out-quint) 0.4s backwards; }
+.reveal-on .sva.is-in .sva-rise { animation: sva-rise 0.8s var(--ease-out-quint) 0.3s backwards; }
+.reveal-on .sva.is-in .sva-bar { transform-origin: center bottom; animation: sva-bar 1s var(--ease-out-quint) backwards; }
+@keyframes sva-grow-x { from { transform: scaleX(0); } }
+@keyframes sva-pop { from { opacity: 0; transform: scale(0.4); } }
+@keyframes sva-rise { from { opacity: 0; transform: translateY(18px); } }
+@keyframes sva-bar { from { transform: scaleY(0); } }
+
+/* ---------- decor for the dark engine-room bands ---------- */
+.band-decor {
+  position: absolute;
+  right: -120px;
+  top: 50%;
+  width: 620px;
+  max-width: none;
+  translate: 0 -50%;
+  pointer-events: none;
+  opacity: 0.6;
+}
+.band-decor-left { right: auto; left: -160px; }
+.band-decor circle,
+.band-decor path { fill: none; stroke: var(--color-er-line); stroke-width: 1; }
+.band-decor .bd-dash { stroke-dasharray: 3 8; }
+.band-decor .bd-volt { stroke: var(--color-volt); stroke-width: 2; stroke-dasharray: 18 400; }
+.band-decor .bd-node { fill: var(--color-volt); stroke: none; }
+.band-decor * { transform-box: view-box; transform-origin: 50% 50%; }
+.js .band-decor .bd-spin { animation: sva-spin 80s linear infinite; }
+.js .band-decor .bd-spin-rev { animation: sva-spin 120s linear infinite reverse; }
+.js .band-decor .bd-volt { animation: bd-run 7s linear infinite; }
+.js .band-decor .bd-volt-2 { animation-delay: -3.5s; }
+@keyframes bd-run { from { stroke-dashoffset: 418; } to { stroke-dashoffset: 0; } }
+@media (max-width: 767px) {
+  .band-decor { width: 420px; right: -200px; opacity: 0.4; }
+}
+
+/* ---------- the line linking workflow steps ---------- */
+.step-line {
+  position: relative;
+  height: 14px;
+}
+.step-line::before {
+  content: "";
+  position: absolute;
+  left: 24px;
+  right: 0;
+  top: 6px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-volt), color-mix(in srgb, var(--color-volt) 20%, transparent));
+  transform-origin: left center;
+}
+.reveal-on .step-line:not(.is-in)::before { transform: scaleX(0); }
+.reveal-on .step-line.is-in::before { animation: sva-grow-x 1.6s var(--ease-out-quint) 0.1s backwards; }
+.step-line-dot {
+  position: absolute;
+  top: 0;
+  width: 14px;
+  height: 14px;
+  margin-left: -7px;
+  border-radius: 50%;
+  background: var(--color-er-bg);
+  border: 2px solid var(--color-volt);
+  box-shadow: 0 0 0 5px rgba(101, 245, 69, 0.12);
+}
+.reveal-on .step-line.is-in .step-line-dot { animation: sva-pop 0.6s var(--ease-out-quint) backwards; }
+
+/* ---------- on a dark engine-room band ----------
+   The drawings read their colours from the site tokens, so on .er they simply
+   take the engine-room set: dark cards, er hairlines, volt for the accent. */
+.er .sva {
+  --color-surface: var(--color-er-surface);
+  --color-raised: var(--color-er-raised);
+  --color-line: var(--color-er-line);
+  --color-line-strong: #34433a;
+  --color-ink: var(--color-er-ink);
+  --color-muted: var(--color-er-muted);
+  --color-accent: var(--color-volt);
+  --color-accent-soft: rgba(101, 245, 69, 0.12);
+}
+.er .sva .sva-card { filter: drop-shadow(0 18px 26px rgba(0, 0, 0, 0.55)); }
+.er .sva .sva-dot { opacity: 0.35; }

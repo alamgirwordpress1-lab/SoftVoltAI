@@ -12,6 +12,8 @@ import { cms } from "@/lib/cms";
 import { getCopy } from "@/lib/cms/copy";
 import { forCopy } from "@/content/copy/for";
 import { countWord, midSentence } from "@/lib/utils";
+import { ServiceArt } from "@/components/illustrations/ServiceArt";
+import { BandDecor, StepLine } from "@/components/illustrations/BandDecor";
 
 export async function generateStaticParams() {
   const types = await cms.getAgencyTypes();
@@ -113,12 +115,15 @@ export default async function AgencyTypePage({ params }: { params: Promise<{ slu
 
       <section id="workflow" className="er relative overflow-hidden" aria-labelledby="workflow-title">
         <div className="glow -left-24 -bottom-24 h-[420px] w-[420px]" aria-hidden="true" />
+        <BandDecor />
         <div className="container-x relative py-14 md:py-20">
           <span className="eyebrow">{band.workflow_eyebrow}</span>
           <h2 id="workflow-title" className="display display-md mt-4 max-w-[22ch]">
             {band.workflow_heading}
           </h2>
-          <ol className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+          {/* from xl the four steps sit in one row: a line joins their numbers */}
+          {type.workflow.length >= 4 ? <StepLine count={4} className="mt-10 hidden xl:block" /> : null}
+          <ol className="fx-spot mt-10 grid gap-5 md:grid-cols-2 xl:mt-5 xl:grid-cols-4">
             {type.workflow.map((w, i) => (
               <li key={w} data-reveal style={{ ["--reveal-delay" as string]: `${i * 70}ms` }} className="card p-6">
                 <span className="mono text-[12px] text-volt">{String(i + 1).padStart(2, "0")}</span>
@@ -130,11 +135,17 @@ export default async function AgencyTypePage({ params }: { params: Promise<{ slu
       </section>
 
       <section id="services-for" className="container-x py-14 md:py-20" aria-labelledby="services-for-title">
-        <span className="eyebrow">{band.services_eyebrow}</span>
-        <h2 id="services-for-title" className="display display-md mt-4">
-          {band.services_heading}
-        </h2>
-        <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid items-center gap-10 lg:grid-cols-12">
+          <div className="lg:col-span-7" data-reveal>
+            <span className="eyebrow">{band.services_eyebrow}</span>
+            <h2 id="services-for-title" className="display display-md mt-4">
+              {band.services_heading}
+            </h2>
+          </div>
+          {/* your brand out front, our team behind it: our own drawing, no words */}
+          <ServiceArt variant="agency" className="max-w-[360px] lg:col-span-5 lg:ml-auto lg:max-w-[400px]" />
+        </div>
+        <ul className="fx-spot mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {type.serviceItems.map((s, i) => (
             <li key={s.slug} data-reveal style={{ ["--reveal-delay" as string]: `${i * 50}ms` }}>
               <Link href={`/services/${s.slug}`} prefetch={false} className="card card-lift shadow-soft flex h-full flex-col p-6">
@@ -152,7 +163,7 @@ export default async function AgencyTypePage({ params }: { params: Promise<{ slu
         <h2 id="promises-title" className="display display-md mt-4">
           {band.promises_heading}
         </h2>
-        <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+        <ul className="fx-spot mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
           {promises.map((p) => (
             <li key={p.id} className="card p-5">
               <p className="text-[15px] font-semibold leading-snug text-ink">{p.label}</p>

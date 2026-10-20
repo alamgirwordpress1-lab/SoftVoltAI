@@ -13,10 +13,10 @@ export interface PageHighlight {
  */
 export function PageHeroVisual({ highlights }: { highlights: PageHighlight[] }) {
   return (
-    <div className="phv">
+    <div className="phv" data-parallax>
       <span className="phv-orbit phv-orbit-outer" aria-hidden="true" />
-      <span className="phv-orbit phv-orbit-inner" aria-hidden="true" />
-      <span className="phv-glow" aria-hidden="true" />
+      <span className="phv-orbit phv-orbit-inner" data-depth="0.6" aria-hidden="true" />
+      <span className="phv-glow" data-depth="1.2" aria-hidden="true" />
       <span className="phv-emblem" aria-hidden="true">
         <LogoMark size={64} id="page-hero-mark" />
       </span>

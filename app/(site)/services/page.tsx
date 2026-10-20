@@ -8,6 +8,7 @@ import { servicesCopy } from "@/content/copy/services";
 import { cms } from "@/lib/cms";
 import { getCopy } from "@/lib/cms/copy";
 import { copyMetadata } from "@/lib/cms/meta";
+import { ServiceArt, pillarArt } from "@/components/illustrations/ServiceArt";
 
 export async function generateMetadata(): Promise<Metadata> {
   return copyMetadata(servicesCopy);
@@ -36,15 +37,17 @@ export default async function ServicesPage() {
       {pillars.map((p, i) => (
         <section key={p.id} id={`pillar-${p.id}`} className="container-x border-t border-line py-14 md:py-20" aria-labelledby={`pillar-title-${p.id}`}>
           <div className="grid gap-10 lg:grid-cols-12">
-            <div className="lg:col-span-4" data-reveal>
+            <div className="lg:sticky lg:top-28 lg:col-span-4 lg:self-start" data-reveal>
               <span className="eyebrow">
                 {String(i + 1).padStart(2, "0")} · {p.name}
               </span>
               <h2 id={`pillar-title-${p.id}`} className="display display-md mt-4">
                 {p.tagline}
               </h2>
+              {/* our own drawing for the pillar: decoration only, no words */}
+              <ServiceArt variant={pillarArt(p.name)} className="mt-10 max-w-[360px] lg:max-w-none" />
             </div>
-            <ul className="grid gap-4 sm:grid-cols-2 lg:col-span-8">
+            <ul className="fx-spot grid content-start gap-4 sm:grid-cols-2 lg:col-span-8">
               {p.services.map((s, j) => (
                 <li key={s.slug} data-reveal style={{ ["--reveal-delay" as string]: `${j * 50}ms` }}>
                   <Link href={`/services/${s.slug}`} prefetch={false} className="card card-lift shadow-soft group flex h-full flex-col p-6">

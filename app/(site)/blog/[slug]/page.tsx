@@ -33,7 +33,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!post) return {};
   const description = metaDescription(post.seo.description, post.excerpt);
   return {
-    title: post.title,
+    // Google shows about 60 characters; a long post title drops the " · SoftVolt AI" suffix instead of being cut off
+    title: post.title.length > 46 ? { absolute: post.title } : post.title,
     description,
     alternates: { canonical: `/blog/${slug}` },
     // the card itself, featured image included, is this folder's opengraph-image
@@ -115,7 +116,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             {post.title}
           </h1>
           {post.excerpt ? (
-            <p className="lede mt-5 max-w-[62ch]" data-reveal>
+            <p className="lede mt-5" data-reveal>
               {post.excerpt}
             </p>
           ) : null}
@@ -142,7 +143,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           ) : null}
 
           {/* the editor's own HTML: headings, lists and links, styled by .prose-site */}
-          <div className="prose-site mt-10 max-w-[68ch]" dangerouslySetInnerHTML={{ __html: post.content }} />
+          <div className="prose-site mt-10" dangerouslySetInnerHTML={{ __html: post.content }} />
 
           <PostComments postId={post.id} open={post.commentsOpen} comments={post.comments} copy={copy.post_comments} />
 

@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/Button";
 import { getSiteChrome } from "@/lib/cms/site";
+import "./cta-band.css";
 
 export interface CtaBandCopy {
   pill: string;
@@ -20,7 +21,16 @@ export async function CtaBand({ copy }: { copy: CtaBandCopy }) {
   return (
     <section id="next-step" className="er relative overflow-hidden" aria-labelledby="cta-band-title">
       <div className="grid-lines" aria-hidden="true" />
-      <div className="glow -bottom-72 left-1/2 h-[560px] w-[min(1100px,90vw)] -translate-x-1/2" aria-hidden="true" />
+      <div className="glow cta-glow -bottom-72 left-1/2 h-[560px] w-[min(1100px,90vw)] -translate-x-1/2" aria-hidden="true" />
+      {/* the light pulses up from the bottom edge: rings that swell and fade, sparks that rise */}
+      <div className="cta-pulse" aria-hidden="true">
+        <span className="cta-wave" />
+        <span className="cta-wave" />
+        <span className="cta-wave" />
+        {[12, 24, 38, 50, 63, 76, 88].map((x, i) => (
+          <i key={x} className="cta-spark" style={{ left: `${x}%`, animationDelay: `${i * -1.3}s` }} />
+        ))}
+      </div>
       <div className="container-x section relative grid gap-8 lg:grid-cols-12 lg:items-center lg:gap-12">
         <div className="lg:col-span-7" data-reveal>
           {copy.pill ? <span className="pill">{copy.pill}</span> : null}

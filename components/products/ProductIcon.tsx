@@ -28,7 +28,7 @@ export function ProductIcon({ product, size = 48, className }: { product: IconPr
     return (
       <Image
         src={product.image.src}
-        alt=""
+        alt={`${product.name} icon`}
         width={size}
         height={size}
         unoptimized={/\.svg($|\?)/i.test(product.image.src)}

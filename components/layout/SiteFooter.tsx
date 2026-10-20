@@ -4,6 +4,7 @@ import { Logo } from "@/components/layout/Logo";
 import { companyLinks, socials } from "@/content/site";
 import { pillars } from "@/content/pillars";
 import type { SiteChrome } from "@/lib/cms/site";
+import "./footer.css";
 
 function SocialIcon({ icon }: { icon: (typeof socials)[number]["icon"] }) {
   if (icon === "linkedin") return <span className="ui text-[15px] font-bold leading-none">in</span>;
@@ -93,9 +94,18 @@ export function SiteFooter({ chrome }: { chrome: SiteChrome }) {
           </div>
         </div>
 
+        {/* the brand name set huge in the gap above the bottom bar: outline only,
+            fading into the background, with a volt light sweeping across it.
+            Decoration (the name is already in the logo), so hidden from readers. */}
+        <div className="footer-wordmark-wrap mt-10 md:mt-6 2xl:-mt-12" aria-hidden="true">
+          <p className="footer-wordmark" data-text={chrome.name}>
+            {chrome.name}
+          </p>
+        </div>
+
         {/* copyright left, where it is read first; the two legal pages on the right,
             beside the back-to-top, which is where a reader goes looking for them */}
-        <div className="mt-20 grid gap-6 border-t border-er-line py-10 text-[14px] text-er-muted md:mt-28 md:grid-cols-3 md:items-center md:gap-8">
+        <div className="mt-2 grid gap-6 border-t border-er-line py-8 text-[14px] text-er-muted md:mt-3 md:grid-cols-3 md:items-center md:gap-8">
           <p>{chrome.footerNote || `© ${year} ${chrome.name}. All rights reserved.`}</p>
           {/* three equal columns, so this one sits in the middle of the row, not
               wherever the two beside it happen to end */}

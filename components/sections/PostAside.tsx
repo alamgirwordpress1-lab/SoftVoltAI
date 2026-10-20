@@ -82,7 +82,7 @@ export function PostAside({
                   <Link href={`/blog/${p.slug}`} prefetch={false} className="group flex gap-3">
                     {p.image ? (
                       <span className="relative block h-14 w-16 shrink-0 overflow-hidden rounded-md bg-raised">
-                        <Image src={p.image.src} alt="" fill sizes="64px" className="object-cover" />
+                        <Image src={p.image.src} alt={p.image.alt || p.title} fill sizes="160px" className="object-cover" />
                       </span>
                     ) : null}
                     <span className="min-w-0">

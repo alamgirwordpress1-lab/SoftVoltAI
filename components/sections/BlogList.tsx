@@ -28,6 +28,9 @@ export function BlogList({
 }) {
   const topics = Array.from(new Map(posts.flatMap((p) => p.categories).map((c) => [c.slug, c])).values());
   const [active, setActive] = useState("");
+  // six cards at a time; "Load more" adds the next six, and a new topic filter starts again at six
+  const PAGE = 6;
+  const [limit, setLimit] = useState(PAGE);
   const shown = active ? posts.filter((p) => p.categories.some((c) => c.slug === active)) : posts;
   const showFilter = topics.length > 1 && posts.length > 3;
 
@@ -45,7 +48,10 @@ export function BlogList({
                 key={topic.slug || "all"}
                 type="button"
                 aria-pressed={active === topic.slug}
-                onClick={() => setActive(topic.slug)}
+                onClick={() => {
+                  setActive(topic.slug);
+                  setLimit(PAGE);
+                }}
                 className={cn(
                   "ui inline-flex items-center rounded-full border px-4 py-2 text-[14px] font-semibold transition-colors duration-200",
                   active === topic.slug ? "border-ink bg-ink text-paper" : "border-line-strong bg-surface text-ink hover:border-ink",
@@ -59,7 +65,7 @@ export function BlogList({
       </div>
 
       <ul className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {shown.map((post, i) => (
+        {shown.slice(0, limit).map((post, i) => (
           <li key={post.slug} data-reveal style={{ ["--reveal-delay" as string]: `${(i % 3) * 80}ms` }}>
             <article className="card card-lift shadow-soft group relative flex h-full cursor-pointer flex-col overflow-hidden">
               <div className="block">
@@ -111,6 +117,19 @@ export function BlogList({
           </li>
         ))}
       </ul>
+
+      {shown.length > limit ? (
+        <div className="mt-12 flex justify-center">
+          <button
+            type="button"
+            onClick={() => setLimit((n) => n + PAGE)}
+            className="ui inline-flex items-center gap-2 rounded-full border border-line-strong px-6 py-3 text-[15px] font-semibold text-ink transition-colors duration-200 hover:border-ink hover:bg-ink hover:text-paper"
+          >
+            Load more posts
+            <span className="mono text-[12px] opacity-70">+{Math.min(PAGE, shown.length - limit)}</span>
+          </button>
+        </div>
+      ) : null}
     </section>
   );
 }

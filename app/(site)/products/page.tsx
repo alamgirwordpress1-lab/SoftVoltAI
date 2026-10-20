@@ -9,6 +9,7 @@ import { productsCopy } from "@/content/copy/products";
 import { cms } from "@/lib/cms";
 import { getCopy } from "@/lib/cms/copy";
 import { copyMetadata } from "@/lib/cms/meta";
+import { ServiceArt } from "@/components/illustrations/ServiceArt";
 
 export async function generateMetadata(): Promise<Metadata> {
   return copyMetadata(productsCopy);
@@ -25,17 +26,23 @@ export default async function ProductsPage() {
       <PageHero crumbs={[{ name: "Our Products", href: "/products" }]} {...bannerProps(copy.banner)} />
 
       <section id="products" className="container-x py-14 md:py-20" aria-labelledby="products-title">
-        <span className="eyebrow">{copy.list.eyebrow}</span>
-        <h2 id="products-title" className="display display-md mt-4">
-          {copy.list.heading}
-        </h2>
+        <div className="grid items-center gap-10 lg:grid-cols-12">
+          <div className="lg:col-span-7" data-reveal>
+            <span className="eyebrow">{copy.list.eyebrow}</span>
+            <h2 id="products-title" className="display display-md mt-4">
+              {copy.list.heading}
+            </h2>
+          </div>
+          {/* plugins that click into place: our own drawing, no words */}
+          <ServiceArt variant="product" className="max-w-[340px] lg:col-span-5 lg:ml-auto lg:max-w-[400px]" />
+        </div>
 
         {groups.map((group) => {
           const list = products.filter((p) => p.group === group.slug);
           return (
             <div key={group.slug} className="mt-12">
               <h3 className="ui text-[13px] font-bold uppercase tracking-[0.12em] text-muted">{group.title}</h3>
-              <ul className="mt-5 grid gap-4">
+              <ul className="fx-spot mt-5 grid gap-4">
                 {list.length ? (
                   list.map((p) => {
                     const detail = detailOf(p.slug);
@@ -53,12 +60,14 @@ export default async function ProductsPage() {
                           {p.badge ? <span className="mono rounded-full bg-ok-bg px-2 py-0.5 text-[10px] uppercase tracking-[0.08em] text-ok-fg">{p.badge}</span> : null}
                           {p.kind ? <span className="mono rounded-full border border-line px-2 py-0.5 text-[10px] uppercase tracking-[0.08em] text-muted">{p.kind}</span> : null}
                         </div>
-                        <p className="mt-3 max-w-[78ch] text-[15px] leading-relaxed text-muted md:text-base">{p.summary}</p>
+                        <p className="mt-3 text-[15px] leading-relaxed text-muted md:text-base">{p.summary}</p>
                         <p className="mono mt-4 text-[11px] uppercase tracking-[0.08em] text-ink">
                           {p.price} {p.availability ? <span className="text-muted">· {p.availability}</span> : null}
                         </p>
                         <div className="mt-6 flex flex-wrap gap-3">
-                          <Button href={`/products/${p.slug}`}>Read more</Button>
+                          <Button href={`/products/${p.slug}`}>
+                          Read more<span className="sr-only"> about {p.name}</span>
+                        </Button>
                           {detail?.compare.length ? (
                             <Button href={`/products/${p.slug}#compare`} variant="secondary">
                               Compare plans
@@ -94,7 +103,7 @@ export default async function ProductsPage() {
         <h2 id="build-title" className="display display-md mt-4">
           {copy.promises.heading}
         </h2>
-        <ul className="mt-10 grid gap-4 md:grid-cols-3">
+        <ul className="fx-spot mt-10 grid gap-4 md:grid-cols-3">
           {copy.promises.list.map((p, i) => (
             <li key={p.title} className="card shadow-soft p-6" data-reveal style={{ ["--reveal-delay" as string]: `${i * 60}ms` }}>
               <span className="mono text-[12px] text-accent">{String(i + 1).padStart(2, "0")}</span>
