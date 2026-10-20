@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
 import "./illustrations.css";
 
-export type ArtVariant = "build" | "automate" | "grow" | "support" | "agency";
+export type ArtVariant = "build" | "automate" | "grow" | "support" | "agency" | "team" | "contact" | "product" | "work";
 
 /** Maps a pillar name or id from WordPress ("Build", "grow", "Grow & Support") to a drawing. */
 export function pillarArt(name: string | undefined): ArtVariant {
@@ -29,6 +29,10 @@ export function ServiceArt({ variant, className }: { variant: ArtVariant; classN
         {variant === "grow" ? <Grow /> : null}
         {variant === "support" ? <Support /> : null}
         {variant === "agency" ? <Agency /> : null}
+        {variant === "team" ? <Team /> : null}
+        {variant === "contact" ? <Contact /> : null}
+        {variant === "product" ? <Product /> : null}
+        {variant === "work" ? <Work /> : null}
       </svg>
     </div>
   );
@@ -262,6 +266,167 @@ function Agency() {
           <path d="M222 178 C228 168 252 168 258 178 C252 190 228 190 222 178 Z" className="sva-stroke-ink sva-w2" />
           <path d="M224 196 L256 164" className="sva-stroke-acc sva-w3" />
         </g>
+      </g>
+    </>
+  );
+}
+
+/** Team (About): a globe with the team around it, linked, and a clock for the hours across time zones. */
+function Team() {
+  const people = [
+    { x: 112, y: 96 },
+    { x: 368, y: 96 },
+    { x: 112, y: 270 },
+    { x: 368, y: 270 },
+  ];
+  return (
+    <>
+      <g data-depth="0.6">
+        <circle cx="240" cy="182" r="78" className="sva-card" />
+        <ellipse pathLength={1} cx="240" cy="182" rx="34" ry="78" className="draw-path sva-stroke-line-strong sva-w2" />
+        <path pathLength={1} d="M162 182 H318 M172 144 H308 M172 220 H308" className="draw-path sva-stroke-line-strong sva-w2" />
+        <circle cx="214" cy="150" r="6" className="sva-fill-volt sva-pop" />
+        <circle cx="276" cy="206" r="6" className="sva-fill-acc sva-pop" style={{ animationDelay: "0.6s" }} />
+      </g>
+      <g data-depth="0.4">
+        {people.map((pp, i) => (
+          <path key={i} pathLength={1} d={`M${pp.x} ${pp.y} L240 182`} className="draw-path sva-stroke-line sva-dash" />
+        ))}
+        {people.map((pp, i) => (
+          <path key={`f${i}`} d={`M${pp.x} ${pp.y} L240 182`} className="sva-flow" style={{ animationDelay: `${i * -0.6}s` }} />
+        ))}
+      </g>
+      <g data-depth="1.1">
+        {people.map((pp, i) => (
+          <g key={i} className="sva-pop" style={{ animationDelay: `${0.2 + i * 0.12}s` }}>
+            <circle cx={pp.x} cy={pp.y} r="28" className="sva-card" />
+            <circle cx={pp.x} cy={pp.y - 6} r="8" className={i % 2 ? "sva-fill-acc" : "sva-fill-ink"} />
+            <path d={`M${pp.x - 13} ${pp.y + 15} C${pp.x - 10} ${pp.y + 4} ${pp.x + 10} ${pp.y + 4} ${pp.x + 13} ${pp.y + 15}`} className={i % 2 ? "sva-stroke-acc sva-w3" : "sva-stroke-ink sva-w3"} />
+          </g>
+        ))}
+      </g>
+      <g data-depth="1.5">
+        <g className="sva-bob">
+          <circle cx="430" cy="182" r="26" className="sva-card" />
+          <circle cx="430" cy="182" r="15" className="sva-stroke-acc sva-w2" />
+          <g className="sva-gear">
+            <circle cx="430" cy="182" r="15" />
+            <path d="M430 182 V171" className="sva-stroke-ink sva-w3" />
+          </g>
+          <path d="M430 182 L438 186" className="sva-stroke-ink sva-w2" />
+        </g>
+      </g>
+    </>
+  );
+}
+
+/** Contact: a brief in an envelope, a paper plane on its way, a reply bubble. */
+function Contact() {
+  return (
+    <>
+      <g data-depth="0.4">
+        <path pathLength={1} d="M120 280 C180 300 230 250 250 210 C270 170 320 120 380 96" className="draw-path sva-stroke-line-strong sva-w2 sva-dash" />
+        <path d="M120 280 C180 300 230 250 250 210 C270 170 320 120 380 96" className="sva-flow sva-flow-slow" />
+      </g>
+      <g data-depth="0.8">
+        <rect x="70" y="150" width="190" height="130" rx="16" className="sva-card" />
+        <path pathLength={1} d="M76 160 L165 224 L254 160" className="draw-path sva-stroke-ink sva-w2" />
+        <rect x="96" y="246" width="70" height="8" rx="4" className="sva-fill-raised sva-grow-x" />
+        <rect x="96" y="260" width="46" height="8" rx="4" className="sva-fill-raised sva-grow-x" style={{ animationDelay: "0.2s" }} />
+        <circle cx="236" cy="154" r="14" className="sva-fill-volt sva-pop" />
+        <path d="M230 154 L234 158 L242 150" className="sva-stroke-ink sva-w2 sva-pop" />
+      </g>
+      <g data-depth="1.4">
+        <g className="sva-bob">
+          <path d="M346 82 L420 60 L392 128 L376 104 Z" className="sva-card" />
+          <path d="M376 104 L420 60 M376 104 L372 124 L386 112" className="sva-stroke-acc sva-w2" />
+        </g>
+      </g>
+      <g data-depth="1.1">
+        <g className="sva-bob sva-bob-2">
+          <path d="M300 196 H420 C428 196 434 202 434 210 V256 C434 264 428 270 420 270 H340 L318 290 V270 H300 C292 270 286 264 286 256 V210 C286 202 292 196 300 196 Z" className="sva-card" />
+          <circle cx="330" cy="233" r="6" className="sva-fill-acc sva-twinkle" />
+          <circle cx="360" cy="233" r="6" className="sva-fill-acc sva-twinkle sva-twinkle-2" />
+          <circle cx="390" cy="233" r="6" className="sva-fill-volt sva-twinkle" />
+        </g>
+      </g>
+    </>
+  );
+}
+
+/** Product: a plugin block clicking into place, a switch turned on and a download. */
+function Product() {
+  return (
+    <>
+      <g data-depth="0.6">
+        <rect x="110" y="96" width="200" height="190" rx="18" className="sva-card" />
+        <path d="M110 136 H310" className="sva-stroke-line" />
+        <circle cx="132" cy="116" r="5" className="sva-fill-volt" />
+        <rect x="146" y="111" width="80" height="10" rx="5" className="sva-fill-raised" />
+        {[0, 1, 2].map((i) => (
+          <g key={i} className="sva-rise" style={{ animationDelay: `${0.2 + i * 0.12}s` }}>
+            <rect x="130" y={152 + i * 42} width="160" height="32" rx="9" className={i === 1 ? "sva-fill-soft sva-stroke-acc" : "sva-fill-raised"} />
+            <rect x="142" y={162 + i * 42} width="12" height="12" rx="3" className={i === 1 ? "sva-fill-volt" : "sva-fill-muted"} />
+            <rect x="164" y={164 + i * 42} width={i === 1 ? 70 : 54} height="8" rx="4" className="sva-fill-muted" />
+          </g>
+        ))}
+      </g>
+      <g data-depth="1.2">
+        <g className="sva-bob">
+          <path d="M318 132 H352 V122 C352 112 368 112 368 122 V132 H402 V166 H392 C382 166 382 182 392 182 H402 V216 H318 Z" className="sva-fill-er" />
+          <path d="M364 152 L348 174 H360 L354 194 L374 168 H362 Z" className="sva-fill-volt" />
+        </g>
+      </g>
+      <g data-depth="1.4">
+        <g className="sva-bob sva-bob-2">
+          <rect x="44" y="216" width="84" height="44" rx="22" className="sva-card" />
+          <rect x="56" y="228" width="60" height="20" rx="10" className="sva-fill-volt" />
+          <circle cx="106" cy="238" r="8" className="sva-fill-ink" />
+        </g>
+      </g>
+      <g data-depth="1">
+        <g className="sva-pop" style={{ animationDelay: "0.9s" }}>
+          <circle cx="360" cy="268" r="26" className="sva-card" />
+          <path d="M360 254 V278 M350 270 L360 280 L370 270 M348 286 H372" className="sva-stroke-acc sva-w3" />
+        </g>
+      </g>
+    </>
+  );
+}
+
+/** Work: a finished site in a browser, a result climbing and a seal on the delivery. */
+function Work() {
+  return (
+    <>
+      <g data-depth="0.6">
+        <rect x="76" y="70" width="290" height="210" rx="16" className="sva-card" />
+        <path d="M76 98 H366" className="sva-stroke-line" />
+        <circle cx="96" cy="84" r="4.5" className="sva-fill-danger" />
+        <circle cx="112" cy="84" r="4.5" className="sva-fill-warn" />
+        <circle cx="128" cy="84" r="4.5" className="sva-fill-volt" />
+        <rect x="94" y="114" width="254" height="84" rx="10" className="sva-fill-soft" />
+        <path pathLength={1} d="M104 186 L150 150 L184 172 L224 136 L262 160 L300 128 L338 150" className="draw-path sva-stroke-acc sva-w3" />
+        <rect x="94" y="212" width="78" height="52" rx="8" className="sva-fill-raised sva-rise" />
+        <rect x="182" y="212" width="78" height="52" rx="8" className="sva-fill-raised sva-rise" style={{ animationDelay: "0.4s" }} />
+        <rect x="270" y="212" width="78" height="52" rx="8" className="sva-fill-raised sva-rise" style={{ animationDelay: "0.5s" }} />
+      </g>
+      <g data-depth="1.3">
+        <g className="sva-bob">
+          <rect x="330" y="176" width="104" height="70" rx="16" className="sva-card" />
+          <path d="M350 222 L366 206 L378 216 L404 190" className="sva-stroke-acc sva-w3" />
+          <path d="M392 190 H404 V202" className="sva-stroke-acc sva-w3" />
+          <rect x="350" y="230" width="40" height="6" rx="3" className="sva-fill-muted" />
+        </g>
+      </g>
+      <g data-depth="1.1">
+        <g className="sva-bob sva-bob-2">
+          <circle cx="78" cy="268" r="32" className="sva-card" />
+          <circle cx="78" cy="268" r="20" className="sva-fill-volt" />
+          <path d="M68 268 L75 275 L89 261" className="sva-stroke-ink sva-w3" />
+        </g>
+      </g>
+      <g data-depth="1.6">
+        <path d="M418 92 L422 82 L426 92 L436 96 L426 100 L422 110 L418 100 L408 96 Z" className="sva-fill-volt sva-twinkle" />
       </g>
     </>
   );
