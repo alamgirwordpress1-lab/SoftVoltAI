@@ -15,6 +15,7 @@ import { getCopy } from "@/lib/cms/copy";
 import { caseStudiesCopy } from "@/content/copy/case-studies";
 import { midSentence } from "@/lib/utils";
 import { BandDecor } from "@/components/illustrations/BandDecor";
+import { ServiceArt } from "@/components/illustrations/ServiceArt";
 
 export async function generateStaticParams() {
   const work = await cms.getWork();
@@ -173,6 +174,8 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
               {band.partner_heading}
             </h2>
             {band.partner_lede ? <p className="lede mt-5">{band.partner_lede}</p> : null}
+            {/* your brand out front, our team behind it: our own drawing, no words */}
+            <ServiceArt variant="agency" className="mt-10 hidden max-w-[400px] lg:block" />
           </div>
           <ol className="lg:col-span-6 lg:col-start-7" data-reveal style={{ ["--reveal-delay" as string]: "100ms" }}>
             {process.map((step, i) => (
