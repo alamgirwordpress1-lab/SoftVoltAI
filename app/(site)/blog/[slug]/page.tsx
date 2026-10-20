@@ -33,7 +33,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!post) return {};
   const description = metaDescription(post.seo.description, post.excerpt);
   return {
-    title: post.title,
+    // Google shows about 60 characters; a long post title drops the " · SoftVolt AI" suffix instead of being cut off
+    title: post.title.length > 46 ? { absolute: post.title } : post.title,
     description,
     alternates: { canonical: `/blog/${slug}` },
     // the card itself, featured image included, is this folder's opengraph-image
