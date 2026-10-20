@@ -97,7 +97,7 @@ export function SiteFooter({ chrome }: { chrome: SiteChrome }) {
         {/* the brand name set huge in the gap above the bottom bar: outline only,
             fading into the background, with a volt light sweeping across it.
             Decoration (the name is already in the logo), so hidden from readers. */}
-        <div className="footer-wordmark-wrap mt-12 md:mt-4 lg:-mt-4" aria-hidden="true">
+        <div className="footer-wordmark-wrap mt-10 md:-mt-6 lg:-mt-28" aria-hidden="true">
           <p className="footer-wordmark" data-text={chrome.name}>
             {chrome.name}
           </p>
@@ -105,7 +105,7 @@ export function SiteFooter({ chrome }: { chrome: SiteChrome }) {
 
         {/* copyright left, where it is read first; the two legal pages on the right,
             beside the back-to-top, which is where a reader goes looking for them */}
-        <div className="mt-6 grid gap-6 border-t border-er-line py-10 text-[14px] text-er-muted md:mt-8 md:grid-cols-3 md:items-center md:gap-8">
+        <div className="mt-2 grid gap-6 border-t border-er-line py-8 text-[14px] text-er-muted md:mt-3 md:grid-cols-3 md:items-center md:gap-8">
           <p>{chrome.footerNote || `© ${year} ${chrome.name}. All rights reserved.`}</p>
           {/* three equal columns, so this one sits in the middle of the row, not
               wherever the two beside it happen to end */}

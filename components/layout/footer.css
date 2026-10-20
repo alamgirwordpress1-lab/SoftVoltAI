@@ -2,7 +2,8 @@
    into the footer background. A volt light sweeps across it now and then. */
 .footer-wordmark-wrap {
   position: relative;
-  overflow: hidden;
+  overflow-x: clip;
+  overflow-y: visible;
   -webkit-mask-image: linear-gradient(to bottom, #000 45%, transparent 100%);
   mask-image: linear-gradient(to bottom, #000 45%, transparent 100%);
   user-select: none;
@@ -14,7 +15,7 @@
   font-family: var(--font-display);
   font-weight: 700;
   font-size: clamp(3rem, 13.5vw, 16rem);
-  line-height: 0.9;
+  line-height: 0.88;
   letter-spacing: -0.05em;
   text-align: center;
   white-space: nowrap;
@@ -24,7 +25,7 @@
   background: linear-gradient(180deg, rgba(242, 244, 241, 0.92) 0%, rgba(242, 244, 241, 0.5) 40%, rgba(242, 244, 241, 0.12) 75%, rgba(242, 244, 241, 0) 100%);
   -webkit-background-clip: text;
   background-clip: text;
-  padding-bottom: 0.06em;
+  padding-bottom: 0.04em;
 }
 /* the sweeping light, a copy of the name clipped to a moving gradient */
 .footer-wordmark::after {
