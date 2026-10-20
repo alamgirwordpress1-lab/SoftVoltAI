@@ -16,6 +16,8 @@ import { cms } from "@/lib/cms";
 import { getCopy } from "@/lib/cms/copy";
 import { servicesCopy } from "@/content/copy/services";
 import { midSentence } from "@/lib/utils";
+import { ServiceArt, pillarArt } from "@/components/illustrations/ServiceArt";
+import { BandDecor } from "@/components/illustrations/BandDecor";
 
 export async function generateStaticParams() {
   const services = await cms.getServices();
@@ -134,8 +136,10 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
             {band.ships_heading}
           </h2>
           {band.ships_text ? <p className="mt-4 text-[15px] leading-relaxed text-muted">{band.ships_text}</p> : null}
+          {/* our own drawing for the service's pillar: decoration only, no words */}
+          <ServiceArt variant={pillarArt(service.pillarGroup.name)} className="mt-10 max-w-[360px] lg:max-w-none" />
         </div>
-        <ul className="grid gap-4 sm:grid-cols-2 lg:col-span-8">
+        <ul className="fx-spot grid content-start gap-4 sm:grid-cols-2 lg:col-span-8">
           {service.deliverables.map((d, i) => (
             <li key={d} data-reveal style={{ ["--reveal-delay" as string]: `${i * 50}ms` }} className="card shadow-soft flex gap-3 p-5">
               <span className="mono mt-0.5 text-[12px] text-accent">{String(i + 1).padStart(2, "0")}</span>
@@ -158,6 +162,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
 
       <section id="signals" className="er relative overflow-hidden" aria-labelledby="signals-title">
         <div className="glow -right-20 -top-20 h-[420px] w-[420px]" aria-hidden="true" />
+        <BandDecor />
         <div className="container-x relative grid gap-10 py-14 md:py-20 lg:grid-cols-12">
           <div className="lg:col-span-5" data-reveal>
             <span className="eyebrow">{band.signals_eyebrow}</span>
@@ -206,7 +211,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
           <h2 id="for-title" className="display display-md mt-4">
             {band.who_heading}
           </h2>
-          <ul className="mt-8 grid gap-4 md:grid-cols-3">
+          <ul className="fx-spot mt-8 grid gap-4 md:grid-cols-3">
             {service.agencies.map((a, i) => (
               <li key={a.slug} data-reveal style={{ ["--reveal-delay" as string]: `${i * 60}ms` }}>
                 <Link href={`/for/${a.slug}`} className="card card-lift shadow-soft group flex h-full flex-col p-6">
@@ -238,7 +243,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         <h2 id="related-title" className="display display-md mt-4">
           {band.related_heading}
         </h2>
-        <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <ul className="fx-spot mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {service.related.map((r) => (
             <li key={r.slug}>
               <Link href={`/services/${r.slug}`} className="card card-lift shadow-soft flex h-full flex-col p-5">
