@@ -215,7 +215,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         <div className="glow -right-20 -top-20 h-[420px] w-[420px]" aria-hidden="true" />
         <BandDecor />
         <div className="container-x relative grid gap-10 py-14 md:py-20 lg:grid-cols-12">
-          <div className="lg:col-span-5" data-reveal>
+          <div className="lg:sticky lg:top-28 lg:col-span-5 lg:self-start" data-reveal>
             <span className="eyebrow">{band.signals_eyebrow}</span>
             <h2 id="signals-title" className="display display-md mt-4">
               {band.signals_heading}
@@ -228,6 +228,8 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
                 </li>
               ))}
             </ul>
+            {/* the brief on its way: fills the column beside the longer process list */}
+            <ServiceArt variant="contact" className="mt-10 hidden max-w-[400px] lg:block" />
           </div>
           <div className="lg:col-span-6 lg:col-start-7" data-reveal style={{ ["--reveal-delay" as string]: "120ms" }}>
             <span className="eyebrow">{band.runs_eyebrow}</span>
