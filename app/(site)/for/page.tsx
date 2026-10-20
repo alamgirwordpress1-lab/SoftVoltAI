@@ -9,6 +9,7 @@ import { cms } from "@/lib/cms";
 import { getCopy } from "@/lib/cms/copy";
 import { copyMetadata } from "@/lib/cms/meta";
 import { countWord } from "@/lib/utils";
+import { ServiceArt } from "@/components/illustrations/ServiceArt";
 
 export async function generateMetadata(): Promise<Metadata> {
   return copyMetadata(forCopy);
@@ -34,11 +35,17 @@ export default async function ForIndexPage() {
       <PageIntro {...introProps(copy.intro)} />
 
       <section id="agency-types" className="container-x border-t border-line py-14 md:py-20" aria-labelledby="agency-types-title">
-        <span className="eyebrow">{copy.types.eyebrow}</span>
-        <h2 id="agency-types-title" className="display display-md mt-4 max-w-[20ch]">
-          {copy.types.heading}
-        </h2>
-        <ul className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+        <div className="grid items-center gap-10 lg:grid-cols-12">
+          <div className="lg:col-span-7" data-reveal>
+            <span className="eyebrow">{copy.types.eyebrow}</span>
+            <h2 id="agency-types-title" className="display display-md mt-4 max-w-[20ch]">
+              {copy.types.heading}
+            </h2>
+          </div>
+          {/* your brand out front, our team behind it: our own drawing, no words */}
+          <ServiceArt variant="agency" className="max-w-[360px] lg:col-span-5 lg:ml-auto lg:max-w-[420px]" />
+        </div>
+        <ul className="fx-spot mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
           {types.map((a, i) => (
             <li key={a.slug} data-reveal style={{ ["--reveal-delay" as string]: `${i * 60}ms` }}>
               <Link href={`/for/${a.slug}`} prefetch={false} className="card card-lift shadow-soft group flex h-full flex-col p-7">
