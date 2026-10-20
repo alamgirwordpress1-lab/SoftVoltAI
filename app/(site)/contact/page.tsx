@@ -9,6 +9,7 @@ import { cms } from "@/lib/cms";
 import { getCopy } from "@/lib/cms/copy";
 import { copyMetadata } from "@/lib/cms/meta";
 import { getSiteChrome } from "@/lib/cms/site";
+import { ServiceArt } from "@/components/illustrations/ServiceArt";
 
 export async function generateMetadata(): Promise<Metadata> {
   return copyMetadata(contactCopy);
@@ -102,6 +103,8 @@ export default async function ContactPage() {
                 </div>
               ) : null}
             </dl>
+            {/* the brief on its way and the reply coming back: our own drawing, no words */}
+            <ServiceArt variant="contact" className="mt-10 hidden max-w-[380px] lg:block" />
           </div>
 
           <div className="lg:col-span-7" data-reveal style={{ ["--reveal-delay" as string]: "90ms" }}>
