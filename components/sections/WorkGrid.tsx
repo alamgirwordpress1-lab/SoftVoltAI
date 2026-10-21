@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import Image from "next/image";
+import { ScreenshotPan } from "@/components/ui/ScreenshotPan";
 import Link from "next/link";
 import type { WorkItem } from "@/lib/cms/types";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -76,24 +76,27 @@ export function WorkGrid({
       <ul className="mt-8 grid gap-6 md:grid-cols-3">
         {shown.map((w, i) => (
           <li key={w.slug} data-reveal style={{ ["--reveal-delay" as string]: `${(i % 3) * 80}ms` }}>
-            <article className="card card-lift shadow-soft group flex h-full flex-col overflow-hidden">
-              <a href={w.url} target="_blank" rel="noopener noreferrer" className="block" aria-label={`Open ${w.title} in a new tab`}>
+            <article className="card card-lift shadow-soft group flex h-full flex-col overflow-hidden" data-pan-root>
+              {/* the picture opens the case study, which links to the live site: twenty
+                  links straight out of one list read as a link farm to a crawler */}
+              <Link href={`/case-studies/${w.slug}`} prefetch={false} className="block" aria-label={`${w.title} case study`}>
                 <div className="stage-chrome !py-2">
                   <i /> <i /> <i />
                   <span className="url">{w.url?.replace(/^https?:\/\//, "").replace(/\/$/, "")}</span>
                 </div>
                 <div className="relative aspect-[16/10] overflow-hidden border-b border-line bg-raised">
                   {w.image ? (
-                    <Image
-                      src={w.image}
+                    <ScreenshotPan
+                      thumb={w.thumb}
+                      image={w.image}
                       alt={`${w.title} — homepage screenshot`}
-                      fill
                       sizes="(min-width: 768px) 33vw, 100vw"
-                      className="object-cover object-top transition-[object-position,transform] duration-700 ease-[var(--ease-out-quint)] group-hover:scale-[1.04] group-hover:object-bottom group-hover:duration-[9000ms] group-hover:ease-linear"
+                      pan
+                      className="transition-transform duration-700 ease-[var(--ease-out-quint)] group-hover:scale-[1.04]"
                     />
                   ) : null}
                 </div>
-              </a>
+              </Link>
               <div className="flex flex-1 flex-col p-6">
                 <span className="eyebrow">{w.category}</span>
                 <h3 className="mt-3 text-2xl font-semibold tracking-[-0.01em] text-ink">
@@ -121,12 +124,6 @@ export function WorkGrid({
                     Read the case study
                     <span aria-hidden="true">→</span>
                   </Link>
-                  {w.url ? (
-                    <a href={w.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-[14px] text-muted transition-colors hover:text-ink">
-                      Live site
-                      <span aria-hidden="true">↗</span>
-                    </a>
-                  ) : null}
                 </div>
               </div>
             </article>

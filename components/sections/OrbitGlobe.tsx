@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import { CoverImage } from "@/components/ui/CoverImage";
 import { useEffect, useRef, type CSSProperties } from "react";
 import type { GlobeCard, GlobeLocation } from "@/lib/cms/types";
 import { gsap, prefersReducedMotion } from "@/lib/motion/gsap";
@@ -655,7 +655,7 @@ function CardBody({ card }: { card: GlobeCard }) {
       return (
         <>
           <span className="og-avatar">
-            <Image src={card.photo} alt="" fill sizes="(min-width: 1024px) 140px, 26vw" className="object-cover" draggable={false} />
+            <CoverImage src={card.photo} alt="" sizes="(min-width: 1024px) 140px, 26vw" className="object-cover" draggable={false} width={256} height={256} />
             <span className="og-flag og-avatar-flag">{card.country}</span>
           </span>
           <span className="og-client">
@@ -671,12 +671,13 @@ function CardBody({ card }: { card: GlobeCard }) {
         <>
           <span className={card.logo ? "og-badge" : "og-badge og-badge--mono"}>
             {card.logo ? (
-              <Image
+              <CoverImage
                 src={card.logo}
                 alt={`${card.name} logo`}
-                fill
                 sizes="(min-width: 1024px) 130px, 24vw"
                 className={`og-badge-img${card.logoFill ? " og-badge-img--fill" : ""}`}
+                width={256}
+                height={256}
                 draggable={false}
               />
             ) : (
@@ -694,7 +695,7 @@ function CardBody({ card }: { card: GlobeCard }) {
       return (
         <>
           <div className="og-shot">
-            <Image src={card.image} alt="" fill sizes="(min-width: 1024px) 260px, 36vw" className="object-cover object-top" draggable={false} />
+            <CoverImage src={card.image} alt="" sizes="(min-width: 1024px) 260px, 36vw" className="object-cover object-top" draggable={false} />
           </div>
           <div className="og-meta">
             <span className="og-flag">{card.country}</span>

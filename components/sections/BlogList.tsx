@@ -1,9 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
+import { CoverImage } from "@/components/ui/CoverImage";
 import Link from "next/link";
-import { Chip } from "@/components/ui/Chip";
+import { TopicChip } from "@/components/ui/TopicChip";
 import type { WpPostCard } from "@/lib/cms/wordpress";
 import { cn } from "@/lib/utils";
 
@@ -71,10 +71,9 @@ export function BlogList({
               <div className="block">
                 <div className="relative aspect-[16/10] overflow-hidden border-b border-line bg-raised">
                   {post.image ? (
-                    <Image
+                    <CoverImage
                       src={post.image.src}
                       alt={post.image.alt || post.title}
-                      fill
                       sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
                       className="object-cover transition-transform duration-700 ease-[var(--ease-out-quint)] group-hover:scale-[1.04]"
                     />
@@ -99,9 +98,7 @@ export function BlogList({
                   <ul className="mt-4 flex flex-wrap gap-1.5">
                     {post.categories.slice(1).map((c) => (
                       <li key={c.slug} className="relative z-10">
-                        <Link href={`/blog/topic/${c.slug}`} prefetch={false} className="inline-block transition-colors hover:text-ink">
-                          <Chip className="hover:border-line-strong">{c.name}</Chip>
-                        </Link>
+                        <TopicChip topic={c} />
                       </li>
                     ))}
                   </ul>
