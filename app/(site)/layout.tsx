@@ -21,10 +21,9 @@ export default async function SiteLayout({ children }: { children: React.ReactNo
       {/* The cookie banner. A consent plugin on the WordPress install can only
           draw its banner on WordPress pages, which nobody visits — so the
           banner is a script named on the Headless settings screen and loaded
-          here. Empty there means no banner and nothing loaded. It loads as soon as the
-          page is interactive: consent is asked up front, and the banner no longer
-          appears seconds later as the page's largest paint (it was the mobile LCP). */}
-      {chrome.cookieScript ? <Script id="cookieyes" src={chrome.cookieScript} strategy="afterInteractive" /> : null}
+          here. Empty there means no banner and nothing loaded. It loads after the page
+          has finished loading, so it never delays the first screen on a phone. */}
+      {chrome.cookieScript ? <Script id="cookieyes" src={chrome.cookieScript} strategy="lazyOnload" /> : null}
       <SiteHeader chrome={chrome} />
       <main id="main">{children}</main>
       <SiteFooter chrome={chrome} />
