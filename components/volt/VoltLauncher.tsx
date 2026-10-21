@@ -27,23 +27,6 @@ export function VoltLauncher({ endpoint }: { endpoint: string }) {
     document.documentElement.setAttribute("data-volt-open", "");
   }, []);
 
-  // at the very bottom of the page the launcher (and the back-to-top above it)
-  // lift clear of the footer's legal row instead of sitting on its links
-  useEffect(() => {
-    const end = document.querySelector("[data-footer-end]");
-    if (!end) return;
-    const root = document.documentElement;
-    const io = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) root.setAttribute("data-footer-end", "");
-      else root.removeAttribute("data-footer-end");
-    });
-    io.observe(end);
-    return () => {
-      io.disconnect();
-      root.removeAttribute("data-footer-end");
-    };
-  }, []);
-
   // a page can open the agent too (a product page's "Try the live demo"): it
   // checks data-volt-ready, then sends a "volt:open" event
   useEffect(() => {

@@ -167,14 +167,3 @@
     animation: none;
   }
 }
-
-/* At the foot of the page: lift above the footer's legal row (see VoltLauncher). */
-.volt-launcher {
-  transition:
-    transform 200ms var(--ease-hover),
-    border-color 200ms var(--ease-hover),
-    translate 350ms var(--ease-out-quint);
-}
-html[data-footer-end] .volt-launcher {
-  translate: 0 -76px;
-}
