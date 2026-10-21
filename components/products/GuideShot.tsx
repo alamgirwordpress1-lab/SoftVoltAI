@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import Image, { getImageProps } from "next/image";
+import { CoverImage } from "@/components/ui/CoverImage";
 
 /** The full-size picture in the dialog; the same props warm it up beforehand. */
 const FULL = { width: 1600, height: 1000, sizes: "94vw" } as const;
@@ -45,7 +46,7 @@ export function GuideShot({ src, alt }: { src: string; alt: string }) {
           <span className="mono ml-auto text-[10px] uppercase tracking-[0.08em] text-muted transition-colors group-hover:text-ink">Click to enlarge</span>
         </span>
         <span className="relative block aspect-[16/10] bg-paper">
-          <Image src={src} alt={alt} fill sizes="(min-width: 1024px) 680px, 100vw" className="object-cover object-top" />
+          <CoverImage src={src} alt={alt} sizes="(min-width: 1024px) 680px, 100vw" className="object-cover object-top" />
         </span>
       </button>
 
