@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { ScreenshotPan } from "@/components/ui/ScreenshotPan";
 import Link from "next/link";
 import type { WorkItem } from "@/lib/cms/types";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -35,7 +35,7 @@ export function CaseSpotlight({ item, copy }: { item: WorkItem; copy: HeadingLed
       <div className="card shadow-soft mt-10 grid gap-0 overflow-hidden lg:grid-cols-12" data-reveal>
         {item.image ? (
           <div className="relative aspect-[16/10] border-b border-line bg-raised lg:col-span-7 lg:aspect-auto lg:border-b-0 lg:border-r">
-            <Image src={item.image} alt={`${item.title} — the live site`} fill sizes="(min-width: 1024px) 58vw, 100vw" className="object-cover object-top" />
+            <ScreenshotPan thumb={item.thumb} image={item.image} alt={`${item.title} — the live site`} sizes="(min-width: 1024px) 58vw, 100vw" />
           </div>
         ) : null}
         <div className="p-6 md:p-9 lg:col-span-5">

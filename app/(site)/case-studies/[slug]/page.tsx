@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import { ScreenshotPan } from "@/components/ui/ScreenshotPan";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { PageHero } from "@/components/ui/PageHero";
@@ -94,7 +94,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
               <span className="url">{item.url?.replace(/^https?:\/\//, "").replace(/\/$/, "")}</span>
             </div>
             <div className="relative aspect-[16/10] bg-raised">
-              <Image src={item.image} alt={`${item.title} — homepage`} fill sizes="(min-width: 1024px) 80vw, 100vw" className="object-cover object-top transition-[object-position] duration-1000 ease-out hover:object-bottom hover:duration-[14000ms] hover:ease-linear" priority />
+              <ScreenshotPan thumb={item.thumb} image={item.image} alt={`${item.title} — homepage`} sizes="(min-width: 1024px) 80vw, 100vw" priority pan duration={14000} />
             </div>
           </div>
         </section>
@@ -202,7 +202,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
               <Link href={`/case-studies/${r.slug}`} className="card card-lift shadow-soft flex h-full flex-col overflow-hidden">
                 {r.image ? (
                   <span className="relative block aspect-[16/10] border-b border-line bg-raised">
-                    <Image src={r.image} alt={`${r.title} website screenshot`} fill sizes="(min-width: 768px) 33vw, 100vw" className="object-cover object-top" />
+                    <ScreenshotPan thumb={r.thumb} image={r.image} alt={`${r.title} website screenshot`} sizes="(min-width: 768px) 33vw, 100vw" />
                   </span>
                 ) : null}
                 <span className="flex flex-1 flex-col p-5">

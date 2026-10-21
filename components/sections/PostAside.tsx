@@ -1,9 +1,9 @@
 import Link from "next/link";
-import Image from "next/image";
+import { CoverImage } from "@/components/ui/CoverImage";
 import { Button } from "@/components/ui/Button";
-import { Chip } from "@/components/ui/Chip";
 import { BlogSearch } from "@/components/search/BlogSearch";
-import type { WpPostCard } from "@/lib/cms/wordpress";
+import { TopicChip } from "@/components/ui/TopicChip";
+import type { WpPostCard, WpTopic } from "@/lib/cms/wordpress";
 
 export interface PostAsideCopy {
   search_heading: string;
@@ -33,8 +33,8 @@ export function PostAside({
   copy,
 }: {
   recent: WpPostCard[];
-  categories: { name: string; slug: string }[];
-  tags: { name: string; slug: string }[];
+  categories: WpTopic[];
+  tags: WpTopic[];
   cta: { label: string; href: string };
   copy: PostAsideCopy;
 }) {
@@ -49,9 +49,7 @@ export function PostAside({
             <ul className="mt-5 flex flex-wrap gap-2">
               {categories.map((c) => (
                 <li key={c.slug}>
-                  <Link href={`/blog/topic/${c.slug}`} prefetch={false} className="inline-block transition-colors hover:text-ink">
-                    <Chip className="hover:border-line-strong">{c.name}</Chip>
-                  </Link>
+                  <TopicChip topic={c} />
                 </li>
               ))}
             </ul>
@@ -64,9 +62,7 @@ export function PostAside({
             <ul className="mt-5 flex flex-wrap gap-2">
               {tags.map((t) => (
                 <li key={t.slug}>
-                  <Link href={`/blog/topic/${t.slug}`} prefetch={false} className="inline-block transition-colors hover:text-ink">
-                    <Chip className="hover:border-line-strong">{t.name}</Chip>
-                  </Link>
+                  <TopicChip topic={t} />
                 </li>
               ))}
             </ul>
@@ -82,7 +78,7 @@ export function PostAside({
                   <Link href={`/blog/${p.slug}`} prefetch={false} className="group flex gap-3">
                     {p.image ? (
                       <span className="relative block h-14 w-16 shrink-0 overflow-hidden rounded-md bg-raised">
-                        <Image src={p.image.src} alt={p.image.alt || p.title} fill sizes="160px" className="object-cover" />
+                        <CoverImage src={p.image.src} alt={p.image.alt || p.title} sizes="160px" className="object-cover" width={256} height={256} />
                       </span>
                     ) : null}
                     <span className="min-w-0">
@@ -168,9 +164,7 @@ export function PostMeta({
             <dt className="mono text-[11px] uppercase tracking-[0.08em] text-muted">{copy.filed_label}</dt>
             <dd className="mt-2 flex flex-wrap gap-1.5">
               {post.categories.map((c) => (
-                <Link key={c.slug} href={`/blog/topic/${c.slug}`} prefetch={false} className="inline-block transition-colors hover:text-ink">
-                  <Chip className="hover:border-line-strong">{c.name}</Chip>
-                </Link>
+                <TopicChip key={c.slug} topic={c} />
               ))}
             </dd>
           </div>

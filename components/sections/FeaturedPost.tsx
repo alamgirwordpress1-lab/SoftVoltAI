@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { CoverImage } from "@/components/ui/CoverImage";
 import Link from "next/link";
 import { Chip } from "@/components/ui/Chip";
 import type { WpPostCard } from "@/lib/cms/wordpress";
@@ -22,10 +22,9 @@ export function FeaturedPost({ post, eyebrow, readMore }: { post: WpPostCard; ey
         <div className="block">
           <div className="relative aspect-[16/10] overflow-hidden border-b border-line bg-raised lg:h-full lg:border-b-0 lg:border-r">
             {post.image ? (
-              <Image
+              <CoverImage
                 src={post.image.src}
                 alt={post.image.alt || post.title}
-                fill
                 sizes="(min-width: 1024px) 55vw, 100vw"
                 priority
                 className="object-cover transition-transform duration-700 ease-[var(--ease-out-quint)] group-hover:scale-[1.03]"

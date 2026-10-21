@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { CoverImage } from "@/components/ui/CoverImage";
 import type { TeamMember } from "@/content/founder";
 import { ArrowLink } from "@/components/ui/ArrowLink";
 import type { HeadingCopy, LinkCopy } from "@/lib/cms/copy-types";
@@ -31,11 +31,12 @@ export function Founder({ team, copy }: { team: TeamMember[]; copy: HeadingCopy 
             <li key={m.name} data-reveal style={{ ["--reveal-delay" as string]: `${i * 90}ms` }}>
               <article className="card shadow-soft grid h-full overflow-hidden sm:grid-cols-[minmax(0,0.4fr)_minmax(0,0.6fr)]">
                 <div className="relative aspect-[4/5] bg-raised sm:aspect-auto sm:min-h-[320px]">
-                  <Image
+                  <CoverImage
                     src={m.photo}
                     alt={`${m.name}, ${m.role}`}
-                    fill
                     sizes="(min-width: 1024px) 22vw, (min-width: 640px) 40vw, 90vw"
+                    width={800}
+                    height={1000}
                     className="object-cover object-[center_20%]"
                   />
                 </div>

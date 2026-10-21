@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import { CoverImage } from "@/components/ui/CoverImage";
 import { notFound } from "next/navigation";
 import { PageHero } from "@/components/ui/PageHero";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -8,6 +8,7 @@ import { PostComments } from "@/components/sections/PostComments";
 import { PostNav } from "@/components/sections/PostNav";
 import { site } from "@/content/site";
 import { shareMetadata } from "@/lib/seo/share";
+import { customSeoTitle } from "@/lib/seo/titles";
 import { blogCopy } from "@/content/copy/blog";
 import { getCopy } from "@/lib/cms/copy";
 import { getSiteChrome } from "@/lib/cms/site";
@@ -32,9 +33,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const post = await cms.getPost(slug);
   if (!post) return {};
   const description = metaDescription(post.seo.description, post.excerpt);
+  // the SEO title an editor wrote in Yoast is used as written: it is shorter than
+  // the headline and says it differently, so the tab and the H1 are not one line twice
+  const seoTitle = customSeoTitle(post.seo.title, post.title);
   return {
     // Google shows about 60 characters; a long post title drops the " · SoftVolt AI" suffix instead of being cut off
-    title: post.title.length > 46 ? { absolute: post.title } : post.title,
+    title: seoTitle ? { absolute: seoTitle } : post.title.length > 46 ? { absolute: post.title } : post.title,
     description,
     alternates: { canonical: `/blog/${slug}` },
     // the card itself, featured image included, is this folder's opengraph-image
@@ -137,7 +141,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           {post.image ? (
             <figure className="mt-9 overflow-hidden rounded-lg border border-line bg-raised" data-reveal>
               <div className="relative aspect-[16/9]">
-                <Image src={post.image.src} alt={post.image.alt || post.title} fill sizes="(min-width: 1024px) 66vw, 100vw" className="object-cover" priority />
+                <CoverImage src={post.image.src} alt={post.image.alt || post.title} sizes="(min-width: 1024px) 66vw, 100vw" className="object-cover" priority />
               </div>
             </figure>
           ) : null}

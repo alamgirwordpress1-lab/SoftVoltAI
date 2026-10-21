@@ -209,8 +209,8 @@ export const POSTS = /* GraphQL */ `
         dateGmt
         modifiedGmt
         featuredImage { node { sourceUrl altText } }
-        categories { nodes { name slug } }
-        tags { nodes { name slug } }
+        categories { nodes { name slug count } }
+        tags { nodes { name slug count } }
         author { node { name } }
       }
     }
@@ -228,8 +228,8 @@ export const POST_BY_SLUG = /* GraphQL */ `
       dateGmt
       modifiedGmt
       featuredImage { node { sourceUrl altText } }
-      categories { nodes { name slug } }
-      tags { nodes { name slug } }
+      categories { nodes { name slug count } }
+      tags { nodes { name slug count } }
       author { node { name } }
       commentStatus
       comments(first: 100, where: { order: ASC, orderby: COMMENT_DATE }) {
@@ -270,6 +270,7 @@ export const PRODUCTS = /* GraphQL */ `
         productCopy
         featuredImage { node { sourceUrl altText mediaDetails { width height } } }
         productGroups { nodes { slug } }
+        seo { title }
       }
     }
     productGroups(first: 50, where: { hideEmpty: false }) {

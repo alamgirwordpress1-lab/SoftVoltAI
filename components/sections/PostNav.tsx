@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Image from "next/image";
+import { CoverImage } from "@/components/ui/CoverImage";
 import type { WpPostCard } from "@/lib/cms/wordpress";
 
 /**
@@ -49,7 +49,7 @@ function NavCard({ post, label, side }: { post: WpPostCard; label: string; side:
     >
       {post.image ? (
         <span className="relative block h-16 w-16 shrink-0 overflow-hidden rounded-md bg-raised">
-          <Image src={post.image.src} alt={post.image.alt || post.title} fill sizes="160px" className="object-cover" />
+          <CoverImage src={post.image.src} alt={post.image.alt || post.title} sizes="160px" className="object-cover" width={256} height={256} />
         </span>
       ) : null}
       <span className="min-w-0">

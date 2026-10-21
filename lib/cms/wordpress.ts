@@ -5,6 +5,7 @@ import { lines, plain, wpQuery, wpReady, wpTry } from "@/lib/wp/client";
 import { AGENCY_TYPES, ALL_SLUGS, CASE_STUDIES, MENUS, PAGE_BY_URI, POST_BY_SLUG, POSTS, PRODUCTS, SERVICES, SIMPLE_COLLECTIONS, SITE_SETTINGS } from "@/lib/wp/queries";
 import { mergeCopy, type Raw } from "@/lib/cms/copy";
 import { productTemplate } from "@/content/copy/product";
+import { customSeoTitle } from "@/lib/seo/titles";
 
 /**
  * WordPress, mapped onto the types the pages already use.
@@ -303,6 +304,9 @@ export async function wpWork(): Promise<WpWork | null> {
     // WordPress shrinks tall uploads (full-page screenshots) to a "-scaled" copy and keeps the
     // original beside it, so point at the original to keep the screenshot sharp.
     image: node.featuredImage?.node?.sourceUrl?.replace(/-scaled(\.[a-z0-9]+)$/i, "$1") || undefined,
+    // the full-page screenshot is hundreds of kilobytes; lists and banners show the
+    // top of it, cut once by app/shots, and only load the whole page when hovered
+    thumb: node.featuredImage?.node?.sourceUrl ? `/shots/${node.slug}.webp` : undefined,
     role: plain(node.caseStudyFields?.role ?? ""),
     delivered: lines(node.caseStudyFields?.delivered),
   }));
@@ -437,6 +441,8 @@ export async function wpCollections(): Promise<WpCollections | null> {
  * own site name and hostname, which are not this site's.
  */
 export interface WpSeo {
+  /** Yoast's title as WPGraphQL prints it; lib/seo/titles.ts tells an editor's own title from the template. */
+  title: string;
   description: string;
   ogTitle: string;
   ogDescription: string;
@@ -455,10 +461,18 @@ export interface WpPostCard {
   date: string;
   modified: string;
   image: WpImage | null;
-  categories: { name: string; slug: string }[];
+  /** `count` is how many published posts the topic has: its page is only linked once it is indexed. */
+  categories: WpTopic[];
   /** WordPress tags, which the blog sidebar lists beside the categories. */
-  tags: { name: string; slug: string }[];
+  tags: WpTopic[];
   author: string;
+}
+
+/** A category or tag a post is filed under. */
+export interface WpTopic {
+  name: string;
+  slug: string;
+  count?: number;
 }
 
 /** One approved comment, as the post page shows it. */
@@ -525,6 +539,14 @@ interface RawComment {
   author: { node: { name: string } | null } | null;
 }
 
+interface RawTopic {
+  name: string;
+  slug: string;
+  count?: number | null;
+}
+
+const toTopic = (t: RawTopic): WpTopic => ({ name: plain(t.name), slug: t.slug, count: t.count ?? 0 });
+
 interface RawPost {
   databaseId?: number;
   slug: string;
@@ -536,8 +558,8 @@ interface RawPost {
   dateGmt: string | null;
   modifiedGmt: string | null;
   featuredImage: RawImage | null;
-  categories: { nodes: { name: string; slug: string }[] } | null;
-  tags?: { nodes: { name: string; slug: string }[] } | null;
+  categories: { nodes: RawTopic[] } | null;
+  tags?: { nodes: RawTopic[] } | null;
   author: { node: { name: string } | null } | null;
   seo?: RawSeo | null;
 }
@@ -550,6 +572,7 @@ function gmt(value: string | null | undefined): string {
 
 function toSeo(raw: RawSeo | null | undefined): WpSeo {
   return {
+    title: plain(raw?.title ?? ""),
     description: plain(raw?.metaDesc ?? ""),
     ogTitle: plain(raw?.opengraphTitle ?? ""),
     ogDescription: plain(raw?.opengraphDescription ?? ""),
@@ -569,8 +592,8 @@ function toCard(node: RawPost): WpPostCard {
     date: gmt(node.dateGmt),
     modified: gmt(node.modifiedGmt),
     image: toImage(node.featuredImage),
-    categories: (node.categories?.nodes ?? []).map((c) => ({ name: plain(c.name), slug: c.slug })),
-    tags: (node.tags?.nodes ?? []).map((t) => ({ name: plain(t.name), slug: t.slug })),
+    categories: (node.categories?.nodes ?? []).map(toTopic),
+    tags: (node.tags?.nodes ?? []).map(toTopic),
     author: plain(node.author?.node?.name ?? ""),
   };
 }
@@ -725,6 +748,7 @@ interface RawProduct {
   productCopy: string | null;
   featuredImage: { node: { sourceUrl: string | null; altText: string | null; mediaDetails: { width: number | null; height: number | null } | null } } | null;
   productGroups: { nodes: { slug: string }[] } | null;
+  seo?: { title: string | null } | null;
 }
 
 export interface WpProducts {
@@ -787,6 +811,7 @@ function toProduct(node: RawProduct): { product: Product; detail: ProductDetail 
 
   const detail: ProductDetail = {
     title: c.banner.title || name,
+    seoTitle: customSeoTitle(node.seo?.title, name) || undefined,
     intro: c.banner.intro,
     seo: c.banner.seo || product.tagline,
     actions: c.banner.buttons

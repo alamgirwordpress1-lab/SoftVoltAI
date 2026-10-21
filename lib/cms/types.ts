@@ -76,8 +76,14 @@ export interface WorkItem {
   summary: string;
   stack: string[];
   url?: string;
-  /** Screenshot of the live site, 1440×900, under /public. */
+  /** Screenshot of the live site: a 1440×900 crop under /public, or a full-page capture from WordPress. */
   image?: string;
+  /**
+   * The top of a full-page screenshot, 1200×750 and a few dozen kilobytes, for
+   * cards and banners. Set when `image` is the whole page; a crop under /public
+   * needs none.
+   */
+  thumb?: string;
   /** The founder's role on the project. */
   role: string;
   /** What was built — facts only, no metrics we cannot show. */
@@ -263,6 +269,8 @@ export interface ProductPlan {
 export interface ProductDetail {
   /** The H1: the product and the platform, "SoftVoltAI Voice Agent for WordPress". */
   title: string;
+  /** The <title>, when an editor wrote one in Yoast that differs from the H1. */
+  seoTitle?: string;
   /** Two sentences: what it does and for whom. */
   intro: string;
   /** SEO description, under 160 characters. */

@@ -1,10 +1,15 @@
 import type { NextConfig } from "next";
 import path from "path";
 
-const securityHeaders = [
+/** The three every response needs, scripts and pictures included: a crawler checks them on everything. */
+const baseSecurityHeaders = [
   { key: "X-Content-Type-Options", value: "nosniff" },
   { key: "X-Frame-Options", value: "SAMEORIGIN" },
   { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+];
+
+const securityHeaders = [
+  ...baseSecurityHeaders,
   // the microphone is allowed for this origin only: Volt, the site's assistant, listens when a visitor talks to it
   { key: "Permissions-Policy", value: "camera=(), microphone=(self), geolocation=()" },
   // HTTPS only, for two years, on this host and anything under it
@@ -54,8 +59,10 @@ const nextConfig: NextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
     // next/image puts the largest width in the plain src that crawlers and old browsers fetch.
-    // Capping it at 1920 keeps the full-page client screenshots well under the old 3840px files.
-    deviceSizes: [640, 750, 828, 1080, 1200, 1920],
+    // 1440 covers the widest picture on the site (a banner at about 1100px) on a sharp laptop
+    // screen, and keeps every src under 100 kB: at 1920 the blog and guide pictures were
+    // 120–140 kB, which Screaming Frog reports as "Images over 100 kB".
+    deviceSizes: [640, 750, 828, 1080, 1200, 1440],
     // media lives on the WordPress install; Next optimises it and caches the
     // result at the edge, so the CMS serves each original once
     remotePatterns: [{ protocol: "https", hostname: "cms.softvoltai.com", pathname: "/wp-content/uploads/**" }],
@@ -67,6 +74,10 @@ const nextConfig: NextConfig = {
   async headers() {
     return [
       { source: "/(.*)", headers: securityHeaders },
+      // Vercel serves the scripts under /_next/static and the pictures /_next/image
+      // makes before these rules run, so they never got the headers above. vercel.json
+      // adds the three basic ones there; this line covers the same files anywhere else.
+      { source: "/_next/:path*", headers: baseSecurityHeaders },
       ...(isPreviewDeployment ? [{ source: "/(.*)", headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }] }] : []),
       // Pictures in /public keep their names across deploys, so a browser keeps
       // them a day and refreshes them in the background for a week after. The

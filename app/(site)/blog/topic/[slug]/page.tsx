@@ -8,6 +8,7 @@ import { blogCopy } from "@/content/copy/blog";
 import { cms } from "@/lib/cms";
 import { getCopy } from "@/lib/cms/copy";
 import type { WpPostCard } from "@/lib/cms/wordpress";
+import { TOPIC_INDEX_MIN } from "@/lib/seo/titles";
 
 /** A topic added after the last build renders on first request, then caches. */
 export const dynamicParams = true;
@@ -38,8 +39,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     description: copy.topic.lede,
     alternates: { canonical: `/blog/topic/${slug}` },
     // a topic with a handful of posts is a thin list of links the blog already
-    // has: kept out of the index until it has five, its links still followed
-    ...(filed(posts, slug).length < 5 ? { robots: { index: false, follow: true } } : {}),
+    // has: kept out of the index until it has five, its links still followed.
+    // Nothing links here until then either (components/ui/TopicChip.tsx).
+    ...(filed(posts, slug).length < TOPIC_INDEX_MIN ? { robots: { index: false, follow: true } } : {}),
   };
 }
 
