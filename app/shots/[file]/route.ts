@@ -8,8 +8,9 @@ import { cms } from "@/lib/cms";
  * next/image has resized them. The cards on the home page and /case-studies,
  * the banner of each case study and its "related" cards only show the top
  * 16:10 of it until someone hovers, so that is all they load: this cut, about
- * 40–80 kB. The whole page is fetched on hover (components/ui/ScreenshotPan).
- * A phone, which cannot hover, never downloads it at all.
+ * 25–85 kB, under the 100 kB a crawler flags. The whole page is fetched on
+ * hover (components/ui/ScreenshotPan). A phone, which cannot hover, never
+ * downloads it at all.
  *
  * Every case study is cut at build time and kept for a day; one added later is
  * cut on its first request.
@@ -37,7 +38,7 @@ export async function GET(_request: Request, { params }: { params: Promise<{ fil
     if (!res.ok) throw new Error(`${res.status} for ${item.image}`);
     const cut = await sharp(Buffer.from(await res.arrayBuffer()), { limitInputPixels: false })
       .resize(WIDTH, HEIGHT, { fit: "cover", position: "top" })
-      .webp({ quality: 72 })
+      .webp({ quality: 66 })
       .toBuffer();
     return new Response(new Uint8Array(cut), {
       headers: {
