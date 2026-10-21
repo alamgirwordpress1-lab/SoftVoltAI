@@ -800,3 +800,15 @@ details.faq[open] .faq-body {
 .grecaptcha-badge {
   visibility: hidden;
 }
+
+/* ---------- cookie banner (CookieYes) on phones ----------
+   The banner's paragraph was the largest block of text on a phone's first
+   screen, so PageSpeed timed the page by it. Set a size smaller than the hero
+   copy: it reads as the small print it is, and the hero is timed instead. */
+@media (max-width: 767px) {
+  .cky-notice-des,
+  .cky-notice-des p {
+    font-size: 12px !important;
+    line-height: 1.45 !important;
+  }
+}
