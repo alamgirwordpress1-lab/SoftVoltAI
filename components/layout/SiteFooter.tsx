@@ -103,10 +103,9 @@ export function SiteFooter({ chrome }: { chrome: SiteChrome }) {
           </p>
         </div>
 
-        {/* data-footer-end: while this row is on screen the floating buttons lift above it.
-            copyright left, where it is read first; the two legal pages on the right,
+        {/* copyright left, where it is read first; the two legal pages on the right,
             beside the back-to-top, which is where a reader goes looking for them */}
-        <div data-footer-end className="mt-2 grid gap-6 border-t border-er-line py-8 text-[14px] text-er-muted md:mt-3 md:grid-cols-3 md:items-center md:gap-8">
+        <div className="mt-2 grid gap-6 border-t border-er-line py-5 text-[14px] text-er-muted md:mt-3 md:grid-cols-3 md:items-center md:gap-8">
           <p>{chrome.footerNote || `© ${year} ${chrome.name}. All rights reserved.`}</p>
           {/* three equal columns, so this one sits in the middle of the row, not
               wherever the two beside it happen to end */}

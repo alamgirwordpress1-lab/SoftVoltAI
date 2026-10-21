@@ -22,7 +22,6 @@
   transition:
     opacity 200ms var(--ease-hover),
     transform 250ms var(--ease-out-quart),
-    translate 350ms var(--ease-out-quint),
     border-color 200ms var(--ease-hover),
     color 200ms var(--ease-hover),
     visibility 0s linear 250ms;
@@ -71,9 +70,4 @@ html[data-volt-open] .back-to-top {
   .back-to-top {
     transition: none;
   }
-}
-
-/* At the foot of the page it lifts with the voice agent button, clear of the legal links. */
-html[data-footer-end] .back-to-top {
-  translate: 0 -76px;
 }
