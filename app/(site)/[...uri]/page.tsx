@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import { CoverImage } from "@/components/ui/CoverImage";
 import { notFound } from "next/navigation";
 import { PageHero } from "@/components/ui/PageHero";
 import { PageIntro } from "@/components/ui/PageIntro";
@@ -106,7 +106,7 @@ export default async function WordPressPage({ params }: { params: Promise<{ uri:
         <section className="container-x pt-14 md:pt-20" aria-label={`${page.title} image`}>
           <div className="card shadow-float overflow-hidden" data-reveal>
             <div className="relative aspect-[16/9] bg-raised">
-              <Image src={page.image.src} alt={page.image.alt || page.title} fill sizes="(min-width: 1024px) 80vw, 100vw" className="object-cover" priority />
+              <CoverImage src={page.image.src} alt={page.image.alt || page.title} sizes="(min-width: 1024px) 80vw, 100vw" className="object-cover" priority />
             </div>
           </div>
         </section>
