@@ -112,7 +112,8 @@ export function SiteFooter({ chrome }: { chrome: SiteChrome }) {
           <p className="mono uppercase tracking-[0.1em] md:text-center">
             {chrome.location} · {chrome.utcOffset} · UK &amp; US overlap
           </p>
-          <div className="flex flex-wrap items-center gap-x-5 gap-y-3 md:justify-self-end">
+          {/* md:pr-28 keeps the legal links clear of most of the fixed voice agent button */}
+          <div className="flex flex-wrap items-center gap-x-5 gap-y-3 md:justify-self-end md:pr-28">
             {chrome.legalLinks.length ? (
               <nav aria-label="Legal">
                 <ul className="flex flex-wrap gap-x-5 gap-y-1">
