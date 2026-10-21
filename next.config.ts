@@ -74,9 +74,9 @@ const nextConfig: NextConfig = {
   async headers() {
     return [
       { source: "/(.*)", headers: securityHeaders },
-      // On Vercel the rule above never reaches the scripts under /_next/static or the
-      // pictures /_next/image makes, so they went out without these headers. Named here,
-      // they get them too. Cache-Control is left alone: those files set their own.
+      // Vercel serves the scripts under /_next/static and the pictures /_next/image
+      // makes before these rules run, so they never got the headers above. vercel.json
+      // adds the three basic ones there; this line covers the same files anywhere else.
       { source: "/_next/:path*", headers: baseSecurityHeaders },
       ...(isPreviewDeployment ? [{ source: "/(.*)", headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }] }] : []),
       // Pictures in /public keep their names across deploys, so a browser keeps
