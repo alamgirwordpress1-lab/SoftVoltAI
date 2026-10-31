@@ -1,0 +1,273 @@
+{
+	"schema": 1,
+	"version": "2026.10.16",
+	"checked": "2026-10-16",
+	"providers": [
+		{
+			"id": "openrouter",
+			"name": "OpenRouter (free models)",
+			"group": "free",
+			"api": "openai",
+			"base_url": "https://openrouter.ai/api/v1",
+			"default_model": "qwen/qwen3.8-27b:free",
+			"live_models": true,
+			"models": [
+				{
+					"id": "qwen/qwen3.8-27b:free",
+					"label": "Qwen 3.8 27B (free)"
+				},
+				{
+					"id": "nvidia/nemotron-3-super-120b-a12b:free",
+					"label": "Nemotron 3 Super 120B (free)"
+				},
+				{
+					"id": "google/gemma-4-31b-it:free",
+					"label": "Gemma 4 31B (free)"
+				},
+				{
+					"id": "openrouter/free",
+					"label": "Any free model (OpenRouter chooses)"
+				}
+			],
+			"summary": "Many open models for free with one key. Good for a first opinion on suspicious files; paid models catch more and explain better.",
+			"limits": "Free models allow about 20 requests a minute and 50 a day, or 1,000 a day once you have bought $10 of credits. Each analysed finding is one request.",
+			"privacy": "Some free models are run by providers that may keep or learn from what is sent. Only the suspicious code snippets are sent, never your keys or database contents.",
+			"steps": [
+				"Create a free account at openrouter.ai.",
+				"Open Keys and press Create key. Name it after your site.",
+				"Copy the key (it starts with sk-or-), paste it into the API key box below and save.",
+				"Press Test connection. If a free model is busy, pick another one from the list."
+			],
+			"key_url": "https://openrouter.ai/keys",
+			"signup_url": "https://openrouter.ai/",
+			"terms_url": "https://openrouter.ai/terms",
+			"privacy_url": "https://openrouter.ai/privacy",
+			"request": {
+				"token_param": "max_tokens",
+				"temperature": true
+			}
+		},
+		{
+			"id": "groq",
+			"name": "Groq (free plan)",
+			"group": "free",
+			"api": "openai",
+			"base_url": "https://api.groq.com/openai/v1",
+			"default_model": "openai/gpt-oss-120b",
+			"models": [
+				{
+					"id": "openai/gpt-oss-120b",
+					"label": "GPT-OSS 120B",
+					"request": {
+						"extra": {
+							"reasoning_effort": "medium"
+						}
+					}
+				},
+				{
+					"id": "qwen/qwen3.8-27b",
+					"label": "Qwen 3.8 27B"
+				},
+				{
+					"id": "openai/gpt-oss-20b",
+					"label": "GPT-OSS 20B (fastest)",
+					"request": {
+						"extra": {
+							"reasoning_effort": "low"
+						}
+					}
+				}
+			],
+			"summary": "Very fast answers, so a batch of findings is analysed in seconds. The free plan needs no card.",
+			"limits": "The free plan allows about 30 requests a minute and 1,000 a day for each model.",
+			"privacy": "Groq runs the models on its own servers. Only the suspicious code snippets are sent.",
+			"steps": [
+				"Sign up at console.groq.com (a Google or GitHub account works).",
+				"Open API Keys and press Create API Key.",
+				"Copy the key (it starts with gsk_), paste it into the API key box below and save.",
+				"Press Test connection."
+			],
+			"key_url": "https://console.groq.com/keys",
+			"signup_url": "https://console.groq.com/",
+			"terms_url": "https://groq.com/terms-of-use",
+			"privacy_url": "https://groq.com/privacy-policy",
+			"request": {
+				"token_param": "max_tokens",
+				"temperature": true
+			}
+		},
+		{
+			"id": "gemini",
+			"name": "Google Gemini (free tier)",
+			"group": "free",
+			"api": "openai",
+			"base_url": "https://generativelanguage.googleapis.com/v1beta/openai",
+			"default_model": "gemini-3.8-flash",
+			"models": [
+				{
+					"id": "gemini-3.8-flash",
+					"label": "Gemini 3.8 Flash"
+				},
+				{
+					"id": "gemini-3.5-flash-lite",
+					"label": "Gemini 3.5 Flash-Lite (fastest)"
+				},
+				{
+					"id": "gemini-2.5-flash",
+					"label": "Gemini 2.5 Flash"
+				}
+			],
+			"summary": "Google's fast models with a generous context window. The free tier needs only a Google account.",
+			"limits": "The free tier has a daily limit for each model. Turn on billing in Google AI Studio to raise it.",
+			"privacy": "On the free tier Google may use what is sent to improve its products. With billing turned on, it does not.",
+			"steps": [
+				"Go to aistudio.google.com and sign in with a Google account.",
+				"Press Get API key, then Create API key.",
+				"Copy the key, paste it into the API key box below and save.",
+				"Press Test connection."
+			],
+			"key_url": "https://aistudio.google.com/apikey",
+			"signup_url": "https://aistudio.google.com/",
+			"terms_url": "https://ai.google.dev/gemini-api/terms",
+			"privacy_url": "https://policies.google.com/privacy",
+			"request": {
+				"token_param": "max_tokens",
+				"temperature": true,
+				"extra": {
+					"reasoning_effort": "low"
+				}
+			}
+		},
+		{
+			"id": "anthropic",
+			"name": "Anthropic (Claude)",
+			"group": "pro",
+			"api": "anthropic",
+			"base_url": "https://api.anthropic.com/v1",
+			"default_model": "claude-opus-5-5",
+			"models": [
+				{
+					"id": "claude-opus-5-5",
+					"label": "Claude Opus 5.5 (recommended analyst)",
+					"request": {
+						"fallbacks": "default"
+					}
+				},
+				{
+					"id": "claude-sonnet-5-5",
+					"label": "Claude Sonnet 5.5 (fast, balanced)",
+					"request": {
+						"fallbacks": "default"
+					}
+				},
+				{
+					"id": "claude-haiku-5-5",
+					"label": "Claude Haiku 5.5 (lowest cost)"
+				},
+				{
+					"id": "claude-fable-5-1",
+					"label": "Claude Fable 5.1 (most capable)",
+					"request": {
+						"fallbacks": "default"
+					}
+				}
+			],
+			"summary": "The best code reader for malware analysis: careful verdicts, few false positives and clear cleanup advice. Pay as you go.",
+			"limits": "Pay as you go. Add credit under Billing before the key works. A full analysis of 20 findings costs cents on Opus 5.5.",
+			"privacy": "Anthropic does not train on API data by default. Only the suspicious code snippets and site facts are sent.",
+			"steps": [
+				"Sign in at platform.claude.com.",
+				"Add credit under Billing.",
+				"Open API keys, press Create key and copy it (it starts with sk-ant-).",
+				"Paste it into the API key box below, save and press Test connection."
+			],
+			"key_url": "https://platform.claude.com/settings/keys",
+			"signup_url": "https://platform.claude.com/",
+			"terms_url": "https://www.anthropic.com/legal/commercial-terms",
+			"privacy_url": "https://www.anthropic.com/legal/privacy",
+			"request": {}
+		},
+		{
+			"id": "openai",
+			"name": "OpenAI (GPT)",
+			"group": "pro",
+			"api": "openai",
+			"base_url": "https://api.openai.com/v1",
+			"default_model": "gpt-6-sol",
+			"models": [
+				{
+					"id": "gpt-6-sol",
+					"label": "GPT-6 Sol (balanced)"
+				},
+				{
+					"id": "gpt-6-luna",
+					"label": "GPT-6 Luna (fast, low cost)"
+				},
+				{
+					"id": "gpt-6-astra",
+					"label": "GPT-6 Astra (most capable)"
+				}
+			],
+			"summary": "OpenAI's GPT models. Pay as you go.",
+			"limits": "Pay as you go. Add credit under Billing before the key works.",
+			"privacy": "OpenAI does not train on API data by default. Only the suspicious code snippets and site facts are sent.",
+			"steps": [
+				"Sign in at platform.openai.com.",
+				"Add credit under Settings, Billing.",
+				"Open API keys, press Create new secret key and copy it (it starts with sk-).",
+				"Paste it into the API key box below, save and press Test connection."
+			],
+			"key_url": "https://platform.openai.com/api-keys",
+			"signup_url": "https://platform.openai.com/",
+			"terms_url": "https://openai.com/policies/services-agreement/",
+			"privacy_url": "https://openai.com/policies/privacy-policy/",
+			"request": {
+				"token_param": "max_completion_tokens",
+				"temperature": false,
+				"extra": {
+					"reasoning_effort": "medium"
+				}
+			}
+		},
+		{
+			"id": "deepseek",
+			"name": "DeepSeek",
+			"group": "pro",
+			"api": "openai",
+			"base_url": "https://api.deepseek.com",
+			"default_model": "deepseek-v4-pro",
+			"models": [
+				{
+					"id": "deepseek-v4-pro",
+					"label": "DeepSeek V4 Pro"
+				},
+				{
+					"id": "deepseek-flash",
+					"label": "DeepSeek Flash (lowest cost)"
+				}
+			],
+			"summary": "Strong code reading at a very low price. Pay as you go.",
+			"limits": "Pay as you go: a small balance, such as $2, lasts a long time.",
+			"privacy": "DeepSeek processes requests on its own servers. Only the suspicious code snippets and site facts are sent.",
+			"steps": [
+				"Create an account at platform.deepseek.com.",
+				"Add a balance under Top up. A few dollars is enough to start.",
+				"Open API Keys, press Create new API key and copy it (it starts with sk-).",
+				"Paste it into the API key box below, save and press Test connection."
+			],
+			"key_url": "https://platform.deepseek.com/api_keys",
+			"signup_url": "https://platform.deepseek.com/",
+			"terms_url": "https://cdn.deepseek.com/policies/en-US/deepseek-open-platform-terms-of-service.html",
+			"privacy_url": "https://cdn.deepseek.com/policies/en-US/deepseek-privacy-policy.html",
+			"request": {
+				"token_param": "max_tokens",
+				"temperature": true,
+				"extra": {
+					"thinking": {
+						"type": "disabled"
+					}
+				}
+			}
+		}
+	]
+}
