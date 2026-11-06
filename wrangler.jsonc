@@ -25,10 +25,14 @@
   // next/image optimisation through Cloudflare Images.
   "images": { "binding": "IMAGES" },
   "observability": { "enabled": true },
-  // Public settings. Secrets (API keys, WP_PREVIEW_SECRET, the GraphQL URL) are set
-  // in the Cloudflare dashboard under Settings > Variables and Secrets.
+  // Keep variables added in the dashboard (Settings > Variables and Secrets) on deploy.
+  "keep_vars": true,
+  // Public settings. Secrets (API keys, WP_PREVIEW_SECRET, webhook secrets) are set
+  // in the Cloudflare dashboard as encrypted secrets, never here.
   "vars": {
     "NEXT_PUBLIC_SITE_URL": "https://www.softvoltai.com",
+    "WP_GRAPHQL_URL": "https://cms.softvoltai.com/graphql",
+    "WP_REST_URL": "https://cms.softvoltai.com/wp-json",
     // WordPress pushes every save to /api/revalidate, so the timed refresh is only a
     // safety net. A day keeps Workers KV under its free 1,000 writes a day.
     "WP_REVALIDATE_SECONDS": "86400"
