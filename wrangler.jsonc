@@ -13,10 +13,10 @@
     // The service name must match "name" above.
     { "binding": "WORKER_SELF_REFERENCE", "service": "softvoltai" }
   ],
-  // Page and data cache. Wrangler creates the namespace on the first deploy.
-  "kv_namespaces": [{ "binding": "NEXT_INC_CACHE_KV" }],
+  // Page and data cache (Workers KV namespace "softvoltai-next-cache").
+  "kv_namespaces": [{ "binding": "NEXT_INC_CACHE_KV", "id": "34ea6a89171b498282f11644968ad272" }],
   // Cache tags for on-demand revalidation from WordPress.
-  "d1_databases": [{ "binding": "NEXT_TAG_CACHE_D1", "database_name": "softvoltai-tag-cache" }],
+  "d1_databases": [{ "binding": "NEXT_TAG_CACHE_D1", "database_name": "softvoltai-tag-cache", "database_id": "bf8f8f58-f856-4bac-8d7e-ed97bf1c7214" }],
   // Background revalidation queue.
   "durable_objects": {
     "bindings": [{ "name": "NEXT_CACHE_DO_QUEUE", "class_name": "DOQueueHandler" }]
