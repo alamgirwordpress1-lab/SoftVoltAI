@@ -28,14 +28,26 @@ export interface RatesCopy extends LinkedHeadingCopy {
   note: string;
 }
 
-export function Rates({ models, copy, showHeading = true }: { models: EngagementModel[]; copy: RatesCopy; showHeading?: boolean }) {
+export function Rates({
+  models,
+  copy,
+  showHeading = true,
+  tone = "base",
+}: {
+  models: EngagementModel[];
+  copy: RatesCopy;
+  showHeading?: boolean;
+  /** "alt" sets the section on the full-bleed white band, for alternating grounds on the home page. */
+  tone?: "base" | "alt";
+}) {
   return (
     <section
       id="rates"
-      className={showHeading ? "section container-x" : "container-x py-14 md:py-20"}
+      className={cn(showHeading ? "section" : "py-14 md:py-20", tone === "alt" && "section-alt")}
       aria-labelledby={showHeading ? "rates-title" : undefined}
       aria-label={showHeading ? undefined : "Engagement models"}
     >
+      <div className="container-x">
       {showHeading ? (
         <SectionHeading
           eyebrow={copy.eyebrow}
@@ -101,6 +113,7 @@ export function Rates({ models, copy, showHeading = true }: { models: Engagement
           {copy.note}
         </p>
       ) : null}
+      </div>
     </section>
   );
 }

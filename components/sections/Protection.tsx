@@ -8,14 +8,17 @@ export function Protection({
   copy,
   /** The security page carries these same clauses, so it does not link to itself. */
   linkToSecurity = true,
+  /** "alt" sets the section on the full-bleed white band, for alternating grounds on the home page. */
+  tone = "base",
 }: {
   clauses: { title: string; body: string }[];
   copy: LinkedHeadingCopy & { artefact: string };
   linkToSecurity?: boolean;
+  tone?: "base" | "alt";
 }) {
   return (
-    <section id="protection" className="section container-x" aria-labelledby="protection-title">
-      <div className="grid gap-10 lg:grid-cols-12 lg:gap-12">
+    <section id="protection" className={tone === "alt" ? "section section-alt" : "section"} aria-labelledby="protection-title">
+      <div className="container-x grid gap-10 lg:grid-cols-12 lg:gap-12">
         <div className="lg:col-span-5">
           <SectionHeading
             eyebrow={copy.eyebrow}
