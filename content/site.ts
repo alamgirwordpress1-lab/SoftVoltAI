@@ -35,8 +35,12 @@ export const site = {
    * organisation schema: they tell search engines these accounts and this site
    * are the same business. Only profiles that exist and belong to the company.
    */
-  // TODO(owner): add the LinkedIn company page, Clutch and GoodFirms profile URLs once they exist.
-  sameAs: ["https://www.facebook.com/softvoltai/"] as string[],
+  // TODO(owner): add the LinkedIn company page and GoodFirms profile URLs once they exist.
+  sameAs: [
+    "https://www.facebook.com/softvoltai/",
+    "https://www.crunchbase.com/organization/softvolt-ai",
+    "https://clutch.co/profile/softvolt-ai",
+  ] as string[],
 };
 
 /**

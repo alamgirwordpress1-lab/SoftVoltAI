@@ -49,9 +49,10 @@ const isPreviewDeployment = Boolean(process.env.VERCEL_ENV) && process.env.VERCE
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
-  // the site's CSS goes into the HTML instead of four separate files the browser
-  // must fetch before it can paint: removes the render-blocking requests on mobile
-  experimental: { inlineCss: true },
+  // inlineCss is off: it copied the whole stylesheet (~90 kB) into every page's
+  // HTML and into every route's server manifest. Pages were 600–900 kB of HTML and
+  // the server bundle outgrew the 3 MB Cloudflare Workers free-plan limit. The CSS
+  // is now one hashed, immutable file the browser caches after the first page.
   // OneDrive + Windows: pin the tracing/turbopack root so Next never walks up
   // into the home directory looking for a lockfile.
   outputFileTracingRoot: path.join(process.cwd()),
