@@ -33,6 +33,13 @@
     "NEXT_PUBLIC_SITE_URL": "https://www.softvoltai.com",
     "WP_GRAPHQL_URL": "https://cms.softvoltai.com/graphql",
     "WP_REST_URL": "https://cms.softvoltai.com/wp-json",
+    // Contact Form 7 on the CMS: "Project brief (order form)" and "Contact enquiry"
+    "CF7_BASE_URL": "https://cms.softvoltai.com",
+    "CF7_BRIEF_FORM_ID": "145",
+    "CF7_CONTACT_FORM_ID": "146",
+    // Resend fallback addresses, used only when Contact Form 7 cannot deliver
+    "BRIEF_TO_EMAIL": "hello@softvoltai.com",
+    "BRIEF_FROM_EMAIL": "briefs@softvoltai.com",
     // WordPress pushes every save to /api/revalidate, so the timed refresh is only a
     // safety net. A day keeps Workers KV under its free 1,000 writes a day.
     "WP_REVALIDATE_SECONDS": "86400"
