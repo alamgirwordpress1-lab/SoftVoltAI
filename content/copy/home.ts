@@ -44,9 +44,9 @@ export const homeCopy = page("home", "/", "Home", {
         "Facts",
         "Fact",
         { value: { label: "Number", kind: "text" }, label: { label: "What it counts", kind: "text" } },
-        [],
+        [{ value: "300+", label: "websites delivered for clients worldwide" }],
         {
-          help: "Up to four, such as 120+ / sites delivered for agencies. Only numbers you can stand behind. Leave empty and the row counts plugins, plugins on WordPress.org, case studies and services from the site itself.",
+          help: "Up to four, such as 120+ / sites delivered for agencies. Only numbers you can stand behind. Any slots left over are filled with figures counted from the site itself: plugins, plugins on WordPress.org and case studies.",
           slots: 4,
         },
       ),

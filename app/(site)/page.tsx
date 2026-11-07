@@ -42,19 +42,16 @@ export default async function HomePage() {
     cms.getProducts(),
   ]);
 
-  // Typed in WordPress when there are figures to stand behind; otherwise counted
-  // from the site itself, so the row is never empty and never invented.
+  // The typed facts lead (WordPress → Home → Facts row); the rest of the four
+  // slots are counted from the site itself, so no figure is ever invented.
   const onWpOrg = products.filter((p) => /wordpress\.org/i.test(p.availability)).length;
-  const serviceCount = pillars.reduce((n, p) => n + p.services.length, 0);
   const typed = copy.proof.stats.filter((s) => s.value && s.label);
-  const stats = typed.length
-    ? typed
-    : [
-        { value: String(products.length), label: "WordPress plugins we build and maintain" },
-        { value: String(onWpOrg), label: "approved and listed on WordPress.org" },
-        { value: String(work.length), label: "case studies you can open and check" },
-        { value: String(serviceCount), label: "services under one contract" },
-      ].filter((s) => s.value !== "0");
+  const counted = [
+    { value: String(products.length), label: "WordPress plugins we build and maintain" },
+    { value: String(onWpOrg), label: "plugins approved on WordPress.org" },
+    { value: String(work.length), label: "case studies you can open and check" },
+  ].filter((s) => s.value !== "0");
+  const stats = [...typed, ...counted].slice(0, 4);
 
   return (
     <>
