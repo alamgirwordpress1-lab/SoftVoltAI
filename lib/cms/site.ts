@@ -44,7 +44,7 @@ export interface SiteChrome {
   calUrl: string;
   url: string;
   markets: string[];
-  nav: { services: ChromeLink; agencies: ChromeLink; products: ChromeLink; caseStudies: ChromeLink; about: ChromeLink };
+  nav: { services: ChromeLink; agencies: ChromeLink; products: ChromeLink; caseStudies: ChromeLink; pricing: ChromeLink; about: ChromeLink };
   aboutLinks: ChromeLink[];
   headerCta: ChromeLink;
   cta: { primary: ChromeLink; secondary: ChromeLink };
@@ -81,7 +81,7 @@ const ICONS: Record<string, (typeof socials)[number]["icon"]> = {
   mail: "mail",
 };
 
-/** A WordPress header menu, matched onto the four slots the header renders. */
+/** A WordPress header menu, matched onto the slots the header renders. */
 function navFromMenu(items: WpMenuItem[]) {
   const find = (...needles: string[]) => items.find((item) => needles.some((n) => item.href.startsWith(n) || item.label.toLowerCase().includes(n)));
   return {
@@ -89,6 +89,7 @@ function navFromMenu(items: WpMenuItem[]) {
     agencies: find("/for", "agency", "solutions") ?? nav.agencies,
     products: find("/products", "product") ?? nav.products,
     caseStudies: find("/case-studies", "case") ?? nav.caseStudies,
+    pricing: find("/rates", "/pricing", "pricing", "rates") ?? nav.pricing,
     about: find("/about", "about") ?? nav.about,
   };
 }

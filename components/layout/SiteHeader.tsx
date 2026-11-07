@@ -109,6 +109,19 @@ export function SiteHeader({ chrome }: { chrome: SiteChrome }) {
               </Link>
             </li>
             <li>
+              <Link
+                href={nav.pricing.href}
+                aria-current={isActive(nav.pricing.href) ? "page" : undefined}
+                className={cn(
+                  "relative whitespace-nowrap text-[15px] transition-colors duration-150 hover:text-ink",
+                  "after:absolute after:-bottom-1.5 after:left-0 after:h-px after:w-full after:origin-left after:bg-accent after:transition-transform after:duration-300",
+                  isActive(nav.pricing.href) ? "text-ink after:scale-x-100" : "text-muted after:scale-x-0 hover:after:scale-x-100",
+                )}
+              >
+                {nav.pricing.label}
+              </Link>
+            </li>
+            <li>
               <NavDropdown label={nav.about.label} items={aboutLinks} active={isActive(nav.about.href)} />
             </li>
           </ul>
@@ -194,6 +207,9 @@ export function SiteHeader({ chrome }: { chrome: SiteChrome }) {
 
           <Link href={nav.caseStudies.href} onClick={close} className="block border-b border-line py-3.5 text-lg text-ink">
             {nav.caseStudies.label}
+          </Link>
+          <Link href={nav.pricing.href} onClick={close} className="block border-b border-line py-3.5 text-lg text-ink">
+            {nav.pricing.label}
           </Link>
 
           <MobileGroup title={nav.about.label}>

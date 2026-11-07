@@ -45,7 +45,7 @@ export const site = {
 
 /**
  * Header navigation: Services (mega menu), Agency Solutions (dropdown),
- * Our Products (mega menu), Case Studies, About (dropdown), then the
+ * Our Products (mega menu), Case Studies, Pricing, About (dropdown), then the
  * "Book a call" button.
  */
 export const nav = {
@@ -53,6 +53,7 @@ export const nav = {
   agencies: { label: "Agency Solutions", href: "/for" },
   products: { label: "Our Products", href: "/products" },
   caseStudies: { label: "Case Studies", href: "/case-studies" },
+  pricing: { label: "Pricing", href: "/rates" },
   about: { label: "About SoftVolt AI", href: "/about" },
 };
 
