@@ -35,8 +35,9 @@ export const site = {
    * organisation schema: they tell search engines these accounts and this site
    * are the same business. Only profiles that exist and belong to the company.
    */
-  // TODO(owner): add the LinkedIn company page and GoodFirms profile URLs once they exist.
+  // TODO(owner): add the GoodFirms profile URL once it exists.
   sameAs: [
+    "https://www.linkedin.com/company/softvoltai/",
     "https://www.facebook.com/softvoltai/",
     "https://www.crunchbase.com/organization/softvolt-ai",
     "https://clutch.co/profile/softvolt-ai",
