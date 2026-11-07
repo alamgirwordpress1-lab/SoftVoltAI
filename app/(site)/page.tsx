@@ -42,21 +42,16 @@ export default async function HomePage() {
     cms.getProducts(),
   ]);
 
-  // The typed facts lead (WordPress → Home → Facts row); the rest of the four
-  // slots are counted from the site itself, so no figure is ever invented.
-  const onWpOrg = products.filter((p) => /wordpress\.org/i.test(p.availability)).length;
+  // The typed facts lead (WordPress → Home → Facts row); a slot left over shows
+  // the case-study count, counted from the site, so no figure is ever invented.
   const typed = copy.proof.stats.filter((s) => s.value && s.label);
-  const counted = [
-    { value: String(products.length), label: "WordPress plugins we build and maintain" },
-    { value: String(onWpOrg), label: "plugins approved on WordPress.org" },
-    { value: String(work.length), label: "case studies you can open and check" },
-  ].filter((s) => s.value !== "0");
+  const counted = work.length ? [{ value: String(work.length), label: "case studies you can open and check" }] : [];
   const stats = [...typed, ...counted].slice(0, 4);
 
   return (
     <>
-      {/* Narrative order: who we are → proof → what we do → what we have built
-          ourselves → white label, shown → why it is safe → build-or-buy → price →
+      {/* Narrative order: who we are → proof → white label, shown → what we do →
+          what we have built ourselves → why it is safe → build-or-buy → price →
           work → who → answers → brief. Grounds alternate paper / white, with the
           products as the one dark band, so no two pale sections meet. The
           commitments ride under the hero buttons, so they have no row of their own. */}
@@ -72,9 +67,9 @@ export default async function HomePage() {
       />
       <CapabilityMarquee pillars={pillars} />
       <ProofStats stats={stats} />
-      <CoreServices copy={copy.core} />
-      <ProductShowcase products={products} copy={copy.products} />
       <EngineRoomDemo copy={copy.demo} />
+      <CoreServices copy={copy.core} tone="alt" />
+      <ProductShowcase products={products} copy={copy.products} />
       <Protection clauses={clauses} copy={copy.protection} tone="alt" />
       <Comparison rows={comparison.rows} source={comparison.source} copy={copy.comparison} />
       <Rates models={models} copy={copy.rates} tone="alt" />
