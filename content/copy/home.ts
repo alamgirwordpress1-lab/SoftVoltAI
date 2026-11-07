@@ -27,7 +27,7 @@ export const homeCopy = page("home", "/", "Home", {
       ),
       lede: para(
         "Paragraph under the headline",
-        "WordPress, WooCommerce, Shopify and Webflow builds, Next.js apps on Payload, Sanity or PostgreSQL, AI automation, SEO and paid media — delivered under your brand by a senior team in Dhaka, working UK and US hours.",
+        "Websites, WooCommerce stores, AI automation and SEO for agencies — built by a senior team that also ships its own WordPress plugins, delivered under your brand in UK and US hours.",
       ),
       legend_hq: text("Globe key — the green dot", "Dhaka HQ"),
       legend_markets: text("Globe key — the filled pins", "Markets we serve"),
@@ -35,6 +35,103 @@ export const homeCopy = page("home", "/", "Home", {
       legend_drag: text("Hint under the globe", "Drag to rotate · any direction", "Shown on wide screens only."),
     },
     "The first screen. The two buttons come from Headless settings → Calls to action, and the ticks under them are the Commitments. The websites orbiting the globe are the Clients, and the pins on it are set in the design.",
+  ),
+
+  proof: section(
+    "Facts row",
+    {
+      stats: items(
+        "Facts",
+        "Fact",
+        { value: { label: "Number", kind: "text" }, label: { label: "What it counts", kind: "text" } },
+        [],
+        {
+          help: "Up to four, such as 120+ / sites delivered for agencies. Only numbers you can stand behind. Leave empty and the row counts plugins, plugins on WordPress.org, case studies and services from the site itself.",
+          slots: 4,
+        },
+      ),
+    },
+    "The row of numbers straight under the banner.",
+  ),
+
+  core: section(
+    "Core services",
+    {
+      eyebrow: text("Small line above the heading", "What agencies brief us for"),
+      heading: text("Heading", "The four services agencies brief us for most."),
+      lede: para(
+        "Paragraph",
+        "Pick the one your client needs. Each comes back finished, tested and unbranded, with a fixed price agreed before we start.",
+      ),
+      link: link("Link beside the heading", "All services", "/services"),
+      items: items(
+        "Service cards",
+        "Card",
+        {
+          name: { label: "Name", kind: "text" },
+          url: { label: "Goes to", kind: "text" },
+          outcome: { label: "One line: what the client gets", kind: "para" },
+          includes: { label: "What is included (one per line)", kind: "para" },
+          price: { label: "Price, e.g. From $1,500", kind: "text" },
+          time: { label: "Time, e.g. 10–15 working days", kind: "text" },
+        },
+        [
+          {
+            name: "WordPress & WooCommerce",
+            url: "/services/white-label-wordpress-development",
+            outcome: "Business sites and online stores your client can edit themselves, built to WordPress coding standards.",
+            includes: "Custom theme, ACF or Gutenberg blocks\nWooCommerce checkout, payments and shipping\nSpeed, SEO basics and accessibility checked",
+            price: "",
+            time: "",
+          },
+          {
+            name: "Headless & Next.js",
+            url: "/services/headless-wordpress-development",
+            outcome: "Keep the WordPress your client knows, put a Next.js front end on it that loads fast and scores well.",
+            includes: "Next.js on headless WordPress, Payload or Sanity\nPreview for editors, publish goes live in seconds\nHosting set up in your agency's name",
+            price: "",
+            time: "",
+          },
+          {
+            name: "AI automation",
+            url: "/services/ai-automation",
+            outcome: "Chat and voice assistants, lead qualifying and workflows that take manual hours off an account.",
+            includes: "AI chat and voice agents on the client's own facts\nCRM, forms and ads joined up with n8n or code\nHand-off to a human, and data kept under UK GDPR",
+            price: "",
+            time: "",
+          },
+          {
+            name: "SEO & marketing",
+            url: "/services/white-label-seo-services",
+            outcome: "Search and ads work for the campaigns you have already sold, reported under your logo.",
+            includes: "Technical, on-page and local SEO\nGoogle Ads and Meta Ads management\nMonthly report with your branding",
+            price: "",
+            time: "",
+          },
+        ],
+        { help: "Four read best. Leave Price or Time empty and the card leaves it out.", slots: 6 },
+      ),
+    },
+    "The services block near the top: the four most-briefed services as cards. The full list stays on /services.",
+  ),
+
+  products: section(
+    "Our products",
+    {
+      eyebrow: text("Small line above the heading", "Built by us, not just for clients"),
+      heading: text("Heading", "We ship our own WordPress plugins."),
+      lede: para(
+        "Paragraph",
+        "Most white-label teams only sell hours. We also build and maintain plugins of our own, reviewed and listed on WordPress.org, so the code we put on your clients' sites is code we stand behind every day.",
+      ),
+      points: lines(
+        "Points beside the figures",
+        ["Reviewed by the WordPress.org plugin team", "Free versions anyone can install today", "The same team builds your client work"],
+        "One per row. Leave empty to show only the figures.",
+      ),
+      button: link("Button under the products", "See all products", "/products"),
+    },
+    "The dark band listing the plugins from Products. New products appear here on their own; ones on WordPress.org are listed first.",
   ),
 
   demo: section(

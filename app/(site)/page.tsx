@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import { StickyCta } from "@/components/layout/StickyCta";
 import { Hero } from "@/components/sections/Hero";
 import { CapabilityMarquee } from "@/components/sections/CapabilityMarquee";
-import { PromiseBar } from "@/components/sections/PromiseBar";
 import { EngineRoomDemo } from "@/components/sections/EngineRoomDemo";
-import { ServicePillars } from "@/components/sections/ServicePillars";
+import { CoreServices } from "@/components/sections/CoreServices";
+import { ProductShowcase } from "@/components/sections/ProductShowcase";
+import { ProofStats } from "@/components/sections/ProofStats";
 import { Comparison } from "@/components/sections/Comparison";
 import { WorkGrid } from "@/components/sections/WorkGrid";
 import { Protection } from "@/components/sections/Protection";
@@ -24,7 +25,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function HomePage() {
   const chrome = await getSiteChrome();
-  const [copy, comparison, globeCards, globeLocations, promises, pillars, work, workCategories, clauses, team, models, faqs] = await Promise.all([
+  const [copy, comparison, globeCards, globeLocations, promises, pillars, work, workCategories, clauses, team, models, faqs, products] = await Promise.all([
     // every word on this page is in WordPress, on the page called "Home"
     getCopy(homeCopy, { email: chrome.email, location: chrome.location, offset: chrome.utcOffset }),
     cms.getComparison(),
@@ -38,15 +39,30 @@ export default async function HomePage() {
     cms.getTeam(),
     cms.getEngagementModels(),
     cms.getFaqs(),
+    cms.getProducts(),
   ]);
+
+  // Typed in WordPress when there are figures to stand behind; otherwise counted
+  // from the site itself, so the row is never empty and never invented.
+  const onWpOrg = products.filter((p) => /wordpress\.org/i.test(p.availability)).length;
+  const serviceCount = pillars.reduce((n, p) => n + p.services.length, 0);
+  const typed = copy.proof.stats.filter((s) => s.value && s.label);
+  const stats = typed.length
+    ? typed
+    : [
+        { value: String(products.length), label: "WordPress plugins we build and maintain" },
+        { value: String(onWpOrg), label: "approved and listed on WordPress.org" },
+        { value: String(work.length), label: "case studies you can open and check" },
+        { value: String(serviceCount), label: "services under one contract" },
+      ].filter((s) => s.value !== "0");
 
   return (
     <>
-      {/* Narrative order: who we are → what we do → why it is safe → the build-or-buy
-          case → what it costs → proof → who → answers → brief. The grounds alternate
-          paper / white from Services down, so no two pale sections meet: Protection,
-          Rates and Founder sit on the white band, the rest on paper. The stack, hours,
-          process and agency-type sections live on /about, /for and /services. */}
+      {/* Narrative order: who we are → proof → what we do → what we have built
+          ourselves → white label, shown → why it is safe → build-or-buy → price →
+          work → who → answers → brief. Grounds alternate paper / white, with the
+          products as the one dark band, so no two pale sections meet. The
+          commitments ride under the hero buttons, so they have no row of their own. */}
       <Hero
         cards={globeCards}
         locations={globeLocations}
@@ -57,10 +73,11 @@ export default async function HomePage() {
         legend={{ hq: copy.banner.legend_hq, markets: copy.banner.legend_markets, eu: copy.banner.legend_eu, drag: copy.banner.legend_drag }}
         cta={chrome.cta}
       />
-      <PromiseBar promises={promises} />
-      <EngineRoomDemo copy={copy.demo} />
       <CapabilityMarquee pillars={pillars} />
-      <ServicePillars pillars={pillars} copy={copy.services} />
+      <ProofStats stats={stats} />
+      <CoreServices copy={copy.core} />
+      <ProductShowcase products={products} copy={copy.products} />
+      <EngineRoomDemo copy={copy.demo} />
       <Protection clauses={clauses} copy={copy.protection} tone="alt" />
       <Comparison rows={comparison.rows} source={comparison.source} copy={copy.comparison} />
       <Rates models={models} copy={copy.rates} tone="alt" />
