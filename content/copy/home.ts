@@ -1,5 +1,5 @@
 import { items, lines, link, page, para, section, text } from "@/content/copy/schema";
-import { agenciesSection, faqSection, hoursSection, processSection, protectionSection, ratesSection, teamSection, workSection } from "@/content/copy/sections";
+import { ctaBand, agenciesSection, faqSection, hoursSection, processSection, protectionSection, ratesSection, teamSection, workSection } from "@/content/copy/sections";
 
 /** The home page, top to bottom. */
 export const homeCopy = page("home", "/", "Home", {
@@ -268,6 +268,12 @@ export const homeCopy = page("home", "/", "Home", {
   team: teamSection(),
 
   faq: faqSection(),
+
+  cta: ctaBand({
+    heading: "Send the brief.",
+    accent: "Get a fixed price within two business days.",
+    lede: "Tell us what the project needs and when. Client names can wait until the NDA is signed, and a named producer replies within one business day.",
+  }),
 
   brief: section(
     "Brief form",
