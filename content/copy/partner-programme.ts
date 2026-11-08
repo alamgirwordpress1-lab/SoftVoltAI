@@ -20,7 +20,7 @@ export const partnerProgrammeCopy = page("partner-programme", "/partner-programm
     fields: {
       ...opener.fields,
       button: link("Button", "Send the first brief", "/contact"),
-      button_secondary: link("Second button", "See how pricing works", "/rates"),
+      button_secondary: link("Second button", "See how pricing works", "/pricing"),
     },
   },
 

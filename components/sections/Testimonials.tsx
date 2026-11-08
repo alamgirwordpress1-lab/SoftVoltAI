@@ -14,7 +14,7 @@ const CHECKS = [
   {
     title: "Read the process",
     body: "The five steps, the turnarounds and the QA checklist are published. You can hold us to them before you have spent anything.",
-    href: "/about#how-it-works",
+    href: "/how-we-work",
     cta: "How we work",
   },
   {

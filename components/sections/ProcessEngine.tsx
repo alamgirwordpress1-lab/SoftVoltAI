@@ -143,9 +143,9 @@ function Artefact({ kind, card }: { kind: string; card?: { title: string; meta: 
   switch (kind) {
     case "brief":
       return (
-        <DocCard title={card?.title || "Brief received"} meta={card?.meta || "northwind-digital · 17:04 London"}>
-          <Row k="Client" v="Harbour Dental (name shared after NDA)" />
-          <Row k="Work" v="Build · WooCommerce booking + 14 pages" />
+        <DocCard title={card?.title || "Brief received"} meta={card?.meta || "your-agency · 17:04 London"}>
+          <Row k="Client" v="Name shared after the NDA" />
+          <Row k="Work" v="Build · WordPress site + consultation form" />
           <Row k="Have" v="Figma file, live URL, brand guide" />
           <Row k="Deadline" v="Client launch in 5 weeks" />
           <Row k="NDA" v="Mutual NDA sent before client details" volt />
@@ -154,7 +154,7 @@ function Artefact({ kind, card }: { kind: string; card?: { title: string; meta: 
     case "scope":
       return (
         <DocCard title={card?.title || "Scope & quote"} meta={card?.meta || "v1 · within 2 business days"}>
-          <Row k="Deliverables" v="14 templates · booking flow · Klarna + Stripe · GA4 events" />
+          <Row k="Deliverables" v="Templates · forms · integrations · GA4 events, each listed" />
           <Row k="Timeline" v="Build 3 wks · QA 4 days · handover 1 day" />
           <Row k="Revisions" v="2 rounds per template, written in" />
           <Row k="Price" v="Fixed. Changes quoted before they are built." volt />
@@ -163,15 +163,15 @@ function Artefact({ kind, card }: { kind: string; card?: { title: string; meta: 
       );
     case "staging":
       return (
-        <DocCard title={card?.title || "Production"} meta={card?.meta || "staging.northwind-digital.co.uk"}>
+        <DocCard title={card?.title || "Production"} meta={card?.meta || "staging.your-agency.co.uk"}>
           <div className="mb-4 rounded-md border border-er-line bg-er-raised px-3 py-2 text-[11px] text-er-muted">
-            <span className="text-volt">●</span> live · branch northwind-digital/harbour-dental · deploy #23
+            <span className="text-volt">●</span> live · branch your-agency/client-site · deploy #23
           </div>
           <div className="space-y-2.5">
             {[
-              ["Producer", "Booking flow is on staging. Klarna sandbox works end to end — can you check the copy on the confirmation step?"],
-              ["You", "Checked. Client wants the emergency banner higher. Sending a Loom."],
-              ["Producer", "Done in #24. Also moved LCP from 4.1s to 1.6s on the treatments page while I was there."],
+              ["Producer", "The consultation form is on staging and sends to the client's inbox. Can you check the copy on the thank-you step?"],
+              ["You", "Checked. Client wants the services section higher. Sending a Loom."],
+              ["Producer", "Done in #24. PageSpeed on mobile is still green after the change."],
             ].map(([who, msg], i) => (
               <div key={i} className="grid grid-cols-[72px_1fr] gap-3">
                 <span className={who === "You" ? "text-volt" : "text-er-muted"}>{who}</span>
@@ -207,11 +207,11 @@ function Artefact({ kind, card }: { kind: string; card?: { title: string; meta: 
       );
     default:
       return (
-        <DocCard title={card?.title || "Handover"} meta={card?.meta || "northwind-digital · launch day"}>
+        <DocCard title={card?.title || "Handover"} meta={card?.meta || "your-agency · launch day"}>
           <Row k="Documentation" v="Editing guide, page map, plugin list" />
           <Row k="Credentials" v="Transferred via shared vault, ours revoked" volt />
           <Row k="Staging" v="Kept live 14 days after launch" />
-          <Row k="Credit" v="Website by Northwind Digital" />
+          <Row k="Credit" v="Website by your agency" />
           <Row k="Our name" v="Appears nowhere" volt />
         </DocCard>
       );

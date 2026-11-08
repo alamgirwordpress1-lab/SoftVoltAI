@@ -21,7 +21,7 @@ import { getSiteChrome } from "@/lib/cms/site";
 export const dynamicParams = true;
 
 /** Paths that belong to this app; a WordPress page cannot take one over. */
-const RESERVED = new Set(["about", "api", "blog", "case-studies", "contact", "for", "home", "not-found", "partner-programme", "preview", "products", "rates", "security", "services", "thank-you"]);
+const RESERVED = new Set(["about", "api", "blog", "case-studies", "contact", "for", "home", "not-found", "partner-programme", "preview", "products", "pricing", "rates", "faq", "how-we-work", "why-softvoltai", "security", "services", "thank-you"]);
 
 export async function generateStaticParams() {
   const slugs = await cms.getWpSlugs();

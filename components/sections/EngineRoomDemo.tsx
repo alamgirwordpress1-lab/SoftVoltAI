@@ -12,7 +12,7 @@ import "./hero.css";
  * underneath — the staging server, commits and QA the client never sees.
  */
 export function EngineRoomDemo({ copy }: { copy: DemoCopy }) {
-  const [agency, setAgency] = useState(copy.sample_name || "Northwind Digital");
+  const [agency, setAgency] = useState(copy.sample_name || "Your Agency");
   const [brand, setBrand] = useState<string>(BRAND_PRESETS[0]);
 
   return (

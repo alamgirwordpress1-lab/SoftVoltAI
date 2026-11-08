@@ -15,6 +15,7 @@ import type { DemoSiteCopy } from "@/lib/cms/copy-types";
 export function HeroBench({ agency, brand, site }: { agency: string; brand: string; site: DemoSiteCopy }) {
   const ref = useRef<HTMLDivElement>(null);
   const slug = slugify(agency);
+  const project = slugify(site.client_name);
 
   useEffect(() => {
     const bench = ref.current;
@@ -125,18 +126,14 @@ export function HeroBench({ agency, brand, site }: { agency: string; brand: stri
                 <circle className="bar" cx="20" cy="20" r="16" pathLength="100" />
               </svg>
               <span>
-                <b>Core Web Vitals · staging</b>
-                passed on 9 real devices
+                <b>{site.vitals_title}</b>
+                {site.vitals_note}
               </span>
             </span>
             <span className="mt-3 flex gap-1.5">
-              {[
-                ["LCP", "1.6s"],
-                ["INP", "80ms"],
-                ["CLS", "0.00"],
-              ].map(([k, v]) => (
-                <span key={k} className="rounded-md bg-ok-bg px-2 py-1 text-[11px] text-ok-fg">
-                  {k} {v}
+              {site.vitals.map((v) => (
+                <span key={v} className="rounded-md bg-ok-bg px-2 py-1 text-[11px] text-ok-fg">
+                  {v}
                 </span>
               ))}
             </span>
@@ -146,7 +143,7 @@ export function HeroBench({ agency, brand, site }: { agency: string; brand: stri
         <div className="bench-card c-figma lg-only" data-depth="0.45" style={{ ["--bob-dur" as string]: "8s", ["--bob-delay" as string]: "-2s" }} aria-hidden="true">
           <span className="bob">
             <b>Figma → build</b>
-            14 frames · reviewed against your file
+            every frame checked against your file
             <span className="mt-2 grid grid-cols-4 gap-1">
               {Array.from({ length: 8 }).map((_, i) => (
                 <span key={i} className={`h-5 rounded-[3px] ${i < 6 ? "bg-accent/15" : "bg-raised"}`} />
@@ -171,13 +168,12 @@ export function HeroBench({ agency, brand, site }: { agency: string; brand: stri
 
         <div className="bench-card c-commits" data-depth="0.9" style={{ ["--bob-dur" as string]: "7.5s", ["--bob-delay" as string]: "-3s" }}>
           <span className="bob">
-            <b>Commits · {slug}/harbour-dental</b>
+            <b>Commits · {slug}/{project}</b>
             <span className="mt-2 grid gap-1.5">
-              {[
-                ["feat", "booking: same-week slots + Klarna"],
-                ["perf", "images: AVIF, LCP 4.1s → 1.6s"],
-                ["a11y", "WCAG 2.2 AA pass"],
-              ].map(([t, m]) => (
+              {site.commits
+                .map((line) => line.split(/:\s*/))
+                .map(([t, ...rest]) => [t, rest.join(": ")])
+                .map(([t, m]) => (
                 <span key={t} className="flex items-baseline gap-2">
                   <span className="h-1.5 w-1.5 shrink-0 translate-y-[-2px] rounded-full bg-accent" />
                   <span className="text-accent">{t}</span>
@@ -196,7 +192,7 @@ export function HeroBench({ agency, brand, site }: { agency: string; brand: stri
               <span>· 09:12 London · #{slug}</span>
             </span>
             <span className="mt-2 block font-sans text-[13px] leading-snug text-ink">
-              Booking flow is on staging. Klarna sandbox works end to end — can you check the copy on the confirmation step?
+              {site.producer_message}
             </span>
           </span>
         </div>

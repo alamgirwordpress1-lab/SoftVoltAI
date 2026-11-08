@@ -122,11 +122,11 @@ export const processSection = () =>
         "Card",
         { title: { label: "Title", kind: "text" }, meta: { label: "Line on the right", kind: "text" } },
         [
-          { title: "Brief received", meta: "northwind-digital · 17:04 London" },
+          { title: "Brief received", meta: "your-agency · 17:04 London" },
           { title: "Scope & quote", meta: "v1 · within 2 business days" },
-          { title: "Production", meta: "staging.northwind-digital.co.uk" },
+          { title: "Production", meta: "staging.your-agency.co.uk" },
           { title: "QA checklist", meta: "42 checks · published" },
-          { title: "Handover", meta: "northwind-digital · launch day" },
+          { title: "Handover", meta: "your-agency · launch day" },
         ],
         { help: "The card that slides in beside each step, in the same order as the steps. What is written inside each card is part of the illustration.", slots: 6 },
       ),
@@ -182,7 +182,7 @@ export const ratesSection = () =>
         "Paragraph",
         "Match your spend to your actual client workload instead of committing to a full-time salary. Pick the plan that fits how many active projects you run, and change plans as that number changes.",
       ),
-      link: link("Text link", "How pricing works", "/rates"),
+      link: link("Text link", "How pricing works", "/pricing"),
       button: link("Button on every plan", "Send us a brief", "/contact"),
       price_note: text("Under a price", "Billed monthly · no long-term contract"),
       no_price: text("Instead of a price, when a plan has none", "Let's talk"),
@@ -232,4 +232,25 @@ export const agenciesSection = () =>
       link: link("Text link", "How we work with each agency type", "/for"),
     },
     "The agency types themselves are edited under Agency types in the menu on the left.",
+  );
+
+/* ------------------------------------------------------ long-form guides */
+
+/** A reading band of headed blocks (components/sections/Article): one block per question the page answers. */
+export const articleSection = (title: string, d: { eyebrow: string; heading: string; lede?: string; blocks: { title: string; text: string }[] }) =>
+  section(
+    title,
+    {
+      eyebrow: text("Small line above the heading", d.eyebrow),
+      heading: text("Heading", d.heading),
+      lede: para("Line under the heading", d.lede ?? "", undefined, 2),
+      blocks: items(
+        "Blocks",
+        "Block",
+        { title: { label: "Heading", kind: "text" }, text: { label: "Text", kind: "para" } },
+        d.blocks,
+        { help: "Each block is a heading and its paragraphs. Leave a blank line between paragraphs. Write [link text](/page) for a link.", slots: Math.max(d.blocks.length + 2, 8) },
+      ),
+    },
+    "Long-form answers, one heading per question. Search engines and AI answers quote these blocks directly.",
   );

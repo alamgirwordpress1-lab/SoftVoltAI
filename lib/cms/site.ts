@@ -82,6 +82,17 @@ const ICONS: Record<string, (typeof socials)[number]["icon"]> = {
 };
 
 /** A WordPress header menu, matched onto the slots the header renders. */
+/** Pages that moved: a WordPress menu still pointing at the old address goes straight to the new one. */
+const MOVED: [RegExp, string][] = [
+  [/^\/rates(?=$|[#?/])/, "/pricing"],
+  [/^\/about#how-it-works$/, "/how-we-work"],
+  [/^\/about#why$/, "/why-softvoltai"],
+];
+const movedHref = (href: string) => MOVED.reduce((h, [from, to]) => h.replace(from, to), href);
+function movedLinks(items: WpMenuItem[]): WpMenuItem[] {
+  return items.map((item) => ({ ...item, href: movedHref(item.href), ...(item.children ? { children: movedLinks(item.children) } : {}) }));
+}
+
 function navFromMenu(items: WpMenuItem[]) {
   const find = (...needles: string[]) => items.find((item) => needles.some((n) => item.href.startsWith(n) || item.label.toLowerCase().includes(n)));
   return {
@@ -133,9 +144,9 @@ export const getSiteChrome = cache(async (): Promise<SiteChrome> => {
   if (!settings) return local;
 
   const menus = (await wpMenus(settings.siteUrl)) ?? {};
-  const header = menus.header ?? [];
-  const footer = menus.footer ?? [];
-  const legal = menus.legal ?? [];
+  const header = movedLinks(menus.header ?? []);
+  const footer = movedLinks(menus.footer ?? []);
+  const legal = movedLinks(menus.legal ?? []);
 
   const wpSocials = settings.socialLinks?.length
     ? settings.socialLinks.map((link) => ({

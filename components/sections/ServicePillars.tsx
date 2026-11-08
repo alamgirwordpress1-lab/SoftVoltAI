@@ -176,9 +176,9 @@ function Mocks() {
   return (
     <div className="relative h-[210px]" aria-hidden="true">
       {[
-        { l: "0%", t: "16%", w: "76%", z: 1, label: "harbour-dental.co.uk" },
-        { l: "14%", t: "4%", w: "76%", z: 2, label: "northwind-store.com" },
-        { l: "28%", t: "30%", w: "72%", z: 3, label: "app.northwind.io" },
+        { l: "0%", t: "16%", w: "76%", z: 1, label: "greenpathway.us" },
+        { l: "14%", t: "4%", w: "76%", z: 2, label: "imahousehead.com" },
+        { l: "28%", t: "30%", w: "72%", z: 3, label: "gfcfansbd.com" },
       ].map((f) => (
         <div key={f.label} className="absolute overflow-hidden rounded-lg border border-line bg-surface shadow-soft" style={{ left: f.l, top: f.t, width: f.w, zIndex: f.z }}>
           <div className="flex items-center gap-1.5 border-b border-line bg-raised px-2.5 py-1.5">

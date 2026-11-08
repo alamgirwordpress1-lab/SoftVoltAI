@@ -178,16 +178,18 @@ export function HeroStage({ agency, brand, site }: { agency: string; brand: stri
             <div>
               <p className="text-er-ink">$ pnpm build</p>
               <p>
-                ✓ 48 pages · <span className="text-volt">LCP 1.6s</span> · CLS 0.00
+                ✓ build passed · <span className="text-volt">{site.vitals.join(" · ")}</span>
               </p>
             </div>
             <div>
-              <p>
-                <span className="text-volt">feat</span>(booking): same-week slots + Klarna
-              </p>
-              <p>
-                <span className="text-volt">perf</span>(images): AVIF, 4.1s → 1.6s
-              </p>
+              {site.commits.slice(0, 2).map((line) => {
+                const [type, ...rest] = line.split(/:\s*/);
+                return (
+                  <p key={line}>
+                    <span className="text-volt">{type}</span>: {rest.join(": ")}
+                  </p>
+                );
+              })}
               <p>
                 <span className="text-volt">a11y</span>: WCAG 2.2 AA pass, 42/42 checks
               </p>

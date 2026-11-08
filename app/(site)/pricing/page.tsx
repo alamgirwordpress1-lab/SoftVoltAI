@@ -5,6 +5,7 @@ import { bannerProps, introProps } from "@/components/ui/copy-props";
 import { Rates } from "@/components/sections/Rates";
 import { Faq } from "@/components/sections/Faq";
 import { CtaBand } from "@/components/sections/CtaBand";
+import { Article } from "@/components/sections/Article";
 import { ratesCopy } from "@/content/copy/rates";
 import { cms } from "@/lib/cms";
 import { getCopy } from "@/lib/cms/copy";
@@ -15,10 +16,10 @@ export async function generateMetadata(): Promise<Metadata> {
   return copyMetadata(ratesCopy);
 }
 
-export default async function RatesPage() {
+export default async function PricingPage() {
   const [models, pricingFaqs, process, chrome] = await Promise.all([cms.getEngagementModels(), cms.getPricingFaqs(), cms.getProcess(), getSiteChrome()]);
   const scope = process.find((p) => p.id === "scope");
-  // the words are the WordPress page "Rates"
+  // the words are the WordPress page "Pricing" (slug pricing; it was "Rates" at /rates)
   const copy = await getCopy(ratesCopy, {
     scope_time: scope ? scope.turnaround.toLowerCase() : "within two business days",
     email: chrome.email,
@@ -27,7 +28,7 @@ export default async function RatesPage() {
   return (
     <>
       <PageHero
-        crumbs={[{ name: "Rates", href: "/rates" }]}
+        crumbs={[{ name: "Pricing", href: "/pricing" }]}
         {...bannerProps(copy.banner, [
           { label: "Plans", value: `${models.length} monthly tiers` },
           { label: "Outside a plan", value: "Scoped and quoted in writing" },
@@ -37,6 +38,7 @@ export default async function RatesPage() {
       <PageIntro {...introProps(copy.intro)} />
 
       <Rates models={models} copy={copy.plans} showHeading={false} />
+      <Article id="guide" copy={copy.guide} tone="alt" />
       <div className="border-t border-line">
         <Faq faqs={pricingFaqs} copy={copy.faq} />
       </div>

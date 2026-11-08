@@ -116,7 +116,7 @@ export async function buildSearchIndex(): Promise<SearchIndex> {
     items.push({ id: `faq:home:${i}`, kind: "faq", title: f.q, url: "/#faq", description: f.a, meta: "FAQ", keywords: [], body: "" });
   });
   pricingFaqs.forEach((f, i) => {
-    items.push({ id: `faq:rates:${i}`, kind: "faq", title: f.q, url: "/rates#faq", description: f.a, meta: "FAQ · Rates", keywords: ["pricing"], body: "" });
+    items.push({ id: `faq:rates:${i}`, kind: "faq", title: f.q, url: "/pricing#faq", description: f.a, meta: "FAQ · Pricing", keywords: ["pricing"], body: "" });
   });
 
   // Autocomplete vocabulary: the names of things — services, tools, platforms,

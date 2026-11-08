@@ -49,7 +49,7 @@ export const notFoundCopy = page("not-found", "/not-found", "Page not found", {
       items: items("Links", "Link", PAGE_LINK_FIELDS, [
         { title: "Services", text: "Build, automate, grow and support — every white-label service in one place.", url: "/services" },
         { title: "Case studies", text: "Live builds you can open, not logos you have to trust.", url: "/case-studies" },
-        { title: "Rates", text: "Monthly plans and a fixed price for every brief.", url: "/rates" },
+        { title: "Pricing", text: "Monthly plans and a fixed price for every brief.", url: "/pricing" },
         { title: "Contact", text: "Send a brief or a question and a named producer replies.", url: "/contact" },
       ]),
     },

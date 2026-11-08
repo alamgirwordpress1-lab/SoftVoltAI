@@ -54,15 +54,16 @@ export const nav = {
   agencies: { label: "Agency Solutions", href: "/for" },
   products: { label: "Our Products", href: "/products" },
   caseStudies: { label: "Case Studies", href: "/case-studies" },
-  pricing: { label: "Pricing", href: "/rates" },
+  pricing: { label: "Pricing", href: "/pricing" },
   about: { label: "About SoftVolt AI", href: "/about" },
 };
 
 export const aboutLinks = [
   { label: "Our story", href: "/about#story", description: "Why an agency developer built the team behind agencies" },
   { label: "Meet the founder", href: "/about#founder", description: "The named person who scopes and builds your work" },
-  { label: "How we work", href: "/about#how-it-works", description: "Five steps, each one written down" },
-  { label: "Why SoftVolt AI", href: "/about#why", description: "The rules we keep on every project" },
+  { label: "How we work", href: "/how-we-work", description: "Five steps, each one written down" },
+  { label: "Why SoftVolt AI", href: "/why-softvoltai", description: "White label vs freelancer vs in-house" },
+  { label: "FAQ", href: "/faq", description: "What agencies ask before the first brief" },
 ];
 
 export const headerCta = { label: "Book a call", href: "/contact#call" };
@@ -85,7 +86,9 @@ export const resourceLinks = [
   { label: "All services", href: "/services" },
   { label: "Agency solutions", href: "/for" },
   { label: "Case studies", href: "/case-studies" },
-  { label: "Rates", href: "/rates" },
+  { label: "Pricing", href: "/pricing" },
+  { label: "How we work", href: "/how-we-work" },
+  { label: "FAQ", href: "/faq" },
 ];
 
 // TODO(owner): add the company's own profiles once they exist. Entries without an href are not rendered.

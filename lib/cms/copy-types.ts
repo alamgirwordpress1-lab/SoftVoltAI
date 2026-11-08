@@ -34,6 +34,12 @@ export interface DemoSiteCopy {
   client_cards: string[];
   credit: string;
   engine_note: string;
+  /** The cards around the example site: a real project's measured numbers and work log. */
+  vitals_title: string;
+  vitals_note: string;
+  vitals: string[];
+  commits: string[];
+  producer_message: string;
 }
 
 /** The white-label demo band: its heading, the name box, and the example site. */

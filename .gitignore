@@ -9,6 +9,7 @@ build
 # environment — real values live in .env.local locally and in Vercel project settings
 .env*
 !.env.example
+!.env.production
 
 # TypeScript
 *.tsbuildinfo

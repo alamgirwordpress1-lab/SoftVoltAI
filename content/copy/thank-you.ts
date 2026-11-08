@@ -72,7 +72,7 @@ export const thankYouCopy = page("thank-you", "/thank-you", "Thank you", {
       heading: text("Heading", "See the work in the meantime."),
       links: items("Links", "Link", PAGE_LINK_FIELDS, [
         { title: "Case studies", text: "Live builds you can open, each with the brief it answered.", url: "/case-studies" },
-        { title: "How we work", text: "Five steps from brief to handover, each one written down.", url: "/about#how-it-works" },
+        { title: "How we work", text: "Five steps from brief to handover, each one written down.", url: "/how-we-work" },
         { title: "Security & confidentiality", text: "How your clients' access, code and data are protected.", url: "/security" },
       ]),
       call: text(

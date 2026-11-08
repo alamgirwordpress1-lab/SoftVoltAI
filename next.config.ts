@@ -91,7 +91,27 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     // /work became /case-studies
-    return [{ source: "/work", destination: "/case-studies", permanent: true }];
+    return [
+      { source: "/work", destination: "/case-studies", permanent: true },
+      // /rates became /pricing: the word agencies search for
+      { source: "/rates", destination: "/pricing", permanent: true },
+      // case studies moved to keyword slugs (service, client, market), Nov 2026
+      { source: "/case-studies/green-pathway", destination: "/case-studies/custom-wordpress-website-green-pathway-us-consultancy", permanent: true },
+      { source: "/case-studies/gfc-fans-bd", destination: "/case-studies/woocommerce-store-gfc-fans-bd-bangladesh", permanent: true },
+      { source: "/case-studies/i-am-a-house-head", destination: "/case-studies/ecommerce-store-im-a-househead-us-apparel-brand", permanent: true },
+      { source: "/case-studies/the-artel-collection", destination: "/case-studies/woocommerce-store-the-artel-collection-us-jewellery", permanent: true },
+      { source: "/case-studies/komfort-partitioning", destination: "/case-studies/manufacturer-website-komfort-partitioning-uk", permanent: true },
+      { source: "/case-studies/rwd-agency", destination: "/case-studies/agency-website-rwd-agency-uk-experiential-marketing", permanent: true },
+      { source: "/case-studies/chorne-law", destination: "/case-studies/law-firm-website-chorne-law-new-york", permanent: true },
+      { source: "/case-studies/seo-agency-in-essex", destination: "/case-studies/technical-seo-wordpress-seo-agency-in-essex-uk", permanent: true },
+      { source: "/case-studies/yume-nihongo", destination: "/case-studies/wordpress-education-website-yume-nihongo-bangladesh", permanent: true },
+      { source: "/case-studies/ronemus-vilensky", destination: "/case-studies/wordpress-acf-law-firm-website-ronemus-vilensky-us", permanent: true },
+      { source: "/case-studies/patriot-insurance", destination: "/case-studies/full-stack-wordpress-patriot-insurance-us", permanent: true },
+      { source: "/case-studies/mobiledokan24", destination: "/case-studies/woocommerce-store-mobiledokan24-bangladesh", permanent: true },
+      { source: "/case-studies/ascent-energy", destination: "/case-studies/woocommerce-store-ascent-energy-uk-renewables", permanent: true },
+      { source: "/case-studies/heat-pumps-4-pools", destination: "/case-studies/woocommerce-store-maintenance-heat-pumps-4-pools-uk", permanent: true },
+      { source: "/case-studies/bulk-bag-man", destination: "/case-studies/headless-wordpress-nextjs-bulk-bag-man-uk", permanent: true },
+    ];
   },
 };
 

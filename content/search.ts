@@ -33,8 +33,8 @@ export const searchPages: SearchPage[] = [
     keywords: ["portfolio", "work", "projects", "examples", "clients", "websites"],
   },
   {
-    title: "Rates & monthly plans",
-    url: "/rates",
+    title: "Pricing & monthly plans",
+    url: "/pricing",
     description: "Monthly plans sized by how many client projects you run in parallel, with anything outside a plan quoted in writing first.",
     keywords: ["pricing", "price", "prices", "cost", "plans", "monthly", "retainer", "budget", "packages", "quote"],
   },
@@ -70,7 +70,7 @@ export const searchPages: SearchPage[] = [
   },
   {
     title: "How we work",
-    url: "/about#how-it-works",
+    url: "/how-we-work",
     description: "Five steps from brief to handover, each one written down.",
     keywords: ["process", "steps", "workflow", "how it works", "handover", "qa"],
   },
@@ -103,4 +103,4 @@ export const popularSearches = [
 ];
 
 /** Quick links under the popular searches, by URL (each must be in searchPages). */
-export const searchQuickLinks = ["/services", "/case-studies", "/rates", "/contact"];
+export const searchQuickLinks = ["/services", "/case-studies", "/pricing", "/contact"];
