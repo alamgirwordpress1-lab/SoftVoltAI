@@ -16,7 +16,7 @@ export interface ProductShowcaseCopy {
 const onWpOrg = (p: Product) => /wordpress\.org/i.test(p.availability);
 
 /**
- * The home page's engine-room band: the plugins we build and maintain
+ * The home page's products band (light, like the rest of the page below the hero): the plugins we build and maintain
  * ourselves. Most white-label shops only sell hours; this is the part of the
  * page that shows code with our name on it. Listed products come from
  * WordPress (Products), so a new plugin appears here the day it is published,
@@ -28,8 +28,7 @@ export function ProductShowcase({ products, copy }: { products: Product[]; copy:
   const live = products.filter(onWpOrg).length;
 
   return (
-    <section id="products" className="er section relative overflow-hidden" aria-labelledby="products-home-title">
-      <div className="grid-lines" aria-hidden="true" />
+    <section id="products" className="section relative overflow-hidden" aria-labelledby="products-home-title">
       <div className="container-x relative">
         <div className="grid gap-10 lg:grid-cols-12 lg:gap-12">
           <div className="lg:col-span-7" data-reveal>
@@ -42,20 +41,20 @@ export function ProductShowcase({ products, copy }: { products: Product[]; copy:
           <div className="lg:col-span-5 lg:self-end" data-reveal style={{ ["--reveal-delay" as string]: "100ms" }}>
             {/* counted from the product list, so the figures can never run ahead of the truth */}
             <dl className="grid grid-cols-2 gap-4">
-              <div className="rounded-[var(--radius-lg)] border border-er-line p-5">
-                <dt className="mono text-[11px] uppercase tracking-[0.12em] text-er-muted">Plugins we build</dt>
-                <dd className="display mt-2 text-[44px] leading-none text-er-ink">{products.length}</dd>
+              <div className="card shadow-soft p-5">
+                <dt className="mono text-[11px] uppercase tracking-[0.12em] text-muted">Plugins we build</dt>
+                <dd className="display mt-2 text-[44px] leading-none text-ink">{products.length}</dd>
               </div>
-              <div className="rounded-[var(--radius-lg)] border border-er-line p-5">
-                <dt className="mono text-[11px] uppercase tracking-[0.12em] text-er-muted">On WordPress.org</dt>
-                <dd className="display mt-2 text-[44px] leading-none text-volt">{live}</dd>
+              <div className="rounded-[var(--radius-lg)] border border-accent/25 bg-accent-soft p-5">
+                <dt className="mono text-[11px] uppercase tracking-[0.12em] text-accent">On WordPress.org</dt>
+                <dd className="display mt-2 text-[44px] leading-none text-accent">{live}</dd>
               </div>
             </dl>
             {copy.points.length ? (
               <ul className="mt-6 space-y-2.5">
                 {copy.points.map((pt) => (
-                  <li key={pt} className="flex gap-3 text-[15px] leading-snug text-er-muted">
-                    <span className="mt-[7px] h-1.5 w-1.5 shrink-0 rounded-full bg-volt" aria-hidden="true" />
+                  <li key={pt} className="flex gap-3 text-[15px] leading-snug text-muted">
+                    <span className="mt-[7px] h-1.5 w-1.5 shrink-0 rounded-full bg-accent" aria-hidden="true" />
                     {pt}
                   </li>
                 ))}
@@ -71,7 +70,7 @@ export function ProductShowcase({ products, copy }: { products: Product[]; copy:
                 href={`/products/${p.slug}`}
                 prefetch={false}
                 className={cn(
-                  "group/p flex h-full flex-col rounded-[var(--radius-lg)] border border-er-line bg-white/[0.03] p-6 transition-colors duration-200 hover:border-volt hover:bg-white/[0.06]",
+                  "card card-lift shadow-soft group/p flex h-full flex-col p-6 transition-colors duration-200 hover:border-accent",
                 )}
               >
                 <div className="flex items-start justify-between gap-4">
@@ -79,18 +78,18 @@ export function ProductShowcase({ products, copy }: { products: Product[]; copy:
                   <span
                     className={cn(
                       "mono rounded-full px-2.5 py-1 text-[10px] uppercase tracking-[0.08em]",
-                      onWpOrg(p) ? "bg-volt text-ink" : "border border-er-line text-er-muted",
+                      onWpOrg(p) ? "bg-accent-soft text-ok-fg" : "border border-line text-muted",
                     )}
                   >
                     {onWpOrg(p) ? "On WordPress.org" : p.badge || "Coming soon"}
                   </span>
                 </div>
-                <h3 className="ui mt-5 text-[20px] font-bold leading-tight text-er-ink">{p.name}</h3>
-                {p.kind ? <p className="mono mt-1.5 text-[11px] uppercase tracking-[0.1em] text-er-muted">{p.kind}</p> : null}
-                <p className="mt-3 flex-1 text-[15px] leading-relaxed text-er-muted">{p.tagline || p.summary}</p>
-                <p className="mt-5 flex items-center justify-between gap-3 border-t border-er-line pt-4 text-[13px]">
-                  <span className="text-er-ink">{p.price}</span>
-                  <span className="text-volt transition-transform duration-200 group-hover/p:translate-x-1" aria-hidden="true">
+                <h3 className="ui mt-5 text-[20px] font-bold leading-tight text-ink">{p.name}</h3>
+                {p.kind ? <p className="mono mt-1.5 text-[11px] uppercase tracking-[0.1em] text-muted">{p.kind}</p> : null}
+                <p className="mt-3 flex-1 text-[15px] leading-relaxed text-muted">{p.tagline || p.summary}</p>
+                <p className="mt-5 flex items-center justify-between gap-3 border-t border-line pt-4 text-[13px]">
+                  <span className="font-semibold text-ink">{p.price}</span>
+                  <span className="text-accent transition-transform duration-200 group-hover/p:translate-x-1" aria-hidden="true">
                     →
                   </span>
                 </p>
@@ -101,7 +100,7 @@ export function ProductShowcase({ products, copy }: { products: Product[]; copy:
 
         {copy.button.text ? (
           <div className="mt-10" data-reveal>
-            <Button href={copy.button.url} variant="onDark">
+            <Button href={copy.button.url} variant="primary">
               {copy.button.text}
             </Button>
           </div>
