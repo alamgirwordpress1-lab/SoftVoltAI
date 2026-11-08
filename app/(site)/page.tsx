@@ -12,7 +12,7 @@ import { Protection } from "@/components/sections/Protection";
 import { Founder } from "@/components/sections/Founder";
 import { Rates } from "@/components/sections/Rates";
 import { Faq } from "@/components/sections/Faq";
-import { BriefCta } from "@/components/sections/BriefCta";
+import { CtaBand } from "@/components/sections/CtaBand";
 import { homeCopy } from "@/content/copy/home";
 import { cms } from "@/lib/cms";
 import { getCopy } from "@/lib/cms/copy";
@@ -52,8 +52,8 @@ export default async function HomePage() {
     <>
       {/* Narrative order: who we are → proof → white label, shown → what we do →
           what we have built ourselves → why it is safe → build-or-buy → price →
-          work → who → answers → brief. Grounds alternate paper / white, with the
-          products as the one dark band, so no two pale sections meet. The
+          work → who → answers → brief. Grounds alternate paper / white, so no two pale sections meet;
+          everything under the hero is light, and only the closing band is dark. The
           commitments ride under the hero buttons, so they have no row of their own. */}
       <Hero
         cards={globeCards}
@@ -76,8 +76,8 @@ export default async function HomePage() {
       <WorkGrid items={work} categories={workCategories} limit={3} copy={copy.work} />
       <Founder team={team} copy={copy.team} />
       <Faq faqs={faqs} copy={copy.faq} />
-      {/* the brief form is the page’s closing call: a CtaBand under it would only repeat the ask */}
-      <BriefCta copy={copy.brief} form={copy.brief_form} />
+      {/* the same closing band as every inner page; the full brief form lives on /contact */}
+      <CtaBand copy={copy.cta} />
       <StickyCta cta={chrome.cta} />
     </>
   );
