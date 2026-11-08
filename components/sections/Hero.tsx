@@ -109,21 +109,33 @@ export function Hero({
             {lede || LEDE}
           </p>
 
+          {/* the two calls to action: bigger than anything else in the column, with
+              an arrow and a calendar icon, so they never read as one more chip */}
           <div className="mt-10 flex flex-wrap items-center gap-3" data-after>
-            <Button href={cta.primary.href}>{cta.primary.label}</Button>
-            <Button href={cta.secondary.href} variant="secondary">
+            <Button
+              href={cta.primary.href}
+              className="group/cta rounded-lg px-7 py-4 text-[16px] shadow-[0_10px_24px_-12px_rgba(18,22,20,0.55)]"
+            >
+              {cta.primary.label}
+              <span aria-hidden="true" className="transition-transform duration-200 group-hover/cta:translate-x-1">
+                →
+              </span>
+            </Button>
+            <Button href={cta.secondary.href} variant="secondary" className="rounded-lg px-7 py-4 text-[16px]">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <rect x="3" y="4.5" width="18" height="16" rx="2.5" />
+                <path d="M3 9.5h18M8 3v3M16 3v3" />
+              </svg>
               {cta.secondary.label}
             </Button>
           </div>
 
-          {/* trust row as chips, wrapping under the buttons */}
-          <ul className="mt-10 flex flex-wrap gap-3" data-after>
+          {/* trust row as plain ticked text under a hairline: no pill, no border, no
+              shadow, so it reads as reassurance and never as another button */}
+          <ul className="mt-9 flex max-w-[640px] flex-wrap gap-x-6 gap-y-2.5 border-t border-line pt-6" data-after>
             {chips.map((t) => (
-              <li
-                key={t}
-                className="ui shadow-soft flex items-center gap-2 rounded-full border border-line bg-surface px-4 py-2.5 text-[14px] font-semibold text-ink"
-              >
-                <svg width="17" height="17" viewBox="0 0 18 18" aria-hidden="true" className="shrink-0 text-accent">
+              <li key={t} className="ui flex items-center gap-2 text-[14px] font-medium text-muted">
+                <svg width="16" height="16" viewBox="0 0 18 18" aria-hidden="true" className="shrink-0 text-accent">
                   <circle cx="9" cy="9" r="9" fill="currentColor" />
                   <path d="m5.2 9.2 2.4 2.4 5.2-5.2" fill="none" stroke="var(--color-surface)" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
