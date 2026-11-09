@@ -132,7 +132,7 @@ export function Hero({
 
           {/* trust row as plain ticked text under a hairline: no pill, no border, no
               shadow, so it reads as reassurance and never as another button */}
-          <ul className="mt-9 flex max-w-[640px] flex-wrap gap-x-6 gap-y-2.5 border-t border-line pt-6" data-after>
+          <ul className="mt-9 grid max-w-[640px] grid-cols-1 gap-x-8 gap-y-3 border-t border-line pt-6 sm:grid-cols-2" data-after>
             {chips.map((t) => (
               <li key={t} className="ui flex items-center gap-2 text-[14px] font-medium text-muted">
                 <svg width="16" height="16" viewBox="0 0 18 18" aria-hidden="true" className="shrink-0 text-accent">
