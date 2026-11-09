@@ -42,15 +42,15 @@ export default async function ProductsPage() {
           return (
             <div key={group.slug} className="mt-12">
               <h3 className="ui text-[13px] font-bold uppercase tracking-[0.12em] text-muted">{group.title}</h3>
-              <ul className="fx-spot mt-5 grid gap-4">
+              <ul className="fx-spot mt-5 grid gap-4 md:grid-cols-2 md:gap-5">
                 {list.length ? (
                   list.map((p) => {
                     const detail = detailOf(p.slug);
                     const action = detail?.actions.find((a) => a.kind !== "demo" && !a.href.startsWith("#"));
                     return (
-                    <li key={p.slug} className="card shadow-soft grid gap-6 p-6 md:grid-cols-[auto_minmax(0,1fr)] md:gap-8 md:p-8" data-reveal>
-                      <ProductIcon product={p} size={72} />
-                      <div>
+                    <li key={p.slug} className="card card-lift shadow-soft flex flex-col gap-5 p-6 md:p-7" data-reveal>
+                      <ProductIcon product={p} size={64} />
+                      <div className="flex flex-1 flex-col">
                         <div className="flex flex-wrap items-center gap-2.5">
                           <h4 className="ui text-[22px] font-bold leading-tight tracking-[-0.01em] text-ink">
                             <Link href={`/products/${p.slug}`} className="hover:underline">
@@ -60,7 +60,7 @@ export default async function ProductsPage() {
                           {p.badge ? <span className="mono rounded-full bg-ok-bg px-2 py-0.5 text-[10px] uppercase tracking-[0.08em] text-ok-fg">{p.badge}</span> : null}
                           {p.kind ? <span className="mono rounded-full border border-line px-2 py-0.5 text-[10px] uppercase tracking-[0.08em] text-muted">{p.kind}</span> : null}
                         </div>
-                        <p className="mt-3 text-[15px] leading-relaxed text-muted md:text-base">{p.summary}</p>
+                        <p className="mt-3 flex-1 text-[15px] leading-relaxed text-muted">{p.summary}</p>
                         <p className="mono mt-4 text-[11px] uppercase tracking-[0.08em] text-ink">
                           {p.price} {p.availability ? <span className="text-muted">· {p.availability}</span> : null}
                         </p>
@@ -84,7 +84,7 @@ export default async function ProductsPage() {
                     );
                   })
                 ) : (
-                  <li className="flex items-center gap-5 rounded-[var(--radius-lg)] border border-dashed border-line-strong p-6 md:p-8">
+                  <li className="flex items-center gap-5 rounded-[var(--radius-lg)] border border-dashed border-line-strong p-6 md:col-span-2 md:p-8">
                     <ProductIcon product="placeholder" size={56} />
                     <div>
                       <p className="ui text-[17px] font-bold text-ink">Coming soon</p>
