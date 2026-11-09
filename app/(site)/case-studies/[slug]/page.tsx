@@ -30,8 +30,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   // meta descriptions are cut off past about 155 characters, so the summary fills whatever is left (150 + the ellipsis)
   const description = (head + item.summary).slice(0, 150).replace(/[\s,;:—-]+$/, "") + "…";
   const { detail_top: top } = await getCopy(caseStudiesCopy, { title: item.title });
+  // a descriptive case study name already carries the keywords; the " — case study · SoftVolt AI" tail would push it past ~65 characters
   return {
-    title: top.seo_title,
+    title: item.title.length > 40 ? { absolute: item.title } : top.seo_title,
     description,
     alternates: { canonical: `/case-studies/${slug}` },
     ...shareMetadata({ title: `${item.title} · SoftVolt AI case study`, description, path: `/case-studies/${slug}` }),

@@ -5,7 +5,7 @@ import { articleSection, banner, ctaBand, hoursSection, intro, processSection, p
 export const howWeWorkCopy = page("how-we-work", "/how-we-work", "How we work", {
   seo: seo(
     "How white label web development works: our process",
-    "How a white-label project runs from brief to handover: written scope, fixed price, staging under your brand, a QA checklist, daily updates in UK and US hours, and a clean exit.",
+    "How a white-label project runs from brief to handover: a written scope and fixed price, staging under your brand, QA, daily updates and a clean handover.",
   ),
 
   banner: banner({
