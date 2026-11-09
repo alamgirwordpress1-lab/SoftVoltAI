@@ -10,7 +10,8 @@ import { Comparison } from "@/components/sections/Comparison";
 import { WorkGrid } from "@/components/sections/WorkGrid";
 import { Protection } from "@/components/sections/Protection";
 import { Founder } from "@/components/sections/Founder";
-import { Rates } from "@/components/sections/Rates";
+import { Rates, packagesToModels } from "@/components/sections/Rates";
+import { ratesCopy } from "@/content/copy/rates";
 import { Faq } from "@/components/sections/Faq";
 import { CtaBand } from "@/components/sections/CtaBand";
 import { homeCopy } from "@/content/copy/home";
@@ -25,7 +26,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function HomePage() {
   const chrome = await getSiteChrome();
-  const [copy, comparison, globeCards, globeLocations, promises, pillars, work, workCategories, clauses, team, models, faqs, products] = await Promise.all([
+  const [copy, comparison, globeCards, globeLocations, promises, pillars, work, workCategories, clauses, team, pricing, faqs, products] = await Promise.all([
     // every word on this page is in WordPress, on the page called "Home"
     getCopy(homeCopy, { email: chrome.email, location: chrome.location, offset: chrome.utcOffset }),
     cms.getComparison(),
@@ -37,7 +38,7 @@ export default async function HomePage() {
     cms.getWorkCategories(),
     cms.getProtectionClauses(),
     cms.getTeam(),
-    cms.getEngagementModels(),
+    getCopy(ratesCopy),
     cms.getFaqs(),
     cms.getProducts(),
   ]);
@@ -72,7 +73,8 @@ export default async function HomePage() {
       <ProductShowcase products={products} copy={copy.products} />
       <Protection clauses={clauses} copy={copy.protection} tone="alt" />
       <Comparison rows={comparison.rows} source={comparison.source} copy={copy.comparison} />
-      <Rates models={models} copy={copy.rates} tone="alt" />
+      {/* the monthly plans from the Pricing page, so the two never disagree */}
+      <Rates models={packagesToModels(pricing.monthly.packages)} copy={copy.rates} tone="alt" columns={3} />
       <WorkGrid items={work} categories={workCategories} limit={3} copy={copy.work} />
       <Founder team={team} copy={copy.team} />
       <Faq faqs={faqs} copy={copy.faq} />

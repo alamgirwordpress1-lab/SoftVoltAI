@@ -254,3 +254,55 @@ export const articleSection = (title: string, d: { eyebrow: string; heading: str
     },
     "Long-form answers, one heading per question. Search engines and AI answers quote these blocks directly.",
   );
+
+/* ------------------------------------------------------- price packages */
+
+export interface PackageSeed {
+  name: string;
+  best_for: string;
+  price: string;
+  period?: string;
+  badge?: string;
+  /** One line per item. */
+  includes: string[];
+}
+
+/**
+ * A band of price cards (components/sections/Rates) whose packages are written
+ * here and edited on the Pricing page in WordPress, not under Plans. Each card:
+ * name, who it is for, price, period, an optional badge and what is included
+ * (one line per item).
+ */
+export const packageSection = (
+  title: string,
+  d: { eyebrow: string; heading: string; lede: string; price_note: string; button: [string, string]; note?: string; packages: PackageSeed[] },
+) =>
+  section(
+    title,
+    {
+      eyebrow: text("Small line above the heading", d.eyebrow),
+      heading: text("Heading", d.heading),
+      lede: para("Paragraph", d.lede, undefined, 3),
+      link: link("Text link", "", ""),
+      button: link("Button on every card", d.button[0], d.button[1]),
+      price_note: text("Under every price", d.price_note),
+      no_price: text("Instead of a price, when a card has none", "Let's talk"),
+      no_price_note: text("Under \"Let's talk\"", "Scoped and quoted in writing"),
+      note: para("Note under the cards", d.note ?? "", undefined, 2),
+      packages: items(
+        "Packages",
+        "Package",
+        {
+          name: { label: "Name", kind: "text" },
+          best_for: { label: "Who it is for", kind: "text" },
+          price: { label: "Price (with the $ sign; leave empty for \"Let's talk\")", kind: "text" },
+          period: { label: "After the price, e.g. /month or one-time", kind: "text" },
+          badge: { label: "Badge (optional, e.g. Recommended)", kind: "text" },
+          includes: { label: "What is included, one per line", kind: "para" },
+        },
+        d.packages.map((p) => ({ ...p, period: p.period ?? "", badge: p.badge ?? "", includes: p.includes.join("\n") })),
+        { help: "One card per package. Leave the name empty to hide a card.", slots: Math.max(d.packages.length + 2, 6) },
+      ),
+    },
+    "Prices shown to agencies. Change a figure here and the Pricing page (and the home page plans) follow.",
+  );

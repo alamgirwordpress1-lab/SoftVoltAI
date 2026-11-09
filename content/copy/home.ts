@@ -268,7 +268,17 @@ export const homeCopy = page("home", "/", "Home", {
 
   process: processSection(),
 
-  rates: ratesSection(),
+  rates: (() => {
+    const r = ratesSection();
+    r.fields.eyebrow.value = "Pricing";
+    r.fields.heading.value = "Build it once. Grow it every month.";
+    r.fields.lede.value = "Websites at a fixed price, then a monthly plan per client site: care, SEO for Google and AI search, and an AI agent that answers leads. All white-label, all priced so you keep the margin.";
+    r.fields.link.value = { text: "See all pricing", url: "/pricing" };
+    r.fields.button.value = { text: "Start with one site", url: "/contact" };
+    r.fields.price_note.value = "Per client site · billed monthly";
+    r.fields.note.value = "Websites from $1,190 one-time, and an AI-ready website bundle at $4,990. See the full price list.";
+    return r;
+  })(),
 
   agencies: agenciesSection(),
 

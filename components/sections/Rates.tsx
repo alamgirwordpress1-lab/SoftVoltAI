@@ -28,36 +28,59 @@ export interface RatesCopy extends LinkedHeadingCopy {
   note: string;
 }
 
+/** Price cards written as page copy (content/copy/sections packageSection) turned into the plan shape this band draws. */
+export function packagesToModels(
+  list: { name: string; best_for: string; price: string; period: string; badge: string; includes: string }[],
+): EngagementModel[] {
+  return list
+    .filter((p) => p.name.trim())
+    .map((p, i) => ({
+      id: `${i}-${p.name}`,
+      name: p.name,
+      bestFor: p.best_for,
+      from: p.price.trim() || null,
+      period: p.period || undefined,
+      badge: p.badge || undefined,
+      includes: p.includes.split(/\n+/).map((l) => l.trim()).filter(Boolean),
+    }));
+}
+
 export function Rates({
   models,
   copy,
   showHeading = true,
   tone = "base",
+  id = "rates",
+  columns = 4,
 }: {
   models: EngagementModel[];
   copy: RatesCopy;
   showHeading?: boolean;
   /** "alt" sets the section on the full-bleed white band, for alternating grounds on the home page. */
   tone?: "base" | "alt";
+  /** Several price bands can share a page (Pricing): each needs its own anchor. */
+  id?: string;
+  columns?: 2 | 3 | 4;
 }) {
+  if (!models.length) return null;
   return (
     <section
-      id="rates"
+      id={id}
       className={cn(showHeading ? "section" : "py-14 md:py-20", tone === "alt" && "section-alt")}
-      aria-labelledby={showHeading ? "rates-title" : undefined}
+      aria-labelledby={showHeading ? `${id}-title` : undefined}
       aria-label={showHeading ? undefined : "Engagement models"}
     >
       <div className="container-x">
       {showHeading ? (
         <SectionHeading
           eyebrow={copy.eyebrow}
-          title={<span id="rates-title">{copy.heading}</span>}
+          title={<span id={`${id}-title`}>{copy.heading}</span>}
           lede={copy.lede}
-          aside={copy.link.text ? <ArrowLink href={copy.link.url}>{copy.link.text}</ArrowLink> : undefined}
+          aside={copy.link?.text ? <ArrowLink href={copy.link.url}>{copy.link.text}</ArrowLink> : undefined}
         />
       ) : null}
 
-      <ul className={cn("grid gap-5 md:grid-cols-2 xl:grid-cols-4", showHeading && "mt-10")}>
+      <ul className={cn("grid gap-5 md:grid-cols-2", columns === 4 && "xl:grid-cols-4", columns === 3 && "lg:grid-cols-3", showHeading && "mt-10")}>
         {models.map((m, i) => (
           <li key={m.id} data-reveal style={{ ["--reveal-delay" as string]: `${i * 80}ms` }}>
             <article className={cn("card card-lift shadow-soft flex h-full flex-col overflow-hidden", m.badge && "ring-2 ring-accent")}>
@@ -91,12 +114,12 @@ export function Rates({
               </div>
 
               <ul className="flex flex-1 flex-col gap-3 p-7 text-[14px] leading-relaxed text-ink">
-                {m.includes.map((inc) => (
+                {m.includes.length ? m.includes.map((inc) => (
                   <li key={inc} className="flex gap-2.5">
                     <Tick />
                     <span>{inc}</span>
                   </li>
-                ))}
+                )) : null}
               </ul>
 
               <div className="px-7 pb-7 [&>*]:w-full [&>*]:justify-center">
