@@ -6,8 +6,14 @@ import { VoltLauncher } from "@/components/volt/VoltLauncher";
 import { PageFx } from "@/components/motion/PageFx";
 import { getSiteChrome } from "@/lib/cms/site";
 
-/** Volt, the sales assistant, answers from /api/volt; without a DeepSeek key there is no assistant on the site. */
-const voltEnabled = Boolean(process.env.DEEPSEEK_API_KEY);
+/**
+ * Volt, the sales assistant, answers from /api/volt. The layout is rendered at
+ * build time, but the DeepSeek key is a runtime secret (Cloudflare dashboard),
+ * so a build on a machine without the key used to drop the launcher from every
+ * page. SOFTVOLT_VOLT=1 (in .env.production) shows it regardless; /api/volt
+ * still answers with a polite fallback if the key is ever missing at runtime.
+ */
+const voltEnabled = process.env.SOFTVOLT_VOLT === "1" || Boolean(process.env.DEEPSEEK_API_KEY);
 
 /**
  * The chrome is read once per request here and handed to the header and the

@@ -37,7 +37,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 }
 
 /** The same test the layout uses: without a DeepSeek key there is no agent in the corner to try. */
-const agentLive = Boolean(process.env.DEEPSEEK_API_KEY);
+const agentLive = process.env.SOFTVOLT_VOLT === "1" || Boolean(process.env.DEEPSEEK_API_KEY);
 
 /** Products with a visual drawn for them in code, shown beside "Why choose it". */
 const DEMOS: Record<string, { visual: React.ReactNode; caption: string }> = {
