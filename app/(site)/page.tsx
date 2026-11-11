@@ -70,7 +70,8 @@ export default async function HomePage() {
       <ProofStats stats={stats} />
       <EngineRoomDemo copy={copy.demo} />
       <CoreServices copy={copy.core} tone="alt" />
-      <ProductShowcase products={products} copy={copy.products} />
+      {/* plugins only: themes have their own place on /products and in the menu */}
+      <ProductShowcase products={products.filter((p) => p.group === "plugins")} copy={copy.products} />
       <Protection clauses={clauses} copy={copy.protection} tone="alt" />
       <Comparison rows={comparison.rows} source={comparison.source} copy={copy.comparison} />
       {/* the monthly plans from the Pricing page, so the two never disagree */}
