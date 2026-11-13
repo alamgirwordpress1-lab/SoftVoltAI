@@ -61,11 +61,11 @@ export const homeCopy = page("home", "/", "Home", {
   core: section(
     "Core services",
     {
-      eyebrow: text("Small line above the heading", "What agencies brief us for"),
-      heading: text("Heading", "The four services agencies brief us for most."),
+      eyebrow: text("Small line above the heading", "What we do"),
+      heading: text("Heading", "Four services that help a business grow."),
       lede: para(
         "Paragraph",
-        "Pick the one your client needs. Each comes back finished, tested and unbranded, with a fixed price agreed before we start.",
+        "Pick what you need. Each one comes back finished and tested, with a fixed price agreed before we start. Agencies get it under their own brand.",
       ),
       link: link("Link beside the heading", "All services", "/services"),
       items: items(
@@ -83,32 +83,32 @@ export const homeCopy = page("home", "/", "Home", {
           {
             name: "WordPress & WooCommerce",
             url: "/services/white-label-wordpress-development",
-            outcome: "Business sites and online stores your client can edit themselves, built to WordPress coding standards.",
-            includes: "Custom theme, ACF or Gutenberg blocks\nWooCommerce checkout, payments and shipping\nSpeed, SEO basics and accessibility checked",
+            outcome: "Websites and online shops that are easy to edit and bring in sales.",
+            includes: "Custom design that is easy to edit\nWooCommerce checkout, payments and shipping\nSpeed, SEO and accessibility checked",
             price: "",
             time: "",
           },
           {
             name: "Headless & Next.js",
             url: "/services/headless-wordpress-development",
-            outcome: "Keep the WordPress your client knows, put a Next.js front end on it that loads fast and scores well.",
-            includes: "Next.js on headless WordPress, Payload or Sanity\nPreview for editors, publish goes live in seconds\nHosting set up in your agency's name",
+            outcome: "Keep WordPress for editing, and get a site that loads very fast.",
+            includes: "Next.js on headless WordPress, Payload or Sanity\nSee changes first, publish in seconds\nHosting set up in your name",
             price: "",
             time: "",
           },
           {
             name: "AI automation",
             url: "/services/ai-automation",
-            outcome: "Chat and voice assistants, lead qualifying and workflows that take manual hours off an account.",
-            includes: "AI chat and voice agents on the client's own facts\nCRM, forms and ads joined up with n8n or code\nHand-off to a human, and data kept under UK GDPR",
+            outcome: "AI chat and voice helpers and automations that save hours of manual work.",
+            includes: "AI chat and voice agents trained on your business\nCRM, forms and ads joined up with n8n\nHand-off to a real person when it matters",
             price: "",
             time: "",
           },
           {
             name: "SEO & marketing",
             url: "/services/white-label-seo-services",
-            outcome: "Search and ads work for the campaigns you have already sold, reported under your logo.",
-            includes: "Technical, on-page and local SEO\nGoogle Ads and Meta Ads management\nMonthly report with your branding",
+            outcome: "Get found on Google, and turn ads into sales, with a clear monthly report.",
+            includes: "Technical, on-page and local SEO\nGoogle Ads and Meta Ads\nMonthly report, with your logo if you are an agency",
             price: "",
             time: "",
           },
@@ -122,15 +122,15 @@ export const homeCopy = page("home", "/", "Home", {
   products: section(
     "Our products",
     {
-      eyebrow: text("Small line above the heading", "Built by us, not just for clients"),
-      heading: text("Heading", "We ship our own WordPress plugins."),
+      eyebrow: text("Small line above the heading", "Built by us"),
+      heading: text("Heading", "Our own AI plugins for WordPress."),
       lede: para(
         "Paragraph",
-        "Most white-label teams only sell hours. We also build and maintain plugins of our own, reviewed and listed on WordPress.org, so the code we put on your clients' sites is code we stand behind every day.",
+        "We don't just build for clients. We make our own AI plugins: a fast site builder, a sales agent, an SEO tool, a malware scanner, a launch checker and a virtual try-on. Together they help a business site from build to sale.",
       ),
       points: lines(
         "Points beside the figures",
-        ["Reviewed by the WordPress.org plugin team", "Free versions anyone can install today", "The same team builds your client work"],
+        ["Checked and approved by WordPress.org", "Free versions anyone can use today", "The same team builds your website"],
         "One per row. Leave empty to show only the figures.",
       ),
       button: link("Button under the products", "See all products", "/products"),
@@ -289,9 +289,9 @@ export const homeCopy = page("home", "/", "Home", {
   faq: faqSection(),
 
   cta: ctaBand({
-    heading: "Send the brief.",
-    accent: "Get a fixed price within two business days.",
-    lede: "Tell us what the project needs and when. Client names can wait until the NDA is signed, and a named producer replies within one business day.",
+    heading: "Send us your project.",
+    accent: "Get a fixed price in two business days.",
+    lede: "Tell us what you need and when. A real person replies within one business day. Agencies: client names can wait until the NDA is signed.",
   }),
 
   brief: section(
