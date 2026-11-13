@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/ui/Link";
 import { BriefForm } from "@/components/sections/BriefForm";
 import type { BriefFormCopy } from "@/lib/cms/copy-types";
 import { getSiteChrome } from "@/lib/cms/site";

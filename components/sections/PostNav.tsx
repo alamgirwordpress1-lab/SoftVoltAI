@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/ui/Link";
 import { CoverImage } from "@/components/ui/CoverImage";
 import type { WpPostCard } from "@/lib/cms/wordpress";
 

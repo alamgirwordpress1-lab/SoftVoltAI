@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import Link from "@/components/ui/Link";
 import { useEffect, useRef, useState, type FormEvent, type KeyboardEvent } from "react";
 import { site } from "@/content/site";
 import { cn } from "@/lib/utils";

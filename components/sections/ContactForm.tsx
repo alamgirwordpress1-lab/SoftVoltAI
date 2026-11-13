@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Link from "next/link";
+import Link from "@/components/ui/Link";
 import { useRouter } from "next/navigation";
 import { CONTACT_BUDGETS, CONTACT_TOPICS } from "@/lib/forms/contact-schema";
 import { site } from "@/content/site";

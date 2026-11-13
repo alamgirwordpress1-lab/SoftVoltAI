@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/ui/Link";
 import { site } from "@/content/site";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { cn } from "@/lib/utils";

@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/ui/Link";
 import type { Product } from "@/lib/cms/types";
 import { ProductIcon } from "@/components/products/ProductIcon";
 import { Button } from "@/components/ui/Button";

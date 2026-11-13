@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { ScreenshotPan } from "@/components/ui/ScreenshotPan";
-import Link from "next/link";
+import Link from "@/components/ui/Link";
 import { notFound } from "next/navigation";
 import { PageHero } from "@/components/ui/PageHero";
 import { PageIntro } from "@/components/ui/PageIntro";

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useId, useRef, useState } from "react";
-import Link from "next/link";
+import Link from "@/components/ui/Link";
 import type { SiteChrome } from "@/lib/cms/site";
 import { ProductIcon } from "@/components/products/ProductIcon";
 import { cn } from "@/lib/utils";

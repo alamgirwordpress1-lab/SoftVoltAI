@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/ui/Link";
 import { Chip } from "@/components/ui/Chip";
 import { topicIsIndexed } from "@/lib/seo/titles";
 import type { WpTopic } from "@/lib/cms/wordpress";

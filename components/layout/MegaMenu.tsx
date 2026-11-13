@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useId, useRef, useState } from "react";
-import Link from "next/link";
+import Link from "@/components/ui/Link";
 import type { PillarGroup } from "@/lib/cms/types";
 import { resourceLinks } from "@/content/site";
 import { cn } from "@/lib/utils";

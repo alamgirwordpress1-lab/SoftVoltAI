@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { ScreenshotPan } from "@/components/ui/ScreenshotPan";
-import Link from "next/link";
+import Link from "@/components/ui/Link";
 import type { WorkItem } from "@/lib/cms/types";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ArrowLink } from "@/components/ui/ArrowLink";

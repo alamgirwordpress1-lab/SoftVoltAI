@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/ui/Link";
 import type { Faq as FaqItem } from "@/lib/cms/types";
 import { Button } from "@/components/ui/Button";
 import { Rich } from "@/components/ui/Rich";

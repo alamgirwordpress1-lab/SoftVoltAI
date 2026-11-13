@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Link from "next/link";
+import Link from "@/components/ui/Link";
 import { usePathname } from "next/navigation";
 import type { SiteChrome } from "@/lib/cms/site";
 import { pillars } from "@/content/pillars";

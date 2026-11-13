@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/ui/Link";
 import { siFacebook, siInstagram, siX } from "simple-icons";
 import { Logo } from "@/components/layout/Logo";
 import { companyLinks, socials } from "@/content/site";

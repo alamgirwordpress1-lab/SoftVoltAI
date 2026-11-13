@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { CoverImage } from "@/components/ui/CoverImage";
-import Link from "next/link";
+import Link from "@/components/ui/Link";
 import { TopicChip } from "@/components/ui/TopicChip";
 import type { WpPostCard } from "@/lib/cms/wordpress";
 import { cn } from "@/lib/utils";

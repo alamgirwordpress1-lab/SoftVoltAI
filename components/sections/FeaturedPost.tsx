@@ -1,5 +1,5 @@
 import { CoverImage } from "@/components/ui/CoverImage";
-import Link from "next/link";
+import Link from "@/components/ui/Link";
 import { Chip } from "@/components/ui/Chip";
 import type { WpPostCard } from "@/lib/cms/wordpress";
 
