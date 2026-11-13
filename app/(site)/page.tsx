@@ -75,7 +75,7 @@ export default async function HomePage() {
       <Protection clauses={clauses} copy={copy.protection} tone="alt" />
       <Comparison rows={comparison.rows} source={comparison.source} copy={copy.comparison} />
       {/* the monthly plans from the Pricing page, so the two never disagree */}
-      <Rates models={packagesToModels(pricing.monthly.packages)} copy={copy.rates} tone="alt" columns={3} />
+      <Rates models={packagesToModels(pricing.monthly.packages)} copy={copy.rates} tone="alt" columns={4} />
       <WorkGrid items={work} categories={workCategories} limit={3} copy={copy.work} />
       <Founder team={team} copy={copy.team} />
       <Faq faqs={faqs} copy={copy.faq} />

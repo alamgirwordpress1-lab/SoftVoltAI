@@ -40,7 +40,7 @@ export default async function PricingPage() {
 
       <BundleCard copy={copy.bundle} />
       <Rates id="builds" models={packagesToModels(copy.builds.packages)} copy={copy.builds} columns={3} tone="alt" />
-      <Rates id="monthly" models={packagesToModels(copy.monthly.packages)} copy={copy.monthly} columns={3} />
+      <Rates id="monthly" models={packagesToModels(copy.monthly.packages)} copy={copy.monthly} columns={4} />
       <Rates id="ai" models={packagesToModels(copy.ai.packages)} copy={copy.ai} columns={2} tone="alt" />
       <Rates id="team" models={models} copy={copy.plans} />
       <Article id="guide" copy={copy.guide} tone="alt" />

@@ -92,11 +92,12 @@ export const ratesCopy = page("rates", "/pricing", "Pricing", {
   monthly: packageSection("Monthly plans", {
     eyebrow: "After launch",
     heading: "Monthly plans per client site.",
-    lede: "Turn every launch into monthly income. Care keeps the site safe, Grow gets it found in Google and in AI answers, and Grow + AI adds an agent that answers leads around the clock.",
+    lede: "Need just one service? Pick it on its own. Or turn every launch into monthly income: Care keeps the site safe, Grow gets it found in Google and in AI answers, and Grow + AI adds an agent that answers leads around the clock.",
     price_note: "Per client site · billed monthly · cancel any time",
     button: ["Start with one site", "/contact"],
     note: "Prices are per site. Ten sites or more on the same plan get 10% off.",
     packages: [
+      { name: "Single service", best_for: "Need just one thing? Pick one service and pay only for that.", price: "", period: "", includes: ["Website design and development", "SEO only", "AI agent or automation only", "Google or Meta Ads only", "Fixed price, agreed before we start"] },
       { name: "Care", best_for: "Keep a finished site updated, backed up and secure.", price: "$139", period: "/month", includes: ["Updates tested on staging first", "Daily off-site backups", "Security and uptime monitoring", "Small edits each month", "Branded monthly report"] },
       { name: "Grow", best_for: "Care plus SEO that gets the site found in Google and in AI search.", price: "$499", period: "/month", badge: "Recommended", includes: ["Everything in Care", "Technical and on-page SEO", "AEO and GEO: content shaped for AI answers", "Google Business Profile and local SEO", "Rankings and AI visibility report"] },
       { name: "Grow + AI", best_for: "Grow plus an AI agent that answers, qualifies and books leads.", price: "$849", period: "/month", includes: ["Everything in Grow", "AI chat and voice agent on the site", "Bookings into Google Calendar or Calendly", "2 n8n lead automations included", "Agent tuned every month from real chats"] },
