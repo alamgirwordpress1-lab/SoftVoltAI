@@ -7,6 +7,7 @@ import type { WorkItem } from "@/lib/cms/types";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ArrowLink } from "@/components/ui/ArrowLink";
 import { Chip } from "@/components/ui/Chip";
+import { PRIVATE_URL_LABEL, PrivateBuildPanel, siteHost } from "@/components/ui/PrivateBuildPanel";
 import { cn } from "@/lib/utils";
 import type { LinkedHeadingCopy } from "@/lib/cms/copy-types";
 
@@ -77,13 +78,14 @@ export function WorkGrid({
         {shown.map((w, i) => (
           <li key={w.slug} data-reveal style={{ ["--reveal-delay" as string]: `${(i % 3) * 80}ms` }}>
             <article className="card card-lift shadow-soft group flex h-full flex-col overflow-hidden" data-pan-root>
-              {/* the picture opens the case study, which links to the live site: twenty
-                  links straight out of one list read as a link farm to a crawler */}
+              {/* the address sits outside the link so a visitor can select and copy it; it stays
+                  plain text, because twenty links straight out of one list read as a link farm */}
+              <div className="stage-chrome !py-2">
+                <i /> <i /> <i />
+                <span className="url select-text">{w.url ? siteHost(w.url) : PRIVATE_URL_LABEL}</span>
+              </div>
+              {/* the picture opens the case study, which links to the live site */}
               <Link href={`/case-studies/${w.slug}`} prefetch={false} className="block" aria-label={`${w.title} case study`}>
-                <div className="stage-chrome !py-2">
-                  <i /> <i /> <i />
-                  <span className="url">{w.url?.replace(/^https?:\/\//, "").replace(/\/$/, "")}</span>
-                </div>
                 <div className="relative aspect-[16/10] overflow-hidden border-b border-line bg-raised">
                   {w.image ? (
                     <ScreenshotPan
@@ -94,7 +96,9 @@ export function WorkGrid({
                       pan
                       className="transition-transform duration-700 ease-[var(--ease-out-quint)] group-hover:scale-[1.04]"
                     />
-                  ) : null}
+                  ) : (
+                    <PrivateBuildPanel category={w.category} client={w.client} stack={w.stack} />
+                  )}
                 </div>
               </Link>
               <div className="flex flex-1 flex-col p-6">

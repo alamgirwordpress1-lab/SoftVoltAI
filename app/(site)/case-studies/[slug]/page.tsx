@@ -3,19 +3,15 @@ import { ScreenshotPan } from "@/components/ui/ScreenshotPan";
 import Link from "@/components/ui/Link";
 import { notFound } from "next/navigation";
 import { PageHero } from "@/components/ui/PageHero";
-import { PageIntro } from "@/components/ui/PageIntro";
 import { Button } from "@/components/ui/Button";
 import { Chip } from "@/components/ui/Chip";
 import { CtaBand } from "@/components/sections/CtaBand";
 import { shareMetadata } from "@/lib/seo/share";
-import { Rich } from "@/components/ui/Rich";
 import { getSiteChrome } from "@/lib/cms/site";
 import { cms } from "@/lib/cms";
 import { getCopy } from "@/lib/cms/copy";
 import { caseStudiesCopy } from "@/content/copy/case-studies";
 import { midSentence } from "@/lib/utils";
-import { BandDecor } from "@/components/illustrations/BandDecor";
-import { ServiceArt } from "@/components/illustrations/ServiceArt";
 
 export async function generateStaticParams() {
   const work = await cms.getWork();
@@ -39,11 +35,16 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   };
 }
 
+/**
+ * One case study: the banner, then the story of the build — how it was done,
+ * what made it complex and how that was solved, how it was completed — and the
+ * client's review last. No screenshot: the words carry the page.
+ */
 export default async function CaseStudyPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const item = await cms.getWorkItem(slug);
   if (!item) notFound();
-  const [process, chrome] = await Promise.all([cms.getProcess(), getSiteChrome()]);
+  const chrome = await getSiteChrome();
   // the words are the "Every case study page" tabs on the Case Studies page in WordPress
   const copy = await getCopy(caseStudiesCopy, {
     title: item.title,
@@ -52,12 +53,13 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
     client: midSentence(item.client),
     region: item.region,
     role: midSentence(item.role),
-    delivered: String(item.delivered.length),
     stack: item.stack.join(", "),
-    live_note: item.url ? ", and the site is still live — open it and check the claims against the real thing." : ".",
   });
   const top = copy.detail_top;
   const band = copy.detail_sections;
+  const { story } = item;
+  // a case study with nothing written yet still opens with its summary
+  const overview = story.overview.length ? story.overview : [item.summary];
 
   return (
     <>
@@ -72,7 +74,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
         highlights={[
           { label: top.fact_client, value: item.client },
           { label: top.fact_region, value: item.region },
-          { label: top.fact_stack, value: item.stack.slice(0, 3).join(" · ") },
+          ...(item.stack.length ? [{ label: top.fact_stack, value: item.stack.slice(0, 3).join(" · ") }] : []),
         ]}
       >
         <div className="flex flex-wrap items-center gap-3">
@@ -85,77 +87,123 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
             {chrome.cta.primary.label}
           </Button>
         </div>
+        {!item.url && top.private_note ? <p className="mono mt-5 max-w-[56ch] text-[12px] leading-relaxed text-muted">{top.private_note}</p> : null}
       </PageHero>
 
-      {item.image ? (
-        <section className="container-x pb-14 md:pb-20" aria-label={`${item.title} screenshot`}>
-          <div className="card shadow-float overflow-hidden" data-reveal>
-            <div className="stage-chrome">
-              <i /> <i /> <i />
-              <span className="url">{item.url?.replace(/^https?:\/\//, "").replace(/\/$/, "")}</span>
-            </div>
-            <div className="relative aspect-[16/10] bg-raised">
-              <ScreenshotPan thumb={item.thumb} image={item.image} alt={`${item.title} — homepage`} sizes="(min-width: 1024px) 80vw, 100vw" priority pan duration={14000} />
-            </div>
-          </div>
-        </section>
-      ) : null}
-
-      <PageIntro
-        eyebrow={top.intro_eyebrow}
-        title={top.intro_heading}
-        subtitle={item.role}
-        body={[<Rich key="p1" text={top.intro_p1} />, <Rich key="p2" text={top.intro_p2} />]}
-        points={[
-          { title: top.point_client, text: item.client },
-          { title: top.point_market, text: item.region },
-          { title: top.point_role, text: item.role },
-          { title: top.point_stack, text: item.stack.join(" · ") },
-        ]}
-        jump={[
-          { label: top.jump_delivered, href: "#delivered" },
-          { label: top.jump_partner, href: "#as-partner" },
-          { label: top.jump_related, href: "#related" },
-        ]}
-      />
-
-      <section id="delivered" className="container-x border-t border-line py-14 md:py-20" aria-labelledby="delivered-title">
+      {/* how the project was done */}
+      <section id="overview" className="container-x border-t border-line py-14 md:py-20" aria-labelledby="overview-title">
         <div className="grid gap-10 lg:grid-cols-12 lg:gap-14">
           <div className="lg:sticky lg:top-28 lg:col-span-4 lg:self-start" data-reveal>
-            <span className="eyebrow">{band.delivered_eyebrow}</span>
-            <h2 id="delivered-title" className="display display-md mt-4">
-              {band.delivered_heading}
+            <span className="eyebrow">{band.overview_eyebrow}</span>
+            <h2 id="overview-title" className="display display-md mt-4">
+              {band.overview_heading}
             </h2>
             <dl className="mt-8 space-y-5 text-[15px]">
               <div>
                 <dt className="mono text-[11px] uppercase tracking-[0.1em] text-muted">{band.label_client}</dt>
-                <dd className="mt-1 text-ink">
-                  {item.client} · {item.region}
-                </dd>
+                <dd className="mt-1 text-ink">{item.client}</dd>
               </div>
               <div>
-                <dt className="mono text-[11px] uppercase tracking-[0.1em] text-muted">{band.label_role}</dt>
-                <dd className="mt-1 text-ink">{item.role}</dd>
+                <dt className="mono text-[11px] uppercase tracking-[0.1em] text-muted">{band.label_market}</dt>
+                <dd className="mt-1 text-ink">{item.region}</dd>
               </div>
-              <div>
-                <dt className="mono text-[11px] uppercase tracking-[0.1em] text-muted">{band.label_stack}</dt>
-                <dd className="mt-2 flex flex-wrap gap-1.5">
-                  {item.stack.map((s) => (
-                    <Chip key={s}>{s}</Chip>
-                  ))}
-                </dd>
-              </div>
+              {item.role ? (
+                <div>
+                  <dt className="mono text-[11px] uppercase tracking-[0.1em] text-muted">{band.label_role}</dt>
+                  <dd className="mt-1 text-ink">{item.role}</dd>
+                </div>
+              ) : null}
+              {item.stack.length ? (
+                <div>
+                  <dt className="mono text-[11px] uppercase tracking-[0.1em] text-muted">{band.label_stack}</dt>
+                  <dd className="mt-2 flex flex-wrap gap-1.5">
+                    {item.stack.map((s) => (
+                      <Chip key={s}>{s}</Chip>
+                    ))}
+                  </dd>
+                </div>
+              ) : null}
             </dl>
           </div>
 
-          <ul className="fx-spot grid content-start gap-4 sm:grid-cols-2 lg:col-span-8">
-            {item.delivered.map((d, i) => (
-              <li key={d} data-reveal style={{ ["--reveal-delay" as string]: `${i * 60}ms` }} className="card shadow-soft flex gap-3 p-5">
-                <span className="mono mt-0.5 text-[12px] text-accent">{String(i + 1).padStart(2, "0")}</span>
-                <span className="text-[15px] leading-relaxed text-ink">{d}</span>
-              </li>
+          <div className="space-y-5 lg:col-span-7 lg:col-start-6" data-reveal style={{ ["--reveal-delay" as string]: "80ms" }}>
+            {overview.map((p, i) => (
+              <p key={i} className={i === 0 ? "text-lg leading-relaxed text-ink md:text-xl" : "text-[16px] leading-relaxed text-muted md:text-[17px]"}>
+                {p}
+              </p>
             ))}
-          </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* what made it complex, and how it was solved */}
+      {story.challenges.length ? (
+        <section id="challenges" className="border-t border-line bg-raised" aria-labelledby="challenges-title">
+          <div className="container-x py-14 md:py-20">
+            <div className="max-w-[46rem]" data-reveal>
+              <span className="eyebrow">{band.challenges_eyebrow}</span>
+              <h2 id="challenges-title" className="display display-md mt-4">
+                {band.challenges_heading}
+              </h2>
+            </div>
+            <ol className="mt-10 space-y-4">
+              {story.challenges.map((c, i) => (
+                <li
+                  key={c.problem}
+                  data-reveal
+                  style={{ ["--reveal-delay" as string]: `${i * 60}ms` }}
+                  className="card shadow-soft grid gap-0 overflow-hidden md:grid-cols-[64px_1fr_1fr]"
+                >
+                  <span className="mono flex items-start px-5 pt-5 text-[13px] text-accent md:justify-center md:border-r md:border-line md:px-0 md:py-6">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <div className="p-5 md:p-6">
+                    <p className="mono text-[11px] uppercase tracking-[0.1em] text-muted">{band.label_problem}</p>
+                    <p className="mt-2 text-[15px] leading-relaxed text-ink md:text-base">{c.problem}</p>
+                  </div>
+                  {c.solution ? (
+                    <div className="border-t border-line p-5 md:border-l md:border-t-0 md:p-6">
+                      <p className="mono text-[11px] uppercase tracking-[0.1em] text-accent">{band.label_solution}</p>
+                      <p className="mt-2 text-[15px] leading-relaxed text-ink md:text-base">{c.solution}</p>
+                    </div>
+                  ) : null}
+                </li>
+              ))}
+            </ol>
+          </div>
+        </section>
+      ) : null}
+
+      {/* how it was completed */}
+      <section id="outcome" className="container-x border-t border-line py-14 md:py-20" aria-labelledby="outcome-title">
+        <div className="grid gap-10 lg:grid-cols-12 lg:gap-14">
+          <div className="lg:sticky lg:top-28 lg:col-span-4 lg:self-start" data-reveal>
+            <span className="eyebrow">{band.outcome_eyebrow}</span>
+            <h2 id="outcome-title" className="display display-md mt-4">
+              {band.outcome_heading}
+            </h2>
+            {story.outcome.map((p, i) => (
+              <p key={i} className="lede mt-5">
+                {p}
+              </p>
+            ))}
+          </div>
+
+          {item.delivered.length ? (
+            <div className="lg:col-span-8">
+              <h3 className="mono text-[11px] uppercase tracking-[0.1em] text-muted" data-reveal>
+                {band.shipped_label}
+              </h3>
+              <ul className="fx-spot mt-4 grid content-start gap-4 sm:grid-cols-2">
+                {item.delivered.map((d, i) => (
+                  <li key={d} data-reveal style={{ ["--reveal-delay" as string]: `${i * 60}ms` }} className="card shadow-soft flex gap-3 p-5">
+                    <span className="mono mt-0.5 text-[12px] text-accent">{String(i + 1).padStart(2, "0")}</span>
+                    <span className="text-[15px] leading-relaxed text-ink">{d}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ) : null}
         </div>
 
         {band.delivered_note ? (
@@ -165,34 +213,33 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
         ) : null}
       </section>
 
-      <section id="as-partner" className="er relative overflow-hidden" aria-labelledby="as-partner-title">
-        <div className="grid-lines" aria-hidden="true" />
-        <BandDecor side="left" />
-        <div className="container-x relative grid gap-10 py-14 md:py-20 lg:grid-cols-12">
-          <div className="lg:sticky lg:top-28 lg:col-span-5 lg:self-start" data-reveal>
-            <span className="eyebrow">{band.partner_eyebrow}</span>
-            <h2 id="as-partner-title" className="display display-md mt-4">
-              {band.partner_heading}
+      {/* the client's review comes last, and only when they have agreed to it being published */}
+      {story.review ? (
+        <section id="review" className="er relative overflow-hidden" aria-labelledby="review-title">
+          <div className="grid-lines" aria-hidden="true" />
+          <div className="container-x relative py-14 md:py-20">
+            <span className="eyebrow">{band.review_eyebrow}</span>
+            <h2 id="review-title" className="display display-md mt-4 text-er-ink">
+              {band.review_heading}
             </h2>
-            {band.partner_lede ? <p className="lede mt-5">{band.partner_lede}</p> : null}
-            {/* your brand out front, our team behind it: our own drawing, no words */}
-            <ServiceArt variant="agency" className="mt-10 hidden max-w-[400px] lg:block" />
+            <figure className="mt-10 max-w-[56rem]" data-reveal>
+              <blockquote className="text-xl leading-relaxed text-er-ink md:text-2xl">
+                <p>“{story.review.quote}”</p>
+              </blockquote>
+              <figcaption className="mt-6">
+                <span className="ui block font-bold text-er-ink">{story.review.name}</span>
+                {story.review.role || story.review.company ? (
+                  <span className="mono mt-1 block text-[11px] uppercase tracking-[0.08em] text-er-muted">
+                    {[story.review.role, story.review.company].filter(Boolean).join(" · ")}
+                  </span>
+                ) : null}
+              </figcaption>
+            </figure>
           </div>
-          <ol className="lg:col-span-6 lg:col-start-7" data-reveal style={{ ["--reveal-delay" as string]: "100ms" }}>
-            {process.map((step, i) => (
-              <li key={step.id} className="grid grid-cols-[42px_1fr] gap-3 border-t border-er-line py-4 first:border-t-0 first:pt-0">
-                <span className="mono text-[12px] text-volt">{String(i + 1).padStart(2, "0")}</span>
-                <div>
-                  <p className="ui font-bold text-er-ink">{step.name}</p>
-                  <p className="mono mt-0.5 text-[11px] uppercase tracking-[0.08em] text-er-muted">{step.turnaround}</p>
-                </div>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </section>
+        </section>
+      ) : null}
 
-      <section id="related" className="container-x py-14 md:py-20" aria-labelledby="related-title">
+      <section id="related" className="container-x border-t border-line py-14 md:py-20" aria-labelledby="related-title">
         <span className="eyebrow">{band.related_eyebrow}</span>
         <h2 id="related-title" className="display display-md mt-4">
           {band.related_heading}

@@ -634,7 +634,7 @@ export function OrbitGlobe({ cards, locations, label }: { cards: GlobeCard[]; lo
   );
 }
 
-/** Stands in for a client with no logo file: "The Bulk Bag Man" → "BB", "MobileDokan24" → "MD". */
+/** Stands in for a client with no logo file: "Green Pathway" → "GP", "MobileDokan24" → "MD". */
 function initials(name: string) {
   const words = name.split(/\s+/).filter((w) => !/^(the|and|of|in|for|an?|&)$/i.test(w));
   if (words.length > 1)

@@ -43,7 +43,7 @@ const head = `<?php
  */
 
 if (!defined('SOFTVOLT_HEADLESS_VERSION')) {
-    define('SOFTVOLT_HEADLESS_VERSION', '1.3.0');
+    define('SOFTVOLT_HEADLESS_VERSION', '1.4.0');
 }
 
 if (!defined('SOFTVOLT_SETTINGS_KEY')) {

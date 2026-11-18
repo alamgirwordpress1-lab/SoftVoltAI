@@ -7,12 +7,13 @@ export const workCategories = ["All", "Headless & Next.js", "E-commerce", "Corpo
  * Websites delivered by our founder as developer, project manager or team lead
  * before SoftVolt AI — all public and live. White-label partner work never
  * appears here without written permission, and no outcome is published unless
- * it can be shown.
+ * it can be shown. A client who asked not to be named has no name in the title
+ * or slug, no live URL and no screenshot.
  */
 export const work: WorkItem[] = [
   {
-    slug: "bulk-bag-man",
-    title: "The Bulk Bag Man",
+    slug: "headless-wordpress-nextjs-uk-aggregates-supplier",
+    title: "Headless WordPress and Next.js site for a UK aggregates supplier",
     client: "UK aggregates supplier",
     region: "United Kingdom",
     category: "Headless & Next.js",
@@ -26,12 +27,10 @@ export const work: WorkItem[] = [
       "Content editing stays in the WordPress admin the client already knows",
     ],
     stack: ["Headless WordPress", "Next.js", "REST API", "ACF", "TypeScript", "Vercel"],
-    url: "https://bag-man-live-six.vercel.app/",
-    image: "/clients/bulk-bag-man.jpg",
   },
   {
-    slug: "heat-pumps-4-pools",
-    title: "Heat Pumps 4 Pools",
+    slug: "woocommerce-store-maintenance-uk-pool-heating-retailer",
+    title: "WooCommerce store and maintenance for a UK pool-heating retailer",
     client: "UK pool-heating retailer",
     region: "United Kingdom",
     category: "E-commerce",
@@ -45,12 +44,10 @@ export const work: WorkItem[] = [
       "The same care-plan pattern agencies resell under their own brand",
     ],
     stack: ["WooCommerce", "WordPress", "PHP", "Maintenance"],
-    url: "https://heatpumps4pools.com/",
-    image: "/clients/heat-pumps-4-pools.jpg",
   },
   {
-    slug: "ascent-energy",
-    title: "Ascent Energy",
+    slug: "woocommerce-store-uk-renewable-energy-company",
+    title: "WooCommerce store for a UK renewable energy company",
     client: "UK energy retailer",
     region: "United Kingdom",
     category: "E-commerce",
@@ -62,8 +59,6 @@ export const work: WorkItem[] = [
       "Project managed through to launch, with the client briefed at each stage",
     ],
     stack: ["WooCommerce", "WordPress", "Project management"],
-    url: "https://ascent-energy.co.uk/",
-    image: "/clients/ascent-energy.jpg",
   },
   {
     slug: "mobiledokan24",
@@ -135,8 +130,8 @@ export const work: WorkItem[] = [
     image: "/clients/yume-nihongo.jpg",
   },
   {
-    slug: "seo-agency-in-essex",
-    title: "SEO Agency in Essex",
+    slug: "technical-seo-wordpress-site-uk-seo-agency",
+    title: "Technical SEO WordPress site for a UK SEO agency",
     client: "UK SEO agency",
     region: "United Kingdom",
     category: "Agency & SEO",
@@ -148,7 +143,5 @@ export const work: WorkItem[] = [
       "Service and location page templates the agency can extend itself",
     ],
     stack: ["WordPress", "Technical SEO", "Performance"],
-    url: "https://seoagencyinessex.co.uk/",
-    image: "/clients/seo-agency-in-essex.jpg",
   },
 ];

@@ -1,8 +1,8 @@
 import "server-only";
-import type { AgencyType, CityClock, Client, ComparisonRow, EngagementModel, Faq, PillarGroup, Pillar, ProcessStep, Product, ProductDetail, ProductGroup, ProductPlan, Promise as SitePromise, Service, ServiceDetail, TechItem, Testimonial, WorkItem } from "@/lib/cms/types";
+import type { AgencyType, CaseStory, CityClock, Client, ComparisonRow, EngagementModel, Faq, PillarGroup, Pillar, ProcessStep, Product, ProductDetail, ProductGroup, ProductPlan, Promise as SitePromise, Service, ServiceDetail, TechItem, Testimonial, WorkItem } from "@/lib/cms/types";
 import type { TeamMember } from "@/content/founder";
 import { lines, plain, wpQuery, wpReady, wpTry } from "@/lib/wp/client";
-import { AGENCY_TYPES, ALL_SLUGS, CASE_STUDIES, MENUS, PAGE_BY_URI, POST_BY_SLUG, POSTS, PRODUCTS, SERVICES, SIMPLE_COLLECTIONS, SITE_SETTINGS } from "@/lib/wp/queries";
+import { AGENCY_TYPES, ALL_SLUGS, CASE_STUDIES, CASE_STUDY_STORIES, MENUS, PAGE_BY_URI, POST_BY_SLUG, POSTS, PRODUCTS, SERVICES, SIMPLE_COLLECTIONS, SITE_SETTINGS } from "@/lib/wp/queries";
 import { mergeCopy, type Raw } from "@/lib/cms/copy";
 import { productTemplate } from "@/content/copy/product";
 import { customSeoTitle } from "@/lib/seo/titles";
@@ -314,6 +314,58 @@ export async function wpWork(): Promise<WpWork | null> {
   // "All" first, then the categories in the order the builds are published in
   const categories = ["All", ...[...new Set(work.map((w) => w.category).filter(Boolean))]];
   return { work, categories };
+}
+
+interface RawCaseStory {
+  slug: string;
+  caseStudyStory: {
+    overview: string | null;
+    challenges: string | null;
+    solutions: string | null;
+    outcome: string | null;
+    reviewQuote: string | null;
+    reviewName: string | null;
+    reviewRole: string | null;
+    reviewCompany: string | null;
+    reviewConsent: string | null;
+  } | null;
+}
+
+/**
+ * What an editor wrote in each case study's "Story" box, by slug. Only the
+ * parts that were filled in: an empty one keeps the draft in content/.
+ * Null while the theme has no Story box yet, or WordPress is unreachable.
+ */
+export async function wpCaseStudyStories(): Promise<Record<string, Partial<CaseStory>> | null> {
+  const data = await wpTry<{ caseStudies: { nodes: RawCaseStory[] } }>(CASE_STUDY_STORIES, { tags: ["wp:case_study"] });
+  const nodes = data?.caseStudies?.nodes;
+  if (!nodes) return null;
+
+  const stories: Record<string, Partial<CaseStory>> = {};
+  for (const node of nodes) {
+    const f = node.caseStudyStory;
+    if (!f) continue;
+    const story: Partial<CaseStory> = {};
+    const overview = lines(f.overview).map(plain);
+    if (overview.length) story.overview = overview;
+    // line N of "How we solved it" answers line N of "What made it complex"
+    const problems = lines(f.challenges).map(plain);
+    const solutions = lines(f.solutions).map(plain);
+    if (problems.length) story.challenges = problems.map((problem, i) => ({ problem, solution: solutions[i] ?? "" }));
+    const outcome = lines(f.outcome).map(plain);
+    if (outcome.length) story.outcome = outcome;
+    // a review without a recorded permission is not published, ever
+    if (f.reviewQuote?.trim() && f.reviewName?.trim() && f.reviewConsent?.trim()) {
+      story.review = {
+        quote: plain(f.reviewQuote),
+        name: plain(f.reviewName),
+        role: plain(f.reviewRole) || undefined,
+        company: plain(f.reviewCompany) || undefined,
+      };
+    }
+    if (Object.keys(story).length) stories[node.slug] = story;
+  }
+  return stories;
 }
 
 /* ------------------------------------------------------ everything smaller */

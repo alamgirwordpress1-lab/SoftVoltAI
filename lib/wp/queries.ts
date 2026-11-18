@@ -133,6 +133,22 @@ export const CASE_STUDIES = /* GraphQL */ `
   }
 `;
 
+/**
+ * The story box of every case study — overview, challenges, outcome and the
+ * client's review. A query of its own, so an install whose theme does not have
+ * the box yet still serves the case studies themselves.
+ */
+export const CASE_STUDY_STORIES = /* GraphQL */ `
+  query CaseStudyStories {
+    caseStudies(first: 100) {
+      nodes {
+        slug
+        caseStudyStory { overview challenges solutions outcome reviewQuote reviewName reviewRole reviewCompany reviewConsent }
+      }
+    }
+  }
+`;
+
 export const SIMPLE_COLLECTIONS = /* GraphQL */ `
   query SimpleCollections {
     processSteps(first: 20, where: { orderby: { field: MENU_ORDER, order: ASC } }) {
