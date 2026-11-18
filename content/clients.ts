@@ -6,16 +6,13 @@ import type { Client, FeaturedClient, GlobeCard, GlobeLocation, RecommendingClie
  * of writing. White-label partner work never appears here without permission.
  */
 export const clients: Client[] = [
-  { name: "The Bulk Bag Man", country: "UK", work: "Headless WordPress + Next.js", url: "https://bag-man-live-six.vercel.app/" },
-  { name: "Heat Pumps 4 Pools", country: "UK", work: "WooCommerce store", url: "https://heatpumps4pools.com/" },
-  { name: "Ascent Energy", country: "UK", work: "WooCommerce build", url: "https://ascent-energy.co.uk/" },
-  { name: "SEO Agency in Essex", country: "UK", work: "Technical-SEO site", url: "https://seoagencyinessex.co.uk/" },
   { name: "Online Marketing Help", country: "UK", work: "Agency WordPress team" },
   { name: "Patriot Insurance Group", country: "US", work: "Full-stack WordPress", url: "https://dsayles.com/" },
   { name: "Ronemus & Vilensky", country: "US", work: "Law firm website", url: "https://www.ronvil.com/" },
   { name: "MobileDokan24", country: "BD", work: "WooCommerce catalogue", url: "https://mobiledokan24.com/" },
   { name: "GFC Fans BD", country: "BD", work: "Brand store", url: "https://gfcfansbd.com/" },
   { name: "Yume Nihongo", country: "BD", work: "Education website", url: "https://yumenihongo.com/" },
+  { name: "The Artel Collection", country: "US", work: "Jewellery e-commerce store", url: "https://theartelcollection.com/" },
   { name: "Bhalogari", country: "BD", work: "Web development" },
   { name: "Dropndot", country: "BD", work: "Agency development" },
 ];
@@ -47,11 +44,7 @@ const tiles = {
 
 /** Delivered client websites with hand-placed positions: shown until recommending clients are added. */
 const projectOrbit: GlobeCard[] = [
-  { id: "bbm", kind: "site", title: "The Bulk Bag Man", country: "UK", work: "Headless WordPress + Next.js", image: "/clients/bulk-bag-man.jpg", az: 0, lat: 6, scale: 1.06 },
-  { id: "hp4p", kind: "site", title: "Heat Pumps 4 Pools", country: "UK", work: "WooCommerce store", image: "/clients/heat-pumps-4-pools.jpg", az: 32, lat: -28 },
   tiles.cities,
-  { id: "seo", kind: "site", title: "SEO Agency in Essex", country: "UK", work: "Technical-SEO site", image: "/clients/seo-agency-in-essex.jpg", az: 92, lat: -6 },
-  { id: "ascent", kind: "site", title: "Ascent Energy", country: "UK", work: "WooCommerce build", image: "/clients/ascent-energy.jpg", az: 122, lat: 24 },
   tiles.brand,
   { id: "md24", kind: "site", title: "MobileDokan24", country: "BD", work: "WooCommerce catalogue", image: "/clients/mobiledokan24.jpg", az: 182, lat: 6 },
   { id: "patriot", kind: "site", title: "Patriot Insurance Group", country: "US", work: "Full-stack WordPress", image: "/clients/patriot-insurance.jpg", az: 212, lat: 30 },
@@ -67,17 +60,16 @@ const projectOrbit: GlobeCard[] = [
  * Trim this list to the ones you want on the hero; the rest still appear in the
  * case studies. A `logo` is the client's own mark, saved square in
  * public/clients/logos/; leave it out and the badge shows the client's initials.
- * Remove a client here if they ask not to be shown.
+ * Remove a client here if they ask not to be shown — and untick "Show on the
+ * globe" on their entry under Clients in WordPress, which is what the live
+ * site reads.
  */
 export const featuredClients: FeaturedClient[] = [
-  { id: "hp4p", name: "Heat Pumps 4 Pools", work: "WooCommerce store", country: "UK", logo: "/clients/logos/heat-pumps-4-pools.png" },
-  { id: "ascent", name: "Ascent Energy", work: "WooCommerce build", country: "UK", logo: "/clients/logos/ascent-energy.png" },
-  { id: "seo", name: "SEO Agency in Essex", work: "Technical-SEO site", country: "UK", logo: "/clients/logos/seo-agency-in-essex.png" },
   { id: "ronvil", name: "Ronemus & Vilensky", work: "Law firm website", country: "US", logo: "/clients/logos/ronemus-vilensky.png", logoFill: true },
   { id: "yume", name: "Yume Nihongo", work: "Education website", country: "BD", logo: "/clients/logos/yume-nihongo.png" },
-  { id: "bbm", name: "The Bulk Bag Man", work: "Headless WordPress + Next.js", country: "UK" },
   { id: "patriot", name: "Patriot Insurance Group", work: "Full-stack WordPress", country: "US" },
   { id: "md24", name: "MobileDokan24", work: "WooCommerce catalogue", country: "BD" },
+  { id: "artel", name: "The Artel Collection", work: "Jewellery e-commerce store", country: "US" },
 ];
 
 /**

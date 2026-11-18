@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-09-20T21:39:07.621Z",
+ "generatedAt": "2026-11-18T04:33:47.575Z",
  "taxonomies": {
   "pillar": [
    {
@@ -921,8 +921,8 @@
  ],
  "case_study": [
   {
-   "slug": "bulk-bag-man",
-   "title": "The Bulk Bag Man",
+   "slug": "headless-wordpress-nextjs-uk-aggregates-supplier",
+   "title": "Headless WordPress and Next.js site for a UK aggregates supplier",
    "menu_order": 0,
    "terms": {
     "work_category": [
@@ -938,13 +938,13 @@
     "summary": "A custom WordPress child theme exposes ACF fields, menus and a Supplies post type through the REST API; a Next.js App Router front end renders it on Vercel. Contact form submissions are proxied through a route handler, so the browser never talks to WordPress directly.",
     "delivered": "WordPress child theme that exposes ACF fields, menus and a Supplies post type through the REST API\nNext.js App Router front end deployed on Vercel\nContact form submissions proxied through a Next.js route handler, so the browser never calls WordPress\nContent editing stays in the WordPress admin the client already knows",
     "stack": "Headless WordPress\nNext.js\nREST API\nACF\nTypeScript\nVercel",
-    "live_url": "https://bag-man-live-six.vercel.app/"
+    "live_url": ""
    },
-   "image": "/clients/bulk-bag-man.jpg"
+   "image": null
   },
   {
-   "slug": "heat-pumps-4-pools",
-   "title": "Heat Pumps 4 Pools",
+   "slug": "woocommerce-store-maintenance-uk-pool-heating-retailer",
+   "title": "WooCommerce store and maintenance for a UK pool-heating retailer",
    "menu_order": 1,
    "terms": {
     "work_category": [
@@ -960,13 +960,13 @@
     "summary": "Full WooCommerce build for a pool heating retailer, followed by ongoing maintenance engineering — the kind of care plan agencies resell under their own brand.",
     "delivered": "Full WooCommerce store build: catalogue, product templates and checkout\nCategory and search structure for a large, technical product range\nOngoing maintenance engineering after launch, not a hand-off and goodbye\nThe same care-plan pattern agencies resell under their own brand",
     "stack": "WooCommerce\nWordPress\nPHP\nMaintenance",
-    "live_url": "https://heatpumps4pools.com/"
+    "live_url": ""
    },
-   "image": "/clients/heat-pumps-4-pools.jpg"
+   "image": null
   },
   {
-   "slug": "ascent-energy",
-   "title": "Ascent Energy",
+   "slug": "woocommerce-store-uk-renewable-energy-company",
+   "title": "WooCommerce store for a UK renewable energy company",
    "menu_order": 2,
    "terms": {
     "work_category": [
@@ -982,9 +982,9 @@
     "summary": "A UK energy e-commerce platform delivered end to end — scoping, build and launch — with the project run as well as written.",
     "delivered": "Scoping and requirements turned into a build plan\nWooCommerce platform for energy products and services\nProject managed through to launch, with the client briefed at each stage",
     "stack": "WooCommerce\nWordPress\nProject management",
-    "live_url": "https://ascent-energy.co.uk/"
+    "live_url": ""
    },
-   "image": "/clients/ascent-energy.jpg"
+   "image": null
   },
   {
    "slug": "mobiledokan24",
@@ -1075,8 +1075,8 @@
    "image": "/clients/yume-nihongo.jpg"
   },
   {
-   "slug": "seo-agency-in-essex",
-   "title": "SEO Agency in Essex",
+   "slug": "technical-seo-wordpress-site-uk-seo-agency",
+   "title": "Technical SEO WordPress site for a UK SEO agency",
    "menu_order": 7,
    "terms": {
     "work_category": [
@@ -1092,9 +1092,9 @@
     "summary": "An SEO agency's own website, engineered to practise what it preaches: technical SEO and speed first, built for an agency that sells rankings to its clients.",
     "delivered": "An agency website built technical-SEO first: clean markup, headings and internal linking\nSpeed treated as a requirement, not a plugin added at the end\nService and location page templates the agency can extend itself",
     "stack": "WordPress\nTechnical SEO\nPerformance",
-    "live_url": "https://seoagencyinessex.co.uk/"
+    "live_url": ""
    },
-   "image": "/clients/seo-agency-in-essex.jpg"
+   "image": null
   }
  ],
  "process_step": [
@@ -1463,60 +1463,8 @@
  "client": [
   {
    "slug": "",
-   "title": "The Bulk Bag Man",
-   "menu_order": 5,
-   "acf": {
-    "country": "UK",
-    "work": "Headless WordPress + Next.js",
-    "url": "https://bag-man-live-six.vercel.app/",
-    "featured": true,
-    "logo_fill": false
-   },
-   "image": null
-  },
-  {
-   "slug": "",
-   "title": "Heat Pumps 4 Pools",
-   "menu_order": 0,
-   "acf": {
-    "country": "UK",
-    "work": "WooCommerce store",
-    "url": "https://heatpumps4pools.com/",
-    "featured": true,
-    "logo_fill": false
-   },
-   "image": "/clients/logos/heat-pumps-4-pools.png"
-  },
-  {
-   "slug": "",
-   "title": "Ascent Energy",
-   "menu_order": 1,
-   "acf": {
-    "country": "UK",
-    "work": "WooCommerce build",
-    "url": "https://ascent-energy.co.uk/",
-    "featured": true,
-    "logo_fill": false
-   },
-   "image": "/clients/logos/ascent-energy.png"
-  },
-  {
-   "slug": "",
-   "title": "SEO Agency in Essex",
-   "menu_order": 2,
-   "acf": {
-    "country": "UK",
-    "work": "Technical-SEO site",
-    "url": "https://seoagencyinessex.co.uk/",
-    "featured": true,
-    "logo_fill": false
-   },
-   "image": "/clients/logos/seo-agency-in-essex.png"
-  },
-  {
-   "slug": "",
    "title": "Online Marketing Help",
-   "menu_order": 54,
+   "menu_order": 50,
    "acf": {
     "country": "UK",
     "work": "Agency WordPress team",
@@ -1529,7 +1477,7 @@
   {
    "slug": "",
    "title": "Patriot Insurance Group",
-   "menu_order": 6,
+   "menu_order": 2,
    "acf": {
     "country": "US",
     "work": "Full-stack WordPress",
@@ -1542,7 +1490,7 @@
   {
    "slug": "",
    "title": "Ronemus & Vilensky",
-   "menu_order": 3,
+   "menu_order": 0,
    "acf": {
     "country": "US",
     "work": "Law firm website",
@@ -1555,7 +1503,7 @@
   {
    "slug": "",
    "title": "MobileDokan24",
-   "menu_order": 7,
+   "menu_order": 3,
    "acf": {
     "country": "BD",
     "work": "WooCommerce catalogue",
@@ -1568,7 +1516,7 @@
   {
    "slug": "",
    "title": "GFC Fans BD",
-   "menu_order": 58,
+   "menu_order": 54,
    "acf": {
     "country": "BD",
     "work": "Brand store",
@@ -1581,7 +1529,7 @@
   {
    "slug": "",
    "title": "Yume Nihongo",
-   "menu_order": 4,
+   "menu_order": 1,
    "acf": {
     "country": "BD",
     "work": "Education website",
@@ -1593,8 +1541,21 @@
   },
   {
    "slug": "",
+   "title": "The Artel Collection",
+   "menu_order": 4,
+   "acf": {
+    "country": "US",
+    "work": "Jewellery e-commerce store",
+    "url": "https://theartelcollection.com/",
+    "featured": true,
+    "logo_fill": false
+   },
+   "image": null
+  },
+  {
+   "slug": "",
    "title": "Bhalogari",
-   "menu_order": 60,
+   "menu_order": 57,
    "acf": {
     "country": "BD",
     "work": "Web development",
@@ -1607,7 +1568,7 @@
   {
    "slug": "",
    "title": "Dropndot",
-   "menu_order": 61,
+   "menu_order": 58,
    "acf": {
     "country": "BD",
     "work": "Agency development",

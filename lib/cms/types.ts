@@ -90,6 +90,32 @@ export interface WorkItem {
   delivered: string[];
 }
 
+/** One hard part of a build, and what was done about it. */
+export interface CaseChallenge {
+  problem: string;
+  solution: string;
+}
+
+/** A client's review of one build, in their own words. */
+export interface CaseReview {
+  quote: string;
+  name: string;
+  role?: string;
+  company?: string;
+}
+
+/** The story a case study page tells under its banner, instead of a screenshot. */
+export interface CaseStory {
+  /** How the project was run, one paragraph per entry. */
+  overview: string[];
+  /** What made it complex, each with how it was solved. */
+  challenges: CaseChallenge[];
+  /** How it was finished and handed over, one paragraph per entry. */
+  outcome: string[];
+  /** Published only with the client's permission on record. */
+  review?: CaseReview;
+}
+
 export interface Client {
   name: string;
   country: "UK" | "US" | "BD";

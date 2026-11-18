@@ -12,6 +12,7 @@ import { pillars } from "@/content/pillars";
 import { agencyTypes } from "@/content/agency-types";
 import { process } from "@/content/process";
 import { work, workCategories } from "@/content/work";
+import { caseStudyStories } from "@/content/case-study-stories";
 import { promises, protectionClauses } from "@/content/promises";
 import { faqs, pricingFaqs } from "@/content/faqs";
 import { stack, clocks, engagementModels } from "@/content/stack";
@@ -26,8 +27,8 @@ import { buildDetails } from "@/content/service-details-build";
 import { automateDetails } from "@/content/service-details-automate";
 import { growDetails } from "@/content/service-details-grow";
 import { supportDetails } from "@/content/service-details-support";
-import { wpAgencyTypes, wpCollections, wpPage, wpPost, wpPosts, wpProducts, wpServices, wpSettings, wpSlugs, wpWork } from "@/lib/cms/wordpress";
-import type { Service, ServiceDetail, PillarGroup, AgencyType, Product, ProductDetail, ProductGroup } from "@/lib/cms/types";
+import { wpAgencyTypes, wpCaseStudyStories, wpCollections, wpPage, wpPost, wpPosts, wpProducts, wpServices, wpSettings, wpSlugs, wpWork } from "@/lib/cms/wordpress";
+import type { Service, ServiceDetail, PillarGroup, AgencyType, Product, ProductDetail, ProductGroup, CaseStory } from "@/lib/cms/types";
 
 const details: Record<string, ServiceDetail> = { ...buildDetails, ...automateDetails, ...growDetails, ...supportDetails };
 const services: Service[] = pillars.flatMap((p) => p.services);
@@ -39,6 +40,7 @@ const services: Service[] = pillars.flatMap((p) => p.services);
 const fromWpServices = cache(wpServices);
 const fromWpAgencyTypes = cache(wpAgencyTypes);
 const fromWpWork = cache(wpWork);
+const fromWpStories = cache(wpCaseStudyStories);
 const fromWpCollections = cache(wpCollections);
 const fromWpSettings = cache(wpSettings);
 /** WordPress's products, or null while it has none — the Voice Agent in /content stands in until then. */
@@ -104,11 +106,22 @@ export const cms = {
   getWorkCategories: async () => (await fromWpWork())?.categories ?? workCategories,
 
   getWorkItem: async (slug: string) => {
-    const all = (await fromWpWork())?.work ?? work;
+    const [wp, wpStories] = await Promise.all([fromWpWork(), fromWpStories()]);
+    const all = wp?.work ?? work;
     const item = all.find((w) => w.slug === slug);
     if (!item) return null;
     const related = all.filter((w) => w.slug !== slug && w.category === item.category).slice(0, 3);
-    return { ...item, related: related.length ? related : all.filter((w) => w.slug !== slug).slice(0, 3) };
+    // what an editor wrote in WordPress wins, part by part; the drafts in content/ fill the rest
+    const edited = wpStories?.[slug] ?? {};
+    const draft = caseStudyStories[slug];
+    const story: CaseStory = {
+      overview: edited.overview ?? draft?.overview ?? [],
+      challenges: edited.challenges ?? draft?.challenges ?? [],
+      outcome: edited.outcome ?? draft?.outcome ?? [],
+      // reviews only ever come from WordPress, where the client's permission is recorded
+      review: edited.review,
+    };
+    return { ...item, story, related: related.length ? related : all.filter((w) => w.slug !== slug).slice(0, 3) };
   },
 
   getPromises: async () => {

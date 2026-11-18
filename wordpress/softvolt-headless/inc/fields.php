@@ -73,7 +73,31 @@ add_action('acf/init', static function (): void {
             softvolt_field(['key' => 'field_sv_case_summary', 'label' => 'Summary', 'name' => 'summary', 'type' => 'textarea', 'rows' => 4, 'required' => 1]),
             softvolt_field(['key' => 'field_sv_case_delivered', 'label' => 'What shipped', 'name' => 'delivered', 'type' => 'textarea', 'rows' => 8, 'instructions' => 'One per line. Facts only — no metric we cannot show.']),
             softvolt_field(['key' => 'field_sv_case_stack', 'label' => 'Stack', 'name' => 'stack', 'type' => 'textarea', 'rows' => 5, 'instructions' => 'One per line.']),
-            softvolt_field(['key' => 'field_sv_case_url', 'label' => 'Live URL', 'name' => 'live_url', 'type' => 'url']),
+            softvolt_field(['key' => 'field_sv_case_url', 'label' => 'Live URL', 'name' => 'live_url', 'type' => 'url', 'instructions' => 'Leave empty when the client asked not to be named — and remove the featured image too, since a screenshot carries their brand.']),
+        ]
+    ));
+
+    // ------------------------------------------------------ case study story
+    /*
+     * A box of its own, so the front end can ask for it separately: an install
+     * without it still serves the case studies, just without the story.
+     */
+    acf_add_local_field_group(softvolt_field_group(
+        'group_softvolt_case_story',
+        'Story',
+        'caseStudyStory',
+        ['CaseStudy'],
+        $where('case_study'),
+        [
+            softvolt_field(['key' => 'field_sv_story_overview', 'label' => 'Overview — how the project was done', 'name' => 'overview', 'type' => 'textarea', 'rows' => 6, 'new_lines' => '', 'instructions' => 'One paragraph per line. Leave empty to keep the draft written in the front-end repo.']),
+            softvolt_field(['key' => 'field_sv_story_challenges', 'label' => 'What made it complex', 'name' => 'challenges', 'type' => 'textarea', 'rows' => 6, 'new_lines' => '', 'instructions' => 'One challenge per line.']),
+            softvolt_field(['key' => 'field_sv_story_solutions', 'label' => 'How we solved it', 'name' => 'solutions', 'type' => 'textarea', 'rows' => 6, 'new_lines' => '', 'instructions' => 'One per line, in the same order: line 1 answers challenge 1, line 2 answers challenge 2.']),
+            softvolt_field(['key' => 'field_sv_story_outcome', 'label' => 'How it was completed', 'name' => 'outcome', 'type' => 'textarea', 'rows' => 4, 'new_lines' => '', 'instructions' => 'One paragraph per line.']),
+            softvolt_field(['key' => 'field_sv_story_review_quote', 'label' => 'Client review', 'name' => 'review_quote', 'type' => 'textarea', 'rows' => 4, 'new_lines' => '', 'instructions' => 'Exactly as the client wrote it. Shown last on the page, and only when the name and the permission below are filled in.']),
+            softvolt_field(['key' => 'field_sv_story_review_name', 'label' => 'Reviewer — name', 'name' => 'review_name', 'type' => 'text']),
+            softvolt_field(['key' => 'field_sv_story_review_role', 'label' => 'Reviewer — role', 'name' => 'review_role', 'type' => 'text']),
+            softvolt_field(['key' => 'field_sv_story_review_company', 'label' => 'Reviewer — company', 'name' => 'review_company', 'type' => 'text', 'instructions' => 'Leave empty for a client who asked not to be named.']),
+            softvolt_field(['key' => 'field_sv_story_review_consent', 'label' => 'Permission on record', 'name' => 'review_consent', 'type' => 'text', 'instructions' => 'When and how they agreed to the review appearing, e.g. "Email, 2026-11-18". No permission, no publication.']),
         ]
     ));
 
