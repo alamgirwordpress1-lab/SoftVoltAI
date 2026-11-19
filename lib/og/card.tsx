@@ -42,10 +42,15 @@ async function googleFont(family: string, weight: 600 | 800): Promise<CardFont |
   }
 }
 
-let fontList: Promise<CardFont[]> | undefined;
-function fonts() {
-  fontList ??= Promise.all([googleFont("Plus Jakarta Sans", 800), googleFont("Manrope", 600)]).then((list) => list.filter((f) => f !== null));
-  return fontList;
+// Keep the fonts, never the promise: on Cloudflare Workers a promise made in one
+// request cannot settle in the next one, so caching the pending fetch broke every
+// later card on that worker. A finished list is plain data and safe to share.
+let fontList: CardFont[] | undefined;
+async function fonts(): Promise<CardFont[]> {
+  if (fontList) return fontList;
+  const list = (await Promise.all([googleFont("Plus Jakarta Sans", 800), googleFont("Manrope", 600)])).filter((f) => f !== null);
+  if (list.length) fontList = list; // a failed fetch is tried again next time
+  return list;
 }
 
 /** A picture as a data URL, or null when it cannot be drawn — the renderer reads PNG and JPEG only. */

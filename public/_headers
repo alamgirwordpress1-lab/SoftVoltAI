@@ -1,0 +1,10 @@
+# Cloudflare Workers static assets: these files (/_next/static/*, and everything
+# in /public) are served straight from the asset store, before Next.js runs, so
+# the security headers in next.config.ts never reach them. This file gives them
+# the same ones. On Vercel, vercel.json did this job.
+/*
+  Strict-Transport-Security: max-age=63072000; includeSubDomains
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+  Content-Security-Policy: default-src 'none'; img-src 'self' data:; style-src 'unsafe-inline'; frame-ancestors 'self'
