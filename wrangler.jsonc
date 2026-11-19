@@ -3,12 +3,7 @@
   "name": "softvoltai",
   "main": ".open-next/worker.js",
   "compatibility_date": "2026-10-01",
-  // no_handle_cross_request_promise_resolution: since the 2026 compatibility dates a
-  // promise made during one request can no longer settle in another. Next.js shares
-  // in-flight revalidations and fetches across requests, so every page that had to
-  // render (draft mode, a stale entry, the sitemap) answered 500 "This promise was
-  // created by a request that has since ended". Opting out restores the old rule.
-  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public", "no_handle_cross_request_promise_resolution"],
+  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
   "assets": {
     "directory": ".open-next/assets",
     "binding": "ASSETS"
