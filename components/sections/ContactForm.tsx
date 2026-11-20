@@ -46,6 +46,17 @@ export function ContactForm({ copy, recaptchaKey = "" }: { copy: MessageFormCopy
   // ready by the time someone presses send rather than adding a wait to the submit
   useEffect(() => loadRecaptchaOnInteraction(recaptchaKey), [recaptchaKey]);
 
+  // "I want this design" on /portfolios lands here as ?design=Name: start the message for them.
+  // Read on the client so the page itself stays static; only plain text ever reaches the field.
+  useEffect(() => {
+    const design = new URLSearchParams(window.location.search).get("design")?.replace(/[^\p{L}\p{N} &'’.,()-]/gu, "").trim().slice(0, 80);
+    if (!design) return;
+    const message = document.getElementById("contact-message") as HTMLTextAreaElement | null;
+    if (message && !message.value) message.value = `I like the "${design}" design from your portfolio and would like a website based on it.\n\nWhat the site is for: \nWhen it needs to be live: `;
+    const topic = document.getElementById("contact-topic") as HTMLSelectElement | null;
+    if (topic && !topic.value) topic.value = "Website build";
+  }, []);
+
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const form = e.currentTarget;

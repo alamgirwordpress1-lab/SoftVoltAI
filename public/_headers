@@ -2,9 +2,28 @@
 # in /public) are served straight from the asset store, before Next.js runs, so
 # the security headers in next.config.ts never reach them. This file gives them
 # the same ones. On Vercel, vercel.json did this job.
+#
+# Rules add up, and a header set twice is sent twice, so the content security
+# policy is set per folder: a strict one for code, styles and pictures, and a
+# looser one for the portfolio demos, which are whole pages with their own
+# scripts and fonts (framed only by this site, in the Live visit viewer).
 /*
   Strict-Transport-Security: max-age=63072000; includeSubDomains
   X-Content-Type-Options: nosniff
   X-Frame-Options: SAMEORIGIN
   Referrer-Policy: strict-origin-when-cross-origin
+
+/_next/*
   Content-Security-Policy: default-src 'none'; img-src 'self' data:; style-src 'unsafe-inline'; frame-ancestors 'self'
+
+/brand/*
+  Content-Security-Policy: default-src 'none'; img-src 'self' data:; style-src 'unsafe-inline'; frame-ancestors 'self'
+
+/clients/*
+  Content-Security-Policy: default-src 'none'; img-src 'self' data:; style-src 'unsafe-inline'; frame-ancestors 'self'
+
+/guides/*
+  Content-Security-Policy: default-src 'none'; img-src 'self' data:; style-src 'unsafe-inline'; frame-ancestors 'self'
+
+/portfolio/*
+  Content-Security-Policy: default-src 'self' https: data: blob: 'unsafe-inline' 'unsafe-eval'; frame-ancestors 'self'

@@ -6,7 +6,7 @@ export const homeCopy = page("home", "/", "Home", {
   seo: section(
     "Google & sharing",
     {
-      title: text("Page title in Google", "White-label web development & SEO for agencies · SoftVolt AI", "The blue link in search results and the browser tab. On the home page it is used exactly as written."),
+      title: text("Page title in Google", "White-label web development for agencies · SoftVolt AI", "The blue link in search results and the browser tab. On the home page it is used exactly as written."),
       description: para(
         "Description in Google",
         "White-label web development, SEO and AI automation for UK, US, Canadian and Australian agencies: WordPress, Next.js and Laravel, built under your brand.",

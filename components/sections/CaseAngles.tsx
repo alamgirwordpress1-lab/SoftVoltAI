@@ -1,4 +1,5 @@
 import { ScreenshotPan } from "@/components/ui/ScreenshotPan";
+import { LiveVisit } from "@/components/ui/LiveVisit";
 import Link from "@/components/ui/Link";
 import type { WorkItem } from "@/lib/cms/types";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -36,6 +37,7 @@ export function CaseSpotlight({ item, copy }: { item: WorkItem; copy: HeadingLed
         {item.image ? (
           <div className="relative aspect-[16/10] border-b border-line bg-raised lg:col-span-7 lg:aspect-auto lg:border-b-0 lg:border-r">
             <ScreenshotPan thumb={item.thumb} image={item.image} alt={`${item.title} — the live site`} sizes="(min-width: 1024px) 58vw, 100vw" />
+            {item.url ? <LiveVisit url={item.url} title={item.title} image={item.image} className="absolute bottom-4 right-4 z-10" /> : null}
           </div>
         ) : null}
         <div className="p-6 md:p-9 lg:col-span-5">

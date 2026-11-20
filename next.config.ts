@@ -48,7 +48,9 @@ const securityHeaders = [
       "base-uri 'self'",
       "form-action 'self' https:",
       "frame-ancestors 'self'",
-      "upgrade-insecure-requests",
+      // only on the real site: on http://localhost it turns every same-origin frame
+      // (the portfolio previews) into an https:// request that cannot connect
+      ...(process.env.NODE_ENV === "production" ? ["upgrade-insecure-requests"] : []),
     ].join("; "),
   },
 ];

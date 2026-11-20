@@ -131,7 +131,7 @@ export const getSiteChrome = cache(async (): Promise<SiteChrome> => {
     footerNote: "",
     logo: site.logo,
     logoDark: site.logoDark,
-    mega: { resources: "Proof, pricing and where to start.", footer: "Not sure which service fits? Send the brief — the scope tells you." },
+    mega: { resources: "Proof, designs and where to start.", footer: "Not sure which service fits? Send the brief — the scope tells you." },
     products,
     productGroups,
     recaptchaSiteKey: "",

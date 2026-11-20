@@ -39,7 +39,7 @@ const roboto = Roboto({
   display: "swap",
 });
 
-const title = "White-label web development & SEO for agencies · SoftVolt AI";
+const title = "White-label web development for agencies · SoftVolt AI";
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),

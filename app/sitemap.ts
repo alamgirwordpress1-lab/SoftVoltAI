@@ -3,7 +3,7 @@ import { site } from "@/content/site";
 import { cms } from "@/lib/cms";
 
 /** Top-level paths this app owns; a WordPress page with the same slug is never reachable. */
-const RESERVED = new Set(["about", "api", "blog", "case-studies", "contact", "for", "home", "not-found", "partner-programme", "preview", "products", "pricing", "rates", "faq", "how-we-work", "why-softvoltai", "security", "services", "thank-you"]);
+const RESERVED = new Set(["about", "api", "blog", "case-studies", "contact", "for", "home", "not-found", "partner-programme", "portfolios", "preview", "products", "pricing", "rates", "faq", "how-we-work", "why-softvoltai", "security", "services", "thank-you"]);
 
 /**
  * When the site's own content last changed, for the times WordPress cannot say
@@ -52,6 +52,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...work.map((w) => page(`/case-studies/${w.slug}`, 0.6, "monthly", caseStudyDates.get(w.slug) || updated)),
     page("/pricing", 0.8),
     page("/how-we-work", 0.7),
+    page("/portfolios", 0.7),
     page("/why-softvoltai", 0.7),
     page("/faq", 0.6),
     page("/security", 0.5),

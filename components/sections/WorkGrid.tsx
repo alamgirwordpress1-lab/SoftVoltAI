@@ -8,6 +8,7 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ArrowLink } from "@/components/ui/ArrowLink";
 import { Chip } from "@/components/ui/Chip";
 import { PRIVATE_URL_LABEL, PrivateBuildPanel, siteHost } from "@/components/ui/PrivateBuildPanel";
+import { LiveVisit } from "@/components/ui/LiveVisit";
 import { cn } from "@/lib/utils";
 import type { LinkedHeadingCopy } from "@/lib/cms/copy-types";
 
@@ -84,23 +85,27 @@ export function WorkGrid({
                 <i /> <i /> <i />
                 <span className="url select-text">{w.url ? siteHost(w.url) : PRIVATE_URL_LABEL}</span>
               </div>
-              {/* the picture opens the case study, which links to the live site */}
-              <Link href={`/case-studies/${w.slug}`} prefetch={false} className="block" aria-label={`${w.title} case study`}>
-                <div className="relative aspect-[16/10] overflow-hidden border-b border-line bg-raised">
-                  {w.image ? (
-                    <ScreenshotPan
-                      thumb={w.thumb}
-                      image={w.image}
-                      alt={`${w.title} — homepage screenshot`}
-                      sizes="(min-width: 768px) 33vw, 100vw"
-                      pan
-                      className="transition-transform duration-700 ease-[var(--ease-out-quint)] group-hover:scale-[1.04]"
-                    />
-                  ) : (
-                    <PrivateBuildPanel category={w.category} client={w.client} stack={w.stack} />
-                  )}
-                </div>
-              </Link>
+              {/* the picture opens the case study; "Live visit" sits beside the link, not
+                  inside it, and opens the live site in the device viewer */}
+              <div className="relative">
+                <Link href={`/case-studies/${w.slug}`} prefetch={false} className="block" aria-label={`${w.title} case study`}>
+                  <div className="relative aspect-[16/10] overflow-hidden border-b border-line bg-raised">
+                    {w.image ? (
+                      <ScreenshotPan
+                        thumb={w.thumb}
+                        image={w.image}
+                        alt={`${w.title} — homepage screenshot`}
+                        sizes="(min-width: 768px) 33vw, 100vw"
+                        pan
+                        className="transition-transform duration-700 ease-[var(--ease-out-quint)] group-hover:scale-[1.04]"
+                      />
+                    ) : (
+                      <PrivateBuildPanel category={w.category} client={w.client} stack={w.stack} />
+                    )}
+                  </div>
+                </Link>
+                {w.url ? <LiveVisit url={w.url} title={w.title} image={w.image} className="absolute bottom-3 right-3 z-10" /> : null}
+              </div>
               <div className="flex flex-1 flex-col p-6">
                 <span className="eyebrow">{w.category}</span>
                 <h3 className="mt-3 text-2xl font-semibold tracking-[-0.01em] text-ink">

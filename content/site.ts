@@ -85,17 +85,17 @@ export const legalLinks = [
 export const resourceLinks = [
   { label: "All services", href: "/services" },
   { label: "Agency solutions", href: "/for" },
-  { label: "Case studies", href: "/case-studies" },
-  { label: "Pricing", href: "/pricing" },
+  // Case studies and Pricing are in the main menu already, so this column carries the design gallery instead
+  { label: "Our portfolios", href: "/portfolios" },
   { label: "How we work", href: "/how-we-work" },
   { label: "FAQ", href: "/faq" },
 ];
 
 // TODO(owner): add the company's own profiles once they exist. Entries without an href are not rendered.
 export const socials: { label: string; href: string; icon: "linkedin" | "mail" | "facebook" | "instagram" | "x" }[] = [
-  { label: "LinkedIn", href: "https://www.linkedin.com/in/wordpress-developer-alan/", icon: "linkedin" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/company/softvoltai/", icon: "linkedin" },
   { label: "Email", href: "mailto:hello@softvoltai.com", icon: "mail" },
-  { label: "Facebook", href: "", icon: "facebook" },
+  { label: "Facebook", href: "https://www.facebook.com/softvoltai", icon: "facebook" },
   { label: "Instagram", href: "", icon: "instagram" },
   { label: "X", href: "", icon: "x" },
 ];

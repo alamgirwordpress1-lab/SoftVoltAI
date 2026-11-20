@@ -15,7 +15,7 @@ import { cn } from "@/lib/utils";
 export function MegaMenu({
   pillars,
   active = false,
-  notes = { resources: "Proof, pricing and where to start.", footer: "Not sure which service fits? Send the brief — the scope tells you." },
+  notes = { resources: "Proof, designs and where to start.", footer: "Not sure which service fits? Send the brief — the scope tells you." },
 }: {
   pillars: PillarGroup[];
   active?: boolean;

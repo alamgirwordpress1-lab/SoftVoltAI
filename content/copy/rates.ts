@@ -9,8 +9,8 @@ import { LIVE_FIGURES, articleSection, banner, ctaBand, faqSection, intro, packa
  */
 export const ratesCopy = page("rates", "/pricing", "Pricing", {
   seo: seo(
-    "White label web development, SEO and AI pricing",
-    "White-label pricing for agencies in USD: fixed-price websites and WooCommerce stores, monthly care and SEO plans, AI chat and voice agents, and an AI-ready website bundle.",
+    "White-label web, SEO and AI pricing",
+    "White-label pricing for agencies in USD: fixed-price websites and stores, monthly care and SEO plans, and AI chat and voice agents.",
   ),
 
   banner: banner({

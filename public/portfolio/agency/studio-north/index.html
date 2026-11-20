@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Studio North — creative agency (template by SoftVolt AI)</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0b0c10;--ink:#f3f1ec;--muted:#a3a39c;--line:rgba(243,241,236,.12);--a:#ff6a3d;--b:#7c5cff;--c:#2ee6c5}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font:400 17px/1.6 Inter,system-ui,sans-serif;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(1200px,100% - 48px);margin-inline:auto}
+h1,h2,h3,.brand,.btn{font-family:"Space Grotesk",system-ui,sans-serif;letter-spacing:-.02em}
+
+/* header */
+header{position:fixed;inset:0 0 auto;z-index:10;transition:background .3s,backdrop-filter .3s}
+header.scrolled{background:rgba(11,12,16,.72);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:76px}
+.brand{font-weight:700;font-size:21px;display:flex;align-items:center;gap:10px}
+.brand i{width:26px;height:26px;border-radius:8px;background:conic-gradient(from 0deg,var(--a),var(--b),var(--c),var(--a));animation:spin 8s linear infinite}
+.links{display:flex;gap:34px;font-size:15px;color:var(--muted)}
+.links a:hover{color:var(--ink)}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:13px 22px;border-radius:999px;font-weight:600;font-size:15px;transition:transform .25s,background .25s}
+.btn.solid{background:var(--ink);color:var(--bg)}
+.btn.ghost{border:1px solid var(--line)}
+.btn:hover{transform:translateY(-2px)}
+.burger{display:none;background:none;border:1px solid var(--line);color:var(--ink);border-radius:10px;width:42px;height:42px;font-size:18px}
+
+/* hero */
+.hero{position:relative;min-height:100vh;display:grid;align-items:center;padding:140px 0 90px;overflow:hidden}
+.orb{position:absolute;border-radius:50%;filter:blur(70px);opacity:.55;animation:float 14s ease-in-out infinite}
+.orb.one{width:520px;height:520px;background:var(--b);top:-120px;right:-80px}
+.orb.two{width:420px;height:420px;background:var(--a);bottom:-140px;left:-100px;animation-delay:-5s}
+.orb.three{width:300px;height:300px;background:var(--c);top:40%;left:45%;opacity:.25;animation-delay:-9s}
+.grain{position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.06) 1px,transparent 1px);background-size:3px 3px;mix-blend-mode:overlay}
+.hero .wrap{position:relative}
+.kicker{display:inline-flex;align-items:center;gap:10px;font-size:14px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:7px 14px}
+.kicker b{width:8px;height:8px;border-radius:50%;background:var(--c);box-shadow:0 0 0 0 var(--c);animation:pulse 2s infinite}
+h1{font-size:clamp(46px,8.2vw,124px);line-height:.95;font-weight:700;margin-top:26px;max-width:12ch}
+h1 .line{display:block;overflow:hidden}
+h1 .line span{display:inline-block;transform:translateY(110%);animation:rise .9s cubic-bezier(.16,1,.3,1) forwards}
+h1 .line:nth-child(2) span{animation-delay:.12s}
+h1 .line:nth-child(3) span{animation-delay:.24s}
+h1 em{font-style:normal;background:linear-gradient(90deg,var(--a),var(--b),var(--c));-webkit-background-clip:text;background-clip:text;color:transparent;background-size:200% 100%;animation:shine 6s linear infinite}
+.lede{max-width:52ch;color:var(--muted);font-size:19px;margin-top:28px;opacity:0;animation:fade .8s .5s forwards}
+.cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:38px;opacity:0;animation:fade .8s .65s forwards}
+
+/* marquee */
+.marquee{border-block:1px solid var(--line);overflow:hidden;padding:22px 0}
+.track{display:flex;gap:56px;width:max-content;animation:scroll 28s linear infinite;font-family:"Space Grotesk";font-size:30px;font-weight:600}
+.track span{display:flex;align-items:center;gap:56px;white-space:nowrap}
+.track span::after{content:"✦";color:var(--a);font-size:20px}
+
+/* sections */
+section{padding:120px 0}
+.eyebrow{font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--c)}
+h2{font-size:clamp(34px,5vw,64px);line-height:1.02;margin-top:14px;max-width:16ch}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:56px}
+.card{position:relative;border:1px solid var(--line);border-radius:22px;padding:30px;background:linear-gradient(180deg,rgba(255,255,255,.04),transparent);overflow:hidden;transition:transform .4s cubic-bezier(.16,1,.3,1),border-color .4s}
+.card:hover{transform:translateY(-6px);border-color:rgba(243,241,236,.3)}
+.card .n{font-family:"Space Grotesk";color:var(--muted);font-size:14px}
+.card h3{font-size:26px;margin-top:40px}
+.card p{color:var(--muted);margin-top:10px}
+.card::before{content:"";position:absolute;inset:auto -40% -60% auto;width:240px;height:240px;border-radius:50%;background:var(--b);filter:blur(60px);opacity:0;transition:opacity .4s}
+.card:hover::before{opacity:.35}
+
+.work{display:grid;grid-template-columns:1.2fr .8fr;gap:22px;margin-top:56px}
+.tile{position:relative;border-radius:24px;min-height:360px;overflow:hidden;display:flex;align-items:flex-end;padding:28px;isolation:isolate}
+.tile::before{content:"";position:absolute;inset:0;z-index:-1;transition:transform 1s cubic-bezier(.16,1,.3,1)}
+.tile:hover::before{transform:scale(1.06)}
+.t1::before{background:radial-gradient(circle at 30% 30%,var(--a),transparent 60%),radial-gradient(circle at 80% 70%,var(--b),transparent 55%),#16131d}
+.t2::before{background:radial-gradient(circle at 70% 20%,var(--c),transparent 55%),#0f1a1a}
+.t3::before{background:linear-gradient(135deg,#1c1b24,#2a1d18)}
+.t4::before{background:radial-gradient(circle at 20% 80%,var(--b),transparent 60%),#121421}
+.tile h3{font-size:28px}.tile small{display:block;color:var(--muted);margin-top:4px}
+
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:56px}
+.stat{border-top:1px solid var(--line);padding-top:22px}
+.stat b{font-family:"Space Grotesk";font-size:clamp(40px,5vw,64px);font-weight:700;display:block}
+.stat span{color:var(--muted)}
+
+.final{text-align:center;padding:150px 0;position:relative;overflow:hidden}
+.final h2{margin-inline:auto;max-width:14ch}
+.final .cta{justify-content:center;opacity:1;animation:none}
+footer{border-top:1px solid var(--line);padding:34px 0;color:var(--muted);font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+/* scroll reveal */
+.reveal{opacity:0;transform:translateY(40px);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1)}
+.reveal.in{opacity:1;transform:none}
+
+@keyframes rise{to{transform:none}}
+@keyframes fade{to{opacity:1}}
+@keyframes shine{to{background-position:200% 0}}
+@keyframes scroll{to{transform:translateX(-50%)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes float{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(40px,-30px) scale(1.08)}}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(46,230,197,.6)}70%{box-shadow:0 0 0 12px rgba(46,230,197,0)}100%{box-shadow:0 0 0 0 rgba(46,230,197,0)}}
+
+@media (max-width:900px){
+  .links,.nav .btn{display:none}.burger{display:block}
+  .grid3,.work{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}
+  section{padding:84px 0}.tile{min-height:260px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  h1 .line span,.lede,.cta,.reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+<header id="top">
+  <div class="wrap nav">
+    <a class="brand" href="#"><i></i>Studio North</a>
+    <nav class="links"><a href="#services">Services</a><a href="#work">Work</a><a href="#studio">Studio</a><a href="#contact">Contact</a></nav>
+    <a class="btn solid" href="#contact">Start a project</a>
+    <button class="burger" aria-label="Menu">☰</button>
+  </div>
+</header>
+
+<main>
+  <div class="hero">
+    <div class="orb one"></div><div class="orb two"></div><div class="orb three"></div><div class="grain"></div>
+    <div class="wrap">
+      <span class="kicker"><b></b>Booking projects for spring</span>
+      <h1><span class="line"><span>Brands that</span></span><span class="line"><span><em>move</em> people</span></span><span class="line"><span>forward.</span></span></h1>
+      <p class="lede">We are an independent design and motion studio. Strategy, identity and websites that feel alive, built for brands that would rather be remembered than blend in.</p>
+      <div class="cta"><a class="btn solid" href="#contact">Start a project →</a><a class="btn ghost" href="#work">See the work</a></div>
+    </div>
+  </div>
+
+  <div class="marquee" aria-hidden="true"><div class="track">
+    <span>Brand strategy</span><span>Visual identity</span><span>Web design</span><span>Motion</span><span>Campaigns</span><span>Product design</span>
+    <span>Brand strategy</span><span>Visual identity</span><span>Web design</span><span>Motion</span><span>Campaigns</span><span>Product design</span>
+  </div></div>
+
+  <section id="services"><div class="wrap">
+    <span class="eyebrow reveal">What we do</span>
+    <h2 class="reveal">Three disciplines, one team.</h2>
+    <div class="grid3">
+      <article class="card reveal"><span class="n">01</span><h3>Brand identity</h3><p>Naming, logo systems and guidelines that hold together from a business card to a billboard.</p></article>
+      <article class="card reveal"><span class="n">02</span><h3>Websites</h3><p>Fast, animated sites with a CMS your team enjoys using, and pages that convert.</p></article>
+      <article class="card reveal"><span class="n">03</span><h3>Motion</h3><p>Launch films, product animation and the small interactions that make a brand feel alive.</p></article>
+    </div>
+  </div></section>
+
+  <section id="work" style="padding-top:0"><div class="wrap">
+    <span class="eyebrow reveal">Selected work</span>
+    <h2 class="reveal">Recent projects.</h2>
+    <div class="work">
+      <a class="tile t1 reveal" href="#"><div><h3>Halo Coffee</h3><small>Identity · Packaging</small></div></a>
+      <a class="tile t2 reveal" href="#"><div><h3>Tidal Bank</h3><small>Website · Motion</small></div></a>
+      <a class="tile t3 reveal" href="#"><div><h3>Atlas Outdoor</h3><small>Campaign</small></div></a>
+      <a class="tile t4 reveal" href="#"><div><h3>Nova Health</h3><small>Product design</small></div></a>
+    </div>
+  </div></section>
+
+  <section id="studio" style="padding-top:0"><div class="wrap">
+    <span class="eyebrow reveal">The studio</span>
+    <h2 class="reveal">Small team. Big ideas.</h2>
+    <div class="stats">
+      <div class="stat reveal"><b data-count="12">0</b><span>Years in practice</span></div>
+      <div class="stat reveal"><b data-count="140">0</b><span>Brands launched</span></div>
+      <div class="stat reveal"><b data-count="9">0</b><span>Design awards</span></div>
+      <div class="stat reveal"><b data-count="4">0</b><span>Week average launch</span></div>
+    </div>
+  </div></section>
+
+  <section class="final" id="contact">
+    <div class="orb one" style="top:auto;bottom:-260px;right:20%"></div>
+    <div class="wrap" style="position:relative">
+      <span class="eyebrow reveal">Let's talk</span>
+      <h2 class="reveal">Have a brand that deserves better?</h2>
+      <div class="cta reveal"><a class="btn solid" href="#">hello@studionorth.example →</a></div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap"><span>© Studio North. Sample content.</span><span>Website template by SoftVolt AI</span></div></footer>
+
+<script>
+  const head = document.getElementById("top");
+  addEventListener("scroll", () => head.classList.toggle("scrolled", scrollY > 20), { passive: true });
+  const count = (el) => {
+    const end = +el.dataset.count, t0 = performance.now(), dur = 1400;
+    const step = (t) => { const p = Math.min(1, (t - t0) / dur); el.textContent = Math.round(end * (1 - Math.pow(1 - p, 3))) + (p === 1 && end > 20 ? "+" : ""); if (p < 1) requestAnimationFrame(step); };
+    requestAnimationFrame(step);
+  };
+  const io = new IntersectionObserver((entries) => entries.forEach((e) => {
+    if (!e.isIntersecting) return;
+    e.target.classList.add("in");
+    e.target.querySelectorAll?.("[data-count]").forEach(count);
+    io.unobserve(e.target);
+  }), { threshold: 0.15 });
+  document.querySelectorAll(".reveal").forEach((el, i) => { el.style.transitionDelay = (i % 4) * 90 + "ms"; io.observe(el); });
+</script>
+</body>
+</html>

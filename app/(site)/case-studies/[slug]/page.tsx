@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { ScreenshotPan } from "@/components/ui/ScreenshotPan";
+import { LiveVisit } from "@/components/ui/LiveVisit";
 import Link from "@/components/ui/Link";
 import { notFound } from "next/navigation";
 import { PageHero } from "@/components/ui/PageHero";
@@ -78,8 +79,9 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
         ]}
       >
         <div className="flex flex-wrap items-center gap-3">
+          {item.url ? <LiveVisit url={item.url} title={item.title} image={item.image} variant="button" /> : null}
           {item.url && top.live_button ? (
-            <Button href={item.url} target="_blank" rel="noopener noreferrer">
+            <Button href={item.url} target="_blank" rel="noopener noreferrer" variant="secondary">
               {top.live_button}
             </Button>
           ) : null}

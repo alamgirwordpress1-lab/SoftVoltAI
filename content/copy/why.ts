@@ -4,7 +4,7 @@ import { articleSection, banner, ctaBand, intro, seo } from "@/content/copy/sect
 /** /why-softvoltai — the build-or-buy decision: white-label partner vs freelancer vs in-house hire. The table rows come from Comparison. */
 export const whyCopy = page("why-softvoltai", "/why-softvoltai", "Why SoftVolt AI", {
   seo: seo(
-    "White label vs freelancer vs in-house developer",
+    "White label vs freelancer vs in-house hire",
     "Hire a developer, use freelancers or partner with a white-label team? An honest comparison of cost, risk and capacity for agencies, and when each fits.",
   ),
 

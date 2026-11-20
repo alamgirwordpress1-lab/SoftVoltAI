@@ -9,7 +9,7 @@ import { banner, ctaBand, faqSection, intro, seo } from "@/content/copy/sections
 export const faqCopy = page("faq", "/faq", "FAQ", {
   seo: seo(
     "White label web development FAQ for agencies",
-    "Answers to the questions agencies ask before they outsource: confidentiality, pricing, process, hours, ownership, WordPress, SEO and what happens after launch.",
+    "Answers to what agencies ask before they outsource: confidentiality, pricing, process, hours, ownership, SEO and what happens after launch.",
   ),
 
   banner: banner({
