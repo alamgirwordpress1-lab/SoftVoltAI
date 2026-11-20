@@ -40,8 +40,9 @@
     // Resend fallback addresses, used only when Contact Form 7 cannot deliver
     "BRIEF_TO_EMAIL": "hello@softvoltai.com",
     "BRIEF_FROM_EMAIL": "briefs@softvoltai.com",
-    // WordPress pushes every save to /api/revalidate, so the timed refresh is only a
-    // safety net. A day keeps Workers KV under its free 1,000 writes a day.
-    "WP_REVALIDATE_SECONDS": "86400"
+    // Free plan: pages are served from the build (open-next.config.ts) and never
+    // rendered on request, so they must not go stale between builds. A WordPress
+    // change goes live with the next build.
+    "WP_REVALIDATE_SECONDS": "31536000"
   }
 }

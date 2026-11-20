@@ -12,7 +12,7 @@
     "cf:build": "opennextjs-cloudflare build",
     "cf:preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
     "cf:deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
-    "cf:ship": "OPEN_NEXT_DEPLOY=true wrangler deploy"
+    "cf:ship": "node -e \"require('fs').cpSync('.open-next/cache','.open-next/assets/cdn-cgi/_next_cache',{recursive:true})\" && OPEN_NEXT_DEPLOY=true wrangler deploy"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.0.0",
