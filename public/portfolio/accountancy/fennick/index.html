@@ -1,0 +1,1780 @@
+<!doctype html>
+<html lang="en-GB" data-mode="ltd">
+<head>
+<meta name="robots" content="noindex">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Fennick | Accountants for contractors, freelancers and sole traders | Liverpool</title>
+<meta name="description" content="Fennick is a Liverpool accountancy firm for contractors, freelancers and sole traders across the UK. IR35 contract reviews, limited company setup, payroll and dividends, bookkeeping, Self Assessment and mortgage references. Fixed fees from £49 a month + VAT.">
+<meta name="theme-color" content="#121212">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://images.pexels.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23121212'/%3E%3Cpath d='M9 8v16M13 8v16M17 8v16M21 8v16' stroke='%23fff' stroke-width='2.4' stroke-linecap='round'/%3E%3Cpath d='M6 21L26 11' stroke='%23ff6b2c' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<style>
+/* =========================================================
+   Fennick — contractor & sole trader accountants (template)
+   Palette: tangerine #ff6b2c (fills / large text on ink only),
+   ink #121212, white, tint #f3f4f6, highlight #ffd84d (sparingly)
+   ========================================================= */
+[hidden]{display:none!important}
+:root{
+  --tan:#ff6b2c; --ink:#121212; --white:#fff; --tint:#f3f4f6; --sun:#ffd84d;
+  --ink-2:#1d1d1d; --ink-3:#2b2b2b; --line:#e3e5e8; --line-2:#d3d6db;
+  --muted:#4b5563; --muted-d:#c4c8ce; --field:#6b7280; --err:#b42318;
+  --font-h:'Unbounded', 'Arial Black', system-ui, sans-serif;
+  --font-b:'Manrope', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --gut:20px; --hdr:64px; --r-lg:28px; --r-md:20px; --r-sm:14px;
+  --sec:clamp(64px, 7.5vw, 116px);
+}
+@media (min-width:768px){ :root{ --gut:32px; --hdr:72px; } }
+@media (min-width:1200px){ :root{ --gut:48px; --hdr:80px; } }
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%; scroll-padding-top:calc(var(--hdr) + 16px)}
+@media (prefers-reduced-motion:no-preference){ html{scroll-behavior:smooth} }
+body{margin:0; background:var(--white); color:var(--ink); font:400 16px/1.6 var(--font-b); -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility}
+@media (min-width:768px){ body{font-size:17px} }
+img{display:block; max-width:100%; height:auto}
+a{color:inherit}
+button,input,select,textarea{font:inherit; color:inherit}
+h1,h2,h3,h4,p,ul,ol,figure,dl,dd{margin:0}
+ul,ol{padding:0; list-style:none}
+svg{flex:none}
+:focus-visible{outline:3px solid var(--ink); outline-offset:3px; border-radius:6px}
+.tly-dark :focus-visible, .tly-menu :focus-visible, .tly-calcbody :focus-visible{outline-color:var(--sun)}
+@media (max-width:767px){ .tly-hide-sm{display:none!important} }
+@media (min-width:768px){ .tly-only-sm{display:none!important} }
+.tly-vh{position:absolute!important; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; border:0}
+.tly-skip{position:absolute; left:12px; top:-60px; z-index:200; background:var(--ink); color:#fff; padding:12px 18px; border-radius:10px; font-weight:700; text-decoration:none}
+.tly-skip:focus{top:12px}
+.tly-ico{width:20px; height:20px; fill:none; stroke:currentColor; stroke-width:1.9; stroke-linecap:round; stroke-linejoin:round}
+
+/* ---------- layout ---------- */
+.tly-wrap{width:100%; max-width:1440px; margin-inline:auto; padding-inline:var(--gut)}
+.tly-sec{padding-block:var(--sec)}
+.tly-sec--tint{background:var(--tint)}
+.tly-dark{background:var(--ink); color:#fff}
+.tly-eyebrow{display:inline-flex; align-items:center; gap:10px; font:800 13px/1.2 var(--font-b); letter-spacing:.09em; text-transform:uppercase; color:var(--ink)}
+.tly-eyebrow::before{content:""; width:10px; height:10px; border-radius:50%; background:var(--tan)}
+.tly-dark .tly-eyebrow{color:#fff}
+.tly-h2{font:700 clamp(28px, 1.5vw + 20px, 46px)/1.1 var(--font-h); letter-spacing:-.025em; margin-top:16px; text-wrap:balance}
+.tly-lede{margin-top:18px; font-size:clamp(16px, .3vw + 15px, 19px); color:var(--muted); max-width:62ch}
+.tly-dark .tly-lede{color:var(--muted-d)}
+.tly-head{margin-bottom:clamp(32px, 4vw, 56px)}
+.tly-head--split{display:grid; gap:20px}
+@media (min-width:1024px){ .tly-head--split{grid-template-columns:1.1fr .9fr; align-items:end; gap:48px} .tly-head--split .tly-lede{margin-top:0} }
+
+/* ---------- buttons ---------- */
+.tly-btn{display:inline-flex; align-items:center; justify-content:center; gap:10px; min-height:52px; padding:0 24px; border-radius:999px; border:2px solid transparent; font:800 16px/1.1 var(--font-b); text-decoration:none; cursor:pointer; transition:background-color .18s, color .18s, border-color .18s, transform .18s; white-space:nowrap}
+.tly-btn .tly-ico{width:18px; height:18px; transition:transform .18s}
+.tly-btn--primary{background:var(--tan); color:var(--ink); border-color:var(--tan)}
+.tly-btn--primary:hover{background:var(--ink); border-color:var(--ink); color:#fff}
+.tly-btn--primary:hover .tly-ico{transform:translateX(3px)}
+.tly-btn--ghost{background:transparent; color:var(--ink); border-color:var(--ink)}
+.tly-btn--ghost:hover{background:var(--ink); color:#fff}
+.tly-dark .tly-btn--primary:hover, .tly-menu .tly-btn--primary:hover{background:#fff; border-color:#fff; color:var(--ink)}
+.tly-dark .tly-btn--ghost{color:#fff; border-color:#fff}
+.tly-dark .tly-btn--ghost:hover{background:#fff; color:var(--ink)}
+.tly-btn--block{width:100%}
+@media (hover:none){ .tly-btn:active{transform:scale(.97)} }
+.tly-link{font-weight:800; text-decoration:underline; text-decoration-thickness:2px; text-underline-offset:4px; text-decoration-color:var(--tan)}
+.tly-link:hover{text-decoration-color:var(--ink)}
+
+/* ---------- header ---------- */
+.tly-hdr{position:sticky; top:0; z-index:60; background:#fff; border-bottom:1px solid transparent; transition:border-color .2s}
+.tly-hdr.is-scrolled{border-bottom-color:var(--line)}
+.tly-hdr__in{display:flex; align-items:center; gap:12px; height:var(--hdr)}
+.tly-logo{display:inline-flex; align-items:center; gap:10px; min-height:44px; color:var(--ink); text-decoration:none; font:700 23px/1 var(--font-h); letter-spacing:-.03em}
+.tly-logo__mark{width:34px; height:28px}
+.tly-logo__sub{display:none; font:700 11px/1.25 var(--font-b); letter-spacing:.06em; text-transform:uppercase; color:var(--muted); border-left:1px solid var(--line-2); padding-left:12px; margin-left:4px}
+.tly-nav{display:none}
+.tly-hdr__phone{display:none}
+.tly-hdr__cta{display:none; min-height:46px; padding:0 20px; font-size:15px}
+.tly-iconbtn{display:inline-grid; place-items:center; width:44px; height:44px; border-radius:50%; border:1.5px solid var(--line-2); background:#fff; color:var(--ink); cursor:pointer; text-decoration:none; transition:background-color .18s, border-color .18s}
+.tly-iconbtn:hover{background:var(--tint); border-color:var(--ink)}
+.tly-hdr__tools{margin-left:auto; display:flex; align-items:center; gap:8px}
+.tly-burger{display:inline-grid; place-items:center; width:44px; height:44px; border-radius:50%; border:0; background:var(--ink); color:#fff; cursor:pointer; transition:background-color .18s}
+.tly-burger:hover{background:var(--ink-3)}
+.tly-burger__lines{display:grid; gap:4px; width:18px}
+.tly-burger__line{display:block; height:2px; border-radius:2px; background:currentColor}
+.tly-burger__line:nth-child(2){width:12px; justify-self:end}
+@media (min-width:768px){
+  .tly-hdr__cta{display:inline-flex}
+  .tly-hdr__call{display:none}
+  .tly-logo__sub{display:block}
+}
+@media (min-width:1200px){
+  .tly-nav{display:flex; align-items:center; gap:2px; margin-left:auto}
+  .tly-nav a{display:inline-flex; align-items:center; min-height:44px; padding:0 14px; border-radius:999px; font:700 15px/1 var(--font-b); text-decoration:none; color:var(--ink); transition:background-color .15s}
+  .tly-nav a:hover{background:var(--tint)}
+  .tly-hdr__tools{margin-left:12px; gap:14px}
+  .tly-hdr__phone{display:inline-flex; align-items:center; gap:8px; min-height:44px; font:800 15px/1 var(--font-b); text-decoration:none; padding:0 6px; border-radius:8px}
+  .tly-hdr__phone:hover{text-decoration:underline; text-decoration-color:var(--tan); text-decoration-thickness:2px; text-underline-offset:4px}
+  .tly-burger{display:none}
+}
+@media (min-width:1200px) and (max-width:1339px){ .tly-logo__sub{display:none} }
+
+/* ---------- full-screen menu ---------- */
+.tly-menu{position:fixed; inset:0; z-index:120; background:var(--ink); color:#fff; display:flex; flex-direction:column; overflow-y:auto; padding-bottom:calc(28px + env(safe-area-inset-bottom))}
+.tly-menu__top{display:flex; align-items:center; justify-content:space-between; height:var(--hdr); flex:none}
+.tly-menu .tly-logo{color:#fff}
+.tly-menu__close{display:inline-grid; place-items:center; width:44px; height:44px; border-radius:50%; border:1.5px solid #4a4a4a; background:transparent; color:#fff; cursor:pointer}
+.tly-menu__close:hover{background:#fff; color:var(--ink)}
+.tly-menu__body{display:grid; gap:36px; padding-top:20px; flex:1}
+.tly-menu__list a{display:flex; align-items:center; justify-content:space-between; gap:14px; min-height:56px; padding:10px 0; border-bottom:1px solid #2e2e2e; font:600 clamp(22px, 4.6vw, 40px)/1.15 var(--font-h); letter-spacing:-.02em; color:#fff; text-decoration:none}
+.tly-menu__list a:hover, .tly-menu__list a:active{color:var(--tan)}
+.tly-menu__list .tly-ico{width:22px; height:22px; color:var(--tan)}
+.tly-menu__foot{display:grid; gap:14px; align-content:end}
+.tly-menu__phone{display:flex; flex-direction:column; gap:4px; text-decoration:none; color:#fff; padding:6px 0}
+.tly-menu__phone span{font:700 13px/1 var(--font-b); letter-spacing:.08em; text-transform:uppercase; color:var(--muted-d)}
+.tly-menu__phone strong{font:700 clamp(26px, 5vw, 36px)/1.15 var(--font-h); color:var(--tan)}
+.tly-menu__phone:hover strong{text-decoration:underline; text-underline-offset:6px}
+.tly-menu__note{font-size:15px; color:var(--muted-d)}
+@media (min-width:768px){ .tly-menu__body{grid-template-columns:1.3fr 1fr; align-items:end; gap:48px; padding-top:40px} }
+
+/* =========================================================
+   HERO — split headline with a central cut-out image
+   ========================================================= */
+.tly-hero{position:relative; padding:18px 0 40px; overflow:clip}
+.tly-hero__box{container-type:inline-size}
+.tly-hero__eyebrow{display:flex; align-items:center; gap:8px; font:700 13px/1.35 var(--font-b); color:var(--muted); margin-bottom:14px}
+.tly-hero__eyebrow b{color:var(--ink)}
+.tly-hero__eyebrow .tly-dot{width:8px; height:8px; border-radius:50%; background:var(--tan); flex:none}
+.tly-hero__grid{display:grid; grid-template-areas:"wl" "vis" "wr" "ft"; row-gap:12px}
+.tly-hero__words{--hfs:16cqi; display:flex; flex-direction:column; font:800 var(--hfs)/.9 var(--font-h); letter-spacing:-.035em; text-transform:uppercase; color:var(--ink); white-space:nowrap; transform:translate3d(calc(var(--nx,0) * var(--wx,0px)), calc(var(--ny,0) * var(--wy,0px)), 0)}
+.tly-hero__words--l{grid-area:wl; align-items:flex-start}
+.tly-hero__words--r{grid-area:wr; align-items:flex-end; text-align:right}
+.tly-hero__mark{display:inline-block; padding-bottom:.06em; background:linear-gradient(var(--tan), var(--tan)) 0 100% / 100% .13em no-repeat}
+.tly-hero__visual{grid-area:vis; position:relative; perspective:1100px; justify-self:stretch}
+.tly-hero__back{position:absolute; inset:0; border-radius:999px; background:var(--tan); transform:rotate(-4deg) translate(3%, 3%)}
+.tly-hero__frame{position:relative; height:clamp(160px, 50cqi, 240px); border-radius:999px; overflow:hidden; background:#2a4a4f; box-shadow:0 28px 60px -28px rgba(18,18,18,.55); transform:rotateY(calc(var(--nx,0) * 10deg)) rotateX(calc(var(--ny,0) * -8deg)); transform-style:preserve-3d}
+.tly-hero__frame img{width:100%; height:100%; object-fit:cover; object-position:62% 30%; transform:scale(1.06) translate3d(calc(var(--nx,0) * -8px), calc(var(--ny,0) * -6px), 0)}
+.tly-hero__chips{position:absolute; inset:0; pointer-events:none}
+.tly-chip{position:absolute; display:inline-flex; align-items:center; gap:8px; padding:8px 14px 8px 8px; border-radius:999px; background:#fff; color:var(--ink); font:800 13px/1.1 var(--font-b); white-space:nowrap; box-shadow:0 10px 28px -12px rgba(18,18,18,.45), 0 0 0 1px rgba(18,18,18,.06); transform:translate3d(calc(var(--nx,0) * 12px), calc(var(--ny,0) * 9px), 0)}
+.tly-chip__ic{display:grid; place-items:center; width:24px; height:24px; border-radius:50%; background:var(--ink); color:#fff}
+.tly-chip__ic .tly-ico{width:14px; height:14px; stroke-width:2.6}
+.tly-chip--sun{background:var(--sun)}
+.tly-chip--sun .tly-chip__ic{background:var(--ink)}
+.tly-chip--a{left:12px; top:14px}
+.tly-chip--b{right:12px; bottom:14px}
+.tly-chip--c{display:none}
+.tly-hero__foot{grid-area:ft; display:grid; gap:16px; padding-top:6px}
+.tly-hero__sub{font-size:16px; line-height:1.55; color:var(--muted); max-width:60ch}
+.tly-hero__sub strong{color:var(--ink)}
+.tly-hero__ctas{display:flex; flex-wrap:wrap; gap:10px}
+.tly-hero__ctas .tly-btn{padding:0 18px; font-size:15px}
+.tly-hero__note{display:flex; flex-wrap:wrap; gap:6px 16px; font:600 14px/1.4 var(--font-b); color:var(--muted)}
+.tly-hero__note span{display:inline-flex; align-items:center; gap:6px}
+.tly-hero__note .tly-ico{width:16px; height:16px; color:var(--ink); stroke-width:2.4}
+@media (max-width:767px){ .tly-hero__note{display:none} .tly-hero__ctas .tly-btn{flex:1 1 auto} }
+@media (min-width:600px) and (max-width:767px){ .tly-hero__frame{height:46cqi; max-height:300px} }
+
+/* tablet hero: words stacked left, tall frame right */
+@media (min-width:768px){
+  .tly-hero{padding:28px 0 64px}
+  .tly-hero__eyebrow{font-size:14px; margin-bottom:22px}
+  .tly-hero__grid{grid-template-columns:minmax(0,1fr) 34cqi; grid-template-areas:"wl vis" "wr vis" "ft vis"; grid-template-rows:auto auto 1fr; column-gap:5cqi; row-gap:0}
+  .tly-hero__words{--hfs:min(9.6cqi, 96px); line-height:.94}
+  .tly-hero__words--r{align-items:flex-start; text-align:left; margin-top:.1em}
+  .tly-hero__visual{align-self:center}
+  .tly-hero__frame{height:auto; aspect-ratio:.66}
+  .tly-hero__foot{padding-top:28px; align-content:start; gap:20px}
+  .tly-hero__sub{font-size:17px}
+  .tly-chip{font-size:14px}
+  .tly-chip--a{left:-18px; right:auto; top:58%}
+  .tly-chip--b{right:-14px; left:auto; top:12%; bottom:auto}
+  .tly-chip--c{display:inline-flex; left:0; right:0; margin-inline:auto; width:max-content; bottom:-16px}
+}
+@media (min-width:1024px){
+  .tly-hero__grid{grid-template-columns:minmax(0,1fr) 33cqi}
+  .tly-hero__words{--hfs:min(9.4cqi, 92px)}
+}
+/* desktop hero: giant split headline around the centred frame */
+@media (min-width:1200px){
+  .tly-hero{padding:22px 0 72px}
+  .tly-hero__eyebrow{justify-content:center; margin-bottom:26px}
+  .tly-hero__grid{grid-template-columns:minmax(0,1fr) 22cqi minmax(0,1fr); grid-template-areas:"wl vis wr" "ft ft ft"; grid-template-rows:auto auto; column-gap:2.6cqi}
+  .tly-hero__words{--hfs:5.9cqi; --wx:-14px; --wy:-8px}
+  .tly-hero__words--l{align-items:flex-end; text-align:right; align-self:start; margin-top:4.6cqi}
+  .tly-hero__words--r{align-items:flex-start; text-align:left; align-self:end; margin:0 0 4.6cqi; --wx:-9px; --wy:-6px}
+  .tly-hero__frame{aspect-ratio:.64}
+  .tly-hero__foot{justify-items:center; text-align:center; padding-top:46px; gap:22px}
+  .tly-hero__sub{font-size:19px; max-width:58ch}
+  .tly-hero__ctas{justify-content:center}
+  .tly-hero__ctas .tly-btn{padding:0 26px; font-size:16px; min-height:56px}
+  .tly-hero__note{justify-content:center}
+  .tly-chip--a{left:auto; right:calc(100% - 34px); top:60%}
+  .tly-chip--b{right:auto; left:calc(100% - 30px); top:16%}
+  .tly-chip--c{bottom:-18px}
+}
+@media (prefers-reduced-motion:reduce){
+  .tly-hero__words, .tly-hero__frame, .tly-hero__frame img, .tly-chip{transform:none!important}
+  .tly-hero__frame img{transform:scale(1.02)!important}
+}
+
+/* ---------- trust strip ---------- */
+.tly-trust{background:var(--tint); border-block:1px solid var(--line)}
+.tly-trust__list{display:flex; overflow-x:auto; scroll-snap-type:x mandatory; gap:10px; padding:14px 0; scrollbar-width:none; margin-inline:calc(var(--gut) * -1); padding-inline:var(--gut); scroll-padding-inline:var(--gut)}
+.tly-trust__list::-webkit-scrollbar{display:none}
+.tly-trust__item{scroll-snap-align:start; flex:0 0 auto; display:flex; align-items:center; gap:12px; background:#fff; border:1px solid var(--line); border-radius:999px; padding:8px 18px 8px 8px; min-height:52px}
+.tly-trust__ic{display:grid; place-items:center; width:36px; height:36px; border-radius:50%; background:var(--ink); color:#fff; flex:none}
+.tly-trust__ic .tly-ico{width:18px; height:18px}
+.tly-trust__item strong{display:block; font:800 14px/1.2 var(--font-b)}
+.tly-trust__item div > span{display:block; font-size:13px; line-height:1.3; color:var(--muted)}
+@media (min-width:768px){
+  .tly-trust__list{display:grid; grid-template-columns:repeat(2,1fr); overflow:visible; margin:0; padding:22px 0; gap:14px 32px}
+  .tly-trust__item{background:none; border:0; border-radius:0; padding:0}
+}
+@media (min-width:1200px){ .tly-trust__list{grid-template-columns:repeat(4,1fr); padding:28px 0} .tly-trust__item strong{font-size:15px} .tly-trust__item div > span{font-size:14px} }
+
+/* ---------- mode switch + services ---------- */
+.tly-modebar{display:flex; flex-direction:column; gap:14px; margin-bottom:clamp(32px, 4vw, 52px)}
+.tly-modebar__q{font:800 13px/1.2 var(--font-b); letter-spacing:.09em; text-transform:uppercase}
+.tly-mode{display:flex; gap:6px; padding:6px; background:var(--tint); border-radius:999px; overflow-x:auto; scroll-snap-type:x mandatory; scrollbar-width:none; max-width:100%; width:max-content}
+.tly-mode::-webkit-scrollbar{display:none}
+.tly-mode__btn{scroll-snap-align:start; flex:0 0 auto; display:inline-flex; align-items:center; gap:10px; min-height:50px; padding:0 22px; border:0; border-radius:999px; background:transparent; font:800 15px/1.1 var(--font-b); color:var(--ink); cursor:pointer; transition:background-color .18s, color .18s}
+.tly-mode__btn:hover{background:#e4e6ea}
+.tly-mode__btn[aria-pressed="true"]{background:var(--ink); color:#fff}
+.tly-mode__btn small{font:600 13px/1 var(--font-b); opacity:.8}
+@media (max-width:767px){ .tly-mode{width:100%} .tly-mode__btn{flex:1 0 auto; justify-content:center; padding:0 16px} .tly-mode__btn small{display:none} }
+@media (min-width:768px){ .tly-modebar{flex-direction:row; align-items:center; gap:22px} }
+
+.tly-pair{display:grid; gap:40px; align-items:start}
+.tly-pair > *{min-width:0}
+.tly-pinned{position:sticky; top:calc(var(--hdr) + 28px)}
+
+.tly-svc__aside .tly-h2{margin-top:0}
+.tly-svc__photo{margin-top:28px; border-radius:var(--r-lg); overflow:hidden; aspect-ratio:4/3; background:var(--tint)}
+.tly-svc__photo img{width:100%; height:100%; object-fit:cover}
+.tly-svc__ctas{display:flex; flex-wrap:wrap; gap:10px; margin-top:26px}
+.tly-svc__list{display:grid; gap:14px}
+.tly-svc__item{display:grid; grid-template-columns:48px 1fr; gap:16px; align-items:start; padding:22px; border:1px solid var(--line); border-radius:var(--r-md); background:#fff; transition:border-color .18s, transform .18s, box-shadow .18s}
+.tly-svc__item:hover{border-color:var(--ink); box-shadow:0 14px 30px -22px rgba(18,18,18,.5)}
+.tly-svc__ic{display:grid; place-items:center; width:48px; height:48px; border-radius:14px; background:var(--tint); color:var(--ink)}
+.tly-svc__ic--hot{background:var(--tan)}
+.tly-svc__ic .tly-ico{width:22px; height:22px}
+.tly-svc__item h3{font:800 17px/1.3 var(--font-b)}
+.tly-svc__item p{margin-top:6px; font-size:15px; line-height:1.55; color:var(--muted)}
+.tly-svc__item .tly-tag{margin-top:10px}
+.tly-tag{display:inline-flex; align-items:center; gap:6px; min-height:26px; padding:0 10px; border-radius:999px; background:var(--tint); font:700 12px/1 var(--font-b); color:var(--ink)}
+.tly-tag--sun{background:var(--sun)}
+.tly-sec--tint .tly-tag{background:#fff; border:1px solid var(--line)}
+@media (min-width:768px){ .tly-svc__list{grid-template-columns:1fr 1fr} .tly-svc__photo{aspect-ratio:16/9} }
+@media (min-width:1200px){
+  .tly-pair--svc{grid-template-columns:5fr 7fr; gap:64px}
+  .tly-svc__photo{aspect-ratio:4/3}
+}
+
+/* ---------- pricing ---------- */
+.tly-plans{display:grid; gap:16px}
+.tly-plan{position:relative; display:flex; flex-direction:column; gap:18px; padding:28px; border-radius:var(--r-lg); background:#fff; border:1px solid var(--line); transition:background-color .2s, color .2s, transform .2s, box-shadow .2s}
+.tly-plan:hover{box-shadow:0 22px 40px -30px rgba(18,18,18,.55)}
+.tly-plan__top{display:flex; align-items:flex-start; justify-content:space-between; gap:12px}
+.tly-plan__name{font:700 20px/1.2 var(--font-h); letter-spacing:-.02em}
+.tly-plan__for{margin-top:6px; font-size:15px; color:var(--muted)}
+.tly-plan__badge{display:none; flex:none; padding:6px 10px; border-radius:999px; background:var(--sun); color:var(--ink); font:800 12px/1 var(--font-b); white-space:nowrap}
+.tly-plan__price{display:flex; align-items:baseline; gap:8px; flex-wrap:wrap}
+.tly-plan__amt{font:700 clamp(44px, 3vw + 24px, 60px)/1 var(--font-h); letter-spacing:-.04em}
+.tly-plan__per{font:700 15px/1.2 var(--font-b)}
+.tly-plan__inc{font-size:14px; color:var(--muted); margin-top:-8px}
+.tly-plan__feats{display:grid; gap:10px; padding-top:18px; border-top:1px solid var(--line)}
+.tly-plan__feats li{display:grid; grid-template-columns:22px 1fr; gap:10px; font-size:15px; line-height:1.45}
+.tly-plan__feats .tly-ico{width:20px; height:20px; margin-top:1px; stroke-width:2.4}
+.tly-plan .tly-btn{margin-top:auto}
+.tly-plan.is-rec{background:var(--ink); color:#fff; border-color:var(--ink)}
+.tly-plan.is-rec .tly-plan__for, .tly-plan.is-rec .tly-plan__inc{color:var(--muted-d)}
+.tly-plan.is-rec .tly-plan__amt{color:var(--tan)}
+.tly-plan.is-rec .tly-plan__feats{border-top-color:#333}
+.tly-plan.is-rec .tly-plan__feats .tly-ico{color:var(--tan)}
+.tly-plan.is-rec .tly-plan__badge{display:inline-block}
+.tly-plan.is-rec .tly-btn--ghost{background:var(--tan); border-color:var(--tan); color:var(--ink)}
+.tly-plan.is-rec .tly-btn--ghost:hover{background:#fff; border-color:#fff}
+.tly-plan.is-rec :focus-visible{outline-color:var(--sun)}
+@media (hover:none){ .tly-plan:active{transform:scale(.99)} }
+@media (min-width:768px){ .tly-plans{grid-template-columns:1fr 1fr} .tly-plan--addon{grid-column:1 / -1} }
+@media (min-width:1200px){ .tly-plans{grid-template-columns:repeat(3,1fr); gap:20px} .tly-plan--addon{grid-column:auto} .tly-plan{padding:34px} }
+
+.tly-compare{margin-top:clamp(36px, 4vw, 56px)}
+.tly-compare__title{font:700 20px/1.25 var(--font-h); letter-spacing:-.02em; margin-bottom:16px}
+.tly-tablewrap{border:1px solid var(--line); border-radius:var(--r-md); background:#fff; overflow:hidden}
+.tly-table{width:100%; border-collapse:collapse; font-size:15px; font-variant-numeric:tabular-nums}
+.tly-table th, .tly-table td{padding:14px 20px; text-align:left; border-bottom:1px solid var(--line); vertical-align:middle}
+.tly-table thead th{font:800 13px/1.2 var(--font-b); letter-spacing:.06em; text-transform:uppercase; background:var(--tint)}
+.tly-table tbody tr:last-child > *{border-bottom:0}
+.tly-table tbody th{font-weight:700}
+.tly-table td{width:24%}
+.tly-yes, .tly-no{display:inline-flex; align-items:center; gap:8px; font-weight:700}
+.tly-yes .tly-ico{width:20px; height:20px; padding:3px; border-radius:50%; background:var(--tan); color:var(--ink); stroke-width:3}
+.tly-no{color:var(--muted); font-weight:600}
+.tly-compare__note{margin-top:14px; font-size:14px; color:var(--muted)}
+@media (max-width:767px){
+  .tly-tablewrap{border:0; background:none; overflow:visible}
+  .tly-table--stack thead{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0)}
+  .tly-table--stack, .tly-table--stack tbody, .tly-table--stack tr, .tly-table--stack th, .tly-table--stack td{display:block; width:auto}
+  .tly-table--stack tr{background:#fff; border:1px solid var(--line); border-radius:16px; padding:14px 16px; margin-bottom:10px}
+  .tly-table--stack tbody th{padding:0 0 8px; border:0; font-size:16px}
+  .tly-table--stack td{display:flex; justify-content:space-between; align-items:center; gap:12px; padding:8px 0 0; border:0}
+  .tly-table--stack td::before{content:attr(data-label); font-weight:600; color:var(--muted)}
+}
+
+/* ---------- calculator ---------- */
+.tly-calc .tly-pair{gap:40px}
+.tly-calc__flag{display:inline-flex; align-items:center; gap:10px; margin-top:22px; padding:10px 16px; border:1.5px solid var(--sun); border-radius:999px; color:var(--sun); font:800 14px/1.25 var(--font-b)}
+.tly-calc__flag .tly-ico{width:18px; height:18px}
+.tly-calc__inputs{display:grid; gap:18px; margin-top:32px}
+.tly-cfield{display:grid; gap:10px; padding:20px; border-radius:var(--r-md); background:var(--ink-2); border:1px solid #2c2c2c}
+.tly-cfield__row{display:flex; align-items:center; justify-content:space-between; gap:14px}
+.tly-cfield label{font:800 15px/1.3 var(--font-b)}
+.tly-cfield__hint{font-size:14px; color:var(--muted-d)}
+.tly-cfield__num{display:flex; align-items:center; gap:6px; height:52px; padding:0 14px; border-radius:12px; background:#0b0b0b; border:1.5px solid #4a4a4a; transition:border-color .15s}
+.tly-cfield__num:focus-within{border-color:var(--sun)}
+.tly-cfield__num span{font:700 18px/1 var(--font-h); color:var(--muted-d)}
+.tly-cfield__num input{width:6ch; border:0; background:none; color:#fff; font:700 20px/1 var(--font-h); text-align:right; outline:none; -moz-appearance:textfield}
+.tly-cfield__num input::-webkit-outer-spin-button, .tly-cfield__num input::-webkit-inner-spin-button{-webkit-appearance:none; margin:0}
+.tly-range{width:100%; height:44px; margin:0; background:none; accent-color:var(--tan); cursor:pointer}
+.tly-calc__assume{margin-top:34px; padding-top:26px; border-top:1px solid #2e2e2e}
+.tly-calc__assume h3{font:700 17px/1.3 var(--font-h); letter-spacing:-.01em}
+.tly-calc__assume ul{display:grid; gap:10px; margin-top:16px}
+.tly-calc__assume li{position:relative; padding-left:20px; font-size:15px; line-height:1.55; color:var(--muted-d)}
+.tly-calc__assume li::before{content:""; position:absolute; left:2px; top:.62em; width:7px; height:7px; border-radius:2px; background:var(--tan)}
+.tly-calc__assume strong{color:#fff}
+.tly-res{background:#fff; color:var(--ink); border-radius:var(--r-lg); padding:clamp(20px, 2.2vw, 32px); box-shadow:0 30px 60px -30px rgba(0,0,0,.6)}
+.tly-res :focus-visible{outline-color:var(--ink)}
+.tly-res__kicker{display:flex; justify-content:space-between; gap:12px; align-items:center; flex-wrap:wrap; font:800 12px/1.2 var(--font-b); letter-spacing:.08em; text-transform:uppercase; color:var(--muted)}
+.tly-res__kicker b{color:var(--ink); background:var(--sun); padding:5px 9px; border-radius:999px; letter-spacing:.04em}
+.tly-res__sum{display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:16px}
+.tly-res__fig{padding:16px; border-radius:16px; background:var(--tint)}
+.tly-res__fig.is-win{background:var(--ink); color:#fff}
+.tly-res__fig span{display:block; font:700 13px/1.3 var(--font-b); color:var(--muted)}
+.tly-res__fig.is-win span{color:var(--muted-d)}
+.tly-res__fig strong{display:block; margin-top:6px; font:700 clamp(22px, 1.4vw + 14px, 32px)/1.05 var(--font-h); letter-spacing:-.03em; font-variant-numeric:tabular-nums}
+.tly-res__fig.is-win strong{color:var(--tan)}
+.tly-res__fig small{display:block; margin-top:6px; font-size:13px; color:var(--muted)}
+.tly-res__fig.is-win small{color:var(--muted-d)}
+.tly-res__meter{margin-top:12px; height:8px; border-radius:99px; background:rgba(18,18,18,.12); overflow:hidden}
+.tly-res__fig.is-win .tly-res__meter{background:#3a3a3a}
+.tly-res__meter i{display:block; height:100%; width:var(--w, 50%); background:var(--ink); border-radius:99px; transition:width .35s}
+.tly-res__fig.is-win .tly-res__meter i{background:var(--tan)}
+.tly-res__verdict{margin-top:16px; font:700 17px/1.45 var(--font-b)}
+.tly-res__table{margin-top:18px}
+.tly-res__table .tly-table th, .tly-res__table .tly-table td{padding:10px 12px; font-size:14px}
+.tly-res__table .tly-table td{text-align:right; width:28%; white-space:nowrap}
+.tly-res__table .tly-table thead th:not(:first-child){text-align:right}
+.tly-res__table .tly-table tbody th{font-weight:600}
+.tly-res__table tr.tly-res__total > *{font-weight:800; background:var(--tint)}
+.tly-res__table tr.tly-res__take > *{font-weight:800; font-size:15px}
+.tly-res__foot{margin-top:16px; font-size:13px; line-height:1.5; color:var(--muted)}
+.tly-res__cta{margin-top:18px; display:flex; flex-wrap:wrap; gap:10px}
+.tly-res__cta .tly-btn{flex:1 1 auto}
+@media (max-width:767px){
+  .tly-res__sum{grid-template-columns:1fr}
+  .tly-res__table .tly-tablewrap{border:0}
+  .tly-res__table .tly-table--stack tr{background:var(--tint); border:0; padding:12px 14px; margin-bottom:8px}
+  .tly-res__table .tly-table--stack tr.tly-res__total, .tly-res__table .tly-table--stack tr.tly-res__take{background:var(--ink); color:#fff}
+  .tly-res__table .tly-table--stack tr.tly-res__total > *, .tly-res__table .tly-table--stack tr.tly-res__take > *{background:none}
+  .tly-res__table .tly-table--stack tr.tly-res__total td::before, .tly-res__table .tly-table--stack tr.tly-res__take td::before{color:var(--muted-d)}
+  .tly-res__table .tly-table--stack td{padding:4px 0 0; font-size:15px; width:auto; text-align:left}
+  .tly-res__table .tly-table--stack tbody th{padding:0 0 4px; font-size:15px}
+}
+@media (min-width:768px){ .tly-calc__inputs{grid-template-columns:1fr 1fr} }
+@media (min-width:1024px){
+  .tly-pair--calc{grid-template-columns:1fr 1.08fr; gap:48px}
+  .tly-calc__inputs{grid-template-columns:1fr}
+}
+@media (min-width:1200px){ .tly-pair--calc{gap:72px} .tly-calc__inputs{grid-template-columns:1fr 1fr} }
+
+/* ---------- key dates ---------- */
+.tly-dates{display:grid; gap:14px}
+.tly-date{display:flex; flex-direction:column; gap:10px; padding:24px; border:1px solid var(--line); border-radius:var(--r-md); background:#fff}
+.tly-date__when{font:700 clamp(22px, 1vw + 16px, 28px)/1.12 var(--font-h); letter-spacing:-.03em}
+.tly-date h3{font:800 16px/1.35 var(--font-b)}
+.tly-date p{font-size:15px; line-height:1.55; color:var(--muted)}
+.tly-date__tags{display:flex; flex-wrap:wrap; gap:6px; margin-top:auto; padding-top:6px}
+.tly-date--key{background:var(--ink); color:#fff; border-color:var(--ink)}
+.tly-date--key p{color:var(--muted-d)}
+.tly-date--key .tly-date__when{color:var(--tan)}
+.tly-date--key .tly-tag{background:#2b2b2b; color:#fff}
+@media (min-width:768px){ .tly-dates{grid-template-columns:1fr 1fr} }
+@media (min-width:1200px){ .tly-dates{grid-template-columns:repeat(3,1fr); gap:18px} .tly-date{padding:28px} }
+
+/* ---------- switching steps ---------- */
+.tly-steps__aside .tly-h2{margin-top:16px}
+.tly-steps__aside .tly-btn{margin-top:28px}
+.tly-steps__list{counter-reset:tlystep; display:grid}
+.tly-step{display:grid; grid-template-columns:56px 1fr; gap:20px; padding:26px 0; border-top:1px solid var(--line)}
+.tly-step:last-child{border-bottom:1px solid var(--line)}
+.tly-step__n{display:grid; place-items:center; width:56px; height:56px; border-radius:50%; background:var(--tan); color:var(--ink); font:700 20px/1 var(--font-h)}
+.tly-step h3{font:700 clamp(18px, .6vw + 14px, 22px)/1.25 var(--font-h); letter-spacing:-.02em}
+.tly-step p{margin-top:8px; color:var(--muted); max-width:58ch}
+.tly-step__meta{display:inline-flex; margin-top:12px}
+@media (min-width:1024px){ .tly-pair--steps{grid-template-columns:5fr 7fr; gap:64px} }
+
+/* ---------- app mini UI ---------- */
+.tly-app__grid{display:grid; gap:16px}
+.tly-ui{display:flex; flex-direction:column; border-radius:var(--r-lg); background:#fff; border:1px solid var(--line); overflow:hidden}
+.tly-ui__screen{padding:20px; flex:1}
+.tly-ui__cap{padding:18px 20px 22px; border-top:1px solid var(--line)}
+.tly-ui__cap h3{font:800 16px/1.3 var(--font-b)}
+.tly-ui__cap p{margin-top:4px; font-size:14px; line-height:1.5; color:var(--muted)}
+.tly-ui__label{display:flex; align-items:center; justify-content:space-between; gap:10px; font:800 12px/1.2 var(--font-b); letter-spacing:.07em; text-transform:uppercase; color:var(--muted)}
+.tly-ui__big{margin-top:12px; font:700 34px/1 var(--font-h); letter-spacing:-.04em; font-variant-numeric:tabular-nums}
+.tly-ui__meter{margin-top:14px; height:10px; border-radius:99px; background:var(--tint); overflow:hidden}
+.tly-ui__meter i{display:block; height:100%; width:81%; background:var(--tan); border-radius:99px}
+.tly-ui__row{display:flex; justify-content:space-between; gap:10px; margin-top:10px; font-size:13px; color:var(--muted)}
+.tly-ui__row b{color:var(--ink)}
+.tly-ui__list{display:grid; gap:0; margin-top:16px; border-top:1px solid var(--line)}
+.tly-ui__list li{display:flex; justify-content:space-between; gap:10px; padding:9px 0; border-bottom:1px solid var(--line); font-size:13px; color:var(--muted)}
+.tly-ui__list b{color:var(--ink); font-variant-numeric:tabular-nums}
+.tly-tx{display:grid; gap:8px; margin-top:14px}
+.tly-tx li{display:grid; grid-template-columns:34px 1fr auto; gap:10px; align-items:center; padding:10px; border-radius:12px; background:var(--tint)}
+.tly-tx__av{display:grid; place-items:center; width:34px; height:34px; border-radius:10px; background:#fff; font:800 12px/1 var(--font-b)}
+.tly-tx__t{min-width:0}
+.tly-tx__t b{display:block; font-size:14px; line-height:1.25; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+.tly-tx__t span{font-size:12px; color:var(--muted)}
+.tly-tx__amt{text-align:right; font:800 14px/1.2 var(--font-b); font-variant-numeric:tabular-nums}
+.tly-tx__amt small{display:block; margin-top:4px}
+.tly-pill{display:inline-block; padding:3px 8px; border-radius:99px; font:800 11px/1.2 var(--font-b); background:#fff; border:1px solid var(--line-2)}
+.tly-pill--ok{background:var(--ink); color:#fff; border-color:var(--ink)}
+.tly-pill--todo{background:var(--sun); border-color:var(--sun)}
+.tly-due{display:flex; align-items:center; gap:14px; margin-top:14px}
+.tly-due__cal{flex:none; width:64px; border-radius:14px; overflow:hidden; text-align:center; border:1.5px solid var(--ink)}
+.tly-due__cal span{display:block; background:var(--ink); color:#fff; font:800 11px/1 var(--font-b); letter-spacing:.08em; padding:6px 0; text-transform:uppercase}
+.tly-due__cal b{display:block; font:700 26px/1 var(--font-h); padding:8px 0 9px}
+.tly-due__txt b{display:block; font-size:15px; line-height:1.3}
+.tly-due__txt span{font-size:13px; color:var(--muted)}
+.tly-due__bar{display:flex; gap:4px; margin-top:16px}
+.tly-due__bar i{flex:1; height:8px; border-radius:4px; background:var(--tint)}
+.tly-due__bar i.on{background:var(--ink)}
+.tly-rcpt{display:grid; grid-template-columns:72px 1fr; gap:14px; align-items:center; margin-top:14px}
+.tly-rcpt__img{height:92px; border-radius:10px; background:repeating-linear-gradient(180deg, #fff 0 10px, #eceef1 10px 12px); border:1px solid var(--line-2); position:relative}
+.tly-rcpt__img::after{content:""; position:absolute; left:10px; right:10px; bottom:10px; height:12px; background:var(--ink); border-radius:3px; opacity:.85}
+.tly-rcpt__t b{display:block; font-size:15px}
+.tly-rcpt__t .tly-rcpt__d{display:block; font-size:13px; color:var(--muted); margin:2px 0 8px}
+.tly-doc{margin-top:14px; padding:14px; border-radius:14px; border:1.5px dashed var(--line-2)}
+.tly-doc__h{display:flex; justify-content:space-between; gap:8px; font:800 13px/1.3 var(--font-b)}
+.tly-doc dl{display:grid; grid-template-columns:1fr auto; gap:6px 12px; margin-top:10px; font-size:13px}
+.tly-doc dt{color:var(--muted)}
+.tly-doc dd{font-weight:800; text-align:right; font-variant-numeric:tabular-nums}
+.tly-chat{display:grid; gap:10px; margin-top:14px}
+.tly-chat__msg{max-width:88%; padding:10px 14px; border-radius:16px; font-size:14px; line-height:1.45}
+.tly-chat__msg--me{justify-self:end; background:var(--ink); color:#fff; border-bottom-right-radius:4px}
+.tly-chat__msg--them{background:var(--tint); border-bottom-left-radius:4px}
+.tly-chat__who{display:flex; align-items:center; gap:8px; font-size:12px; color:var(--muted)}
+.tly-chat__who i{width:8px; height:8px; border-radius:50%; background:#1f9d55}
+.tly-app__soft{margin-top:22px; font-size:14px; color:var(--muted)}
+@media (min-width:768px){ .tly-app__grid{grid-template-columns:1fr 1fr} }
+@media (min-width:1200px){
+  .tly-app__grid{grid-template-columns:repeat(12, 1fr); gap:20px}
+  .tly-ui--a{grid-column:span 4} .tly-ui--b{grid-column:span 5} .tly-ui--c{grid-column:span 3}
+  .tly-ui--d{grid-column:span 3} .tly-ui--e{grid-column:span 4} .tly-ui--f{grid-column:span 5}
+}
+
+/* ---------- reviews ---------- */
+.tly-revs{display:grid; gap:16px}
+.tly-rev{display:flex; flex-direction:column; gap:18px; padding:28px; border-radius:var(--r-lg); border:1px solid var(--line); background:#fff}
+.tly-rev__stars{display:flex; gap:3px; color:var(--ink)}
+.tly-rev__stars svg{width:18px; height:18px; fill:currentColor}
+.tly-rev blockquote{margin:0; font-size:17px; line-height:1.6}
+.tly-rev blockquote p::before{content:"\201C"} .tly-rev blockquote p::after{content:"\201D"}
+.tly-rev figcaption{display:flex; align-items:center; gap:12px; margin-top:auto; padding-top:16px; border-top:1px solid var(--line)}
+.tly-rev__av{display:grid; place-items:center; width:44px; height:44px; border-radius:50%; background:var(--tint); font:700 15px/1 var(--font-h)}
+.tly-rev:nth-child(2) .tly-rev__av{background:var(--sun)}
+.tly-rev__who b{display:block; font-size:15px}
+.tly-rev__who span{font-size:14px; color:var(--muted)}
+@media (min-width:768px){ .tly-revs{grid-template-columns:1fr 1fr} .tly-rev:last-child{grid-column:1 / -1} }
+@media (min-width:1200px){ .tly-revs{grid-template-columns:repeat(3,1fr); gap:20px} .tly-rev:last-child{grid-column:auto} .tly-rev{padding:34px} }
+
+/* ---------- FAQ ---------- */
+.tly-faq__aside .tly-h2{margin-top:16px}
+.tly-contactcard{margin-top:28px; padding:26px; border-radius:var(--r-lg); background:var(--ink); color:#fff}
+.tly-contactcard h3{font:700 18px/1.3 var(--font-h)}
+.tly-contactcard p{margin-top:8px; font-size:15px; color:var(--muted-d)}
+.tly-contactcard__links{display:grid; gap:4px; margin-top:16px}
+.tly-contactcard__links a{display:inline-flex; align-items:center; gap:10px; min-height:44px; color:#fff; text-decoration:none; font-weight:800; overflow-wrap:break-word; min-width:0}
+.tly-contactcard__links a:hover{color:var(--tan); text-decoration:underline; text-underline-offset:4px}
+.tly-contactcard__links .tly-ico{color:var(--tan)}
+.tly-faq__list{border-top:1px solid var(--line)}
+.tly-faq__item{border-bottom:1px solid var(--line)}
+.tly-faq__item summary{display:flex; align-items:center; justify-content:space-between; gap:18px; min-height:64px; padding:18px 4px; cursor:pointer; list-style:none; font:800 clamp(16px, .3vw + 15px, 19px)/1.4 var(--font-b); border-radius:10px; transition:background-color .15s}
+.tly-faq__item summary::-webkit-details-marker{display:none}
+.tly-faq__item summary:hover{background:var(--tint)}
+.tly-faq__pm{position:relative; flex:none; width:36px; height:36px; border-radius:50%; border:1.5px solid var(--ink); transition:background-color .2s}
+.tly-faq__pm::before, .tly-faq__pm::after{content:""; position:absolute; left:50%; top:50%; width:14px; height:2px; margin:-1px 0 0 -7px; background:var(--ink); transition:transform .2s}
+.tly-faq__pm::after{transform:rotate(90deg)}
+.tly-faq__item[open] .tly-faq__pm{background:var(--tan); border-color:var(--tan)}
+.tly-faq__item[open] .tly-faq__pm::after{transform:rotate(0deg)}
+.tly-faq__body{padding:0 4px 24px; color:var(--muted); display:grid; gap:12px; max-width:70ch}
+.tly-faq__body strong{color:var(--ink)}
+.tly-faq__body ul{display:grid; gap:6px; padding-left:20px; list-style:disc}
+@media (min-width:1024px){ .tly-pair--faq{grid-template-columns:5fr 7fr; gap:64px} }
+
+/* ---------- sign-up form ---------- */
+.tly-join__next{display:grid; gap:14px; margin-top:28px}
+.tly-join__next li{display:grid; grid-template-columns:36px 1fr; gap:14px; align-items:start}
+.tly-join__next span{display:grid; place-items:center; width:36px; height:36px; border-radius:50%; background:var(--ink); color:#fff; font:700 14px/1 var(--font-h)}
+.tly-join__next b{display:block; font-size:16px}
+.tly-join__next p{font-size:15px; color:var(--muted)}
+.tly-join__office{display:grid; grid-template-columns:96px 1fr; gap:16px; align-items:center; margin-top:28px; padding:14px; border-radius:var(--r-md); background:#fff; border:1px solid var(--line)}
+.tly-join__office img{width:96px; height:96px; border-radius:14px; object-fit:cover}
+.tly-join__office b{display:block; font-size:15px}
+.tly-join__office p{font-size:14px; line-height:1.5; color:var(--muted)}
+.tly-form{background:#fff; border-radius:var(--r-lg); padding:clamp(22px, 3vw, 40px); border:1px solid var(--line); box-shadow:0 30px 60px -44px rgba(18,18,18,.45)}
+.tly-form__title{font:700 22px/1.25 var(--font-h); letter-spacing:-.02em}
+.tly-form__intro{margin-top:6px; font-size:15px; color:var(--muted)}
+.tly-form__grid{display:grid; gap:16px; margin-top:24px}
+.tly-ff{display:grid; gap:7px; align-content:start}
+.tly-ff label, .tly-ff legend{font:800 14px/1.3 var(--font-b)}
+.tly-ff .tly-opt{font-weight:600; color:var(--muted)}
+.tly-ff input, .tly-ff select, .tly-ff textarea{width:100%; min-height:52px; padding:12px 14px; border-radius:12px; border:1.5px solid var(--field); background:#fff; font-size:16px; transition:border-color .15s, box-shadow .15s}
+.tly-ff select{appearance:none; -webkit-appearance:none; padding-right:44px; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23121212' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 16px center}
+.tly-ff textarea{min-height:112px; resize:vertical}
+.tly-ff input:hover, .tly-ff select:hover, .tly-ff textarea:hover{border-color:var(--ink)}
+.tly-ff input:focus, .tly-ff select:focus, .tly-ff textarea:focus{border-color:var(--ink); box-shadow:0 0 0 3px rgba(255,107,44,.45); outline:none}
+.tly-ff input:focus-visible, .tly-ff select:focus-visible, .tly-ff textarea:focus-visible{outline:2px solid var(--ink); outline-offset:2px}
+.tly-ff.is-bad input, .tly-ff.is-bad select, .tly-ff.is-bad textarea{border-color:var(--err)}
+.tly-ff__err{font:700 13px/1.4 var(--font-b); color:var(--err)}
+.tly-ff--full{grid-column:1 / -1}
+.tly-ff .tly-check{display:grid; grid-template-columns:24px 1fr; gap:12px; align-items:start; font:500 14px/1.5 var(--font-b); line-height:1.5; color:var(--muted); cursor:pointer}
+.tly-check input{width:22px; height:22px; min-height:0; margin:1px 0 0; accent-color:var(--ink); cursor:pointer}
+.tly-check a{color:var(--ink); font-weight:800}
+.tly-form__send{display:flex; flex-wrap:wrap; align-items:center; gap:14px 20px; margin-top:6px}
+.tly-form__small{font-size:13px; color:var(--muted)}
+.tly-form__done{text-align:left}
+.tly-form__done .tly-done__ic{display:grid; place-items:center; width:56px; height:56px; border-radius:50%; background:var(--tan)}
+.tly-form__done .tly-done__ic .tly-ico{width:26px; height:26px; stroke-width:2.6}
+.tly-form__done h3{margin-top:18px; font:700 24px/1.25 var(--font-h)}
+.tly-form__done p{margin-top:10px; color:var(--muted)}
+.tly-form__done .tly-btn{margin-top:22px}
+@media (min-width:768px){ .tly-form__grid{grid-template-columns:1fr 1fr; gap:18px 20px} }
+@media (min-width:1200px){ .tly-pair--join{grid-template-columns:5fr 7fr; gap:64px} }
+
+/* =========================================================
+   FOOTER — calculator keypad
+   ========================================================= */
+.tly-foot{padding:clamp(48px, 6vw, 88px) 0 calc(28px + env(safe-area-inset-bottom)); background:#fff}
+.tly-calcbody{position:relative; padding:clamp(16px, 2.2vw, 30px); border-radius:clamp(24px, 3vw, 40px); background:linear-gradient(180deg, #1c1c1c, var(--ink) 40%); color:#fff; box-shadow:inset 0 1px 0 rgba(255,255,255,.08), 0 40px 80px -50px rgba(18,18,18,.75)}
+.tly-calcbody__brand{display:flex; align-items:center; justify-content:space-between; gap:16px; padding:2px 6px 16px}
+.tly-calcbody__brand .tly-logo{color:#fff}
+.tly-calcbody__model{font:700 12px/1.3 var(--font-b); letter-spacing:.1em; text-transform:uppercase; color:var(--muted-d)}
+.tly-calcbody__solar{display:none; gap:3px; padding:4px; border-radius:6px; background:#0a0a0a; box-shadow:inset 0 1px 2px rgba(0,0,0,.8)}
+.tly-calcbody__solar i{width:26px; height:16px; border-radius:2px; background:linear-gradient(135deg, #2a2420, #3a2c22)}
+.tly-display{display:grid; gap:4px; padding:18px 20px; border-radius:18px; background:var(--tint); color:var(--ink); box-shadow:inset 0 2px 0 rgba(18,18,18,.12), inset 0 0 0 1px rgba(18,18,18,.08)}
+.tly-display__row{display:flex; align-items:baseline; gap:12px; text-decoration:none; color:var(--ink); min-height:44px; padding:4px 0; border-radius:8px; min-width:0}
+.tly-display__lbl{flex:none; width:52px; font:800 11px/1 var(--font-b); letter-spacing:.12em; text-transform:uppercase; color:var(--muted)}
+.tly-display__num{font:700 clamp(26px, 3.4vw + 12px, 56px)/1.05 var(--font-h); letter-spacing:-.03em; font-variant-numeric:tabular-nums; white-space:nowrap}
+.tly-display__mail{font:800 clamp(16px, .9vw + 12px, 24px)/1.25 var(--font-b); overflow-wrap:break-word; min-width:0}
+.tly-display__row:hover .tly-display__num, .tly-display__row:hover .tly-display__mail{text-decoration:underline; text-decoration-color:var(--tan); text-decoration-thickness:3px; text-underline-offset:6px}
+.tly-display :focus-visible{outline-color:var(--ink)}
+.tly-display__meta{display:flex; flex-wrap:wrap; gap:4px 14px; padding-left:64px; font:600 13px/1.4 var(--font-b); color:var(--muted)}
+.tly-keypad{display:grid; gap:12px; margin-top:16px}
+.tly-keygrp{border-radius:18px; background:#191919; padding:6px 12px; border:1px solid #262626}
+.tly-keygrp summary{display:flex; align-items:center; justify-content:space-between; min-height:48px; padding:0 4px; cursor:pointer; list-style:none; font:800 13px/1 var(--font-b); letter-spacing:.1em; text-transform:uppercase; color:var(--tan); border-radius:8px}
+.tly-keygrp summary::-webkit-details-marker{display:none}
+.tly-keygrp summary::after{content:""; width:10px; height:10px; border-right:2.5px solid #fff; border-bottom:2.5px solid #fff; transform:rotate(45deg) translate(-3px, -3px); transition:transform .2s}
+.tly-keygrp[open] summary::after{transform:rotate(-135deg) translate(-3px, -3px)}
+.tly-keygrp__keys{display:grid; grid-template-columns:1fr 1fr; gap:8px; padding:4px 0 10px}
+.tly-key{display:flex; align-items:center; justify-content:center; text-align:center; min-height:56px; padding:8px 10px; border-radius:14px; background:#2a2a2a; color:#fff; text-decoration:none; font:700 14px/1.2 var(--font-b); box-shadow:inset 0 1px 0 rgba(255,255,255,.09), 0 3px 0 #050505; transition:background-color .12s, transform .12s, box-shadow .12s}
+.tly-key:hover{background:#3a3a3a}
+.tly-key:active{transform:translateY(2px); box-shadow:inset 0 1px 0 rgba(255,255,255,.06), 0 1px 0 #050505}
+.tly-keypad__ops{display:grid; grid-template-columns:1fr 64px; gap:8px}
+.tly-key--eq{background:var(--tan); color:var(--ink); font:800 16px/1.1 var(--font-b); gap:10px; box-shadow:inset 0 1px 0 rgba(255,255,255,.35), 0 3px 0 #9b3a10}
+.tly-key--eq:hover{background:#ff8a55}
+.tly-key--eq b{font:700 24px/1 var(--font-h)}
+.tly-key--top{background:var(--sun); color:var(--ink); box-shadow:inset 0 1px 0 rgba(255,255,255,.4), 0 3px 0 #9a7f12}
+.tly-key--top:hover{background:#ffe27a}
+.tly-key--top .tly-ico{width:24px; height:24px; stroke-width:2.6}
+.tly-reg{display:grid; gap:22px; margin-top:28px; padding:0 4px}
+.tly-reg__text{display:grid; gap:10px; font-size:13px; line-height:1.6; color:var(--muted); max-width:120ch}
+.tly-reg__text strong{color:var(--ink)}
+@media (min-width:1200px){ .tly-reg__text{display:block; columns:2; column-gap:56px; max-width:none} .tly-reg__text p{break-inside:avoid; margin-bottom:10px} }
+.tly-reg__bar{display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:12px 24px; padding-top:18px; border-top:1px solid var(--line); font-size:13px; color:var(--muted)}
+.tly-reg__links{display:flex; flex-wrap:wrap; gap:2px 6px}
+.tly-reg__links a{display:inline-flex; align-items:center; min-height:44px; padding:0 8px; border-radius:8px; color:var(--ink); font-weight:700; text-decoration:none}
+.tly-reg__links a:hover{text-decoration:underline; text-decoration-color:var(--tan); text-decoration-thickness:2px; text-underline-offset:4px}
+@media (min-width:768px){
+  .tly-calcbody__solar{display:flex}
+  .tly-display{padding:20px 26px}
+  .tly-keypad{grid-template-columns:1fr 1fr; gap:14px}
+  .tly-keygrp{background:none; border:0; padding:0}
+  .tly-keygrp summary{pointer-events:none; min-height:36px}
+  .tly-keygrp summary::after{display:none}
+  .tly-keypad__ops{grid-column:1 / -1; grid-template-columns:1fr 1fr 96px}
+  .tly-key--eq{grid-column:span 2; min-height:64px}
+}
+@media (max-width:767px){
+  .tly-calcbody{padding:12px}
+  .tly-calcbody__brand{padding:6px 6px 14px}
+  .tly-calcbody__model{display:none}
+  .tly-display{padding:14px 16px 16px}
+  .tly-display__row{flex-direction:column; align-items:flex-start; gap:6px; padding:6px 0}
+  .tly-display__lbl{width:auto}
+  .tly-display__num{font-size:min(7.6vw, 34px)}
+  .tly-display__mail{font-size:16px}
+  .tly-display__meta{padding-left:0; margin-top:4px}
+}
+@media (min-width:1200px){
+  .tly-display{grid-template-columns:auto 1fr; align-items:end; column-gap:32px; padding:22px 26px}
+  .tly-display__row--mail{justify-self:end}
+  .tly-display__meta{grid-column:1 / -1}
+  .tly-keypad{grid-template-columns:repeat(4, 1fr) 150px; gap:18px; margin-top:20px}
+  .tly-keypad__ops{grid-column:auto; grid-template-columns:1fr; grid-template-rows:1fr 72px; padding-top:36px}
+  .tly-key--eq{grid-column:auto; flex-direction:column; min-height:0}
+  .tly-key{min-height:60px}
+}
+@media (hover:none){ .tly-key:active{background:#3a3a3a} }
+
+/* ---------- mobile action bar ---------- */
+.tly-bar{display:none}
+@media (max-width:767px){
+  .tly-bar{position:fixed; left:0; right:0; bottom:0; z-index:70; display:grid; grid-template-columns:1fr 1.5fr; gap:10px; padding:10px var(--gut) calc(10px + env(safe-area-inset-bottom)); background:rgba(255,255,255,.97); border-top:1px solid var(--line); box-shadow:0 -10px 30px -18px rgba(18,18,18,.35); transition:transform .25s ease, visibility .25s}
+  .tly-bar.is-off{transform:translateY(110%); visibility:hidden}
+  .tly-bar .tly-btn{min-height:50px; padding:0 14px; font-size:15px}
+  body{padding-bottom:calc(72px + env(safe-area-inset-bottom))}
+}
+@media (prefers-reduced-motion:reduce){ *,*::before,*::after{transition-duration:0s!important; animation:none!important} }
+</style>
+
+<style id="sv-hero-css">
+.svh{--a:#ff6b2c;--ad:#ff6b2c;--ink:#121212;--paper:#fff;--on:#121212;position:relative;isolation:isolate;overflow:hidden;margin:0;font-family:"Unbounded",system-ui,sans-serif;box-sizing:border-box}
+.svh *{box-sizing:border-box}
+.svh .svh-in{position:relative;z-index:2;width:min(1240px,100% - 48px);margin-inline:auto}
+.svh .svh-kicker{display:inline-flex;align-items:center;gap:10px;margin:0;font:600 12.5px/1.3 "Unbounded",system-ui,sans-serif;letter-spacing:.16em;text-transform:uppercase}
+.svh .svh-kicker i{width:28px;height:2px;background:var(--a);display:inline-block}
+.svh .svh-h{margin:0;font-family:"Manrope",Georgia,serif;font-weight:600;letter-spacing:-.025em;line-height:.95}
+.svh .svh-h span{display:block;overflow:hidden;padding-bottom:.06em}
+.svh .svh-h span>b{display:inline-block;font-weight:inherit;transform:translateY(105%);animation:svh-rise 1s cubic-bezier(.16,1,.3,1) forwards}
+.svh .svh-h span:nth-child(2)>b{animation-delay:.12s}.svh .svh-h span:nth-child(3)>b{animation-delay:.24s}
+.svh .svh-h em{font-style:italic;color:var(--a)}
+.svh .svh-lede{margin:0;max-width:46ch;font-size:clamp(16px,1.25vw,19px);line-height:1.6;opacity:0;animation:svh-fade .9s .45s forwards}
+.svh .svh-ctas{display:flex;flex-wrap:wrap;gap:12px;opacity:0;animation:svh-fade .9s .6s forwards}
+.svh .svh-btn{display:inline-flex;align-items:center;gap:10px;padding:15px 26px;border-radius:999px;font:600 15px/1 "Unbounded",system-ui,sans-serif;text-decoration:none;background:var(--a);color:var(--on);border:1px solid var(--a);transition:transform .3s cubic-bezier(.16,1,.3,1),background .3s}
+.svh .svh-btn:hover{transform:translateY(-2px)}
+.svh .svh-btn--ghost{background:transparent;color:inherit;border-color:currentColor}
+.svh .svh-btn span{transition:transform .3s}.svh .svh-btn:hover span{transform:translateX(4px)}
+/* the designs style h1/p themselves, so the banner states its own colours */
+.svh--editorial .svh-h,.svh--poster .svh-h,.svh--stage .svh-h{color:#fff}
+.svh--editorial .svh-kicker,.svh--poster .svh-kicker,.svh--stage .svh-kicker{color:rgba(255,255,255,.9)}
+.svh--index .svh-h,.svh--index .svh-kicker{color:var(--ink)}
+@keyframes svh-rise{to{transform:none}}@keyframes svh-fade{to{opacity:1}}
+@keyframes svh-zoom{from{transform:scale(1.12)}to{transform:scale(1)}}
+@keyframes svh-spin{to{transform:rotate(360deg)}}@keyframes svh-tick{to{transform:translateX(-50%)}}
+@keyframes svh-tilt{from{transform:perspective(1400px) rotateX(18deg) translateY(40px);opacity:0}to{transform:none;opacity:1}}
+
+/* Editorial: words spread across a full-bleed photo */
+.svh--editorial{min-height:100svh;display:flex;align-items:flex-end;padding:150px 0 56px;color:#fff;background:var(--ink)}
+.svh--editorial .svh-media{position:absolute;inset:0;z-index:0;background:center/cover no-repeat;animation:svh-zoom 2.4s cubic-bezier(.16,1,.3,1) both}
+.svh--editorial .svh-shade{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(0,0,0,.45),rgba(0,0,0,.1) 35%,rgba(0,0,0,.65))}
+.svh--editorial .svh-h{font-size:clamp(52px,9vw,150px);margin-top:28px}
+.svh--editorial .svh-h span:nth-child(2){text-align:right}
+.svh--editorial .svh-h em{color:#fff}
+.svh--editorial .svh-foot{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:28px;margin-top:42px;padding-top:26px;border-top:1px solid rgba(255,255,255,.3)}
+.svh--editorial .svh-lede{color:rgba(255,255,255,.88)}
+.svh--editorial .svh-btn--ghost{color:#fff}
+
+/* Stage: dark ground, glow, centred words and a tilted picture */
+.svh--stage{padding:160px 0 0;background:var(--ink);color:#fff;text-align:center}
+.svh--stage .svh-glow{position:absolute;z-index:0;left:50%;top:-10%;width:1100px;height:800px;transform:translateX(-50%);background:radial-gradient(closest-side,color-mix(in srgb,var(--a) 55%,transparent),transparent);filter:blur(30px);opacity:.75}
+.svh--stage .svh-grid{position:absolute;inset:0;z-index:0;background-image:linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px);background-size:64px 64px;mask-image:radial-gradient(circle at 50% 30%,#000,transparent 70%)}
+.svh--stage .svh-kicker{padding:8px 16px;border:1px solid rgba(255,255,255,.2);border-radius:999px;background:rgba(255,255,255,.05)}
+.svh--stage .svh-kicker i{width:8px;height:8px;border-radius:50%}
+.svh--stage .svh-h{font-size:clamp(46px,7.4vw,118px);font-weight:500;margin:26px auto 0;max-width:15ch}
+.svh--stage .svh-h em{color:var(--ad)}
+.svh--stage .svh-lede{margin:26px auto 0;color:rgba(255,255,255,.75)}
+.svh--stage .svh-ctas{justify-content:center;margin-top:32px}
+.svh--stage .svh-btn--ghost{color:#fff}
+.svh--stage .svh-frame{margin:60px auto 0;max-width:1100px;aspect-ratio:16/8;border-radius:22px 22px 0 0;overflow:hidden;border:1px solid rgba(255,255,255,.18);border-bottom:0;box-shadow:0 -30px 80px -20px color-mix(in srgb,var(--a) 45%,transparent);animation:svh-tilt 1.4s .3s cubic-bezier(.16,1,.3,1) both}
+.svh--stage .svh-frame img{display:block;width:100%;height:100%;object-fit:cover}
+.svh--stage .svh-chips{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin:28px 0 0;padding:0}
+.svh--stage .svh-chips a{display:block;padding:8px 14px;border-radius:999px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);color:rgba(255,255,255,.85);font-size:14px;text-decoration:none}
+.svh--stage .svh-chips a:hover{border-color:var(--a);color:#fff}
+
+/* Poster: giant uppercase words, spinning badge, a ticker */
+.svh--poster{min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;padding-top:150px;color:#fff;background:var(--ink)}
+.svh--poster .svh-media{position:absolute;inset:0;z-index:0;background:center/cover no-repeat;animation:svh-zoom 2.4s cubic-bezier(.16,1,.3,1) both}
+.svh--poster .svh-shade{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(0,0,0,.2),rgba(0,0,0,.25) 40%,rgba(0,0,0,.82))}
+.svh--poster .svh-h{font-size:clamp(50px,10vw,168px);font-weight:800;text-transform:uppercase;letter-spacing:-.035em;line-height:.88;margin-top:22px}
+.svh--poster .svh-h em{font-style:normal;color:var(--ad)}
+.svh--poster .svh-row{display:flex;flex-wrap:wrap;gap:24px;align-items:flex-end;justify-content:space-between;margin:34px 0 44px}
+.svh--poster .svh-lede{color:rgba(255,255,255,.85)}
+.svh--poster .svh-btn--ghost{color:#fff}
+.svh--poster .svh-badge{position:absolute;z-index:2;right:clamp(20px,5vw,72px);top:clamp(110px,16vh,170px);width:132px;height:132px;display:grid;place-items:center}
+.svh--poster .svh-badge svg{position:absolute;inset:0;animation:svh-spin 14s linear infinite;fill:#fff;font:700 10.5px/1 "Unbounded",system-ui,sans-serif;letter-spacing:.22em;text-transform:uppercase}
+.svh--poster .svh-badge b{width:56px;height:56px;border-radius:50%;background:var(--a);display:grid;place-items:center;color:var(--on);font-size:22px}
+.svh--poster .svh-ticker{position:relative;z-index:2;background:var(--a);color:var(--on);overflow:hidden;padding:15px 0}
+.svh--poster .svh-ticker div{display:flex;gap:44px;width:max-content;animation:svh-tick 26s linear infinite;font:700 clamp(16px,1.6vw,22px)/1 "Manrope",Georgia,serif;text-transform:uppercase;letter-spacing:.02em}
+.svh--poster .svh-ticker span::after{content:"\2726";margin-left:44px;opacity:.7}
+
+/* Index: words on the left, the site's sections as a big list on the right */
+.svh--index{padding:150px 0 90px;background:var(--paper);color:var(--ink)}
+.svh--index .svh-in{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(32px,5vw,90px);align-items:end}
+.svh--index .svh-kicker{color:var(--ink)}
+.svh--index .svh-h{font-size:clamp(46px,6.6vw,104px);margin:24px 0 0}
+.svh--index .svh-lede{margin-top:26px;color:color-mix(in srgb,var(--ink) 72%,transparent)}
+.svh--index .svh-ctas{margin-top:30px}
+.svh--index .svh-photo{aspect-ratio:16/10;border-radius:18px;background:center/cover no-repeat;margin-bottom:22px;clip-path:inset(0 0 100% 0 round 18px);animation:svh-reveal 1.3s .2s cubic-bezier(.16,1,.3,1) forwards}
+@keyframes svh-reveal{to{clip-path:inset(0 0 0 0 round 18px)}}
+.svh--index .svh-list{list-style:none;margin:0;padding:0;border-top:1px solid color-mix(in srgb,var(--ink) 18%,transparent)}
+.svh--index .svh-list a{display:grid;grid-template-columns:44px 1fr auto;align-items:baseline;gap:12px;padding:14px 0;border-bottom:1px solid color-mix(in srgb,var(--ink) 18%,transparent);color:var(--ink);text-decoration:none;font:500 clamp(22px,2.4vw,36px)/1.1 "Manrope",Georgia,serif;letter-spacing:-.02em;transition:color .3s,padding .3s}
+.svh--index .svh-list a small{font:600 12px/1 "Unbounded",system-ui,sans-serif;letter-spacing:.1em;color:color-mix(in srgb,var(--ink) 55%,transparent)}
+.svh--index .svh-list a:hover{color:var(--a);padding-left:8px}
+.svh--index .svh-list a i{font-style:normal;transition:transform .3s}.svh--index .svh-list a:hover i{transform:translateX(6px)}
+
+@media (max-width:860px){
+  .svh--index .svh-in{grid-template-columns:1fr}
+  .svh--editorial .svh-h span:nth-child(2){text-align:left}
+  .svh--poster .svh-badge{width:96px;height:96px;top:96px}
+  .svh--stage .svh-frame{aspect-ratio:4/3}
+}
+@media (prefers-reduced-motion:reduce){.svh *,.svh{animation:none!important;transition:none!important}.svh .svh-h span>b{transform:none}.svh .svh-lede,.svh .svh-ctas{opacity:1}.svh--index .svh-photo{clip-path:none}}
+/* the old banner stays in the page, invisible, laid over the new one, so the design's own
+   scripts (sticky header, "past the hero" checks) still find it where the banner is */
+[data-sv-old-hero]{position:absolute!important;left:0!important;right:0!important;width:auto!important;max-width:none!important;margin:0!important;padding:0!important;min-height:0!important;overflow:hidden!important;visibility:hidden!important;opacity:0!important;pointer-events:none!important;z-index:-1!important;transform:none!important}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-up" viewBox="0 0 24 24"><path d="M12 19V5M6 11l6-6 6 6"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M6.6 3.5h2.6l1.5 4.2-2 1.4a12 12 0 0 0 6.2 6.2l1.4-2 4.2 1.5v2.6a2 2 0 0 1-2.2 2A17 17 0 0 1 4.6 5.7a2 2 0 0 1 2-2.2Z"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5.5" width="18" height="13" rx="2.5"/><path d="m4 7 8 6 8-6"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3.5 5 6v5.5c0 4.3 3 7.6 7 9 4-1.4 7-4.7 7-9V6l-7-2.5Z"/><path d="m9 12 2.2 2.2L15.5 10"/></symbol>
+    <symbol id="i-building" viewBox="0 0 24 24"><path d="M4 20.5h16M6 20.5V5.5l7-2v17M13 8.5l5 1.5v10.5"/><path d="M9 8.5h1M9 12h1M9 15.5h1M16 13h0M16 16.5h0"/></symbol>
+    <symbol id="i-coins" viewBox="0 0 24 24"><ellipse cx="9" cy="7" rx="5.5" ry="2.5"/><path d="M3.5 7v4c0 1.4 2.5 2.5 5.5 2.5s5.5-1.1 5.5-2.5V7"/><path d="M9.5 16.3c.8.1 1.6.2 2.5.2 3 0 5.5-1.1 5.5-2.5"/><ellipse cx="15" cy="12" rx="5.5" ry="2.5" opacity=".0"/><path d="M14.5 10.2c3 .1 6 1 6 2.3v4c0 1.4-2.5 2.5-5.5 2.5s-5.5-1.1-5.5-2.5"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24"><path d="M5 4.5h10.5a3 3 0 0 1 3 3v12H8a3 3 0 0 1-3-3v-12Z"/><path d="M5 16.5a3 3 0 0 1 3-3h10.5M9 8h6"/></symbol>
+    <symbol id="i-doc" viewBox="0 0 24 24"><path d="M14 3.5H7a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8.5l-5-5Z"/><path d="M14 3.5v5h5M8.5 13l2.3 2.3 4.7-4.6"/></symbol>
+    <symbol id="i-home" viewBox="0 0 24 24"><path d="m3.5 11 8.5-7 8.5 7"/><path d="M6 9.5v10h12v-10M10 19.5v-5h4v5"/></symbol>
+    <symbol id="i-cal" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4M8 14h3"/></symbol>
+    <symbol id="i-receipt" viewBox="0 0 24 24"><path d="M6 3.5h12v17l-2-1.3-2 1.3-2-1.3-2 1.3-2-1.3-2 1.3v-17Z"/><path d="M9 8h6M9 11.5h6M9 15h3"/></symbol>
+    <symbol id="i-pot" viewBox="0 0 24 24"><path d="M4 9.5h16l-1.4 9a2 2 0 0 1-2 1.5H7.4a2 2 0 0 1-2-1.5L4 9.5Z"/><path d="M8 9.5V7a4 4 0 0 1 8 0v2.5M12 13v3"/></symbol>
+    <symbol id="i-percent" viewBox="0 0 24 24"><path d="M18.5 5.5l-13 13"/><circle cx="7" cy="7" r="2.5"/><circle cx="17" cy="17" r="2.5"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11Z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 5.5h16v11H9.5L5 20v-3.5H4v-11Z"/><path d="M8 10h8M8 13h5"/></symbol>
+    <symbol id="i-scale" viewBox="0 0 24 24"><path d="M12 4v16M7 20h10M5 7h14"/><path d="m5 7-2.5 6a2.5 2.5 0 0 0 5 0L5 7ZM19 7l-2.5 6a2.5 2.5 0 0 0 5 0L19 7Z"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 11v5M12 8h0"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9L12 3Z"/></symbol>
+    <symbol id="i-tally" viewBox="0 0 40 32"><path d="M8 5v22M14 5v22M20 5v22M26 5v22" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" fill="none"/><path d="M3.5 22.5 33.5 9.5" stroke="#ff6b2c" stroke-width="4" stroke-linecap="round" fill="none"/></symbol>
+  </defs>
+</svg>
+
+<a class="tly-skip" href="#main">Skip to main content</a>
+
+<header class="tly-hdr" id="top">
+  <div class="tly-wrap tly-hdr__in">
+    <a class="tly-logo" href="#top" aria-label="Fennick, accountants for contractors and sole traders, home">
+      <svg class="tly-logo__mark" aria-hidden="true"><use href="#i-tally"/></svg>
+      <span>Fennick</span>
+      <span class="tly-logo__sub">Contractor &amp;<br>sole trader accountants</span>
+    </a>
+    <nav class="tly-nav" aria-label="Main">
+      <a href="#services">Services</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#calculator">Take-home calculator</a>
+      <a href="#switching">Switching</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="tly-hdr__tools">
+      <a class="tly-hdr__phone" href="tel:+441514960732"><svg class="tly-ico" aria-hidden="true"><use href="#i-phone"/></svg>0151 496 0732</a>
+      <a class="tly-iconbtn tly-hdr__call" href="tel:+441514960732" aria-label="Call Fennick on 0151 496 0732"><svg class="tly-ico" aria-hidden="true"><use href="#i-phone"/></svg></a>
+      <a class="tly-btn tly-btn--primary tly-hdr__cta" href="#signup">Get started</a>
+      <button class="tly-burger" type="button" aria-expanded="false" aria-controls="tly-menu" aria-label="Open menu">
+        <span class="tly-burger__lines" aria-hidden="true"><span class="tly-burger__line"></span><span class="tly-burger__line"></span><span class="tly-burger__line"></span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="tly-menu" id="tly-menu" role="dialog" aria-modal="true" aria-label="Site menu" hidden>
+  <div class="tly-wrap tly-menu__top">
+    <a class="tly-logo" href="#top" data-menu-link><svg class="tly-logo__mark" aria-hidden="true"><use href="#i-tally"/></svg><span>Fennick</span></a>
+    <button class="tly-menu__close" type="button" aria-label="Close menu"><svg class="tly-ico" aria-hidden="true"><use href="#i-close"/></svg></button>
+  </div>
+  <div class="tly-wrap tly-menu__body">
+    <nav aria-label="Menu">
+      <ul class="tly-menu__list">
+        <li><a href="#services" data-menu-link>Services <svg class="tly-ico" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+        <li><a href="#pricing" data-menu-link>Pricing <svg class="tly-ico" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+        <li><a href="#calculator" data-menu-link>Take-home calculator <svg class="tly-ico" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+        <li><a href="#dates" data-menu-link>Key dates <svg class="tly-ico" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+        <li><a href="#switching" data-menu-link>Switching <svg class="tly-ico" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+        <li><a href="#faq" data-menu-link>FAQ <svg class="tly-ico" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+      </ul>
+    </nav>
+    <div class="tly-menu__foot">
+      <a class="tly-menu__phone" href="tel:+441514960732"><span>Call us, Mon–Fri 8:30am–6pm</span><strong>0151 496 0732</strong></a>
+      <a class="tly-btn tly-btn--primary tly-btn--block" href="#signup" data-menu-link>Get started <svg class="tly-ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      <p class="tly-menu__note">Fixed fees from £49 a month + VAT. Replies the same working day.</p>
+    </div>
+  </div>
+</div>
+
+<main id="main">
+
+  <!-- ================= HERO ================= -->
+  <section class="svh svh--index" aria-label="Fennick"><div class="svh-in"><div><p class="svh-kicker"><i></i>Accountants for contractors, freelancers and sole traders · Liverpool</p><h1 class="svh-h"><span><b>Sharper books.</b></span><span><b>Faster returns.</b></span><span><b><em>More take-home.</em></b></span></h1><p class="svh-lede">For contractors, freelancers and sole traders Accountants for contractors, freelancers and sole traders. Liverpool office, online across the UK.</p><div class="svh-ctas"><a class="svh-btn" href="#signup">Get started <span>&rarr;</span></a><a class="svh-btn svh-btn--ghost" href="#calculator">Compare take-home Calculator</a></div></div><div><div class="svh-photo" style="background-image:url('https://images.pexels.com/photos/3981699/pexels-photo-3981699.jpeg?auto=compress&cs=tinysrgb&w=2000&h=1250&fit=crop')"></div><ol class="svh-list"><li><a href="#services"><small>01</small>Services<i>&rarr;</i></a></li><li><a href="#pricing"><small>02</small>Pricing<i>&rarr;</i></a></li><li><a href="#calculator"><small>03</small>Take-home calculator<i>&rarr;</i></a></li><li><a href="#switching"><small>04</small>Switching<i>&rarr;</i></a></li><li><a href="#faq"><small>05</small>FAQ<i>&rarr;</i></a></li></ol></div></div></section><section data-sv-old-hero aria-hidden="true" inert class="tly-hero" aria-labelledby="tly-hero-title"><script>(()=>{const b=document.querySelector(".svh"),o=document.querySelector("[data-sv-old-hero]");if(!b||!o)return;const hd=document.querySelector("header");if(hd){const cs=getComputedStyle(hd),n=(c)=>(c.match(/[\d.]+/g)||[]).map(Number),bg=n(cs.backgroundColor),fg=n(cs.color),clear=cs.backgroundColor==="transparent"||bg[3]===0,light=fg.length>2&&(0.299*fg[0]+0.587*fg[1]+0.114*fg[2])/255>0.7,top=b.getBoundingClientRect().top+scrollY;if(clear&&light&&cs.position!=="fixed"&&cs.position!=="absolute"&&top>0&&top<260){b.style.marginTop=-top+"px";b.style.paddingTop=parseFloat(getComputedStyle(b).paddingTop)+top+"px"}}const f=()=>{o.style.setProperty("top",b.offsetTop+"px","important");o.style.setProperty("height",b.offsetHeight+"px","important")};f();addEventListener("resize",f);addEventListener("load",f)})()</script>
+    <div class="tly-wrap">
+      <div class="tly-hero__box">
+        <p class="tly-hero__eyebrow"><span class="tly-dot" aria-hidden="true"></span><span class="tly-only-sm"><b>For contractors, freelancers and sole traders</b></span><span class="tly-hide-sm"><b>Accountants for contractors, freelancers and sole traders.</b> Liverpool office, online across the UK.</span></p>
+        <h1 class="tly-vh" id="tly-hero-title">Sharper books, faster returns: Fennick, accountants for contractors, freelancers and sole traders</h1>
+        <div class="tly-hero__grid">
+          <div class="tly-hero__words tly-hero__words--l" aria-hidden="true">
+            <span>Sharper</span>
+            <span><span class="tly-hero__mark">Books</span></span>
+          </div>
+          <div class="tly-hero__visual">
+            <span class="tly-hero__back" aria-hidden="true"></span>
+            <figure class="tly-hero__frame">
+              <img src="https://images.pexels.com/photos/3837264/pexels-photo-3837264.jpeg?auto=compress&cs=tinysrgb&w=640&h=960&fit=crop"
+                   srcset="https://images.pexels.com/photos/3837264/pexels-photo-3837264.jpeg?auto=compress&cs=tinysrgb&w=420&h=630&fit=crop 420w, https://images.pexels.com/photos/3837264/pexels-photo-3837264.jpeg?auto=compress&cs=tinysrgb&w=640&h=960&fit=crop 640w, https://images.pexels.com/photos/3837264/pexels-photo-3837264.jpeg?auto=compress&cs=tinysrgb&w=900&h=1350&fit=crop 900w"
+                   sizes="(min-width:1200px) 300px, (min-width:768px) 34vw, 100vw"
+                   width="640" height="960" alt="A contractor in a navy jumper working on his laptop" fetchpriority="high">
+            </figure>
+            <ul class="tly-hero__chips" aria-label="Highlights">
+              <li class="tly-chip tly-chip--a"><span class="tly-chip__ic"><svg class="tly-ico" aria-hidden="true"><use href="#i-check"/></svg></span>IR35 reviewed</li>
+              <li class="tly-chip tly-chip--sun tly-chip--b"><span class="tly-chip__ic"><svg class="tly-ico" aria-hidden="true"><use href="#i-pot"/></svg></span>From £49/month</li>
+              <li class="tly-chip tly-chip--c"><span class="tly-chip__ic"><svg class="tly-ico" aria-hidden="true"><use href="#i-chat"/></svg></span>Same-day replies</li>
+            </ul>
+          </div>
+          <div class="tly-hero__words tly-hero__words--r" aria-hidden="true">
+            <span>Faster</span>
+            <span><span class="tly-hero__mark">Returns</span></span>
+          </div>
+          <div class="tly-hero__foot">
+            <p class="tly-hero__sub">Fixed-fee accounts, tax and payroll from a Liverpool team that <strong>answers the same working day</strong>.<span class="tly-hide-sm"> IR35 reviews, company setup, Self Assessment and mortgage references, all in one place.</span></p>
+            <div class="tly-hero__ctas">
+              <a class="tly-btn tly-btn--primary" href="#signup">Get started <svg class="tly-ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+              <a class="tly-btn tly-btn--ghost" href="#calculator"><span class="tly-hide-sm">Compare take-home</span><span class="tly-only-sm">Calculator</span></a>
+            </div>
+            <p class="tly-hero__note"><span><svg class="tly-ico" aria-hidden="true"><use href="#i-check"/></svg>From £49 a month + VAT</span><span><svg class="tly-ico" aria-hidden="true"><use href="#i-check"/></svg>30 days' notice, no tie-in</span><span><svg class="tly-ico" aria-hidden="true"><use href="#i-check"/></svg>We handle the switch</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= TRUST STRIP ================= -->
+  <section class="tly-trust" aria-label="Why clients choose Fennick">
+    <div class="tly-wrap">
+      <ul class="tly-trust__list">
+        <li class="tly-trust__item"><span class="tly-trust__ic"><svg class="tly-ico" aria-hidden="true"><use href="#i-pot"/></svg></span><div><strong>Fixed monthly fees</strong><span>From £49 + VAT, never hourly</span></div></li>
+        <li class="tly-trust__item"><span class="tly-trust__ic"><svg class="tly-ico" aria-hidden="true"><use href="#i-chat"/></svg></span><div><strong>A named accountant</strong><span>Replies the same working day</span></div></li>
+        <li class="tly-trust__item"><span class="tly-trust__ic"><svg class="tly-ico" aria-hidden="true"><use href="#i-pin"/></svg></span><div><strong>Liverpool office</strong><span>Online for clients UK-wide</span></div></li>
+        <!-- PLACEHOLDER: professional body statement. Replace "ACCA-regulated / AAT-licensed" with the firm's actual professional body and licence before publishing. -->
+        <li class="tly-trust__item"><span class="tly-trust__ic"><svg class="tly-ico" aria-hidden="true"><use href="#i-shield"/></svg></span><div><strong>ACCA-regulated / AAT-licensed</strong><span>Professional indemnity insured</span></div></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ================= SWITCH + SERVICES ================= -->
+  <section class="tly-sec" id="services" aria-labelledby="tly-svc-title">
+    <div class="tly-wrap">
+      <div class="tly-modebar">
+        <p class="tly-modebar__q" id="tly-mode-q">How do you work?</p>
+        <div class="tly-mode" role="group" aria-labelledby="tly-mode-q">
+          <button class="tly-mode__btn" type="button" data-mode-btn="ltd" aria-pressed="true">Contractor <small>through my own Ltd</small></button>
+          <button class="tly-mode__btn" type="button" data-mode-btn="st" aria-pressed="false">Sole trader <small>or freelancer</small></button>
+        </div>
+        <p class="tly-vh" aria-live="polite" id="tly-mode-live"></p>
+      </div>
+
+      <div class="tly-pair tly-pair--svc" data-pin="1200">
+        <div class="tly-svc__aside">
+          <span class="tly-eyebrow">What we do</span>
+          <div data-for="ltd">
+            <h2 class="tly-h2" id="tly-svc-title">Run your limited company without the admin.</h2>
+            <p class="tly-lede">We look after the company and your personal tax together, so salary, dividends and deadlines line up. One named accountant, one fixed fee, plain answers.</p>
+            <figure class="tly-svc__photo"><img loading="lazy" src="https://images.pexels.com/photos/17754403/pexels-photo-17754403.jpeg?auto=compress&cs=tinysrgb&w=900&h=675&fit=crop" width="900" height="675" alt="A software contractor typing on a laptop at a café table"></figure>
+          </div>
+          <div data-for="st" hidden>
+            <h2 class="tly-h2">Keep your books straight and January calm.</h2>
+            <p class="tly-lede">We keep your bookkeeping current, tell you what to set aside each month and file your return well before the deadline. Ready for Making Tax Digital, too.</p>
+            <figure class="tly-svc__photo"><img loading="lazy" src="https://images.pexels.com/photos/12662904/pexels-photo-12662904.jpeg?auto=compress&cs=tinysrgb&w=900&h=675&fit=crop" width="900" height="675" alt="A self-employed designer on the phone at her laptop in her studio"></figure>
+          </div>
+          <div class="tly-svc__ctas">
+            <a class="tly-btn tly-btn--primary" href="#pricing">See prices <svg class="tly-ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            <a class="tly-btn tly-btn--ghost" href="#signup">Talk to us</a>
+          </div>
+        </div>
+
+        <div>
+          <ul class="tly-svc__list" data-for="ltd">
+            <li class="tly-svc__item"><span class="tly-svc__ic tly-svc__ic--hot"><svg class="tly-ico" aria-hidden="true"><use href="#i-shield"/></svg></span><div><h3>IR35 contract reviews</h3><p>A written review of your contract and how you actually work, before you sign. We flag the clauses to push back on.</p><span class="tly-tag">£150 + VAT per review</span></div></li>
+            <li class="tly-svc__item"><span class="tly-svc__ic"><svg class="tly-ico" aria-hidden="true"><use href="#i-building"/></svg></span><div><h3>Limited company setup</h3><p>We register your company at Companies House and set up Corporation Tax, PAYE and VAT if you need it.</p></div></li>
+            <li class="tly-svc__item"><span class="tly-svc__ic"><svg class="tly-ico" aria-hidden="true"><use href="#i-coins"/></svg></span><div><h3>Payroll and dividends</h3><p>Your director's salary run through payroll each month, plus dividend vouchers and board minutes when you pay yourself.</p></div></li>
+            <li class="tly-svc__item"><span class="tly-svc__ic"><svg class="tly-ico" aria-hidden="true"><use href="#i-doc"/></svg></span><div><h3>Year-end accounts and Corporation Tax</h3><p>Accounts filed at Companies House and your CT600 sent to HMRC, with the tax figure agreed well before it's due.</p></div></li>
+            <li class="tly-svc__item"><span class="tly-svc__ic"><svg class="tly-ico" aria-hidden="true"><use href="#i-percent"/></svg></span><div><h3>VAT returns</h3><p>Quarterly returns filed through Making Tax Digital for VAT, and a straight answer on whether the Flat Rate Scheme suits you.</p></div></li>
+            <li class="tly-svc__item"><span class="tly-svc__ic"><svg class="tly-ico" aria-hidden="true"><use href="#i-book"/></svg></span><div><h3>Your own Self Assessment</h3><p>Your personal return, including dividends, prepared alongside the company so the numbers match.</p></div></li>
+            <li class="tly-svc__item"><span class="tly-svc__ic"><svg class="tly-ico" aria-hidden="true"><use href="#i-home"/></svg></span><div><h3>Income references for mortgages</h3><p>An accountant's reference for your lender, usually within two working days, plus your SA302s and tax year overviews.</p></div></li>
+            <li class="tly-svc__item"><span class="tly-svc__ic"><svg class="tly-ico" aria-hidden="true"><use href="#i-scale"/></svg></span><div><h3>Umbrella or limited company?</h3><p>If an inside-IR35 role means a company no longer pays, we'll say so and help you wind it down properly.</p></div></li>
+          </ul>
+          <ul class="tly-svc__list" data-for="st" hidden>
+            <li class="tly-svc__item"><span class="tly-svc__ic tly-svc__ic--hot"><svg class="tly-ico" aria-hidden="true"><use href="#i-book"/></svg></span><div><h3>Bookkeeping, done monthly</h3><p>Bank feeds, receipt capture and a monthly tidy-up, so your figures are always current rather than rebuilt in January.</p></div></li>
+            <li class="tly-svc__item"><span class="tly-svc__ic"><svg class="tly-ico" aria-hidden="true"><use href="#i-doc"/></svg></span><div><h3>Self Assessment</h3><p>We prepare and file your return and tell you exactly what to pay on 31 January and 31 July.</p></div></li>
+            <li class="tly-svc__item"><span class="tly-svc__ic"><svg class="tly-ico" aria-hidden="true"><use href="#i-cal"/></svg></span><div><h3>Making Tax Digital for Income Tax</h3><p>Quarterly updates sent for you. It applies from 6 April 2026 if your qualifying income is over £50,000.</p><span class="tly-tag tly-tag--sun">In force from April 2026</span></div></li>
+            <li class="tly-svc__item"><span class="tly-svc__ic"><svg class="tly-ico" aria-hidden="true"><use href="#i-receipt"/></svg></span><div><h3>Expenses you can claim</h3><p>Plain answers on what counts as a business cost, from mileage and tools to working from home.</p></div></li>
+            <li class="tly-svc__item"><span class="tly-svc__ic"><svg class="tly-ico" aria-hidden="true"><use href="#i-pot"/></svg></span><div><h3>A monthly tax pot figure</h3><p>We tell you what to put aside each month, including payments on account, so the bill is never a surprise.</p></div></li>
+            <li class="tly-svc__item"><span class="tly-svc__ic"><svg class="tly-ico" aria-hidden="true"><use href="#i-home"/></svg></span><div><h3>Income references for mortgages</h3><p>An accountant's reference for your lender, usually within two working days, plus your SA302s and tax year overviews.</p></div></li>
+            <li class="tly-svc__item"><span class="tly-svc__ic"><svg class="tly-ico" aria-hidden="true"><use href="#i-building"/></svg></span><div><h3>Thinking of going limited?</h3><p>We'll run the numbers with you. If a company wouldn't leave you better off, we'll tell you.</p></div></li>
+            <li class="tly-svc__item"><span class="tly-svc__ic"><svg class="tly-ico" aria-hidden="true"><use href="#i-chat"/></svg></span><div><h3>Help when HMRC writes</h3><p>Send us any letter from HMRC and we'll explain it and deal with it for you.</p></div></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PRICING ================= -->
+  <section class="tly-sec tly-sec--tint" id="pricing" aria-labelledby="tly-price-title">
+    <div class="tly-wrap">
+      <div class="tly-head tly-head--split">
+        <div>
+          <span class="tly-eyebrow">Pricing</span>
+          <h2 class="tly-h2" id="tly-price-title">Simple fixed fees. No surprises in January.</h2>
+        </div>
+        <p class="tly-lede">Monthly prices plus VAT. Leave with 30 days' notice. Every plan includes a named accountant and same-day replies on working days.</p>
+      </div>
+      <div class="tly-plans">
+        <article class="tly-plan" data-plan="st">
+          <div class="tly-plan__top">
+            <div><h3 class="tly-plan__name">Sole trader</h3><p class="tly-plan__for">For freelancers and the self-employed.</p></div>
+            <span class="tly-plan__badge">Best fit for you</span>
+          </div>
+          <div>
+            <p class="tly-plan__price"><span class="tly-plan__amt">£49</span><span class="tly-plan__per">/month + VAT</span></p>
+            <p class="tly-plan__inc">£58.80 a month including VAT</p>
+          </div>
+          <ul class="tly-plan__feats">
+            <li><svg class="tly-ico" aria-hidden="true"><use href="#i-check"/></svg>Self Assessment return, prepared and filed</li>
+            <li><svg class="tly-ico" aria-hidden="true"><use href="#i-check"/></svg>Bookkeeping app with bank feeds</li>
+            <li><svg class="tly-ico" aria-hidden="true"><use href="#i-check"/></svg>MTD for Income Tax quarterly updates</li>
+            <li><svg class="tly-ico" aria-hidden="true"><use href="#i-check"/></svg>Mortgage income reference when you need one</li>
+          </ul>
+          <a class="tly-btn tly-btn--ghost tly-btn--block" href="#signup" data-pick="st">Choose Sole trader</a>
+        </article>
+        <article class="tly-plan is-rec" data-plan="ltd">
+          <div class="tly-plan__top">
+            <div><h3 class="tly-plan__name">Contractor Ltd</h3><p class="tly-plan__for">For directors of a one-person limited company.</p></div>
+            <span class="tly-plan__badge">Best fit for you</span>
+          </div>
+          <div>
+            <p class="tly-plan__price"><span class="tly-plan__amt">£99</span><span class="tly-plan__per">/month + VAT</span></p>
+            <p class="tly-plan__inc">£118.80 a month including VAT</p>
+          </div>
+          <ul class="tly-plan__feats">
+            <li><svg class="tly-ico" aria-hidden="true"><use href="#i-check"/></svg>Year-end accounts and Corporation Tax return</li>
+            <li><svg class="tly-ico" aria-hidden="true"><use href="#i-check"/></svg>Director's payroll, dividend vouchers and minutes</li>
+            <li><svg class="tly-ico" aria-hidden="true"><use href="#i-check"/></svg>VAT returns and your own Self Assessment</li>
+            <li><svg class="tly-ico" aria-hidden="true"><use href="#i-check"/></svg>Company setup if you're starting out</li>
+          </ul>
+          <a class="tly-btn tly-btn--ghost tly-btn--block" href="#signup" data-pick="ltd">Choose Contractor Ltd</a>
+        </article>
+        <article class="tly-plan tly-plan--addon" data-plan="ir35">
+          <div class="tly-plan__top">
+            <div><h3 class="tly-plan__name">IR35 contract review</h3><p class="tly-plan__for">One-off. For clients and non-clients.</p></div>
+          </div>
+          <div>
+            <p class="tly-plan__price"><span class="tly-plan__amt">£150</span><span class="tly-plan__per">per contract + VAT</span></p>
+            <p class="tly-plan__inc">£180 including VAT</p>
+          </div>
+          <ul class="tly-plan__feats">
+            <li><svg class="tly-ico" aria-hidden="true"><use href="#i-check"/></svg>Contract and working practices reviewed</li>
+            <li><svg class="tly-ico" aria-hidden="true"><use href="#i-check"/></svg>Written opinion: inside or outside, and why</li>
+            <li><svg class="tly-ico" aria-hidden="true"><use href="#i-check"/></svg>Suggested wording to put to the agency</li>
+            <li><svg class="tly-ico" aria-hidden="true"><use href="#i-check"/></svg>Usually back within two working days</li>
+          </ul>
+          <a class="tly-btn tly-btn--ghost tly-btn--block" href="#signup" data-pick="ir35">Book a review</a>
+        </article>
+      </div>
+
+      <div class="tly-compare">
+        <h3 class="tly-compare__title">What's included</h3>
+        <div class="tly-tablewrap">
+          <table class="tly-table tly-table--stack" role="table">
+            <caption class="tly-vh">Comparison of what's included in the Sole trader and Contractor Ltd plans</caption>
+            <thead role="rowgroup"><tr role="row"><th scope="col" role="columnheader">Service</th><th scope="col" role="columnheader">Sole trader £49</th><th scope="col" role="columnheader">Contractor Ltd £99</th></tr></thead>
+            <tbody role="rowgroup">
+              <tr role="row"><th scope="row" role="rowheader">Named accountant, same-day replies</th><td role="cell" data-label="Sole trader"><span class="tly-yes"><svg class="tly-ico" aria-hidden="true"><use href="#i-check"/></svg>Included</span></td><td role="cell" data-label="Contractor Ltd"><span class="tly-yes"><svg class="tly-ico" aria-hidden="true"><use href="#i-check"/></svg>Included</span></td></tr>
+              <tr role="row"><th scope="row" role="rowheader">Bookkeeping app and bank feeds</th><td role="cell" data-label="Sole trader"><span class="tly-yes"><svg class="tly-ico" aria-hidden="true"><use href="#i-check"/></svg>Included</span></td><td role="cell" data-label="Contractor Ltd"><span class="tly-yes"><svg class="tly-ico" aria-hidden="true"><use href="#i-check"/></svg>Included</span></td></tr>
+              <tr role="row"><th scope="row" role="rowheader">Personal Self Assessment return</th><td role="cell" data-label="Sole trader"><span class="tly-yes"><svg class="tly-ico" aria-hidden="true"><use href="#i-check"/></svg>Included</span></td><td role="cell" data-label="Contractor Ltd"><span class="tly-yes"><svg class="tly-ico" aria-hidden="true"><use href="#i-check"/></svg>Included</span></td></tr>
+              <tr role="row"><th scope="row" role="rowheader">MTD for Income Tax quarterly updates</th><td role="cell" data-label="Sole trader"><span class="tly-yes"><svg class="tly-ico" aria-hidden="true"><use href="#i-check"/></svg>Included</span></td><td role="cell" data-label="Contractor Ltd"><span class="tly-no">Not needed</span></td></tr>
+              <tr role="row"><th scope="row" role="rowheader">Year-end accounts and CT600</th><td role="cell" data-label="Sole trader"><span class="tly-no">Not needed</span></td><td role="cell" data-label="Contractor Ltd"><span class="tly-yes"><svg class="tly-ico" aria-hidden="true"><use href="#i-check"/></svg>Included</span></td></tr>
+              <tr role="row"><th scope="row" role="rowheader">Director's payroll and RTI submissions</th><td role="cell" data-label="Sole trader"><span class="tly-no">Not needed</span></td><td role="cell" data-label="Contractor Ltd"><span class="tly-yes"><svg class="tly-ico" aria-hidden="true"><use href="#i-check"/></svg>Included</span></td></tr>
+              <tr role="row"><th scope="row" role="rowheader">Dividend vouchers and board minutes</th><td role="cell" data-label="Sole trader"><span class="tly-no">Not needed</span></td><td role="cell" data-label="Contractor Ltd"><span class="tly-yes"><svg class="tly-ico" aria-hidden="true"><use href="#i-check"/></svg>Included</span></td></tr>
+              <tr role="row"><th scope="row" role="rowheader">VAT returns (if registered)</th><td role="cell" data-label="Sole trader">+ £20/month</td><td role="cell" data-label="Contractor Ltd"><span class="tly-yes"><svg class="tly-ico" aria-hidden="true"><use href="#i-check"/></svg>Included</span></td></tr>
+              <tr role="row"><th scope="row" role="rowheader">Mortgage income reference</th><td role="cell" data-label="Sole trader"><span class="tly-yes"><svg class="tly-ico" aria-hidden="true"><use href="#i-check"/></svg>Included</span></td><td role="cell" data-label="Contractor Ltd"><span class="tly-yes"><svg class="tly-ico" aria-hidden="true"><use href="#i-check"/></svg>Included</span></td></tr>
+              <tr role="row"><th scope="row" role="rowheader">IR35 contract review</th><td role="cell" data-label="Sole trader"><span class="tly-no">Not usually needed</span></td><td role="cell" data-label="Contractor Ltd">£150 + VAT each</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="tly-compare__note">All prices exclude VAT at 20%. Catch-up work for missed years is quoted separately before we start.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CALCULATOR ================= -->
+  <section class="tly-sec tly-dark tly-calc" id="calculator" aria-labelledby="tly-calc-title">
+    <div class="tly-wrap">
+      <div class="tly-pair tly-pair--calc" data-pin="1024">
+        <div>
+          <span class="tly-eyebrow">Take-home calculator</span>
+          <h2 class="tly-h2" id="tly-calc-title">Sole trader or limited company: what would you keep?</h2>
+          <p class="tly-calc__flag"><svg class="tly-ico" aria-hidden="true"><use href="#i-info"/></svg>Simplified illustration. An estimate, not advice.</p>
+          <p class="tly-lede">Enter a day rate and the days you expect to work. We compare a sole trader with a limited company that pays a £12,570 salary plus dividends, using 2025/26 rates.</p>
+          <form class="tly-calc__inputs" id="tly-calc-form" onsubmit="return false" novalidate>
+            <div class="tly-cfield">
+              <div class="tly-cfield__row">
+                <label for="tly-rate">Day rate</label>
+                <div class="tly-cfield__num"><span aria-hidden="true">£</span><input id="tly-rate" type="number" inputmode="numeric" min="100" max="2000" step="5" value="400" aria-describedby="tly-rate-hint"></div>
+              </div>
+              <input class="tly-range" type="range" min="100" max="1500" step="5" value="400" aria-label="Day rate slider" data-sync="tly-rate">
+              <p class="tly-cfield__hint" id="tly-rate-hint">£100 to £2,000 a day, before VAT.</p>
+            </div>
+            <div class="tly-cfield">
+              <div class="tly-cfield__row">
+                <label for="tly-days">Days a year</label>
+                <div class="tly-cfield__num"><input id="tly-days" type="number" inputmode="numeric" min="20" max="260" step="1" value="220" aria-describedby="tly-days-hint"></div>
+              </div>
+              <input class="tly-range" type="range" min="20" max="260" step="1" value="220" aria-label="Days worked slider" data-sync="tly-days">
+              <p class="tly-cfield__hint" id="tly-days-hint">Most full-time contractors bill 200 to 230 days.</p>
+            </div>
+          </form>
+          <div class="tly-calc__assume">
+            <h3>Assumptions in this illustration</h3>
+            <ul>
+              <li><strong>2025/26 tax year</strong>, Income Tax rates for England, Wales and Northern Ireland. Scottish rates differ and aren't modelled.</li>
+              <li>Day rate × days is all your income. <strong>No expenses, pension contributions, student loan, other income or VAT.</strong></li>
+              <li><strong>Personal Allowance £12,570</strong>, reduced by £1 for every £2 of income over £100,000. Basic rate 20% to £50,270, higher rate 40% to £125,140, 45% above.</li>
+              <li><strong>Sole trader:</strong> Income Tax plus Class 4 National Insurance at 6% on profits between £12,570 and £50,270, and 2% above. No Class 2 to pay.</li>
+              <li><strong>Limited company:</strong> £12,570 director's salary. Employer NI at 15% on salary above £5,000 (£1,135.50). No employee NI at this salary.</li>
+              <li>We assume the company <strong>can't claim the £10,500 Employment Allowance</strong>, because a company whose only employee is its director isn't eligible.</li>
+              <li><strong>Corporation Tax</strong> at 19% on the first £50,000 of profit and 25% above that. We ignore marginal relief, so the real bill on profits between £50,000 and £250,000 is a little higher than shown.</li>
+              <li>All profit left after Corporation Tax is paid out as dividends in the same year. <strong>Dividend allowance £500</strong>, then 8.75% basic, 33.75% higher and 39.35% additional rate.</li>
+              <li>The contract is <strong>outside IR35</strong>. Inside IR35, the limited company figures don't apply. Accountancy fees and company running costs aren't included.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="tly-res" id="tly-res" aria-labelledby="tly-res-title">
+          <p class="tly-res__kicker"><span id="tly-res-title">Estimated take-home, per year</span><b>Estimate, not advice</b></p>
+          <div class="tly-res__sum">
+            <div class="tly-res__fig" data-fig="st"><span>Sole trader keeps</span><strong id="tly-o-st-take">£0</strong><small id="tly-o-st-month">£0 a month</small><div class="tly-res__meter" aria-hidden="true"><i id="tly-o-st-bar"></i></div></div>
+            <div class="tly-res__fig" data-fig="ltd"><span>Limited company keeps</span><strong id="tly-o-ltd-take">£0</strong><small id="tly-o-ltd-month">£0 a month</small><div class="tly-res__meter" aria-hidden="true"><i id="tly-o-ltd-bar"></i></div></div>
+          </div>
+          <p class="tly-res__verdict" id="tly-o-verdict" aria-live="polite"></p>
+          <div class="tly-res__table">
+            <div class="tly-tablewrap">
+              <table class="tly-table tly-table--stack" role="table">
+                <caption class="tly-vh">Breakdown of the take-home illustration</caption>
+                <thead role="rowgroup"><tr role="row"><th scope="col" role="columnheader">Per year</th><th scope="col" role="columnheader">Sole trader</th><th scope="col" role="columnheader">Ltd company</th></tr></thead>
+                <tbody role="rowgroup">
+                  <tr role="row"><th scope="row" role="rowheader">Income (day rate × days)</th><td role="cell" data-label="Sole trader" id="tly-o-st-inc"></td><td role="cell" data-label="Ltd company" id="tly-o-ltd-inc"></td></tr>
+                  <tr role="row"><th scope="row" role="rowheader">Director's salary</th><td role="cell" data-label="Sole trader">–</td><td role="cell" data-label="Ltd company" id="tly-o-ltd-sal"></td></tr>
+                  <tr role="row"><th scope="row" role="rowheader">Employer NI</th><td role="cell" data-label="Sole trader">–</td><td role="cell" data-label="Ltd company" id="tly-o-ltd-erni"></td></tr>
+                  <tr role="row"><th scope="row" role="rowheader">Corporation Tax</th><td role="cell" data-label="Sole trader">–</td><td role="cell" data-label="Ltd company" id="tly-o-ltd-ct"></td></tr>
+                  <tr role="row"><th scope="row" role="rowheader">Dividends paid</th><td role="cell" data-label="Sole trader">–</td><td role="cell" data-label="Ltd company" id="tly-o-ltd-div"></td></tr>
+                  <tr role="row"><th scope="row" role="rowheader">Income Tax</th><td role="cell" data-label="Sole trader" id="tly-o-st-it"></td><td role="cell" data-label="Ltd company" id="tly-o-ltd-it"></td></tr>
+                  <tr role="row"><th scope="row" role="rowheader">Class 4 NI</th><td role="cell" data-label="Sole trader" id="tly-o-st-c4"></td><td role="cell" data-label="Ltd company">–</td></tr>
+                  <tr role="row"><th scope="row" role="rowheader">Dividend tax</th><td role="cell" data-label="Sole trader">–</td><td role="cell" data-label="Ltd company" id="tly-o-ltd-dt"></td></tr>
+                  <tr role="row" class="tly-res__total"><th scope="row" role="rowheader">Total tax and NI</th><td role="cell" data-label="Sole trader" id="tly-o-st-tot"></td><td role="cell" data-label="Ltd company" id="tly-o-ltd-tot"></td></tr>
+                  <tr role="row" class="tly-res__take"><th scope="row" role="rowheader">Take-home</th><td role="cell" data-label="Sole trader" id="tly-o-st-take2"></td><td role="cell" data-label="Ltd company" id="tly-o-ltd-take2"></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <p class="tly-res__foot">A simplified illustration using the assumptions listed, rounded to the nearest pound. It isn't tax advice. Pension contributions, expenses and timing of dividends can change the answer a lot, so talk to us before you decide.</p>
+          <div class="tly-res__cta">
+            <a class="tly-btn tly-btn--primary" href="#signup">Get a proper comparison <svg class="tly-ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= KEY DATES ================= -->
+  <section class="tly-sec" id="dates" aria-labelledby="tly-dates-title">
+    <div class="tly-wrap">
+      <div class="tly-head tly-head--split">
+        <div>
+          <span class="tly-eyebrow">Key dates</span>
+          <h2 class="tly-h2" id="tly-dates-title">The deadlines we keep for you.</h2>
+        </div>
+        <p class="tly-lede">Every deadline goes into your app with reminders well ahead. These are the ones that matter most for contractors and sole traders.</p>
+      </div>
+      <ul class="tly-dates">
+        <li class="tly-date tly-date--key"><p class="tly-date__when">31 January</p><h3>Self Assessment deadline</h3><p>Last day to file your return online and pay the balance of last year's tax, plus your first payment on account for this year.</p><div class="tly-date__tags"><span class="tly-tag">Sole traders</span><span class="tly-tag">Directors</span></div></li>
+        <li class="tly-date"><p class="tly-date__when">31 July</p><h3>Second payment on account</h3><p>The second advance payment towards this year's tax bill, usually half of last year's bill.</p><div class="tly-date__tags"><span class="tly-tag">Sole traders</span><span class="tly-tag">Directors</span></div></li>
+        <li class="tly-date"><p class="tly-date__when">9 months + 1 day</p><h3>Corporation Tax to pay</h3><p>Corporation Tax is due 9 months and 1 day after your company's year end. The CT600 return follows at 12 months.</p><div class="tly-date__tags"><span class="tly-tag">Limited companies</span></div></li>
+        <li class="tly-date"><p class="tly-date__when">9 months</p><h3>Company accounts</h3><p>A private limited company's accounts must reach Companies House within 9 months of its year end.</p><div class="tly-date__tags"><span class="tly-tag">Limited companies</span></div></li>
+        <li class="tly-date"><p class="tly-date__when">6 April 2026</p><h3>Making Tax Digital for Income Tax</h3><p>Applies from this date if your qualifying income from self-employment and property is over £50,000. Quarterly updates follow each quarter.</p><div class="tly-date__tags"><span class="tly-tag tly-tag--sun">Sole traders over £50,000</span></div></li>
+        <li class="tly-date"><p class="tly-date__when">5 October</p><h3>Register for Self Assessment</h3><p>Newly self-employed? Register by 5 October after the end of the tax year you started trading.</p><div class="tly-date__tags"><span class="tly-tag">New sole traders</span></div></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ================= SWITCHING STEPS ================= -->
+  <section class="tly-sec tly-sec--tint" id="switching" aria-labelledby="tly-steps-title">
+    <div class="tly-wrap">
+      <div class="tly-pair tly-pair--steps" data-pin="1024">
+        <div class="tly-steps__aside">
+          <span class="tly-eyebrow">Switching to Fennick</span>
+          <h2 class="tly-h2" id="tly-steps-title">Moving accountant takes about two weeks.</h2>
+          <p class="tly-lede">You don't need to wait for your year end, and you don't need an awkward conversation with your old accountant. We handle the handover and keep you posted.</p>
+          <a class="tly-btn tly-btn--primary" href="#signup">Start the switch <svg class="tly-ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </div>
+        <ol class="tly-steps__list">
+          <li class="tly-step"><span class="tly-step__n" aria-hidden="true">1</span><div><h3>Have a 15-minute call</h3><p>Tell us how you work and what you need. We'll give you a fixed monthly price on the call, with nothing to sign yet.</p><span class="tly-step__meta tly-tag">Day 1</span></div></li>
+          <li class="tly-step"><span class="tly-step__n" aria-hidden="true">2</span><div><h3>Sign your engagement letter</h3><p>A short letter setting out what we do, what you do and what it costs. We'll also check your ID, as every accountant must under anti-money laundering rules.</p><span class="tly-step__meta tly-tag">Days 1–3</span></div></li>
+          <li class="tly-step"><span class="tly-step__n" aria-hidden="true">3</span><div><h3>We handle the handover</h3><p>We contact your old accountant for your records (known as professional clearance) and get authorised by HMRC to act as your agent.</p><span class="tly-step__meta tly-tag">Days 3–10</span></div></li>
+          <li class="tly-step"><span class="tly-step__n" aria-hidden="true">4</span><div><h3>Connect your bank and relax</h3><p>Link your business account to the app and snap any receipts. From here your accountant keeps everything up to date and tells you what's coming.</p><span class="tly-step__meta tly-tag">About day 14</span></div></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= APP ================= -->
+  <section class="tly-sec" id="app" aria-labelledby="tly-app-title">
+    <div class="tly-wrap">
+      <div class="tly-head tly-head--split">
+        <div>
+          <span class="tly-eyebrow">The Fennick app</span>
+          <h2 class="tly-h2" id="tly-app-title">What you get in the app</h2>
+        </div>
+        <p class="tly-lede">A clear view of your money, what you owe and what's due, with your accountant one message away. The figures below are examples.</p>
+      </div>
+      <div class="tly-app__grid">
+        <article class="tly-ui tly-ui--a">
+          <div class="tly-ui__screen" aria-hidden="true">
+            <p class="tly-ui__label">Tax to set aside <span class="tly-pill">This tax year</span></p>
+            <p class="tly-ui__big">£11,840</p>
+            <div class="tly-ui__meter"><i></i></div>
+            <p class="tly-ui__row"><span>Saved <b>£9,600</b></span><span>Still to save <b>£2,240</b></span></p>
+            <ul class="tly-ui__list" data-for="ltd"><li><span>Corporation Tax</span><b>£7,610</b></li><li><span>Your dividend tax</span><b>£4,230</b></li></ul>
+            <ul class="tly-ui__list" data-for="st" hidden><li><span>Income Tax</span><b>£9,180</b></li><li><span>Class 4 NI</span><b>£2,660</b></li></ul>
+          </div>
+          <div class="tly-ui__cap"><h3>Know what to set aside</h3><p>Updated as money comes in, so there's no January shock.</p></div>
+        </article>
+        <article class="tly-ui tly-ui--b">
+          <div class="tly-ui__screen" aria-hidden="true">
+            <p class="tly-ui__label">Bank feed <span class="tly-pill tly-pill--ok">Synced 9:02</span></p>
+            <ul class="tly-tx">
+              <li><span class="tly-tx__av">AG</span><span class="tly-tx__t"><b>Client payment, invoice 041</b><span>Sales</span></span><span class="tly-tx__amt">+£8,400<small><span class="tly-pill tly-pill--ok">Matched</span></small></span></li>
+              <li><span class="tly-tx__av">TR</span><span class="tly-tx__t"><b>Train, Liverpool to Leeds</b><span>Travel</span></span><span class="tly-tx__amt">−£46.20<small><span class="tly-pill tly-pill--todo">Add receipt</span></small></span></li>
+              <li><span class="tly-tx__av">SW</span><span class="tly-tx__t"><b>Software subscription</b><span>Software</span></span><span class="tly-tx__amt">−£18.00<small><span class="tly-pill tly-pill--ok">Matched</span></small></span></li>
+            </ul>
+          </div>
+          <div class="tly-ui__cap"><h3>Bank feeds, sorted for you</h3><p>Transactions come in automatically and we categorise them.</p></div>
+        </article>
+        <article class="tly-ui tly-ui--c">
+          <div class="tly-ui__screen" aria-hidden="true">
+            <p class="tly-ui__label">Next deadline</p>
+            <div class="tly-due" data-for="ltd"><div class="tly-due__cal"><span>Jan</span><b>7</b></div><div class="tly-due__txt"><b>VAT return</b><span>Quarter to 30 Nov</span></div></div>
+            <div class="tly-due" data-for="st" hidden><div class="tly-due__cal"><span>Feb</span><b>7</b></div><div class="tly-due__txt"><b>Quarterly update</b><span>MTD for Income Tax</span></div></div>
+            <div class="tly-due__bar"><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+            <ul class="tly-ui__list" data-for="ltd"><li><span>Self Assessment</span><b>31 Jan</b></li><li><span>Accounts filed</span><b>31 May</b></li><li><span>Corporation Tax</span><b>1 Jun</b></li></ul>
+            <ul class="tly-ui__list" data-for="st" hidden><li><span>Self Assessment</span><b>31 Jan</b></li><li><span>Quarterly update</span><b>7 May</b></li><li><span>2nd payment on account</span><b>31 Jul</b></li></ul>
+          </div>
+          <div class="tly-ui__cap"><h3>Deadlines, handled</h3><p>We file. You get a reminder only if we need something.</p></div>
+        </article>
+        <article class="tly-ui tly-ui--d">
+          <div class="tly-ui__screen" aria-hidden="true">
+            <p class="tly-ui__label">Receipt captured</p>
+            <div class="tly-rcpt"><span class="tly-rcpt__img"></span><span class="tly-rcpt__t"><b>£46.20</b><span class="tly-rcpt__d">Rail ticket, 12 Nov</span><span class="tly-pill tly-pill--ok">Filed under Travel</span></span></div>
+          </div>
+          <div class="tly-ui__cap"><h3>Snap a receipt</h3><p>Take a photo and bin the paper.</p></div>
+        </article>
+        <article class="tly-ui tly-ui--e">
+          <div class="tly-ui__screen" aria-hidden="true">
+            <div data-for="ltd">
+              <p class="tly-ui__label">Dividend voucher <span class="tly-pill tly-pill--ok">Ready to sign</span></p>
+              <div class="tly-doc"><p class="tly-doc__h"><span>Interim dividend</span><span>No. 014</span></p><dl><dt>Amount</dt><dd>£4,500.00</dd><dt>Profits available</dt><dd>£21,380.00</dd><dt>Board minute</dt><dd>Attached</dd></dl></div>
+            </div>
+            <div data-for="st" hidden>
+              <p class="tly-ui__label">Payments on account <span class="tly-pill tly-pill--todo">Next: 31 Jan</span></p>
+              <div class="tly-doc"><p class="tly-doc__h"><span>Due 31 January 2027</span><span>Estimate</span></p><dl><dt>Balance for 2025/26</dt><dd>£1,240.00</dd><dt>1st payment, 2026/27</dt><dd>£5,310.00</dd><dt>2nd payment, due 31 July</dt><dd>£5,310.00</dd></dl></div>
+            </div>
+          </div>
+          <div class="tly-ui__cap" data-for="ltd"><h3>Pay yourself properly</h3><p>Dividends checked against available profit, with the paperwork done.</p></div>
+          <div class="tly-ui__cap" data-for="st" hidden><h3>See the January bill early</h3><p>Your balancing payment and payments on account, months ahead.</p></div>
+        </article>
+        <article class="tly-ui tly-ui--f">
+          <div class="tly-ui__screen" aria-hidden="true">
+            <p class="tly-ui__label">Messages <span class="tly-chat__who"><i></i>Sam, your accountant</span></p>
+            <div class="tly-chat">
+              <p class="tly-chat__msg tly-chat__msg--me">I've bought a new laptop for work. Can I claim it?</p>
+              <p class="tly-chat__msg tly-chat__msg--them">Yes, the business share of it. Snap the receipt and I'll add it to this year's figures.</p>
+            </div>
+          </div>
+          <div class="tly-ui__cap"><h3>Ask a real accountant</h3><p>Message Sam in the app and get a reply the same working day.</p></div>
+        </article>
+      </div>
+      <!-- Software placeholder: name the bookkeeping packages the firm supports here (e.g. [Bookkeeping software A], [Bookkeeping software B]). No third-party logos. -->
+      <p class="tly-app__soft">Works with most UK business bank accounts. Use the cloud bookkeeping software we recommend, or keep the package you already use.</p>
+    </div>
+  </section>
+
+  <!-- ================= REVIEWS ================= -->
+  <!-- PLACEHOLDER reviews for this template: replace with genuine, verifiable client reviews before publishing. -->
+  <section class="tly-sec tly-sec--tint" id="reviews" aria-labelledby="tly-rev-title">
+    <div class="tly-wrap">
+      <div class="tly-head">
+        <span class="tly-eyebrow">Client reviews</span>
+        <h2 class="tly-h2" id="tly-rev-title">What clients say</h2>
+      </div>
+      <div class="tly-revs">
+        <figure class="tly-rev">
+          <div class="tly-rev__stars" role="img" aria-label="Rated 5 out of 5"><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg></div>
+          <blockquote><p>I sent my contract over on a Monday and had a written IR35 review by Wednesday, with two clauses to push back on. The agency changed both.</p></blockquote>
+          <figcaption><span class="tly-rev__av" aria-hidden="true">PN</span><span class="tly-rev__who"><b>Priya N.</b><span>Data engineer, own Ltd, Wirral</span></span></figcaption>
+        </figure>
+        <figure class="tly-rev">
+          <div class="tly-rev__stars" role="img" aria-label="Rated 5 out of 5"><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg></div>
+          <blockquote><p>First January in years I wasn't panicking. They told me what to put aside every month and the bill came in within a few quid of it.</p></blockquote>
+          <figcaption><span class="tly-rev__av" aria-hidden="true">DO</span><span class="tly-rev__who"><b>Dean O.</b><span>Electrician, sole trader, Bootle</span></span></figcaption>
+        </figure>
+        <figure class="tly-rev">
+          <div class="tly-rev__stars" role="img" aria-label="Rated 5 out of 5"><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg></div>
+          <blockquote><p>The mortgage reference came through in two days and the lender didn't come back with a single question. Switching over was painless, too.</p></blockquote>
+          <figcaption><span class="tly-rev__av" aria-hidden="true">HR</span><span class="tly-rev__who"><b>Hannah R.</b><span>Freelance UX designer, Manchester</span></span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FAQ ================= -->
+  <section class="tly-sec" id="faq" aria-labelledby="tly-faq-title">
+    <div class="tly-wrap">
+      <div class="tly-pair tly-pair--faq" data-pin="1024">
+        <div class="tly-faq__aside">
+          <span class="tly-eyebrow">FAQ</span>
+          <h2 class="tly-h2" id="tly-faq-title">Questions we hear every week</h2>
+          <p class="tly-lede">Short answers here. For anything about your own situation, ask us directly.</p>
+          <div class="tly-contactcard">
+            <h3>Still got a question?</h3>
+            <p>Call or email and a qualified accountant will get back to you the same working day.</p>
+            <div class="tly-contactcard__links">
+              <a href="tel:+441514960732"><svg class="tly-ico" aria-hidden="true"><use href="#i-phone"/></svg>0151 496 0732</a>
+              <a href="mailto:hello@example.com"><svg class="tly-ico" aria-hidden="true"><use href="#i-mail"/></svg><span>hello@<wbr>example.com</span></a>
+            </div>
+          </div>
+        </div>
+        <div class="tly-faq__list">
+          <details class="tly-faq__item" open>
+            <summary>What is IR35, and do I need a contract review?<span class="tly-faq__pm" aria-hidden="true"></span></summary>
+            <div class="tly-faq__body">
+              <p>IR35 (the off-payroll working rules) applies when you'd be treated as an employee of the client if you weren't working through your own company. If a contract is <strong>inside IR35</strong>, you pay broadly the same tax and National Insurance as an employee.</p>
+              <p>Public sector clients and medium or large private sector clients decide your status and must give you a Status Determination Statement. With small private sector clients, your company decides. Either way, a review before you sign helps. Ours looks at the contract and how the work happens in practice, such as control, substitution and whether work must be offered and accepted, then gives you a written opinion for £150 + VAT.</p>
+            </div>
+          </details>
+          <details class="tly-faq__item">
+            <summary>Umbrella company or limited company: which is better?<span class="tly-faq__pm" aria-hidden="true"></span></summary>
+            <div class="tly-faq__body">
+              <p>With an <strong>umbrella company</strong> you're its employee. Tax comes off through PAYE, there's very little admin and no company to run, but you pay the umbrella a margin and you don't get the tax flexibility of a company. It often suits inside-IR35 or short contracts.</p>
+              <p>With your <strong>own limited company</strong> you have more control over how and when you pay yourself, but more admin and responsibility as a director. Since recent tax changes it isn't automatically cheaper, so run the calculator above and then ask us to check your figures.</p>
+            </div>
+          </details>
+          <details class="tly-faq__item">
+            <summary>Can you give me an income reference for a mortgage?<span class="tly-faq__pm" aria-hidden="true"></span></summary>
+            <div class="tly-faq__body">
+              <p>Yes. For clients we write an accountant's reference confirming your income, usually within two working days. Lenders also tend to ask for:</p>
+              <ul><li>your SA302 tax calculations and tax year overviews from HMRC, often for two years</li><li>your latest company accounts if you're a director</li><li>for contractors, a copy of your current contract, as some lenders work from your day rate</li></ul>
+              <p>We can only confirm figures we've prepared or checked ourselves.</p>
+            </div>
+          </details>
+          <details class="tly-faq__item">
+            <summary>When do I pay my Self Assessment tax?<span class="tly-faq__pm" aria-hidden="true"></span></summary>
+            <div class="tly-faq__body">
+              <p>Your online return and the balance of last year's tax are due by <strong>31 January</strong>, together with your first payment on account for the current year. The second payment on account is due by <strong>31 July</strong>. Each payment on account is usually half of your previous year's bill.</p>
+            </div>
+          </details>
+          <details class="tly-faq__item">
+            <summary>Does Making Tax Digital for Income Tax apply to me?<span class="tly-faq__pm" aria-hidden="true"></span></summary>
+            <div class="tly-faq__body">
+              <p>From <strong>6 April 2026</strong> it applies to sole traders and landlords whose qualifying income is over £50,000. Qualifying income is your total turnover from self-employment and property before expenses, not your profit. You'll need to keep digital records and send quarterly updates to HMRC, and we do that for you on the Sole trader plan.</p>
+            </div>
+          </details>
+          <details class="tly-faq__item">
+            <summary>What are my limited company's main deadlines?<span class="tly-faq__pm" aria-hidden="true"></span></summary>
+            <div class="tly-faq__body">
+              <p>Accounts go to Companies House <strong>9 months after your year end</strong>. Corporation Tax is payable <strong>9 months and 1 day after your year end</strong>, and the CT600 return is due 12 months after it. You also file a confirmation statement every year, and run payroll each time you pay your salary.</p>
+            </div>
+          </details>
+          <details class="tly-faq__item">
+            <summary>How do I switch from my current accountant?<span class="tly-faq__pm" aria-hidden="true"></span></summary>
+            <div class="tly-faq__body">
+              <p>Just tell us. Once you've signed our engagement letter, we contact your previous accountant for your records and get authorised with HMRC. You can switch at any point in the year and most moves take about two weeks.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SIGN-UP ================= -->
+  <section class="tly-sec tly-sec--tint" id="signup" aria-labelledby="tly-join-title">
+    <div class="tly-wrap">
+      <div class="tly-pair tly-pair--join" data-pin="1200">
+        <div class="tly-join__aside">
+          <span class="tly-eyebrow">Get started</span>
+          <h2 class="tly-h2" id="tly-join-title">Tell us how you work. We'll send a fixed price today.</h2>
+          <p class="tly-lede">No obligation and no hard sell. If we're not the right fit, we'll say so and point you somewhere better.</p>
+          <ol class="tly-join__next">
+            <li><span aria-hidden="true">1</span><div><b>We reply the same working day</b><p>With a fixed monthly price and a time for a 15-minute call.</p></div></li>
+            <li><span aria-hidden="true">2</span><div><b>You decide, no pressure</b><p>Your engagement letter sets out exactly what's included.</p></div></li>
+            <li><span aria-hidden="true">3</span><div><b>We take it from there</b><p>Including the handover from your old accountant.</p></div></li>
+          </ol>
+          <div class="tly-join__office">
+            <img loading="lazy" src="https://images.pexels.com/photos/8165352/pexels-photo-8165352.jpeg?auto=compress&cs=tinysrgb&w=240&h=240&fit=crop" width="240" height="240" alt="The Royal Liver Building on Liverpool's waterfront">
+            <div>
+              <b>Fennick, Liverpool</b>
+              <!-- PLACEHOLDER: office address -->
+              <p>[Office address], Liverpool L2 [postcode]<br>Mon–Fri 8:30am–6pm. Meetings by appointment or video call.</p>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <form class="tly-form" id="tly-join-form" novalidate aria-labelledby="tly-form-title">
+            <h3 class="tly-form__title" id="tly-form-title">Your details</h3>
+            <p class="tly-form__intro">Takes about a minute. Fields marked optional can be left blank.</p>
+            <div class="tly-form__grid">
+              <div class="tly-ff">
+                <label for="tly-f-name">Full name</label>
+                <input id="tly-f-name" name="name" type="text" autocomplete="name" required aria-describedby="tly-f-name-err">
+                <p class="tly-ff__err" id="tly-f-name-err" hidden>Enter your name.</p>
+              </div>
+              <div class="tly-ff">
+                <label for="tly-f-email">Email</label>
+                <input id="tly-f-email" name="email" type="email" autocomplete="email" required aria-describedby="tly-f-email-err">
+                <p class="tly-ff__err" id="tly-f-email-err" hidden>Enter an email address like name@example.co.uk.</p>
+              </div>
+              <div class="tly-ff">
+                <label for="tly-f-phone">Phone <span class="tly-opt">(optional)</span></label>
+                <input id="tly-f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel">
+              </div>
+              <div class="tly-ff">
+                <label for="tly-f-type">How do you work?</label>
+                <select id="tly-f-type" name="type" required aria-describedby="tly-f-type-err">
+                  <option value="">Choose one</option>
+                  <option value="ltd">Contractor, own limited company</option>
+                  <option value="st">Sole trader or freelancer</option>
+                  <option value="new">Setting up a limited company</option>
+                  <option value="umbrella">Using an umbrella company</option>
+                  <option value="unsure">Not sure yet</option>
+                </select>
+                <p class="tly-ff__err" id="tly-f-type-err" hidden>Choose how you work.</p>
+              </div>
+              <div class="tly-ff">
+                <label for="tly-f-turnover">Rough yearly income <span class="tly-opt">(optional)</span></label>
+                <select id="tly-f-turnover" name="turnover">
+                  <option value="">Prefer not to say</option>
+                  <option>Under £50,000</option>
+                  <option>£50,000 to £90,000</option>
+                  <option>£90,000 to £150,000</option>
+                  <option>Over £150,000</option>
+                </select>
+              </div>
+              <div class="tly-ff">
+                <label for="tly-f-need">What do you need first?</label>
+                <select id="tly-f-need" name="need">
+                  <option>Ongoing accounts and tax</option>
+                  <option>An IR35 contract review</option>
+                  <option>A mortgage income reference</option>
+                  <option>Help switching accountant</option>
+                  <option>Catching up on late returns</option>
+                </select>
+              </div>
+              <div class="tly-ff tly-ff--full">
+                <label for="tly-f-msg">Anything we should know? <span class="tly-opt">(optional)</span></label>
+                <textarea id="tly-f-msg" name="message" rows="4"></textarea>
+              </div>
+              <div class="tly-ff tly-ff--full">
+                <label class="tly-check" for="tly-f-ok"><input id="tly-f-ok" name="consent" type="checkbox" required aria-describedby="tly-f-ok-err"><span>I'm happy for Fennick to contact me about this enquiry. We'll use your details as described in our <a href="#privacy">privacy notice</a>.</span></label>
+                <p class="tly-ff__err" id="tly-f-ok-err" hidden>Tick the box so we can reply to you.</p>
+              </div>
+              <div class="tly-ff--full tly-form__send">
+                <button class="tly-btn tly-btn--primary" type="submit">Send my details <svg class="tly-ico" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+                <p class="tly-form__small">Or call <a class="tly-link" href="tel:+441514960732">0151 496 0732</a></p>
+              </div>
+            </div>
+          </form>
+          <div class="tly-form tly-form__done" id="tly-join-done" hidden tabindex="-1" aria-live="polite">
+            <span class="tly-done__ic" aria-hidden="true"><svg class="tly-ico"><use href="#i-check"/></svg></span>
+            <h3 id="tly-done-title">Thanks, we've got your details.</h3>
+            <p id="tly-done-text">This is a demonstration form, so nothing has been sent. On the live site, a named accountant would reply the same working day with a fixed price.</p>
+            <button class="tly-btn tly-btn--ghost" type="button" id="tly-join-reset">Send another enquiry</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ================= FOOTER: calculator keypad ================= -->
+<footer class="tly-foot" id="tly-foot">
+  <div class="tly-wrap">
+    <div class="tly-calcbody">
+      <div class="tly-calcbody__brand">
+        <a class="tly-logo" href="#top"><svg class="tly-logo__mark" aria-hidden="true"><use href="#i-tally"/></svg><span>Fennick</span></a>
+        <span class="tly-calcbody__model">Contractor &amp; sole trader accountants · Liverpool</span>
+        <span class="tly-calcbody__solar" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      </div>
+      <div class="tly-display">
+        <a class="tly-display__row" href="tel:+441514960732"><span class="tly-display__lbl">Call</span><span class="tly-display__num">0151 496 0732</span></a>
+        <a class="tly-display__row tly-display__row--mail" href="mailto:hello@example.com"><span class="tly-display__lbl">Email</span><span class="tly-display__mail">hello@<wbr>example.com</span></a>
+        <p class="tly-display__meta"><span>Mon–Fri 8:30am–6pm</span><span>Replies the same working day</span></p>
+      </div>
+      <nav class="tly-keypad" aria-label="Footer">
+        <details class="tly-keygrp" open>
+          <summary>Services</summary>
+          <ul class="tly-keygrp__keys">
+            <li><a class="tly-key" href="#services">IR35 reviews</a></li>
+            <li><a class="tly-key" href="#services">Ltd company setup</a></li>
+            <li><a class="tly-key" href="#services">Payroll &amp; dividends</a></li>
+            <li><a class="tly-key" href="#services">Bookkeeping</a></li>
+            <li><a class="tly-key" href="#services">Self Assessment</a></li>
+            <li><a class="tly-key" href="#services">Mortgage references</a></li>
+          </ul>
+        </details>
+        <details class="tly-keygrp" open>
+          <summary>Company</summary>
+          <ul class="tly-keygrp__keys">
+            <li><a class="tly-key" href="#about">About Fennick</a></li>
+            <li><a class="tly-key" href="#team">Our team</a></li>
+            <li><a class="tly-key" href="#reviews">Reviews</a></li>
+            <li><a class="tly-key" href="#careers">Careers</a></li>
+            <li><a class="tly-key" href="#pricing">Pricing</a></li>
+            <li><a class="tly-key" href="#signup">Contact</a></li>
+          </ul>
+        </details>
+        <details class="tly-keygrp" open>
+          <summary>Help</summary>
+          <ul class="tly-keygrp__keys">
+            <li><a class="tly-key" href="#faq">FAQ</a></li>
+            <li><a class="tly-key" href="#dates">Key dates</a></li>
+            <li><a class="tly-key" href="#switching">Switching</a></li>
+            <li><a class="tly-key" href="#calculator">Calculator</a></li>
+            <li><a class="tly-key" href="#app">The app</a></li>
+            <li><a class="tly-key" href="#login">Client login</a></li>
+          </ul>
+        </details>
+        <details class="tly-keygrp" open>
+          <summary>Legal</summary>
+          <ul class="tly-keygrp__keys">
+            <li><a class="tly-key" href="#privacy">Privacy notice</a></li>
+            <li><a class="tly-key" href="#cookies">Cookies</a></li>
+            <li><a class="tly-key" href="#terms">Terms of business</a></li>
+            <li><a class="tly-key" href="#engagement">Engagement letter</a></li>
+            <li><a class="tly-key" href="#complaints">Complaints</a></li>
+            <li><a class="tly-key" href="#accessibility">Accessibility</a></li>
+          </ul>
+        </details>
+        <div class="tly-keypad__ops">
+          <a class="tly-key tly-key--eq" href="#signup"><b aria-hidden="true">=</b>Get started</a>
+          <a class="tly-key tly-key--top" href="#top" aria-label="Back to top" id="tly-totop"><svg class="tly-ico" aria-hidden="true"><use href="#i-up"/></svg></a>
+        </div>
+      </nav>
+    </div>
+
+    <div class="tly-reg">
+      <div class="tly-reg__text">
+        <!-- PLACEHOLDERS: company number, registered office and VAT number -->
+        <p><strong>Fennick Accountants Ltd</strong> is registered in England and Wales, company number [00000000]. Registered office: [Office address], Liverpool L2 [postcode]. VAT registration number GB [000 0000 00].</p>
+        <!-- PLACEHOLDER: professional body statement. Replace with the firm's actual professional body, practising certificate / licence and member numbers. -->
+        <p>Fennick is an <strong>ACCA-regulated / AAT-licensed</strong> practice [professional body and licence number to be confirmed]. We are supervised for anti-money laundering purposes by [the ACCA / the AAT – placeholder].</p>
+        <!-- PLACEHOLDER: PII insurer details -->
+        <p>We hold professional indemnity insurance with [insurer name – placeholder]. Territorial coverage: United Kingdom. Full details are available on request.</p>
+        <p><strong>Complaints:</strong> if you're unhappy with our service, please tell us first using our <a class="tly-link" href="#complaints">complaints procedure</a> and we'll respond within 8 weeks. If we can't resolve it, you can take it to our professional body, [the ACCA / the AAT – placeholder].</p>
+        <p>The take-home calculator is a simplified illustration for general information and is not tax advice. Tax rules can change and their effect depends on your circumstances.</p>
+      </div>
+      <div class="tly-reg__bar">
+        <p>© <span id="tly-year">2026</span> Fennick Accountants Ltd</p>
+        <nav class="tly-reg__links" aria-label="Legal">
+          <a href="#privacy">Privacy</a><a href="#cookies">Cookies</a><a href="#terms">Terms</a><a href="#engagement">Engagement letter</a><a href="#complaints">Complaints procedure</a>
+        </nav>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div class="tly-bar" id="tly-bar" aria-label="Quick actions" role="region">
+  <a class="tly-btn tly-btn--ghost" href="tel:+441514960732"><svg class="tly-ico" aria-hidden="true"><use href="#i-phone"/></svg>Call</a>
+  <a class="tly-btn tly-btn--primary" href="#signup">Get started <svg class="tly-ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+</div>
+
+<script>
+(function(){
+  'use strict';
+  var doc = document, root = doc.documentElement;
+  var $ = function(s, c){ return (c || doc).querySelector(s); };
+  var $$ = function(s, c){ return Array.prototype.slice.call((c || doc).querySelectorAll(s)); };
+  var reduceMQ = matchMedia('(prefers-reduced-motion: reduce)');
+  var store = {
+    get: function(k){ try { return localStorage.getItem(k); } catch(e){ return null; } },
+    set: function(k, v){ try { localStorage.setItem(k, v); } catch(e){} }
+  };
+
+  /* ---------- header state ---------- */
+  var hdr = $('.tly-hdr');
+  var onScroll = function(){ hdr.classList.toggle('is-scrolled', scrollY > 8); };
+  addEventListener('scroll', onScroll, {passive:true}); onScroll();
+
+  /* ---------- full-screen menu ---------- */
+  var menu = $('#tly-menu'), burger = $('.tly-burger'), closeBtn = $('.tly-menu__close');
+  var lastFocus = null;
+  function focusables(){ return $$('a[href], button:not([disabled])', menu).filter(function(el){ return el.offsetParent !== null; }); }
+  function openMenu(){
+    lastFocus = doc.activeElement;
+    menu.hidden = false;
+    burger.setAttribute('aria-expanded', 'true');
+    root.style.overflow = 'hidden';
+    var f = focusables(); if (f[1]) f[1].focus();
+    updateBar();
+  }
+  function closeMenu(restore){
+    menu.hidden = true;
+    burger.setAttribute('aria-expanded', 'false');
+    root.style.overflow = '';
+    if (restore !== false && lastFocus && lastFocus.focus) lastFocus.focus();
+    updateBar();
+  }
+  burger.addEventListener('click', openMenu);
+  closeBtn.addEventListener('click', function(){ closeMenu(); });
+  menu.addEventListener('keydown', function(e){
+    if (e.key === 'Escape'){ closeMenu(); return; }
+    if (e.key !== 'Tab') return;
+    var f = focusables(); if (!f.length) return;
+    var first = f[0], last = f[f.length - 1];
+    if (e.shiftKey && doc.activeElement === first){ e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && doc.activeElement === last){ e.preventDefault(); first.focus(); }
+  });
+  $$('[data-menu-link]', menu).forEach(function(a){ a.addEventListener('click', function(){ closeMenu(false); }); });
+  matchMedia('(min-width:1200px)').addEventListener('change', function(e){ if (e.matches && !menu.hidden) closeMenu(false); });
+
+  /* ---------- contractor / sole trader switch ---------- */
+  var modeBtns = $$('[data-mode-btn]');
+  var formType = $('#tly-f-type'), typeTouched = false;
+  formType.addEventListener('change', function(){ typeTouched = true; });
+  var live = $('#tly-mode-live');
+  function setMode(mode, announce){
+    root.setAttribute('data-mode', mode);
+    modeBtns.forEach(function(b){ b.setAttribute('aria-pressed', String(b.getAttribute('data-mode-btn') === mode)); });
+    $$('[data-for]').forEach(function(el){ el.hidden = el.getAttribute('data-for') !== mode; });
+    $$('.tly-plan[data-plan]').forEach(function(p){ p.classList.toggle('is-rec', p.getAttribute('data-plan') === mode); });
+    var svcTitle = $('#tly-svc-title'); if (svcTitle){ svcTitle.removeAttribute('id'); }
+    var visibleH2 = $('.tly-svc__aside > [data-for="' + mode + '"] .tly-h2'); if (visibleH2) visibleH2.id = 'tly-svc-title';
+    if (!typeTouched) formType.value = mode;
+    if (announce) live.textContent = mode === 'ltd' ? 'Showing services and pricing for limited company contractors.' : 'Showing services and pricing for sole traders and freelancers.';
+    store.set('tly-mode', mode);
+    requestAnimationFrame(updatePins);
+  }
+  modeBtns.forEach(function(b){ b.addEventListener('click', function(){ setMode(b.getAttribute('data-mode-btn'), true); }); });
+  $$('[data-pick]').forEach(function(a){ a.addEventListener('click', function(){
+    var v = a.getAttribute('data-pick'); var need = $('#tly-f-need');
+    if (v === 'ir35'){ need.value = 'An IR35 contract review'; if (!typeTouched) formType.value = 'ltd'; }
+    else { formType.value = v; typeTouched = true; }
+  }); });
+
+  /* ---------- sticky: pin the shorter column of big two-column sections ---------- */
+  function updatePins(){
+    $$('.tly-pair[data-pin]').forEach(function(pair){
+      var min = +pair.getAttribute('data-pin');
+      var cols = Array.prototype.slice.call(pair.children);
+      cols.forEach(function(c){ c.classList.remove('tly-pinned'); });
+      if (innerWidth < min || cols.length !== 2) return;
+      if (getComputedStyle(pair).gridTemplateColumns.split(' ').length < 2) return;
+      var a = cols[0].offsetHeight, b = cols[1].offsetHeight;
+      if (a === b) return;
+      (a < b ? cols[0] : cols[1]).classList.add('tly-pinned');
+    });
+  }
+  var pinTimer; addEventListener('resize', function(){ clearTimeout(pinTimer); pinTimer = setTimeout(updatePins, 120); });
+  addEventListener('load', updatePins);
+  if (doc.fonts && doc.fonts.ready) doc.fonts.ready.then(updatePins);
+  $$('.tly-faq__item').forEach(function(d){ d.addEventListener('toggle', updatePins); });
+
+  var saved = store.get('tly-mode');
+  setMode(saved === 'st' ? 'st' : 'ltd', false);
+
+  /* ---------- take-home calculator (2025/26, simplified) ---------- */
+  var R = {
+    pa: 12570, taper: 100000, basicBand: 37700, higherLimit: 125140, br: .20, hr: .40, ar: .45,
+    c4Low: 12570, c4High: 50270, c4Main: .06, c4Top: .02,
+    salary: 12570, erThreshold: 5000, erRate: .15,
+    ctLimit: 50000, ctSmall: .19, ctMain: .25,
+    divAllowance: 500, d1: .0875, d2: .3375, d3: .3935
+  };
+  function allowance(income){ return Math.max(0, R.pa - Math.max(0, (income - R.taper) / 2)); }
+  function incomeTax(taxable){
+    var b = Math.min(taxable, R.basicBand);
+    var h = Math.min(Math.max(taxable - R.basicBand, 0), R.higherLimit - R.basicBand);
+    var a = Math.max(taxable - R.higherLimit, 0);
+    return b * R.br + h * R.hr + a * R.ar;
+  }
+  function soleTrader(profit){
+    var pa = allowance(profit);
+    var it = incomeTax(Math.max(0, profit - pa));
+    var c4 = Math.max(0, Math.min(profit, R.c4High) - R.c4Low) * R.c4Main + Math.max(0, profit - R.c4High) * R.c4Top;
+    return { income: profit, it: it, c4: c4, total: it + c4, take: profit - it - c4 };
+  }
+  function limitedCompany(turnover){
+    // salary capped at what the turnover can fund (salary + employer NI)
+    var salary = R.salary;
+    var erAt = function(s){ return Math.max(0, s - R.erThreshold) * R.erRate; };
+    if (salary + erAt(salary) > turnover){ salary = turnover <= R.erThreshold ? turnover : (turnover + R.erThreshold * R.erRate) / (1 + R.erRate); }
+    var erNI = erAt(salary);
+    var profit = Math.max(0, turnover - salary - erNI);
+    var ct = Math.min(profit, R.ctLimit) * R.ctSmall + Math.max(0, profit - R.ctLimit) * R.ctMain;
+    var div = profit - ct;
+    var pa = allowance(salary + div);
+    var taxableSalary = Math.max(0, salary - pa);
+    var paLeft = Math.max(0, pa - salary);
+    var itSalary = incomeTax(taxableSalary);
+    var divTaxable = Math.max(0, div - paLeft), pos = taxableSalary, free = R.divAllowance, dt = 0;
+    [[R.basicBand, R.d1], [R.higherLimit, R.d2], [Infinity, R.d3]].forEach(function(band){
+      if (divTaxable <= 0) return;
+      var amt = Math.min(divTaxable, Math.max(0, band[0] - pos));
+      if (amt <= 0) return;
+      var nil = Math.min(free, amt); free -= nil;
+      dt += (amt - nil) * band[1]; pos += amt; divTaxable -= amt;
+    });
+    var total = erNI + ct + itSalary + dt;
+    return { income: turnover, salary: salary, erNI: erNI, profit: profit, ct: ct, div: div, it: itSalary, dt: dt, total: total, take: salary + div - itSalary - dt };
+  }
+  window.tallyCalc = function(rate, days){ var t = rate * days; return { soleTrader: soleTrader(t), limitedCompany: limitedCompany(t) }; };
+
+  var gbp = function(n){ return '£' + Math.round(n).toLocaleString('en-GB'); };
+  var setText = function(id, v){ var el = doc.getElementById(id); if (el) el.textContent = v; };
+  var rateIn = $('#tly-rate'), daysIn = $('#tly-days');
+  function clamp(v, lo, hi){ return Math.min(hi, Math.max(lo, v)); }
+  function runCalc(){
+    var rate = clamp(parseFloat(rateIn.value) || 0, 100, 2000);
+    var days = clamp(Math.round(parseFloat(daysIn.value) || 0), 20, 260);
+    var r = window.tallyCalc(rate, days), s = r.soleTrader, l = r.limitedCompany;
+    setText('tly-o-st-take', gbp(s.take)); setText('tly-o-ltd-take', gbp(l.take));
+    setText('tly-o-st-take2', gbp(s.take)); setText('tly-o-ltd-take2', gbp(l.take));
+    setText('tly-o-st-month', gbp(s.take / 12) + ' a month · ' + Math.round(s.take / s.income * 100) + '% of income');
+    setText('tly-o-ltd-month', gbp(l.take / 12) + ' a month · ' + Math.round(l.take / l.income * 100) + '% of income');
+    setText('tly-o-st-inc', gbp(s.income)); setText('tly-o-ltd-inc', gbp(l.income));
+    setText('tly-o-ltd-sal', gbp(l.salary)); setText('tly-o-ltd-erni', gbp(l.erNI));
+    setText('tly-o-ltd-ct', gbp(l.ct)); setText('tly-o-ltd-div', gbp(l.div));
+    setText('tly-o-st-it', gbp(s.it)); setText('tly-o-ltd-it', gbp(l.it));
+    setText('tly-o-st-c4', gbp(s.c4)); setText('tly-o-ltd-dt', gbp(l.dt));
+    setText('tly-o-st-tot', gbp(s.total)); setText('tly-o-ltd-tot', gbp(l.total));
+    $('#tly-o-st-bar').style.setProperty('--w', (s.take / s.income * 100).toFixed(1) + '%');
+    $('#tly-o-ltd-bar').style.setProperty('--w', (l.take / l.income * 100).toFixed(1) + '%');
+    var diff = s.take - l.take, figs = $$('.tly-res__fig');
+    figs.forEach(function(f){ f.classList.remove('is-win'); });
+    var verdict;
+    if (Math.abs(diff) < 250){ verdict = 'In this example the two routes come out about the same, within £250 a year.'; }
+    else if (diff > 0){ figs[0].classList.add('is-win'); verdict = 'In this example, working as a sole trader leaves you about ' + gbp(diff) + ' a year better off.'; }
+    else { figs[1].classList.add('is-win'); verdict = 'In this example, a limited company leaves you about ' + gbp(-diff) + ' a year better off, before company running costs.'; }
+    setText('tly-o-verdict', verdict);
+  }
+  $$('.tly-range').forEach(function(rg){
+    var target = doc.getElementById(rg.getAttribute('data-sync'));
+    rg.addEventListener('input', function(){ target.value = rg.value; runCalc(); });
+    target.addEventListener('input', function(){ if (target.value !== '') rg.value = target.value; runCalc(); });
+    target.addEventListener('change', function(){
+      var v = clamp(Math.round(parseFloat(target.value) || +target.min), +target.min, +target.max);
+      target.value = v; rg.value = v; runCalc();
+    });
+  });
+  runCalc();
+
+  /* ---------- sign-up form (simulated) ---------- */
+  var form = $('#tly-join-form'), done = $('#tly-join-done');
+  function setErr(input, bad){
+    var wrap = input.closest('.tly-ff'), err = doc.getElementById(input.id + '-err');
+    wrap.classList.toggle('is-bad', bad);
+    input.setAttribute('aria-invalid', bad ? 'true' : 'false');
+    if (err) err.hidden = !bad;
+  }
+  function check(input){
+    var v = input.type === 'checkbox' ? input.checked : input.value.trim();
+    var ok = input.type === 'checkbox' ? v : (v !== '' && (input.type !== 'email' || /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)));
+    setErr(input, !ok); return ok;
+  }
+  var required = $$('[required]', form);
+  required.forEach(function(i){ i.addEventListener(i.type === 'checkbox' || i.tagName === 'SELECT' ? 'change' : 'blur', function(){ if (i.closest('.tly-ff').classList.contains('is-bad') || i.value) check(i); }); });
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var firstBad = null;
+    required.forEach(function(i){ if (!check(i) && !firstBad) firstBad = i; });
+    if (firstBad){ firstBad.focus(); return; }
+    var name = $('#tly-f-name').value.trim().split(/\s+/)[0];
+    setText('tly-done-title', 'Thanks, ' + name + '. We’ve got your details.');
+    form.hidden = true; done.hidden = false; done.focus();
+    updateBar(); updatePins();
+  });
+  $('#tly-join-reset').addEventListener('click', function(){ form.reset(); typeTouched = false; formType.value = root.getAttribute('data-mode'); done.hidden = true; form.hidden = false; $('#tly-f-name').focus(); updatePins(); });
+
+  /* ---------- footer keypad: accordions on mobile ---------- */
+  var mobileMQ = matchMedia('(max-width:767px)');
+  function syncKeygroups(){
+    $$('.tly-keygrp').forEach(function(d, i){
+      var s = d.querySelector('summary');
+      if (mobileMQ.matches){ d.open = false; s.removeAttribute('tabindex'); s.removeAttribute('aria-disabled'); }
+      else { d.open = true; s.setAttribute('tabindex', '-1'); }
+    });
+  }
+  $$('.tly-keygrp summary').forEach(function(s){ s.addEventListener('click', function(e){ if (!mobileMQ.matches) e.preventDefault(); }); });
+  mobileMQ.addEventListener('change', syncKeygroups); syncKeygroups();
+  $('#tly-totop').addEventListener('click', function(e){
+    e.preventDefault();
+    scrollTo({ top: 0, behavior: reduceMQ.matches ? 'auto' : 'smooth' });
+    var logo = $('.tly-hdr .tly-logo'); if (logo) logo.focus({ preventScroll: true });
+  });
+
+  /* ---------- mobile action bar ---------- */
+  var bar = $('#tly-bar'), seen = { foot: false, form: false };
+  function updateBar(){
+    var off = seen.foot || seen.form || !menu.hidden;
+    bar.classList.toggle('is-off', off);
+    if (off) bar.setAttribute('inert', ''); else bar.removeAttribute('inert');
+  }
+  if ('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ seen[en.target === $('#tly-foot') ? 'foot' : 'form'] = en.isIntersecting; });
+      updateBar();
+    }, { rootMargin: '0px 0px -40px 0px' });
+    io.observe($('#tly-foot')); io.observe($('#signup .tly-pair > div:last-child'));
+  }
+
+  /* ---------- hero: pointer tilt + word parallax (desktop, fine pointer only) ---------- */
+  var hero = $('.tly-hero'), frame = $('.tly-hero__frame');
+  var tiltMQ = matchMedia('(min-width:1200px) and (hover:hover) and (pointer:fine)');
+  var tx = 0, ty = 0, cx = 0, cy = 0, raf = 0, heroOn = true;
+  function canTilt(){ return tiltMQ.matches && !reduceMQ.matches && heroOn; }
+  function paint(){ hero.style.setProperty('--nx', cx.toFixed(4)); hero.style.setProperty('--ny', cy.toFixed(4)); }
+  function tick(){
+    raf = 0;
+    if (!heroOn) return;
+    cx += (tx - cx) * .1; cy += (ty - cy) * .1;
+    if (Math.abs(tx - cx) < .0008 && Math.abs(ty - cy) < .0008){ cx = tx; cy = ty; paint(); return; }
+    paint(); raf = requestAnimationFrame(tick);
+  }
+  function kick(){ if (!raf && heroOn) raf = requestAnimationFrame(tick); }
+  function reset(){ tx = ty = cx = cy = 0; if (raf){ cancelAnimationFrame(raf); raf = 0; } hero.style.removeProperty('--nx'); hero.style.removeProperty('--ny'); }
+  hero.addEventListener('pointermove', function(e){
+    if (!canTilt() || e.pointerType !== 'mouse') return;
+    var r = frame.getBoundingClientRect();
+    tx = clamp((e.clientX - (r.left + r.width / 2)) / (innerWidth / 2), -1, 1);
+    ty = clamp((e.clientY - (r.top + r.height / 2)) / (innerHeight / 2), -1, 1);
+    kick();
+  });
+  hero.addEventListener('pointerleave', function(){ if (!canTilt()) return; tx = 0; ty = 0; kick(); });
+  if ('IntersectionObserver' in window){
+    new IntersectionObserver(function(entries){
+      heroOn = entries[0].isIntersecting;
+      if (!heroOn && raf){ cancelAnimationFrame(raf); raf = 0; }   // pause while off-screen
+    }).observe(hero);
+  }
+  tiltMQ.addEventListener('change', function(){ if (!tiltMQ.matches) reset(); });
+  reduceMQ.addEventListener('change', function(){ if (reduceMQ.matches) reset(); });
+})();
+</script>
+</body>
+</html>

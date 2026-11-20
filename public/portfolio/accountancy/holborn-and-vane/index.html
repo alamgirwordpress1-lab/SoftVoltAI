@@ -1,0 +1,1619 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta name="robots" content="noindex">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Holborn &amp; Vane Private Client | Tax and wealth advisory, Mayfair</title>
+<meta name="description" content="Holborn &amp; Vane Private Client: partner-led tax and wealth advisory for individuals, families and trustees. Inheritance Tax, trusts, international residence, property and family office accounting, Mayfair, London.">
+<meta name="theme-color" content="#0b0b0c">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://images.pexels.com">
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.min.js" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ar-ink:#0b0b0c;
+  --ar-tint:#15151a;
+  --ar-gold:#c8a24a;
+  --ar-gold-hi:#dcbb6a;
+  --ar-text:#cfc8bb;
+  --ar-mute:#a39d92;
+  --ar-white:#ffffff;
+  --ar-line:rgba(200,162,74,.3);
+  --ar-hair:rgba(207,200,187,.16);
+  --ar-paper:#ffffff;
+  --ar-paper-text:#2a2824;
+  --ar-paper-mute:#5c574e;
+  --ar-paper-gold:#866524;
+  --ar-paper-line:#e4e1dc;
+  --ar-serif:'Cormorant Garamond',Georgia,'Times New Roman',serif;
+  --ar-sans:'Manrope',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --ar-hdr-h:64px;
+}
+@media (min-width:768px){:root{--ar-hdr-h:76px}}
+@media (min-width:1200px){:root{--ar-hdr-h:88px}}
+
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
+html{-webkit-text-size-adjust:100%;scroll-padding-top:calc(var(--ar-hdr-h) + 16px)}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+html.ar-locked{overflow:hidden}
+body{margin:0;background:var(--ar-ink);color:var(--ar-text);font-family:var(--ar-sans);font-weight:400;font-size:1rem;line-height:1.65;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+h1,h2,h3,h4{margin:0;font-family:var(--ar-serif);font-weight:500;color:var(--ar-white);line-height:1.1}
+p{margin:0}
+ul,ol{margin:0;padding:0}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--ar-gold);outline-offset:3px}
+
+.ar-wrap{width:100%;max-width:1440px;margin-inline:auto;padding-inline:20px}
+@media (min-width:768px){.ar-wrap{padding-inline:32px}}
+@media (min-width:1200px){.ar-wrap{padding-inline:48px}}
+
+.ar-skip{position:absolute;left:12px;top:-60px;z-index:100;background:var(--ar-gold);color:var(--ar-ink);padding:12px 18px;font-weight:600;text-decoration:none;transition:top .2s}
+.ar-skip:focus{top:12px}
+.ar-sr{position:absolute!important;width:1px;height:1px;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+
+/* ---------- shared type ---------- */
+.ar-eyebrow{display:flex;align-items:center;gap:12px;font-size:.74rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--ar-gold);margin-bottom:18px}
+.ar-eyebrow::before{content:"";width:28px;height:1px;background:currentColor;flex:none}
+.ar-h2{font-size:clamp(2rem,1.35rem + 2.3vw,3.4rem);line-height:1.06;letter-spacing:-.005em}
+.ar-lede{font-size:clamp(1rem,.95rem + .25vw,1.12rem);color:var(--ar-text);max-width:60ch;margin-top:20px}
+.ar-sec{padding-block:clamp(72px,6rem + 3vw,144px)}
+
+/* ---------- buttons ---------- */
+.ar-btn-gold,.ar-btn-line{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:48px;padding:12px 24px;font-size:.9rem;font-weight:600;letter-spacing:.04em;text-decoration:none;border:1px solid var(--ar-gold);border-radius:2px;cursor:pointer;transition:background-color .25s,color .25s,border-color .25s}
+.ar-btn-gold{background:var(--ar-gold);color:var(--ar-ink)}
+.ar-btn-gold:hover{background:var(--ar-gold-hi);border-color:var(--ar-gold-hi)}
+.ar-btn-line{background:transparent;color:var(--ar-gold-hi)}
+.ar-btn-line:hover{background:var(--ar-gold);color:var(--ar-ink)}
+.ar-btn-line svg,.ar-btn-gold svg{width:16px;height:16px;flex:none;transition:transform .25s}
+.ar-btn-line:hover svg,.ar-btn-gold:hover svg{transform:translateX(3px)}
+.ar-btn-gold:active,.ar-btn-line:active{transform:translateY(1px)}
+
+.ar-textlink{display:inline-flex;align-items:center;gap:10px;min-height:44px;color:var(--ar-gold-hi);font-weight:600;font-size:.9rem;text-decoration:none;letter-spacing:.02em}
+.ar-textlink span{background:linear-gradient(currentColor,currentColor) 0 100%/100% 1px no-repeat;padding-bottom:2px;transition:background-size .3s}
+.ar-textlink:hover span{background-size:0 1px}
+.ar-textlink svg{width:16px;height:16px;transition:transform .25s}
+.ar-textlink:hover svg{transform:translateX(3px)}
+
+/* ---------- header ---------- */
+.ar-hdr{position:fixed;inset:0 0 auto;z-index:50;border-bottom:1px solid transparent;transition:background-color .35s,border-color .35s}
+.ar-hdr.is-solid{background:rgba(11,11,12,.94);border-bottom-color:var(--ar-hair);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.ar-hdr-in{display:flex;align-items:center;gap:8px;height:var(--ar-hdr-h)}
+.ar-logo{display:inline-flex;flex-direction:column;text-decoration:none;line-height:1;margin-right:auto;padding:6px 0}
+.ar-logo-name{font-family:var(--ar-serif);font-weight:600;font-size:1.36rem;color:var(--ar-white);letter-spacing:.01em;white-space:nowrap}
+.ar-logo-sub{font-size:.6rem;letter-spacing:.26em;text-transform:uppercase;color:var(--ar-gold);margin-top:6px;font-weight:600;white-space:nowrap}
+.ar-logo:hover .ar-logo-name{color:var(--ar-gold-hi)}
+.ar-nav{display:none}
+.ar-nav a{position:relative;display:inline-flex;align-items:center;min-height:44px;font-size:.88rem;font-weight:500;color:var(--ar-text);text-decoration:none;letter-spacing:.02em;transition:color .2s}
+.ar-nav a::after{content:"";position:absolute;left:0;right:0;bottom:8px;height:1px;background:var(--ar-gold);transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.ar-nav a:hover,.ar-nav a.is-current{color:var(--ar-white)}
+.ar-nav a:hover::after,.ar-nav a.is-current::after{transform:scaleX(1)}
+.ar-hdr-tel{display:none;align-items:center;gap:10px;min-height:44px;padding:0 6px;font-size:.9rem;font-weight:600;color:var(--ar-white);text-decoration:none;letter-spacing:.02em;white-space:nowrap}
+.ar-hdr-tel svg{width:16px;height:16px;color:var(--ar-gold)}
+.ar-hdr-tel:hover{color:var(--ar-gold-hi)}
+.ar-hdr-cta{display:none}
+.ar-icon-btn{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border:1px solid var(--ar-hair);border-radius:50%;background:transparent;color:var(--ar-white);cursor:pointer;text-decoration:none;transition:border-color .2s,color .2s,background-color .2s}
+.ar-icon-btn svg{width:18px;height:18px}
+.ar-icon-btn:hover{border-color:var(--ar-gold);color:var(--ar-gold-hi)}
+.ar-burger{gap:0}
+.ar-burger-lines{position:relative;width:18px;height:10px}
+.ar-burger-lines::before,.ar-burger-lines::after{content:"";position:absolute;left:0;right:0;height:1.5px;background:currentColor}
+.ar-burger-lines::before{top:0}
+.ar-burger-lines::after{bottom:0}
+@media (min-width:768px){
+  .ar-logo-name{font-size:1.55rem}
+  .ar-hdr-tel{display:inline-flex}
+  .ar-hdr-call{display:none}
+  .ar-hdr-in{gap:16px}
+}
+@media (min-width:1200px){
+  .ar-logo-name{font-size:1.7rem}
+  .ar-nav{display:flex;gap:30px;margin-right:auto}
+  .ar-logo{margin-right:56px}
+  .ar-hdr-cta{display:inline-flex;min-height:44px;padding:10px 20px}
+  .ar-burger{display:none}
+}
+
+/* ---------- full-screen menu (tablet + mobile) ---------- */
+.ar-menu{position:fixed;inset:0;z-index:70;background:var(--ar-ink);display:flex;flex-direction:column;overflow-y:auto;opacity:0;transition:opacity .3s}
+.ar-menu.is-open{opacity:1}
+.ar-menu-top{display:flex;align-items:center;height:var(--ar-hdr-h);border-bottom:1px solid var(--ar-hair)}
+.ar-menu-body{flex:1;display:flex;flex-direction:column;padding-top:28px;padding-bottom:calc(32px + env(safe-area-inset-bottom))}
+.ar-menu-nav ul{list-style:none}
+.ar-menu-nav li{border-bottom:1px solid var(--ar-hair)}
+.ar-menu-nav a{display:flex;align-items:center;justify-content:space-between;min-height:58px;font-family:var(--ar-serif);font-size:clamp(1.7rem,1.3rem + 2vw,2.4rem);font-weight:500;color:var(--ar-white);text-decoration:none}
+.ar-menu-nav a svg{width:18px;height:18px;color:var(--ar-gold);transition:transform .25s}
+.ar-menu-nav a:hover{color:var(--ar-gold-hi)}
+.ar-menu-nav a:hover svg{transform:translateX(4px)}
+.ar-menu-contact{margin-top:auto;padding-top:36px;display:grid;gap:18px}
+.ar-menu-tel{display:flex;flex-direction:column;text-decoration:none}
+.ar-menu-tel small{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ar-gold);font-weight:600}
+.ar-menu-tel strong{font-family:var(--ar-serif);font-variant-numeric:lining-nums;font-size:2rem;font-weight:500;color:var(--ar-white);margin-top:4px}
+.ar-menu-tel:hover strong{color:var(--ar-gold-hi)}
+.ar-menu-contact .ar-btn-gold{width:100%}
+.ar-menu-addr{font-size:.85rem;color:var(--ar-mute);font-style:normal}
+@media (min-width:768px){
+  .ar-menu-body{padding-top:48px}
+  .ar-menu-contact{grid-template-columns:1fr 1fr;align-items:end;gap:24px 32px}
+  .ar-menu-addr{grid-column:1/-1}
+}
+
+/* ---------- hero ---------- */
+.ar-hero{position:relative;background:var(--ar-ink);overflow:hidden;isolation:isolate}
+.ar-orb-cv{position:absolute;inset:0;width:100%;height:100%;z-index:0;display:block;opacity:0;transition:opacity 1.6s ease;pointer-events:none}
+.ar-hero.ar-gl-on .ar-orb-cv{opacity:1}
+.ar-hero-veil{position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(to bottom,rgba(11,11,12,0) 42%,rgba(11,11,12,.5) 53%,rgba(11,11,12,.8) 66%,var(--ar-ink) 100%)}
+.ar-hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,1fr);padding-top:var(--ar-hdr-h)}
+.ar-orb-anchor{--orb-fit:1.38;position:relative;justify-self:center;width:min(100%,46svh,400px);aspect-ratio:1/1;margin-bottom:-48px;pointer-events:none}
+.ar-orb-anchor::before{content:"";position:absolute;inset:14%;border-radius:50%;background:radial-gradient(circle,rgba(200,162,74,.26) 0%,rgba(200,162,74,.08) 42%,rgba(200,162,74,0) 70%);transition:opacity 1.2s}
+.ar-orb-anchor::after{content:"";position:absolute;inset:26%;border-radius:50%;border:1px solid rgba(200,162,74,.32);transition:opacity 1.2s}
+.ar-hero.ar-gl-on .ar-orb-anchor::before,.ar-hero.ar-gl-on .ar-orb-anchor::after{opacity:0}
+.ar-hero-copy{padding-bottom:44px;max-width:640px}
+.ar-hero-copy .ar-eyebrow{margin-bottom:14px;font-size:.7rem;letter-spacing:.16em}
+.ar-h1{font-size:clamp(2.55rem,1.25rem + 5.6vw,5rem);font-weight:500;line-height:1.02;letter-spacing:-.012em;color:var(--ar-white)}
+.ar-h1 em{font-style:italic;color:var(--ar-gold-hi)}
+.ar-hero-sub{margin-top:16px;font-size:clamp(.98rem,.92rem + .3vw,1.14rem);line-height:1.6;color:var(--ar-text);max-width:52ch}
+.ar-hero-sub .ar-hide-sm{display:none}
+.ar-hero-actions{display:flex;flex-wrap:wrap;align-items:center;gap:10px 26px;margin-top:24px}
+.ar-hero-actions .ar-btn-line{width:100%}
+.ar-hero-tel{display:none}
+.ar-hero-areas{display:none;list-style:none}
+@media (min-width:480px){.ar-hero-actions .ar-btn-line{width:auto}}
+@media (min-width:768px){
+  .ar-hero-sub .ar-hide-sm{display:inline}
+  .ar-hero-tel{display:inline-flex}
+  .ar-hero-areas{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 32px;border-top:1px solid var(--ar-hair)}
+  .ar-hero-areas li{display:flex;gap:14px;align-items:baseline;padding:18px 0;font-size:.88rem;color:var(--ar-text);border-bottom:1px solid var(--ar-hair)}
+  .ar-hero-areas li:nth-last-child(-n+2){border-bottom:0}
+  .ar-hero-areas span{font-family:var(--ar-serif);font-size:1.05rem;color:var(--ar-gold);min-width:22px}
+}
+/* tablet portrait: orb above, copy below */
+@media (min-width:768px) and (max-width:1199px) and (orientation:portrait){
+  .ar-hero-grid{min-height:min(100svh,1180px);grid-template-rows:auto 1fr auto;padding-bottom:8px}
+  .ar-orb-anchor{--orb-fit:1.55;width:min(66vw,46svh,540px);margin-top:8px;margin-bottom:-56px}
+  .ar-hero-copy{align-self:end;padding-bottom:40px;max-width:600px}
+  .ar-hero-veil{background:linear-gradient(to bottom,rgba(11,11,12,0) 40%,rgba(11,11,12,.6) 58%,rgba(11,11,12,.85) 76%,var(--ar-ink) 100%)}
+}
+/* tablet landscape: copy left, orb right */
+@media (min-width:768px) and (max-width:1199px) and (orientation:landscape){
+  .ar-hero-grid{grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);grid-template-rows:1fr auto;column-gap:24px;min-height:max(640px,100svh)}
+  .ar-hero-copy{grid-column:1;grid-row:1;align-self:center;padding-block:36px}
+  .ar-orb-anchor{--orb-fit:1.62;grid-column:2;grid-row:1;align-self:center;width:min(100%,62vh,480px);margin:0}
+  .ar-hero-areas{grid-column:1/-1;grid-row:2;grid-template-columns:repeat(4,minmax(0,1fr));gap:0 20px}
+  .ar-hero-areas li{border-bottom:0;padding:18px 0 24px;font-size:.82rem}
+  .ar-hero-veil{background:linear-gradient(90deg,rgba(11,11,12,.7) 0%,rgba(11,11,12,.25) 46%,rgba(11,11,12,0) 60%),linear-gradient(to bottom,rgba(11,11,12,0) 80%,var(--ar-ink) 100%)}
+  .ar-h1{font-size:clamp(2.8rem,1.5rem + 3.2vw,4rem)}
+}
+@media (min-width:1200px){
+  .ar-hero-grid{grid-template-columns:repeat(12,minmax(0,1fr));grid-template-rows:1fr auto;column-gap:24px;min-height:clamp(740px,100svh,1000px)}
+  .ar-hero-copy{grid-column:1/7;grid-row:1;align-self:center;padding-block:56px;max-width:660px}
+  .ar-orb-anchor{--orb-fit:1.7;grid-column:7/13;grid-row:1;align-self:center;width:min(100%,74vh,700px);margin:0}
+  .ar-hero-areas{grid-column:1/-1;grid-row:2;grid-template-columns:repeat(4,minmax(0,1fr));gap:0 32px}
+  .ar-hero-areas li{border-bottom:0;padding:22px 0 30px}
+  .ar-hero-copy .ar-eyebrow{font-size:.74rem;letter-spacing:.18em;margin-bottom:22px}
+  .ar-hero-sub{margin-top:24px}
+  .ar-hero-actions{margin-top:36px}
+  .ar-hero-veil{background:linear-gradient(90deg,rgba(11,11,12,.6) 0%,rgba(11,11,12,.2) 40%,rgba(11,11,12,0) 55%),linear-gradient(to bottom,rgba(11,11,12,0) 84%,var(--ar-ink) 100%)}
+}
+
+/* ---------- services ---------- */
+.ar-svc{background:var(--ar-ink)}
+.ar-svc-head{display:grid;gap:8px;margin-bottom:48px}
+.ar-svc-grid{list-style:none;display:grid;grid-template-columns:minmax(0,1fr);gap:1px;background:var(--ar-line);border:1px solid var(--ar-line)}
+.ar-svc-item{position:relative;display:flex;flex-direction:column;background:var(--ar-ink);padding:30px 22px 26px;transition:background-color .3s}
+.ar-svc-num{font-family:var(--ar-serif);font-variant-numeric:lining-nums;font-size:1.05rem;color:var(--ar-gold);letter-spacing:.06em}
+.ar-svc-item h3{font-size:clamp(1.55rem,1.35rem + .7vw,1.95rem);margin-top:10px;line-height:1.12}
+.ar-svc-item > p{margin-top:14px;font-size:.96rem;color:var(--ar-text)}
+.ar-svc-points{list-style:none;margin:18px 0 6px;display:none;gap:8px}
+.ar-svc-points li{position:relative;padding-left:22px;font-size:.88rem;color:var(--ar-mute)}
+.ar-svc-points li::before{content:"";position:absolute;left:0;top:.8em;width:12px;height:1px;background:var(--ar-gold)}
+.ar-svc-link{margin-top:auto;padding-top:14px;display:inline-flex;align-items:center;gap:10px;min-height:44px;font-size:.88rem;font-weight:600;color:var(--ar-gold-hi);text-decoration:none;letter-spacing:.02em}
+.ar-svc-link::after{content:"";position:absolute;inset:0;z-index:1}
+.ar-svc-link svg{width:16px;height:16px;transition:transform .25s}
+.ar-svc-link:focus-visible{outline:none}
+.ar-svc-link:focus-visible::after{outline:2px solid var(--ar-gold);outline-offset:-4px}
+@media (hover:hover){
+  .ar-svc-item:hover{background:#121215}
+  .ar-svc-item:hover .ar-svc-link svg{transform:translateX(4px)}
+  .ar-svc-item:hover h3{color:var(--ar-gold-hi)}
+}
+@media (hover:none){.ar-svc-item:active{background:#141418}}
+@media (min-width:768px){
+  .ar-svc-head{grid-template-columns:minmax(0,1fr);margin-bottom:56px}
+  .ar-svc-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .ar-svc-points{display:grid}
+  .ar-svc-item{padding:36px 32px 30px}
+}
+@media (min-width:1200px){
+  .ar-svc-head{grid-template-columns:minmax(0,7fr) minmax(0,5fr);align-items:end;gap:48px;margin-bottom:72px}
+  .ar-svc-head .ar-lede{margin-top:0}
+  .ar-svc-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .ar-svc-item{padding:44px 40px 34px}
+}
+
+/* ---------- approach (sticky shorter column) ---------- */
+.ar-appr{background:var(--ar-tint)}
+.ar-appr-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:48px;align-items:start}
+.ar-appr-intro p{margin-top:18px;color:var(--ar-text);max-width:54ch}
+.ar-appr-fig{margin:32px 0 0}
+.ar-appr-fig img{width:100%;aspect-ratio:3/2;object-fit:cover;background:#1d1d22}
+.ar-appr-fig figcaption{margin-top:12px;font-size:.8rem;color:var(--ar-mute);letter-spacing:.02em}
+.ar-appr-list{list-style:none;border-top:1px solid var(--ar-line)}
+.ar-appr-list li{display:grid;grid-template-columns:44px minmax(0,1fr);gap:4px 16px;padding:26px 0;border-bottom:1px solid var(--ar-hair)}
+.ar-appr-n{font-family:var(--ar-serif);font-size:1.25rem;color:var(--ar-gold);line-height:1.3;font-style:italic}
+.ar-appr-list h3{font-size:clamp(1.4rem,1.25rem + .5vw,1.7rem);line-height:1.2}
+.ar-appr-list p{grid-column:2;margin-top:8px;color:var(--ar-text);font-size:.96rem;max-width:56ch}
+.ar-pinned{position:sticky;top:calc(var(--ar-hdr-h) + 24px)}
+@media (min-width:1024px){
+  .ar-appr-grid{grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:64px}
+  .ar-appr-list li{grid-template-columns:64px minmax(0,1fr);padding:32px 0}
+}
+@media (min-width:1200px){.ar-appr-grid{gap:112px}}
+
+/* ---------- three generations ---------- */
+.ar-gen{background:var(--ar-ink)}
+.ar-gen-head{max-width:820px;margin-bottom:56px}
+.ar-gen-line{list-style:none;position:relative;display:grid;gap:0}
+.ar-gen-step{position:relative;padding:0 0 44px 44px}
+.ar-gen-step::before{content:"";position:absolute;left:7px;top:10px;bottom:-10px;width:1px;background:linear-gradient(var(--ar-gold),rgba(200,162,74,.25))}
+.ar-gen-step:last-child::before{display:none}
+.ar-gen-dot{position:absolute;left:0;top:3px;width:15px;height:15px;border-radius:50%;border:1px solid var(--ar-gold);background:var(--ar-ink)}
+.ar-gen-dot::after{content:"";position:absolute;inset:3px;border-radius:50%;background:var(--ar-gold)}
+.ar-gen-kicker{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ar-gold);font-weight:600}
+.ar-gen-step h3{font-size:clamp(1.65rem,1.4rem + .8vw,2.1rem);margin-top:10px}
+.ar-gen-who{margin-top:10px;color:var(--ar-text);font-size:.96rem;max-width:44ch}
+.ar-gen-step ul{list-style:none;margin-top:20px;border-top:1px solid var(--ar-hair)}
+.ar-gen-step ul li{padding:12px 0;border-bottom:1px solid var(--ar-hair);font-size:.9rem;color:var(--ar-text)}
+.ar-gen-note{margin-top:16px;font-size:.85rem;color:var(--ar-mute);max-width:70ch;padding-left:44px}
+@media (min-width:1024px){
+  .ar-gen-line{grid-template-columns:repeat(3,minmax(0,1fr));gap:40px}
+  .ar-gen-line::before{content:"";position:absolute;left:0;right:0;top:10px;height:1px;background:linear-gradient(90deg,var(--ar-gold),rgba(200,162,74,.35) 70%,rgba(200,162,74,.08))}
+  .ar-gen-step{padding:44px 0 0}
+  .ar-gen-step::before{display:none}
+  .ar-gen-dot{top:3px}
+  .ar-gen-note{padding-left:0;margin-top:44px}
+}
+@media (min-width:1200px){.ar-gen-line{gap:64px}.ar-gen-head{margin-bottom:80px}}
+
+/* ---------- insights (light section) ---------- */
+.ar-ins{background:var(--ar-paper);color:var(--ar-paper-text)}
+.ar-ins .ar-eyebrow{color:var(--ar-paper-gold)}
+.ar-ins :focus-visible{outline-color:var(--ar-paper-gold)}
+.ar-ins h2,.ar-ins h3{color:#141312}
+.ar-ins .ar-lede{color:var(--ar-paper-mute)}
+.ar-ins-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:20px 40px;margin-bottom:48px}
+.ar-ins-all{display:inline-flex;align-items:center;gap:10px;min-height:44px;font-weight:600;font-size:.9rem;color:var(--ar-paper-gold);text-decoration:none}
+.ar-ins-all span{background:linear-gradient(currentColor,currentColor) 0 100%/100% 1px no-repeat;padding-bottom:2px;transition:background-size .3s}
+.ar-ins-all:hover span{background-size:0 1px}
+.ar-ins-all svg{width:16px;height:16px}
+.ar-ins-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:44px}
+.ar-ins-card{position:relative}
+.ar-ins-link{display:flex;flex-direction:column;height:100%;text-decoration:none;color:inherit}
+.ar-ins-img{overflow:hidden;background:#ece9e4}
+.ar-ins-img img{width:100%;aspect-ratio:3/2;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.ar-ins-meta{display:flex;flex-wrap:wrap;gap:6px 16px;margin-top:20px;font-size:.76rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--ar-paper-gold)}
+.ar-ins-meta time{color:var(--ar-paper-mute);letter-spacing:.08em}
+.ar-ins-card h3{font-size:clamp(1.5rem,1.3rem + .7vw,1.9rem);line-height:1.15;margin-top:12px}
+.ar-ins-card h3 span{background:linear-gradient(#141312,#141312) 0 100%/0 1px no-repeat;transition:background-size .4s}
+.ar-ins-card p.ar-ins-ex{margin-top:12px;font-size:.95rem;color:var(--ar-paper-mute)}
+.ar-ins-more{margin-top:auto;padding-top:16px;display:inline-flex;align-items:center;gap:8px;font-size:.85rem;font-weight:600;color:var(--ar-paper-gold)}
+.ar-ins-more svg{width:15px;height:15px;transition:transform .25s}
+.ar-ins-link:focus-visible{outline:2px solid var(--ar-paper-gold);outline-offset:6px}
+@media (hover:hover){
+  .ar-ins-link:hover img{transform:scale(1.035)}
+  .ar-ins-link:hover h3 span{background-size:100% 1px}
+  .ar-ins-link:hover .ar-ins-more svg{transform:translateX(4px)}
+}
+@media (hover:none){.ar-ins-link:active h3 span{background-size:100% 1px}}
+@media (min-width:768px){
+  .ar-ins-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:48px 32px}
+  .ar-ins-card:first-child{grid-column:1/-1}
+  .ar-ins-card:first-child .ar-ins-link{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);column-gap:32px;align-content:start}
+  .ar-ins-card:first-child .ar-ins-img{grid-row:1/6}
+  .ar-ins-card:first-child .ar-ins-meta{margin-top:4px}
+  .ar-ins-card:first-child .ar-ins-more{margin-top:0}
+}
+@media (min-width:1200px){
+  .ar-ins-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:40px}
+  .ar-ins-card:first-child{grid-column:auto}
+  .ar-ins-card:first-child .ar-ins-link{display:flex}
+  .ar-ins-card:first-child .ar-ins-meta{margin-top:20px}
+  .ar-ins-card:first-child .ar-ins-more{margin-top:auto}
+  .ar-ins-head{margin-bottom:64px}
+}
+
+/* ---------- partners ---------- */
+.ar-ptn{background:var(--ar-ink)}
+.ar-ptn-head{max-width:780px;margin-bottom:48px}
+.ar-ptn-grid{list-style:none;display:grid;grid-template-columns:minmax(0,1fr);gap:0;border-top:1px solid var(--ar-hair)}
+.ar-ptn-card{display:grid;grid-template-columns:112px minmax(0,1fr);gap:0 18px;padding:22px 0;border-bottom:1px solid var(--ar-hair)}
+.ar-ptn-photo{position:relative;grid-row:1/5;overflow:hidden;background:#1d1d22;align-self:start}
+.ar-ptn-photo img{width:100%;aspect-ratio:4/5;object-fit:cover}
+.ar-ptn-card h3{font-size:1.45rem;line-height:1.15}
+.ar-ptn-post{display:block;font-family:var(--ar-sans);font-size:.72rem;letter-spacing:.14em;color:var(--ar-gold);margin-top:6px;font-weight:600}
+.ar-ptn-role{margin-top:8px;font-size:.86rem;color:var(--ar-white);font-weight:500}
+.ar-ptn-focus{font-size:.86rem;color:var(--ar-mute);margin-top:2px}
+.ar-ptn-toggle{justify-self:start;display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0;margin-top:4px;background:none;border:0;color:var(--ar-gold-hi);font-size:.84rem;font-weight:600;cursor:pointer;letter-spacing:.02em}
+.ar-ptn-toggle svg{width:14px;height:14px;transition:transform .25s}
+.ar-ptn-toggle[aria-expanded="true"] svg{transform:rotate(45deg)}
+.ar-ptn-toggle:hover span{text-decoration:underline;text-underline-offset:4px}
+.ar-ptn-bio{grid-column:1/-1;margin-top:14px;font-size:.92rem;color:var(--ar-text);display:none}
+.ar-ptn-card.is-open .ar-ptn-bio{display:block}
+@media (min-width:768px){
+  .ar-ptn-head{margin-bottom:56px}
+  .ar-ptn-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:48px 32px;border-top:0}
+  .ar-ptn-card{display:flex;flex-direction:column;padding:0;border-bottom:0}
+  .ar-ptn-photo{margin-bottom:20px;align-self:stretch}
+  .ar-ptn-card h3{font-size:1.65rem}
+  .ar-ptn-post{display:inline;margin:0 0 0 8px;vertical-align:middle}
+  .ar-ptn-card{position:relative}
+  .ar-ptn-bio{display:flex;align-items:flex-end;position:absolute;left:0;right:0;top:0;aspect-ratio:4/5;margin:0;padding:64px 22px 22px;font-size:.92rem;color:var(--ar-white);background:linear-gradient(to top,rgba(11,11,12,.96) 0%,rgba(11,11,12,.9) 58%,rgba(11,11,12,0) 100%);opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .35s,transform .35s,visibility .35s}
+  .ar-ptn-card.is-open .ar-ptn-bio{opacity:1;visibility:visible;transform:none}
+}
+@media (min-width:768px) and (hover:hover){
+  .ar-ptn-card:hover .ar-ptn-bio{opacity:1;visibility:visible;transform:none}
+}
+@media (min-width:1200px){
+  .ar-ptn-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:32px}
+  .ar-ptn-head{margin-bottom:64px}
+}
+
+/* ---------- FAQ ---------- */
+.ar-faq{background:var(--ar-tint)}
+.ar-faq-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:40px;align-items:start}
+.ar-chips{display:flex;gap:8px;margin:28px -20px 0;padding:2px 20px 6px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:20px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.ar-chips::-webkit-scrollbar{display:none}
+.ar-chip{flex:0 0 auto;scroll-snap-align:start;min-height:44px;padding:10px 18px;border:1px solid var(--ar-hair);border-radius:999px;background:transparent;color:var(--ar-text);font-size:.86rem;font-weight:500;cursor:pointer;white-space:nowrap;transition:border-color .2s,color .2s,background-color .2s}
+.ar-chip:hover{border-color:var(--ar-gold);color:var(--ar-white)}
+.ar-chip[aria-pressed="true"]{background:var(--ar-gold);border-color:var(--ar-gold);color:var(--ar-ink);font-weight:600}
+.ar-faq-ask{margin-top:32px;padding:24px;border:1px solid var(--ar-line)}
+.ar-faq-ask p{font-size:.94rem}
+.ar-faq-ask a{color:var(--ar-gold-hi);font-weight:600;text-decoration:none;display:inline-flex;align-items:center;min-height:44px}
+.ar-faq-ask a:hover{text-decoration:underline;text-underline-offset:4px}
+.ar-faq-list{list-style:none;border-top:1px solid var(--ar-line)}
+.ar-faq-item{border-bottom:1px solid var(--ar-hair)}
+.ar-faq-q{margin:0;font-family:var(--ar-sans)}
+.ar-faq-btn{display:flex;width:100%;align-items:center;justify-content:space-between;gap:20px;min-height:64px;padding:18px 0;background:none;border:0;text-align:left;cursor:pointer;color:var(--ar-white);font-family:var(--ar-serif);font-size:clamp(1.25rem,1.15rem + .4vw,1.5rem);font-weight:500;line-height:1.25}
+.ar-faq-btn:hover{color:var(--ar-gold-hi)}
+.ar-faq-ico{position:relative;flex:none;width:32px;height:32px;border:1px solid var(--ar-line);border-radius:50%;transition:border-color .2s,transform .3s}
+.ar-faq-ico::before,.ar-faq-ico::after{content:"";position:absolute;left:50%;top:50%;width:11px;height:1px;background:var(--ar-gold);transform:translate(-50%,-50%)}
+.ar-faq-ico::after{transform:translate(-50%,-50%) rotate(90deg);transition:transform .3s}
+.ar-faq-btn[aria-expanded="true"] .ar-faq-ico::after{transform:translate(-50%,-50%) rotate(0deg)}
+.ar-faq-btn:hover .ar-faq-ico{border-color:var(--ar-gold)}
+.ar-faq-a{padding:0 48px 24px 0;color:var(--ar-text);font-size:.96rem;max-width:70ch}
+.ar-faq-a p + p{margin-top:12px}
+@media (min-width:768px){
+  .ar-chips{flex-wrap:wrap;margin-inline:0;padding-inline:0;overflow:visible}
+}
+@media (min-width:1024px){
+  .ar-faq-grid{grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:64px}
+}
+@media (min-width:1200px){.ar-faq-grid{gap:112px}}
+
+/* ---------- consultation form ---------- */
+.ar-cons{background:var(--ar-ink)}
+.ar-cons-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:44px;align-items:start}
+.ar-cons-intro > p{margin-top:18px;max-width:52ch}
+.ar-cons-steps{list-style:none;margin-top:32px;border-top:1px solid var(--ar-hair);counter-reset:arstep}
+.ar-cons-steps li{display:grid;grid-template-columns:40px minmax(0,1fr);gap:12px;padding:16px 0;border-bottom:1px solid var(--ar-hair);font-size:.94rem;counter-increment:arstep}
+.ar-cons-steps li::before{content:counter(arstep,lower-roman) ".";font-family:var(--ar-serif);font-style:italic;font-size:1.15rem;color:var(--ar-gold);line-height:1.4}
+.ar-cons-direct{margin-top:28px;font-size:.92rem;color:var(--ar-mute)}
+.ar-cons-direct a{color:var(--ar-white);font-weight:600;text-decoration:none;white-space:nowrap}
+.ar-cons-direct a:hover{color:var(--ar-gold-hi);text-decoration:underline;text-underline-offset:4px}
+.ar-form-box{background:var(--ar-tint);border:1px solid var(--ar-hair);padding:28px 20px}
+.ar-form{display:grid;grid-template-columns:minmax(0,1fr);gap:20px}
+.ar-field{display:flex;flex-direction:column;gap:8px;min-width:0}
+.ar-field label,.ar-field legend{font-size:.84rem;font-weight:600;color:var(--ar-white);letter-spacing:.02em}
+.ar-field .ar-opt{font-weight:400;color:var(--ar-mute)}
+.ar-input,.ar-select,.ar-textarea{width:100%;min-height:52px;padding:12px 14px;background:#0e0e11;border:1px solid rgba(207,200,187,.3);border-radius:2px;color:var(--ar-white);font-size:1rem;transition:border-color .2s,box-shadow .2s}
+.ar-textarea{min-height:120px;resize:vertical;line-height:1.5}
+.ar-select{appearance:none;-webkit-appearance:none;padding-right:42px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23c8a24a' stroke-width='1.6'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center}
+.ar-select option{background:#15151a;color:#fff}
+.ar-input::placeholder,.ar-textarea::placeholder{color:#8e887e}
+.ar-input:hover,.ar-select:hover,.ar-textarea:hover{border-color:rgba(207,200,187,.55)}
+.ar-input:focus,.ar-select:focus,.ar-textarea:focus{outline:none;border-color:var(--ar-gold);box-shadow:0 0 0 3px rgba(200,162,74,.28)}
+.ar-field.is-bad .ar-input,.ar-field.is-bad .ar-select{border-color:#e8968d}
+.ar-err{font-size:.8rem;color:#f0aaa2}
+.ar-hint{font-size:.8rem;color:var(--ar-mute)}
+.ar-check{display:grid;grid-template-columns:24px minmax(0,1fr);gap:12px;align-items:start;font-size:.88rem;color:var(--ar-text);cursor:pointer}
+.ar-check input{width:20px;height:20px;margin:2px 0 0;accent-color:var(--ar-gold);cursor:pointer}
+.ar-check a{color:var(--ar-gold-hi)}
+.ar-check a:hover{color:var(--ar-white)}
+.ar-form-foot{display:flex;flex-direction:column;gap:14px;align-items:stretch}
+.ar-form-foot .ar-btn-gold{width:100%}
+.ar-form-foot p{font-size:.8rem;color:var(--ar-mute)}
+.ar-form-done{padding:8px 0}
+.ar-form-done h3{font-size:2rem}
+.ar-form-done p{margin-top:14px}
+.ar-form-done .ar-demo{font-size:.82rem;color:var(--ar-mute)}
+@media (min-width:768px){
+  .ar-form-box{padding:40px}
+  .ar-form{grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 24px}
+  .ar-field--full,.ar-form-foot,.ar-check-wrap{grid-column:1/-1}
+  .ar-form-foot{flex-direction:row;align-items:center;justify-content:space-between}
+  .ar-form-foot .ar-btn-gold{width:auto;flex:none}
+  .ar-form-foot p{max-width:36ch}
+}
+@media (min-width:1024px){
+  .ar-cons-grid{grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:64px}
+}
+@media (min-width:1200px){.ar-cons-grid{gap:112px}.ar-form-box{padding:48px}}
+
+/* ---------- footer with guilloche band ---------- */
+.ar-ft{background:var(--ar-tint);border-top:1px solid var(--ar-line);padding-top:clamp(48px,4rem + 2vw,96px);padding-bottom:calc(28px + env(safe-area-inset-bottom))}
+.ar-ft-band{display:grid;gap:28px}
+.ar-gl-strip{display:block;width:100%;height:44px;color:var(--ar-gold)}
+.ar-ft-seal{display:grid;grid-template-columns:minmax(0,1fr);justify-items:center;gap:28px;text-align:center}
+.ar-ft-rosette{width:min(64vw,230px);aspect-ratio:1/1;color:var(--ar-gold)}
+.ar-ft-rosette svg{width:100%;height:100%;display:block;overflow:visible}
+.ar-ft-office{font-style:normal;font-size:.92rem;line-height:1.7;color:var(--ar-text)}
+.ar-ft-office h3{font-size:1.6rem;margin-bottom:2px}
+.ar-ft-office .ar-ft-kicker{display:block;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ar-gold);font-weight:600;margin-bottom:10px}
+.ar-ft-office a{display:inline-flex;align-items:center;min-height:44px;color:var(--ar-white);font-weight:600;text-decoration:none}
+.ar-ft-office a:hover{color:var(--ar-gold-hi);text-decoration:underline;text-underline-offset:4px}
+.ar-ft-office .ar-ft-hours{display:block;font-size:.82rem;color:var(--ar-mute)}
+.ar-ft-cols{display:grid;grid-template-columns:minmax(0,1fr);margin-top:48px;border-top:1px solid var(--ar-hair)}
+.ar-ft-col{border-bottom:1px solid var(--ar-hair)}
+.ar-ft-col h3{font-family:var(--ar-sans);font-size:.74rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--ar-gold)}
+.ar-ft-toggle{display:flex;width:100%;align-items:center;justify-content:space-between;min-height:56px;padding:0;background:none;border:0;color:inherit;font:inherit;letter-spacing:inherit;text-transform:inherit;cursor:pointer;text-align:left}
+.ar-ft-toggle svg{width:16px;height:16px;transition:transform .3s;color:var(--ar-gold)}
+.ar-ft-toggle[aria-expanded="true"] svg{transform:rotate(180deg)}
+.ar-ft-list{list-style:none;display:none;padding-bottom:16px}
+.ar-ft-col.is-open .ar-ft-list{display:block}
+.ar-ft-list a{display:inline-flex;align-items:center;min-height:44px;font-size:.92rem;color:var(--ar-text);text-decoration:none}
+.ar-ft-list a:hover{color:var(--ar-white);text-decoration:underline;text-decoration-color:var(--ar-gold);text-underline-offset:5px}
+.ar-ft-reg{margin-top:40px;display:grid;gap:14px;font-size:.8rem;line-height:1.65;color:var(--ar-mute)}
+.ar-ft-reg strong{color:var(--ar-text);font-weight:600}
+.ar-ft-reg a{color:var(--ar-text)}
+.ar-ft-reg a:hover{color:var(--ar-gold-hi)}
+.ar-ft-base{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:32px;padding-top:24px;border-top:1px solid var(--ar-hair);font-size:.8rem;color:var(--ar-mute)}
+.ar-totop{flex:none;display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:50%;border:1px solid var(--ar-line);background:transparent;color:var(--ar-gold-hi);cursor:pointer;transition:background-color .25s,color .25s,border-color .25s}
+.ar-totop svg{width:18px;height:18px}
+.ar-totop:hover{background:var(--ar-gold);border-color:var(--ar-gold);color:var(--ar-ink)}
+@media (min-width:768px){
+  .ar-ft-seal{grid-template-columns:minmax(0,1fr) 220px minmax(0,1fr);align-items:center;gap:32px}
+  .ar-ft-rosette{width:220px}
+  .ar-ft-office--l{text-align:right;justify-self:end}
+  .ar-ft-office--r{text-align:left;justify-self:start}
+  .ar-ft-cols{grid-template-columns:repeat(2,minmax(0,1fr));gap:32px;border-top:0;margin-top:56px}
+  .ar-ft-col{border-bottom:0}
+  .ar-ft-col h3{margin-bottom:10px}
+  .ar-ft-toggle{min-height:auto;cursor:default;pointer-events:none}
+  .ar-ft-toggle svg{display:none}
+  .ar-ft-list{display:block;padding-bottom:0}
+  .ar-ft-list a{min-height:36px}
+  .ar-ft-reg{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 40px;margin-top:48px;padding-top:32px;border-top:1px solid var(--ar-hair)}
+}
+@media (min-width:1024px){.ar-ft-cols{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media (min-width:1200px){
+  .ar-ft-seal{grid-template-columns:minmax(0,1fr) 290px minmax(0,1fr);gap:72px}
+  .ar-ft-rosette{width:290px}
+}
+
+/* ---------- mobile action bar ---------- */
+.ar-mbar{position:fixed;left:0;right:0;bottom:0;z-index:40;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.7fr);gap:10px;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:rgba(11,11,12,.96);border-top:1px solid var(--ar-hair);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);transition:transform .3s ease,visibility .3s}
+.ar-mbar.is-hidden{transform:translateY(110%);visibility:hidden}
+.ar-mbar a{min-height:48px;padding:10px 12px;font-size:.88rem}
+.ar-mbar svg{width:16px;height:16px}
+@media (min-width:768px){.ar-mbar{display:none}}
+@media (max-width:767px){body{padding-bottom:0}.ar-ft{padding-bottom:calc(28px + env(safe-area-inset-bottom))}}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important}
+}
+</style>
+
+<style id="sv-hero-css">
+.svh{--a:#dcbb6a;--ad:#dcbb6a;--ink:#0b0b0c;--paper:#ffffff;--on:#0b0b0c;position:relative;isolation:isolate;overflow:hidden;margin:0;font-family:"Manrope",system-ui,sans-serif;box-sizing:border-box}
+.svh *{box-sizing:border-box}
+.svh .svh-in{position:relative;z-index:2;width:min(1240px,100% - 48px);margin-inline:auto}
+.svh .svh-kicker{display:inline-flex;align-items:center;gap:10px;margin:0;font:600 12.5px/1.3 "Manrope",system-ui,sans-serif;letter-spacing:.16em;text-transform:uppercase}
+.svh .svh-kicker i{width:28px;height:2px;background:var(--a);display:inline-block}
+.svh .svh-h{margin:0;font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;letter-spacing:-.025em;line-height:.95}
+.svh .svh-h span{display:block;overflow:hidden;padding-bottom:.06em}
+.svh .svh-h span>b{display:inline-block;font-weight:inherit;transform:translateY(105%);animation:svh-rise 1s cubic-bezier(.16,1,.3,1) forwards}
+.svh .svh-h span:nth-child(2)>b{animation-delay:.12s}.svh .svh-h span:nth-child(3)>b{animation-delay:.24s}
+.svh .svh-h em{font-style:italic;color:var(--a)}
+.svh .svh-lede{margin:0;max-width:46ch;font-size:clamp(16px,1.25vw,19px);line-height:1.6;opacity:0;animation:svh-fade .9s .45s forwards}
+.svh .svh-ctas{display:flex;flex-wrap:wrap;gap:12px;opacity:0;animation:svh-fade .9s .6s forwards}
+.svh .svh-btn{display:inline-flex;align-items:center;gap:10px;padding:15px 26px;border-radius:999px;font:600 15px/1 "Manrope",system-ui,sans-serif;text-decoration:none;background:var(--a);color:var(--on);border:1px solid var(--a);transition:transform .3s cubic-bezier(.16,1,.3,1),background .3s}
+.svh .svh-btn:hover{transform:translateY(-2px)}
+.svh .svh-btn--ghost{background:transparent;color:inherit;border-color:currentColor}
+.svh .svh-btn span{transition:transform .3s}.svh .svh-btn:hover span{transform:translateX(4px)}
+/* the designs style h1/p themselves, so the banner states its own colours */
+.svh--editorial .svh-h,.svh--poster .svh-h,.svh--stage .svh-h{color:#fff}
+.svh--editorial .svh-kicker,.svh--poster .svh-kicker,.svh--stage .svh-kicker{color:rgba(255,255,255,.9)}
+.svh--index .svh-h,.svh--index .svh-kicker{color:var(--ink)}
+@keyframes svh-rise{to{transform:none}}@keyframes svh-fade{to{opacity:1}}
+@keyframes svh-zoom{from{transform:scale(1.12)}to{transform:scale(1)}}
+@keyframes svh-spin{to{transform:rotate(360deg)}}@keyframes svh-tick{to{transform:translateX(-50%)}}
+@keyframes svh-tilt{from{transform:perspective(1400px) rotateX(18deg) translateY(40px);opacity:0}to{transform:none;opacity:1}}
+
+/* Editorial: words spread across a full-bleed photo */
+.svh--editorial{min-height:100svh;display:flex;align-items:flex-end;padding:150px 0 56px;color:#fff;background:var(--ink)}
+.svh--editorial .svh-media{position:absolute;inset:0;z-index:0;background:center/cover no-repeat;animation:svh-zoom 2.4s cubic-bezier(.16,1,.3,1) both}
+.svh--editorial .svh-shade{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(0,0,0,.45),rgba(0,0,0,.1) 35%,rgba(0,0,0,.65))}
+.svh--editorial .svh-h{font-size:clamp(52px,9vw,150px);margin-top:28px}
+.svh--editorial .svh-h span:nth-child(2){text-align:right}
+.svh--editorial .svh-h em{color:#fff}
+.svh--editorial .svh-foot{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:28px;margin-top:42px;padding-top:26px;border-top:1px solid rgba(255,255,255,.3)}
+.svh--editorial .svh-lede{color:rgba(255,255,255,.88)}
+.svh--editorial .svh-btn--ghost{color:#fff}
+
+/* Stage: dark ground, glow, centred words and a tilted picture */
+.svh--stage{padding:160px 0 0;background:var(--ink);color:#fff;text-align:center}
+.svh--stage .svh-glow{position:absolute;z-index:0;left:50%;top:-10%;width:1100px;height:800px;transform:translateX(-50%);background:radial-gradient(closest-side,color-mix(in srgb,var(--a) 55%,transparent),transparent);filter:blur(30px);opacity:.75}
+.svh--stage .svh-grid{position:absolute;inset:0;z-index:0;background-image:linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px);background-size:64px 64px;mask-image:radial-gradient(circle at 50% 30%,#000,transparent 70%)}
+.svh--stage .svh-kicker{padding:8px 16px;border:1px solid rgba(255,255,255,.2);border-radius:999px;background:rgba(255,255,255,.05)}
+.svh--stage .svh-kicker i{width:8px;height:8px;border-radius:50%}
+.svh--stage .svh-h{font-size:clamp(46px,7.4vw,118px);font-weight:500;margin:26px auto 0;max-width:15ch}
+.svh--stage .svh-h em{color:var(--ad)}
+.svh--stage .svh-lede{margin:26px auto 0;color:rgba(255,255,255,.75)}
+.svh--stage .svh-ctas{justify-content:center;margin-top:32px}
+.svh--stage .svh-btn--ghost{color:#fff}
+.svh--stage .svh-frame{margin:60px auto 0;max-width:1100px;aspect-ratio:16/8;border-radius:22px 22px 0 0;overflow:hidden;border:1px solid rgba(255,255,255,.18);border-bottom:0;box-shadow:0 -30px 80px -20px color-mix(in srgb,var(--a) 45%,transparent);animation:svh-tilt 1.4s .3s cubic-bezier(.16,1,.3,1) both}
+.svh--stage .svh-frame img{display:block;width:100%;height:100%;object-fit:cover}
+.svh--stage .svh-chips{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin:28px 0 0;padding:0}
+.svh--stage .svh-chips a{display:block;padding:8px 14px;border-radius:999px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);color:rgba(255,255,255,.85);font-size:14px;text-decoration:none}
+.svh--stage .svh-chips a:hover{border-color:var(--a);color:#fff}
+
+/* Poster: giant uppercase words, spinning badge, a ticker */
+.svh--poster{min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;padding-top:150px;color:#fff;background:var(--ink)}
+.svh--poster .svh-media{position:absolute;inset:0;z-index:0;background:center/cover no-repeat;animation:svh-zoom 2.4s cubic-bezier(.16,1,.3,1) both}
+.svh--poster .svh-shade{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(0,0,0,.2),rgba(0,0,0,.25) 40%,rgba(0,0,0,.82))}
+.svh--poster .svh-h{font-size:clamp(50px,10vw,168px);font-weight:800;text-transform:uppercase;letter-spacing:-.035em;line-height:.88;margin-top:22px}
+.svh--poster .svh-h em{font-style:normal;color:var(--ad)}
+.svh--poster .svh-row{display:flex;flex-wrap:wrap;gap:24px;align-items:flex-end;justify-content:space-between;margin:34px 0 44px}
+.svh--poster .svh-lede{color:rgba(255,255,255,.85)}
+.svh--poster .svh-btn--ghost{color:#fff}
+.svh--poster .svh-badge{position:absolute;z-index:2;right:clamp(20px,5vw,72px);top:clamp(110px,16vh,170px);width:132px;height:132px;display:grid;place-items:center}
+.svh--poster .svh-badge svg{position:absolute;inset:0;animation:svh-spin 14s linear infinite;fill:#fff;font:700 10.5px/1 "Manrope",system-ui,sans-serif;letter-spacing:.22em;text-transform:uppercase}
+.svh--poster .svh-badge b{width:56px;height:56px;border-radius:50%;background:var(--a);display:grid;place-items:center;color:var(--on);font-size:22px}
+.svh--poster .svh-ticker{position:relative;z-index:2;background:var(--a);color:var(--on);overflow:hidden;padding:15px 0}
+.svh--poster .svh-ticker div{display:flex;gap:44px;width:max-content;animation:svh-tick 26s linear infinite;font:700 clamp(16px,1.6vw,22px)/1 "Cormorant Garamond",Georgia,serif;text-transform:uppercase;letter-spacing:.02em}
+.svh--poster .svh-ticker span::after{content:"\2726";margin-left:44px;opacity:.7}
+
+/* Index: words on the left, the site's sections as a big list on the right */
+.svh--index{padding:150px 0 90px;background:var(--paper);color:var(--ink)}
+.svh--index .svh-in{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(32px,5vw,90px);align-items:end}
+.svh--index .svh-kicker{color:var(--ink)}
+.svh--index .svh-h{font-size:clamp(46px,6.6vw,104px);margin:24px 0 0}
+.svh--index .svh-lede{margin-top:26px;color:color-mix(in srgb,var(--ink) 72%,transparent)}
+.svh--index .svh-ctas{margin-top:30px}
+.svh--index .svh-photo{aspect-ratio:16/10;border-radius:18px;background:center/cover no-repeat;margin-bottom:22px;clip-path:inset(0 0 100% 0 round 18px);animation:svh-reveal 1.3s .2s cubic-bezier(.16,1,.3,1) forwards}
+@keyframes svh-reveal{to{clip-path:inset(0 0 0 0 round 18px)}}
+.svh--index .svh-list{list-style:none;margin:0;padding:0;border-top:1px solid color-mix(in srgb,var(--ink) 18%,transparent)}
+.svh--index .svh-list a{display:grid;grid-template-columns:44px 1fr auto;align-items:baseline;gap:12px;padding:14px 0;border-bottom:1px solid color-mix(in srgb,var(--ink) 18%,transparent);color:var(--ink);text-decoration:none;font:500 clamp(22px,2.4vw,36px)/1.1 "Cormorant Garamond",Georgia,serif;letter-spacing:-.02em;transition:color .3s,padding .3s}
+.svh--index .svh-list a small{font:600 12px/1 "Manrope",system-ui,sans-serif;letter-spacing:.1em;color:color-mix(in srgb,var(--ink) 55%,transparent)}
+.svh--index .svh-list a:hover{color:var(--a);padding-left:8px}
+.svh--index .svh-list a i{font-style:normal;transition:transform .3s}.svh--index .svh-list a:hover i{transform:translateX(6px)}
+
+@media (max-width:860px){
+  .svh--index .svh-in{grid-template-columns:1fr}
+  .svh--editorial .svh-h span:nth-child(2){text-align:left}
+  .svh--poster .svh-badge{width:96px;height:96px;top:96px}
+  .svh--stage .svh-frame{aspect-ratio:4/3}
+}
+@media (prefers-reduced-motion:reduce){.svh *,.svh{animation:none!important;transition:none!important}.svh .svh-h span>b{transform:none}.svh .svh-lede,.svh .svh-ctas{opacity:1}.svh--index .svh-photo{clip-path:none}}
+/* the old banner stays in the page, invisible, laid over the new one, so the design's own
+   scripts (sticky header, "past the hero" checks) still find it where the banner is */
+[data-sv-old-hero]{position:absolute!important;left:0!important;right:0!important;width:auto!important;max-width:none!important;margin:0!important;padding:0!important;min-height:0!important;overflow:hidden!important;visibility:hidden!important;opacity:0!important;pointer-events:none!important;z-index:-1!important;transform:none!important}
+</style>
+</head>
+<body>
+<a class="ar-skip" href="#main">Skip to content</a>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="ar-i-arrow" viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.5"/></symbol>
+  <symbol id="ar-i-phone" viewBox="0 0 24 24"><path d="M6.6 3.5h3l1.5 4.2-2 1.3a12 12 0 0 0 5.9 5.9l1.3-2 4.2 1.5v3a2 2 0 0 1-2.2 2A17.5 17.5 0 0 1 4.6 5.7a2 2 0 0 1 2-2.2z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></symbol>
+  <symbol id="ar-i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="1.5"/></symbol>
+  <symbol id="ar-i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
+  <symbol id="ar-i-chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
+  <symbol id="ar-i-up" viewBox="0 0 24 24"><path d="M12 19V5M6 11l6-6 6 6" fill="none" stroke="currentColor" stroke-width="1.5"/></symbol>
+</svg>
+
+<header class="ar-hdr" id="ar-hdr">
+  <div class="ar-wrap ar-hdr-in">
+    <a class="ar-logo" href="#top" aria-label="Holborn &amp; Vane Private Client, home">
+      <span class="ar-logo-name">Holborn &amp; Vane</span>
+      <span class="ar-logo-sub">Private Client</span>
+    </a>
+    <nav class="ar-nav" aria-label="Main">
+      <a href="#services">Services</a>
+      <a href="#approach">Approach</a>
+      <a href="#planning">Planning</a>
+      <a href="#insights">Insights</a>
+      <a href="#partners">Partners</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a class="ar-hdr-tel" href="tel:+442079460418"><svg aria-hidden="true"><use href="#ar-i-phone"/></svg>020 7946 0418</a>
+    <a class="ar-btn-line ar-hdr-cta" href="#consult">Private consultation</a>
+    <a class="ar-icon-btn ar-hdr-call" href="tel:+442079460418" aria-label="Call 020 7946 0418"><svg aria-hidden="true"><use href="#ar-i-phone"/></svg></a>
+    <button class="ar-icon-btn ar-burger" type="button" aria-expanded="false" aria-controls="ar-menu" aria-label="Open menu"><span class="ar-burger-lines" aria-hidden="true"></span></button>
+  </div>
+</header>
+
+<div class="ar-menu" id="ar-menu" role="dialog" aria-modal="true" aria-label="Menu" hidden>
+  <div class="ar-wrap ar-menu-top">
+    <a class="ar-logo" href="#top" data-close>
+      <span class="ar-logo-name">Holborn &amp; Vane</span>
+      <span class="ar-logo-sub">Private Client</span>
+    </a>
+    <button class="ar-icon-btn ar-menu-close" type="button" aria-label="Close menu"><svg aria-hidden="true"><use href="#ar-i-close"/></svg></button>
+  </div>
+  <div class="ar-wrap ar-menu-body">
+    <nav class="ar-menu-nav" aria-label="Menu">
+      <ul>
+        <li><a href="#services" data-close>Services<svg aria-hidden="true"><use href="#ar-i-arrow"/></svg></a></li>
+        <li><a href="#approach" data-close>Our approach<svg aria-hidden="true"><use href="#ar-i-arrow"/></svg></a></li>
+        <li><a href="#planning" data-close>Three generations<svg aria-hidden="true"><use href="#ar-i-arrow"/></svg></a></li>
+        <li><a href="#insights" data-close>Insights<svg aria-hidden="true"><use href="#ar-i-arrow"/></svg></a></li>
+        <li><a href="#partners" data-close>Partners<svg aria-hidden="true"><use href="#ar-i-arrow"/></svg></a></li>
+        <li><a href="#faq" data-close>Questions<svg aria-hidden="true"><use href="#ar-i-arrow"/></svg></a></li>
+      </ul>
+    </nav>
+    <div class="ar-menu-contact">
+      <a class="ar-menu-tel" href="tel:+442079460418"><small>Telephone</small><strong>020 7946 0418</strong></a>
+      <a class="ar-btn-gold" href="#consult" data-close>Arrange a private consultation<svg aria-hidden="true"><use href="#ar-i-arrow"/></svg></a>
+      <address class="ar-menu-addr">18 Carrick Mews, Mayfair, London W1J 6AA &middot; By appointment, Monday to Friday</address>
+    </div>
+  </div>
+</div>
+
+<main id="main">
+
+  <!-- ===== HERO ===== -->
+  <section class="svh svh--editorial" aria-label="Holborn &amp; Vane"><div class="svh-media" style="background-image:url('https://images.pexels.com/photos/8204947/pexels-photo-8204947.jpeg?auto=compress&cs=tinysrgb&w=2000&h=1250&fit=crop')"></div><div class="svh-shade"></div><div class="svh-in"><p class="svh-kicker"><i></i>Tax and wealth advisory, Mayfair</p><h1 class="svh-h"><span><b>Quiet advice</b></span><span><b>for family</b></span><span><b><em>wealth.</em></b></span></h1><div class="svh-foot"><p class="svh-lede">Tax and wealth advice for individuals, families and trustees , from succession and trusts to residence and property . Partner-led, confidential and mostly by introduction.</p><div class="svh-ctas"><a class="svh-btn" href="#consult">Arrange a private consultation <span>&rarr;</span></a><a class="svh-btn svh-btn--ghost" href="tel:+442079460418">Or call 020 7946 0418</a></div></div></div></section><section data-sv-old-hero aria-hidden="true" inert class="ar-hero" id="top" aria-labelledby="ar-hero-h"><script>(()=>{const b=document.querySelector(".svh"),o=document.querySelector("[data-sv-old-hero]");if(!b||!o)return;const hd=document.querySelector("header");if(hd){const cs=getComputedStyle(hd),n=(c)=>(c.match(/[\d.]+/g)||[]).map(Number),bg=n(cs.backgroundColor),fg=n(cs.color),clear=cs.backgroundColor==="transparent"||bg[3]===0,light=fg.length>2&&(0.299*fg[0]+0.587*fg[1]+0.114*fg[2])/255>0.7,top=b.getBoundingClientRect().top+scrollY;if(clear&&light&&cs.position!=="fixed"&&cs.position!=="absolute"&&top>0&&top<260){b.style.marginTop=-top+"px";b.style.paddingTop=parseFloat(getComputedStyle(b).paddingTop)+top+"px"}}const f=()=>{o.style.setProperty("top",b.offsetTop+"px","important");o.style.setProperty("height",b.offsetHeight+"px","important")};f();addEventListener("resize",f);addEventListener("load",f)})()</script>
+    <canvas class="ar-orb-cv" aria-hidden="true"></canvas>
+    <div class="ar-hero-veil" aria-hidden="true"></div>
+    <div class="ar-wrap ar-hero-grid">
+      <div class="ar-orb-anchor" aria-hidden="true"></div>
+      <div class="ar-hero-copy">
+        <p class="ar-eyebrow">Private client tax &middot; Mayfair, London</p>
+        <h1 class="ar-h1" id="ar-hero-h">Considered advice for family wealth.</h1>
+        <p class="ar-hero-sub">Tax and wealth advice for individuals, families and trustees<span class="ar-hide-sm">, from succession and trusts to residence and property</span>. Partner-led, confidential and mostly by introduction.</p>
+        <div class="ar-hero-actions">
+          <a class="ar-btn-line" href="#consult">Arrange a private consultation<svg aria-hidden="true"><use href="#ar-i-arrow"/></svg></a>
+          <a class="ar-textlink ar-hero-tel" href="tel:+442079460418"><span>Or call 020 7946 0418</span></a>
+        </div>
+      </div>
+      <ul class="ar-hero-areas" aria-label="Areas of practice">
+        <li><span>i</span>Inheritance Tax and succession</li>
+        <li><span>ii</span>Trusts and estates</li>
+        <li><span>iii</span>International clients and residence</li>
+        <li><span>iv</span>Property, family office and philanthropy</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===== SERVICES ===== -->
+  <section class="ar-svc ar-sec" id="services" aria-labelledby="ar-svc-h">
+    <div class="ar-wrap">
+      <div class="ar-svc-head">
+        <div>
+          <p class="ar-eyebrow">What we do</p>
+          <h2 class="ar-h2" id="ar-svc-h">Tax and wealth advice for private clients, families and trustees.</h2>
+        </div>
+        <p class="ar-lede">We act for a deliberately limited number of families, so each has a partner who knows their affairs in full. Most engagements draw on several of the areas below.</p>
+      </div>
+      <ol class="ar-svc-grid">
+        <li class="ar-svc-item">
+          <span class="ar-svc-num">01</span>
+          <h3>Inheritance Tax and succession</h3>
+          <p>Planning how wealth passes between generations, alongside your solicitor&rsquo;s work on wills and lasting powers of attorney. We look at lifetime gifts, reliefs for family businesses and farmland, and the effect of unused pensions coming within the scope of Inheritance Tax from April 2027.</p>
+          <ul class="ar-svc-points"><li>Lifetime gifts and the seven-year rule</li><li>Business and agricultural property relief reviews</li><li>Estate structure, with your solicitor</li></ul>
+          <a class="ar-svc-link" href="#consult">Inheritance Tax planning<svg aria-hidden="true"><use href="#ar-i-arrow"/></svg></a>
+        </li>
+        <li class="ar-svc-item">
+          <span class="ar-svc-num">02</span>
+          <h3>Trusts and estates</h3>
+          <p>Tax compliance and advice for the trustees of family trusts, and practical support for executors. We prepare trust returns, keep Trust Registration Service records current and plan ahead for ten-year and exit charges.</p>
+          <ul class="ar-svc-points"><li>Trust tax returns and beneficiary statements</li><li>Ten-year and exit charge calculations</li><li>Estate accounts and executor support</li></ul>
+          <a class="ar-svc-link" href="#consult">Trusts and estates<svg aria-hidden="true"><use href="#ar-i-arrow"/></svg></a>
+        </li>
+        <li class="ar-svc-item">
+          <span class="ar-svc-num">03</span>
+          <h3>International clients and residence</h3>
+          <p>From 6 April 2025 the remittance basis was replaced by a residence-based regime. New arrivals who have been non-resident for ten tax years may claim relief on foreign income and gains for their first four years, and Inheritance Tax on non-UK assets now turns mainly on long-term residence. We help clients see where they stand and plan arrivals, departures and existing structures.</p>
+          <ul class="ar-svc-points"><li>Statutory Residence Test reviews</li><li>Four-year foreign income and gains regime claims</li><li>Transitional arrangements and trust structures</li></ul>
+          <a class="ar-svc-link" href="#consult">International and residence<svg aria-hidden="true"><use href="#ar-i-arrow"/></svg></a>
+        </li>
+        <li class="ar-svc-item">
+          <span class="ar-svc-num">04</span>
+          <h3>Capital Gains Tax and property</h3>
+          <p>Advice before, rather than after, a significant disposal. We help with property sales, portfolio restructuring, private residence relief and the 60-day reporting and payment rules for UK residential property, for residents and non-residents alike.</p>
+          <ul class="ar-svc-points"><li>Planning ahead of a sale</li><li>60-day UK property returns</li><li>Non-resident Capital Gains Tax</li></ul>
+          <a class="ar-svc-link" href="#consult">Capital Gains Tax and property<svg aria-hidden="true"><use href="#ar-i-arrow"/></svg></a>
+        </li>
+        <li class="ar-svc-item">
+          <span class="ar-svc-num">05</span>
+          <h3>Family office accounting</h3>
+          <p>Day-to-day financial administration for families who would like one firm to keep everything in order: consolidated reporting, personal and company accounts, household payroll and Self Assessment for each member of the family.</p>
+          <ul class="ar-svc-points"><li>Consolidated wealth reporting</li><li>Family investment company accounts</li><li>Payroll for household staff</li></ul>
+          <a class="ar-svc-link" href="#consult">Family office accounting<svg aria-hidden="true"><use href="#ar-i-arrow"/></svg></a>
+        </li>
+        <li class="ar-svc-item">
+          <span class="ar-svc-num">06</span>
+          <h3>Philanthropy</h3>
+          <p>Structuring charitable giving so that it is effective and properly documented: Gift Aid, gifts of shares and land, charitable trusts and foundations, and legacies. Leaving at least 10% of a net estate to charity can reduce the Inheritance Tax rate on the rest of the estate from 40% to 36%.</p>
+          <ul class="ar-svc-points"><li>Gift Aid and gifts of assets</li><li>Charitable trusts and foundations</li><li>Legacy planning</li></ul>
+          <a class="ar-svc-link" href="#consult">Philanthropy<svg aria-hidden="true"><use href="#ar-i-arrow"/></svg></a>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ===== APPROACH ===== -->
+  <section class="ar-appr ar-sec" id="approach" aria-labelledby="ar-appr-h">
+    <div class="ar-wrap ar-appr-grid" data-pin>
+      <div class="ar-appr-intro">
+        <p class="ar-eyebrow">Our approach</p>
+        <h2 class="ar-h2" id="ar-appr-h">A small firm, by choice.</h2>
+        <p>Holborn &amp; Vane was established in Mayfair to give private clients the attention that can be hard to find in larger practices. We take on a handful of new families each year, most of them introduced by their solicitors, private banks or existing clients.</p>
+        <figure class="ar-appr-fig">
+          <img src="https://images.pexels.com/photos/23496880/pexels-photo-23496880.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1100&amp;h=733&amp;fit=crop" srcset="https://images.pexels.com/photos/23496880/pexels-photo-23496880.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=700&amp;h=467&amp;fit=crop 700w, https://images.pexels.com/photos/23496880/pexels-photo-23496880.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1100&amp;h=733&amp;fit=crop 1100w" sizes="(min-width:1200px) 560px, (min-width:1024px) 42vw, 92vw" width="1100" height="733" loading="lazy" decoding="async" alt="A black front door beneath a fanlight in a brick Georgian terrace">
+          <figcaption>Meetings by appointment in Mayfair, by video, or at your home.</figcaption>
+        </figure>
+      </div>
+      <ol class="ar-appr-list">
+        <li><span class="ar-appr-n">i.</span><h3>A partner on every matter</h3><p>Your affairs are handled by a partner from the first meeting onwards, supported by a small, consistent team. You will not be passed between departments.</p></li>
+        <li><span class="ar-appr-n">ii.</span><h3>Mostly by referral</h3><p>We grow slowly, and largely through introductions. It keeps our client list manageable and our attention where it should be.</p></li>
+        <li><span class="ar-appr-n">iii.</span><h3>Discretion as standard</h3><p>Documents are exchanged through a secure portal rather than email, and information is shared only with the people you nominate.</p></li>
+        <li><span class="ar-appr-n">iv.</span><h3>Alongside your other advisers</h3><p>We work with your solicitors, private bankers and investment managers, so that tax advice fits the wider plan rather than sitting beside it.</p></li>
+        <li><span class="ar-appr-n">v.</span><h3>Clear about cost and risk</h3><p>Fees are agreed in writing before work begins. Where planning carries risk, or depends on legislation that may change, we say so plainly.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ===== THREE GENERATIONS ===== -->
+  <section class="ar-gen ar-sec" id="planning" aria-labelledby="ar-gen-h">
+    <div class="ar-wrap">
+      <div class="ar-gen-head">
+        <p class="ar-eyebrow">Planning across generations</p>
+        <h2 class="ar-h2" id="ar-gen-h">Most family plans span three generations. So does our advice.</h2>
+        <p class="ar-lede">Every family is different, but the questions tend to follow a familiar pattern. This is how our work with a family usually develops over time.</p>
+      </div>
+      <ol class="ar-gen-line">
+        <li class="ar-gen-step">
+          <span class="ar-gen-dot" aria-hidden="true"></span>
+          <p class="ar-gen-kicker">First generation</p>
+          <h3>Building and protecting</h3>
+          <p class="ar-gen-who">Founders and parents, often at the height of their working or business lives.</p>
+          <ul>
+            <li>Wills and letters of wishes reviewed with your solicitor</li>
+            <li>Pensions, life cover and Inheritance Tax considered together</li>
+            <li>Business relief and succession for family companies</li>
+            <li>Residence status for internationally mobile families</li>
+          </ul>
+        </li>
+        <li class="ar-gen-step">
+          <span class="ar-gen-dot" aria-hidden="true"></span>
+          <p class="ar-gen-kicker">Second generation</p>
+          <h3>Stewarding and sharing</h3>
+          <p class="ar-gen-who">Adult children taking on responsibility as trustees, directors or beneficiaries.</p>
+          <ul>
+            <li>Family investment companies and trusts</li>
+            <li>Property purchases and gifts between generations</li>
+            <li>Acting as an executor or trustee</li>
+            <li>Family meetings and a written family charter</li>
+          </ul>
+        </li>
+        <li class="ar-gen-step">
+          <span class="ar-gen-dot" aria-hidden="true"></span>
+          <p class="ar-gen-kicker">Third generation</p>
+          <h3>Preparing to inherit</h3>
+          <p class="ar-gen-who">Grandchildren, often still at school or university.</p>
+          <ul>
+            <li>Education funding through trusts or regular gifts from income</li>
+            <li>Junior ISAs and bare trusts</li>
+            <li>Explaining the family&rsquo;s affairs at the right age</li>
+            <li>First homes and early careers</li>
+          </ul>
+        </li>
+      </ol>
+      <p class="ar-gen-note">Tax rules change, and what suits one family may not suit another. We review plans as legislation and circumstances change, and cannot promise any particular outcome.</p>
+    </div>
+  </section>
+
+  <!-- ===== INSIGHTS ===== -->
+  <section class="ar-ins ar-sec" id="insights" aria-labelledby="ar-ins-h">
+    <div class="ar-wrap">
+      <div class="ar-ins-head">
+        <div>
+          <p class="ar-eyebrow">Insights</p>
+          <h2 class="ar-h2" id="ar-ins-h">Notes for clients and their advisers.</h2>
+          <p class="ar-lede">General commentary on recent changes. It is not advice on your circumstances, and the position may have moved on since publication.</p>
+        </div>
+        <a class="ar-ins-all" href="#insights"><span>All insights</span><svg aria-hidden="true"><use href="#ar-i-arrow"/></svg></a>
+      </div>
+      <div class="ar-ins-grid">
+        <article class="ar-ins-card">
+          <a class="ar-ins-link" href="#insights">
+            <div class="ar-ins-img"><img src="https://images.pexels.com/photos/7876150/pexels-photo-7876150.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=900&amp;h=600&amp;fit=crop" srcset="https://images.pexels.com/photos/7876150/pexels-photo-7876150.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=600&amp;h=400&amp;fit=crop 600w, https://images.pexels.com/photos/7876150/pexels-photo-7876150.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=900&amp;h=600&amp;fit=crop 900w" sizes="(min-width:1200px) 430px, (min-width:768px) 52vw, 92vw" width="900" height="600" loading="lazy" decoding="async" alt="Red-brick mansion blocks behind bare winter trees on a London square"></div>
+            <p class="ar-ins-meta"><span>International</span><time datetime="2026-11-04">4 November 2026</time></p>
+            <h3><span>The four-year FIG regime, eighteen months on</span></h3>
+            <p class="ar-ins-ex">What new arrivals have been asking since the remittance basis ended, and the points worth checking before making a first claim.</p>
+            <span class="ar-ins-more">Read the note<svg aria-hidden="true"><use href="#ar-i-arrow"/></svg></span>
+          </a>
+        </article>
+        <article class="ar-ins-card">
+          <a class="ar-ins-link" href="#insights">
+            <div class="ar-ins-img"><img src="https://images.pexels.com/photos/8204963/pexels-photo-8204963.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=900&amp;h=600&amp;fit=crop" srcset="https://images.pexels.com/photos/8204963/pexels-photo-8204963.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=600&amp;h=400&amp;fit=crop 600w, https://images.pexels.com/photos/8204963/pexels-photo-8204963.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=900&amp;h=600&amp;fit=crop 900w" sizes="(min-width:1200px) 430px, (min-width:768px) 46vw, 92vw" width="900" height="600" loading="lazy" decoding="async" alt="A hand signing a printed document with a pen"></div>
+            <p class="ar-ins-meta"><span>Inheritance Tax</span><time datetime="2026-10-14">14 October 2026</time></p>
+            <h3><span>Pensions and Inheritance Tax from April 2027: a note for executors</span></h3>
+            <p class="ar-ins-ex">How unused pension funds are expected to be brought into the estate, who reports and pays, and the conversations to have with pension schemes now.</p>
+            <span class="ar-ins-more">Read the note<svg aria-hidden="true"><use href="#ar-i-arrow"/></svg></span>
+          </a>
+        </article>
+        <article class="ar-ins-card">
+          <a class="ar-ins-link" href="#insights">
+            <div class="ar-ins-img"><img src="https://images.pexels.com/photos/8112162/pexels-photo-8112162.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=900&amp;h=600&amp;fit=crop" srcset="https://images.pexels.com/photos/8112162/pexels-photo-8112162.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=600&amp;h=400&amp;fit=crop 600w, https://images.pexels.com/photos/8112162/pexels-photo-8112162.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=900&amp;h=600&amp;fit=crop 900w" sizes="(min-width:1200px) 430px, (min-width:768px) 46vw, 92vw" width="900" height="600" loading="lazy" decoding="async" alt="Tall wooden bookshelves in a quiet panelled reading room"></div>
+            <p class="ar-ins-meta"><span>Family wealth</span><time datetime="2026-09-22">22 September 2026</time></p>
+            <h3><span>Family investment companies: when they help, and when they don&rsquo;t</span></h3>
+            <p class="ar-ins-ex">A plain comparison with trusts for passing on wealth, including the running costs and governance that families sometimes overlook.</p>
+            <span class="ar-ins-more">Read the note<svg aria-hidden="true"><use href="#ar-i-arrow"/></svg></span>
+          </a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PARTNERS ===== -->
+  <section class="ar-ptn ar-sec" id="partners" aria-labelledby="ar-ptn-h">
+    <div class="ar-wrap">
+      <div class="ar-ptn-head">
+        <p class="ar-eyebrow">Partners</p>
+        <h2 class="ar-h2" id="ar-ptn-h">Each client relationship is led by one of four partners.</h2>
+        <p class="ar-lede">Between them they cover the full range of our work, and they consult one another on every significant piece of advice.</p>
+      </div>
+      <ul class="ar-ptn-grid">
+        <li class="ar-ptn-card">
+          <div class="ar-ptn-photo">
+            <img src="https://images.pexels.com/photos/8068817/pexels-photo-8068817.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=600&amp;h=750&amp;fit=crop" width="600" height="750" loading="lazy" decoding="async" alt="Portrait of Edmund Vane">
+          </div>
+          <h3>Edmund Vane <span class="ar-ptn-post">CTA FCA</span></h3>
+          <p class="ar-ptn-role">Senior Partner</p>
+          <p class="ar-ptn-focus">Succession, trusts and family businesses</p>
+          <button class="ar-ptn-toggle" type="button" aria-expanded="false" aria-controls="ar-bio-1"><svg aria-hidden="true"><use href="#ar-i-plus"/></svg><span>About Edmund</span></button>
+          <p class="ar-ptn-bio" id="ar-bio-1">Edmund co-founded the firm after twenty years advising business-owning and landed families. He leads our succession work and chairs the firm&rsquo;s technical committee.</p>
+        </li>
+        <li class="ar-ptn-card">
+          <div class="ar-ptn-photo">
+            <img src="https://images.pexels.com/photos/8112165/pexels-photo-8112165.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=600&amp;h=750&amp;fit=crop" width="600" height="750" loading="lazy" decoding="async" alt="Portrait of Helena Marsh">
+          </div>
+          <h3>Helena Marsh <span class="ar-ptn-post">CTA</span></h3>
+          <p class="ar-ptn-role">Partner</p>
+          <p class="ar-ptn-focus">International clients and residence</p>
+          <button class="ar-ptn-toggle" type="button" aria-expanded="false" aria-controls="ar-bio-2"><svg aria-hidden="true"><use href="#ar-i-plus"/></svg><span>About Helena</span></button>
+          <p class="ar-ptn-bio" id="ar-bio-2">Helena advises families moving to and from the UK, and the trustees of non-UK structures, with a particular focus on the residence-based rules introduced in 2025.</p>
+        </li>
+        <li class="ar-ptn-card">
+          <div class="ar-ptn-photo">
+            <img src="https://images.pexels.com/photos/36765719/pexels-photo-36765719.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=600&amp;h=750&amp;fit=crop" width="600" height="750" loading="lazy" decoding="async" alt="Portrait of Thomas Ambrose">
+          </div>
+          <h3>Thomas Ambrose <span class="ar-ptn-post">FCA</span></h3>
+          <p class="ar-ptn-role">Partner</p>
+          <p class="ar-ptn-focus">Family office and property</p>
+          <button class="ar-ptn-toggle" type="button" aria-expanded="false" aria-controls="ar-bio-3"><svg aria-hidden="true"><use href="#ar-i-plus"/></svg><span>About Thomas</span></button>
+          <p class="ar-ptn-bio" id="ar-bio-3">Thomas leads our family office team, overseeing consolidated reporting, property portfolios and the accounts of family investment companies.</p>
+        </li>
+        <li class="ar-ptn-card">
+          <div class="ar-ptn-photo">
+            <img src="https://images.pexels.com/photos/8068654/pexels-photo-8068654.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=600&amp;h=750&amp;fit=crop" width="600" height="750" loading="lazy" decoding="async" alt="Portrait of Clara Whitlock">
+          </div>
+          <h3>Clara Whitlock <span class="ar-ptn-post">CTA TEP</span></h3>
+          <p class="ar-ptn-role">Partner</p>
+          <p class="ar-ptn-focus">Trusts, estates and philanthropy</p>
+          <button class="ar-ptn-toggle" type="button" aria-expanded="false" aria-controls="ar-bio-4"><svg aria-hidden="true"><use href="#ar-i-plus"/></svg><span>About Clara</span></button>
+          <p class="ar-ptn-bio" id="ar-bio-4">Clara works with trustees and executors, and with families setting up charitable trusts and foundations or planning legacies.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section class="ar-faq ar-sec" id="faq" aria-labelledby="ar-faq-h">
+    <div class="ar-wrap ar-faq-grid" data-pin>
+      <div class="ar-faq-intro">
+        <p class="ar-eyebrow">Questions</p>
+        <h2 class="ar-h2" id="ar-faq-h">Questions clients often ask.</h2>
+        <p class="ar-lede">If your question is not answered here, a partner will be glad to talk it through.</p>
+        <div class="ar-chips" role="group" aria-label="Filter questions by topic">
+          <button class="ar-chip" type="button" data-filter="all" aria-pressed="true">All</button>
+          <button class="ar-chip" type="button" data-filter="working" aria-pressed="false">Working with us</button>
+          <button class="ar-chip" type="button" data-filter="fees" aria-pressed="false">Fees</button>
+          <button class="ar-chip" type="button" data-filter="intl" aria-pressed="false">International</button>
+          <button class="ar-chip" type="button" data-filter="reg" aria-pressed="false">Regulation</button>
+        </div>
+        <div class="ar-faq-ask">
+          <p>Call us on <a href="tel:+442079460418">020 7946 0418</a> or write to <a href="mailto:enquiries@example.com">enquiries@example.com</a></p>
+        </div>
+      </div>
+      <ul class="ar-faq-list">
+        <li class="ar-faq-item" data-cat="working">
+          <h3 class="ar-faq-q"><button class="ar-faq-btn" type="button" aria-expanded="false" aria-controls="ar-fa-1" id="ar-fq-1">Do you only accept referred clients?<span class="ar-faq-ico" aria-hidden="true"></span></button></h3>
+          <div class="ar-faq-a" id="ar-fa-1" role="region" aria-labelledby="ar-fq-1" hidden><p>No, although most new clients are introduced by their solicitors, private banks or existing clients. If you contact us directly, we will arrange a first conversation in exactly the same way.</p></div>
+        </li>
+        <li class="ar-faq-item" data-cat="working">
+          <h3 class="ar-faq-q"><button class="ar-faq-btn" type="button" aria-expanded="false" aria-controls="ar-fa-2" id="ar-fq-2">What happens at a first consultation?<span class="ar-faq-ico" aria-hidden="true"></span></button></h3>
+          <div class="ar-faq-a" id="ar-fa-2" role="region" aria-labelledby="ar-fq-2" hidden><p>You meet a partner for around an hour, at our office, by video or at your home. We listen, ask questions and tell you plainly whether we think we can help. There is no charge for this first meeting and no obligation afterwards.</p></div>
+        </li>
+        <li class="ar-faq-item" data-cat="fees">
+          <h3 class="ar-faq-q"><button class="ar-faq-btn" type="button" aria-expanded="false" aria-controls="ar-fa-3" id="ar-fq-3">How are your fees set?<span class="ar-faq-ico" aria-hidden="true"></span></button></h3>
+          <div class="ar-faq-a" id="ar-fa-3" role="region" aria-labelledby="ar-fq-3" hidden><p>Most work is quoted as a fixed fee and confirmed in an engagement letter before we begin. Ongoing compliance is usually billed quarterly. Where the scope is uncertain, we agree an estimate and tell you promptly if it is likely to change.</p></div>
+        </li>
+        <li class="ar-faq-item" data-cat="working">
+          <h3 class="ar-faq-q"><button class="ar-faq-btn" type="button" aria-expanded="false" aria-controls="ar-fa-4" id="ar-fq-4">Can you guarantee a particular tax outcome?<span class="ar-faq-ico" aria-hidden="true"></span></button></h3>
+          <div class="ar-faq-a" id="ar-fa-4" role="region" aria-labelledby="ar-fq-4" hidden><p>No. Outcomes depend on your circumstances, on how HMRC applies the rules and on future changes to legislation. We explain the options, the risks and what each one depends on, so that you can make an informed decision.</p></div>
+        </li>
+        <li class="ar-faq-item" data-cat="intl">
+          <h3 class="ar-faq-q"><button class="ar-faq-btn" type="button" aria-expanded="false" aria-controls="ar-fa-5" id="ar-fq-5">I am moving to the UK. When should we speak?<span class="ar-faq-ico" aria-hidden="true"></span></button></h3>
+          <div class="ar-faq-a" id="ar-fa-5" role="region" aria-labelledby="ar-fq-5" hidden><p>Ideally several months before you arrive. Whether you are eligible for the four-year foreign income and gains regime, and how existing trusts or companies will be treated, can depend on steps taken before you become UK resident.</p></div>
+        </li>
+        <li class="ar-faq-item" data-cat="intl">
+          <h3 class="ar-faq-q"><button class="ar-faq-btn" type="button" aria-expanded="false" aria-controls="ar-fa-6" id="ar-fq-6">We are leaving the UK. What should we consider?<span class="ar-faq-ico" aria-hidden="true"></span></button></h3>
+          <div class="ar-faq-a" id="ar-fa-6" role="region" aria-labelledby="ar-fq-6" hidden><p>Your position under the Statutory Residence Test, the timing of any disposals, and how long Inheritance Tax exposure may continue after you leave under the long-term residence rules. We can also coordinate with advisers in your new country.</p></div>
+        </li>
+        <li class="ar-faq-item" data-cat="working">
+          <h3 class="ar-faq-q"><button class="ar-faq-btn" type="button" aria-expanded="false" aria-controls="ar-fa-7" id="ar-fq-7">Will you work with our existing advisers?<span class="ar-faq-ico" aria-hidden="true"></span></button></h3>
+          <div class="ar-faq-a" id="ar-fa-7" role="region" aria-labelledby="ar-fq-7" hidden><p>Yes. Much of our work is done alongside solicitors, private banks and investment managers. With your permission we share information with them directly, so you are not left relaying messages.</p></div>
+        </li>
+        <li class="ar-faq-item" data-cat="reg">
+          <h3 class="ar-faq-q"><button class="ar-faq-btn" type="button" aria-expanded="false" aria-controls="ar-fa-8" id="ar-fq-8">Who regulates the firm?<span class="ar-faq-ico" aria-hidden="true"></span></button></h3>
+          <!-- PLACEHOLDER: professional body and supervisor wording to be confirmed by the firm before publication. -->
+          <div class="ar-faq-a" id="ar-fa-8" role="region" aria-labelledby="ar-fq-8" hidden><p>We are a member firm of the Institute of Chartered Accountants in England and Wales (ICAEW), which also supervises us for anti-money laundering purposes. Our tax partners are Chartered Tax Advisers. Details of our professional indemnity insurance are available on request.</p></div>
+        </li>
+        <li class="ar-faq-item" data-cat="reg">
+          <h3 class="ar-faq-q"><button class="ar-faq-btn" type="button" aria-expanded="false" aria-controls="ar-fa-9" id="ar-fq-9">How do you keep our affairs confidential?<span class="ar-faq-ico" aria-hidden="true"></span></button></h3>
+          <div class="ar-faq-a" id="ar-fa-9" role="region" aria-labelledby="ar-fq-9" hidden><p>Information is shared only with people you authorise. We use a secure client portal rather than email for documents, and everyone at the firm is bound by confidentiality obligations and our professional body&rsquo;s code of ethics.</p></div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===== CONSULTATION ===== -->
+  <section class="ar-cons ar-sec" id="consult" aria-labelledby="ar-cons-h">
+    <div class="ar-wrap ar-cons-grid" data-pin>
+      <div class="ar-cons-intro">
+        <p class="ar-eyebrow">Private consultation</p>
+        <h2 class="ar-h2" id="ar-cons-h">Arrange a private consultation.</h2>
+        <p>Tell us briefly what you would like to discuss. A partner&rsquo;s assistant will contact you, usually within one working day, to arrange a time. Please do not include detailed financial information here.</p>
+        <ol class="ar-cons-steps">
+          <li>We call or email to find a time that suits you.</li>
+          <li>You meet a partner, in person or by video, without charge.</li>
+          <li>If we can help, we send an engagement letter setting out the scope and fee.</li>
+        </ol>
+        <p class="ar-cons-direct">Or call <a href="tel:+442079460418">020 7946 0418</a>, Monday to Friday, 9am to 6pm.</p>
+      </div>
+      <div class="ar-form-box" id="ar-form-box">
+        <form class="ar-form" id="ar-form" novalidate>
+          <div class="ar-field">
+            <label for="ar-f-name">Full name</label>
+            <input class="ar-input" id="ar-f-name" name="name" type="text" autocomplete="name" required aria-describedby="ar-e-name">
+            <span class="ar-err" id="ar-e-name" hidden>Please enter your name.</span>
+          </div>
+          <div class="ar-field">
+            <label for="ar-f-email">Email address</label>
+            <input class="ar-input" id="ar-f-email" name="email" type="email" autocomplete="email" required aria-describedby="ar-e-email">
+            <span class="ar-err" id="ar-e-email" hidden>Please enter a valid email address.</span>
+          </div>
+          <div class="ar-field">
+            <label for="ar-f-tel">Telephone <span class="ar-opt">(optional)</span></label>
+            <input class="ar-input" id="ar-f-tel" name="tel" type="tel" autocomplete="tel">
+          </div>
+          <div class="ar-field">
+            <label for="ar-f-pref">Preferred contact</label>
+            <select class="ar-select" id="ar-f-pref" name="pref">
+              <option>Email</option>
+              <option>Telephone</option>
+            </select>
+          </div>
+          <div class="ar-field">
+            <label for="ar-f-area">Area of interest</label>
+            <select class="ar-select" id="ar-f-area" name="area" required aria-describedby="ar-e-area">
+              <option value="">Please choose</option>
+              <option>Inheritance Tax and succession</option>
+              <option>Trusts and estates</option>
+              <option>International clients and residence</option>
+              <option>Capital Gains Tax and property</option>
+              <option>Family office accounting</option>
+              <option>Philanthropy</option>
+              <option>Not sure yet</option>
+            </select>
+            <span class="ar-err" id="ar-e-area" hidden>Please choose an area, or &lsquo;Not sure yet&rsquo;.</span>
+          </div>
+          <div class="ar-field">
+            <label for="ar-f-src">Introduced by <span class="ar-opt">(optional)</span></label>
+            <select class="ar-select" id="ar-f-src" name="source">
+              <option value="">Please choose</option>
+              <option>My solicitor</option>
+              <option>My private bank or wealth manager</option>
+              <option>An existing client</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="ar-field ar-field--full">
+            <label for="ar-f-msg">How can we help? <span class="ar-opt">(optional)</span></label>
+            <textarea class="ar-textarea" id="ar-f-msg" name="message" rows="4" aria-describedby="ar-h-msg"></textarea>
+            <span class="ar-hint" id="ar-h-msg">A few lines is plenty. Please leave out account numbers and other sensitive details.</span>
+          </div>
+          <div class="ar-field ar-check-wrap">
+            <label class="ar-check" for="ar-f-ok"><input id="ar-f-ok" name="consent" type="checkbox" required aria-describedby="ar-e-ok"><span>I agree to Holborn &amp; Vane holding these details to respond to my enquiry, as described in the <a href="#ar-foot">privacy notice</a>.</span></label>
+            <span class="ar-err" id="ar-e-ok" hidden>Please confirm so that we can reply to you.</span>
+          </div>
+          <div class="ar-form-foot">
+            <button class="ar-btn-gold" type="submit">Request a consultation<svg aria-hidden="true"><use href="#ar-i-arrow"/></svg></button>
+            <p>Sending this form does not create a client relationship or an engagement.</p>
+          </div>
+        </form>
+        <div class="ar-form-done" id="ar-form-done" role="status" tabindex="-1" hidden>
+          <p class="ar-eyebrow">Request received</p>
+          <h3 id="ar-done-h">Thank you.</h3>
+          <p>A partner&rsquo;s assistant will be in touch, usually within one working day, to arrange a convenient time.</p>
+          <p class="ar-demo">This is a demonstration page: no information has been sent.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ===== FOOTER: guilloche band ===== -->
+<footer class="ar-ft" id="ar-foot">
+  <div class="ar-wrap">
+    <div class="ar-ft-band">
+      <svg class="ar-gl-strip" aria-hidden="true" focusable="false"><defs><pattern id="ar-gl-tile" width="240" height="44" patternUnits="userSpaceOnUse"><g class="ar-gl-tile-g" fill="none" stroke="currentColor"></g></pattern></defs><rect width="100%" height="44" fill="url(#ar-gl-tile)"/></svg>
+      <div class="ar-ft-seal">
+        <address class="ar-ft-office ar-ft-office--l">
+          <span class="ar-ft-kicker">Principal office</span>
+          <h3>Mayfair</h3>
+          18 Carrick Mews<br>Mayfair, London W1J 6AA<br>
+          <a href="tel:+442079460418">020 7946 0418</a>
+          <span class="ar-ft-hours">Monday to Friday, 9am to 6pm</span>
+        </address>
+        <div class="ar-ft-rosette"><svg class="ar-gl-rose" viewBox="-160 -160 320 320" aria-hidden="true" focusable="false"></svg></div>
+        <address class="ar-ft-office ar-ft-office--r">
+          <span class="ar-ft-kicker">Meeting rooms</span>
+          <h3>Kensington</h3>
+          4 Pelham Yard<br>Kensington, London SW7 2NN<br>
+          <a href="tel:+442079460436">020 7946 0436</a>
+          <span class="ar-ft-hours">By appointment only</span>
+        </address>
+      </div>
+      <svg class="ar-gl-strip" aria-hidden="true" focusable="false"><rect width="100%" height="44" fill="url(#ar-gl-tile)"/></svg>
+    </div>
+
+    <div class="ar-ft-cols">
+      <div class="ar-ft-col">
+        <h3><button class="ar-ft-toggle" type="button" aria-expanded="false" aria-controls="ar-ftl-1">Services<svg aria-hidden="true"><use href="#ar-i-chev"/></svg></button></h3>
+        <ul class="ar-ft-list" id="ar-ftl-1">
+          <li><a href="#services">Inheritance Tax and succession</a></li>
+          <li><a href="#services">Trusts and estates</a></li>
+          <li><a href="#services">International and residence</a></li>
+          <li><a href="#services">Capital Gains Tax and property</a></li>
+          <li><a href="#services">Family office accounting</a></li>
+          <li><a href="#services">Philanthropy</a></li>
+        </ul>
+      </div>
+      <div class="ar-ft-col">
+        <h3><button class="ar-ft-toggle" type="button" aria-expanded="false" aria-controls="ar-ftl-2">The firm<svg aria-hidden="true"><use href="#ar-i-chev"/></svg></button></h3>
+        <ul class="ar-ft-list" id="ar-ftl-2">
+          <li><a href="#approach">Our approach</a></li>
+          <li><a href="#partners">Partners</a></li>
+          <li><a href="#insights">Insights</a></li>
+          <li><a href="#ar-foot">Careers</a></li>
+          <li><a href="#consult">Contact</a></li>
+        </ul>
+      </div>
+      <div class="ar-ft-col">
+        <h3><button class="ar-ft-toggle" type="button" aria-expanded="false" aria-controls="ar-ftl-3">Clients<svg aria-hidden="true"><use href="#ar-i-chev"/></svg></button></h3>
+        <ul class="ar-ft-list" id="ar-ftl-3">
+          <li><a href="#ar-foot">Client portal</a></li>
+          <li><a href="#ar-foot">Secure document upload</a></li>
+          <li><a href="#ar-foot">For referring advisers</a></li>
+          <li><a href="#consult">Arrange a consultation</a></li>
+        </ul>
+      </div>
+      <div class="ar-ft-col">
+        <h3><button class="ar-ft-toggle" type="button" aria-expanded="false" aria-controls="ar-ftl-4">Legal<svg aria-hidden="true"><use href="#ar-i-chev"/></svg></button></h3>
+        <ul class="ar-ft-list" id="ar-ftl-4">
+          <li><a href="#ar-foot">Privacy notice</a></li>
+          <li><a href="#ar-foot">Cookie policy</a></li>
+          <li><a href="#ar-foot">Terms of use</a></li>
+          <li><a href="#ar-foot">Engagement letter terms</a></li>
+          <li><a href="#ar-foot">Complaints procedure</a></li>
+          <li><a href="#ar-foot">Accessibility</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ar-ft-reg">
+      <!-- PLACEHOLDER: professional body statement. Confirm ICAEW firm membership and CTA status of named individuals before publication. -->
+      <p><strong>Professional body.</strong> Holborn &amp; Vane Private Client LLP is a member firm of the Institute of Chartered Accountants in England and Wales (ICAEW). Partners described as CTA are Chartered Tax Advisers and members of the Chartered Institute of Taxation.</p>
+      <p><strong>Anti-money laundering.</strong> We are supervised for anti-money laundering purposes by ICAEW. We are required to verify the identity of new clients and the source of funds before accepting instructions.</p>
+      <p><strong>Professional indemnity insurance.</strong> We hold professional indemnity insurance in line with ICAEW requirements. Details of our insurer and the territorial coverage are available on request.</p>
+      <p><strong>Complaints.</strong> If you are unhappy with our service, please contact our Complaints Partner first, using the details in our <a href="#ar-foot">complaints procedure</a>. If we cannot resolve the matter, you may refer your complaint to ICAEW.</p>
+      <!-- PLACEHOLDER: partnership number, registered office and VAT number to be supplied by the firm. -->
+      <p><strong>Registered details.</strong> Holborn &amp; Vane Private Client LLP is a limited liability partnership registered in England and Wales, number OC000000. Registered office: 18 Carrick Mews, London W1J 6AA. VAT registration number GB 000 0000 00. A list of members is available at the registered office.</p>
+      <p><strong>Important.</strong> Content on this website is general information, not advice on your circumstances. Tax rules change and their effect depends on individual facts; please take advice before acting.</p>
+    </div>
+
+    <div class="ar-ft-base">
+      <p>&copy; 2026 Holborn &amp; Vane Private Client LLP</p>
+      <button class="ar-totop" type="button" aria-label="Back to top"><svg aria-hidden="true"><use href="#ar-i-up"/></svg></button>
+    </div>
+  </div>
+</footer>
+
+<div class="ar-mbar" id="ar-mbar" role="region" aria-label="Quick contact">
+  <a class="ar-btn-line" href="tel:+442079460418"><svg aria-hidden="true"><use href="#ar-i-phone"/></svg>Call</a>
+  <a class="ar-btn-gold" href="#consult">Private consultation</a>
+</div>
+
+<script>
+(function(){
+  'use strict';
+  var $ = function(s, c){ return (c || document).querySelector(s); };
+  var $$ = function(s, c){ return Array.prototype.slice.call((c || document).querySelectorAll(s)); };
+  var mqMobile = matchMedia('(max-width:767px)');
+  var mqDesk = matchMedia('(min-width:1200px)');
+  var mqPin = matchMedia('(min-width:1024px)');
+
+  /* header state */
+  var hdr = $('#ar-hdr');
+  function onScroll(){ hdr.classList.toggle('is-solid', window.scrollY > 24); }
+  addEventListener('scroll', onScroll, { passive: true }); onScroll();
+
+  /* current section in nav */
+  var navLinks = $$('.ar-nav a');
+  if ('IntersectionObserver' in window){
+    var navIO = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting){
+          navLinks.forEach(function(a){ a.classList.toggle('is-current', a.getAttribute('href') === '#' + e.target.id); });
+        }
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    ['services','approach','planning','insights','partners','faq','consult'].forEach(function(id){ var el = document.getElementById(id); if (el) navIO.observe(el); });
+  }
+
+  /* full-screen menu */
+  var menu = $('#ar-menu'), burger = $('.ar-burger'), closeBtn = $('.ar-menu-close');
+  var menuOpen = false;
+  function focusables(){ return $$('a[href],button:not([disabled])', menu).filter(function(el){ return el.offsetParent !== null; }); }
+  function openMenu(){
+    menu.hidden = false; menuOpen = true;
+    requestAnimationFrame(function(){ menu.classList.add('is-open'); });
+    burger.setAttribute('aria-expanded', 'true');
+    document.documentElement.classList.add('ar-locked');
+    closeBtn.focus();
+    updateBar();
+  }
+  function closeMenu(returnFocus){
+    if (!menuOpen) return;
+    menu.classList.remove('is-open'); menu.hidden = true; menuOpen = false;
+    burger.setAttribute('aria-expanded', 'false');
+    document.documentElement.classList.remove('ar-locked');
+    if (returnFocus !== false) burger.focus();
+    updateBar();
+  }
+  burger.addEventListener('click', openMenu);
+  closeBtn.addEventListener('click', function(){ closeMenu(); });
+  $$('[data-close]', menu).forEach(function(a){ a.addEventListener('click', function(){ closeMenu(false); }); });
+  menu.addEventListener('keydown', function(e){
+    if (e.key === 'Escape'){ closeMenu(); return; }
+    if (e.key !== 'Tab') return;
+    var f = focusables(); if (!f.length) return;
+    var first = f[0], last = f[f.length - 1];
+    if (e.shiftKey && document.activeElement === first){ e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last){ e.preventDefault(); first.focus(); }
+  });
+  mqDesk.addEventListener('change', function(e){ if (e.matches) closeMenu(false); });
+
+  /* pin the shorter column of big two-column sections */
+  var pinRows = $$('[data-pin]');
+  function pinShorter(){
+    pinRows.forEach(function(row){
+      var cols = Array.prototype.slice.call(row.children);
+      cols.forEach(function(c){ c.classList.remove('ar-pinned'); });
+      if (!mqPin.matches || cols.length !== 2) { row.removeAttribute('data-pinned'); return; }
+      var a = cols[0].offsetHeight, b = cols[1].offsetHeight;
+      var shorter = a <= b ? cols[0] : cols[1];
+      shorter.classList.add('ar-pinned');
+      row.setAttribute('data-pinned', (a <= b ? 'first' : 'second') + ':' + a + '/' + b);
+    });
+  }
+  var pinT;
+  function schedulePin(){ clearTimeout(pinT); pinT = setTimeout(pinShorter, 120); }
+  addEventListener('resize', schedulePin);
+  addEventListener('load', pinShorter);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(pinShorter);
+  pinShorter();
+
+  /* FAQ accordion + topic filter */
+  $$('.ar-faq-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var open = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!open));
+      document.getElementById(btn.getAttribute('aria-controls')).hidden = open;
+      schedulePin();
+    });
+  });
+  var chips = $$('.ar-chip');
+  chips.forEach(function(chip){
+    chip.addEventListener('click', function(){
+      var f = chip.getAttribute('data-filter');
+      chips.forEach(function(c){ c.setAttribute('aria-pressed', String(c === chip)); });
+      $$('.ar-faq-item').forEach(function(it){ it.hidden = !(f === 'all' || it.getAttribute('data-cat') === f); });
+      if (mqMobile.matches) chip.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+      schedulePin();
+    });
+  });
+
+  /* partner profiles: tap/click equivalent of the hover reveal */
+  $$('.ar-ptn-toggle').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var card = btn.closest('.ar-ptn-card');
+      var open = !card.classList.contains('is-open');
+      card.classList.toggle('is-open', open);
+      btn.setAttribute('aria-expanded', String(open));
+    });
+  });
+
+  /* footer link columns become accordions on mobile */
+  var ftToggles = $$('.ar-ft-toggle');
+  function setupFooter(){
+    ftToggles.forEach(function(btn){
+      var col = btn.closest('.ar-ft-col');
+      if (mqMobile.matches){
+        btn.removeAttribute('tabindex'); btn.removeAttribute('aria-hidden');
+        btn.setAttribute('aria-expanded', String(col.classList.contains('is-open')));
+      } else {
+        col.classList.remove('is-open');
+        btn.setAttribute('tabindex', '-1');
+        btn.removeAttribute('aria-expanded');
+      }
+    });
+  }
+  ftToggles.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      if (!mqMobile.matches) return;
+      var col = btn.closest('.ar-ft-col');
+      var open = !col.classList.contains('is-open');
+      col.classList.toggle('is-open', open);
+      btn.setAttribute('aria-expanded', String(open));
+    });
+  });
+  mqMobile.addEventListener('change', setupFooter); setupFooter();
+
+  /* mobile action bar: hide over footer, main form, or open menu */
+  var bar = $('#ar-mbar'), footVis = false, formVis = false;
+  function updateBar(){
+    var hide = footVis || formVis || menuOpen;
+    bar.classList.toggle('is-hidden', hide);
+    if (hide){ bar.setAttribute('aria-hidden', 'true'); bar.setAttribute('inert', ''); }
+    else { bar.removeAttribute('aria-hidden'); bar.removeAttribute('inert'); }
+  }
+  if ('IntersectionObserver' in window){
+    var barIO = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.target.id === 'ar-foot') footVis = e.isIntersecting;
+        else formVis = e.isIntersecting;
+      });
+      updateBar();
+    }, { threshold: 0 });
+    barIO.observe($('#ar-foot'));
+    barIO.observe($('#ar-form-box'));
+  }
+
+  /* back to top */
+  $('.ar-totop').addEventListener('click', function(){
+    var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
+    var logo = $('.ar-logo'); setTimeout(function(){ logo.focus({ preventScroll: true }); }, reduce ? 0 : 600);
+  });
+
+  /* simulated consultation form */
+  var form = $('#ar-form');
+  function setErr(id, bad){
+    var input = document.getElementById(id), field = input.closest('.ar-field');
+    var err = document.getElementById(input.getAttribute('aria-describedby'));
+    field.classList.toggle('is-bad', bad);
+    input.setAttribute('aria-invalid', String(bad));
+    if (err) err.hidden = !bad;
+    return bad;
+  }
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var name = $('#ar-f-name').value.trim();
+    var email = $('#ar-f-email').value.trim();
+    var bad = [];
+    if (setErr('ar-f-name', !name)) bad.push('ar-f-name');
+    if (setErr('ar-f-email', !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email))) bad.push('ar-f-email');
+    if (setErr('ar-f-area', !$('#ar-f-area').value)) bad.push('ar-f-area');
+    if (setErr('ar-f-ok', !$('#ar-f-ok').checked)) bad.push('ar-f-ok');
+    if (bad.length){ document.getElementById(bad[0]).focus(); schedulePin(); return; }
+    var first = name.split(/\s+/)[0];
+    $('#ar-done-h').textContent = 'Thank you, ' + first + '.';
+    form.hidden = true;
+    var done = $('#ar-form-done'); done.hidden = false; done.focus();
+    schedulePin();
+  });
+  ['ar-f-name','ar-f-email','ar-f-area','ar-f-ok'].forEach(function(id){
+    var el = document.getElementById(id);
+    el.addEventListener('change', function(){ if (el.closest('.ar-field').classList.contains('is-bad')){ setErr(id, el.type === 'checkbox' ? !el.checked : !el.value.trim()); } });
+  });
+
+  /* guilloche: procedurally drawn rosette and border tile (decoration only) */
+  var NS = 'http://www.w3.org/2000/svg';
+  function mkPath(parent, d, opacity, width){
+    var p = document.createElementNS(NS, 'path');
+    p.setAttribute('d', d);
+    if (opacity != null) p.setAttribute('stroke-opacity', opacity);
+    if (width) p.setAttribute('stroke-width', width);
+    parent.appendChild(p);
+  }
+  function polar(fn, steps){
+    var d = '';
+    for (var i = 0; i <= steps; i++){
+      var t = i / steps * Math.PI * 2, r = fn(t);
+      d += (i ? 'L' : 'M') + (r * Math.cos(t)).toFixed(2) + ' ' + (r * Math.sin(t)).toFixed(2);
+    }
+    return d + 'Z';
+  }
+  var rose = $('.ar-gl-rose');
+  if (rose){
+    var g = document.createElementNS(NS, 'g');
+    g.setAttribute('fill', 'none'); g.setAttribute('stroke', 'currentColor'); g.setAttribute('stroke-width', '.42');
+    var k, ph;
+    /* outer frame circles and fine beading */
+    mkPath(g, polar(function(){ return 156; }, 180), .8, '.7');
+    mkPath(g, polar(function(t){ return 151 + 2.2 * Math.sin(96 * t); }, 1920), .7);
+    mkPath(g, polar(function(){ return 146; }, 180), .6);
+    /* woven outer band */
+    for (k = 0; k < 7; k++){ ph = k / 7 * Math.PI * 2; mkPath(g, polar((function(p){ return function(t){ return 131 + 8 * Math.sin(30 * t + p) + 2 * Math.sin(5 * t - p); }; })(ph), 1440), .8); }
+    mkPath(g, polar(function(){ return 118; }, 180), .55);
+    /* middle petal band */
+    for (k = 0; k < 6; k++){ ph = k / 6 * Math.PI * 2; mkPath(g, polar((function(p){ return function(t){ return 97 + 13 * Math.sin(16 * t + p) * (0.72 + 0.28 * Math.cos(4 * t)); }; })(ph), 1080), .78); }
+    mkPath(g, polar(function(){ return 76; }, 160), .5);
+    /* inner rosette */
+    for (k = 0; k < 6; k++){ ph = k / 6 * Math.PI * 2; mkPath(g, polar((function(p){ return function(t){ return 52 + 15 * Math.sin(10 * t + p); }; })(ph), 720), .8); }
+    /* centre */
+    for (k = 0; k < 5; k++){ ph = k / 5 * Math.PI * 2; mkPath(g, polar((function(p){ return function(t){ return 21 + 8 * Math.sin(7 * t + p); }; })(ph), 480), .85); }
+    mkPath(g, polar(function(){ return 6; }, 60), .8);
+    rose.appendChild(g);
+  }
+  var tile = $('.ar-gl-tile-g');
+  if (tile){
+    tile.setAttribute('stroke-width', '.6');
+    var W = 240, H = 44, mid = H / 2, K = 9, x, d, y, i;
+    for (k = 0; k < K; k++){
+      ph = k / K * Math.PI * 2; d = '';
+      for (i = 0; i <= 240; i++){
+        x = i * W / 240;
+        y = mid + 8.5 * Math.sin(x / W * Math.PI * 2 * 4 + ph) + 6 * Math.sin(x / W * Math.PI * 2 - ph);
+        d += (i ? 'L' : 'M') + x.toFixed(2) + ' ' + y.toFixed(2);
+      }
+      mkPath(tile, d, .55);
+    }
+    mkPath(tile, 'M0 .5H240M0 43.5H240', .5);
+  }
+})();
+</script>
+
+<script type="module">
+/* Hero: a slowly rotating sphere of fine gold particles with two orbital rings.
+   three.js pinned to 0.160.0. Falls back to a static CSS glow if WebGL or the CDN is unavailable. */
+const hero = document.querySelector('.ar-hero');
+const canvas = document.querySelector('.ar-orb-cv');
+const anchor = document.querySelector('.ar-orb-anchor');
+let THREE = null;
+try { THREE = await import('https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.min.js'); }
+catch (e) { hero.classList.add('ar-no-gl'); }
+if (THREE) startOrb();
+
+function rng(seed){ return function(){ seed |= 0; seed = seed + 0x6D2B79F5 | 0; let t = Math.imul(seed ^ seed >>> 15, 1 | seed); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
+
+function startOrb(){
+  const reduceMQ = matchMedia('(prefers-reduced-motion: reduce)');
+  const vw = innerWidth;
+  const isPhone = vw < 768, isTablet = vw >= 768 && vw < 1200;
+  const COUNT = isPhone ? 2600 : isTablet ? 5200 : 8200;
+  const DPR = Math.min(window.devicePixelRatio || 1, isPhone ? 1.25 : isTablet ? 1.5 : 2);
+
+  let renderer;
+  try { renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: false, powerPreference: 'high-performance' }); }
+  catch (e) { hero.classList.add('ar-no-gl'); return; }
+  renderer.setPixelRatio(DPR);
+  renderer.setClearColor(0x000000, 0);
+
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(30, 1, 0.1, 60);
+  camera.position.set(0, 0, 9);
+
+  const root = new THREE.Group();   // layout: position + scale
+  const tilt = new THREE.Group();   // pointer tilt
+  const spin = new THREE.Group();   // slow rotation
+  scene.add(root); root.add(tilt); tilt.add(spin);
+
+  const R = rng(20251106);
+  const golds = [[0.784,0.635,0.29],[0.86,0.73,0.42],[0.66,0.52,0.24],[0.97,0.90,0.72]];
+  const pos = new Float32Array(COUNT * 3), col = new Float32Array(COUNT * 3);
+  const size = new Float32Array(COUNT), seed = new Float32Array(COUNT), alpha = new Float32Array(COUNT);
+  const ARMS = 7;
+  for (let i = 0; i < COUNT; i++){
+    const u = R();
+    let x, y, z, r, a = 1, s;
+    if (u < 0.6){                         // fine shell
+      const zz = R() * 2 - 1, th = R() * Math.PI * 2, q = Math.sqrt(1 - zz * zz);
+      r = 1 + (R() - 0.5) * 0.03; x = q * Math.cos(th) * r; y = zz * r; z = q * Math.sin(th) * r;
+      s = 1.1 + R() * 1.1;
+    } else if (u < 0.82){                 // meridian spirals give the sphere its structure
+      const arm = Math.floor(R() * ARMS), t = R();
+      const polarA = Math.acos(1 - 2 * t), az = arm / ARMS * Math.PI * 2 + t * Math.PI * 2.2;
+      r = 1.002 + (R() - 0.5) * 0.01;
+      x = Math.sin(polarA) * Math.cos(az) * r; y = Math.cos(polarA) * r; z = Math.sin(polarA) * Math.sin(az) * r;
+      s = 1.3 + R() * 1.0; a = 1.15;
+    } else if (u < 0.94){                 // dim inner volume for depth
+      const zz = R() * 2 - 1, th = R() * Math.PI * 2, q = Math.sqrt(1 - zz * zz);
+      r = 0.35 + Math.cbrt(R()) * 0.6; x = q * Math.cos(th) * r; y = zz * r; z = q * Math.sin(th) * r;
+      s = 0.9 + R() * 0.8; a = 0.45;
+    } else {                              // sparse halo dust
+      const zz = R() * 2 - 1, th = R() * Math.PI * 2, q = Math.sqrt(1 - zz * zz);
+      r = 1.06 + Math.pow(R(), 2.2) * 0.75; x = q * Math.cos(th) * r; y = zz * r; z = q * Math.sin(th) * r;
+      s = 0.9 + R() * 1.0; a = 0.5;
+    }
+    const cr = R(); const c = cr < 0.58 ? golds[0] : cr < 0.8 ? golds[1] : cr < 0.95 ? golds[2] : golds[3];
+    if (cr >= 0.95) s += 1.1;
+    pos.set([x, y, z], i * 3); col.set(c, i * 3);
+    size[i] = s; seed[i] = R(); alpha[i] = a;
+  }
+  const geo = new THREE.BufferGeometry();
+  geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+  geo.setAttribute('aColor', new THREE.BufferAttribute(col, 3));
+  geo.setAttribute('aSize', new THREE.BufferAttribute(size, 1));
+  geo.setAttribute('aSeed', new THREE.BufferAttribute(seed, 1));
+  geo.setAttribute('aAlpha', new THREE.BufferAttribute(alpha, 1));
+
+  const shared = { uTime: { value: 0 }, uBreath: { value: 0 }, uPR: { value: DPR }, uSize: { value: 1 } };
+  const pointVert = `
+    uniform float uTime; uniform float uBreath; uniform float uPR; uniform float uSize;
+    attribute vec3 aColor; attribute float aSize; attribute float aSeed; attribute float aAlpha;
+    varying vec3 vColor; varying float vAlpha;
+    void main(){
+      vec3 p = position * (1.0 + uBreath * (0.7 + 0.6 * aSeed) + 0.004 * sin(uTime * 1.1 + aSeed * 40.0));
+      vec4 w = modelMatrix * vec4(p, 1.0);
+      vec3 c = (modelMatrix * vec4(0.0, 0.0, 0.0, 1.0)).xyz;
+      float facing = normalize(w.xyz - c).z;
+      float tw = 0.78 + 0.22 * sin(uTime * (0.5 + aSeed) + aSeed * 31.0);
+      vAlpha = aAlpha * tw * mix(0.16, 1.0, smoothstep(-0.9, 0.7, facing));
+      vColor = aColor;
+      vec4 mv = viewMatrix * w;
+      gl_Position = projectionMatrix * mv;
+      gl_PointSize = aSize * uSize * uPR * (9.0 / -mv.z);
+    }`;
+  const pointFrag = `
+    varying vec3 vColor; varying float vAlpha;
+    void main(){
+      float d = length(gl_PointCoord - 0.5);
+      if (d > 0.5) discard;
+      float a = 1.0 - smoothstep(0.08, 0.5, d);
+      gl_FragColor = vec4(vColor, a * vAlpha);
+    }`;
+  const pointMat = new THREE.ShaderMaterial({ uniforms: shared, vertexShader: pointVert, fragmentShader: pointFrag, transparent: true, depthWrite: false, depthTest: false, blending: THREE.AdditiveBlending });
+  spin.add(new THREE.Points(geo, pointMat));
+
+  // orbital rings: thin lines that dim behind the sphere, each with a small travelling highlight
+  const ringMat = new THREE.ShaderMaterial({
+    uniforms: { uBreath: shared.uBreath, uColor: { value: new THREE.Color(0.82, 0.67, 0.33) } },
+    vertexShader: `uniform float uBreath; varying float vA;
+      void main(){ vec4 w = modelMatrix * vec4(position * (1.0 + uBreath * 0.6), 1.0);
+        vec3 c = (modelMatrix * vec4(0.0,0.0,0.0,1.0)).xyz; float f = normalize(w.xyz - c).z;
+        vA = mix(0.1, 0.7, smoothstep(-0.5, 0.6, f)); gl_Position = projectionMatrix * viewMatrix * w; }`,
+    fragmentShader: `uniform vec3 uColor; varying float vA; void main(){ gl_FragColor = vec4(uColor, vA); }`,
+    transparent: true, depthWrite: false, depthTest: false, blending: THREE.AdditiveBlending
+  });
+  const rings = [];
+  function ring(radius, rx, rz, speed, phase){
+    const g = new THREE.Group(); g.rotation.set(rx, 0, rz); tilt.add(g);
+    const S = 512, rp = new Float32Array(S * 3);
+    for (let i = 0; i < S; i++){ const a = i / S * Math.PI * 2; rp[i * 3] = Math.cos(a) * radius; rp[i * 3 + 1] = Math.sin(a) * radius; }
+    const rg = new THREE.BufferGeometry(); rg.setAttribute('position', new THREE.BufferAttribute(rp, 3));
+    g.add(new THREE.LineLoop(rg, ringMat));
+    const M = 46, cp = new Float32Array(M * 3), cc = new Float32Array(M * 3), cs = new Float32Array(M), cd = new Float32Array(M), ca = new Float32Array(M);
+    for (let i = 0; i < M; i++){
+      const a = -i * 0.0085; cp[i * 3] = Math.cos(a) * radius; cp[i * 3 + 1] = Math.sin(a) * radius;
+      cc.set([0.95, 0.85, 0.6], i * 3); cs[i] = i === 0 ? 4.2 : 2.6 * (1 - i / M) + 0.6; cd[i] = 0.5; ca[i] = Math.pow(1 - i / M, 1.6) * 1.2;
+    }
+    const cg = new THREE.BufferGeometry();
+    cg.setAttribute('position', new THREE.BufferAttribute(cp, 3)); cg.setAttribute('aColor', new THREE.BufferAttribute(cc, 3));
+    cg.setAttribute('aSize', new THREE.BufferAttribute(cs, 1)); cg.setAttribute('aSeed', new THREE.BufferAttribute(cd, 1)); cg.setAttribute('aAlpha', new THREE.BufferAttribute(ca, 1));
+    const comet = new THREE.Points(cg, pointMat); comet.rotation.z = phase; g.add(comet);
+    rings.push({ comet, speed });
+  }
+  ring(1.42, 1.14, 0.4, 0.16, 0.6);
+  ring(1.66, 1.98, -0.6, -0.11, 3.4);
+
+  // soft glow behind the sphere (not tilted)
+  const glowMat = new THREE.ShaderMaterial({
+    uniforms: { uBreath: { value: 0 }, uColor: { value: new THREE.Color(0.78, 0.6, 0.27) } },
+    vertexShader: `varying vec2 vUv; void main(){ vUv = uv; gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0); }`,
+    fragmentShader: `uniform float uBreath; uniform vec3 uColor; varying vec2 vUv;
+      void main(){ float d = length(vUv - 0.5) * 2.0; float g = exp(-d * d * 5.0) * 0.2 + exp(-d * d * 22.0) * 0.14;
+        gl_FragColor = vec4(uColor, g * (0.92 + 0.08 * uBreath)); }`,
+    transparent: true, depthWrite: false, depthTest: false, blending: THREE.AdditiveBlending
+  });
+  const glow = new THREE.Mesh(new THREE.PlaneGeometry(5.6, 5.6), glowMat);
+  glow.renderOrder = -1; root.add(glow);
+
+  // layout: place the orb over the CSS anchor so each breakpoint can recompose the hero
+  let W = 1, H = 1;
+  function layout(){
+    const hr = hero.getBoundingClientRect(), ar = anchor.getBoundingClientRect();
+    W = Math.max(1, hr.width); H = Math.max(1, hr.height);
+    renderer.setSize(W, H, false);
+    camera.aspect = W / H; camera.updateProjectionMatrix();
+    const halfH = Math.tan(THREE.MathUtils.degToRad(camera.fov / 2)) * camera.position.z;
+    const wpp = 2 * halfH / H;
+    const cx = ar.left + ar.width / 2 - hr.left, cy = ar.top + ar.height / 2 - hr.top;
+    root.position.set((cx - W / 2) * wpp, -(cy - H / 2) * wpp, 0);
+    const radiusPx = Math.min(ar.width, ar.height) / 2;
+    const fit = parseFloat(getComputedStyle(anchor).getPropertyValue('--orb-fit')) || 1.7;
+    root.scale.setScalar((radiusPx * wpp) / fit);
+    shared.uSize.value = Math.min(1.35, Math.max(0.85, (radiusPx * 1.7 / fit) / 300));
+  }
+
+  // pointer tilt (fine pointers only)
+  let tx = 0, ty = 0, cx = 0, cy = 0;
+  addEventListener('pointermove', (e) => {
+    if (e.pointerType !== 'mouse' || !running) return;
+    tx = (e.clientX / innerWidth - 0.5) * 2; ty = (e.clientY / innerHeight - 0.5) * 2;
+  }, { passive: true });
+  document.addEventListener('mouseleave', () => { tx = 0; ty = 0; });
+
+  let t = 0, last = 0, raf = 0, running = false, inView = true;
+  spin.rotation.x = 0.2;
+  function step(dt){
+    t += dt;
+    spin.rotation.y += dt * 0.065;
+    spin.rotation.x = 0.2 + Math.sin(t * 0.05) * 0.05;
+    const k = 1 - Math.exp(-dt * 2.4);
+    cx += (tx - cx) * k; cy += (ty - cy) * k;
+    tilt.rotation.y = cx * 0.26; tilt.rotation.x = cy * 0.18;
+    const br = Math.sin(t * 0.6);
+    shared.uBreath.value = br * 0.02; glowMat.uniforms.uBreath.value = br;
+    shared.uTime.value = t;
+    for (const r of rings) r.comet.rotation.z += dt * r.speed;
+  }
+  function frame(now){
+    const dt = last ? Math.min(0.05, (now - last) / 1000) : 0.016; last = now;
+    step(dt); renderer.render(scene, camera);
+    if (running) raf = requestAnimationFrame(frame);
+  }
+  function renderStatic(){ t = 0; tilt.rotation.set(0, 0, 0); spin.rotation.set(0.2, 0.9, 0); shared.uTime.value = 2.0; shared.uBreath.value = 0; renderer.render(scene, camera); }
+  function setRunning(){
+    const should = inView && !document.hidden && !reduceMQ.matches;
+    if (should && !running){ running = true; last = 0; raf = requestAnimationFrame(frame); }
+    else if (!should && running){ running = false; cancelAnimationFrame(raf); }
+    if (reduceMQ.matches) renderStatic();
+    hero.dataset.state = running ? 'running' : (reduceMQ.matches ? 'static' : 'paused');
+  }
+
+  layout();
+  if (reduceMQ.matches) renderStatic(); else { step(0.016); renderer.render(scene, camera); }
+  hero.classList.add('ar-gl-on');
+  hero.dataset.orb = COUNT + '@' + DPR;
+
+  new IntersectionObserver((es) => { inView = es[0].isIntersecting; setRunning(); }, { threshold: 0 }).observe(hero);
+  document.addEventListener('visibilitychange', setRunning);
+  reduceMQ.addEventListener('change', setRunning);
+  new ResizeObserver(() => { layout(); if (!running) { if (reduceMQ.matches) renderStatic(); else renderer.render(scene, camera); } }).observe(hero);
+  setRunning();
+}
+</script>
+</body>
+</html>

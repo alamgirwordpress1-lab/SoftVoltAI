@@ -1,0 +1,1765 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta name="robots" content="noindex">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Flintrock Civils | Groundworks &amp; Civil Engineering Contractor, Leeds</title>
+<meta name="description" content="Flintrock Civils is a Leeds groundworks and civil engineering contractor working across Yorkshire: earthworks, foundations, drainage, S104 sewers, S38 roads, utilities and piling coordination.">
+<meta name="theme-color" content="#1d1a17">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 36'%3E%3Crect width='36' height='36' rx='4' fill='%231d1a17'/%3E%3Cpath d='M5 9h13l4 5h9v5H5z' fill='%23d9772b'/%3E%3Cpath d='M5 21h26v4H5z' fill='%23ffffff'/%3E%3Cpath d='M5 27h26v4H5z' fill='%23ffffff' opacity='.55'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://images.pexels.com">
+<link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;600;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preload" as="image" fetchpriority="high"
+  href="https://images.pexels.com/photos/27986721/pexels-photo-27986721.jpeg?auto=compress&cs=tinysrgb&w=1600&fit=crop,150,5760,3240&w=1920&h=1080&fit=crop&q=75&auto=format"
+  imagesrcset="https://images.pexels.com/photos/27986721/pexels-photo-27986721.jpeg?auto=compress&cs=tinysrgb&w=1600&fit=crop,150,5760,3240&w=768&h=432&fit=crop&q=75&auto=format 768w, https://images.pexels.com/photos/27986721/pexels-photo-27986721.jpeg?auto=compress&cs=tinysrgb&w=1600&fit=crop,150,5760,3240&w=1280&h=720&fit=crop&q=75&auto=format 1280w, https://images.pexels.com/photos/27986721/pexels-photo-27986721.jpeg?auto=compress&cs=tinysrgb&w=1600&fit=crop,150,5760,3240&w=1920&h=1080&fit=crop&q=75&auto=format 1920w, https://images.pexels.com/photos/27986721/pexels-photo-27986721.jpeg?auto=compress&cs=tinysrgb&w=1600&fit=crop,150,5760,3240&w=2560&h=1440&fit=crop&q=75&auto=format 2560w"
+  imagesizes="(max-width: 767px) 100vw, (max-aspect-ratio: 1/1) 178vh, 100vw">
+<style>
+/* ===== Tokens ===== */
+:root{
+  --ic-earth:#1d1a17; --ic-earth-2:#28241f; --ic-earth-3:#38322c;
+  --ic-clay:#d9772b; --ic-clay-hi:#e88d47; --ic-clay-lo:#c4661e; --ic-clay-ink:#9a4d16;
+  --ic-concrete:#e6e7e8; --ic-white:#fff;
+  --ic-ink:#1d1a17; --ic-muted:#56504a; --ic-line:#d0d1d3; --ic-line-dark:rgba(255,255,255,.14);
+  --ic-err:#b3261e;
+  --ic-head:"Saira Condensed","Arial Narrow",Arial,sans-serif;
+  --ic-body:"Work Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --ic-gutter:20px; --ic-header-h:64px;
+}
+@media (min-width:768px){:root{--ic-gutter:32px;--ic-header-h:72px}}
+@media (min-width:1200px){:root{--ic-gutter:48px;--ic-header-h:76px}}
+
+/* ===== Base ===== */
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
+html{-webkit-text-size-adjust:100%;scroll-padding-top:calc(var(--ic-header-h) + 12px)}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+html.ic-locked{overflow:hidden}
+body{margin:0;font-family:var(--ic-body);font-size:clamp(1rem,.97rem + .15vw,1.0625rem);line-height:1.6;color:var(--ic-ink);background:#fff;overflow-x:clip;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+h1,h2,h3,h4{font-family:var(--ic-head);font-weight:700;line-height:1.04;margin:0;letter-spacing:.005em}
+p,figure,dl,dd{margin:0}
+ul,ol{margin:0;padding:0}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:3px solid var(--ic-clay);outline-offset:3px}
+.ic-sr{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.ic-skip{position:fixed;left:12px;top:-80px;z-index:500;background:var(--ic-clay);color:var(--ic-earth);padding:12px 18px;font-weight:600;text-decoration:none}
+.ic-skip:focus{top:12px}
+.ic-container{width:100%;max-width:1440px;margin-inline:auto;padding-inline:var(--ic-gutter)}
+
+/* ===== Type helpers ===== */
+.ic-eyebrow{display:inline-flex;align-items:center;gap:12px;font-size:.8125rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ic-clay-ink)}
+.ic-eyebrow::before{content:"";width:24px;height:2px;background:var(--ic-clay)}
+.ic-dark .ic-eyebrow,.ic-eyebrow--light{color:var(--ic-clay)}
+.ic-h2{font-size:clamp(2rem,1.35rem + 2.3vw,3.5rem);margin-top:14px;text-wrap:balance}
+.ic-lead{margin-top:18px;font-size:clamp(1.0625rem,1rem + .25vw,1.1875rem);color:var(--ic-muted);max-width:58ch}
+.ic-dark .ic-lead{color:rgba(255,255,255,.78)}
+.ic-body{margin-top:14px;color:var(--ic-muted);max-width:60ch}
+.ic-dark .ic-body{color:rgba(255,255,255,.74)}
+.ic-small{margin-top:16px;font-size:.875rem;color:var(--ic-muted)}
+.ic-dark .ic-small{color:rgba(255,255,255,.66)}
+.ic-mini{font-family:var(--ic-body);font-size:.8125rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;margin-top:32px}
+.ic-link{display:inline-flex;align-items:center;gap:8px;min-height:44px;font-weight:600;color:var(--ic-clay-ink);text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:5px;transition:color .2s}
+.ic-link:hover{color:var(--ic-ink)}
+.ic-dark .ic-link{color:var(--ic-clay)}
+.ic-dark .ic-link:hover{color:#fff}
+
+/* ===== Buttons ===== */
+.ic-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:50px;padding:12px 22px;border:2px solid transparent;border-radius:2px;font-weight:600;font-size:1rem;line-height:1.2;text-decoration:none;white-space:nowrap;transition:background-color .2s,color .2s,border-color .2s}
+.ic-btn svg{width:18px;height:18px;flex:none;transition:transform .2s}
+.ic-btn:hover svg.ic-arrow{transform:translateX(3px)}
+.ic-btn--clay{background:var(--ic-clay);color:var(--ic-earth)}
+.ic-btn--clay:hover{background:var(--ic-clay-hi)}
+.ic-btn--clay:active{background:var(--ic-clay-lo)}
+.ic-btn--ghost{border-color:rgba(255,255,255,.6);color:#fff;background:transparent}
+.ic-btn--ghost:hover{background:#fff;color:var(--ic-earth);border-color:#fff}
+.ic-btn--dark{background:var(--ic-earth);color:#fff}
+.ic-btn--dark:hover{background:var(--ic-earth-3)}
+.ic-btn--dark:active{background:#000}
+
+/* ===== Header ===== */
+.ic-header{position:fixed;top:0;left:0;right:0;z-index:100;color:#fff;transition:background-color .25s ease,box-shadow .25s ease}
+.ic-header.ic-solid{background:rgba(29,26,23,.97);box-shadow:0 1px 0 rgba(255,255,255,.08),0 8px 24px rgba(0,0,0,.18)}
+.ic-header__bar{display:flex;align-items:center;gap:20px;height:var(--ic-header-h)}
+.ic-logo{display:inline-flex;align-items:center;gap:10px;color:#fff;text-decoration:none;flex:none;min-height:44px}
+.ic-logo__mark{width:30px;height:30px;flex:none}
+.ic-logo__text{font-family:var(--ic-head);font-weight:700;font-size:1.375rem;letter-spacing:.07em;text-transform:uppercase;line-height:1;white-space:nowrap}
+.ic-logo__text span{color:var(--ic-clay);font-weight:600;margin-left:.22em}
+.ic-nav{display:none}
+.ic-nav ul{display:flex;gap:24px;list-style:none}
+.ic-nav a{position:relative;display:inline-block;padding:12px 0;font-size:.9375rem;font-weight:500;color:rgba(255,255,255,.9);text-decoration:none}
+.ic-nav a::after{content:"";position:absolute;left:0;right:0;bottom:6px;height:2px;background:var(--ic-clay);transform:scaleX(0);transform-origin:left;transition:transform .2s}
+.ic-nav a:hover{color:#fff}
+.ic-nav a:hover::after,.ic-nav a:focus-visible::after{transform:scaleX(1)}
+.ic-header__actions{margin-left:auto;display:flex;align-items:center;gap:10px}
+.ic-header__phone{display:none;align-items:center;gap:8px;font-weight:600;font-size:.9375rem;text-decoration:none;white-space:nowrap;min-height:44px;padding:0 4px}
+.ic-header__phone svg{width:18px;height:18px;color:var(--ic-clay)}
+.ic-header__phone:hover{color:var(--ic-clay)}
+.ic-header__cta{display:none;min-height:46px;padding:10px 18px}
+.ic-iconbtn{display:inline-grid;place-items:center;width:44px;height:44px;border:1px solid rgba(255,255,255,.38);border-radius:2px;background:transparent;color:#fff;text-decoration:none;transition:border-color .2s,background-color .2s}
+.ic-iconbtn svg{width:20px;height:20px}
+.ic-iconbtn:hover{border-color:#fff;background:rgba(255,255,255,.1)}
+.ic-iconbtn:active{background:rgba(255,255,255,.18)}
+@media (min-width:768px){
+  .ic-logo__mark{width:34px;height:34px}
+  .ic-logo__text{font-size:1.5rem}
+  .ic-header__phone{display:inline-flex}
+  .ic-header__cta{display:inline-flex}
+  .ic-header__call{display:none}
+  .ic-header__actions{gap:16px}
+  .ic-iconbtn{width:48px;height:48px}
+}
+@media (min-width:1200px){
+  .ic-nav{display:block;margin-left:auto}
+  .ic-header__actions{margin-left:28px}
+  .ic-header__phone{display:none}
+  .ic-burger{display:none}
+}
+@media (min-width:1320px){
+  .ic-nav ul{gap:28px}
+  .ic-header__phone{display:inline-flex}
+}
+
+/* ===== Full-screen menu (tablet + mobile) ===== */
+.ic-menu{position:fixed;inset:0;z-index:300;background:var(--ic-earth);color:#fff;overflow-y:auto;overscroll-behavior:contain;animation:icFade .2s ease}
+@keyframes icFade{from{opacity:0}to{opacity:1}}
+.ic-menu__top{display:flex;align-items:center;justify-content:space-between;height:var(--ic-header-h)}
+.ic-menu__body{display:grid;gap:36px;padding-top:16px;padding-bottom:calc(40px + env(safe-area-inset-bottom))}
+.ic-menu__list{list-style:none;border-top:1px solid var(--ic-line-dark)}
+.ic-menu__list a{display:flex;align-items:baseline;gap:16px;padding:12px 0;border-bottom:1px solid var(--ic-line-dark);font-family:var(--ic-head);font-size:clamp(1.75rem,1.25rem + 2.2vw,2.75rem);font-weight:600;line-height:1.1;text-decoration:none;transition:color .2s}
+.ic-menu__list a span{font-family:var(--ic-body);font-size:.8125rem;font-weight:600;letter-spacing:.1em;color:var(--ic-clay);min-width:2.2ch}
+.ic-menu__list a:hover,.ic-menu__list a:active{color:var(--ic-clay)}
+.ic-menu__contact{display:grid;gap:14px;align-content:start}
+.ic-menu__label{font-size:.8125rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.6)}
+.ic-menu__phone{font-family:var(--ic-head);font-size:2.25rem;font-weight:700;line-height:1;text-decoration:none;color:#fff;min-height:44px;display:inline-flex;align-items:center}
+.ic-menu__phone:hover{color:var(--ic-clay)}
+.ic-menu__contact .ic-btn{width:100%}
+.ic-menu__meta{font-size:.9375rem;color:rgba(255,255,255,.72)}
+.ic-menu__meta a{color:#fff;white-space:nowrap}
+@media (min-width:768px){
+  .ic-menu__body{grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:56px;padding-top:32px}
+  .ic-menu__contact{padding-top:8px}
+}
+@media (prefers-reduced-motion:reduce){.ic-menu{animation:none}}
+
+/* ===== Hero ===== */
+.ic-hero{position:relative;background:var(--ic-earth);color:#fff}
+.ic-hero__pin{position:relative;overflow:hidden;isolation:isolate}
+.ic-hero__media{position:absolute;inset:0;z-index:-2}
+.ic-hero__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ic-hero__img:not(:first-child){display:none}
+.ic-hero__shade{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(29,26,23,.72) 0%,rgba(29,26,23,.78) 55%,var(--ic-earth) 100%)}
+.ic-hero__inner{position:relative;padding-top:calc(var(--ic-header-h) + 28px);padding-bottom:28px}
+.ic-hero__copy{max-width:660px}
+.ic-hero__title{margin-top:14px;font-size:clamp(2.25rem,1.2rem + 4.4vw,5.25rem);line-height:.98;letter-spacing:0;text-wrap:balance}
+.ic-hero__lead{margin-top:18px;font-size:clamp(1.0625rem,.98rem + .35vw,1.25rem);color:rgba(255,255,255,.86);max-width:52ch}
+.ic-hero__ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.ic-hero__note{display:flex;flex-wrap:wrap;gap:6px 20px;margin-top:20px;list-style:none;font-size:.875rem;color:rgba(255,255,255,.74)}
+.ic-hero__note li{display:inline-flex;align-items:center;gap:8px}
+.ic-hero__note li::before{content:"";width:6px;height:6px;background:var(--ic-clay)}
+.ic-hero__cue,.ic-stage,.ic-rail{display:none}
+
+/* Stage panel + rail (pinned mode) */
+.ic-stage{align-items:flex-end;gap:20px}
+.ic-stage__count{font-family:var(--ic-head);font-weight:700;line-height:.8;display:flex;align-items:baseline;white-space:nowrap}
+.ic-stage__num{font-size:clamp(4rem,2.4rem + 3.6vw,7rem);font-variant-numeric:tabular-nums}
+.ic-stage__of{font-size:1.75rem;color:rgba(255,255,255,.55);margin-left:8px}
+.ic-stage__text{border-left:2px solid var(--ic-clay);padding:2px 0 4px 18px;min-width:0}
+.ic-stage__title{font-family:var(--ic-head);font-size:1.625rem;font-weight:600;line-height:1.1;text-transform:uppercase;letter-spacing:.03em}
+.ic-stage__desc{margin-top:6px;font-size:.9375rem;line-height:1.5;color:rgba(255,255,255,.84);max-width:42ch}
+.ic-stage__num,.ic-stage__text{transition:opacity .2s ease,transform .2s ease}
+.ic-stage.ic-swapping .ic-stage__num,.ic-stage.ic-swapping .ic-stage__text{opacity:0;transform:translateY(8px)}
+.ic-rail ol{display:flex;flex-direction:column;gap:6px;list-style:none}
+.ic-rail__btn{display:grid;grid-template-columns:auto 4px;align-items:center;column-gap:14px;width:100%;min-height:44px;padding:0;border:0;background:none;color:rgba(255,255,255,.7);text-align:right;text-shadow:0 1px 6px rgba(0,0,0,.85),0 0 2px rgba(0,0,0,.6);transition:color .2s}
+.ic-rail__btn:hover,.ic-rail__btn.ic-active{color:#fff}
+.ic-rail__label{display:flex;justify-content:flex-end;gap:8px;font-size:.75rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap}
+.ic-rail__n{font-variant-numeric:tabular-nums}
+.ic-rail__btn.ic-active .ic-rail__n{color:var(--ic-clay)}
+.ic-rail__bar{position:relative;display:block;width:4px;height:64px;background:rgba(255,255,255,.24);border-radius:2px;overflow:hidden}
+.ic-rail__fill{position:absolute;inset:0;background:var(--ic-clay);transform-origin:top;transform:scaleY(var(--f,0))}
+.ic-hero__cue{align-items:center;gap:12px;margin-top:34px;font-size:.8125rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.66)}
+.ic-hero__cue span{width:1px;height:36px;background:linear-gradient(var(--ic-clay),rgba(217,119,43,0))}
+
+/* Sequence cards (mobile + reduced motion) */
+.ic-hero__seq{padding:4px 0 44px}
+.ic-hero__seqhead{display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-bottom:14px}
+.ic-hero__seqtitle{font-size:1.25rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+.ic-hero__swipe{display:inline-flex;align-items:center;gap:6px;font-size:.8125rem;color:rgba(255,255,255,.62)}
+.ic-hero__swipe svg{width:16px;height:16px}
+.ic-cards{display:grid;grid-auto-flow:column;grid-auto-columns:min(80%,340px);gap:12px;list-style:none;max-width:1440px;margin-inline:auto;padding-inline:var(--ic-gutter);overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:var(--ic-gutter);overscroll-behavior-x:contain;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.ic-cards::-webkit-scrollbar{display:none}
+.ic-card{scroll-snap-align:start;background:var(--ic-earth-2);border-top:3px solid var(--ic-clay);display:flex;flex-direction:column}
+.ic-card img{width:100%;aspect-ratio:16/10;object-fit:cover}
+.ic-card__body{padding:14px 16px 18px}
+.ic-card__count{font-family:var(--ic-head);font-size:1.125rem;font-weight:600;color:var(--ic-clay);letter-spacing:.04em}
+.ic-card__title{margin-top:2px;font-size:1.375rem;font-weight:600;text-transform:uppercase;letter-spacing:.02em}
+.ic-card__desc{margin-top:6px;font-size:.9375rem;line-height:1.5;color:rgba(255,255,255,.78)}
+
+/* Static hero, tablet/desktop (reduced motion or short screens) */
+@media (min-width:768px){
+  .ic-hero:not(.ic-hero--pin) .ic-hero__pin{min-height:min(76vh,760px);display:flex;align-items:center}
+  .ic-hero:not(.ic-hero--pin) .ic-hero__shade{background:linear-gradient(90deg,rgba(29,26,23,.9) 0%,rgba(29,26,23,.72) 45%,rgba(29,26,23,.3) 100%),linear-gradient(0deg,var(--ic-earth) 0%,rgba(29,26,23,0) 30%)}
+  .ic-hero__swipe{display:none}
+  .ic-hero__seq{padding:8px 0 64px}
+  .ic-cards{grid-auto-flow:row;grid-template-columns:repeat(2,minmax(0,1fr));overflow:visible;gap:20px}
+}
+@media (min-width:1200px){
+  .ic-cards{grid-template-columns:repeat(4,minmax(0,1fr))}
+}
+
+/* Pinned mode */
+.ic-hero--pin{height:350vh}
+.ic-hero--pin .ic-hero__pin{position:sticky;top:0;height:100vh;height:100svh}
+.ic-hero--pin .ic-hero__img{display:block!important;opacity:0;transform:scale(1.07);transition:opacity .9s ease,transform 1.8s cubic-bezier(.16,.7,.3,1)}
+.ic-hero--pin .ic-hero__img.ic-active{opacity:1;transform:scale(1)}
+.ic-hero--pin .ic-hero__inner{position:absolute;inset:0;display:grid;padding-top:calc(var(--ic-header-h) + 24px)}
+.ic-hero--pin .ic-hero__seq{display:none}
+.ic-hero--pin .ic-stage,.ic-hero--pin .ic-hero__cue{display:flex}
+.ic-hero--pin .ic-rail{display:block}
+.ic-hero--pin .ic-hero__title{font-size:min(clamp(2.25rem,1.2rem + 4.4vw,5.25rem),9vh)}
+
+/* Pinned: tablet recomposition */
+@media (min-width:768px) and (max-width:1199px){
+  .ic-hero--pin .ic-hero__inner{grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,1fr) auto auto;row-gap:18px;padding-bottom:28px}
+  .ic-hero--pin .ic-hero__copy{grid-row:1;align-self:center}
+  .ic-hero--pin .ic-rail{grid-row:2}
+  .ic-hero--pin .ic-stage{grid-row:3;align-items:center}
+  .ic-hero--pin .ic-hero__shade{background:linear-gradient(180deg,rgba(29,26,23,.66) 0%,rgba(29,26,23,.5) 42%,rgba(29,26,23,.9) 100%),linear-gradient(90deg,rgba(29,26,23,.55) 0%,rgba(29,26,23,0) 75%)}
+  .ic-hero--pin .ic-hero__cue{display:none}
+  .ic-rail ol{flex-direction:row;gap:10px}
+  .ic-rail li{flex:1;min-width:0}
+  .ic-rail__btn{grid-template-columns:minmax(0,1fr);grid-template-rows:4px auto;row-gap:10px;text-align:left}
+  .ic-rail__bar{width:100%;height:4px;order:-1}
+  .ic-rail__fill{transform-origin:left;transform:scaleX(var(--f,0))}
+  .ic-rail__label{justify-content:flex-start}
+  .ic-stage__num{font-size:4rem}
+}
+@media (min-width:768px) and (max-width:1199px) and (max-height:820px){
+  .ic-hero--pin .ic-hero__note{display:none}
+}
+/* Pinned: desktop */
+@media (min-width:1200px){
+  .ic-hero--pin .ic-hero__inner{grid-template-columns:minmax(0,640px) minmax(300px,1fr) auto;grid-template-rows:minmax(0,1fr) auto;column-gap:40px;padding-bottom:44px}
+  .ic-hero--pin .ic-hero__copy{grid-column:1;grid-row:1/3;align-self:center}
+  .ic-hero--pin .ic-stage{grid-column:2;grid-row:2;justify-self:end;max-width:540px}
+  .ic-hero--pin .ic-rail{grid-column:3;grid-row:1/3;align-self:center}
+  .ic-hero--pin .ic-hero__shade{background:linear-gradient(90deg,rgba(29,26,23,.92) 0%,rgba(29,26,23,.8) 28%,rgba(29,26,23,.38) 54%,rgba(29,26,23,.1) 76%,rgba(29,26,23,.22) 100%),linear-gradient(0deg,rgba(29,26,23,.78) 0%,rgba(29,26,23,0) 36%),linear-gradient(180deg,rgba(29,26,23,.6) 0%,rgba(29,26,23,0) 20%),linear-gradient(270deg,rgba(29,26,23,.72) 0%,rgba(29,26,23,.35) 14%,rgba(29,26,23,0) 24%)}
+}
+@media (min-width:1200px) and (max-width:1365px){
+  .ic-hero--pin .ic-hero__inner{grid-template-columns:minmax(0,580px) minmax(280px,1fr) auto}
+  .ic-stage{flex-wrap:wrap;gap:12px}
+}
+
+/* ===== Facts strip ===== */
+.ic-facts{border-bottom:1px solid var(--ic-line)}
+.ic-facts__grid{display:grid;list-style:none}
+.ic-fact{display:grid;grid-template-columns:40px minmax(0,1fr);gap:16px;padding:24px 0;border-top:1px solid var(--ic-line)}
+.ic-fact:first-child{border-top:0}
+.ic-fact svg{width:32px;height:32px;color:var(--ic-clay)}
+.ic-fact__title{font-family:var(--ic-head);font-size:1.3125rem;font-weight:600;line-height:1.1;text-transform:uppercase;letter-spacing:.02em}
+.ic-fact__text{margin-top:6px;font-size:.9375rem;color:var(--ic-muted)}
+@media (min-width:768px){
+  .ic-facts__grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .ic-fact{grid-template-columns:minmax(0,1fr);padding:32px 28px 32px 0;border-top:0}
+  .ic-fact:nth-child(even){padding-left:28px;border-left:1px solid var(--ic-line)}
+  .ic-fact:nth-child(n+3){border-top:1px solid var(--ic-line)}
+}
+@media (min-width:1200px){
+  .ic-facts__grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .ic-fact{padding:40px 32px;border-left:1px solid var(--ic-line)}
+  .ic-fact:first-child{padding-left:0;border-left:0}
+  .ic-fact:nth-child(n+3){border-top:0}
+  .ic-fact:nth-child(even){padding-left:32px}
+}
+
+/* ===== Sections ===== */
+.ic-section{padding-block:clamp(64px,4vw + 40px,120px)}
+.ic-section--concrete{background:var(--ic-concrete)}
+.ic-section--dark{background:var(--ic-earth);color:#fff}
+.ic-sechead{max-width:760px}
+.ic-split{display:grid;gap:40px}
+.ic-split > *{min-width:0}
+@media (min-width:1200px){
+  .ic-split{grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:64px 96px;align-items:start}
+  .ic-split--faq{grid-template-columns:minmax(0,4fr) minmax(0,8fr)}
+  .ic-split .ic-sticky{position:sticky;top:calc(var(--ic-header-h) + 32px)}
+}
+.ic-aside__actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+
+/* ===== Services ===== */
+.ic-svc{list-style:none;border-top:1px solid var(--ic-line)}
+.ic-svc__item{position:relative;display:grid;grid-template-columns:minmax(0,1fr);gap:4px;padding:26px 0;border-bottom:1px solid var(--ic-line)}
+.ic-svc__num{font-family:var(--ic-head);font-size:1.25rem;font-weight:600;color:var(--ic-clay-ink);letter-spacing:.04em}
+.ic-svc__title{font-size:clamp(1.5rem,1.25rem + .9vw,2rem);transition:color .2s}
+.ic-svc__text{margin-top:8px;color:var(--ic-muted);max-width:62ch}
+.ic-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;list-style:none}
+.ic-tags li{font-size:.8125rem;font-weight:500;padding:4px 10px;background:var(--ic-concrete);border-radius:2px}
+.ic-svc__link{margin-top:6px;font-size:.9375rem}
+.ic-svc__link svg,.ic-proj__link svg{width:16px;height:16px;transition:transform .2s}
+.ic-svc__link:hover svg,.ic-proj__link:hover svg{transform:translateX(3px)}
+@media (min-width:768px) and (max-width:1199px){
+  .ic-svc{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;border-top:0}
+  .ic-svc__item{padding:28px;border:1px solid var(--ic-line);align-content:start;transition:border-color .2s}
+  .ic-svc__item:active,.ic-svc__item:focus-within{border-color:var(--ic-clay)}
+}
+@media (min-width:1200px){
+  .ic-svc__item{grid-template-columns:72px minmax(0,1fr);gap:0 24px;padding:30px 0}
+  .ic-svc__item::before{content:"";position:absolute;left:-24px;top:30px;bottom:30px;width:3px;background:var(--ic-clay);transform:scaleY(0);transform-origin:top;transition:transform .25s}
+  .ic-svc__item:hover::before,.ic-svc__item:focus-within::before{transform:scaleY(1)}
+  .ic-svc__item:hover .ic-svc__title{color:var(--ic-clay-ink)}
+  .ic-svc__num{padding-top:4px}
+}
+
+/* ===== Sectors (tabs) ===== */
+.ic-tabs{margin-top:40px}
+.ic-tabs__list{display:flex;gap:4px;border-bottom:2px solid rgba(29,26,23,.16)}
+.ic-tab{flex:none;min-height:52px;padding:12px 22px;border:0;border-bottom:3px solid transparent;margin-bottom:-2px;background:none;font-family:var(--ic-head);font-size:1.3125rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--ic-muted);transition:color .2s,border-color .2s,background-color .2s}
+.ic-tab:hover{color:var(--ic-ink);background:rgba(255,255,255,.5)}
+.ic-tab[aria-selected="true"]{color:var(--ic-ink);border-bottom-color:var(--ic-clay)}
+.ic-tabs__panel{display:grid;gap:32px;padding-top:36px}
+.ic-tabs__panel:focus-visible{outline-offset:8px}
+.ic-panel__title{font-size:clamp(1.625rem,1.3rem + 1.2vw,2.375rem);max-width:24ch}
+.ic-panel__facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:28px;padding-top:20px;border-top:1px solid rgba(29,26,23,.16)}
+.ic-panel__facts dt{font-size:.75rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ic-muted)}
+.ic-panel__facts dd{margin-top:4px;font-family:var(--ic-head);font-size:1.25rem;font-weight:600;line-height:1.2}
+.ic-panel__card{background:#fff;padding:28px;border-top:3px solid var(--ic-clay)}
+.ic-panel__cardtitle{font-family:var(--ic-head);font-size:1.25rem;font-weight:600;text-transform:uppercase;letter-spacing:.04em}
+.ic-checks{list-style:none;display:grid;gap:10px;margin-top:16px}
+.ic-checks li{position:relative;padding-left:30px}
+.ic-checks li::before{content:"";position:absolute;left:0;top:.3em;width:18px;height:18px;background:var(--ic-clay) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2.2 6.4 4.9 9 9.8 3.2' fill='none' stroke='%231d1a17' stroke-width='1.9'/%3E%3C/svg%3E") center/12px no-repeat;border-radius:2px}
+@media (min-width:768px) and (max-width:1023px){
+  .ic-panel__title{max-width:none}
+  .ic-panel__card .ic-checks{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 24px}
+}
+@media (min-width:1024px){
+  .ic-tabs__panel{grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:40px;align-items:start}
+}
+@media (max-width:767px){
+  .ic-tabs__list{gap:8px;border-bottom:0;margin-inline:calc(var(--ic-gutter) * -1);padding-inline:var(--ic-gutter);overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:var(--ic-gutter);scrollbar-width:none}
+  .ic-tabs__list::-webkit-scrollbar{display:none}
+  .ic-tab{scroll-snap-align:start;min-height:46px;padding:10px 18px;margin:0;border:1.5px solid rgba(29,26,23,.3);border-radius:999px;font-size:1.125rem;background:#fff}
+  .ic-tab[aria-selected="true"]{background:var(--ic-earth);border-color:var(--ic-earth);color:#fff}
+  .ic-tabs__panel{padding-top:28px}
+  .ic-panel__facts{grid-template-columns:minmax(0,1fr);gap:12px}
+}
+
+/* ===== Projects ===== */
+.ic-projects__head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:20px 40px}
+.ic-flag{display:inline-flex;align-items:center;gap:10px;padding:10px 14px;background:var(--ic-concrete);font-size:.875rem;font-weight:500}
+.ic-flag svg{width:18px;height:18px;color:var(--ic-clay-ink);flex:none}
+.ic-proj-grid{display:grid;gap:28px;margin-top:44px;list-style:none}
+.ic-proj{display:flex;flex-direction:column;border:1px solid var(--ic-line);background:#fff;transition:border-color .2s,box-shadow .2s}
+.ic-proj__media{overflow:hidden;aspect-ratio:4/3;background:var(--ic-concrete)}
+.ic-proj__media img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.ic-proj__body{display:flex;flex-direction:column;gap:10px;flex:1;padding:24px}
+.ic-proj__tag{font-size:.75rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ic-clay-ink)}
+.ic-proj__title{font-size:clamp(1.5rem,1.3rem + .7vw,1.875rem)}
+.ic-proj__scope{font-size:.9375rem;color:var(--ic-muted)}
+.ic-metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:auto;padding-top:18px;border-top:1px solid var(--ic-line)}
+.ic-metrics div{display:flex;flex-direction:column}
+.ic-metrics dd{order:-1;font-family:var(--ic-head);font-size:clamp(1.5rem,1.3rem + .7vw,1.875rem);font-weight:700;line-height:1.05}
+.ic-metrics dt{margin-top:4px;font-size:.8125rem;line-height:1.3;color:var(--ic-muted)}
+.ic-proj__eg{font-size:.75rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ic-muted)}
+.ic-proj__link{align-self:flex-start;font-size:.9375rem}
+.ic-proj:hover,.ic-proj:focus-within{border-color:var(--ic-ink);box-shadow:0 10px 30px rgba(29,26,23,.08)}
+.ic-proj:hover .ic-proj__media img,.ic-proj:focus-within .ic-proj__media img{transform:scale(1.04)}
+@media (hover:none){.ic-proj:active{border-color:var(--ic-clay)}.ic-proj:active .ic-proj__media img{transform:scale(1.03)}}
+@media (min-width:768px) and (max-width:1199px){
+  .ic-proj-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .ic-proj:first-child{grid-column:1/-1;flex-direction:row}
+  .ic-proj:first-child .ic-proj__media{flex:0 0 50%;aspect-ratio:auto;min-height:100%}
+  .ic-proj:first-child .ic-proj__body{padding:32px}
+}
+@media (min-width:1200px){.ic-proj-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:32px}}
+
+/* ===== Adoptions ===== */
+.ic-adopt{display:grid;gap:28px}
+.ic-adopt__fig img{width:100%;aspect-ratio:16/9;object-fit:cover}
+.ic-adopt__fig figcaption{margin-top:10px;font-size:.8125rem;color:rgba(255,255,255,.62)}
+.ic-adopt__cards{display:grid;gap:20px}
+.ic-adopt__card{background:var(--ic-earth-2);border-top:3px solid var(--ic-clay);padding:26px}
+.ic-adopt__kicker{font-size:.75rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ic-clay)}
+.ic-adopt__card h3{margin-top:6px;font-size:2rem}
+.ic-adopt__act{font-size:.875rem;color:rgba(255,255,255,.62)}
+.ic-adopt__card dl{display:grid;gap:14px;margin-top:20px}
+.ic-adopt__card dt{font-size:.75rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.6)}
+.ic-adopt__card dd{margin-top:2px;font-size:.9375rem;line-height:1.5;color:rgba(255,255,255,.9)}
+.ic-adopt__s278{padding:18px 20px;border:1px solid var(--ic-line-dark);font-size:.9375rem;color:rgba(255,255,255,.82)}
+.ic-adopt__s278 strong{color:#fff}
+.ic-adopt__stepsh{font-size:1.625rem;margin-top:8px}
+.ic-steps{display:grid;gap:12px;list-style:none}
+.ic-step{display:grid;grid-template-columns:40px minmax(0,1fr);gap:14px;padding:18px;background:rgba(255,255,255,.04);border:1px solid var(--ic-line-dark)}
+.ic-step__n{display:grid;place-items:center;width:36px;height:36px;border:2px solid var(--ic-clay);border-radius:50%;font-family:var(--ic-head);font-weight:700;font-size:1.125rem;color:var(--ic-clay)}
+.ic-step h4{font-size:1.25rem;font-weight:600}
+.ic-step p{margin-top:4px;font-size:.9rem;line-height:1.5;color:rgba(255,255,255,.74)}
+.ic-note{margin-top:24px;padding-left:16px;border-left:2px solid var(--ic-clay);font-size:.875rem;color:rgba(255,255,255,.7)}
+@media (min-width:768px){
+  .ic-adopt__cards{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .ic-steps{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .ic-step{grid-template-columns:minmax(0,1fr);gap:12px;align-content:start}
+}
+@media (min-width:1200px){.ic-steps{grid-template-columns:repeat(3,minmax(0,1fr))}}
+
+/* ===== Media column (plant, careers) ===== */
+.ic-media img{width:100%;aspect-ratio:16/9;object-fit:cover}
+@media (min-width:768px) and (max-width:1199px){.ic-media img{aspect-ratio:21/9}}
+@media (min-width:1200px){.ic-media img{aspect-ratio:4/5}}
+
+/* ===== Plant ===== */
+.ic-tablewrap{margin-top:28px;background:#fff}
+.ic-table{width:100%;border-collapse:collapse;font-size:.9375rem}
+.ic-table th,.ic-table td{padding:13px 16px;text-align:left;border-bottom:1px solid var(--ic-line);vertical-align:top}
+.ic-table thead th{background:var(--ic-earth);color:#fff;font-size:.75rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;border-bottom:0}
+.ic-table tbody th{font-weight:600}
+.ic-table .ic-num{text-align:right;font-family:var(--ic-head);font-size:1.25rem;font-weight:700;white-space:nowrap}
+.ic-table thead .ic-num{font-family:var(--ic-body);font-size:.75rem}
+.ic-table tbody tr{transition:background-color .15s}
+.ic-table tbody tr:hover{background:#f4f4f5}
+.ic-checks--2{margin-top:24px}
+@media (min-width:768px){.ic-checks--2{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 28px}}
+@media (max-width:767px){.ic-table th,.ic-table td{padding:11px 10px;font-size:.875rem}}
+
+/* ===== Safety ===== */
+.ic-badges{list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:32px}
+.ic-badge{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;aspect-ratio:3/2;padding:10px;border:1.5px dashed #a9abaf;background:var(--ic-concrete);text-align:center}
+.ic-badge__ph{font-size:.6875rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#6b6762}
+.ic-badge__cap{font-size:.8125rem;line-height:1.3;font-weight:500}
+.ic-practices{list-style:none;border-top:1px solid var(--ic-line)}
+.ic-practice{display:grid;grid-template-columns:48px minmax(0,1fr);gap:18px;padding:24px 0;border-bottom:1px solid var(--ic-line)}
+.ic-practice__icon{display:grid;place-items:center;width:48px;height:48px;background:var(--ic-earth);color:var(--ic-clay)}
+.ic-practice__icon svg{width:24px;height:24px}
+.ic-practice h3{font-size:1.5rem}
+.ic-practice p{margin-top:6px;color:var(--ic-muted)}
+@media (min-width:768px) and (max-width:1199px){
+  .ic-badges{grid-template-columns:repeat(6,minmax(0,1fr))}
+  .ic-badge{aspect-ratio:1/1}
+  .ic-practices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 32px;border-top:0}
+  .ic-practice{grid-template-columns:minmax(0,1fr);gap:14px;padding:26px 0;border-top:1px solid var(--ic-line);border-bottom:0}
+}
+@media (max-width:767px){.ic-badges{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* ===== Careers ===== */
+.ic-roles{display:grid;gap:0;margin-top:28px;border-top:1px solid rgba(29,26,23,.16)}
+.ic-role{padding:24px 0;border-bottom:1px solid rgba(29,26,23,.16)}
+.ic-role h3{font-size:1.5rem}
+.ic-role p{margin-top:6px;color:var(--ic-muted)}
+.ic-role .ic-link{margin-top:4px}
+@media (min-width:768px) and (max-width:1199px){
+  .ic-roles{grid-template-columns:repeat(2,minmax(0,1fr));gap:0 32px}
+  .ic-role:last-child{grid-column:1/-1}
+}
+
+/* ===== Tender form ===== */
+.ic-contactlist{display:grid;gap:12px;margin-top:28px;padding-top:22px;border-top:1px solid var(--ic-line-dark)}
+.ic-contactlist dt{font-size:.75rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.6)}
+.ic-contactlist dd{margin-top:2px;font-size:1.0625rem}
+.ic-contactlist a{color:#fff;text-decoration:underline;text-decoration-color:var(--ic-clay);text-underline-offset:4px;display:inline-flex;align-items:center;min-height:44px;word-break:break-word}
+.ic-contactlist a:hover{color:var(--ic-clay)}
+.ic-checks--light li{color:rgba(255,255,255,.86)}
+.ic-formcard{background:#fff;color:var(--ic-ink);padding:clamp(22px,2vw + 12px,44px)}
+.ic-formcard__title{font-size:clamp(1.625rem,1.4rem + .8vw,2.125rem)}
+.ic-formcard__intro{margin-top:6px;font-size:.9375rem;color:var(--ic-muted)}
+.ic-form{display:grid;grid-template-columns:minmax(0,1fr);gap:18px;margin-top:24px}
+.ic-field{display:flex;flex-direction:column;gap:6px;min-width:0}
+.ic-field--full{grid-column:1/-1}
+.ic-field label,.ic-fieldset legend{font-size:.875rem;font-weight:600}
+.ic-field label span,.ic-fieldset legend span{font-weight:400;color:var(--ic-muted)}
+.ic-input{width:100%;min-height:50px;padding:12px 14px;border:1.5px solid #a9abaf;border-radius:2px;background:#fff;color:var(--ic-ink);transition:border-color .2s,box-shadow .2s}
+.ic-input:hover{border-color:var(--ic-ink)}
+.ic-input:focus{outline:none;border-color:var(--ic-ink);box-shadow:0 0 0 3px rgba(217,119,43,.55)}
+select.ic-input{appearance:none;-webkit-appearance:none;padding-right:42px;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5 6 6.5l5-5' fill='none' stroke='%231d1a17' stroke-width='1.8'/%3E%3C/svg%3E") right 16px center/12px no-repeat}
+textarea.ic-input{min-height:130px;resize:vertical}
+.ic-field.ic-invalid .ic-input{border-color:var(--ic-err)}
+.ic-err{font-size:.8125rem;font-weight:500;color:var(--ic-err)}
+.ic-err:empty{display:none}
+.ic-fieldset{border:0;margin:0;padding:0;min-width:0}
+.ic-fieldset legend{padding:0;margin-bottom:10px}
+.ic-chips{display:flex;flex-wrap:wrap;gap:8px}
+.ic-chip{position:relative}
+.ic-chip input{position:absolute;opacity:0;width:1px;height:1px;margin:0}
+.ic-chip label{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:9px 14px;border:1.5px solid #a9abaf;border-radius:999px;font-size:.9375rem;font-weight:500;cursor:pointer;background:#fff;transition:background-color .15s,border-color .15s,color .15s}
+.ic-chip label::before{content:"";width:16px;height:16px;flex:none;border:1.5px solid currentColor;border-radius:3px}
+.ic-chip label:hover{border-color:var(--ic-ink)}
+.ic-chip input:checked + label{background:var(--ic-earth);border-color:var(--ic-earth);color:#fff}
+.ic-chip input:checked + label::before{border-color:var(--ic-clay);background:var(--ic-clay) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2.2 6.4 4.9 9 9.8 3.2' fill='none' stroke='%231d1a17' stroke-width='1.9'/%3E%3C/svg%3E") center/11px no-repeat}
+.ic-chip input:focus-visible + label{outline:3px solid var(--ic-clay);outline-offset:2px}
+.ic-consent{display:flex;align-items:flex-start;gap:12px;font-size:.9375rem;min-height:44px;cursor:pointer}
+.ic-consent input{width:22px;height:22px;margin:2px 0 0;flex:none;accent-color:var(--ic-earth);cursor:pointer}
+.ic-consent a{color:var(--ic-clay-ink);font-weight:600}
+.ic-form__submit{display:flex;flex-wrap:wrap;align-items:center;gap:14px 20px}
+.ic-form__submit p{font-size:.8125rem;color:var(--ic-muted)}
+.ic-success{padding:12px 0}
+.ic-success__icon{display:grid;place-items:center;width:56px;height:56px;border-radius:50%;background:var(--ic-clay);color:var(--ic-earth)}
+.ic-success__icon svg{width:28px;height:28px}
+.ic-success h3{margin-top:20px;font-size:2rem}
+.ic-success h3:focus{outline:none}
+.ic-success p{margin-top:10px;color:var(--ic-muted)}
+.ic-success .ic-btn{margin-top:24px}
+@media (min-width:768px){
+  .ic-form{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+  .ic-tender-aside{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 40px}
+  .ic-tender-aside > .ic-tender-intro{grid-column:1/-1}
+}
+@media (min-width:1200px){
+  .ic-tender-aside{display:block}
+}
+
+/* ===== FAQ ===== */
+.ic-faq{border-top:1px solid var(--ic-line)}
+.ic-faq details{border-bottom:1px solid var(--ic-line)}
+.ic-faq summary{display:flex;justify-content:space-between;align-items:center;gap:20px;min-height:44px;padding:20px 0;list-style:none;cursor:pointer;font-family:var(--ic-head);font-size:clamp(1.25rem,1.1rem + .5vw,1.5rem);font-weight:600;line-height:1.2;transition:color .2s}
+.ic-faq summary::-webkit-details-marker{display:none}
+.ic-faq summary:hover{color:var(--ic-clay-ink)}
+.ic-faq summary:focus-visible{outline-offset:2px}
+.ic-faq__icon{position:relative;flex:none;width:32px;height:32px;border:1.5px solid var(--ic-line);border-radius:50%;transition:background-color .2s,border-color .2s}
+.ic-faq__icon::before,.ic-faq__icon::after{content:"";position:absolute;left:50%;top:50%;width:12px;height:2px;background:currentColor;transform:translate(-50%,-50%);transition:transform .2s}
+.ic-faq__icon::after{transform:translate(-50%,-50%) rotate(90deg)}
+.ic-faq details[open] .ic-faq__icon{background:var(--ic-earth);border-color:var(--ic-earth);color:#fff}
+.ic-faq details[open] .ic-faq__icon::after{transform:translate(-50%,-50%) rotate(0deg)}
+.ic-faq summary:hover .ic-faq__icon{border-color:var(--ic-ink)}
+.ic-faq__a{padding:0 48px 22px 0;color:var(--ic-muted);max-width:68ch}
+
+/* ===== Footer: safety signs ===== */
+.ic-footer{background:var(--ic-earth);color:#fff;padding-top:56px}
+.ic-concern{display:grid;grid-template-columns:auto minmax(0,1fr);gap:6px 18px;align-items:center;padding:22px 24px;background:var(--ic-clay);color:var(--ic-earth)}
+.ic-concern__icon{width:46px;height:46px;grid-row:1/3}
+.ic-concern__text{font-family:var(--ic-head);font-size:clamp(1.375rem,1.1rem + 1.2vw,2rem);font-weight:700;line-height:1.1}
+.ic-concern__num{white-space:nowrap;color:var(--ic-earth);text-decoration:underline;text-decoration-thickness:3px;text-underline-offset:5px}
+.ic-concern__num:hover{text-decoration-color:#fff}
+.ic-concern__num:focus-visible{outline-color:var(--ic-earth)}
+.ic-concern__sub{font-size:.9375rem;line-height:1.45}
+.ic-footer__grid{display:grid;gap:0;padding-block:48px 24px}
+.ic-footer__brand{padding-bottom:28px}
+.ic-footer__brand p{margin-top:16px;font-size:.9375rem;color:rgba(255,255,255,.72);max-width:36ch}
+.ic-footer__web{font-weight:600;color:#fff!important}
+.ic-fgroup__h{font-size:inherit;font-weight:inherit;font-family:inherit;line-height:inherit}
+.ic-fgroup__btn{display:flex;align-items:center;gap:14px;width:100%;min-height:60px;padding:8px 0;border:0;border-top:1px solid var(--ic-line-dark);background:none;color:#fff;text-align:left}
+.ic-fgroup__btn > span{flex:1;font-family:var(--ic-head);font-size:1.375rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase}
+.ic-sign{width:40px;height:40px;flex:none}
+.ic-fgroup__chev{width:20px;height:20px;transition:transform .2s;color:rgba(255,255,255,.7)}
+.ic-fgroup__btn[aria-expanded="true"] .ic-fgroup__chev{transform:rotate(180deg)}
+.ic-fgroup__list{list-style:none;display:grid;gap:2px;padding:4px 0 20px 54px}
+.ic-fgroup__list li{font-size:.9375rem;color:rgba(255,255,255,.72)}
+.ic-fgroup__list a{display:inline-flex;align-items:center;min-height:44px;color:rgba(255,255,255,.84);text-decoration:none;transition:color .15s}
+.ic-fgroup__list a:hover{color:#fff;text-decoration:underline;text-decoration-color:var(--ic-clay);text-underline-offset:4px}
+.ic-fgroup__list .ic-fgroup__plain{padding:6px 0}
+.ic-footer__base{display:flex;align-items:center;gap:20px;padding:22px 0 calc(28px + env(safe-area-inset-bottom));border-top:1px solid var(--ic-line-dark)}
+.ic-footer__base p{flex:1;font-size:.8125rem;line-height:1.55;color:rgba(255,255,255,.6)}
+.ic-totop{flex:none;display:grid;place-items:center;width:48px;height:48px;border:1px solid rgba(255,255,255,.4);border-radius:2px;background:transparent;color:#fff;transition:background-color .2s,border-color .2s,color .2s}
+.ic-totop svg{width:20px;height:20px}
+.ic-totop:hover{background:var(--ic-clay);border-color:var(--ic-clay);color:var(--ic-earth)}
+@media (min-width:768px){
+  .ic-concern{padding:22px 28px}
+  .ic-footer__grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:36px 40px;padding-block:56px 40px}
+  .ic-footer__brand{grid-column:1/-1;padding-bottom:0}
+  .ic-fgroup__btn{border-top:0;min-height:auto;padding:0 0 14px;cursor:default;border-bottom:1px solid var(--ic-line-dark);margin-bottom:12px}
+  .ic-fgroup__chev{display:none}
+  .ic-fgroup__list{padding:0}
+  .ic-fgroup__list a{min-height:36px}
+}
+@media (min-width:1024px){
+  .ic-concern{grid-template-columns:auto auto minmax(0,1fr)}
+  .ic-concern__icon{grid-row:auto}
+  .ic-concern__sub{padding-left:18px;border-left:2px solid rgba(29,26,23,.35)}
+}
+@media (min-width:1200px){
+  .ic-footer__grid{grid-template-columns:minmax(0,1.3fr) repeat(4,minmax(0,1fr))}
+  .ic-footer__brand{grid-column:auto}
+}
+
+/* ===== Mobile action bar ===== */
+.ic-actionbar{display:none}
+@media (max-width:767px){
+  .ic-actionbar{position:fixed;left:0;right:0;bottom:0;z-index:90;display:grid;grid-template-columns:auto minmax(0,1fr);gap:10px;padding:10px var(--ic-gutter) calc(10px + env(safe-area-inset-bottom));background:rgba(29,26,23,.98);box-shadow:0 -6px 20px rgba(0,0,0,.2);transition:transform .25s ease,visibility .25s}
+  .ic-actionbar.ic-hidden{transform:translateY(110%);visibility:hidden}
+  .ic-actionbar__call{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:50px;padding:0 18px;border:1.5px solid rgba(255,255,255,.5);border-radius:2px;color:#fff;font-weight:600;text-decoration:none}
+  .ic-actionbar__call svg{width:18px;height:18px;color:var(--ic-clay)}
+  .ic-actionbar__call:active{background:rgba(255,255,255,.12)}
+  .ic-actionbar .ic-btn{width:100%}
+  .ic-hero__ctas .ic-btn{flex:1 1 100%}
+  .ic-eyebrow{font-size:.75rem;letter-spacing:.1em;gap:10px}
+  .ic-eyebrow::before{width:18px}
+  .ic-footer__base{flex-wrap:wrap;align-items:flex-start}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important}
+}
+</style>
+
+<style id="sv-hero-css">
+.svh{--a:#e88d47;--ad:#e88d47;--ink:#1d1a17;--paper:#fff;--on:#1d1a17;position:relative;isolation:isolate;overflow:hidden;margin:0;font-family:"Work Sans",system-ui,sans-serif;box-sizing:border-box}
+.svh *{box-sizing:border-box}
+.svh .svh-in{position:relative;z-index:2;width:min(1240px,100% - 48px);margin-inline:auto}
+.svh .svh-kicker{display:inline-flex;align-items:center;gap:10px;margin:0;font:600 12.5px/1.3 "Work Sans",system-ui,sans-serif;letter-spacing:.16em;text-transform:uppercase}
+.svh .svh-kicker i{width:28px;height:2px;background:var(--a);display:inline-block}
+.svh .svh-h{margin:0;font-family:"Saira Condensed",Georgia,serif;font-weight:600;letter-spacing:-.025em;line-height:.95}
+.svh .svh-h span{display:block;overflow:hidden;padding-bottom:.06em}
+.svh .svh-h span>b{display:inline-block;font-weight:inherit;transform:translateY(105%);animation:svh-rise 1s cubic-bezier(.16,1,.3,1) forwards}
+.svh .svh-h span:nth-child(2)>b{animation-delay:.12s}.svh .svh-h span:nth-child(3)>b{animation-delay:.24s}
+.svh .svh-h em{font-style:italic;color:var(--a)}
+.svh .svh-lede{margin:0;max-width:46ch;font-size:clamp(16px,1.25vw,19px);line-height:1.6;opacity:0;animation:svh-fade .9s .45s forwards}
+.svh .svh-ctas{display:flex;flex-wrap:wrap;gap:12px;opacity:0;animation:svh-fade .9s .6s forwards}
+.svh .svh-btn{display:inline-flex;align-items:center;gap:10px;padding:15px 26px;border-radius:999px;font:600 15px/1 "Work Sans",system-ui,sans-serif;text-decoration:none;background:var(--a);color:var(--on);border:1px solid var(--a);transition:transform .3s cubic-bezier(.16,1,.3,1),background .3s}
+.svh .svh-btn:hover{transform:translateY(-2px)}
+.svh .svh-btn--ghost{background:transparent;color:inherit;border-color:currentColor}
+.svh .svh-btn span{transition:transform .3s}.svh .svh-btn:hover span{transform:translateX(4px)}
+/* the designs style h1/p themselves, so the banner states its own colours */
+.svh--editorial .svh-h,.svh--poster .svh-h,.svh--stage .svh-h{color:#fff}
+.svh--editorial .svh-kicker,.svh--poster .svh-kicker,.svh--stage .svh-kicker{color:rgba(255,255,255,.9)}
+.svh--index .svh-h,.svh--index .svh-kicker{color:var(--ink)}
+@keyframes svh-rise{to{transform:none}}@keyframes svh-fade{to{opacity:1}}
+@keyframes svh-zoom{from{transform:scale(1.12)}to{transform:scale(1)}}
+@keyframes svh-spin{to{transform:rotate(360deg)}}@keyframes svh-tick{to{transform:translateX(-50%)}}
+@keyframes svh-tilt{from{transform:perspective(1400px) rotateX(18deg) translateY(40px);opacity:0}to{transform:none;opacity:1}}
+
+/* Editorial: words spread across a full-bleed photo */
+.svh--editorial{min-height:100svh;display:flex;align-items:flex-end;padding:150px 0 56px;color:#fff;background:var(--ink)}
+.svh--editorial .svh-media{position:absolute;inset:0;z-index:0;background:center/cover no-repeat;animation:svh-zoom 2.4s cubic-bezier(.16,1,.3,1) both}
+.svh--editorial .svh-shade{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(0,0,0,.45),rgba(0,0,0,.1) 35%,rgba(0,0,0,.65))}
+.svh--editorial .svh-h{font-size:clamp(52px,9vw,150px);margin-top:28px}
+.svh--editorial .svh-h span:nth-child(2){text-align:right}
+.svh--editorial .svh-h em{color:#fff}
+.svh--editorial .svh-foot{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:28px;margin-top:42px;padding-top:26px;border-top:1px solid rgba(255,255,255,.3)}
+.svh--editorial .svh-lede{color:rgba(255,255,255,.88)}
+.svh--editorial .svh-btn--ghost{color:#fff}
+
+/* Stage: dark ground, glow, centred words and a tilted picture */
+.svh--stage{padding:160px 0 0;background:var(--ink);color:#fff;text-align:center}
+.svh--stage .svh-glow{position:absolute;z-index:0;left:50%;top:-10%;width:1100px;height:800px;transform:translateX(-50%);background:radial-gradient(closest-side,color-mix(in srgb,var(--a) 55%,transparent),transparent);filter:blur(30px);opacity:.75}
+.svh--stage .svh-grid{position:absolute;inset:0;z-index:0;background-image:linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px);background-size:64px 64px;mask-image:radial-gradient(circle at 50% 30%,#000,transparent 70%)}
+.svh--stage .svh-kicker{padding:8px 16px;border:1px solid rgba(255,255,255,.2);border-radius:999px;background:rgba(255,255,255,.05)}
+.svh--stage .svh-kicker i{width:8px;height:8px;border-radius:50%}
+.svh--stage .svh-h{font-size:clamp(46px,7.4vw,118px);font-weight:500;margin:26px auto 0;max-width:15ch}
+.svh--stage .svh-h em{color:var(--ad)}
+.svh--stage .svh-lede{margin:26px auto 0;color:rgba(255,255,255,.75)}
+.svh--stage .svh-ctas{justify-content:center;margin-top:32px}
+.svh--stage .svh-btn--ghost{color:#fff}
+.svh--stage .svh-frame{margin:60px auto 0;max-width:1100px;aspect-ratio:16/8;border-radius:22px 22px 0 0;overflow:hidden;border:1px solid rgba(255,255,255,.18);border-bottom:0;box-shadow:0 -30px 80px -20px color-mix(in srgb,var(--a) 45%,transparent);animation:svh-tilt 1.4s .3s cubic-bezier(.16,1,.3,1) both}
+.svh--stage .svh-frame img{display:block;width:100%;height:100%;object-fit:cover}
+.svh--stage .svh-chips{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin:28px 0 0;padding:0}
+.svh--stage .svh-chips a{display:block;padding:8px 14px;border-radius:999px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);color:rgba(255,255,255,.85);font-size:14px;text-decoration:none}
+.svh--stage .svh-chips a:hover{border-color:var(--a);color:#fff}
+
+/* Poster: giant uppercase words, spinning badge, a ticker */
+.svh--poster{min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;padding-top:150px;color:#fff;background:var(--ink)}
+.svh--poster .svh-media{position:absolute;inset:0;z-index:0;background:center/cover no-repeat;animation:svh-zoom 2.4s cubic-bezier(.16,1,.3,1) both}
+.svh--poster .svh-shade{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(0,0,0,.2),rgba(0,0,0,.25) 40%,rgba(0,0,0,.82))}
+.svh--poster .svh-h{font-size:clamp(50px,10vw,168px);font-weight:800;text-transform:uppercase;letter-spacing:-.035em;line-height:.88;margin-top:22px}
+.svh--poster .svh-h em{font-style:normal;color:var(--ad)}
+.svh--poster .svh-row{display:flex;flex-wrap:wrap;gap:24px;align-items:flex-end;justify-content:space-between;margin:34px 0 44px}
+.svh--poster .svh-lede{color:rgba(255,255,255,.85)}
+.svh--poster .svh-btn--ghost{color:#fff}
+.svh--poster .svh-badge{position:absolute;z-index:2;right:clamp(20px,5vw,72px);top:clamp(110px,16vh,170px);width:132px;height:132px;display:grid;place-items:center}
+.svh--poster .svh-badge svg{position:absolute;inset:0;animation:svh-spin 14s linear infinite;fill:#fff;font:700 10.5px/1 "Work Sans",system-ui,sans-serif;letter-spacing:.22em;text-transform:uppercase}
+.svh--poster .svh-badge b{width:56px;height:56px;border-radius:50%;background:var(--a);display:grid;place-items:center;color:var(--on);font-size:22px}
+.svh--poster .svh-ticker{position:relative;z-index:2;background:var(--a);color:var(--on);overflow:hidden;padding:15px 0}
+.svh--poster .svh-ticker div{display:flex;gap:44px;width:max-content;animation:svh-tick 26s linear infinite;font:700 clamp(16px,1.6vw,22px)/1 "Saira Condensed",Georgia,serif;text-transform:uppercase;letter-spacing:.02em}
+.svh--poster .svh-ticker span::after{content:"\2726";margin-left:44px;opacity:.7}
+
+/* Index: words on the left, the site's sections as a big list on the right */
+.svh--index{padding:150px 0 90px;background:var(--paper);color:var(--ink)}
+.svh--index .svh-in{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(32px,5vw,90px);align-items:end}
+.svh--index .svh-kicker{color:var(--ink)}
+.svh--index .svh-h{font-size:clamp(46px,6.6vw,104px);margin:24px 0 0}
+.svh--index .svh-lede{margin-top:26px;color:color-mix(in srgb,var(--ink) 72%,transparent)}
+.svh--index .svh-ctas{margin-top:30px}
+.svh--index .svh-photo{aspect-ratio:16/10;border-radius:18px;background:center/cover no-repeat;margin-bottom:22px;clip-path:inset(0 0 100% 0 round 18px);animation:svh-reveal 1.3s .2s cubic-bezier(.16,1,.3,1) forwards}
+@keyframes svh-reveal{to{clip-path:inset(0 0 0 0 round 18px)}}
+.svh--index .svh-list{list-style:none;margin:0;padding:0;border-top:1px solid color-mix(in srgb,var(--ink) 18%,transparent)}
+.svh--index .svh-list a{display:grid;grid-template-columns:44px 1fr auto;align-items:baseline;gap:12px;padding:14px 0;border-bottom:1px solid color-mix(in srgb,var(--ink) 18%,transparent);color:var(--ink);text-decoration:none;font:500 clamp(22px,2.4vw,36px)/1.1 "Saira Condensed",Georgia,serif;letter-spacing:-.02em;transition:color .3s,padding .3s}
+.svh--index .svh-list a small{font:600 12px/1 "Work Sans",system-ui,sans-serif;letter-spacing:.1em;color:color-mix(in srgb,var(--ink) 55%,transparent)}
+.svh--index .svh-list a:hover{color:var(--a);padding-left:8px}
+.svh--index .svh-list a i{font-style:normal;transition:transform .3s}.svh--index .svh-list a:hover i{transform:translateX(6px)}
+
+@media (max-width:860px){
+  .svh--index .svh-in{grid-template-columns:1fr}
+  .svh--editorial .svh-h span:nth-child(2){text-align:left}
+  .svh--poster .svh-badge{width:96px;height:96px;top:96px}
+  .svh--stage .svh-frame{aspect-ratio:4/3}
+}
+@media (prefers-reduced-motion:reduce){.svh *,.svh{animation:none!important;transition:none!important}.svh .svh-h span>b{transform:none}.svh .svh-lede,.svh .svh-ctas{opacity:1}.svh--index .svh-photo{clip-path:none}}
+/* the old banner stays in the page, invisible, laid over the new one, so the design's own
+   scripts (sticky header, "past the hero" checks) still find it where the banner is */
+[data-sv-old-hero]{position:absolute!important;left:0!important;right:0!important;width:auto!important;max-width:none!important;margin:0!important;padding:0!important;min-height:0!important;overflow:hidden!important;visibility:hidden!important;opacity:0!important;pointer-events:none!important;z-index:-1!important;transform:none!important}
+</style>
+</head>
+<body>
+<a class="ic-skip" href="#ic-main">Skip to content</a>
+
+<!-- ===== Header ===== -->
+<header class="ic-header" id="ic-header">
+  <div class="ic-container ic-header__bar">
+    <a class="ic-logo" href="#top" aria-label="Flintrock Civils home">
+      <svg class="ic-logo__mark" viewBox="0 0 36 36" aria-hidden="true"><path d="M2 8h15l4.5 5.5H34V19H2z" fill="#d9772b"/><path d="M2 21.5h32v5H2z" fill="currentColor"/><path d="M2 29h32v5H2z" fill="currentColor" opacity=".5"/></svg>
+      <span class="ic-logo__text">Flintrock<span>Civils</span></span>
+    </a>
+    <nav class="ic-nav" aria-label="Main">
+      <ul>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#sectors">Sectors</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#adoptions">Adoptions</a></li>
+        <li><a href="#safety">Safety</a></li>
+        <li><a href="#careers">Careers</a></li>
+      </ul>
+    </nav>
+    <div class="ic-header__actions">
+      <a class="ic-header__phone" href="tel:+441134960420"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25c1.1.37 2.33.57 3.6.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg>0113 496 0420</a>
+      <a class="ic-btn ic-btn--clay ic-header__cta" href="#tender">Request a tender</a>
+      <a class="ic-iconbtn ic-header__call" href="tel:+441134960420" aria-label="Call Flintrock Civils on 0113 496 0420"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25c1.1.37 2.33.57 3.6.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg></a>
+      <button class="ic-iconbtn ic-burger" id="ic-burger" type="button" aria-expanded="false" aria-controls="ic-menu" aria-label="Open menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6.5h18M3 12h18M3 17.5h18" stroke="currentColor" stroke-width="2" fill="none"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<!-- ===== Full-screen menu ===== -->
+<div class="ic-menu" id="ic-menu" role="dialog" aria-modal="true" aria-label="Site menu" hidden>
+  <div class="ic-container">
+    <div class="ic-menu__top">
+      <a class="ic-logo" href="#top" aria-label="Flintrock Civils home" data-ic-close>
+        <svg class="ic-logo__mark" viewBox="0 0 36 36" aria-hidden="true"><path d="M2 8h15l4.5 5.5H34V19H2z" fill="#d9772b"/><path d="M2 21.5h32v5H2z" fill="currentColor"/><path d="M2 29h32v5H2z" fill="currentColor" opacity=".5"/></svg>
+        <span class="ic-logo__text">Flintrock<span>Civils</span></span>
+      </a>
+      <button class="ic-iconbtn" type="button" id="ic-menu-close" aria-label="Close menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5 5 19" stroke="currentColor" stroke-width="2" fill="none"/></svg></button>
+    </div>
+    <div class="ic-menu__body">
+      <nav aria-label="Menu">
+        <ul class="ic-menu__list">
+          <li><a href="#services" data-ic-close><span>01</span>Services</a></li>
+          <li><a href="#sectors" data-ic-close><span>02</span>Sectors</a></li>
+          <li><a href="#projects" data-ic-close><span>03</span>Projects</a></li>
+          <li><a href="#adoptions" data-ic-close><span>04</span>Adoptions explained</a></li>
+          <li><a href="#plant" data-ic-close><span>05</span>Plant &amp; fleet</a></li>
+          <li><a href="#safety" data-ic-close><span>06</span>Health &amp; safety</a></li>
+          <li><a href="#careers" data-ic-close><span>07</span>Careers</a></li>
+          <li><a href="#faq" data-ic-close><span>08</span>FAQ</a></li>
+        </ul>
+      </nav>
+      <div class="ic-menu__contact">
+        <p class="ic-menu__label">Tender line</p>
+        <a class="ic-menu__phone" href="tel:+441134960420">0113 496 0420</a>
+        <a class="ic-btn ic-btn--clay" href="#tender" data-ic-close>Request a tender <svg class="ic-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" fill="none"/></svg></a>
+        <p class="ic-menu__meta">Office Monday to Friday, 8am to 5.30pm<br><a href="mailto:info@example.com">info@example.com</a></p>
+        <p class="ic-menu__meta">Report a site concern 24/7: <a href="tel:+441134960999">0113 496 0999</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<main id="ic-main">
+
+<!-- ===== Hero: scroll-driven build sequence ===== -->
+<section class="svh svh--poster" aria-label="Flintrock Civils"><div class="svh-media" style="background-image:url('https://images.pexels.com/photos/37393680/pexels-photo-37393680.jpeg?auto=compress&cs=tinysrgb&w=2000&h=1250&fit=crop')"></div><div class="svh-shade"></div><div class="svh-badge" aria-hidden="true"><svg viewBox="0 0 132 132"><defs><path id="svh-ring" d="M66,66 m-52,0 a52,52 0 1,1 104,0 a52,52 0 1,1 -104,0"/></defs><text><textPath href="#svh-ring">FLINTROCK CIVILS &#183; CONSTRUCTION &#183; FLINTROCK CIVILS &#183; CONSTRUCTION &#183; </textPath></text></svg><b>&#10022;</b></div><div class="svh-in"><p class="svh-kicker"><i></i>Groundworks &amp; Civil Engineering Contractor, Leeds</p><h1 class="svh-h"><span><b>Groundwork</b></span><span><b>that starts</b></span><span><b><em>every build right.</em></b></span></h1><div class="svh-row"><p class="svh-lede">Earthworks, foundations, drainage and adoptable roads for housebuilders, commercial developers and the public sector across Yorkshire. Our own operatives, our own plant, one programme.</p><div class="svh-ctas"><a class="svh-btn" href="#tender">Request a tender <span>&rarr;</span></a><a class="svh-btn svh-btn--ghost" href="tel:+441134960420">0113 496 0420</a></div></div></div><div class="svh-ticker" aria-hidden="true"><div><span>Services</span><span>Sectors</span><span>Projects</span><span>Adoptions</span><span>Safety</span><span>Careers</span><span>Services</span><span>Sectors</span><span>Projects</span><span>Adoptions</span><span>Safety</span><span>Careers</span><span>Services</span><span>Sectors</span><span>Projects</span><span>Adoptions</span><span>Safety</span><span>Careers</span><span>Services</span><span>Sectors</span><span>Projects</span><span>Adoptions</span><span>Safety</span><span>Careers</span><span>Services</span><span>Sectors</span><span>Projects</span><span>Adoptions</span><span>Safety</span><span>Careers</span><span>Services</span><span>Sectors</span><span>Projects</span><span>Adoptions</span><span>Safety</span><span>Careers</span></div></div></section><section data-sv-old-hero aria-hidden="true" inert class="ic-hero" id="top" aria-label="Introduction"><script>(()=>{const b=document.querySelector(".svh"),o=document.querySelector("[data-sv-old-hero]");if(!b||!o)return;const hd=document.querySelector("header");if(hd){const cs=getComputedStyle(hd),n=(c)=>(c.match(/[\d.]+/g)||[]).map(Number),bg=n(cs.backgroundColor),fg=n(cs.color),clear=cs.backgroundColor==="transparent"||bg[3]===0,light=fg.length>2&&(0.299*fg[0]+0.587*fg[1]+0.114*fg[2])/255>0.7,top=b.getBoundingClientRect().top+scrollY;if(clear&&light&&cs.position!=="fixed"&&cs.position!=="absolute"&&top>0&&top<260){b.style.marginTop=-top+"px";b.style.paddingTop=parseFloat(getComputedStyle(b).paddingTop)+top+"px"}}const f=()=>{o.style.setProperty("top",b.offsetTop+"px","important");o.style.setProperty("height",b.offsetHeight+"px","important")};f();addEventListener("resize",f);addEventListener("load",f)})()</script>
+  <div class="ic-hero__pin">
+    <div class="ic-hero__media" aria-hidden="true">
+      <img class="ic-hero__img ic-active" alt="" width="1920" height="1080" fetchpriority="high" decoding="async"
+        src="https://images.pexels.com/photos/27986721/pexels-photo-27986721.jpeg?auto=compress&cs=tinysrgb&w=1600&fit=crop,150,5760,3240&w=1920&h=1080&fit=crop&q=75&auto=format"
+        srcset="https://images.pexels.com/photos/27986721/pexels-photo-27986721.jpeg?auto=compress&cs=tinysrgb&w=1600&fit=crop,150,5760,3240&w=768&h=432&fit=crop&q=75&auto=format 768w, https://images.pexels.com/photos/27986721/pexels-photo-27986721.jpeg?auto=compress&cs=tinysrgb&w=1600&fit=crop,150,5760,3240&w=1280&h=720&fit=crop&q=75&auto=format 1280w, https://images.pexels.com/photos/27986721/pexels-photo-27986721.jpeg?auto=compress&cs=tinysrgb&w=1600&fit=crop,150,5760,3240&w=1920&h=1080&fit=crop&q=75&auto=format 1920w, https://images.pexels.com/photos/27986721/pexels-photo-27986721.jpeg?auto=compress&cs=tinysrgb&w=1600&fit=crop,150,5760,3240&w=2560&h=1440&fit=crop&q=75&auto=format 2560w"
+        sizes="(max-width: 767px) 100vw, (max-aspect-ratio: 1/1) 178vh, 100vw">
+      <img class="ic-hero__img" alt="" width="1920" height="1080" loading="lazy" decoding="async"
+        src="https://images.pexels.com/photos/36606405/pexels-photo-36606405.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop"
+        srcset="https://images.pexels.com/photos/36606405/pexels-photo-36606405.jpeg?auto=compress&cs=tinysrgb&w=768&h=432&fit=crop 768w, https://images.pexels.com/photos/36606405/pexels-photo-36606405.jpeg?auto=compress&cs=tinysrgb&w=1280&h=720&fit=crop 1280w, https://images.pexels.com/photos/36606405/pexels-photo-36606405.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop 1920w, https://images.pexels.com/photos/36606405/pexels-photo-36606405.jpeg?auto=compress&cs=tinysrgb&w=2560&h=1440&fit=crop 2560w"
+        sizes="(max-aspect-ratio: 1/1) 178vh, 100vw">
+      <img class="ic-hero__img" alt="" width="1920" height="1080" loading="lazy" decoding="async"
+        src="https://images.pexels.com/photos/13324155/pexels-photo-13324155.jpeg?auto=compress&cs=tinysrgb&w=1600&fit=crop,560,3300,1856&w=1920&h=1080&fit=crop&q=75&auto=format"
+        srcset="https://images.pexels.com/photos/13324155/pexels-photo-13324155.jpeg?auto=compress&cs=tinysrgb&w=1600&fit=crop,560,3300,1856&w=768&h=432&fit=crop&q=75&auto=format 768w, https://images.pexels.com/photos/13324155/pexels-photo-13324155.jpeg?auto=compress&cs=tinysrgb&w=1600&fit=crop,560,3300,1856&w=1280&h=720&fit=crop&q=75&auto=format 1280w, https://images.pexels.com/photos/13324155/pexels-photo-13324155.jpeg?auto=compress&cs=tinysrgb&w=1600&fit=crop,560,3300,1856&w=1920&h=1080&fit=crop&q=75&auto=format 1920w, https://images.pexels.com/photos/13324155/pexels-photo-13324155.jpeg?auto=compress&cs=tinysrgb&w=1600&fit=crop,560,3300,1856&w=2560&h=1440&fit=crop&q=75&auto=format 2560w"
+        sizes="(max-aspect-ratio: 1/1) 178vh, 100vw">
+      <img class="ic-hero__img" alt="" width="1920" height="1080" loading="lazy" decoding="async"
+        src="https://images.pexels.com/photos/15071423/pexels-photo-15071423.jpeg?auto=compress&cs=tinysrgb&w=1600&fit=crop,300,4176,2349&w=1920&h=1080&fit=crop&q=75&auto=format"
+        srcset="https://images.pexels.com/photos/15071423/pexels-photo-15071423.jpeg?auto=compress&cs=tinysrgb&w=1600&fit=crop,300,4176,2349&w=768&h=432&fit=crop&q=75&auto=format 768w, https://images.pexels.com/photos/15071423/pexels-photo-15071423.jpeg?auto=compress&cs=tinysrgb&w=1600&fit=crop,300,4176,2349&w=1280&h=720&fit=crop&q=75&auto=format 1280w, https://images.pexels.com/photos/15071423/pexels-photo-15071423.jpeg?auto=compress&cs=tinysrgb&w=1600&fit=crop,300,4176,2349&w=1920&h=1080&fit=crop&q=75&auto=format 1920w, https://images.pexels.com/photos/15071423/pexels-photo-15071423.jpeg?auto=compress&cs=tinysrgb&w=1600&fit=crop,300,4176,2349&w=2560&h=1440&fit=crop&q=75&auto=format 2560w"
+        sizes="(max-aspect-ratio: 1/1) 178vh, 100vw">
+    </div>
+    <div class="ic-hero__shade" aria-hidden="true"></div>
+
+    <div class="ic-container ic-hero__inner">
+      <div class="ic-hero__copy">
+        <p class="ic-eyebrow ic-eyebrow--light">Groundworks &amp; civil engineering · Leeds</p>
+        <h1 class="ic-hero__title">Groundwork that gets the build off to the right start.</h1>
+        <p class="ic-hero__lead">Earthworks, foundations, drainage and adoptable roads for housebuilders, commercial developers and the public sector across Yorkshire. Our own operatives, our own plant, one programme.</p>
+        <div class="ic-hero__ctas">
+          <a class="ic-btn ic-btn--clay" href="#tender">Request a tender <svg class="ic-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" fill="none"/></svg></a>
+          <a class="ic-btn ic-btn--ghost" href="tel:+441134960420"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25c1.1.37 2.33.57 3.6.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg>0113 496 0420</a>
+        </div>
+        <ul class="ic-hero__note">
+          <li>Priced tenders in 10 working days</li>
+          <li>All prices quoted + VAT</li>
+          <li>Working across Yorkshire</li>
+        </ul>
+        <p class="ic-hero__cue" aria-hidden="true"><span></span>Scroll to follow the build</p>
+      </div>
+
+      <div class="ic-stage" id="ic-stage" aria-live="polite">
+        <p class="ic-stage__count"><span class="ic-stage__num">01</span><span class="ic-stage__of">/ 04</span></p>
+        <div class="ic-stage__text">
+          <p class="ic-stage__title">Site strip &amp; earthworks</p>
+          <p class="ic-stage__desc">Topsoil stripped and stockpiled, cut and fill balanced, formation levels proved.</p>
+        </div>
+      </div>
+
+      <div class="ic-rail" role="group" aria-label="Build stages">
+        <ol>
+          <li><button type="button" class="ic-rail__btn ic-active" aria-current="step" data-ic-stage="0"><span class="ic-rail__label"><span class="ic-rail__n">01</span><span class="ic-rail__t">Site strip</span></span><span class="ic-rail__bar"><span class="ic-rail__fill"></span></span></button></li>
+          <li><button type="button" class="ic-rail__btn" data-ic-stage="1"><span class="ic-rail__label"><span class="ic-rail__n">02</span><span class="ic-rail__t">Foundations</span></span><span class="ic-rail__bar"><span class="ic-rail__fill"></span></span></button></li>
+          <li><button type="button" class="ic-rail__btn" data-ic-stage="2"><span class="ic-rail__label"><span class="ic-rail__n">03</span><span class="ic-rail__t">Roads</span></span><span class="ic-rail__bar"><span class="ic-rail__fill"></span></span></button></li>
+          <li><button type="button" class="ic-rail__btn" data-ic-stage="3"><span class="ic-rail__label"><span class="ic-rail__n">04</span><span class="ic-rail__t">Handover</span></span><span class="ic-rail__bar"><span class="ic-rail__fill"></span></span></button></li>
+        </ol>
+      </div>
+    </div>
+  </div>
+
+  <!-- Static sequence: phones and reduced motion -->
+  <div class="ic-hero__seq">
+    <div class="ic-container ic-hero__seqhead">
+      <h2 class="ic-hero__seqtitle">How a site comes together</h2>
+      <p class="ic-hero__swipe" aria-hidden="true">Swipe <svg viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" fill="none"/></svg></p>
+    </div>
+    <ol class="ic-cards">
+      <li class="ic-card">
+        <img loading="lazy" decoding="async" width="600" height="375" alt="Excavator loading a dumper with spoil on a site being stripped and levelled"
+          src="https://images.pexels.com/photos/27986721/pexels-photo-27986721.jpeg?auto=compress&cs=tinysrgb&w=1600&fit=crop,150,5760,3240&w=600&h=375&fit=crop&q=75&auto=format"
+          srcset="https://images.pexels.com/photos/27986721/pexels-photo-27986721.jpeg?auto=compress&cs=tinysrgb&w=1600&fit=crop,150,5760,3240&w=600&h=375&fit=crop&q=75&auto=format 600w, https://images.pexels.com/photos/27986721/pexels-photo-27986721.jpeg?auto=compress&cs=tinysrgb&w=1600&fit=crop,150,5760,3240&w=960&h=600&fit=crop&q=75&auto=format 960w"
+          sizes="(max-width: 767px) 80vw, (max-width: 1199px) 46vw, 330px">
+        <div class="ic-card__body"><p class="ic-card__count">01 / 04</p><h3 class="ic-card__title">Site strip &amp; earthworks</h3><p class="ic-card__desc">Topsoil stripped and stockpiled, cut and fill balanced, formation levels proved.</p></div>
+      </li>
+      <li class="ic-card">
+        <img loading="lazy" decoding="async" width="600" height="375" alt="Operative climbing out of a deep drainage trench held open by steel trench support"
+          src="https://images.pexels.com/photos/36606405/pexels-photo-36606405.jpeg?auto=compress&cs=tinysrgb&w=600&h=375&fit=crop"
+          srcset="https://images.pexels.com/photos/36606405/pexels-photo-36606405.jpeg?auto=compress&cs=tinysrgb&w=600&h=375&fit=crop 600w, https://images.pexels.com/photos/36606405/pexels-photo-36606405.jpeg?auto=compress&cs=tinysrgb&w=960&h=600&fit=crop 960w"
+          sizes="(max-width: 767px) 80vw, (max-width: 1199px) 46vw, 330px">
+        <div class="ic-card__body"><p class="ic-card__count">02 / 04</p><h3 class="ic-card__title">Foundations &amp; drainage</h3><p class="ic-card__desc">Trench-fill and pads poured; sewers laid in supported trenches and CCTV-surveyed.</p></div>
+      </li>
+      <li class="ic-card">
+        <img loading="lazy" decoding="async" width="600" height="375" alt="Twin-drum roller compacting a freshly laid asphalt road surface"
+          src="https://images.pexels.com/photos/13324155/pexels-photo-13324155.jpeg?auto=compress&cs=tinysrgb&w=1600&fit=crop,560,3300,1856&w=600&h=375&fit=crop&q=75&auto=format"
+          srcset="https://images.pexels.com/photos/13324155/pexels-photo-13324155.jpeg?auto=compress&cs=tinysrgb&w=1600&fit=crop,560,3300,1856&w=600&h=375&fit=crop&q=75&auto=format 600w, https://images.pexels.com/photos/13324155/pexels-photo-13324155.jpeg?auto=compress&cs=tinysrgb&w=1600&fit=crop,560,3300,1856&w=960&h=600&fit=crop&q=75&auto=format 960w"
+          sizes="(max-width: 767px) 80vw, (max-width: 1199px) 46vw, 330px">
+        <div class="ic-card__body"><p class="ic-card__count">03 / 04</p><h3 class="ic-card__title">Roads &amp; services</h3><p class="ic-card__desc">Sub-base, kerbs and binder course down, with ducts and services in the verge.</p></div>
+      </li>
+      <li class="ic-card">
+        <img loading="lazy" decoding="async" width="600" height="375" alt="Newly completed brick homes with a finished road, footway and planting"
+          src="https://images.pexels.com/photos/15071423/pexels-photo-15071423.jpeg?auto=compress&cs=tinysrgb&w=1600&fit=crop,300,4176,2349&w=600&h=375&fit=crop&q=75&auto=format"
+          srcset="https://images.pexels.com/photos/15071423/pexels-photo-15071423.jpeg?auto=compress&cs=tinysrgb&w=1600&fit=crop,300,4176,2349&w=600&h=375&fit=crop&q=75&auto=format 600w, https://images.pexels.com/photos/15071423/pexels-photo-15071423.jpeg?auto=compress&cs=tinysrgb&w=1600&fit=crop,300,4176,2349&w=960&h=600&fit=crop&q=75&auto=format 960w"
+          sizes="(max-width: 767px) 80vw, (max-width: 1199px) 46vw, 330px">
+        <div class="ic-card__body"><p class="ic-card__count">04 / 04</p><h3 class="ic-card__title">Handover</h3><p class="ic-card__desc">Surface course, as-built drawings and adoption paperwork handed over with the plots.</p></div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ===== At a glance ===== -->
+<section class="ic-facts" aria-label="Flintrock Civils at a glance">
+  <div class="ic-container">
+    <ul class="ic-facts__grid">
+      <li class="ic-fact">
+        <svg viewBox="0 0 32 32" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 24.5h15a3 3 0 0 1 0 6H3a3 3 0 0 1 0-6z"/><path d="M5 24.5V17h9l2 7.5M14 17l5-9 7 3-3 5h-4"/><path d="M23 16l3 4h-5"/></svg>
+        <div><p class="ic-fact__title">Own plant, own people</p><p class="ic-fact__text">A maintained fleet and directly employed operatives, so your programme isn't at the mercy of hire availability.</p></div>
+      </li>
+      <li class="ic-fact">
+        <svg viewBox="0 0 32 32" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><circle cx="16" cy="16" r="13"/><circle cx="16" cy="16" r="8"/><path d="M8 16h16M16 8v16"/></svg>
+        <div><p class="ic-fact__title">Built for adoption</p><p class="ic-fact__text">S104 sewers and S38 roads built to the adopting authority's standard and inspected as we go.</p></div>
+      </li>
+      <li class="ic-fact">
+        <svg viewBox="0 0 32 32" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M4 22h24v3H4z"/><path d="M7 22a9 9 0 0 1 18 0"/><path d="M13 13.5V9h6v4.5"/></svg>
+        <div><p class="ic-fact__title">CDM 2015 as standard</p><p class="ic-fact__text">Construction phase plans, RAMS and permits to dig on every job, as contractor or principal contractor.</p></div>
+      </li>
+      <li class="ic-fact">
+        <svg viewBox="0 0 32 32" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 29s9-8.4 9-15a9 9 0 0 0-18 0c0 6.6 9 15 9 15z"/><circle cx="16" cy="14" r="3.2"/></svg>
+        <div><p class="ic-fact__title">Yorkshire-wide</p><p class="ic-fact__text">From our Leeds yard we cover West, North and South Yorkshire, York and the East Riding.</p></div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===== Services ===== -->
+<section class="ic-section" id="services" aria-labelledby="ic-services-h">
+  <div class="ic-container ic-split" data-ic-split>
+    <div>
+      <p class="ic-eyebrow">Services</p>
+      <h2 class="ic-h2" id="ic-services-h">Groundworks and civils, carried out by our own teams</h2>
+      <p class="ic-lead">We take a site from the first topsoil strip to adopted roads and sewers. Most clients give us the whole groundworks package, but we price individual elements too.</p>
+      <div class="ic-aside__actions">
+        <a class="ic-btn ic-btn--dark" href="#tender">Request a tender <svg class="ic-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" fill="none"/></svg></a>
+      </div>
+      <p class="ic-small">Prices are quoted + VAT. The domestic reverse charge applies where relevant.</p>
+    </div>
+    <ol class="ic-svc">
+      <li class="ic-svc__item">
+        <span class="ic-svc__num">01</span>
+        <div>
+          <h3 class="ic-svc__title">Earthworks &amp; site strip</h3>
+          <p class="ic-svc__text">Topsoil strip and stockpile, cut and fill to design levels, muck-away and imported fill, and lime or cement stabilisation where the ground needs it. Our dozers and excavators run GPS machine control, so levels are right first time.</p>
+          <ul class="ic-tags"><li>Cut and fill</li><li>Ground stabilisation</li><li>Muck-away and import</li></ul>
+          <a class="ic-link ic-svc__link" href="#tender" data-ic-service="earthworks">Price earthworks <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" fill="none"/></svg></a>
+        </div>
+      </li>
+      <li class="ic-svc__item">
+        <span class="ic-svc__num">02</span>
+        <div>
+          <h3 class="ic-svc__title">Foundations</h3>
+          <p class="ic-svc__text">Strip, trench-fill, pad and raft foundations, pile caps and ground beams. Reinforcement is fixed and checked, and every excavation is signed off by building control before we pour.</p>
+          <ul class="ic-tags"><li>Trench-fill</li><li>Rafts and pads</li><li>Pile caps and ground beams</li></ul>
+          <a class="ic-link ic-svc__link" href="#tender" data-ic-service="foundations">Price foundations <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" fill="none"/></svg></a>
+        </div>
+      </li>
+      <li class="ic-svc__item">
+        <span class="ic-svc__num">03</span>
+        <div>
+          <h3 class="ic-svc__title">Drainage &amp; adoptable sewers</h3>
+          <p class="ic-svc__text">Foul and surface water drainage, manholes, pumping station civils, attenuation tanks and SuDS. Adoptable sewers are built to the water company's standard under a Section 104 agreement and CCTV-surveyed before handover.</p>
+          <ul class="ic-tags"><li>S104 sewers</li><li>Attenuation and SuDS</li><li>CCTV surveys</li></ul>
+          <a class="ic-link ic-svc__link" href="#tender" data-ic-service="drainage">Price drainage <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" fill="none"/></svg></a>
+        </div>
+      </li>
+      <li class="ic-svc__item">
+        <span class="ic-svc__num">04</span>
+        <div>
+          <h3 class="ic-svc__title">Roads &amp; adoptable highways</h3>
+          <p class="ic-svc__text">Estate roads, footways and junctions from capping layer to surface course, with kerbs, edgings and lighting ducts. We build to Section 38 and Section 278 specifications and book the highway inspections.</p>
+          <ul class="ic-tags"><li>S38 estate roads</li><li>S278 junctions</li><li>Kerbs and surfacing</li></ul>
+          <a class="ic-link ic-svc__link" href="#tender" data-ic-service="roads">Price roads <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" fill="none"/></svg></a>
+        </div>
+      </li>
+      <li class="ic-svc__item">
+        <span class="ic-svc__num">05</span>
+        <div>
+          <h3 class="ic-svc__title">Utilities &amp; ducting</h3>
+          <p class="ic-svc__text">Shared service trenches, ducts, draw pits and chambers for water, electricity, gas and telecoms, coordinated with each utility's programme so plots are connected on time.</p>
+          <ul class="ic-tags"><li>Service trenches</li><li>Ducts and chambers</li><li>Utility coordination</li></ul>
+          <a class="ic-link ic-svc__link" href="#tender" data-ic-service="utilities">Price utilities <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" fill="none"/></svg></a>
+        </div>
+      </li>
+      <li class="ic-svc__item">
+        <span class="ic-svc__num">06</span>
+        <div>
+          <h3 class="ic-svc__title">Piling coordination</h3>
+          <p class="ic-svc__text">We bring in specialist piling contractors, build and maintain the piling mat, manage arisings and crop pile heads ready for caps and beams, all within one programme.</p>
+          <ul class="ic-tags"><li>Piling mats</li><li>Pile cropping</li><li>Spoil management</li></ul>
+          <a class="ic-link ic-svc__link" href="#tender" data-ic-service="piling">Discuss piling <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" fill="none"/></svg></a>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ===== Sectors ===== -->
+<section class="ic-section ic-section--concrete" id="sectors" aria-labelledby="ic-sectors-h">
+  <div class="ic-container">
+    <div class="ic-sechead">
+      <p class="ic-eyebrow">Sectors</p>
+      <h2 class="ic-h2" id="ic-sectors-h">Who we work for</h2>
+      <p class="ic-lead">Three kinds of client, three different sets of priorities. We set each job up to suit.</p>
+    </div>
+    <div class="ic-tabs">
+      <div class="ic-tabs__list" role="tablist" aria-label="Sectors">
+        <button class="ic-tab" role="tab" type="button" id="ic-tab-house" aria-controls="ic-panel-house" aria-selected="true">Housebuilders</button>
+        <button class="ic-tab" role="tab" type="button" id="ic-tab-com" aria-controls="ic-panel-com" aria-selected="false" tabindex="-1">Commercial</button>
+        <button class="ic-tab" role="tab" type="button" id="ic-tab-pub" aria-controls="ic-panel-pub" aria-selected="false" tabindex="-1">Public sector</button>
+      </div>
+      <div class="ic-tabs__panel" role="tabpanel" id="ic-panel-house" aria-labelledby="ic-tab-house" tabindex="0">
+        <div>
+          <h3 class="ic-panel__title">Plot-ready infrastructure, in the order your sales team needs it</h3>
+          <p class="ic-body">We phase earthworks, drainage and roads so the show homes and first plots open early, then keep pace with your build programme plot by plot. One contracts manager stays with the site from strip to final adoption.</p>
+          <dl class="ic-panel__facts">
+            <div><dt>Typical scale</dt><dd>40 to 400 plots</dd></div>
+            <div><dt>Typical package</dt><dd>£0.5m to £6m + VAT</dd></div>
+            <div><dt>Usual contract</dt><dd>JCT or client sub-contract</dd></div>
+          </dl>
+        </div>
+        <div class="ic-panel__card">
+          <p class="ic-panel__cardtitle">What we usually do</p>
+          <ul class="ic-checks">
+            <li>Site-wide strip, cut and fill and plot platforms</li>
+            <li>Plot foundations and oversite</li>
+            <li>S104 sewers and S38 estate roads</li>
+            <li>Plot drainage, driveways and paths</li>
+            <li>Remedials and snagging through to adoption</li>
+          </ul>
+        </div>
+      </div>
+      <div class="ic-tabs__panel" role="tabpanel" id="ic-panel-com" aria-labelledby="ic-tab-com" tabindex="0" hidden>
+        <div>
+          <h3 class="ic-panel__title">Level, drained platforms for industrial and logistics schemes</h3>
+          <p class="ic-body">Large cut and fill operations, heavy-duty yards and drainage with attenuation, built to handover dates that tenants have already been promised. We plan haul routes and spoil balance at tender stage so there are no surprises later.</p>
+          <dl class="ic-panel__facts">
+            <div><dt>Typical scale</dt><dd>1 to 15 hectares</dd></div>
+            <div><dt>Typical package</dt><dd>£0.8m to £8m + VAT</dd></div>
+            <div><dt>Usual contract</dt><dd>NEC4 ECS or JCT</dd></div>
+          </dl>
+        </div>
+        <div class="ic-panel__card">
+          <p class="ic-panel__cardtitle">What we usually do</p>
+          <ul class="ic-checks">
+            <li>Bulk earthworks and ground stabilisation</li>
+            <li>Pad foundations and ground beams</li>
+            <li>HGV yards, service roads and car parks</li>
+            <li>Attenuation tanks and interceptors</li>
+            <li>S278 junction works on the public highway</li>
+          </ul>
+        </div>
+      </div>
+      <div class="ic-tabs__panel" role="tabpanel" id="ic-panel-pub" aria-labelledby="ic-tab-pub" tabindex="0" hidden>
+        <div>
+          <h3 class="ic-panel__title">Schools, health and council schemes on sites that stay open</h3>
+          <p class="ic-body">Occupied sites need careful phasing, clear segregation from the public and regular updates for staff and neighbours. We work through frameworks and directly for local authorities, and report social value as we go.</p>
+          <dl class="ic-panel__facts">
+            <div><dt>Typical scale</dt><dd>Single site to multi-phase</dd></div>
+            <div><dt>Typical package</dt><dd>£0.1m to £3m + VAT</dd></div>
+            <div><dt>Usual contract</dt><dd>NEC4 or framework call-off</dd></div>
+          </dl>
+        </div>
+        <div class="ic-panel__card">
+          <p class="ic-panel__cardtitle">What we usually do</p>
+          <ul class="ic-checks">
+            <li>Foundations for extensions and new blocks</li>
+            <li>Car parks, drop-off loops and footpaths</li>
+            <li>SuDS and flood alleviation</li>
+            <li>Cycleways and highway improvements</li>
+            <li>Work phased around term times and clinics</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Projects ===== -->
+<section class="ic-section" id="projects" aria-labelledby="ic-projects-h">
+  <div class="ic-container">
+    <div class="ic-projects__head">
+      <div class="ic-sechead">
+        <p class="ic-eyebrow">Projects</p>
+        <h2 class="ic-h2" id="ic-projects-h">Recent work across Yorkshire</h2>
+        <p class="ic-lead">A sample of recent packages. Client names are withheld at their request.</p>
+      </div>
+      <p class="ic-flag"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9.5"/><path d="M12 11v6M12 7.2v.1"/></svg>Metrics shown are example figures</p>
+    </div>
+    <ul class="ic-proj-grid">
+      <li class="ic-proj">
+        <div class="ic-proj__media">
+          <img loading="lazy" decoding="async" width="960" height="720" alt="Tipper lorries and spoil heaps on a housing site, with marker pegs for the new road line"
+            src="https://images.pexels.com/photos/30751525/pexels-photo-30751525.jpeg?auto=compress&cs=tinysrgb&w=1600&fit=crop,700,4080,3060&w=960&h=720&fit=crop&q=75&auto=format"
+            srcset="https://images.pexels.com/photos/30751525/pexels-photo-30751525.jpeg?auto=compress&cs=tinysrgb&w=1600&fit=crop,700,4080,3060&w=640&h=480&fit=crop&q=75&auto=format 640w, https://images.pexels.com/photos/30751525/pexels-photo-30751525.jpeg?auto=compress&cs=tinysrgb&w=1600&fit=crop,700,4080,3060&w=960&h=720&fit=crop&q=75&auto=format 960w, https://images.pexels.com/photos/30751525/pexels-photo-30751525.jpeg?auto=compress&cs=tinysrgb&w=1600&fit=crop,700,4080,3060&w=1280&h=960&fit=crop&q=75&auto=format 1280w"
+            sizes="(max-width: 767px) 100vw, (max-width: 1199px) 50vw, 440px">
+        </div>
+        <div class="ic-proj__body">
+          <p class="ic-proj__tag">Housebuilder · Garforth</p>
+          <h3 class="ic-proj__title">Hollin Fields, 186 homes</h3>
+          <p class="ic-proj__scope">Site strip and cut and fill, plot foundations, S104 foul and surface water sewers and S38 estate roads, phased in three releases.</p>
+          <dl class="ic-metrics">
+            <div><dt>m³ moved</dt><dd>38,500</dd></div>
+            <div><dt>metres of drainage laid</dt><dd>2,640</dd></div>
+            <div><dt>weeks on programme</dt><dd>46</dd></div>
+          </dl>
+          <p class="ic-proj__eg">Example figures</p>
+          <a class="ic-link ic-proj__link" href="#tender" data-ic-client="housebuilder">Ask about a similar site <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" fill="none"/></svg></a>
+        </div>
+      </li>
+      <li class="ic-proj">
+        <div class="ic-proj__media">
+          <img loading="lazy" decoding="async" width="960" height="720" alt="Two site operatives in hi-vis beside an open excavation with service ducts"
+            src="https://images.pexels.com/photos/35846752/pexels-photo-35846752.jpeg?auto=compress&cs=tinysrgb&w=960&h=720&fit=crop"
+            srcset="https://images.pexels.com/photos/35846752/pexels-photo-35846752.jpeg?auto=compress&cs=tinysrgb&w=640&h=480&fit=crop 640w, https://images.pexels.com/photos/35846752/pexels-photo-35846752.jpeg?auto=compress&cs=tinysrgb&w=960&h=720&fit=crop 960w, https://images.pexels.com/photos/35846752/pexels-photo-35846752.jpeg?auto=compress&cs=tinysrgb&w=1280&h=960&fit=crop 1280w"
+            sizes="(max-width: 767px) 100vw, (max-width: 1199px) 50vw, 440px">
+        </div>
+        <div class="ic-proj__body">
+          <p class="ic-proj__tag">Commercial · Normanton</p>
+          <h3 class="ic-proj__title">Calder Link trade park, 9 units</h3>
+          <p class="ic-proj__scope">Bulk earthworks, pad foundations and ground beams, yard drainage with attenuation, and full utility ducting to every unit.</p>
+          <dl class="ic-metrics">
+            <div><dt>m³ moved</dt><dd>21,000</dd></div>
+            <div><dt>metres of drainage laid</dt><dd>1,180</dd></div>
+            <div><dt>weeks on programme</dt><dd>22</dd></div>
+          </dl>
+          <p class="ic-proj__eg">Example figures</p>
+          <a class="ic-link ic-proj__link" href="#tender" data-ic-client="commercial">Ask about a similar site <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" fill="none"/></svg></a>
+        </div>
+      </li>
+      <li class="ic-proj">
+        <div class="ic-proj__media">
+          <img loading="lazy" decoding="async" width="960" height="720" alt="Concrete foundation slab and brick courses set out on a cleared site"
+            src="https://images.pexels.com/photos/21033111/pexels-photo-21033111.jpeg?auto=compress&cs=tinysrgb&w=960&h=720&fit=crop"
+            srcset="https://images.pexels.com/photos/21033111/pexels-photo-21033111.jpeg?auto=compress&cs=tinysrgb&w=640&h=480&fit=crop 640w, https://images.pexels.com/photos/21033111/pexels-photo-21033111.jpeg?auto=compress&cs=tinysrgb&w=960&h=720&fit=crop 960w, https://images.pexels.com/photos/21033111/pexels-photo-21033111.jpeg?auto=compress&cs=tinysrgb&w=1280&h=960&fit=crop 1280w"
+            sizes="(max-width: 767px) 100vw, (max-width: 1199px) 50vw, 440px">
+        </div>
+        <div class="ic-proj__body">
+          <p class="ic-proj__tag">Public sector · Harrogate</p>
+          <h3 class="ic-proj__title">Primary school extension</h3>
+          <p class="ic-proj__scope">Foundations for a two-storey teaching block, a new car park and SuDS, phased around term time on an occupied site.</p>
+          <dl class="ic-metrics">
+            <div><dt>m³ moved</dt><dd>2,900</dd></div>
+            <div><dt>metres of drainage laid</dt><dd>460</dd></div>
+            <div><dt>weeks on programme</dt><dd>14</dd></div>
+          </dl>
+          <p class="ic-proj__eg">Example figures</p>
+          <a class="ic-link ic-proj__link" href="#tender" data-ic-client="public">Ask about a similar site <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" fill="none"/></svg></a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===== Adoptions explained ===== -->
+<section class="ic-section ic-section--dark ic-dark" id="adoptions" aria-labelledby="ic-adopt-h">
+  <div class="ic-container ic-split" data-ic-split>
+    <div>
+      <p class="ic-eyebrow">Adoptions explained</p>
+      <h2 class="ic-h2" id="ic-adopt-h">Section 104 and Section 38, in plain English</h2>
+      <p class="ic-lead">On most new developments the sewers end up owned by the water company and the roads by the council. Getting there takes technical approval, a legal agreement, a bond and inspections at every stage.</p>
+      <p class="ic-body">We build to the adoption standard from day one, book the inspections and keep the records the adopting authority asks for, so the bond comes back when it should.</p>
+      <p class="ic-note">The agreements and bonds sit between the developer and the adopting authority. Amounts, fees and timescales vary by authority; what's shown here is typical, not guaranteed.</p>
+    </div>
+    <div class="ic-adopt">
+      <figure class="ic-adopt__fig">
+        <img loading="lazy" decoding="async" width="1200" height="675" alt="Aerial view of a completed housing development with estate roads, footways and verges"
+          src="https://images.pexels.com/photos/38519999/pexels-photo-38519999.jpeg?auto=compress&cs=tinysrgb&w=1200&h=675&fit=crop"
+          srcset="https://images.pexels.com/photos/38519999/pexels-photo-38519999.jpeg?auto=compress&cs=tinysrgb&w=800&h=450&fit=crop 800w, https://images.pexels.com/photos/38519999/pexels-photo-38519999.jpeg?auto=compress&cs=tinysrgb&w=1200&h=675&fit=crop 1200w, https://images.pexels.com/photos/38519999/pexels-photo-38519999.jpeg?auto=compress&cs=tinysrgb&w=1600&h=900&fit=crop 1600w"
+          sizes="(max-width: 1199px) 100vw, 760px">
+        <figcaption>Estate roads, footways and sewers like these are adopted once the maintenance period ends.</figcaption>
+      </figure>
+      <div class="ic-adopt__cards">
+        <article class="ic-adopt__card">
+          <p class="ic-adopt__kicker">Sewers</p>
+          <h3>Section 104</h3>
+          <p class="ic-adopt__act">Water Industry Act 1991</p>
+          <dl>
+            <div><dt>Who approves</dt><dd>The water and sewerage company for the area.</dd></div>
+            <div><dt>What's adopted</dt><dd>Foul and surface water sewers serving more than one property, and pumping stations.</dd></div>
+            <div><dt>The bond</dt><dd>A bond or cash deposit, usually a percentage of the cost of the works, held until adoption.</dd></div>
+            <div><dt>Maintenance</dt><dd>Typically 12 months after the sewers are complete, ending with a final CCTV survey.</dd></div>
+          </dl>
+        </article>
+        <article class="ic-adopt__card">
+          <p class="ic-adopt__kicker">Roads</p>
+          <h3>Section 38</h3>
+          <p class="ic-adopt__act">Highways Act 1980</p>
+          <dl>
+            <div><dt>Who approves</dt><dd>The local highway authority, usually the council.</dd></div>
+            <div><dt>What's adopted</dt><dd>Estate roads, footways, verges, street lighting and highway drainage.</dd></div>
+            <div><dt>The bond</dt><dd>Usually set at the estimated cost of the works and reduced in stages as the road is built.</dd></div>
+            <div><dt>Maintenance</dt><dd>Typically 12 months after the final surface course, before the road is adopted.</dd></div>
+          </dl>
+        </article>
+      </div>
+      <p class="ic-adopt__s278"><strong>Working on an existing public road?</strong> A new junction or widening on the existing highway is normally done under a Section 278 agreement instead. We build those too.</p>
+      <h3 class="ic-adopt__stepsh">How adoption usually runs</h3>
+      <ol class="ic-steps">
+        <li class="ic-step"><span class="ic-step__n">1</span><div><h4>Technical approval</h4><p>The engineer's drawings and calculations are submitted and approved.</p></div></li>
+        <li class="ic-step"><span class="ic-step__n">2</span><div><h4>Agreement and bond</h4><p>The legal agreement is signed, the bond is put in place and inspection fees are paid.</p></div></li>
+        <li class="ic-step"><span class="ic-step__n">3</span><div><h4>Construction</h4><p>We build to the approved design, with inspections at the agreed stages.</p></div></li>
+        <li class="ic-step"><span class="ic-step__n">4</span><div><h4>Provisional certificate</h4><p>The works are accepted as complete and the maintenance period starts.</p></div></li>
+        <li class="ic-step"><span class="ic-step__n">5</span><div><h4>Maintenance period</h4><p>Usually 12 months. Any defects found are put right by us.</p></div></li>
+        <li class="ic-step"><span class="ic-step__n">6</span><div><h4>Adoption</h4><p>Final inspection and certificate, then the bond is released.</p></div></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Plant & fleet ===== -->
+<section class="ic-section ic-section--concrete" id="plant" aria-labelledby="ic-plant-h">
+  <div class="ic-container ic-split" data-ic-split>
+    <figure class="ic-media">
+      <picture>
+        <source media="(max-width: 1199px)"
+          srcset="https://images.pexels.com/photos/5125782/pexels-photo-5125782.jpeg?auto=compress&cs=tinysrgb&w=1600&fit=crop,1100,6600,3712&w=768&h=432&fit=crop&q=75&auto=format 768w, https://images.pexels.com/photos/5125782/pexels-photo-5125782.jpeg?auto=compress&cs=tinysrgb&w=1600&fit=crop,1100,6600,3712&w=1200&h=675&fit=crop&q=75&auto=format 1200w, https://images.pexels.com/photos/5125782/pexels-photo-5125782.jpeg?auto=compress&cs=tinysrgb&w=1600&fit=crop,1100,6600,3712&w=1600&h=900&fit=crop&q=75&auto=format 1600w"
+          sizes="100vw">
+        <img loading="lazy" decoding="async" width="840" height="1050" alt="Excavator operator in hi-vis at the controls of a tracked excavator beside a trench"
+          src="https://images.pexels.com/photos/5125782/pexels-photo-5125782.jpeg?auto=compress&cs=tinysrgb&w=1600&fit=crop,1032,4130,5160&w=840&h=1050&fit=crop&q=75&auto=format"
+          srcset="https://images.pexels.com/photos/5125782/pexels-photo-5125782.jpeg?auto=compress&cs=tinysrgb&w=1600&fit=crop,1032,4130,5160&w=560&h=700&fit=crop&q=75&auto=format 560w, https://images.pexels.com/photos/5125782/pexels-photo-5125782.jpeg?auto=compress&cs=tinysrgb&w=1600&fit=crop,1032,4130,5160&w=840&h=1050&fit=crop&q=75&auto=format 840w, https://images.pexels.com/photos/5125782/pexels-photo-5125782.jpeg?auto=compress&cs=tinysrgb&w=1600&fit=crop,1032,4130,5160&w=1120&h=1400&fit=crop&q=75&auto=format 1120w"
+          sizes="540px">
+      </picture>
+    </figure>
+    <div>
+      <p class="ic-eyebrow">Plant &amp; fleet</p>
+      <h2 class="ic-h2" id="ic-plant-h">Our own machines, maintained in our own yard</h2>
+      <p class="ic-lead">Owning the core fleet means we aren't waiting on hire companies, and every machine arrives serviced, inspected and fitted with the safety equipment we specify.</p>
+      <div class="ic-tablewrap">
+        <table class="ic-table">
+          <caption class="ic-sr">Plant fleet summary (example figures)</caption>
+          <thead><tr><th scope="col">Machine</th><th scope="col">Sizes</th><th scope="col" class="ic-num">Fleet</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">360° tracked excavators</th><td>1.5 to 30 tonne</td><td class="ic-num">34</td></tr>
+            <tr><th scope="row">Wheeled excavators</th><td>14 to 18 tonne</td><td class="ic-num">6</td></tr>
+            <tr><th scope="row">Forward tipping dumpers</th><td>3 to 9 tonne</td><td class="ic-num">22</td></tr>
+            <tr><th scope="row">Dozers with GPS control</th><td>10 to 20 tonne</td><td class="ic-num">5</td></tr>
+            <tr><th scope="row">Rollers</th><td>1.5 to 12 tonne</td><td class="ic-num">9</td></tr>
+            <tr><th scope="row">Telehandlers</th><td>9 to 14 metre reach</td><td class="ic-num">4</td></tr>
+            <tr><th scope="row">Eight-wheel tippers and grab lorries</th><td>32 tonne</td><td class="ic-num">8</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="ic-small">Fleet numbers are example figures.</p>
+      <ul class="ic-checks ic-checks--2">
+        <li>Cameras and proximity warning on excavators over 8 tonnes</li>
+        <li>Lifting equipment thoroughly examined under LOLER</li>
+        <li>Pre-use checks logged every shift</li>
+        <li>Low-emission engines across most of the fleet</li>
+      </ul>
+      <p style="margin-top:18px"><a class="ic-link" href="#tender">Need operated plant hire? Ask our plant desk</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Health & safety ===== -->
+<section class="ic-section" id="safety" aria-labelledby="ic-safety-h">
+  <div class="ic-container ic-split" data-ic-split>
+    <div>
+      <p class="ic-eyebrow">Health &amp; safety</p>
+      <h2 class="ic-h2" id="ic-safety-h">Safe digging is planned, not hoped for</h2>
+      <p class="ic-lead">Buried services, trench collapse and moving plant are the real risks on a groundworks site. Our controls are simple, written down and checked every day.</p>
+      <ul class="ic-badges" aria-label="Accreditations (logo placeholders)">
+        <li class="ic-badge"><span class="ic-badge__ph">Logo</span><span class="ic-badge__cap">H&amp;S pre-qualification</span></li>
+        <li class="ic-badge"><span class="ic-badge__ph">Logo</span><span class="ic-badge__cap">Quality management</span></li>
+        <li class="ic-badge"><span class="ic-badge__ph">Logo</span><span class="ic-badge__cap">Environmental management</span></li>
+        <li class="ic-badge"><span class="ic-badge__ph">Logo</span><span class="ic-badge__cap">Occupational health &amp; safety</span></li>
+        <li class="ic-badge"><span class="ic-badge__ph">Logo</span><span class="ic-badge__cap">Supply chain scheme</span></li>
+        <li class="ic-badge"><span class="ic-badge__ph">Logo</span><span class="ic-badge__cap">Considerate site scheme</span></li>
+      </ul>
+      <p class="ic-small">Accreditation placeholders. Certificates available on request from <a class="ic-link" style="min-height:0" href="mailto:safety@example.com">safety@example.com</a></p>
+    </div>
+    <ol class="ic-practices">
+      <li class="ic-practice">
+        <span class="ic-practice__icon"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h9l4 4v14H6z"/><path d="M9 11h7M9 15h7M9 7h4"/></svg></span>
+        <div><h3>CDM 2015 on every job</h3><p>Whether we're contractor or principal contractor, there's a construction phase plan, site-specific RAMS and a proper induction before anyone starts work.</p></div>
+      </li>
+      <li class="ic-practice">
+        <span class="ic-practice__icon"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 14h18M3 18h18"/><path d="M8 14V9a4 4 0 0 1 8 0v5"/><path d="M12 3v2"/></svg></span>
+        <div><h3>Permits to dig and utility searches</h3><p>No excavation without a permit. That means current utility records, a scan with a cable avoidance tool and signal generator, and hand-dug trial holes near known services.</p></div>
+      </li>
+      <li class="ic-practice">
+        <span class="ic-practice__icon"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4v16M20 4v16M4 9h16M4 15h16"/></svg></span>
+        <div><h3>Temporary works, designed not improvised</h3><p>Trench support, piling mats and deep excavations are designed and signed off through our temporary works coordinator.</p></div>
+      </li>
+      <li class="ic-practice">
+        <span class="ic-practice__icon"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><circle cx="7" cy="5" r="2"/><path d="M7 8v6l-2 6M7 14l2 6"/><path d="M13 3v18" stroke-dasharray="2.5 2.5"/><path d="M16 17h6v-4l-2-3h-4z"/></svg></span>
+        <div><h3>People and plant kept apart</h3><p>Segregated walkways, trained plant marshals for reversing and lifting, and exclusion zones around slewing machines.</p></div>
+      </li>
+      <li class="ic-practice">
+        <span class="ic-practice__icon"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+        <div><h3>Sensible hours and clean roads</h3><p>Standard site hours are 7.30am to 6pm Monday to Friday and 8am to 1pm on Saturday, unless your planning conditions say otherwise. Wheel washing, road sweeping and dust suppression come as standard.</p></div>
+      </li>
+      <li class="ic-practice">
+        <span class="ic-practice__icon"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="6" width="18" height="13" rx="1.5"/><circle cx="9" cy="12" r="2"/><path d="M6 16.5c.6-1.4 1.7-2 3-2s2.4.6 3 2M14 11h4M14 14h3"/></svg></span>
+        <div><h3>Trained, carded and fit for work</h3><p>Everyone on site holds a CSCS card, plant operators hold CPCS or NPORS, toolbox talks run weekly and we carry out random drug and alcohol testing.</p></div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ===== Careers ===== -->
+<section class="ic-section ic-section--concrete" id="careers" aria-labelledby="ic-careers-h">
+  <div class="ic-container ic-split" data-ic-split>
+    <figure class="ic-media">
+      <picture>
+        <source media="(max-width: 1199px)"
+          srcset="https://images.pexels.com/photos/12164798/pexels-photo-12164798.jpeg?auto=compress&cs=tinysrgb&w=1600&fit=crop,1900,5661,3184&w=768&h=432&fit=crop&q=75&auto=format 768w, https://images.pexels.com/photos/12164798/pexels-photo-12164798.jpeg?auto=compress&cs=tinysrgb&w=1600&fit=crop,1900,5661,3184&w=1200&h=675&fit=crop&q=75&auto=format 1200w, https://images.pexels.com/photos/12164798/pexels-photo-12164798.jpeg?auto=compress&cs=tinysrgb&w=1600&fit=crop,1900,5661,3184&w=1600&h=900&fit=crop&q=75&auto=format 1600w"
+          sizes="100vw">
+        <img loading="lazy" decoding="async" width="840" height="1050" alt="Two groundworkers in hi-vis and hard hats looking over an open excavation"
+          src="https://images.pexels.com/photos/12164798/pexels-photo-12164798.jpeg?auto=compress&cs=tinysrgb&w=1600&fit=crop,1700,4600,5750&w=840&h=1050&fit=crop&q=75&auto=format"
+          srcset="https://images.pexels.com/photos/12164798/pexels-photo-12164798.jpeg?auto=compress&cs=tinysrgb&w=1600&fit=crop,1700,4600,5750&w=560&h=700&fit=crop&q=75&auto=format 560w, https://images.pexels.com/photos/12164798/pexels-photo-12164798.jpeg?auto=compress&cs=tinysrgb&w=1600&fit=crop,1700,4600,5750&w=840&h=1050&fit=crop&q=75&auto=format 840w, https://images.pexels.com/photos/12164798/pexels-photo-12164798.jpeg?auto=compress&cs=tinysrgb&w=1600&fit=crop,1700,4600,5750&w=1120&h=1400&fit=crop&q=75&auto=format 1120w"
+          sizes="540px">
+      </picture>
+    </figure>
+    <div>
+      <p class="ic-eyebrow">Careers</p>
+      <h2 class="ic-h2" id="ic-careers-h">Steady local work, and a clear way up</h2>
+      <p class="ic-lead">We employ most of our groundworkers, operators and engineers directly. Work is mostly within an hour of Leeds, pay is fair and we pay for your training.</p>
+      <div class="ic-roles">
+        <article class="ic-role">
+          <h3>Groundworkers and plant operators</h3>
+          <p>You'll need a valid CSCS card for your role, and CPCS or NPORS for plant. We pay for card upgrades, renewals and extra categories.</p>
+          <a class="ic-link" href="mailto:careers@example.com?subject=Operative%20vacancies">Ask about current vacancies</a>
+        </article>
+        <article class="ic-role">
+          <h3>Apprenticeships</h3>
+          <p>Two-year Level 2 groundworker and plant operator apprenticeships with a local college. Paid from day one, CSCS card included, and a permanent job at the end for those who want one.</p>
+          <a class="ic-link" href="mailto:careers@example.com?subject=Apprenticeships">Register for the September intake</a>
+        </article>
+        <article class="ic-role">
+          <h3>Subcontractors</h3>
+          <p>We use a small group of trusted specialists. You'll need to be registered for CIS, hold suitable insurance and pass our pre-qualification. We verify your CIS status with HMRC before the first payment and pay monthly on agreed terms.</p>
+          <a class="ic-link" href="mailto:supplychain@example.com?subject=Supply%20chain">Join our supply chain</a>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Tender enquiry ===== -->
+<section class="ic-section ic-section--dark ic-dark" id="tender" aria-labelledby="ic-tender-h">
+  <div class="ic-container ic-split" data-ic-split>
+    <div class="ic-tender-aside">
+      <div class="ic-tender-intro">
+        <p class="ic-eyebrow">Request a tender</p>
+        <h2 class="ic-h2" id="ic-tender-h">Send us the scheme and we'll price it</h2>
+        <p class="ic-lead">Tell us about the site and when tenders are due. An estimator will confirm receipt the same working day and send a secure link for drawings.</p>
+      </div>
+      <div>
+        <h3 class="ic-mini">Helpful to include</h3>
+        <ul class="ic-checks ic-checks--light">
+          <li>Site layout and levels</li>
+          <li>Drainage and highways design, and approval status</li>
+          <li>Site investigation report</li>
+          <li>Programme and tender return date</li>
+          <li>Form of contract</li>
+        </ul>
+      </div>
+      <div>
+        <dl class="ic-contactlist">
+          <div><dt>Tender line</dt><dd><a href="tel:+441134960420">0113 496 0420</a></dd></div>
+          <div><dt>Email</dt><dd><a href="mailto:tenders@example.com">tenders@example.com</a></dd></div>
+        </dl>
+        <p class="ic-small">Office hours Monday to Friday, 8am to 5.30pm. We aim to return priced tenders within 10 working days. All prices are quoted + VAT.</p>
+      </div>
+    </div>
+
+    <div class="ic-formcard" id="ic-formcard">
+      <form class="ic-form-wrap" id="ic-form" novalidate>
+        <h3 class="ic-formcard__title">Tender enquiry</h3>
+        <p class="ic-formcard__intro">Fields marked * are required.</p>
+        <div class="ic-form">
+          <div class="ic-field"><label for="f-name">Full name *</label><input class="ic-input" id="f-name" name="name" type="text" autocomplete="name" required aria-describedby="e-name"><p class="ic-err" id="e-name"></p></div>
+          <div class="ic-field"><label for="f-company">Company *</label><input class="ic-input" id="f-company" name="company" type="text" autocomplete="organization" required aria-describedby="e-company"><p class="ic-err" id="e-company"></p></div>
+          <div class="ic-field"><label for="f-email">Email *</label><input class="ic-input" id="f-email" name="email" type="email" autocomplete="email" required aria-describedby="e-email"><p class="ic-err" id="e-email"></p></div>
+          <div class="ic-field"><label for="f-phone">Phone *</label><input class="ic-input" id="f-phone" name="phone" type="tel" autocomplete="tel" required aria-describedby="e-phone"><p class="ic-err" id="e-phone"></p></div>
+          <div class="ic-field"><label for="f-site">Project name or site address *</label><input class="ic-input" id="f-site" name="site" type="text" required aria-describedby="e-site"><p class="ic-err" id="e-site"></p></div>
+          <div class="ic-field"><label for="f-postcode">Site postcode <span>(optional)</span></label><input class="ic-input" id="f-postcode" name="postcode" type="text" autocomplete="off"></div>
+          <div class="ic-field"><label for="f-client">You are a</label>
+            <select class="ic-input" id="f-client" name="client">
+              <option value="housebuilder">Housebuilder</option>
+              <option value="commercial">Commercial developer</option>
+              <option value="main">Main contractor</option>
+              <option value="public">Public sector body</option>
+              <option value="other">Other</option>
+            </select></div>
+          <div class="ic-field"><label for="f-return">Tender return date <span>(optional)</span></label><input class="ic-input" id="f-return" name="return" type="date"></div>
+          <fieldset class="ic-fieldset ic-field--full">
+            <legend>Services needed <span>(tick all that apply)</span></legend>
+            <div class="ic-chips">
+              <div class="ic-chip"><input type="checkbox" id="s-earth" name="services" value="earthworks"><label for="s-earth">Earthworks</label></div>
+              <div class="ic-chip"><input type="checkbox" id="s-found" name="services" value="foundations"><label for="s-found">Foundations</label></div>
+              <div class="ic-chip"><input type="checkbox" id="s-drain" name="services" value="drainage"><label for="s-drain">Drainage / S104</label></div>
+              <div class="ic-chip"><input type="checkbox" id="s-roads" name="services" value="roads"><label for="s-roads">Roads / S38 / S278</label></div>
+              <div class="ic-chip"><input type="checkbox" id="s-util" name="services" value="utilities"><label for="s-util">Utilities &amp; ducting</label></div>
+              <div class="ic-chip"><input type="checkbox" id="s-pile" name="services" value="piling"><label for="s-pile">Piling coordination</label></div>
+            </div>
+          </fieldset>
+          <div class="ic-field"><label for="f-value">Approximate package value</label>
+            <select class="ic-input" id="f-value" name="value">
+              <option>Not sure yet</option>
+              <option>Under £250k + VAT</option>
+              <option>£250k to £1m + VAT</option>
+              <option>£1m to £3m + VAT</option>
+              <option>Over £3m + VAT</option>
+            </select></div>
+          <div class="ic-field"><label for="f-start">Expected start on site</label>
+            <select class="ic-input" id="f-start" name="start">
+              <option>Not known yet</option>
+              <option>Within 1 month</option>
+              <option>1 to 3 months</option>
+              <option>3 to 6 months</option>
+              <option>More than 6 months</option>
+            </select></div>
+          <div class="ic-field ic-field--full"><label for="f-msg">About the project <span>(optional)</span></label><textarea class="ic-input" id="f-msg" name="message" rows="4" placeholder="Number of plots or units, ground conditions, programme constraints…"></textarea></div>
+          <div class="ic-field ic-field--full">
+            <label class="ic-consent" for="f-consent"><input type="checkbox" id="f-consent" name="consent" required aria-describedby="e-consent"><span>I'm happy for Flintrock Civils to contact me about this enquiry. See our <a href="#privacy">privacy notice</a>.</span></label>
+            <p class="ic-err" id="e-consent"></p>
+          </div>
+          <div class="ic-form__submit ic-field--full">
+            <button class="ic-btn ic-btn--clay" type="submit">Send tender enquiry <svg class="ic-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" fill="none"/></svg></button>
+            <p>Demonstration form: nothing is sent.</p>
+          </div>
+        </div>
+      </form>
+      <div class="ic-success" id="ic-success" hidden>
+        <span class="ic-success__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12.5 10 17l9-10"/></svg></span>
+        <h3 tabindex="-1" id="ic-success-h">Thanks, enquiry received</h3>
+        <p id="ic-success-msg">An estimator will confirm receipt today and send a secure upload link for your drawings.</p>
+        <p>Reference: <strong id="ic-ref">IC-0000</strong></p>
+        <button class="ic-btn ic-btn--dark" type="button" id="ic-again">Send another enquiry</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="ic-section" id="faq" aria-labelledby="ic-faq-h">
+  <div class="ic-container ic-split ic-split--faq" data-ic-split>
+    <div>
+      <p class="ic-eyebrow">FAQ</p>
+      <h2 class="ic-h2" id="ic-faq-h">Questions we're often asked</h2>
+      <p class="ic-lead">Can't see yours? Call <a class="ic-link" style="min-height:0" href="tel:+441134960420">0113 496 0420</a> or email <a class="ic-link" style="min-height:0" href="mailto:info@example.com">info@example.com</a>.</p>
+    </div>
+    <div class="ic-faq">
+      <details><summary>Which areas do you cover?<span class="ic-faq__icon" aria-hidden="true"></span></summary><p class="ic-faq__a">We're based in Leeds and work across Yorkshire: West, North and South Yorkshire, York and the East Riding. For larger packages we'll travel further.</p></details>
+      <details><summary>Do you price single elements, or only the full package?<span class="ic-faq__icon" aria-hidden="true"></span></summary><p class="ic-faq__a">Both. Most clients use us for the full groundworks and drainage package, but we regularly price earthworks only, drainage only or S278 works on their own.</p></details>
+      <details><summary>Do your prices include VAT?<span class="ic-faq__icon" aria-hidden="true"></span></summary><p class="ic-faq__a">No. All tender prices are quoted + VAT. For most construction services between VAT-registered businesses in the Construction Industry Scheme, the domestic reverse charge applies, so you account for the VAT rather than paying it to us.</p></details>
+      <details><summary>Can you act as principal contractor?<span class="ic-faq__icon" aria-hidden="true"></span></summary><p class="ic-faq__a">Yes, on groundworks-led and infrastructure projects. We prepare the construction phase plan, run inductions and coordinate other contractors as CDM 2015 requires.</p></details>
+      <details><summary>Will you manage S104 and S38 adoption?<span class="ic-faq__icon" aria-hidden="true"></span></summary><p class="ic-faq__a">We build to the adoption standard, book and attend inspections, and supply CCTV surveys and as-built drawings. The agreements and bonds sit with the developer, but we'll help prepare everything the authority asks for.</p></details>
+      <details><summary>What are your site working hours?<span class="ic-faq__icon" aria-hidden="true"></span></summary><p class="ic-faq__a">Usually 7.30am to 6pm Monday to Friday and 8am to 1pm on Saturday, with no noisy work on Sundays or bank holidays. Where planning conditions set different hours, we follow those.</p></details>
+      <details><summary>How do you deal with buried services?<span class="ic-faq__icon" aria-hidden="true"></span></summary><p class="ic-faq__a">Every dig needs a permit. We check utility records, scan with a cable avoidance tool and signal generator, and hand-dig trial holes near known services before any machine excavation.</p></details>
+      <details><summary>How quickly can you start?<span class="ic-faq__icon" aria-hidden="true"></span></summary><p class="ic-faq__a">For smaller packages, often within two to four weeks of order. For larger sites we agree a start date and resource plan at tender stage.</p></details>
+      <details><summary>Do you offer operated plant hire?<span class="ic-faq__icon" aria-hidden="true"></span></summary><p class="ic-faq__a">Yes, to main contractors around Leeds, subject to availability. Machines come with a CPCS or NPORS-carded operator.</p></details>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ===== Footer: safety signs ===== -->
+<footer class="ic-footer" id="ic-footer">
+  <div class="ic-container">
+    <div class="ic-concern">
+      <svg class="ic-concern__icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 5 45 42H3z" fill="#f6c21c" stroke="#1d1a17" stroke-width="3.5" stroke-linejoin="round"/><path d="M24 18v12" stroke="#1d1a17" stroke-width="4" stroke-linecap="round"/><circle cx="24" cy="36" r="2.4" fill="#1d1a17"/></svg>
+      <p class="ic-concern__text">Report a site concern 24/7: <a class="ic-concern__num" href="tel:+441134960999">0113 496 0999</a></p>
+      <p class="ic-concern__sub">Mud on the road, a damaged fence or noise outside site hours. A duty manager answers day and night.</p>
+    </div>
+
+    <div class="ic-footer__grid">
+      <div class="ic-footer__brand">
+        <a class="ic-logo" href="#top" aria-label="Flintrock Civils home">
+          <svg class="ic-logo__mark" viewBox="0 0 36 36" aria-hidden="true"><path d="M2 8h15l4.5 5.5H34V19H2z" fill="#d9772b"/><path d="M2 21.5h32v5H2z" fill="currentColor"/><path d="M2 29h32v5H2z" fill="currentColor" opacity=".5"/></svg>
+          <span class="ic-logo__text">Flintrock<span>Civils</span></span>
+        </a>
+        <p>Groundworks and civil engineering contractor based in Leeds, working across Yorkshire since 2009.</p>
+        <p><a class="ic-footer__web" href="#top">example.com</a></p>
+      </div>
+
+      <div class="ic-fgroup">
+        <h2 class="ic-fgroup__h"><button class="ic-fgroup__btn" type="button" aria-expanded="true" aria-controls="ic-f-contact">
+          <svg class="ic-sign" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="22" fill="#1d5fa8" stroke="#fff" stroke-width="1.5"/><g transform="translate(12.5 12.5) scale(.96)"><path fill="#fff" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25c1.1.37 2.33.57 3.6.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></g></svg>
+          <span>Contact</span>
+          <svg class="ic-fgroup__chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+        </button></h2>
+        <ul class="ic-fgroup__list" id="ic-f-contact">
+          <li class="ic-fgroup__plain">Unit 4, Flintrock Yard, Hunslet, Leeds LS10 0XX</li>
+          <li><a href="tel:+441134960420">0113 496 0420</a></li>
+          <li><a href="mailto:info@example.com">info@example.com</a></li>
+          <li><a href="mailto:tenders@example.com">tenders@example.com</a></li>
+          <li class="ic-fgroup__plain">Office: Mon to Fri, 8am to 5.30pm</li>
+        </ul>
+      </div>
+
+      <div class="ic-fgroup">
+        <h2 class="ic-fgroup__h"><button class="ic-fgroup__btn" type="button" aria-expanded="true" aria-controls="ic-f-services">
+          <svg class="ic-sign" viewBox="0 0 48 48" aria-hidden="true"><rect x="3" y="3" width="42" height="42" rx="3" fill="#18844a" stroke="#fff" stroke-width="1.5"/><path d="M12 24h20M24 15l9 9-9 9" stroke="#fff" stroke-width="4.5" fill="none" stroke-linejoin="miter"/></svg>
+          <span>Services</span>
+          <svg class="ic-fgroup__chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+        </button></h2>
+        <ul class="ic-fgroup__list" id="ic-f-services">
+          <li><a href="#services">Earthworks &amp; site strip</a></li>
+          <li><a href="#services">Foundations</a></li>
+          <li><a href="#services">Drainage &amp; S104 sewers</a></li>
+          <li><a href="#services">Roads, S38 &amp; S278</a></li>
+          <li><a href="#services">Utilities &amp; ducting</a></li>
+          <li><a href="#services">Piling coordination</a></li>
+        </ul>
+      </div>
+
+      <div class="ic-fgroup">
+        <h2 class="ic-fgroup__h"><button class="ic-fgroup__btn" type="button" aria-expanded="true" aria-controls="ic-f-site">
+          <svg class="ic-sign" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 4.5 45.5 42.5h-43z" fill="#f6c21c" stroke="#1d1a17" stroke-width="3.5" stroke-linejoin="round"/><path d="M24 18v12" stroke="#1d1a17" stroke-width="4" stroke-linecap="round"/><circle cx="24" cy="36" r="2.5" fill="#1d1a17"/></svg>
+          <span>Site info</span>
+          <svg class="ic-fgroup__chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+        </button></h2>
+        <ul class="ic-fgroup__list" id="ic-f-site">
+          <li><a href="#safety">Site working hours</a></li>
+          <li><a href="#safety">Permits to dig &amp; CDM 2015</a></li>
+          <li><a href="#adoptions">Adoptions explained</a></li>
+          <li><a href="#plant">Plant &amp; fleet</a></li>
+          <li><a href="#careers">Careers &amp; CIS subcontractors</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+
+      <div class="ic-fgroup">
+        <h2 class="ic-fgroup__h"><button class="ic-fgroup__btn" type="button" aria-expanded="true" aria-controls="ic-f-legal">
+          <svg class="ic-sign" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="20.5" fill="#fff" stroke="#c62a2a" stroke-width="5"/><circle cx="24.6" cy="13.2" r="2.7" fill="#1d1a17"/><path d="M24 17.5l-1.3 7.6 3.8 7.4M22.7 25.1l-3.9 7.4M18.6 21.6l5.2-3.4 4.4 3.6" stroke="#1d1a17" stroke-width="2.7" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M10.2 10.2l27.6 27.6" stroke="#c62a2a" stroke-width="5"/></svg>
+          <span>Legal</span>
+          <svg class="ic-fgroup__chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+        </button></h2>
+        <ul class="ic-fgroup__list" id="ic-f-legal">
+          <li><a href="#privacy">Privacy notice</a></li>
+          <li><a href="#cookies">Cookie policy</a></li>
+          <li><a href="#terms">Terms of business</a></li>
+          <li><a href="#modern-slavery">Modern slavery statement</a></li>
+          <li><a href="#accessibility">Accessibility</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ic-footer__base">
+      <p>© <span id="ic-year">2026</span> Flintrock Civils Ltd. Registered in England and Wales, company no. 00000000. VAT no. GB 000 0000 00. Registered office: Unit 4, Flintrock Yard, Hunslet, Leeds LS10 0XX.</p>
+      <button class="ic-totop" type="button" id="ic-totop" aria-label="Back to top"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6" stroke="currentColor" stroke-width="2" fill="none"/></svg></button>
+    </div>
+  </div>
+</footer>
+
+<!-- ===== Mobile action bar ===== -->
+<div class="ic-actionbar" id="ic-actionbar">
+  <a class="ic-actionbar__call" href="tel:+441134960420"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25c1.1.37 2.33.57 3.6.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg>Call</a>
+  <a class="ic-btn ic-btn--clay" href="#tender">Request a tender</a>
+</div>
+
+<script>
+(() => {
+  const $ = (s, c = document) => c.querySelector(s);
+  const $$ = (s, c = document) => [...c.querySelectorAll(s)];
+  const root = document.documentElement;
+  const header = $('#ic-header');
+  const hero = $('#top');
+  const mqDesk = matchMedia('(min-width: 1200px)');
+  const mqMob = matchMedia('(max-width: 767px)');
+  const mqPin = matchMedia('(min-width: 768px) and (min-height: 560px) and (prefers-reduced-motion: no-preference)');
+  const mqRM = matchMedia('(prefers-reduced-motion: reduce)');
+  const onMQ = (mq, fn) => mq.addEventListener ? mq.addEventListener('change', fn) : mq.addListener(fn);
+
+  /* ---------- Hero: scroll-driven build sequence ---------- */
+  const STAGES = [
+    { t: 'Site strip & earthworks', d: 'Topsoil stripped and stockpiled, cut and fill balanced, formation levels proved.' },
+    { t: 'Foundations & drainage', d: 'Trench-fill and pads poured; sewers laid in supported trenches and CCTV-surveyed.' },
+    { t: 'Roads & services', d: 'Sub-base, kerbs and binder course down, with ducts and services in the verge.' },
+    { t: 'Handover', d: 'Surface course, as-built drawings and adoption paperwork handed over with the plots.' }
+  ];
+  const imgs = $$('.ic-hero__img', hero);
+  const railBtns = $$('.ic-rail__btn', hero);
+  const fills = $$('.ic-rail__fill', hero);
+  const stage = $('#ic-stage');
+  const stNum = $('.ic-stage__num', stage), stTitle = $('.ic-stage__title', stage), stDesc = $('.ic-stage__desc', stage);
+  let pinned = false, cur = -1, swapT;
+
+  const heroTotal = () => Math.max(1, hero.offsetHeight - innerHeight);
+  function heroProgress() {
+    const p = -hero.getBoundingClientRect().top / heroTotal();
+    return Math.min(1, Math.max(0, p));
+  }
+  function writeStage(i) {
+    stNum.textContent = String(i + 1).padStart(2, '0');
+    stTitle.textContent = STAGES[i].t;
+    stDesc.textContent = STAGES[i].d;
+  }
+  function setStage(i, instant) {
+    if (i === cur) return;
+    cur = i;
+    imgs.forEach((im, k) => im.classList.toggle('ic-active', k === i));
+    railBtns.forEach((b, k) => {
+      b.classList.toggle('ic-active', k === i);
+      if (k === i) b.setAttribute('aria-current', 'step'); else b.removeAttribute('aria-current');
+    });
+    clearTimeout(swapT);
+    if (instant || mqRM.matches) { writeStage(i); stage.classList.remove('ic-swapping'); return; }
+    stage.classList.add('ic-swapping');
+    swapT = setTimeout(() => { writeStage(i); stage.classList.remove('ic-swapping'); }, 200);
+  }
+  function heroUpdate() {
+    if (!pinned) return;
+    const p = heroProgress();
+    fills.forEach((f, k) => f.style.setProperty('--f', Math.min(1, Math.max(0, p * 4 - k)).toFixed(3)));
+    setStage(Math.min(3, Math.floor(p * 4)), cur === -1);
+  }
+  function heroMode() {
+    pinned = mqPin.matches;
+    hero.classList.toggle('ic-hero--pin', pinned);
+    cur = -1;
+    if (pinned) heroUpdate();
+    else imgs.forEach((im, k) => im.classList.toggle('ic-active', k === 0));
+  }
+  railBtns.forEach((b, k) => b.addEventListener('click', () => {
+    const y = hero.offsetTop + heroTotal() * (k / 4) + (k ? 6 : 0);
+    window.scrollTo({ top: y, behavior: mqRM.matches ? 'auto' : 'smooth' });
+  }));
+
+  /* ---------- Header state ---------- */
+  function headerState() {
+    const solid = pinned ? hero.getBoundingClientRect().bottom <= header.offsetHeight + 2 : scrollY > 12;
+    header.classList.toggle('ic-solid', solid);
+  }
+
+  let ticking = false;
+  function onScroll() {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => { ticking = false; heroUpdate(); headerState(); });
+  }
+  addEventListener('scroll', onScroll, { passive: true });
+
+  /* ---------- Full-screen menu ---------- */
+  const menu = $('#ic-menu'), burger = $('#ic-burger'), closeBtn = $('#ic-menu-close');
+  let menuOpen = false;
+  function openMenu() {
+    menu.hidden = false; menuOpen = true;
+    burger.setAttribute('aria-expanded', 'true');
+    root.classList.add('ic-locked');
+    barState();
+    closeBtn.focus();
+  }
+  function closeMenu(returnFocus) {
+    if (!menuOpen) return;
+    menu.hidden = true; menuOpen = false;
+    burger.setAttribute('aria-expanded', 'false');
+    root.classList.remove('ic-locked');
+    barState();
+    if (returnFocus) burger.focus();
+  }
+  burger.addEventListener('click', openMenu);
+  closeBtn.addEventListener('click', () => closeMenu(true));
+  $$('[data-ic-close]', menu).forEach(a => a.addEventListener('click', () => closeMenu(false)));
+  menu.addEventListener('keydown', e => {
+    if (e.key === 'Escape') { closeMenu(true); return; }
+    if (e.key !== 'Tab') return;
+    const f = $$('a[href], button:not([disabled])', menu).filter(el => el.offsetParent !== null);
+    const first = f[0], last = f[f.length - 1];
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+  });
+  onMQ(mqDesk, () => { if (mqDesk.matches) closeMenu(false); });
+
+  /* ---------- Sector tabs ---------- */
+  const tabs = $$('[role="tab"]');
+  function selectTab(t, focus) {
+    tabs.forEach(x => {
+      const on = x === t;
+      x.setAttribute('aria-selected', String(on));
+      x.tabIndex = on ? 0 : -1;
+      $('#' + x.getAttribute('aria-controls')).hidden = !on;
+    });
+    if (focus) t.focus();
+    const list = t.parentElement;
+    if (list.scrollWidth > list.clientWidth) {
+      const l = t.offsetLeft - parseFloat(getComputedStyle(list).paddingLeft);
+      list.scrollTo({ left: l, behavior: mqRM.matches ? 'auto' : 'smooth' });
+    }
+  }
+  tabs.forEach((t, i) => {
+    t.addEventListener('click', () => selectTab(t, false));
+    t.addEventListener('keydown', e => {
+      let n = null;
+      if (e.key === 'ArrowRight') n = tabs[(i + 1) % tabs.length];
+      if (e.key === 'ArrowLeft') n = tabs[(i - 1 + tabs.length) % tabs.length];
+      if (e.key === 'Home') n = tabs[0];
+      if (e.key === 'End') n = tabs[tabs.length - 1];
+      if (n) { e.preventDefault(); selectTab(n, true); }
+    });
+  });
+
+  /* ---------- Sticky shorter column (desktop) ---------- */
+  function splits() {
+    $$('[data-ic-split]').forEach(sp => {
+      const cols = [...sp.children];
+      cols.forEach(c => c.classList.remove('ic-sticky'));
+      if (cols.length < 2) return;
+      const [a, b] = cols;
+      const ha = a.offsetHeight, hb = b.offsetHeight;
+      sp.dataset.icHeights = ha + '/' + hb;
+      if (!mqDesk.matches) { sp.dataset.icSticky = 'off'; return; }
+      const short = ha <= hb ? a : b;
+      const fits = short.offsetHeight < innerHeight - header.offsetHeight - 48;
+      if (fits && Math.abs(ha - hb) > 60) { short.classList.add('ic-sticky'); sp.dataset.icSticky = short === a ? 'first' : 'second'; }
+      else sp.dataset.icSticky = 'none';
+    });
+  }
+
+  /* ---------- Prefill form from service / project links ---------- */
+  $$('[data-ic-service]').forEach(a => a.addEventListener('click', () => {
+    const cb = $(`input[name="services"][value="${a.dataset.icService}"]`);
+    if (cb) cb.checked = true;
+  }));
+  $$('[data-ic-client]').forEach(a => a.addEventListener('click', () => { $('#f-client').value = a.dataset.icClient; }));
+
+  /* ---------- Tender form (simulated) ---------- */
+  const form = $('#ic-form'), success = $('#ic-success');
+  const msgs = { name: 'Enter your name', company: 'Enter your company name', email: 'Enter an email address like name@company.example', phone: 'Enter a phone number with at least 10 digits', site: 'Enter the project name or site address', consent: 'Tick the box so we can contact you' };
+  function setErr(f, msg) {
+    const err = $('#e-' + f.name);
+    if (err) err.textContent = msg;
+    f.setAttribute('aria-invalid', msg ? 'true' : 'false');
+    const wrap = f.closest('.ic-field');
+    if (wrap) wrap.classList.toggle('ic-invalid', !!msg);
+  }
+  function check(f) {
+    let ok = f.type === 'checkbox' ? f.checked : f.value.trim() !== '';
+    if (ok && f.type === 'email') ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f.value.trim());
+    if (ok && f.name === 'phone') ok = f.value.replace(/\D/g, '').length >= 10;
+    setErr(f, ok ? '' : msgs[f.name]);
+    return ok;
+  }
+  const required = $$('[required]', form);
+  required.forEach(f => f.addEventListener(f.type === 'checkbox' ? 'change' : 'blur', () => { if (f.getAttribute('aria-invalid') === 'true' || f.value) check(f); }));
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    let first = null;
+    required.forEach(f => { if (!check(f) && !first) first = f; });
+    if (first) { first.focus(); return; }
+    const name = $('#f-name').value.trim().split(/\s+/)[0];
+    $('#ic-success-h').textContent = 'Thanks ' + name + ', enquiry received';
+    $('#ic-ref').textContent = 'IC-' + String(Math.floor(1000 + Math.random() * 9000));
+    form.hidden = true; success.hidden = false;
+    $('#ic-success-h').focus();
+    splits();
+  });
+  $('#ic-again').addEventListener('click', () => {
+    form.reset(); required.forEach(f => setErr(f, ''));
+    success.hidden = true; form.hidden = false; $('#f-name').focus(); splits();
+  });
+
+  /* ---------- Footer accordions (mobile) ---------- */
+  const groups = $$('.ic-fgroup');
+  function footMode() {
+    const mob = mqMob.matches;
+    groups.forEach(g => {
+      const btn = $('.ic-fgroup__btn', g), list = $('.ic-fgroup__list', g);
+      if (mob) {
+        const open = g.classList.contains('ic-open');
+        btn.setAttribute('aria-expanded', String(open));
+        btn.removeAttribute('tabindex');
+        list.hidden = !open;
+      } else {
+        btn.setAttribute('aria-expanded', 'true');
+        btn.tabIndex = -1;
+        list.hidden = false;
+      }
+    });
+  }
+  groups.forEach(g => $('.ic-fgroup__btn', g).addEventListener('click', () => {
+    if (!mqMob.matches) return;
+    g.classList.toggle('ic-open');
+    footMode();
+  }));
+
+  /* ---------- Mobile action bar ---------- */
+  const bar = $('#ic-actionbar');
+  const vis = { footer: false, form: false };
+  function barState() {
+    const hide = vis.footer || vis.form || menuOpen;
+    bar.classList.toggle('ic-hidden', hide);
+    if ('inert' in bar) bar.inert = hide;
+  }
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver(es => {
+      es.forEach(e => { vis[e.target === $('#ic-footer') ? 'footer' : 'form'] = e.isIntersecting; });
+      barState();
+    }, { threshold: 0 });
+    io.observe($('#ic-footer'));
+    io.observe($('#ic-formcard'));
+  }
+
+  /* ---------- Misc ---------- */
+  $('#ic-totop').addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: mqRM.matches ? 'auto' : 'smooth' });
+    $('.ic-header .ic-logo').focus({ preventScroll: true });
+  });
+  $('#ic-year').textContent = new Date().getFullYear();
+
+  function layout() { heroMode(); headerState(); splits(); footMode(); }
+  [mqPin, mqDesk, mqMob].forEach(mq => onMQ(mq, layout));
+  let rT; addEventListener('resize', () => { clearTimeout(rT); rT = setTimeout(() => { splits(); heroUpdate(); headerState(); }, 120); });
+  layout();
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(splits);
+  addEventListener('load', splits);
+})();
+</script>
+</body>
+</html>

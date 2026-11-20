@@ -1,0 +1,1866 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta name="robots" content="noindex">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Orbit | Growth marketing agency for ecommerce and DTC brands, Birmingham</title>
+<meta name="description" content="Orbit is a Birmingham growth marketing agency for ecommerce and DTC brands: growth strategy, paid acquisition, email and SMS, CRO and A/B testing, marketplaces, analytics and attribution.">
+<meta name="theme-color" content="#160a0a">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300..800&family=Syne:wght@500..800&display=swap" rel="stylesheet">
+<script>
+(function(){
+  var d=document.documentElement; d.classList.add('lp-js');
+  function fail(){ d.classList.remove('lp-gl-ok'); d.classList.add('lp-nogl'); }
+  window.lpHeroFail=fail;
+  var ok=false;
+  try{ var c=document.createElement('canvas'); ok=!!(window.WebGLRenderingContext && (c.getContext('webgl2')||c.getContext('webgl'))); }catch(e){}
+  if(!ok || /[?&]nogl\b/.test(location.search)) fail();
+  else setTimeout(function(){ if(!d.classList.contains('lp-gl-ok')) fail(); }, 9000);
+})();
+</script>
+<script type="importmap">
+{ "imports": {
+  "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+} }
+</script>
+<style>
+[hidden]{display:none!important}
+:root{
+  --ink:#160a0a; --ink-2:#211110; --ink-3:#2c1614;
+  --red:#ff3b30; --red-btn:#d92b20; --red-btn-h:#b3201a; --red-ink:#c8261c;
+  --orange:#ff8a00;
+  --tint:#f4f4f5; --line:#e4e4e7; --line-2:#d4d4d8;
+  --text:#160a0a; --muted:#5c5251;
+  --on-dark-2:#d3cac9; --on-dark-3:#ab9e9d;
+  --focus:#c8261c;
+  --f-head:'Syne',system-ui,sans-serif; --f-body:'Manrope',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --gut:20px; --hdr:64px;
+}
+@media (min-width:768px){:root{--gut:32px;--hdr:72px}}
+@media (min-width:1200px){:root{--gut:48px;--hdr:80px}}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-padding-top:calc(var(--hdr) + 12px)}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+html.lp-lock{overflow:hidden}
+body{margin:0;font-family:var(--f-body);font-size:1rem;line-height:1.6;color:var(--text);background:#fff;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+img,svg{display:block;max-width:100%}
+img{height:auto}
+a{color:inherit}
+button,input,select,textarea{font:inherit;color:inherit}
+h1,h2,h3,h4{font-family:var(--f-head);line-height:1.08;margin:0;letter-spacing:-.02em;font-weight:700}
+p{margin:0}
+ul,ol{margin:0;padding:0;list-style:none}
+.lp-body :focus-visible{outline:3px solid var(--focus);outline-offset:3px}
+.lp-dark{--focus:#ff8a00}
+.lp-sr{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.lp-skip{position:absolute;left:12px;top:-80px;z-index:200;background:#fff;color:var(--ink);padding:12px 18px;border-radius:10px;font-weight:700;text-decoration:none}
+.lp-skip:focus{top:12px}
+.lp-ico{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.lp-wrap{width:100%;max-width:1440px;margin-inline:auto;padding-inline:var(--gut)}
+
+/* buttons */
+.lp-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:12px 22px;border-radius:12px;font-weight:700;font-size:1rem;line-height:1.2;text-decoration:none;border:2px solid transparent;cursor:pointer;transition:background-color .2s,border-color .2s,color .2s;white-space:nowrap}
+.lp-btn .lp-ico{width:18px;height:18px;transition:transform .2s}
+.lp-btn:hover .lp-ico{transform:translateX(3px)}
+.lp-btn--red{background:var(--red-btn);color:#fff}
+.lp-btn--red:hover{background:var(--red-btn-h);color:#fff}
+.lp-btn--ghost{border-color:rgba(255,255,255,.42);color:#fff;background:transparent}
+.lp-btn--ghost:hover{background:rgba(255,255,255,.1);border-color:#fff}
+.lp-btn--line{border-color:var(--ink);color:var(--ink);background:transparent}
+.lp-btn--line:hover{background:var(--ink);color:#fff}
+.lp-btn--lg{min-height:56px;padding:14px 26px;font-size:1.0625rem}
+.lp-btn--block{width:100%}
+
+/* section scaffolding */
+.lp-sec{padding-block:clamp(64px,4.5vw + 44px,128px)}
+.lp-sec--tint{background:var(--tint)}
+.lp-dark{background:var(--ink);color:#fff}
+.lp-sec-head{max-width:780px;margin-bottom:clamp(32px,3vw + 16px,56px)}
+.lp-kicker{display:flex;align-items:center;gap:10px;font-size:.8125rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--red-ink);margin-bottom:14px}
+.lp-kicker::before{content:"";width:9px;height:9px;border-radius:3px;background:currentColor}
+.lp-dark .lp-kicker{color:var(--orange)}
+.lp-h2{font-size:clamp(2rem,1.2rem + 2.6vw,3.5rem)}
+.lp-lede{font-size:clamp(1.0625rem,1rem + .3vw,1.25rem);color:var(--muted);margin-top:18px;max-width:62ch}
+.lp-dark .lp-lede{color:var(--on-dark-2)}
+.lp-ticks li{position:relative;padding-left:32px;margin-top:12px}
+.lp-ticks li::before{content:"";position:absolute;left:0;top:.2em;width:20px;height:20px;border-radius:6px;background:var(--red-btn) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m5 12 4.5 4.5L19 7'/%3E%3C/svg%3E") center/13px no-repeat}
+.lp-split{display:grid;gap:40px}
+@media (min-width:1200px){
+  .lp-split{align-items:start}
+  .lp-pinned{position:sticky;top:calc(var(--hdr) + 28px)}
+}
+
+/* header */
+.lp-hdr{position:fixed;inset:0 0 auto;z-index:50;height:var(--hdr);color:#fff;transition:background-color .25s,box-shadow .25s}
+.lp-hdr.is-solid{background:rgba(22,10,10,.95);box-shadow:0 1px 0 rgba(255,255,255,.08);-webkit-backdrop-filter:saturate(140%) blur(10px);backdrop-filter:saturate(140%) blur(10px)}
+.lp-hdr-in{height:100%;display:flex;align-items:center;gap:20px}
+.lp-logo{display:inline-flex;align-items:center;gap:10px;min-height:44px;text-decoration:none;color:#fff;font-family:var(--f-head);font-weight:700;font-size:1.5rem;letter-spacing:-.04em;line-height:1}
+.lp-logo svg{width:32px;height:32px}
+.lp-nav{display:none;margin-left:auto}
+.lp-nav ul{display:flex;gap:2px}
+.lp-nav a{display:inline-flex;align-items:center;min-height:44px;padding:0 14px;border-radius:10px;text-decoration:none;font-weight:600;font-size:.96875rem;color:#f3eaea}
+.lp-nav a:hover{background:rgba(255,255,255,.09);color:#fff}
+.lp-hdr-act{display:flex;align-items:center;gap:8px;margin-left:auto}
+.lp-hdr-tel{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-width:44px;min-height:44px;border-radius:12px;text-decoration:none;font-weight:700;color:#fff;border:1px solid rgba(255,255,255,.28)}
+.lp-hdr-tel .lp-ico{width:20px;height:20px}
+.lp-hdr-tel span{display:none}
+.lp-hdr-tel:hover{background:rgba(255,255,255,.09)}
+.lp-hdr-cta{display:none;min-height:44px;padding:10px 18px}
+.lp-burger{display:inline-flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;width:44px;height:44px;border-radius:12px;border:1px solid rgba(255,255,255,.28);background:transparent;cursor:pointer;padding:0}
+.lp-burger:hover{background:rgba(255,255,255,.09)}
+.lp-burger-ln{display:block;width:20px;height:2px;border-radius:2px;background:#fff}
+@media (min-width:768px){
+  .lp-hdr-tel{padding:0 14px;border-color:transparent}
+  .lp-hdr-tel span{display:inline}
+  .lp-hdr-cta{display:inline-flex}
+}
+@media (min-width:1200px){
+  .lp-nav{display:block}
+  .lp-burger{display:none}
+  .lp-hdr-act{margin-left:12px}
+  .lp-hdr-tel{padding:0;border-color:transparent}
+  .lp-hdr-tel span{display:none}
+}
+@media (min-width:1400px){.lp-hdr-tel{padding:0 12px}.lp-hdr-tel span{display:inline}}
+
+/* full-screen menu (tablet + mobile) */
+.lp-menu{position:fixed;inset:0;z-index:80;background:var(--ink);color:#fff;overflow-y:auto;display:flex;flex-direction:column;animation:lp-fade .22s ease}
+@keyframes lp-fade{from{opacity:0}to{opacity:1}}
+.lp-menu-top{display:flex;align-items:center;justify-content:space-between;height:var(--hdr);flex:none}
+.lp-menu-close{width:44px;height:44px;border-radius:12px;border:1px solid rgba(255,255,255,.28);background:transparent;color:#fff;display:grid;place-items:center;cursor:pointer}
+.lp-menu-close:hover{background:rgba(255,255,255,.09)}
+.lp-menu-body{flex:1;display:grid;gap:36px;align-content:start;padding-block:16px 40px}
+.lp-menu-list a{display:flex;align-items:baseline;gap:14px;padding:12px 0;font-family:var(--f-head);font-weight:700;font-size:clamp(1.75rem,1.2rem + 2.4vw,2.75rem);letter-spacing:-.03em;line-height:1.15;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.1)}
+.lp-menu-list a span{font-family:var(--f-body);font-size:.8125rem;font-weight:800;color:var(--orange);letter-spacing:.04em}
+.lp-menu-list a:hover{color:#ffb15c}
+.lp-menu-side{display:grid;gap:24px;align-content:start}
+.lp-menu-dl{display:grid;gap:16px;margin:0}
+.lp-menu-dl dt{font-size:.8125rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--on-dark-3)}
+.lp-menu-dl dd{margin:2px 0 0;color:#fff;font-weight:600}
+.lp-menu-dl a{text-decoration:none;display:inline-flex;align-items:center;min-height:44px}
+.lp-menu-dl a:hover{text-decoration:underline;text-underline-offset:4px}
+@media (min-width:768px){.lp-menu-body{grid-template-columns:1.25fr 1fr;gap:64px;padding-top:40px}}
+@media (min-width:1200px){.lp-menu{display:none!important}}
+
+/* hero */
+.lp-hero{position:relative;display:flex;flex-direction:column;padding-top:var(--hdr);color:#fff;background:radial-gradient(110% 80% at 78% 38%,#2c0f0b 0%,var(--ink) 62%);overflow:hidden}
+.lp-hero-stage{position:relative;flex:1}
+.lp-hero-art{position:relative;height:clamp(210px,30svh,290px);margin-inline:calc(-1 * var(--gut))}
+.lp-hero-art::before{content:"";position:absolute;inset:0;background:radial-gradient(closest-side at 50% 52%,rgba(255,138,0,.26),rgba(255,59,48,.1) 55%,transparent 100%);pointer-events:none}
+.lp-hero-cv{position:absolute;inset:0;width:100%;height:100%;display:block;opacity:0;transition:opacity .9s ease}
+.lp-gl-ok .lp-hero-cv{opacity:1}
+.lp-hero-fb{position:absolute;inset:0;perspective:1100px;transition:opacity .6s ease}
+.lp-js .lp-hero-fb{opacity:0}
+.lp-js.lp-nogl .lp-hero-fb{opacity:1}
+.lp-fbc{position:absolute;left:var(--x);top:var(--y);width:var(--s);height:var(--s);margin:calc(var(--s) / -2) 0 0 calc(var(--s) / -2);transform-style:preserve-3d;transform:rotateX(var(--rx)) rotateY(var(--ry)) rotateZ(var(--rz,0deg))}
+.lp-fbc i{position:absolute;inset:0;border-radius:20%;backface-visibility:hidden;display:grid;place-items:center}
+.lp-fbc i:nth-child(1){background:linear-gradient(150deg,var(--c1),var(--c2));transform:translateZ(calc(var(--s) / 2))}
+.lp-fbc i:nth-child(2){background:linear-gradient(150deg,var(--c2),var(--c3));transform:rotateY(90deg) translateZ(calc(var(--s) / 2))}
+.lp-fbc i:nth-child(3){background:linear-gradient(150deg,#ffc29a,var(--c1));transform:rotateX(90deg) translateZ(calc(var(--s) / 2))}
+.lp-fbc i:nth-child(4){background:var(--c3);transform:rotateY(-90deg) translateZ(calc(var(--s) / 2))}
+.lp-fbc i:nth-child(5){background:var(--c3);transform:rotateX(-90deg) translateZ(calc(var(--s) / 2))}
+.lp-fbc i:nth-child(6){background:var(--c3);transform:rotateY(180deg) translateZ(calc(var(--s) / 2))}
+.lp-fbc .lp-ico{width:46%;height:46%;stroke:#fff3ec;stroke-width:2}
+.lp-hero-copy{position:relative;z-index:2;padding-block:4px 32px}
+.lp-hero-eyebrow{display:inline-flex;align-items:flex-start;line-height:1.4;gap:10px;font-size:.875rem;font-weight:700;color:#ffd6c4;letter-spacing:.01em}
+.lp-hero-eyebrow i{width:9px;height:9px;margin-top:.36em;border-radius:3px;background:var(--orange);box-shadow:0 0 14px var(--orange);flex:none}
+.lp-hero h1{font-size:clamp(2.55rem,1.5rem + 4.6vw,5.4rem);line-height:1.02;letter-spacing:-.04em;margin-top:14px}
+.lp-hero h1 em{font-style:normal;color:var(--red)}
+.lp-hero-sub{margin-top:18px;font-size:clamp(1.0625rem,1rem + .35vw,1.25rem);line-height:1.55;color:var(--on-dark-2);max-width:34em}
+.lp-hero-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.lp-hero-foot{position:relative;z-index:2}
+.lp-hero-facts{display:grid;gap:12px;padding-block:20px 28px;border-top:1px solid rgba(255,255,255,.12);font-size:.9375rem;color:var(--on-dark-2)}
+.lp-hero-facts li{display:flex;gap:12px;align-items:center}
+.lp-hero-facts .lp-ico{width:20px;height:20px;color:var(--orange)}
+.lp-hero-facts strong{color:#fff;font-weight:700}
+@media (max-width:767.98px){
+  .lp-hero-ctas .lp-btn--lg{flex:1 1 100%}
+  .lp-hero-ctas .lp-btn--ghost{display:none}
+}
+@media (min-width:768px){
+  .lp-hero-facts{grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+}
+@media (min-width:768px) and (max-width:1199.98px){
+  .lp-hero-art{height:clamp(250px,35svh,400px)}
+  .lp-hero-copy{max-width:700px;padding-block:8px 40px}
+}
+@media (min-width:1200px){
+  .lp-hero{min-height:max(700px,min(100svh,1000px))}
+  .lp-hero-stage{display:flex;align-items:center}
+  .lp-hero-art{position:absolute;top:0;bottom:0;right:0;width:54%;height:auto;margin:0}
+  .lp-hero-art::before{background:radial-gradient(closest-side at 50% 50%,rgba(255,138,0,.24),rgba(255,59,48,.1) 58%,transparent 100%)}
+  .lp-hero-copy{max-width:min(640px,47%);padding-block:48px}
+}
+
+/* client wordmarks */
+.lp-brands{padding-block:36px;border-bottom:1px solid var(--line)}
+.lp-brands-in{display:grid;gap:22px;align-items:center}
+.lp-brands-lab{font-size:.875rem;font-weight:700;color:var(--muted)}
+.lp-brands-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 16px;align-items:center}
+.lp-brands-list li{display:flex;justify-content:center}
+.lp-wm{display:inline-block;color:#463d3c;line-height:1;white-space:nowrap;text-align:center}
+.lp-wm-kiln{font-family:var(--f-head);font-weight:800;font-size:1.05rem;letter-spacing:.16em}
+.lp-wm-kiln small{display:block;font-size:.5rem;letter-spacing:.42em;margin-top:5px;font-weight:700}
+.lp-wm-salt{font-family:var(--f-body);font-weight:300;font-size:1.65rem;letter-spacing:-.05em}
+.lp-wm-north{font-family:var(--f-body);font-weight:800;font-size:.95rem;letter-spacing:.3em}
+.lp-wm-hearth{font-family:var(--f-head);font-weight:600;font-size:1.3rem;letter-spacing:-.02em}
+.lp-wm-hearth i{font-style:normal;color:var(--red-ink)}
+.lp-wm-odd{font-family:var(--f-head);font-weight:800;font-size:1.55rem;letter-spacing:-.06em}
+.lp-wm-fettle{font-family:var(--f-head);font-weight:700;font-size:.95rem;letter-spacing:.14em;border:2px solid currentColor;padding:6px 10px 5px;border-radius:4px}
+@media (min-width:768px){.lp-brands-list{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (min-width:1200px){.lp-brands-in{grid-template-columns:190px 1fr}.lp-brands-list{grid-template-columns:repeat(6,minmax(0,1fr))}}
+</style>
+<style>
+/* growth loop diagram */
+.lp-orbitgrowthx-ring{position:relative;width:min(100%,560px);aspect-ratio:1;margin-inline:auto}
+.lp-orbitgrowthx-svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.lp-orbitgrowthx-arc{fill:none;stroke:#c4bebd;stroke-width:3;stroke-linecap:round;stroke-dasharray:100;stroke-dashoffset:0;transition:stroke .3s}
+.lp-orbitgrowthx-arc.is-on{stroke:var(--red);stroke-width:4.5;animation:lp-draw .7s ease both}
+@keyframes lp-draw{from{stroke-dashoffset:100}to{stroke-dashoffset:0}}
+.lp-orbitgrowthx-node{position:absolute;transform:translate(-50%,-50%);display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:7px 14px 7px 8px;border-radius:12px;border:1.5px solid var(--line-2);background:#fff;font-weight:700;font-size:.9375rem;color:var(--ink);cursor:pointer;box-shadow:0 8px 20px -12px rgba(22,10,10,.35);transition:border-color .2s,background-color .2s,color .2s;white-space:nowrap}
+.lp-orbitgrowthx-num{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:8px;background:var(--tint);font-size:.75rem;font-weight:800;color:var(--muted)}
+.lp-orbitgrowthx-node:hover{border-color:var(--ink)}
+.lp-orbitgrowthx-node[aria-selected="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+.lp-orbitgrowthx-node[aria-selected="true"] .lp-orbitgrowthx-num{background:var(--red-btn);color:#fff}
+.lp-orbitgrowthx-node--n{left:50%;top:15%}
+.lp-orbitgrowthx-node--e{left:85%;top:50%}
+.lp-orbitgrowthx-node--s{left:50%;top:85%}
+.lp-orbitgrowthx-node--w{left:15%;top:50%}
+.lp-orbitgrowthx-core{position:absolute;left:50%;top:50%;width:44%;aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;background:#fff;display:grid;place-content:center;text-align:center;gap:6px;padding:12px;box-shadow:inset 0 0 0 1px var(--line),0 24px 48px -28px rgba(22,10,10,.35)}
+.lp-orbitgrowthx-core-k{font-size:.75rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.lp-orbitgrowthx-core-m{font-family:var(--f-head);font-weight:700;font-size:clamp(1rem,.85rem + .8vw,1.5rem);line-height:1.15;color:var(--ink)}
+.lp-orbitgrowthx-panel{background:#fff;border:1px solid var(--line);border-radius:22px;padding:clamp(24px,2vw + 14px,44px)}
+.lp-orbitgrowthx-step{font-size:.875rem;font-weight:800;color:var(--red-ink);letter-spacing:.02em}
+.lp-orbitgrowthx-panel h3{font-size:clamp(1.5rem,1.15rem + 1.2vw,2.125rem);margin-top:10px}
+.lp-orbitgrowthx-text{margin-top:14px;color:var(--muted)}
+.lp-orbitgrowthx-sub{font-family:var(--f-body);font-size:.8125rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;margin-top:24px;color:var(--ink)}
+.lp-orbitgrowthx-metric{margin-top:24px;padding:16px 18px;border-radius:14px;background:var(--tint);display:grid;gap:2px}
+.lp-orbitgrowthx-metric span{font-size:.8125rem;font-weight:700;color:var(--muted)}
+.lp-orbitgrowthx-metric strong{font-size:1.0625rem}
+.lp-orbitgrowthx-nav{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.lp-orbitgrowthx-nav .lp-btn{min-height:44px;padding:10px 18px}
+@media (max-width:767.98px){
+  .lp-orbitgrowthx-num{display:none}
+  .lp-orbitgrowthx-node{padding:7px 12px;font-size:.875rem}
+}
+@media (min-width:768px) and (max-width:1023.98px){.lp-orbitgrowthx-ring{width:min(100%,440px)}}
+@media (min-width:1024px){.lp-orbitgrowthx-grid{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:40px;align-items:center}}
+@media (min-width:1200px){.lp-orbitgrowthx-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:72px;align-items:start}}
+
+/* services */
+.lp-svc-img{margin:28px 0 0;border-radius:20px;overflow:hidden;aspect-ratio:4/3;background:#e7e5e4}
+.lp-svc-img img{width:100%;height:100%;object-fit:cover}
+.lp-svc-more{display:inline-flex;align-items:center;gap:8px;margin-top:24px;font-weight:700;color:var(--red-ink);text-decoration:none;min-height:44px}
+.lp-svc-more:hover{text-decoration:underline;text-underline-offset:4px}
+.lp-svc-list{display:grid;gap:16px}
+.lp-svc-item{display:grid;grid-template-columns:auto minmax(0,1fr);gap:18px;padding:24px;border-radius:18px;background:#fff;border:1px solid var(--line);transition:border-color .2s,box-shadow .2s}
+.lp-svc-item:hover{border-color:#bdb6b5;box-shadow:0 18px 40px -30px rgba(22,10,10,.4)}
+.lp-svc-ico{width:52px;height:52px;border-radius:14px;background:#ffeceb;display:grid;place-items:center;color:var(--red-ink)}
+.lp-svc-ico .lp-ico{width:26px;height:26px}
+.lp-svc-item h3{font-size:1.375rem}
+.lp-svc-item p{margin-top:8px;color:var(--muted)}
+.lp-svc-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.lp-svc-tags li{font-size:.8125rem;font-weight:700;padding:5px 10px;border-radius:8px;background:var(--tint);color:#3f3736}
+@media (min-width:768px) and (max-width:1199.98px){
+  .lp-svc-intro{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:32px;align-items:center}
+  .lp-svc-img{margin:0}
+  .lp-svc-list{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .lp-svc-item{grid-template-columns:1fr;gap:14px}
+}
+@media (min-width:1200px){
+  .lp-svc-grid{grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:80px}
+  .lp-svc-item{grid-template-columns:auto minmax(0,1fr);padding:28px 30px;gap:24px}
+  .lp-svc-img{aspect-ratio:3/2}
+}
+
+/* case studies */
+.lp-case-top{display:grid;gap:24px;margin-bottom:28px}
+.lp-case-top .lp-sec-head{margin-bottom:0}
+.lp-chips{display:flex;gap:8px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;margin-inline:calc(-1 * var(--gut));padding:4px var(--gut);scroll-padding-inline:var(--gut)}
+.lp-chips::-webkit-scrollbar{display:none}
+.lp-chip{flex:none;scroll-snap-align:start;min-height:44px;padding:10px 18px;border-radius:999px;border:1.5px solid var(--line-2);background:#fff;font-weight:700;font-size:.9375rem;cursor:pointer;white-space:nowrap;transition:border-color .2s,background-color .2s,color .2s}
+.lp-chip:hover{border-color:var(--ink)}
+.lp-chip[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+.lp-case-count{font-size:.875rem;color:var(--muted);margin-bottom:16px}
+.lp-case-grid{display:grid;gap:20px}
+.lp-case-card{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden}
+.lp-case-fig{position:relative;margin:0;aspect-ratio:16/10;overflow:hidden;background:#e7e5e4}
+.lp-case-fig img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.lp-case-card:hover .lp-case-fig img{transform:scale(1.04)}
+.lp-case-badge{position:absolute;left:12px;top:12px;background:rgba(22,10,10,.85);color:#fff;font-size:.75rem;font-weight:700;padding:6px 10px;border-radius:8px}
+.lp-case-body{display:flex;flex-direction:column;gap:10px;padding:24px;flex:1}
+.lp-case-brand{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px}
+.lp-case-brand b{font-family:var(--f-head);font-size:1.125rem}
+.lp-case-brand span{font-size:.875rem;color:var(--muted)}
+.lp-case-body h3{font-size:1.375rem}
+.lp-case-body p{color:var(--muted)}
+.lp-case-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:auto;padding-top:16px;border-top:1px solid var(--line)}
+.lp-case-stat strong{display:block;font-family:var(--f-head);font-size:1.5rem;line-height:1.1;color:var(--red-ink);letter-spacing:-.03em}
+.lp-case-stat span{display:block;margin-top:4px;font-size:.8125rem;line-height:1.35;color:var(--muted)}
+.lp-case-foot{display:flex;flex-wrap:wrap;gap:16px 24px;align-items:center;justify-content:space-between;margin-top:28px}
+.lp-case-foot p{font-size:.875rem;color:var(--muted);max-width:60ch}
+@media (min-width:768px){
+  .lp-chips{flex-wrap:wrap;overflow:visible;margin-inline:0;padding-inline:0}
+  .lp-case-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (min-width:1200px){
+  .lp-case-top{grid-template-columns:minmax(0,1fr) auto;align-items:end}
+  .lp-case-grid{gap:24px}
+  .lp-case-card{flex-direction:row}
+  .lp-case-fig{aspect-ratio:auto;width:40%;flex:none}
+  .lp-case-body{padding:28px}
+}
+
+/* calculator */
+.lp-calc-fields{display:grid;gap:14px;margin-top:32px}
+.lp-calc-field{background:var(--ink-2);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:18px 20px 14px}
+.lp-calc-row{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.lp-calc-row label{font-weight:700}
+.lp-calc-num{display:flex;align-items:center;gap:4px;width:150px;flex:none;min-height:46px;padding:0 12px;border:1.5px solid rgba(255,255,255,.28);border-radius:10px;background:var(--ink)}
+.lp-calc-num:focus-within{border-color:var(--orange)}
+.lp-calc-num input{width:100%;min-width:0;border:0;background:transparent;color:#fff;text-align:right;font-weight:700;padding:8px 0;font-size:1rem;-moz-appearance:textfield;appearance:textfield}
+.lp-calc-num input::-webkit-outer-spin-button,.lp-calc-num input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.lp-calc-num input:focus-visible{outline:none}
+.lp-calc-unit{color:var(--on-dark-3);font-weight:700}
+.lp-calc-range{-webkit-appearance:none;appearance:none;display:block;width:100%;height:32px;margin:10px 0 0;background:linear-gradient(to right,var(--red) 0 var(--p,50%),rgba(255,255,255,.18) var(--p,50%) 100%) center/100% 6px no-repeat;border-radius:6px;cursor:pointer}
+.lp-calc-range::-webkit-slider-thumb{-webkit-appearance:none;width:24px;height:24px;border-radius:50%;background:#fff;border:5px solid var(--red);box-shadow:0 2px 8px rgba(0,0,0,.45)}
+.lp-calc-range::-moz-range-thumb{width:16px;height:16px;border-radius:50%;background:#fff;border:5px solid var(--red)}
+.lp-calc-hint{font-size:.8125rem;color:var(--on-dark-3);margin-top:2px}
+.lp-calc-out{background:linear-gradient(160deg,#2b1210,#1c0d0c);border:1px solid rgba(255,138,0,.3);border-radius:22px;padding:clamp(24px,2vw + 14px,40px)}
+.lp-calc-out-k{font-weight:700;color:var(--on-dark-2)}
+.lp-calc-big{display:block;margin-top:6px;font-family:var(--f-head);font-weight:700;font-size:clamp(2.6rem,1.9rem + 3vw,4.5rem);line-height:1;letter-spacing:-.04em;color:#fff}
+.lp-calc-big-s{display:block;margin-top:10px;color:#ffb766;font-weight:700}
+.lp-calc-dl{margin:24px 0}
+.lp-calc-dl div{display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.12)}
+.lp-calc-dl dt{color:var(--on-dark-2)}
+.lp-calc-dl dd{margin:0;font-weight:800;text-align:right}
+.lp-calc-note{font-size:.8125rem;color:var(--on-dark-3);margin-top:16px}
+@media (min-width:768px){.lp-calc-fields{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (min-width:768px) and (max-width:1199.98px){
+  .lp-calc-out{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px 40px;align-items:start}
+  .lp-calc-dl{margin:0;grid-row:span 3}
+  .lp-calc-out .lp-btn{justify-self:start}
+}
+@media (min-width:1200px){.lp-calc-grid{grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:64px}}
+
+/* pricing */
+.lp-price-grid{display:grid;gap:20px}
+.lp-price-card{position:relative;display:flex;flex-direction:column;border:1px solid var(--line);border-radius:22px;padding:clamp(24px,2vw + 14px,40px);background:#fff}
+.lp-price-card--main{background:var(--ink);border-color:var(--ink);color:#fff;--focus:#ff8a00}
+.lp-price-flag{align-self:flex-start;margin-bottom:14px;font-size:.75rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:6px 10px;border-radius:8px;background:rgba(255,138,0,.16);color:#ffb766}
+.lp-price-card h3{font-size:1.625rem}
+.lp-price-desc{margin-top:8px;color:var(--muted)}
+.lp-price-card--main .lp-price-desc{color:var(--on-dark-2)}
+.lp-price-amt{display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 10px;margin-top:22px}
+.lp-price-amt small{width:100%;font-size:.875rem;font-weight:700;color:var(--muted)}
+.lp-price-card--main .lp-price-amt small,.lp-price-card--main .lp-price-amt span{color:var(--on-dark-2)}
+.lp-price-amt strong{font-family:var(--f-head);font-size:clamp(2.5rem,2rem + 1.8vw,3.5rem);line-height:1;letter-spacing:-.04em}
+.lp-price-amt span{font-weight:700;color:var(--muted)}
+.lp-price-card .lp-ticks{margin-top:20px;flex:1}
+.lp-price-cta{margin-top:28px}
+.lp-price-small{margin-top:12px;font-size:.8125rem;color:var(--muted)}
+.lp-price-card--main .lp-price-small{color:var(--on-dark-3)}
+.lp-price-notes{border-radius:22px;background:var(--tint);padding:clamp(24px,2vw + 12px,36px)}
+.lp-price-notes h3{font-size:1.25rem}
+.lp-price-notes dl{margin:12px 0 0}
+.lp-price-notes dl div{padding:14px 0;border-bottom:1px solid var(--line-2)}
+.lp-price-notes dl div:last-child{border-bottom:0}
+.lp-price-notes dt{font-weight:800}
+.lp-price-notes dd{margin:2px 0 0;color:var(--muted);font-size:.9375rem}
+@media (min-width:768px){
+  .lp-price-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .lp-price-notes{grid-column:1 / -1}
+  .lp-price-notes dl{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 32px}
+  .lp-price-notes dl div:nth-last-child(2){border-bottom:0}
+}
+@media (min-width:1200px){
+  .lp-price-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,.82fr);gap:24px}
+  .lp-price-notes{grid-column:auto}
+  .lp-price-notes dl{display:block}
+  .lp-price-notes dl div:nth-last-child(2){border-bottom:1px solid var(--line-2)}
+}
+
+/* channels */
+.lp-chan-in{display:grid;gap:32px}
+.lp-chan-in .lp-sec-head{margin-bottom:0}
+.lp-chan-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.lp-chan-tile{display:flex;align-items:center;gap:12px;min-height:76px;padding:14px;border-radius:14px;background:#fff;border:1.5px dashed #c4bebd}
+.lp-chan-ico{width:42px;height:42px;border-radius:11px;background:var(--tint);display:grid;place-items:center;color:#4a4241;flex:none}
+.lp-chan-ico .lp-ico{width:22px;height:22px}
+.lp-chan-name{font-weight:700;font-size:.9375rem;line-height:1.25}
+.lp-chan-ph{display:block;margin-top:2px;font-size:.75rem;font-weight:600;color:var(--muted)}
+.lp-chan-note{margin-top:14px;font-size:.8125rem;color:var(--muted)}
+@media (max-width:767.98px){.lp-chan-tile{flex-direction:column;align-items:flex-start;gap:10px;min-height:0}.lp-calc-num{width:124px}}
+@media (min-width:1200px){
+  .lp-chan-in{grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:64px;align-items:center}
+  .lp-chan-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+  .lp-chan-tile{flex-direction:column;align-items:flex-start;justify-content:space-between;min-height:136px;padding:18px}
+}
+
+/* team */
+.lp-team-head{display:grid;gap:20px;margin-bottom:clamp(32px,3vw + 16px,56px)}
+.lp-team-head .lp-sec-head{margin-bottom:0}
+.lp-team-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 16px}
+.lp-team-ph{position:relative;aspect-ratio:4/5;border-radius:18px;overflow:hidden;background:#e7e5e4}
+.lp-team-ph img{width:100%;height:100%;object-fit:cover}
+.lp-team-bio{position:absolute;left:0;right:0;bottom:0;padding:16px;background:rgba(22,10,10,.92);color:#fff;font-size:.875rem;line-height:1.5;transform:translateY(101%);transition:transform .35s ease}
+.lp-team-card.is-open .lp-team-bio{transform:none}
+@media (hover:hover) and (pointer:fine){.lp-team-card:hover .lp-team-bio{transform:none}}
+.lp-team-meta{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;margin-top:14px}
+.lp-team-meta h3{font-size:1.1875rem}
+.lp-team-role{margin-top:4px;font-size:.875rem;color:var(--muted);line-height:1.4}
+.lp-team-card{position:relative}
+.lp-team-tog{position:absolute;top:10px;right:10px;z-index:2;width:44px;height:44px;border-radius:12px;border:1.5px solid rgba(22,10,10,.12);background:rgba(255,255,255,.94);box-shadow:0 6px 16px -8px rgba(22,10,10,.45);display:grid;place-items:center;cursor:pointer;color:var(--ink)}
+.lp-team-tog:hover{border-color:var(--ink);background:#fff}
+.lp-team-tog .lp-ico{width:20px;height:20px;transition:transform .25s}
+.lp-team-card.is-open .lp-team-tog .lp-ico{transform:rotate(45deg)}
+.lp-team-note{font-size:.9375rem;color:var(--muted)}
+@media (min-width:768px){.lp-team-grid{gap:32px 24px}.lp-team-bio{padding:20px;font-size:.9375rem}}
+@media (min-width:768px) and (max-width:1199.98px){.lp-team-ph{aspect-ratio:1/1}}
+@media (min-width:1200px){
+  .lp-team-head{grid-template-columns:minmax(0,1fr) auto;align-items:end}
+  .lp-team-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+}
+
+/* FAQ */
+.lp-faq-card{margin-top:28px;padding:24px;border-radius:18px;background:#fff;border:1px solid var(--line)}
+.lp-faq-card h3{font-size:1.25rem}
+.lp-faq-card p{margin-top:6px;color:var(--muted)}
+.lp-faq-card-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.lp-faq-item{border-bottom:1px solid var(--line-2)}
+.lp-faq-item:first-child{border-top:1px solid var(--line-2)}
+.lp-faq-item summary{list-style:none;display:flex;justify-content:space-between;align-items:center;gap:20px;min-height:44px;padding:20px 0;cursor:pointer;font-weight:700;font-size:1.0625rem;line-height:1.4}
+.lp-faq-item summary::-webkit-details-marker{display:none}
+.lp-faq-item summary:hover{color:var(--red-ink)}
+.lp-faq-pm{position:relative;flex:none;width:34px;height:34px;border-radius:10px;background:#fff;border:1px solid var(--line-2);color:var(--ink)}
+.lp-faq-pm::before,.lp-faq-pm::after{content:"";position:absolute;left:50%;top:50%;width:12px;height:2px;border-radius:2px;background:currentColor;transform:translate(-50%,-50%)}
+.lp-faq-pm::after{transform:translate(-50%,-50%) rotate(90deg);transition:transform .2s}
+.lp-faq-item[open] .lp-faq-pm::after{transform:translate(-50%,-50%) rotate(0)}
+.lp-faq-a{padding:0 52px 22px 0;color:var(--muted)}
+@media (min-width:768px) and (max-width:1199.98px){
+  .lp-faq-intro{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:40px;align-items:end}
+  .lp-faq-intro .lp-sec-head{margin-bottom:0}
+  .lp-faq-card{margin-top:0}
+}
+@media (min-width:1200px){.lp-faq-grid{grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:80px}.lp-faq-intro .lp-sec-head{margin-bottom:0}}
+
+/* growth plan form */
+.lp-plan-steps{display:grid;gap:16px;margin-top:28px}
+.lp-plan-steps li{display:grid;grid-template-columns:44px minmax(0,1fr);gap:14px;align-items:start}
+.lp-plan-steps b{display:grid;place-items:center;width:44px;height:44px;border-radius:12px;background:var(--ink);color:#fff;font-family:var(--f-head)}
+.lp-plan-steps strong{display:block}
+.lp-plan-steps span{color:var(--muted);font-size:.9375rem}
+.lp-plan-img{margin:28px 0 0;border-radius:20px;overflow:hidden;aspect-ratio:16/10;background:#e7e5e4}
+.lp-plan-img img{width:100%;height:100%;object-fit:cover}
+.lp-plan-call{margin-top:20px;color:var(--muted)}
+.lp-plan-call a{font-weight:800;color:var(--ink)}
+.lp-plan-call a:hover{color:var(--red-ink)}
+.lp-plan-card{background:#fff;border:1px solid var(--line);border-radius:24px;padding:clamp(20px,2vw + 12px,40px);box-shadow:0 30px 60px -44px rgba(22,10,10,.4)}
+.lp-plan-ftitle{font-size:1.5rem}
+.lp-plan-fsub{margin-top:6px;color:var(--muted);font-size:.9375rem}
+.lp-fgrid{display:grid;gap:16px;margin-top:24px}
+.lp-field label{display:block;margin-bottom:6px;font-weight:700;font-size:.9375rem}
+.lp-opt{font-weight:500;color:var(--muted)}
+.lp-input{display:block;width:100%;min-height:50px;padding:12px 14px;border:1.5px solid #bdb6b5;border-radius:12px;background:#fff;font-size:1rem;transition:border-color .2s}
+.lp-input:hover{border-color:#7d7372}
+.lp-input:focus{border-color:var(--ink)}
+.lp-input[aria-invalid="true"]{border-color:var(--red-ink);background:#fff7f6}
+select.lp-input{-webkit-appearance:none;appearance:none;padding-right:42px;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23160a0a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") right 14px center/18px no-repeat}
+textarea.lp-input{min-height:120px;resize:vertical}
+.lp-err{margin-top:6px;font-size:.875rem;font-weight:700;color:var(--red-ink)}
+.lp-goals{border:0;margin:20px 0 0;padding:0;min-width:0}
+.lp-goals legend{padding:0;margin-bottom:8px;font-weight:700;font-size:.9375rem}
+.lp-goal-opts{display:flex;flex-wrap:wrap;gap:8px}
+.lp-goal{position:relative}
+.lp-goal input{position:absolute;opacity:0;width:1px;height:1px}
+.lp-goal span{display:inline-flex;align-items:center;min-height:44px;padding:10px 16px;border-radius:999px;border:1.5px solid #bdb6b5;font-weight:600;font-size:.9375rem;cursor:pointer;transition:border-color .2s,background-color .2s,color .2s}
+.lp-goal span:hover{border-color:var(--ink)}
+.lp-goal input:checked + span{background:var(--ink);border-color:var(--ink);color:#fff}
+.lp-goal input:focus-visible + span{outline:3px solid var(--focus);outline-offset:3px}
+.lp-field--msg{margin-top:20px}
+.lp-check{display:flex;gap:12px;align-items:flex-start;margin-top:20px;font-size:.9375rem;cursor:pointer}
+.lp-check input{width:22px;height:22px;margin:2px 0 0;accent-color:var(--red-btn);flex:none;cursor:pointer}
+.lp-legal{margin-top:14px;font-size:.8125rem;color:var(--muted)}
+.lp-legal a{color:var(--ink);font-weight:700}
+.lp-plan-submit{margin-top:22px}
+.lp-plan-done{padding:12px 0;outline:none}
+.lp-plan-done-ico{display:grid;place-items:center;width:56px;height:56px;border-radius:16px;background:var(--red-btn);color:#fff}
+.lp-plan-done h3{margin-top:18px;font-size:1.75rem}
+.lp-plan-done p{margin-top:10px;color:var(--muted)}
+.lp-plan-done .lp-btn{margin-top:20px}
+@media (min-width:768px){
+  .lp-fgrid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .lp-plan-steps{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .lp-plan-steps li{grid-template-columns:1fr}
+}
+@media (min-width:768px) and (max-width:1199.98px){.lp-plan-img{display:none}}
+@media (min-width:1200px){
+  .lp-plan-grid{grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:80px}
+  .lp-plan-steps{grid-template-columns:1fr}
+  .lp-plan-steps li{grid-template-columns:44px minmax(0,1fr)}
+}
+
+/* funnel footer */
+.lp-ft{background:var(--ink);color:#fff;padding-top:clamp(56px,5vw + 24px,104px)}
+.lp-ft-top{display:grid;gap:48px;padding-bottom:48px}
+.lp-ft-kick{font-family:var(--f-body);font-size:.8125rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--orange);margin-bottom:16px}
+.lp-fn{--cut:10px;display:grid;gap:6px}
+.lp-fn-band{margin-inline:calc(var(--i) * var(--cut));clip-path:polygon(0 0,100% 0,calc(100% - var(--cut)) 100%,var(--cut) 100%);background:var(--bg)}
+.lp-fn-band--1{--i:0;--bg:#3a1210}
+.lp-fn-band--2{--i:1;--bg:#4b1711}
+.lp-fn-band--3{--i:2;--bg:#5d1d12}
+.lp-fn-band--4{--i:3;--bg:#702811}
+.lp-fn-h{margin:0;font:inherit}
+.lp-fn-tog{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;min-height:60px;padding:10px calc(var(--cut) + 18px);background:none;border:0;color:#fff;cursor:pointer;text-align:left}
+.lp-body .lp-fn-tog:focus-visible{outline-offset:-4px}
+.lp-fn-tog .lp-ico{width:20px;height:20px;transition:transform .25s}
+.lp-fn-band.is-open .lp-fn-tog .lp-ico{transform:rotate(180deg)}
+.lp-fn-lab{display:none}
+.lp-fn-title{display:block;font-family:var(--f-head);font-size:1.125rem;font-weight:700;letter-spacing:-.01em}
+.lp-fn-sub{display:block;font-size:.8125rem;font-weight:600;color:#f3cdc4}
+.lp-fn-links{display:none;padding:0 calc(var(--cut) + 18px) 12px}
+.lp-fn-band.is-open .lp-fn-links{display:block}
+.lp-fn-links a{display:flex;align-items:center;min-height:44px;color:#fbe8e3;font-weight:600;text-decoration:none}
+.lp-fn-links a:hover{color:#fff;text-decoration:underline;text-underline-offset:4px}
+.lp-fn-return{display:flex;align-items:center;gap:10px;margin-top:16px;font-size:.875rem;color:var(--on-dark-3)}
+.lp-fn-return .lp-ico{width:20px;height:20px;color:var(--orange)}
+.lp-ft-side{display:grid;gap:40px;align-content:start}
+.lp-news h2{font-size:clamp(1.5rem,1.2rem + 1vw,2rem);line-height:1.15}
+.lp-news > p{margin-top:10px;color:var(--on-dark-2)}
+.lp-news label{display:block;margin-top:18px;font-weight:700;font-size:.9375rem}
+.lp-news-row{display:flex;gap:8px;margin-top:8px}
+.lp-news-row input{flex:1;min-width:0;min-height:50px;padding:0 14px;border-radius:12px;border:1.5px solid rgba(255,255,255,.32);background:rgba(255,255,255,.06);color:#fff}
+.lp-news-row input:hover{border-color:rgba(255,255,255,.6)}
+.lp-news-row input::placeholder{color:#a39594}
+.lp-news-row input[aria-invalid="true"]{border-color:#ff8a7f}
+.lp-news-legal{margin-top:12px;font-size:.8125rem;color:var(--on-dark-3)}
+.lp-news-legal a{color:#fff}
+.lp-news-msg{margin-top:10px;font-weight:700;font-size:.9375rem;color:#ffb766}
+.lp-ft-contact h2{font-size:1.25rem}
+.lp-ft-dl{display:grid;gap:14px;margin:14px 0 0}
+.lp-ft-dl div{position:relative;padding-left:36px}
+.lp-ft-dl .lp-ico{position:absolute;left:0;top:2px;width:20px;height:20px;color:var(--orange)}
+.lp-ft-dl dt{font-size:.8125rem;font-weight:700;color:var(--on-dark-3)}
+.lp-ft-dl dd{margin:0;color:#fff}
+.lp-ft-dl a{color:#fff;font-weight:700;text-decoration:none;display:inline-flex;min-height:28px;align-items:center}
+.lp-ft-dl a:hover{text-decoration:underline;text-underline-offset:4px}
+.lp-ft-base{display:flex;flex-wrap:wrap;gap:16px 28px;align-items:center;justify-content:space-between;padding-block:22px calc(22px + env(safe-area-inset-bottom));border-top:1px solid rgba(255,255,255,.12);font-size:.8125rem;color:var(--on-dark-3)}
+.lp-ft-co{max-width:72ch}
+.lp-ft-legal{display:flex;flex-wrap:wrap;gap:0 20px}
+.lp-ft-legal a{display:inline-flex;align-items:center;min-height:44px;color:var(--on-dark-2);text-decoration:none}
+.lp-ft-legal a:hover{color:#fff;text-decoration:underline;text-underline-offset:4px}
+.lp-totop{display:grid;place-items:center;width:48px;height:48px;border-radius:14px;border:1.5px solid rgba(255,255,255,.32);background:transparent;color:#fff;cursor:pointer;flex:none;transition:background-color .2s,border-color .2s}
+.lp-totop:hover{background:var(--red-btn);border-color:var(--red-btn)}
+.lp-totop .lp-ico{width:22px;height:22px}
+@media (min-width:768px){
+  .lp-fn{--cut:24px;grid-auto-rows:1fr}
+  .lp-fn-tog{display:none}
+  .lp-fn-lab{display:block}
+  .lp-fn-band{display:grid;grid-template-columns:170px minmax(0,1fr);gap:18px;align-items:center;min-height:100px;padding:14px calc(var(--cut) + 18px)}
+  .lp-fn-links{display:flex;flex-wrap:wrap;gap:2px 22px;padding:0}
+  .lp-fn-links a{min-height:36px}
+}
+@media (min-width:768px) and (max-width:1199.98px){.lp-ft-side{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (min-width:1200px){.lp-ft-top{grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:80px}}
+
+/* mobile action bar */
+.lp-mbar{position:fixed;left:0;right:0;bottom:0;z-index:40;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.5fr);gap:10px;padding:10px var(--gut) calc(10px + env(safe-area-inset-bottom));background:rgba(22,10,10,.96);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-top:1px solid rgba(255,255,255,.12);transition:transform .3s ease,visibility 0s linear 0s;--focus:#ff8a00}
+.lp-mbar.is-hidden{transform:translateY(105%);visibility:hidden;transition:transform .3s ease,visibility 0s linear .3s}
+.lp-mbar a{display:flex;align-items:center;justify-content:center;gap:8px;min-height:50px;border-radius:12px;font-weight:800;text-decoration:none}
+.lp-mbar-call{border:1.5px solid rgba(255,255,255,.4);color:#fff}
+.lp-mbar-cta{background:var(--red-btn);color:#fff}
+.lp-mbar-call:hover{background:rgba(255,255,255,.1)}
+.lp-mbar-cta:hover{background:var(--red-btn-h)}
+.lp-mbar .lp-ico{width:20px;height:20px}
+@media (min-width:768px){.lp-mbar{display:none}}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+}
+</style>
+
+<style id="sv-hero-css">
+.svh{--a:#ff3b30;--ad:#ff3b30;--ink:#160a0a;--paper:#f4f4f5;--on:#160a0a;position:relative;isolation:isolate;overflow:hidden;margin:0;font-family:"Syne",system-ui,sans-serif;box-sizing:border-box}
+.svh *{box-sizing:border-box}
+.svh .svh-in{position:relative;z-index:2;width:min(1240px,100% - 48px);margin-inline:auto}
+.svh .svh-kicker{display:inline-flex;align-items:center;gap:10px;margin:0;font:600 12.5px/1.3 "Syne",system-ui,sans-serif;letter-spacing:.16em;text-transform:uppercase}
+.svh .svh-kicker i{width:28px;height:2px;background:var(--a);display:inline-block}
+.svh .svh-h{margin:0;font-family:"Manrope",Georgia,serif;font-weight:600;letter-spacing:-.025em;line-height:.95}
+.svh .svh-h span{display:block;overflow:hidden;padding-bottom:.06em}
+.svh .svh-h span>b{display:inline-block;font-weight:inherit;transform:translateY(105%);animation:svh-rise 1s cubic-bezier(.16,1,.3,1) forwards}
+.svh .svh-h span:nth-child(2)>b{animation-delay:.12s}.svh .svh-h span:nth-child(3)>b{animation-delay:.24s}
+.svh .svh-h em{font-style:italic;color:var(--a)}
+.svh .svh-lede{margin:0;max-width:46ch;font-size:clamp(16px,1.25vw,19px);line-height:1.6;opacity:0;animation:svh-fade .9s .45s forwards}
+.svh .svh-ctas{display:flex;flex-wrap:wrap;gap:12px;opacity:0;animation:svh-fade .9s .6s forwards}
+.svh .svh-btn{display:inline-flex;align-items:center;gap:10px;padding:15px 26px;border-radius:999px;font:600 15px/1 "Syne",system-ui,sans-serif;text-decoration:none;background:var(--a);color:var(--on);border:1px solid var(--a);transition:transform .3s cubic-bezier(.16,1,.3,1),background .3s}
+.svh .svh-btn:hover{transform:translateY(-2px)}
+.svh .svh-btn--ghost{background:transparent;color:inherit;border-color:currentColor}
+.svh .svh-btn span{transition:transform .3s}.svh .svh-btn:hover span{transform:translateX(4px)}
+/* the designs style h1/p themselves, so the banner states its own colours */
+.svh--editorial .svh-h,.svh--poster .svh-h,.svh--stage .svh-h{color:#fff}
+.svh--editorial .svh-kicker,.svh--poster .svh-kicker,.svh--stage .svh-kicker{color:rgba(255,255,255,.9)}
+.svh--index .svh-h,.svh--index .svh-kicker{color:var(--ink)}
+@keyframes svh-rise{to{transform:none}}@keyframes svh-fade{to{opacity:1}}
+@keyframes svh-zoom{from{transform:scale(1.12)}to{transform:scale(1)}}
+@keyframes svh-spin{to{transform:rotate(360deg)}}@keyframes svh-tick{to{transform:translateX(-50%)}}
+@keyframes svh-tilt{from{transform:perspective(1400px) rotateX(18deg) translateY(40px);opacity:0}to{transform:none;opacity:1}}
+
+/* Editorial: words spread across a full-bleed photo */
+.svh--editorial{min-height:100svh;display:flex;align-items:flex-end;padding:150px 0 56px;color:#fff;background:var(--ink)}
+.svh--editorial .svh-media{position:absolute;inset:0;z-index:0;background:center/cover no-repeat;animation:svh-zoom 2.4s cubic-bezier(.16,1,.3,1) both}
+.svh--editorial .svh-shade{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(0,0,0,.45),rgba(0,0,0,.1) 35%,rgba(0,0,0,.65))}
+.svh--editorial .svh-h{font-size:clamp(52px,9vw,150px);margin-top:28px}
+.svh--editorial .svh-h span:nth-child(2){text-align:right}
+.svh--editorial .svh-h em{color:#fff}
+.svh--editorial .svh-foot{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:28px;margin-top:42px;padding-top:26px;border-top:1px solid rgba(255,255,255,.3)}
+.svh--editorial .svh-lede{color:rgba(255,255,255,.88)}
+.svh--editorial .svh-btn--ghost{color:#fff}
+
+/* Stage: dark ground, glow, centred words and a tilted picture */
+.svh--stage{padding:160px 0 0;background:var(--ink);color:#fff;text-align:center}
+.svh--stage .svh-glow{position:absolute;z-index:0;left:50%;top:-10%;width:1100px;height:800px;transform:translateX(-50%);background:radial-gradient(closest-side,color-mix(in srgb,var(--a) 55%,transparent),transparent);filter:blur(30px);opacity:.75}
+.svh--stage .svh-grid{position:absolute;inset:0;z-index:0;background-image:linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px);background-size:64px 64px;mask-image:radial-gradient(circle at 50% 30%,#000,transparent 70%)}
+.svh--stage .svh-kicker{padding:8px 16px;border:1px solid rgba(255,255,255,.2);border-radius:999px;background:rgba(255,255,255,.05)}
+.svh--stage .svh-kicker i{width:8px;height:8px;border-radius:50%}
+.svh--stage .svh-h{font-size:clamp(46px,7.4vw,118px);font-weight:500;margin:26px auto 0;max-width:15ch}
+.svh--stage .svh-h em{color:var(--ad)}
+.svh--stage .svh-lede{margin:26px auto 0;color:rgba(255,255,255,.75)}
+.svh--stage .svh-ctas{justify-content:center;margin-top:32px}
+.svh--stage .svh-btn--ghost{color:#fff}
+.svh--stage .svh-frame{margin:60px auto 0;max-width:1100px;aspect-ratio:16/8;border-radius:22px 22px 0 0;overflow:hidden;border:1px solid rgba(255,255,255,.18);border-bottom:0;box-shadow:0 -30px 80px -20px color-mix(in srgb,var(--a) 45%,transparent);animation:svh-tilt 1.4s .3s cubic-bezier(.16,1,.3,1) both}
+.svh--stage .svh-frame img{display:block;width:100%;height:100%;object-fit:cover}
+.svh--stage .svh-chips{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin:28px 0 0;padding:0}
+.svh--stage .svh-chips a{display:block;padding:8px 14px;border-radius:999px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);color:rgba(255,255,255,.85);font-size:14px;text-decoration:none}
+.svh--stage .svh-chips a:hover{border-color:var(--a);color:#fff}
+
+/* Poster: giant uppercase words, spinning badge, a ticker */
+.svh--poster{min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;padding-top:150px;color:#fff;background:var(--ink)}
+.svh--poster .svh-media{position:absolute;inset:0;z-index:0;background:center/cover no-repeat;animation:svh-zoom 2.4s cubic-bezier(.16,1,.3,1) both}
+.svh--poster .svh-shade{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(0,0,0,.2),rgba(0,0,0,.25) 40%,rgba(0,0,0,.82))}
+.svh--poster .svh-h{font-size:clamp(50px,10vw,168px);font-weight:800;text-transform:uppercase;letter-spacing:-.035em;line-height:.88;margin-top:22px}
+.svh--poster .svh-h em{font-style:normal;color:var(--ad)}
+.svh--poster .svh-row{display:flex;flex-wrap:wrap;gap:24px;align-items:flex-end;justify-content:space-between;margin:34px 0 44px}
+.svh--poster .svh-lede{color:rgba(255,255,255,.85)}
+.svh--poster .svh-btn--ghost{color:#fff}
+.svh--poster .svh-badge{position:absolute;z-index:2;right:clamp(20px,5vw,72px);top:clamp(110px,16vh,170px);width:132px;height:132px;display:grid;place-items:center}
+.svh--poster .svh-badge svg{position:absolute;inset:0;animation:svh-spin 14s linear infinite;fill:#fff;font:700 10.5px/1 "Syne",system-ui,sans-serif;letter-spacing:.22em;text-transform:uppercase}
+.svh--poster .svh-badge b{width:56px;height:56px;border-radius:50%;background:var(--a);display:grid;place-items:center;color:var(--on);font-size:22px}
+.svh--poster .svh-ticker{position:relative;z-index:2;background:var(--a);color:var(--on);overflow:hidden;padding:15px 0}
+.svh--poster .svh-ticker div{display:flex;gap:44px;width:max-content;animation:svh-tick 26s linear infinite;font:700 clamp(16px,1.6vw,22px)/1 "Manrope",Georgia,serif;text-transform:uppercase;letter-spacing:.02em}
+.svh--poster .svh-ticker span::after{content:"\2726";margin-left:44px;opacity:.7}
+
+/* Index: words on the left, the site's sections as a big list on the right */
+.svh--index{padding:150px 0 90px;background:var(--paper);color:var(--ink)}
+.svh--index .svh-in{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(32px,5vw,90px);align-items:end}
+.svh--index .svh-kicker{color:var(--ink)}
+.svh--index .svh-h{font-size:clamp(46px,6.6vw,104px);margin:24px 0 0}
+.svh--index .svh-lede{margin-top:26px;color:color-mix(in srgb,var(--ink) 72%,transparent)}
+.svh--index .svh-ctas{margin-top:30px}
+.svh--index .svh-photo{aspect-ratio:16/10;border-radius:18px;background:center/cover no-repeat;margin-bottom:22px;clip-path:inset(0 0 100% 0 round 18px);animation:svh-reveal 1.3s .2s cubic-bezier(.16,1,.3,1) forwards}
+@keyframes svh-reveal{to{clip-path:inset(0 0 0 0 round 18px)}}
+.svh--index .svh-list{list-style:none;margin:0;padding:0;border-top:1px solid color-mix(in srgb,var(--ink) 18%,transparent)}
+.svh--index .svh-list a{display:grid;grid-template-columns:44px 1fr auto;align-items:baseline;gap:12px;padding:14px 0;border-bottom:1px solid color-mix(in srgb,var(--ink) 18%,transparent);color:var(--ink);text-decoration:none;font:500 clamp(22px,2.4vw,36px)/1.1 "Manrope",Georgia,serif;letter-spacing:-.02em;transition:color .3s,padding .3s}
+.svh--index .svh-list a small{font:600 12px/1 "Syne",system-ui,sans-serif;letter-spacing:.1em;color:color-mix(in srgb,var(--ink) 55%,transparent)}
+.svh--index .svh-list a:hover{color:var(--a);padding-left:8px}
+.svh--index .svh-list a i{font-style:normal;transition:transform .3s}.svh--index .svh-list a:hover i{transform:translateX(6px)}
+
+@media (max-width:860px){
+  .svh--index .svh-in{grid-template-columns:1fr}
+  .svh--editorial .svh-h span:nth-child(2){text-align:left}
+  .svh--poster .svh-badge{width:96px;height:96px;top:96px}
+  .svh--stage .svh-frame{aspect-ratio:4/3}
+}
+@media (prefers-reduced-motion:reduce){.svh *,.svh{animation:none!important;transition:none!important}.svh .svh-h span>b{transform:none}.svh .svh-lede,.svh .svh-ctas{opacity:1}.svh--index .svh-photo{clip-path:none}}
+/* the old banner stays in the page, invisible, laid over the new one, so the design's own
+   scripts (sticky header, "past the hero" checks) still find it where the banner is */
+[data-sv-old-hero]{position:absolute!important;left:0!important;right:0!important;width:auto!important;max-width:none!important;margin:0!important;padding:0!important;min-height:0!important;overflow:hidden!important;visibility:hidden!important;opacity:0!important;pointer-events:none!important;z-index:-1!important;transform:none!important}
+</style>
+</head>
+<body class="lp-body">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-up" viewBox="0 0 24 24"><path d="M12 19V5M6 11l6-6 6 6"/></symbol>
+    <symbol id="i-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h3.5l2 5-2.4 1.5a11 11 0 0 0 5.4 5.4L15 13.5l5 2V19a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 7 8.5 6 8.5-6"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.1-7-11a7 7 0 0 1 14 0c0 4.9-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4.5 4.5L19 7"/></symbol>
+    <symbol id="i-cart" viewBox="0 0 24 24"><path d="M3 4h2.5l2.2 10.5a1.5 1.5 0 0 0 1.5 1.2h8.6a1.5 1.5 0 0 0 1.4-1.1L21 8H6.3"/><circle cx="9.5" cy="19.5" r="1.5"/><circle cx="17.5" cy="19.5" r="1.5"/></symbol>
+    <symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5z"/></symbol>
+    <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></symbol>
+    <symbol id="i-flask" viewBox="0 0 24 24"><path d="M9 3h6M10 3v6l-5.5 9.5A1.7 1.7 0 0 0 6 21h12a1.7 1.7 0 0 0 1.5-2.5L14 9V3M7.5 15h9"/></symbol>
+    <symbol id="i-store" viewBox="0 0 24 24"><path d="M4 10v10h16V10M3 9.5 5 4h14l2 5.5a3 3 0 0 1-6 0 3 3 0 0 1-6 0 3 3 0 0 1-6 0zM10 20v-5h4v5"/></symbol>
+    <symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 4v16h16M8 15l3.5-4 3 2.5L20 7M16 7h4v4"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></symbol>
+    <symbol id="i-tag" viewBox="0 0 24 24"><path d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8z"/><circle cx="7.5" cy="7.5" r="1.5"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M16 4.5a3.5 3.5 0 0 1 0 7M18 14a6 6 0 0 1 3.5 6"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="m10 9 5 3-5 3z"/></symbol>
+    <symbol id="i-msg" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-7.5-10A4.3 4.3 0 0 1 12 7.2 4.3 4.3 0 0 1 19.5 10c0 5.4-7.5 10-7.5 10z"/></symbol>
+    <symbol id="i-cursor" viewBox="0 0 24 24"><path d="M5 3l5.5 16 2.3-6.9L19.7 9.8zM12.8 12.1l5.4 5.4"/></symbol>
+    <symbol id="i-loop" viewBox="0 0 24 24"><path d="M20 12a8 8 0 1 1-2.3-5.6"/><path d="M20 4v4h-4"/></symbol>
+  </defs>
+</svg>
+
+<a class="lp-skip" href="#lp-main">Skip to main content</a>
+
+<header class="lp-hdr" id="lp-hdr">
+  <div class="lp-wrap lp-hdr-in">
+    <a class="lp-logo" href="#top" aria-label="Orbit, back to the top of the page">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><rect x="2" y="2" width="28" height="28" rx="8" fill="#ff3b30"/><path d="M22 16a6 6 0 1 1-1.8-4.3" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round"/><path d="M22.4 8.6v3.6h-3.6" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span>orbit</span>
+    </a>
+    <nav class="lp-nav" aria-label="Main">
+      <ul>
+        <li><a href="#lp-loop">How it works</a></li>
+        <li><a href="#lp-services">Services</a></li>
+        <li><a href="#lp-work">Work</a></li>
+        <li><a href="#lp-pricing">Pricing</a></li>
+        <li><a href="#lp-team">Team</a></li>
+        <li><a href="#lp-faq">FAQ</a></li>
+      </ul>
+    </nav>
+    <div class="lp-hdr-act">
+      <a class="lp-hdr-tel" href="tel:+441214960347" aria-label="Call Orbit on 0121 496 0347"><svg class="lp-ico" aria-hidden="true"><use href="#i-phone"/></svg><span>0121 496 0347</span></a>
+      <a class="lp-btn lp-btn--red lp-hdr-cta" href="#lp-plan">Get a growth plan</a>
+      <button class="lp-burger" type="button" aria-expanded="false" aria-controls="lp-menu" aria-label="Open menu"><span class="lp-burger-ln"></span><span class="lp-burger-ln"></span><span class="lp-burger-ln"></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="lp-menu" id="lp-menu" role="dialog" aria-modal="true" aria-label="Site menu" hidden>
+  <div class="lp-wrap lp-menu-top">
+    <a class="lp-logo" href="#top" aria-label="Orbit, back to the top of the page">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><rect x="2" y="2" width="28" height="28" rx="8" fill="#ff3b30"/><path d="M22 16a6 6 0 1 1-1.8-4.3" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round"/><path d="M22.4 8.6v3.6h-3.6" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span>orbit</span>
+    </a>
+    <button class="lp-menu-close" type="button" aria-label="Close menu"><svg class="lp-ico" aria-hidden="true"><use href="#i-close"/></svg></button>
+  </div>
+  <div class="lp-wrap lp-menu-body">
+    <nav aria-label="Menu">
+      <ol class="lp-menu-list">
+        <li><a href="#lp-loop"><span>01</span>How it works</a></li>
+        <li><a href="#lp-services"><span>02</span>Services</a></li>
+        <li><a href="#lp-work"><span>03</span>Case studies</a></li>
+        <li><a href="#lp-calc"><span>04</span>Growth calculator</a></li>
+        <li><a href="#lp-pricing"><span>05</span>Pricing</a></li>
+        <li><a href="#lp-team"><span>06</span>Team</a></li>
+        <li><a href="#lp-faq"><span>07</span>FAQ</a></li>
+      </ol>
+    </nav>
+    <div class="lp-menu-side">
+      <a class="lp-btn lp-btn--red lp-btn--lg lp-btn--block" href="#lp-plan">Get a growth plan <svg class="lp-ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      <dl class="lp-menu-dl">
+        <div><dt>Call us</dt><dd><a href="tel:+441214960347">0121 496 0347</a></dd></div>
+        <div><dt>Email</dt><dd><a href="mailto:hello@example.com">hello@example.com</a></dd></div>
+        <div><dt>Studio</dt><dd>Unit 6, Kiln Works, Bradford Street, Digbeth, Birmingham B5 6XX</dd></div>
+        <div><dt>Hours</dt><dd>Monday to Friday, 9am to 5.30pm</dd></div>
+      </dl>
+    </div>
+  </div>
+</div>
+
+<main id="lp-main">
+
+<section class="svh svh--stage" aria-label="Orbit Growth"><div class="svh-glow"></div><div class="svh-grid"></div><div class="svh-in"><p class="svh-kicker"><i></i>Growth marketing agency for ecommerce and DTC brands, Birmingham</p><h1 class="svh-h"><span><b>Growth</b></span><span><b><em>that compounds.</em></b></span></h1><p class="svh-lede">Orbit is a Birmingham agency for online brands. We join up paid ads, email and SMS, and conversion testing, so every new customer is worth more than the last.</p><div class="svh-ctas"><a class="svh-btn" href="#lp-plan">Get a growth plan <span>&rarr;</span></a><a class="svh-btn svh-btn--ghost" href="#lp-loop">How the loop works</a></div><ul class="svh-chips"><li><a href="#lp-loop">How it works</a></li><li><a href="#lp-services">Services</a></li><li><a href="#lp-work">Work</a></li><li><a href="#lp-pricing">Pricing</a></li><li><a href="#lp-team">Team</a></li><li><a href="#lp-faq">FAQ</a></li></ul><figure class="svh-frame"><img src="https://images.pexels.com/photos/35560482/pexels-photo-35560482.jpeg?auto=compress&cs=tinysrgb&w=2000&h=1250&fit=crop" alt="" loading="eager"></figure></div></section><section data-sv-old-hero aria-hidden="true" inert class="lp-hero lp-dark" id="top" aria-labelledby="lp-hero-h"><script>(()=>{const b=document.querySelector(".svh"),o=document.querySelector("[data-sv-old-hero]");if(!b||!o)return;const hd=document.querySelector("header");if(hd){const cs=getComputedStyle(hd),n=(c)=>(c.match(/[\d.]+/g)||[]).map(Number),bg=n(cs.backgroundColor),fg=n(cs.color),clear=cs.backgroundColor==="transparent"||bg[3]===0,light=fg.length>2&&(0.299*fg[0]+0.587*fg[1]+0.114*fg[2])/255>0.7,top=b.getBoundingClientRect().top+scrollY;if(clear&&light&&cs.position!=="fixed"&&cs.position!=="absolute"&&top>0&&top<260){b.style.marginTop=-top+"px";b.style.paddingTop=parseFloat(getComputedStyle(b).paddingTop)+top+"px"}}const f=()=>{o.style.setProperty("top",b.offsetTop+"px","important");o.style.setProperty("height",b.offsetHeight+"px","important")};f();addEventListener("resize",f);addEventListener("load",f)})()</script>
+  <div class="lp-wrap lp-hero-stage">
+    <div class="lp-hero-art" aria-hidden="true">
+      <canvas class="lp-hero-cv" id="lp-hero-cv"></canvas>
+      <div class="lp-hero-fb">
+        <div class="lp-fbc" style="--s:min(30vw,190px);--x:50%;--y:50%;--rx:-24deg;--ry:-36deg;--rz:4deg;--c1:#ff5a48;--c2:#ff3b30;--c3:#a3160e"><i><svg class="lp-ico"><use href="#i-cart"/></svg></i><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="lp-fbc" style="--s:min(16vw,104px);--x:24%;--y:30%;--rx:-30deg;--ry:28deg;--rz:-8deg;--c1:#ffa233;--c2:#ff8a00;--c3:#b65400"><i><svg class="lp-ico"><use href="#i-mail"/></svg></i><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="lp-fbc" style="--s:min(13vw,86px);--x:78%;--y:26%;--rx:-18deg;--ry:-50deg;--rz:12deg;--c1:#ff6a3a;--c2:#e8291e;--c3:#8f140c"><i><svg class="lp-ico"><use href="#i-chart"/></svg></i><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="lp-fbc" style="--s:min(15vw,96px);--x:80%;--y:72%;--rx:-34deg;--ry:22deg;--rz:-6deg;--c1:#ff4a3d;--c2:#c81e15;--c3:#7e110b"><i><svg class="lp-ico"><use href="#i-heart"/></svg></i><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="lp-fbc" style="--s:min(11vw,72px);--x:22%;--y:74%;--rx:-20deg;--ry:-30deg;--rz:10deg;--c1:#ff8a3a;--c2:#ff5526;--c3:#a33012"><i><svg class="lp-ico"><use href="#i-search"/></svg></i><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="lp-fbc" style="--s:min(8vw,52px);--x:62%;--y:14%;--rx:-40deg;--ry:40deg;--c1:#ffb04d;--c2:#ff8a00;--c3:#a85000"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="lp-fbc" style="--s:min(7vw,46px);--x:40%;--y:86%;--rx:-26deg;--ry:-18deg;--c1:#ff5a48;--c2:#e8291e;--c3:#8f140c"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      </div>
+    </div>
+    <div class="lp-hero-copy">
+      <p class="lp-hero-eyebrow"><i></i>Growth marketing for ecommerce &amp; DTC brands</p>
+      <h1 id="lp-hero-h">Growth that <em>compounds.</em></h1>
+      <p class="lp-hero-sub">Orbit is a Birmingham agency for online brands. We join up paid ads, email and SMS, and conversion testing, so every new customer is worth more than the last.</p>
+      <div class="lp-hero-ctas">
+        <a class="lp-btn lp-btn--red lp-btn--lg" href="#lp-plan">Get a growth plan <svg class="lp-ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="lp-btn lp-btn--ghost lp-btn--lg" href="#lp-loop">How the loop works</a>
+      </div>
+    </div>
+  </div>
+  <div class="lp-wrap lp-hero-foot">
+    <ul class="lp-hero-facts">
+      <li><svg class="lp-ico" aria-hidden="true"><use href="#i-users"/></svg><span><strong>Senior team</strong> in our Digbeth studio</span></li>
+      <li><svg class="lp-ico" aria-hidden="true"><use href="#i-cart"/></svg><span><strong>Ecommerce and DTC</strong> brands only</span></li>
+      <li><svg class="lp-ico" aria-hidden="true"><use href="#i-clock"/></svg><span><strong>Rolling monthly</strong> after the first three months</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="lp-brands" aria-label="Some of the brands we work with">
+  <div class="lp-wrap lp-brands-in">
+    <p class="lp-brands-lab">Trusted by independent UK brands</p>
+    <ul class="lp-brands-list">
+      <li><span class="lp-wm lp-wm-kiln">KILN<small>COFFEE CO.</small></span></li>
+      <li><span class="lp-wm lp-wm-salt">saltmarsh</span></li>
+      <li><span class="lp-wm lp-wm-north">NORTHBOUND</span></li>
+      <li><span class="lp-wm lp-wm-hearth">Hearth <i>&amp;</i> Hare</span></li>
+      <li><span class="lp-wm lp-wm-odd">oddbird.</span></li>
+      <li><span class="lp-wm lp-wm-fettle">FETTLE</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="lp-sec lp-sec--tint" id="lp-loop" aria-labelledby="lp-orbitgrowth-h">
+  <div class="lp-wrap">
+    <header class="lp-sec-head">
+      <p class="lp-kicker">How we work</p>
+      <h2 class="lp-h2" id="lp-orbitgrowth-h">One growth loop, not four separate channels</h2>
+      <p class="lp-lede">Most stores buy traffic, hope it converts and then forget the customer. We plan all four stages together, so the profit from each one pays for the next. Choose a stage to see what we do there.</p>
+    </header>
+    <div class="lp-split lp-orbitgrowthx-grid" data-lp-split>
+      <div class="lp-orbitgrowthx-dia" data-col>
+        <div class="lp-orbitgrowthx-ring">
+          <svg class="lp-orbitgrowthx-svg" viewBox="0 0 400 400" aria-hidden="true">
+            <defs>
+              <marker id="lp-arr" viewBox="0 0 10 10" refX="5" refY="5" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto"><path d="M2 1.5 7 5l-5 3.5" fill="none" stroke="#c4bebd" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
+              <marker id="lp-arr-on" viewBox="0 0 10 10" refX="5" refY="5" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" orient="auto"><path d="M2 1.5 7 5l-5 3.5" fill="none" stroke="#ff3b30" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></marker>
+            </defs>
+            <path class="lp-orbitgrowthx-arc is-on" pathLength="100" marker-end="url(#lp-arr-on)" d="M261.4 74.2A140 140 0 0 1 336.9 170.9"/>
+            <path class="lp-orbitgrowthx-arc" pathLength="100" marker-end="url(#lp-arr)" d="M336.9 229.1A140 140 0 0 1 261.4 325.8"/>
+            <path class="lp-orbitgrowthx-arc" pathLength="100" marker-end="url(#lp-arr)" d="M138.6 325.8A140 140 0 0 1 63.1 229.1"/>
+            <path class="lp-orbitgrowthx-arc" pathLength="100" marker-end="url(#lp-arr)" d="M63.1 170.9A140 140 0 0 1 138.6 74.2"/>
+          </svg>
+          <div class="lp-orbitgrowthx-core" aria-hidden="true">
+            <span class="lp-orbitgrowthx-core-k">Stage <b id="lp-orbitgrowthx-cn">1</b> of 4</span>
+            <span class="lp-orbitgrowthx-core-m" id="lp-orbitgrowthx-cm">Payback</span>
+          </div>
+          <div role="tablist" aria-label="Stages of the growth loop">
+            <button class="lp-orbitgrowthx-node lp-orbitgrowthx-node--n" type="button" role="tab" id="lp-ltab-0" aria-controls="lp-lpanel" aria-selected="true" tabindex="0"><span class="lp-orbitgrowthx-num">01</span>Acquire</button>
+            <button class="lp-orbitgrowthx-node lp-orbitgrowthx-node--e" type="button" role="tab" id="lp-ltab-1" aria-controls="lp-lpanel" aria-selected="false" tabindex="-1"><span class="lp-orbitgrowthx-num">02</span>Convert</button>
+            <button class="lp-orbitgrowthx-node lp-orbitgrowthx-node--s" type="button" role="tab" id="lp-ltab-2" aria-controls="lp-lpanel" aria-selected="false" tabindex="-1"><span class="lp-orbitgrowthx-num">03</span>Retain</button>
+            <button class="lp-orbitgrowthx-node lp-orbitgrowthx-node--w" type="button" role="tab" id="lp-ltab-3" aria-controls="lp-lpanel" aria-selected="false" tabindex="-1"><span class="lp-orbitgrowthx-num">04</span>Refer</button>
+          </div>
+        </div>
+      </div>
+      <div class="lp-orbitgrowthx-panel" id="lp-lpanel" role="tabpanel" aria-labelledby="lp-ltab-0" tabindex="0" data-col>
+        <p class="lp-orbitgrowthx-step" id="lp-lp-step">Stage 1 of 4 · Acquire</p>
+        <h3 id="lp-lp-title">Win first orders at a cost you can earn back</h3>
+        <p class="lp-orbitgrowthx-text" id="lp-lp-text">We run search, shopping and paid social around one number: how quickly a new customer pays back what it cost to win them. That sets the budget, not the platform’s own ROAS figure.</p>
+        <h4 class="lp-orbitgrowthx-sub">What we do</h4>
+        <ul class="lp-ticks" id="lp-lp-list">
+          <li>Search and shopping campaigns</li>
+          <li>Paid social with weekly creative tests</li>
+          <li>Bidding that favours new customers</li>
+          <li>Budgets paced against payback targets</li>
+        </ul>
+        <div class="lp-orbitgrowthx-metric"><span>The number we watch</span><strong id="lp-lp-metric">New-customer payback, in days</strong></div>
+        <div class="lp-orbitgrowthx-nav">
+          <button class="lp-btn lp-btn--line" type="button" data-orbitgrowth-step="-1">Previous stage</button>
+          <button class="lp-btn lp-btn--line" type="button" data-orbitgrowth-step="1">Next stage <svg class="lp-ico" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="lp-sec" id="lp-services" aria-labelledby="lp-svc-h">
+  <div class="lp-wrap lp-split lp-svc-grid" data-lp-split>
+    <div class="lp-svc-intro" data-col>
+      <div>
+        <p class="lp-kicker">Services</p>
+        <h2 class="lp-h2" id="lp-svc-h">Six services, run as one plan</h2>
+        <p class="lp-lede">You can hire us for one service, but most clients use two or three. Either way, everything is planned against the same targets and reported in the same weekly dashboard.</p>
+        <a class="lp-svc-more" href="#lp-pricing">See pricing <svg class="lp-ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
+      <figure class="lp-svc-img">
+        <img src="https://images.pexels.com/photos/6476260/pexels-photo-6476260.jpeg?auto=compress&cs=tinysrgb&w=900&h=675&fit=crop" width="900" height="675" alt="Two colleagues talking through campaign results on a laptop" loading="lazy" decoding="async">
+      </figure>
+    </div>
+    <ol class="lp-svc-list" data-col>
+      <li class="lp-svc-item">
+        <span class="lp-svc-ico"><svg class="lp-ico" aria-hidden="true"><use href="#i-compass"/></svg></span>
+        <div><h3>Full-funnel growth strategy</h3><p>A 12-month plan with targets for each stage of the loop, built from your margins and customer data. It shows where the next pound should go.</p><ul class="lp-svc-tags"><li>Unit economics</li><li>Channel mix</li><li>Quarterly roadmap</li></ul></div>
+      </li>
+      <li class="lp-svc-item">
+        <span class="lp-svc-ico"><svg class="lp-ico" aria-hidden="true"><use href="#i-target"/></svg></span>
+        <div><h3>Paid acquisition</h3><p>Search, shopping and paid social run for new-customer profit. Weekly creative tests, honest reporting and no wasted spend on people who would have bought anyway.</p><ul class="lp-svc-tags"><li>Search &amp; shopping</li><li>Paid social</li><li>Creative testing</li></ul></div>
+      </li>
+      <li class="lp-svc-item">
+        <span class="lp-svc-ico"><svg class="lp-ico" aria-hidden="true"><use href="#i-mail"/></svg></span>
+        <div><h3>Email and SMS marketing</h3><p>Automated flows and regular campaigns that bring customers back, with sign-up forms and consent records that meet UK GDPR and PECR.</p><ul class="lp-svc-tags"><li>Lifecycle flows</li><li>Campaigns</li><li>Consent-first SMS</li></ul></div>
+      </li>
+      <li class="lp-svc-item">
+        <span class="lp-svc-ico"><svg class="lp-ico" aria-hidden="true"><use href="#i-flask"/></svg></span>
+        <div><h3>CRO and A/B testing</h3><p>Research first, then properly sized tests on product pages, basket and checkout. Every result is written up, so you keep the learning even when a test loses.</p><ul class="lp-svc-tags"><li>User research</li><li>Test design &amp; build</li><li>Write-ups</li></ul></div>
+      </li>
+      <li class="lp-svc-item">
+        <span class="lp-svc-ico"><svg class="lp-ico" aria-hidden="true"><use href="#i-store"/></svg></span>
+        <div><h3>Marketplace growth</h3><p>Listings, marketplace ads and pricing rules for the big UK marketplaces, planned so they add sales rather than move them away from your own site.</p><ul class="lp-svc-tags"><li>Listings</li><li>Marketplace ads</li><li>Pricing rules</li></ul></div>
+      </li>
+      <li class="lp-svc-item">
+        <span class="lp-svc-ico"><svg class="lp-ico" aria-hidden="true"><use href="#i-chart"/></svg></span>
+        <div><h3>Analytics and attribution</h3><p>Consent-aware tracking, server-side events and one weekly dashboard the whole team trusts, so decisions are made on the same numbers.</p><ul class="lp-svc-tags"><li>Tracking audit</li><li>Server-side events</li><li>Weekly dashboard</li></ul></div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section class="lp-sec lp-sec--tint" id="lp-work" aria-labelledby="lp-work-h">
+  <div class="lp-wrap">
+    <div class="lp-case-top">
+      <header class="lp-sec-head">
+        <p class="lp-kicker">Case studies</p>
+        <h2 class="lp-h2" id="lp-work-h">Recent work with online brands</h2>
+        <p class="lp-lede">A few examples of the loop in practice. Filter by the service you are most interested in.</p>
+      </header>
+      <div class="lp-chips" role="group" aria-label="Filter case studies by service">
+        <button class="lp-chip" type="button" data-filter="all" aria-pressed="true">All work</button>
+        <button class="lp-chip" type="button" data-filter="paid" aria-pressed="false">Paid acquisition</button>
+        <button class="lp-chip" type="button" data-filter="email" aria-pressed="false">Email &amp; SMS</button>
+        <button class="lp-chip" type="button" data-filter="cro" aria-pressed="false">CRO &amp; testing</button>
+        <button class="lp-chip" type="button" data-filter="market" aria-pressed="false">Marketplaces</button>
+      </div>
+    </div>
+    <p class="lp-case-count" id="lp-case-count" aria-live="polite">Showing 4 of 4 case studies</p>
+    <ul class="lp-case-grid">
+      <li class="lp-case-card" data-tags="paid email">
+        <figure class="lp-case-fig">
+          <img src="https://images.pexels.com/photos/6476785/pexels-photo-6476785.jpeg?auto=compress&cs=tinysrgb&w=800&h=700&fit=crop" width="800" height="700" alt="A plain kraft coffee bag standing on a white table" loading="lazy" decoding="async">
+          <span class="lp-case-badge">Example figures</span>
+        </figure>
+        <div class="lp-case-body">
+          <p class="lp-case-brand"><b>Kiln Coffee Co.</b><span>Speciality coffee subscriptions</span></p>
+          <h3>Subscription starts up 41% in six months</h3>
+          <p>We rebuilt paid social around subscription starts rather than one-off bags, then added an onboarding flow to cut early cancellations.</p>
+          <div class="lp-case-stats">
+            <div class="lp-case-stat"><strong>+41%</strong><span>subscription starts</span></div>
+            <div class="lp-case-stat"><strong>−18%</strong><span>cost per new subscriber</span></div>
+            <div class="lp-case-stat"><strong>−9 pts</strong><span>first-month churn</span></div>
+          </div>
+        </div>
+      </li>
+      <li class="lp-case-card" data-tags="cro">
+        <figure class="lp-case-fig">
+          <img src="https://images.pexels.com/photos/3184311/pexels-photo-3184311.jpeg?auto=compress&cs=tinysrgb&w=800&h=700&fit=crop" width="800" height="700" alt="An amber glass dropper bottle on a wooden stand with leaf shadows" loading="lazy" decoding="async">
+          <span class="lp-case-badge">Example figures</span>
+        </figure>
+        <div class="lp-case-body">
+          <p class="lp-case-brand"><b>Saltmarsh</b><span>Natural skincare</span></p>
+          <h3>Conversion rate from 1.7% to 2.4%</h3>
+          <p>A year of product page and basket tests, including a bundle builder that customers now use on one order in five.</p>
+          <div class="lp-case-stats">
+            <div class="lp-case-stat"><strong>2.4%</strong><span>conversion rate, up from 1.7%</span></div>
+            <div class="lp-case-stat"><strong>+£9</strong><span>average order value</span></div>
+            <div class="lp-case-stat"><strong>7</strong><span>winning tests shipped</span></div>
+          </div>
+        </div>
+      </li>
+      <li class="lp-case-card" data-tags="market paid">
+        <figure class="lp-case-fig">
+          <img src="https://images.pexels.com/photos/7876706/pexels-photo-7876706.jpeg?auto=compress&cs=tinysrgb&w=800&h=700&fit=crop" width="800" height="700" alt="A pair of white and tan trainers against an orange background" loading="lazy" decoding="async">
+          <span class="lp-case-badge">Example figures</span>
+        </figure>
+        <div class="lp-case-body">
+          <p class="lp-case-brand"><b>Northbound</b><span>Trainers and casual footwear</span></p>
+          <h3>A marketplace channel that added sales, not swapped them</h3>
+          <p>We launched a separate range on two marketplaces with its own pricing rules, so own-site sales kept growing alongside it.</p>
+          <div class="lp-case-stats">
+            <div class="lp-case-stat"><strong>£38k</strong><span>new monthly marketplace sales</span></div>
+            <div class="lp-case-stat"><strong>4.7/5</strong><span>average product rating</span></div>
+            <div class="lp-case-stat"><strong>+12%</strong><span>own-site sales</span></div>
+          </div>
+        </div>
+      </li>
+      <li class="lp-case-card" data-tags="email">
+        <figure class="lp-case-fig">
+          <img src="https://images.pexels.com/photos/7688526/pexels-photo-7688526.jpeg?auto=compress&cs=tinysrgb&w=800&h=700&fit=crop" width="800" height="700" alt="Lit candles in glass jars with plain labels" loading="lazy" decoding="async">
+          <span class="lp-case-badge">Example figures</span>
+        </figure>
+        <div class="lp-case-body">
+          <p class="lp-case-brand"><b>Hearth &amp; Hare</b><span>Candles and homeware</span></p>
+          <h3>Repeat customers up 11 points</h3>
+          <p>We replaced weekly blasts with lifecycle flows: care tips after delivery, refill reminders and a simple loyalty scheme.</p>
+          <div class="lp-case-stats">
+            <div class="lp-case-stat"><strong>+11 pts</strong><span>90-day repeat rate</span></div>
+            <div class="lp-case-stat"><strong>31%</strong><span>of revenue from email &amp; SMS</span></div>
+            <div class="lp-case-stat"><strong>2.3×</strong><span>revenue per recipient</span></div>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <div class="lp-case-foot">
+      <p>Example figures: the brands and results on this page are illustrative and do not describe real clients.</p>
+      <a class="lp-btn lp-btn--line" href="#lp-plan">Ask for full case studies</a>
+    </div>
+  </div>
+</section>
+
+<section class="lp-sec lp-dark" id="lp-calc" aria-labelledby="lp-calc-h">
+  <div class="lp-wrap lp-split lp-calc-grid" data-lp-split>
+    <div class="lp-calc-main" data-col>
+      <p class="lp-kicker">Growth potential calculator</p>
+      <h2 class="lp-h2" id="lp-calc-h">What would a better conversion rate be worth?</h2>
+      <p class="lp-lede">Put in your own numbers to see what a realistic improvement could add each month. Most stores we audit have room for a 10% to 25% uplift.</p>
+      <form class="lp-calc-fields" id="lp-calc-form" novalidate>
+        <div class="lp-calc-field">
+          <div class="lp-calc-row"><label for="lp-c-sessions">Monthly sessions</label><span class="lp-calc-num"><input id="lp-c-sessions" type="number" inputmode="numeric" min="0" step="500" value="60000" data-num="sessions" aria-describedby="lp-c-sessions-h"></span></div>
+          <input class="lp-calc-range" type="range" min="5000" max="500000" step="1000" value="60000" data-range="sessions" aria-label="Monthly sessions slider">
+          <p class="lp-calc-hint" id="lp-c-sessions-h">Visits to your store in a typical month</p>
+        </div>
+        <div class="lp-calc-field">
+          <div class="lp-calc-row"><label for="lp-c-cr">Conversion rate</label><span class="lp-calc-num"><input id="lp-c-cr" type="number" inputmode="decimal" min="0" step="0.05" value="1.8" data-num="cr" aria-describedby="lp-c-cr-h"><span class="lp-calc-unit">%</span></span></div>
+          <input class="lp-calc-range" type="range" min="0.2" max="6" step="0.05" value="1.8" data-range="cr" aria-label="Conversion rate slider">
+          <p class="lp-calc-hint" id="lp-c-cr-h">Orders divided by sessions</p>
+        </div>
+        <div class="lp-calc-field">
+          <div class="lp-calc-row"><label for="lp-c-aov">Average order value</label><span class="lp-calc-num"><span class="lp-calc-unit">£</span><input id="lp-c-aov" type="number" inputmode="decimal" min="0" step="1" value="48" data-num="aov" aria-describedby="lp-c-aov-h"></span></div>
+          <input class="lp-calc-range" type="range" min="10" max="300" step="1" value="48" data-range="aov" aria-label="Average order value slider">
+          <p class="lp-calc-hint" id="lp-c-aov-h">Including VAT, after discounts</p>
+        </div>
+        <div class="lp-calc-field">
+          <div class="lp-calc-row"><label for="lp-c-uplift">Target uplift</label><span class="lp-calc-num"><input id="lp-c-uplift" type="number" inputmode="decimal" min="0" step="1" value="15" data-num="uplift" aria-describedby="lp-c-uplift-h"><span class="lp-calc-unit">%</span></span></div>
+          <input class="lp-calc-range" type="range" min="1" max="50" step="1" value="15" data-range="uplift" aria-label="Target uplift slider">
+          <p class="lp-calc-hint" id="lp-c-uplift-h">Relative rise in conversion rate</p>
+        </div>
+      </form>
+    </div>
+    <aside class="lp-calc-out" aria-labelledby="lp-calc-out-k" data-col>
+      <div>
+        <p class="lp-calc-out-k" id="lp-calc-out-k">Extra revenue per month</p>
+        <output class="lp-calc-big" id="lp-calc-extra" for="lp-c-sessions lp-c-cr lp-c-aov lp-c-uplift" aria-live="polite">£7,776</output>
+        <span class="lp-calc-big-s" id="lp-calc-crline">Conversion rate 1.80% → 2.07%</span>
+      </div>
+      <dl class="lp-calc-dl">
+        <div><dt>Revenue now</dt><dd id="lp-calc-now">£51,840</dd></div>
+        <div><dt>Revenue with uplift</dt><dd id="lp-calc-new">£59,616</dd></div>
+        <div><dt>Extra orders a month</dt><dd id="lp-calc-orders">162</dd></div>
+        <div><dt>Extra revenue a year</dt><dd id="lp-calc-year">£93,312</dd></div>
+      </dl>
+      <p class="lp-calc-note">Illustrative only. This is simple arithmetic, not a forecast or a promise. Real results depend on your margins, stock, pricing, seasonality and how much testing your traffic can support.</p>
+      <a class="lp-btn lp-btn--red" href="#lp-plan" style="margin-top:20px">Get a growth plan <svg class="lp-ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    </aside>
+  </div>
+</section>
+
+<section class="lp-sec" id="lp-pricing" aria-labelledby="lp-price-h">
+  <div class="lp-wrap">
+    <header class="lp-sec-head">
+      <p class="lp-kicker">Pricing</p>
+      <h2 class="lp-h2" id="lp-price-h">Two ways to work with us</h2>
+      <p class="lp-lede">Published prices, no percentage of ad spend and no long lock-ins. All prices exclude VAT.</p>
+    </header>
+    <div class="lp-price-grid">
+      <article class="lp-price-card">
+        <h3>Growth Sprint</h3>
+        <p class="lp-price-desc">A six-week project to find your biggest growth levers and plan the next 90 days.</p>
+        <p class="lp-price-amt"><strong>£4,500</strong><span>one-off + VAT</span></p>
+        <ul class="lp-ticks">
+          <li>Tracking and analytics audit</li>
+          <li>Funnel, cohort and margin analysis</li>
+          <li>Review of your ad and email accounts</li>
+          <li>Three A/B tests designed and specified</li>
+          <li>A 90-day growth roadmap</li>
+          <li>Half-day workshop with your team</li>
+        </ul>
+        <a class="lp-btn lp-btn--line lp-btn--block lp-price-cta" href="#lp-plan">Book a Growth Sprint</a>
+        <p class="lp-price-small">Fixed fee: half at the start, half on delivery.</p>
+      </article>
+      <article class="lp-price-card lp-price-card--main">
+        <p class="lp-price-flag">Where most clients start</p>
+        <h3>Growth retainer</h3>
+        <p class="lp-price-desc">A senior team running your growth loop, week in, week out.</p>
+        <p class="lp-price-amt"><small>From</small><strong>£3,000</strong><span>a month + VAT</span></p>
+        <ul class="lp-ticks">
+          <li>A named growth lead and a weekly call</li>
+          <li>Paid search, shopping and social managed</li>
+          <li>Email and SMS flows and campaigns</li>
+          <li>Two A/B tests a month</li>
+          <li>Live dashboard and monthly review</li>
+          <li>Quarterly planning day, in person or online</li>
+        </ul>
+        <a class="lp-btn lp-btn--red lp-btn--block lp-price-cta" href="#lp-plan">Get a growth plan <svg class="lp-ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <p class="lp-price-small">Priced on your channels and ad spend. Three-month minimum, then monthly.</p>
+      </article>
+      <aside class="lp-price-notes" aria-labelledby="lp-price-notes-h">
+        <h3 id="lp-price-notes-h">Good to know</h3>
+        <dl>
+          <div><dt>Ad spend</dt><dd>Paid by you, directly to the platforms. We never mark it up.</dd></div>
+          <div><dt>VAT</dt><dd>All prices exclude VAT, which is charged at 20%.</dd></div>
+          <div><dt>Sprint credit</dt><dd>Start a retainer within 60 days of your Sprint and we credit £1,500.</dd></div>
+          <div><dt>Notice</dt><dd>After three months, retainers run monthly with 30 days’ notice.</dd></div>
+        </dl>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="lp-sec lp-sec--tint" id="lp-channels" aria-labelledby="lp-chan-h">
+  <div class="lp-wrap lp-chan-in">
+    <header class="lp-sec-head">
+      <p class="lp-kicker">Channels</p>
+      <h2 class="lp-h2" id="lp-chan-h">Platform-neutral by design</h2>
+      <p class="lp-lede">We plan and buy across the channels below, and choose the mix from your numbers rather than our habits.</p>
+      <p class="lp-chan-note">Platform names and logos are shown as neutral placeholders.</p>
+    </header>
+    <ul class="lp-chan-grid">
+      <li class="lp-chan-tile"><span class="lp-chan-ico"><svg class="lp-ico" aria-hidden="true"><use href="#i-search"/></svg></span><span class="lp-chan-name">Search ads<span class="lp-chan-ph">Logo placeholder</span></span></li>
+      <li class="lp-chan-tile"><span class="lp-chan-ico"><svg class="lp-ico" aria-hidden="true"><use href="#i-tag"/></svg></span><span class="lp-chan-name">Shopping ads<span class="lp-chan-ph">Logo placeholder</span></span></li>
+      <li class="lp-chan-tile"><span class="lp-chan-ico"><svg class="lp-ico" aria-hidden="true"><use href="#i-users"/></svg></span><span class="lp-chan-name">Social ads<span class="lp-chan-ph">Logo placeholder</span></span></li>
+      <li class="lp-chan-tile"><span class="lp-chan-ico"><svg class="lp-ico" aria-hidden="true"><use href="#i-play"/></svg></span><span class="lp-chan-name">Short-form video<span class="lp-chan-ph">Logo placeholder</span></span></li>
+      <li class="lp-chan-tile"><span class="lp-chan-ico"><svg class="lp-ico" aria-hidden="true"><use href="#i-mail"/></svg></span><span class="lp-chan-name">Email platform<span class="lp-chan-ph">Logo placeholder</span></span></li>
+      <li class="lp-chan-tile"><span class="lp-chan-ico"><svg class="lp-ico" aria-hidden="true"><use href="#i-msg"/></svg></span><span class="lp-chan-name">SMS platform<span class="lp-chan-ph">Logo placeholder</span></span></li>
+      <li class="lp-chan-tile"><span class="lp-chan-ico"><svg class="lp-ico" aria-hidden="true"><use href="#i-store"/></svg></span><span class="lp-chan-name">Marketplaces<span class="lp-chan-ph">Logo placeholder</span></span></li>
+      <li class="lp-chan-tile"><span class="lp-chan-ico"><svg class="lp-ico" aria-hidden="true"><use href="#i-chart"/></svg></span><span class="lp-chan-name">Analytics suite<span class="lp-chan-ph">Logo placeholder</span></span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="lp-sec" id="lp-team" aria-labelledby="lp-team-h">
+  <div class="lp-wrap">
+    <div class="lp-team-head">
+      <header class="lp-sec-head">
+        <p class="lp-kicker">Team</p>
+        <h2 class="lp-h2" id="lp-team-h">Senior people on every account</h2>
+        <p class="lp-lede">You work with the people below from the first call, not an account manager passing notes along.</p>
+      </header>
+      <p class="lp-team-note">Plus 12 specialists in our Digbeth studio.</p>
+    </div>
+    <ul class="lp-team-grid">
+      <li class="lp-team-card">
+        <div class="lp-team-ph">
+          <img src="https://images.pexels.com/photos/6592690/pexels-photo-6592690.jpeg?auto=compress&cs=tinysrgb&w=600&h=750&fit=crop" width="600" height="750" alt="Portrait of Rachel Moss" loading="lazy" decoding="async">
+          <p class="lp-team-bio" id="lp-bio-1">Nine years running ecommerce growth for UK retailers before starting Orbit in 2019. Leads strategy on every new account.</p>
+        </div>
+        <div class="lp-team-meta"><div><h3>Rachel Moss</h3><p class="lp-team-role">Founder and growth director</p></div><button class="lp-team-tog" type="button" aria-expanded="false" aria-controls="lp-bio-1" aria-label="Show bio: Rachel Moss" data-name="Rachel Moss"><svg class="lp-ico" aria-hidden="true"><use href="#i-plus"/></svg></button></div>
+      </li>
+      <li class="lp-team-card">
+        <div class="lp-team-ph">
+          <img src="https://images.pexels.com/photos/7688471/pexels-photo-7688471.jpeg?auto=compress&cs=tinysrgb&w=600&h=750&fit=crop" width="600" height="750" alt="Portrait of Tom Ashworth" loading="lazy" decoding="async">
+          <p class="lp-team-bio" id="lp-bio-2">Runs search, shopping and social for over 20 stores. Cares most about new-customer payback and clear creative briefs.</p>
+        </div>
+        <div class="lp-team-meta"><div><h3>Tom Ashworth</h3><p class="lp-team-role">Head of paid media</p></div><button class="lp-team-tog" type="button" aria-expanded="false" aria-controls="lp-bio-2" aria-label="Show bio: Tom Ashworth" data-name="Tom Ashworth"><svg class="lp-ico" aria-hidden="true"><use href="#i-plus"/></svg></button></div>
+      </li>
+      <li class="lp-team-card">
+        <div class="lp-team-ph">
+          <img src="https://images.pexels.com/photos/8117436/pexels-photo-8117436.jpeg?auto=compress&cs=tinysrgb&w=600&h=750&fit=crop" width="600" height="750" alt="Portrait of Mei Lin Harper" loading="lazy" decoding="async">
+          <p class="lp-team-bio" id="lp-bio-3">Builds the email and SMS flows that earn second orders. Previously ran CRM for a national homeware brand.</p>
+        </div>
+        <div class="lp-team-meta"><div><h3>Mei Lin Harper</h3><p class="lp-team-role">Lifecycle lead, email and SMS</p></div><button class="lp-team-tog" type="button" aria-expanded="false" aria-controls="lp-bio-3" aria-label="Show bio: Mei Lin Harper" data-name="Mei Lin Harper"><svg class="lp-ico" aria-hidden="true"><use href="#i-plus"/></svg></button></div>
+      </li>
+      <li class="lp-team-card">
+        <div class="lp-team-ph">
+          <img src="https://images.pexels.com/photos/6476255/pexels-photo-6476255.jpeg?auto=compress&cs=tinysrgb&w=600&h=750&fit=crop" width="600" height="750" alt="Portrait of Luca Moretti" loading="lazy" decoding="async">
+          <p class="lp-team-bio" id="lp-bio-4">Runs research and testing, and makes sure the numbers in your dashboard are the right numbers.</p>
+        </div>
+        <div class="lp-team-meta"><div><h3>Luca Moretti</h3><p class="lp-team-role">CRO and analytics lead</p></div><button class="lp-team-tog" type="button" aria-expanded="false" aria-controls="lp-bio-4" aria-label="Show bio: Luca Moretti" data-name="Luca Moretti"><svg class="lp-ico" aria-hidden="true"><use href="#i-plus"/></svg></button></div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="lp-sec lp-sec--tint" id="lp-faq" aria-labelledby="lp-faq-h">
+  <div class="lp-wrap lp-split lp-faq-grid" data-lp-split>
+    <div class="lp-faq-intro" data-col>
+      <header class="lp-sec-head">
+        <p class="lp-kicker">FAQ</p>
+        <h2 class="lp-h2" id="lp-faq-h">Questions we get asked</h2>
+        <p class="lp-lede">Straight answers on contracts, ad spend and how we work. If yours isn’t here, give us a call.</p>
+      </header>
+      <div class="lp-faq-card">
+        <h3>Still deciding?</h3>
+        <p>Talk to a strategist for 20 minutes. No pitch deck, just a look at your numbers.</p>
+        <div class="lp-faq-card-links">
+          <a class="lp-btn lp-btn--red" href="tel:+441214960347"><svg class="lp-ico" aria-hidden="true"><use href="#i-phone"/></svg>0121 496 0347</a>
+          <a class="lp-btn lp-btn--line" href="mailto:hello@example.com">Email us</a>
+        </div>
+      </div>
+    </div>
+    <div class="lp-faq-list" data-col>
+      <details class="lp-faq-item" open>
+        <summary>Who do you work with?<span class="lp-faq-pm" aria-hidden="true"></span></summary>
+        <p class="lp-faq-a">Ecommerce and direct-to-consumer brands, usually turning over between £500,000 and £20 million a year online. If you are smaller than that, the Growth Sprint is often the best place to start.</p>
+      </details>
+      <details class="lp-faq-item">
+        <summary>How soon will we see results?<span class="lp-faq-pm" aria-hidden="true"></span></summary>
+        <p class="lp-faq-a">Changes to paid media and email often show within four to six weeks. Conversion tests take longer, because we run each one until the result is reliable. We agree realistic targets in the first month.</p>
+      </details>
+      <details class="lp-faq-item">
+        <summary>Who pays for the advertising?<span class="lp-faq-pm" aria-hidden="true"></span></summary>
+        <p class="lp-faq-a">You do, directly to the ad platforms. We never mark up ad spend or take a percentage of it, and every account stays in your name.</p>
+      </details>
+      <details class="lp-faq-item">
+        <summary>What is the minimum contract?<span class="lp-faq-pm" aria-hidden="true"></span></summary>
+        <p class="lp-faq-a">The Growth Sprint is a one-off project. Retainers have a three-month minimum, then run month to month with 30 days’ notice.</p>
+      </details>
+      <details class="lp-faq-item">
+        <summary>Can you work with our in-house team or another agency?<span class="lp-faq-pm" aria-hidden="true"></span></summary>
+        <p class="lp-faq-a">Yes. Plenty of clients keep brand, creative or SEO elsewhere. We agree who owns what in the first week and share one dashboard, so nobody double-counts sales.</p>
+      </details>
+      <details class="lp-faq-item">
+        <summary>Which ecommerce platforms do you support?<span class="lp-faq-pm" aria-hidden="true"></span></summary>
+        <p class="lp-faq-a">All the main hosted and open-source platforms, plus headless builds. If your store can send events to an analytics tool, we can work with it.</p>
+      </details>
+      <details class="lp-faq-item">
+        <summary>How do you report on performance?<span class="lp-faq-pm" aria-hidden="true"></span></summary>
+        <p class="lp-faq-a">A live weekly dashboard and a monthly review call. We report on new-customer profit, overall marketing efficiency and repeat rate, not just clicks and platform ROAS.</p>
+      </details>
+      <details class="lp-faq-item">
+        <summary>Do you handle email and SMS consent properly?<span class="lp-faq-pm" aria-hidden="true"></span></summary>
+        <p class="lp-faq-a">Yes. We set up sign-up forms and consent wording in line with UK GDPR and PECR, use double opt-in where it helps, and keep a record of when and how each person signed up.</p>
+      </details>
+      <details class="lp-faq-item">
+        <summary>Do we need to come to Birmingham?<span class="lp-faq-pm" aria-hidden="true"></span></summary>
+        <p class="lp-faq-a">No. You are welcome at our Digbeth studio, but most clients work with us over video calls, with one in-person workshop at the start.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="lp-sec" id="lp-plan" aria-labelledby="lp-plan-h">
+  <div class="lp-wrap lp-split lp-plan-grid" data-lp-split>
+    <div class="lp-plan-intro" data-col>
+      <p class="lp-kicker">Growth plan</p>
+      <h2 class="lp-h2" id="lp-plan-h">Get a free growth plan for your store</h2>
+      <p class="lp-lede">Tell us a little about your business. A senior strategist will review your store and send a short written plan with three priorities. No cost and no obligation.</p>
+      <ol class="lp-plan-steps">
+        <li><b>1</b><div><strong>We look at your store</strong><span>Site, ads and email, before we speak.</span></div></li>
+        <li><b>2</b><div><strong>A 30-minute call</strong><span>Your goals, margins and what has been tried.</span></div></li>
+        <li><b>3</b><div><strong>Your written plan</strong><span>Three priorities, within three working days.</span></div></li>
+      </ol>
+      <p class="lp-plan-call">Rather talk now? Call <a href="tel:+441214960347">0121 496 0347</a>.</p>
+    </div>
+    <div class="lp-plan-card" data-col>
+      <form class="lp-plan-form" id="lp-plan-form" novalidate>
+        <h3 class="lp-plan-ftitle">Tell us about your store</h3>
+        <p class="lp-plan-fsub">It takes about two minutes. Fields marked * are required.</p>
+        <div class="lp-fgrid">
+          <div class="lp-field">
+            <label for="lp-f-name">Your name *</label>
+            <input class="lp-input" id="lp-f-name" name="name" type="text" autocomplete="name" data-req="Enter your name" aria-describedby="lp-f-name-err">
+            <p class="lp-err" id="lp-f-name-err" hidden></p>
+          </div>
+          <div class="lp-field">
+            <label for="lp-f-email">Work email *</label>
+            <input class="lp-input" id="lp-f-email" name="email" type="email" autocomplete="email" data-req="Enter your email address" aria-describedby="lp-f-email-err">
+            <p class="lp-err" id="lp-f-email-err" hidden></p>
+          </div>
+          <div class="lp-field">
+            <label for="lp-f-company">Company *</label>
+            <input class="lp-input" id="lp-f-company" name="company" type="text" autocomplete="organization" data-req="Enter your company name" aria-describedby="lp-f-company-err">
+            <p class="lp-err" id="lp-f-company-err" hidden></p>
+          </div>
+          <div class="lp-field">
+            <label for="lp-f-site">Website *</label>
+            <input class="lp-input" id="lp-f-site" name="website" type="text" inputmode="url" autocomplete="url" placeholder="yourstore.example" data-req="Enter your website address" data-kind="url" aria-describedby="lp-f-site-err">
+            <p class="lp-err" id="lp-f-site-err" hidden></p>
+          </div>
+          <div class="lp-field">
+            <label for="lp-f-phone">Phone <span class="lp-opt">(optional)</span></label>
+            <input class="lp-input" id="lp-f-phone" name="phone" type="tel" autocomplete="tel">
+          </div>
+          <div class="lp-field">
+            <label for="lp-f-rev">Monthly online revenue</label>
+            <select class="lp-input" id="lp-f-rev" name="revenue">
+              <option value="">Choose a range</option>
+              <option>Under £50,000</option>
+              <option>£50,000 to £150,000</option>
+              <option>£150,000 to £500,000</option>
+              <option>£500,000 to £1 million</option>
+              <option>Over £1 million</option>
+            </select>
+          </div>
+          <div class="lp-field">
+            <label for="lp-f-spend">Monthly ad spend</label>
+            <select class="lp-input" id="lp-f-spend" name="adspend">
+              <option value="">Choose a range</option>
+              <option>Not running ads yet</option>
+              <option>Under £5,000</option>
+              <option>£5,000 to £20,000</option>
+              <option>£20,000 to £50,000</option>
+              <option>Over £50,000</option>
+            </select>
+          </div>
+          <div class="lp-field">
+            <label for="lp-f-heard">How did you hear about us? <span class="lp-opt">(optional)</span></label>
+            <select class="lp-input" id="lp-f-heard" name="heard">
+              <option value="">Choose one</option>
+              <option>Search</option>
+              <option>Recommendation</option>
+              <option>LinkedIn</option>
+              <option>Event or talk</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+        <fieldset class="lp-goals">
+          <legend>What is your main goal?</legend>
+          <div class="lp-goal-opts">
+            <label class="lp-goal"><input type="radio" name="goal" value="new" checked><span>More new customers</span></label>
+            <label class="lp-goal"><input type="radio" name="goal" value="cr"><span>Higher conversion rate</span></label>
+            <label class="lp-goal"><input type="radio" name="goal" value="repeat"><span>More repeat orders</span></label>
+            <label class="lp-goal"><input type="radio" name="goal" value="market"><span>Marketplace growth</span></label>
+            <label class="lp-goal"><input type="radio" name="goal" value="data"><span>Better tracking</span></label>
+          </div>
+        </fieldset>
+        <div class="lp-field lp-field--msg">
+          <label for="lp-f-msg">Anything else we should know? <span class="lp-opt">(optional)</span></label>
+          <textarea class="lp-input" id="lp-f-msg" name="message" rows="4"></textarea>
+        </div>
+        <label class="lp-check"><input type="checkbox" name="newsletter" value="yes"><span>Email me <strong>The Orbit</strong>, one growth idea a week. Optional. You can unsubscribe at any time.</span></label>
+        <p class="lp-legal">We will only use these details to reply to your request and prepare your plan. Read our <a href="#lp-footer">privacy notice</a> to see how we handle your data under UK GDPR.</p>
+        <button class="lp-btn lp-btn--red lp-btn--lg lp-btn--block lp-plan-submit" type="submit">Send my request <svg class="lp-ico" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+      </form>
+      <div class="lp-plan-done" id="lp-plan-done" role="status" tabindex="-1" hidden>
+        <span class="lp-plan-done-ico"><svg class="lp-ico" aria-hidden="true"><use href="#i-check"/></svg></span>
+        <h3>Thanks, <span id="lp-done-name">there</span>. Your request is in.</h3>
+        <p>A strategist will review your store and email you within one working day to book a 30-minute call. Your written plan follows within three working days of that call.</p>
+        <p class="lp-legal">This is a demonstration form, so nothing has actually been sent.</p>
+        <button class="lp-btn lp-btn--line" type="button" id="lp-plan-again">Send another request</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="lp-ft" id="lp-footer">
+  <div class="lp-wrap lp-ft-top">
+    <nav class="lp-ft-funnel" aria-labelledby="lp-ft-nav-h">
+      <h2 class="lp-ft-kick" id="lp-ft-nav-h">Explore Orbit</h2>
+      <ol class="lp-fn">
+        <li class="lp-fn-band lp-fn-band--1">
+          <h3 class="lp-fn-h">
+            <span class="lp-fn-lab"><span class="lp-fn-title">Awareness</span><span class="lp-fn-sub">What we do</span></span>
+            <button class="lp-fn-tog" type="button" aria-expanded="false" aria-controls="lp-fn-l1"><span><span class="lp-fn-title">Awareness</span><span class="lp-fn-sub">What we do</span></span><svg class="lp-ico" aria-hidden="true"><use href="#i-down"/></svg></button>
+          </h3>
+          <ul class="lp-fn-links" id="lp-fn-l1">
+            <li><a href="#lp-services">Growth strategy</a></li>
+            <li><a href="#lp-services">Paid acquisition</a></li>
+            <li><a href="#lp-services">Email and SMS</a></li>
+            <li><a href="#lp-services">CRO and testing</a></li>
+            <li><a href="#lp-services">Marketplace growth</a></li>
+            <li><a href="#lp-services">Analytics</a></li>
+          </ul>
+        </li>
+        <li class="lp-fn-band lp-fn-band--2">
+          <h3 class="lp-fn-h">
+            <span class="lp-fn-lab"><span class="lp-fn-title">Consideration</span><span class="lp-fn-sub">Proof and prices</span></span>
+            <button class="lp-fn-tog" type="button" aria-expanded="false" aria-controls="lp-fn-l2"><span><span class="lp-fn-title">Consideration</span><span class="lp-fn-sub">Proof and prices</span></span><svg class="lp-ico" aria-hidden="true"><use href="#i-down"/></svg></button>
+          </h3>
+          <ul class="lp-fn-links" id="lp-fn-l2">
+            <li><a href="#lp-loop">How the loop works</a></li>
+            <li><a href="#lp-work">Case studies</a></li>
+            <li><a href="#lp-calc">Growth calculator</a></li>
+            <li><a href="#lp-pricing">Pricing</a></li>
+            <li><a href="#lp-team">Our team</a></li>
+          </ul>
+        </li>
+        <li class="lp-fn-band lp-fn-band--3">
+          <h3 class="lp-fn-h">
+            <span class="lp-fn-lab"><span class="lp-fn-title">Conversion</span><span class="lp-fn-sub">Get started</span></span>
+            <button class="lp-fn-tog" type="button" aria-expanded="false" aria-controls="lp-fn-l3"><span><span class="lp-fn-title">Conversion</span><span class="lp-fn-sub">Get started</span></span><svg class="lp-ico" aria-hidden="true"><use href="#i-down"/></svg></button>
+          </h3>
+          <ul class="lp-fn-links" id="lp-fn-l3">
+            <li><a href="#lp-plan">Get a growth plan</a></li>
+            <li><a href="#lp-pricing">Book a Sprint</a></li>
+            <li><a href="#lp-faq">FAQ</a></li>
+            <li><a href="tel:+441214960347">Call us</a></li>
+          </ul>
+        </li>
+        <li class="lp-fn-band lp-fn-band--4">
+          <h3 class="lp-fn-h">
+            <span class="lp-fn-lab"><span class="lp-fn-title">Loyalty</span><span class="lp-fn-sub">Stay in touch</span></span>
+            <button class="lp-fn-tog" type="button" aria-expanded="false" aria-controls="lp-fn-l4"><span><span class="lp-fn-title">Loyalty</span><span class="lp-fn-sub">Stay in touch</span></span><svg class="lp-ico" aria-hidden="true"><use href="#i-down"/></svg></button>
+          </h3>
+          <ul class="lp-fn-links" id="lp-fn-l4">
+            <li><a href="#lp-news-email">The Orbit newsletter</a></li>
+            <li><a href="#">LinkedIn</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Client login</a></li>
+          </ul>
+        </li>
+      </ol>
+      <p class="lp-fn-return"><svg class="lp-ico" aria-hidden="true"><use href="#i-loop"/></svg>Loyal customers bring in new ones, and the loop starts again.</p>
+    </nav>
+    <div class="lp-ft-side">
+      <form class="lp-news" id="lp-news" novalidate>
+        <h2>The Orbit: one growth idea a week</h2>
+        <p>A short email every Tuesday with one tested idea for your store. No fluff and no sales pitch.</p>
+        <label for="lp-news-email">Email address</label>
+        <div class="lp-news-row">
+          <input id="lp-news-email" type="email" name="email" autocomplete="email" placeholder="you@yourstore.example" aria-describedby="lp-news-legal lp-news-msg">
+          <button class="lp-btn lp-btn--red" type="submit">Subscribe</button>
+        </div>
+        <p class="lp-news-legal" id="lp-news-legal">By subscribing you agree to receive The Orbit by email. We will not share your address, and you can unsubscribe at any time using the link in every email. See our <a href="#">privacy notice</a>.</p>
+        <p class="lp-news-msg" id="lp-news-msg" role="status" aria-live="polite"></p>
+      </form>
+      <div class="lp-ft-contact">
+        <h2>Contact</h2>
+        <dl class="lp-ft-dl">
+          <div><dt><svg class="lp-ico" aria-hidden="true"><use href="#i-phone"/></svg>Phone</dt><dd><a href="tel:+441214960347">0121 496 0347</a></dd></div>
+          <div><dt><svg class="lp-ico" aria-hidden="true"><use href="#i-mail"/></svg>Email</dt><dd><a href="mailto:hello@example.com">hello@example.com</a></dd></div>
+          <div><dt><svg class="lp-ico" aria-hidden="true"><use href="#i-pin"/></svg>Studio</dt><dd>Unit 6, Kiln Works, Bradford Street, Digbeth, Birmingham B5 6XX</dd></div>
+          <div><dt><svg class="lp-ico" aria-hidden="true"><use href="#i-clock"/></svg>Hours</dt><dd>Monday to Friday, 9am to 5.30pm</dd></div>
+        </dl>
+      </div>
+    </div>
+  </div>
+  <div class="lp-wrap lp-ft-base">
+    <p class="lp-ft-co">© 2026 Orbit Growth Ltd. Registered in England and Wales, company number 00000000. VAT number GB 000 0000 00. Registered office as above.</p>
+    <ul class="lp-ft-legal">
+      <li><a href="#">Privacy notice</a></li>
+      <li><a href="#">Cookie policy</a></li>
+      <li><a href="#">Cookie settings</a></li>
+      <li><a href="#">Terms of business</a></li>
+      <li><a href="#">Accessibility</a></li>
+    </ul>
+    <button class="lp-totop" type="button" aria-label="Back to top"><svg class="lp-ico" aria-hidden="true"><use href="#i-up"/></svg></button>
+  </div>
+</footer>
+
+<div class="lp-mbar" id="lp-mbar">
+  <a class="lp-mbar-call" href="tel:+441214960347"><svg class="lp-ico" aria-hidden="true"><use href="#i-phone"/></svg>Call</a>
+  <a class="lp-mbar-cta" href="#lp-plan">Growth plan <svg class="lp-ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+</div>
+
+<script>
+(function(){
+  'use strict';
+  var d=document, root=d.documentElement;
+  var mqDesk=matchMedia('(min-width:1200px)');
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function $(s,c){return (c||d).querySelector(s);}
+  function $$(s,c){return Array.prototype.slice.call((c||d).querySelectorAll(s));}
+
+  /* header state */
+  var hdr=$('#lp-hdr');
+  function onScroll(){ hdr.classList.toggle('is-solid', window.scrollY>24); }
+  addEventListener('scroll', onScroll, {passive:true}); onScroll();
+
+  /* full-screen menu */
+  var menu=$('#lp-menu'), burger=$('.lp-burger'), mclose=$('.lp-menu-close');
+  function openMenu(){
+    menu.hidden=false; root.classList.add('lp-lock');
+    burger.setAttribute('aria-expanded','true'); updateBar();
+    var f=$('.lp-menu-list a',menu); if(f) f.focus();
+  }
+  function closeMenu(returnFocus){
+    if(menu.hidden) return;
+    menu.hidden=true; root.classList.remove('lp-lock');
+    burger.setAttribute('aria-expanded','false'); updateBar();
+    if(returnFocus!==false) burger.focus();
+  }
+  burger.addEventListener('click', openMenu);
+  mclose.addEventListener('click', function(){ closeMenu(); });
+  menu.addEventListener('click', function(e){ if(e.target.closest('a')) closeMenu(false); });
+  d.addEventListener('keydown', function(e){ if(e.key==='Escape' && !menu.hidden) closeMenu(); });
+  menu.addEventListener('keydown', function(e){
+    if(e.key!=='Tab') return;
+    var f=$$('a[href],button',menu), first=f[0], last=f[f.length-1];
+    if(e.shiftKey && d.activeElement===first){ e.preventDefault(); last.focus(); }
+    else if(!e.shiftKey && d.activeElement===last){ e.preventDefault(); first.focus(); }
+  });
+  mqDesk.addEventListener('change', function(e){ if(e.matches) closeMenu(false); });
+
+  /* growth loop diagram */
+  var STAGES=[
+    {name:'Acquire', short:'Payback', title:'Win first orders at a cost you can earn back', text:'We run search, shopping and paid social around one number: how quickly a new customer pays back what it cost to win them. That sets the budget, not the platform’s own ROAS figure.', list:['Search and shopping campaigns','Paid social with weekly creative tests','Bidding that favours new customers','Budgets paced against payback targets'], metric:'New-customer payback, in days'},
+    {name:'Convert', short:'Conversion rate', title:'Turn more visits into orders', text:'Most stores lose buyers on product pages and at checkout. We find out where, test the fixes properly and keep only what wins.', list:['Funnel and session analysis','Product page and basket tests','Delivery and returns messaging','Landing pages for paid traffic'], metric:'Conversion rate and revenue per session'},
+    {name:'Retain', short:'Repeat rate', title:'Earn the second order, then the third', text:'Repeat customers are where the profit is. We build the email and SMS flows that bring people back at the right moment, with consent handled properly.', list:['Welcome, browse and basket flows','Post-purchase and replenishment emails','Segmented weekly campaigns','SMS sign-up that meets PECR'], metric:'Repeat purchase rate at 90 days'},
+    {name:'Refer', short:'Referral share', title:'Let happy customers bring the next ones', text:'Reviews, referrals and customer content lower the cost of the next first order. That is what closes the loop and makes growth compound.', list:['Review requests timed to delivery','Simple referral rewards','Customer photos and video for ads','Marketplace ratings and questions'], metric:'Share of new customers from referrals'}
+  ];
+  var tabs=$$('.lp-orbitgrowthx-node'), arcs=$$('.lp-orbitgrowthx-arc'), panel=$('#lp-lpanel'), cur=0;
+  function setStage(i, focus){
+    cur=(i+4)%4; var s=STAGES[cur];
+    tabs.forEach(function(t,k){ var on=k===cur; t.setAttribute('aria-selected', on?'true':'false'); t.tabIndex=on?0:-1; });
+    arcs.forEach(function(a,k){
+      var on=k===cur; a.classList.remove('is-on');
+      a.setAttribute('marker-end', on?'url(#lp-arr-on)':'url(#lp-arr)');
+      if(on){ void a.getBoundingClientRect(); a.classList.add('is-on'); }
+    });
+    panel.setAttribute('aria-labelledby', tabs[cur].id);
+    $('#lp-lp-step').textContent='Stage '+(cur+1)+' of 4 · '+s.name;
+    $('#lp-lp-title').textContent=s.title;
+    $('#lp-lp-text').textContent=s.text;
+    var ul=$('#lp-lp-list'); ul.textContent='';
+    s.list.forEach(function(x){ var li=d.createElement('li'); li.textContent=x; ul.appendChild(li); });
+    $('#lp-lp-metric').textContent=s.metric;
+    $('#lp-orbitgrowthx-cn').textContent=cur+1;
+    $('#lp-orbitgrowthx-cm').textContent=s.short;
+    if(focus) tabs[cur].focus();
+    pinSoon();
+  }
+  tabs.forEach(function(t,k){
+    t.addEventListener('click', function(){ setStage(k); });
+    t.addEventListener('keydown', function(e){
+      var m={ArrowRight:1,ArrowDown:1,ArrowLeft:-1,ArrowUp:-1}[e.key];
+      if(m){ e.preventDefault(); setStage(cur+m,true); }
+      else if(e.key==='Home'){ e.preventDefault(); setStage(0,true); }
+      else if(e.key==='End'){ e.preventDefault(); setStage(3,true); }
+    });
+  });
+  $$('[data-orbitgrowth-step]').forEach(function(b){ b.addEventListener('click', function(){ setStage(cur+parseInt(b.getAttribute('data-orbitgrowth-step'),10)); }); });
+
+  /* case study filter */
+  var chips=$$('.lp-chip'), cards=$$('.lp-case-card'), caseCount=$('#lp-case-count');
+  chips.forEach(function(c){
+    c.addEventListener('click', function(){
+      var f=c.getAttribute('data-filter'), n=0;
+      chips.forEach(function(x){ x.setAttribute('aria-pressed', x===c?'true':'false'); });
+      cards.forEach(function(card){
+        var show=f==='all' || card.getAttribute('data-tags').split(' ').indexOf(f)>-1;
+        card.hidden=!show; if(show) n++;
+      });
+      caseCount.textContent='Showing '+n+' of '+cards.length+' case studies';
+    });
+  });
+
+  /* growth potential calculator */
+  var calc=$('#lp-calc-form');
+  var gbp=new Intl.NumberFormat('en-GB',{style:'currency',currency:'GBP',maximumFractionDigits:0});
+  var num0=new Intl.NumberFormat('en-GB',{maximumFractionDigits:0});
+  function numEl(n){ return $('[data-num="'+n+'"]',calc); }
+  function rangeEl(n){ return $('[data-range="'+n+'"]',calc); }
+  function readNum(n){ var v=parseFloat(String(numEl(n).value).replace(/[^0-9.\-]/g,'')); return isFinite(v)?v:NaN; }
+  function paintRange(r){ var min=+r.min, max=+r.max, v=Math.min(max,Math.max(min,+r.value)); r.style.setProperty('--p', ((v-min)/(max-min)*100).toFixed(2)+'%'); }
+  function compute(){
+    var s=readNum('sessions'), cr=readNum('cr'), aov=readNum('aov'), up=readNum('uplift');
+    var ok=[s,cr,aov,up].every(function(v){ return isFinite(v) && v>=0; });
+    var out={extra:'—',now:'—',neu:'—',orders:'—',year:'—',line:'Enter all four numbers to see a result'};
+    if(ok){
+      var orders=s*cr/100, rev=orders*aov, extraOrders=orders*up/100, extra=extraOrders*aov;
+      out.extra=gbp.format(extra); out.now=gbp.format(rev); out.neu=gbp.format(rev+extra);
+      out.orders=num0.format(extraOrders); out.year=gbp.format(extra*12);
+      out.line='Conversion rate '+cr.toFixed(2)+'% → '+(cr*(1+up/100)).toFixed(2)+'%';
+    }
+    $('#lp-calc-extra').textContent=out.extra; $('#lp-calc-now').textContent=out.now;
+    $('#lp-calc-new').textContent=out.neu; $('#lp-calc-orders').textContent=out.orders;
+    $('#lp-calc-year').textContent=out.year; $('#lp-calc-crline').textContent=out.line;
+  }
+  ['sessions','cr','aov','uplift'].forEach(function(n){
+    var ni=numEl(n), ri=rangeEl(n);
+    ni.addEventListener('input', function(){ var v=readNum(n); if(isFinite(v)){ ri.value=v; } paintRange(ri); compute(); });
+    ri.addEventListener('input', function(){ ni.value=ri.value; paintRange(ri); compute(); });
+    paintRange(ri);
+  });
+  calc.addEventListener('submit', function(e){ e.preventDefault(); });
+  compute();
+  window.lpCalcSet=function(s,cr,aov,up){ var v={sessions:s,cr:cr,aov:aov,uplift:up}; Object.keys(v).forEach(function(n){ numEl(n).value=v[n]; numEl(n).dispatchEvent(new Event('input')); }); return $('#lp-calc-extra').textContent; };
+
+  /* team bios: tap equivalent of the hover reveal */
+  $$('.lp-team-tog').forEach(function(b){
+    b.addEventListener('click', function(){
+      var card=b.closest('.lp-team-card'), open=!card.classList.contains('is-open');
+      card.classList.toggle('is-open',open);
+      b.setAttribute('aria-expanded', open?'true':'false');
+      b.setAttribute('aria-label', (open?'Hide bio: ':'Show bio: ')+b.getAttribute('data-name'));
+    });
+  });
+
+  /* FAQ: re-measure sticky columns when answers open */
+  $$('.lp-faq-item').forEach(function(x){ x.addEventListener('toggle', pinSoon); });
+
+  /* growth plan form (simulated) */
+  var form=$('#lp-plan-form'), done=$('#lp-plan-done');
+  var emailRe=/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+  function setErr(inp,msg){
+    var e=$('#'+inp.id+'-err'); inp.setAttribute('aria-invalid', msg?'true':'false');
+    if(e){ e.textContent=msg; e.hidden=!msg; }
+  }
+  function check(inp){
+    var v=inp.value.trim(), msg='';
+    if(!v) msg=inp.getAttribute('data-req');
+    else if(inp.type==='email' && !emailRe.test(v)) msg='Enter an email address like name@yourstore.example';
+    else if(inp.getAttribute('data-kind')==='url' && !/\.[a-z]{2,}/i.test(v)) msg='Enter your website address, like yourstore.example';
+    setErr(inp,msg); return !msg;
+  }
+  $$('[data-req]',form).forEach(function(inp){
+    inp.addEventListener('blur', function(){ if(inp.value.trim()) check(inp); });
+    inp.addEventListener('input', function(){ if(inp.getAttribute('aria-invalid')==='true') check(inp); });
+  });
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var first=null;
+    $$('[data-req]',form).forEach(function(inp){ if(!check(inp) && !first) first=inp; });
+    if(first){ first.focus(); return; }
+    var nm=$('#lp-f-name').value.trim().split(/\s+/)[0];
+    $('#lp-done-name').textContent=nm||'there';
+    form.hidden=true; done.hidden=false; done.focus(); pinSoon();
+  });
+  $('#lp-plan-again').addEventListener('click', function(){
+    form.reset(); $$('[data-req]',form).forEach(function(inp){ setErr(inp,''); });
+    done.hidden=true; form.hidden=false; $('#lp-f-name').focus(); pinSoon();
+  });
+
+  /* newsletter (simulated) */
+  var news=$('#lp-news'), nEmail=$('#lp-news-email'), nMsg=$('#lp-news-msg');
+  news.addEventListener('submit', function(e){
+    e.preventDefault();
+    var v=nEmail.value.trim();
+    if(!emailRe.test(v)){ nEmail.setAttribute('aria-invalid','true'); nMsg.textContent='Enter a valid email address, like you@yourstore.example.'; nEmail.focus(); return; }
+    nEmail.setAttribute('aria-invalid','false'); nEmail.value='';
+    nMsg.textContent='Thanks. Check your inbox to confirm your subscription. (Demo only: nothing was sent.)';
+  });
+
+  /* funnel footer accordions (mobile) */
+  $$('.lp-fn-band').forEach(function(b){
+    var t=$('.lp-fn-tog',b);
+    t.addEventListener('click', function(){
+      var open=!b.classList.contains('is-open');
+      b.classList.toggle('is-open',open); t.setAttribute('aria-expanded', open?'true':'false');
+    });
+  });
+
+  /* back to top (icon only) */
+  $('.lp-totop').addEventListener('click', function(){
+    window.scrollTo({top:0, behavior:reduce?'auto':'smooth'});
+    var logo=$('.lp-hdr .lp-logo'); if(logo) logo.focus({preventScroll:true});
+  });
+
+  /* mobile action bar: hide near the footer, the main form, or when the menu is open */
+  var bar=$('#lp-mbar'), seen={footer:false, form:false};
+  function updateBar(){
+    if(!bar) return;
+    var hide=seen.footer || seen.form || !menu.hidden;
+    bar.classList.toggle('is-hidden', hide);
+    bar.setAttribute('aria-hidden', hide?'true':'false');
+    $$('a',bar).forEach(function(a){ a.tabIndex=hide?-1:0; });
+  }
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){ seen[e.target===$('#lp-footer')?'footer':'form']=e.isIntersecting; });
+      updateBar();
+    },{threshold:0});
+    io.observe($('#lp-footer')); io.observe($('.lp-plan-card'));
+  }
+  updateBar();
+
+  /* sticky shorter column on desktop: measure both columns and pin the shorter one */
+  var splits=$$('[data-lp-split]'), pinT=0;
+  function pin(){
+    splits.forEach(function(s){
+      var cols=$$(':scope > [data-col]',s);
+      cols.forEach(function(c){ c.classList.remove('lp-pinned'); });
+      s.removeAttribute('data-pinned');
+      if(!mqDesk.matches || cols.length<2) return;
+      var a=cols[0].offsetHeight, b=cols[1].offsetHeight;
+      if(Math.abs(a-b)<24) return;
+      var shorter=a<b?0:1;
+      cols[shorter].classList.add('lp-pinned');
+      s.setAttribute('data-pinned', String(shorter+1));
+    });
+  }
+  function pinSoon(){ clearTimeout(pinT); pinT=setTimeout(pin,120); }
+  window.lpPin=pin;
+  addEventListener('resize', pinSoon);
+  addEventListener('load', pin);
+  mqDesk.addEventListener('change', pin);
+  if('ResizeObserver' in window){ var ro=new ResizeObserver(pinSoon); splits.forEach(function(s){ $$(':scope > [data-col]',s).forEach(function(c){ ro.observe(c); }); }); }
+  pin();
+})();
+</script>
+
+<script type="module">
+import * as THREE from 'three';
+import { RoundedBoxGeometry } from 'three/addons/geometries/RoundedBoxGeometry.js';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+
+const root = document.documentElement;
+const hero = document.getElementById('top');
+const art = document.querySelector('.lp-hero-art');
+const cv = document.getElementById('lp-hero-cv');
+
+if (hero && art && cv && !root.classList.contains('lp-nogl')) {
+  try { initHero(); } catch (err) { if (window.lpHeroFail) window.lpHeroFail(); }
+}
+
+function initHero() {
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const tierOf = () => (innerWidth < 768 ? 'm' : innerWidth < 1200 ? 't' : 'd');
+  const COUNTS = { d: 18, t: 14, m: 10 };
+  const COLORS = ['#ff3b30', '#e8291e', '#c81e15', '#ff5526', '#ff7417', '#ff8a00', '#a3160e', '#ff4334'];
+  const ICONS = ['cart', 'envelope', 'cursor', 'chart', 'magnifier', 'heart'];
+  const ICON_PATHS = {
+    cart: ['M3 4h2.5l2.2 10.5a1.5 1.5 0 0 0 1.5 1.2h8.6a1.5 1.5 0 0 0 1.4-1.1L21 8H6.3', 'M8 19.5a1.5 1.5 0 1 0 3 0a1.5 1.5 0 1 0 -3 0', 'M16 19.5a1.5 1.5 0 1 0 3 0a1.5 1.5 0 1 0 -3 0'],
+    envelope: ['M5 5h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z', 'M3.5 7l8.5 6 8.5-6'],
+    cursor: ['M5 3l5.5 16 2.3-6.9L19.7 9.8z', 'M12.8 12.1l5.4 5.4'],
+    chart: ['M4 4v16h16', 'M8 15l3.5-4 3 2.5L20 7', 'M16 7h4v4'],
+    magnifier: ['M4.5 11a6.5 6.5 0 1 0 13 0a6.5 6.5 0 1 0 -13 0', 'M16 16l4.5 4.5'],
+    heart: ['M12 20s-7.5-4.6-7.5-10A4.3 4.3 0 0 1 12 7.2A4.3 4.3 0 0 1 19.5 10c0 5.4-7.5 10-7.5 10z']
+  };
+
+  // state
+  let running = false, raf = 0, last = 0, visible = true, frames = 0, time = 0;
+  let px = 0, py = 0, tx = 0, ty = 0, tier = '';
+  let cubes = [];
+
+  const renderer = new THREE.WebGLRenderer({ canvas: cv, antialias: true, alpha: true, powerPreference: 'high-performance' });
+  renderer.outputColorSpace = THREE.SRGBColorSpace;
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  renderer.toneMappingExposure = 1.0;
+  renderer.setClearColor(0x000000, 0);
+
+  const scene = new THREE.Scene();
+  const pmrem = new THREE.PMREMGenerator(renderer);
+  scene.environment = pmrem.fromScene(new RoomEnvironment(renderer), 0.04).texture;
+  pmrem.dispose();
+
+  const camera = new THREE.PerspectiveCamera(30, 1, 0.1, 100);
+  camera.position.set(0, 0, 18);
+
+  scene.add(new THREE.HemisphereLight(0xffe3d2, 0x2b0705, 0.65));
+  const key = new THREE.DirectionalLight(0xfff1e8, 2.0); key.position.set(-5, 7, 9); scene.add(key);
+  const rim = new THREE.DirectionalLight(0xff9d52, 1.6); rim.position.set(5, 4, -6); scene.add(rim);
+  const warm = new THREE.PointLight(0xff8a00, 90, 0, 2); warm.position.set(6.5, -1.5, 5); scene.add(warm);
+  const glow = new THREE.PointLight(0xff3b30, 70, 0, 2); glow.position.set(-5.5, -5, 3); scene.add(glow);
+
+  const pivot = new THREE.Group(); scene.add(pivot);
+  const cluster = new THREE.Group(); pivot.add(cluster);
+
+  const geoCache = {}, matCache = {};
+  const maxAniso = Math.min(8, renderer.capabilities.getMaxAnisotropy());
+  const geo = (seg) => geoCache[seg] || (geoCache[seg] = new RoundedBoxGeometry(1, 1, 1, seg, 0.16));
+  const matOpts = { roughness: 0.34, metalness: 0, clearcoat: 1, clearcoatRoughness: 0.14, envMapIntensity: 0.5 };
+  const baseMat = (color) => matCache[color] || (matCache[color] = new THREE.MeshPhysicalMaterial({ color, ...matOpts }));
+
+  function iconTex(color, icon) {
+    const c = document.createElement('canvas'); c.width = c.height = 256;
+    const g = c.getContext('2d');
+    g.fillStyle = color; g.fillRect(0, 0, 256, 256);
+    g.save();
+    g.translate(128 - 12 * 5.2, 128 - 12 * 5.2); g.scale(5.2, 5.2);
+    g.strokeStyle = 'rgba(255,246,240,0.96)'; g.lineWidth = 1.9; g.lineCap = 'round'; g.lineJoin = 'round';
+    for (const p of ICON_PATHS[icon]) g.stroke(new Path2D(p));
+    g.restore();
+    const t = new THREE.CanvasTexture(c);
+    t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = maxAniso;
+    return t;
+  }
+  const iconMat = (color, icon) => {
+    const k = color + icon;
+    return matCache[k] || (matCache[k] = new THREE.MeshPhysicalMaterial({ map: iconTex(color, icon), ...matOpts }));
+  };
+
+  function rng(a) { return function () { a |= 0; a = (a + 0x6D2B79F5) | 0; let t = Math.imul(a ^ (a >>> 15), 1 | a); t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t; return ((t ^ (t >>> 14)) >>> 0) / 4294967296; }; }
+
+  function build(count, seg) {
+    for (const c of cubes) cluster.remove(c.mesh);
+    cubes = [];
+    const R = rng(20261118);
+    const g = geo(seg);
+    const hasGroups = g.groups && g.groups.length === 6;
+    const placed = [];
+    const iconCount = Math.ceil(count * 0.6);
+    for (let i = 0; i < count; i++) {
+      const s = i === 0 ? 1.6 : i < 4 ? 1.05 + R() * 0.3 : 0.5 + R() * 0.55;
+      const p = new THREE.Vector3(0.1, 0.05, 0.3);
+      if (i > 0) {
+        for (let tries = 0; tries < 300; tries++) {
+          const u = R() * 2 - 1, th = R() * Math.PI * 2, rad = 0.35 + 0.65 * Math.cbrt(R());
+          const sq = Math.sqrt(1 - u * u);
+          p.set(sq * Math.cos(th) * 3.5 * rad, u * 2.9 * rad, sq * Math.sin(th) * 2.3 * rad);
+          if (!placed.some((q) => q.p.distanceTo(p) < (q.s + s) * 0.8)) break;
+        }
+      }
+      placed.push({ p: p.clone(), s });
+      const color = i === 0 ? COLORS[0] : COLORS[Math.floor(R() * COLORS.length)];
+      let mat = baseMat(color);
+      if (i < iconCount && hasGroups) {
+        const b = baseMat(color);
+        mat = [b, b, b, b, iconMat(color, ICONS[i % ICONS.length]), b];
+        if (R() > 0.45) mat[0] = iconMat(color, ICONS[(i + 3) % ICONS.length]);
+      }
+      const mesh = new THREE.Mesh(g, mat);
+      mesh.scale.setScalar(s);
+      mesh.position.copy(p);
+      if (i === 0) mesh.rotation.set(0.32, -0.55, 0.08);
+      else mesh.rotation.set(R() * 6.28, R() * 6.28, R() * 6.28);
+      cluster.add(mesh);
+      const axis = new THREE.Vector3(R() - 0.5, R() - 0.5, R() - 0.5).normalize();
+      cubes.push({ mesh, base: p.clone(), axis, spin: ((0.12 + R() * 0.24) * (R() > 0.5 ? 1 : -1)) / Math.sqrt(s), amp: 0.06 + R() * 0.12, f: 0.35 + R() * 0.4, ph: R() * 6.28 });
+    }
+  }
+
+  function draw() {
+    renderer.render(scene, camera);
+    frames++;
+    if (frames === 1) { root.classList.add('lp-gl-ok'); root.classList.remove('lp-nogl'); }
+  }
+
+  function fit() {
+    const w = Math.max(1, art.clientWidth), h = Math.max(1, art.clientHeight);
+    const t = tierOf();
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, t === 'm' ? 1.5 : t === 't' ? 1.75 : 2));
+    renderer.setSize(w, h, false);
+    camera.aspect = w / h;
+    camera.updateProjectionMatrix();
+    if (t !== tier) { tier = t; build(COUNTS[t], t === 'm' ? 3 : 4); }
+    const visH = 2 * Math.tan(THREE.MathUtils.degToRad(camera.fov / 2)) * camera.position.z;
+    const visW = visH * camera.aspect;
+    const radius = Math.min(visW * 0.44, visH * 0.43);
+    pivot.scale.setScalar(radius / (t === 'd' ? 3.9 : t === 't' ? 2.9 : 3.1));
+    if (!running) draw();
+  }
+
+  function step(dt) {
+    time += dt;
+    for (const c of cubes) {
+      c.mesh.rotateOnAxis(c.axis, c.spin * dt);
+      c.mesh.position.y = c.base.y + Math.sin(time * c.f + c.ph) * c.amp;
+    }
+    cluster.rotation.y += dt * 0.05;
+    const k = 1 - Math.exp(-dt * 2.2);
+    px += (tx - px) * k; py += (ty - py) * k;
+    pivot.rotation.y = px * 0.5;
+    pivot.rotation.x = py * 0.32;
+  }
+
+  function loop(now) {
+    if (!running) return;
+    const dt = Math.min(0.05, Math.max(0, (now - last) / 1000));
+    last = now;
+    step(dt);
+    draw();
+    raf = requestAnimationFrame(loop);
+  }
+
+  function sync() {
+    const should = visible && !document.hidden && !reduce;
+    if (should && !running) { running = true; last = performance.now(); raf = requestAnimationFrame(loop); }
+    else if (!should && running) { running = false; cancelAnimationFrame(raf); }
+  }
+
+  if (!reduce) {
+    window.addEventListener('pointermove', (e) => {
+      if (!running) return;
+      const r = art.getBoundingClientRect();
+      tx = THREE.MathUtils.clamp((e.clientX - (r.left + r.width / 2)) / (innerWidth * 0.5), -1, 1);
+      ty = THREE.MathUtils.clamp((e.clientY - (r.top + r.height / 2)) / (innerHeight * 0.5), -1, 1);
+    }, { passive: true });
+    document.documentElement.addEventListener('pointerleave', () => { tx = 0; ty = 0; });
+  }
+
+  cv.addEventListener('webglcontextlost', (e) => {
+    e.preventDefault(); running = false; cancelAnimationFrame(raf);
+    if (window.lpHeroFail) window.lpHeroFail();
+  });
+
+  fit();
+  if (reduce) { pivot.rotation.set(0.12, -0.25, 0); cluster.rotation.y = 0.4; draw(); }
+  new ResizeObserver(() => fit()).observe(art);
+  new IntersectionObserver((es) => { visible = es[es.length - 1].isIntersecting; sync(); }, { threshold: 0 }).observe(hero);
+  document.addEventListener('visibilitychange', sync);
+  sync();
+
+  window.__lpHero = { get running() { return running; }, get frames() { return frames; }, get cubes() { return cubes.length; }, get tier() { return tier; } };
+}
+</script>
+</body>
+</html>

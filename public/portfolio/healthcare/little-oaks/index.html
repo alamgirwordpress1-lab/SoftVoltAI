@@ -1,0 +1,1531 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta name="robots" content="noindex">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Little Oaks Children's Hospital | Independent children's hospital in Manchester</title>
+<meta name="description" content="Consultant-led outpatients, day surgery, allergy, ENT, orthopaedics and neurodevelopment assessments for babies, children and teenagers in Manchester. Parents stay free." />
+<meta name="theme-color" content="#2f80ed" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preconnect" href="https://images.pexels.com" />
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700;6..12,800&display=swap" rel="stylesheet" />
+<script>document.documentElement.className += ' js';</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Hospital","name":"Little Oaks Children's Hospital","telephone":"+44 161 496 0300","medicalSpecialty":["Pediatric","Otolaryngologic","Orthopedic"],"address":{"@type":"PostalAddress","streetAddress":"40 Little Oaks Road","addressLocality":"Manchester","postalCode":"M14 0NB","addressCountry":"GB"}}</script>
+<style>
+:root{
+  --blue:#2f80ed; --blue-ink:#1660cc; --blue-d:#0f4ea8; --sky:#eaf3fe; --sky-2:#d8eafc;
+  --yellow:#ffc93c; --yellow-d:#f2b51d; --mint:#e8f6f1; --mint-2:#cdeee0; --green:#2e9e74; --green-ink:#1d7553;
+  --ink:#18233a; --ink-2:#4a5568; --ink-3:#5f6c80; --line:#dde6ee; --coral:#ff7a6b;
+  --wrap:1440px; --gut:20px; --hdr:76px; --r:20px;
+  --head:'Fredoka', system-ui, sans-serif;
+  --body:'Nunito Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --ease:cubic-bezier(.22,.8,.2,1);
+}
+@media (min-width:768px){:root{--gut:32px}}
+@media (min-width:1024px){:root{--gut:48px}}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:calc(var(--hdr) + 20px)}
+body{margin:0;font-family:var(--body);font-size:17px;line-height:1.6;color:var(--ink);background:#fff;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit}
+button{font:inherit;color:inherit;cursor:pointer}
+[hidden]{display:none!important}
+.i{width:20px;height:20px;flex:none;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--gut)}
+.sr{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip{position:absolute;left:16px;top:-80px;z-index:300;background:var(--ink);color:#fff;padding:12px 18px;border-radius:12px;font-weight:800;text-decoration:none}
+.skip:focus{top:12px}
+:focus-visible{outline:3px solid var(--blue-ink);outline-offset:3px;border-radius:6px}
+
+/* ---------- Shared type & buttons ---------- */
+.nb-kick{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:99px;background:var(--sky);color:var(--blue-ink);font-weight:800;font-size:13.5px;letter-spacing:.03em}
+.nb-kick::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--yellow);box-shadow:0 0 0 3px #fff}
+.nb-h2{font-family:var(--head);font-weight:600;font-size:clamp(31px,3.1vw,46px);line-height:1.12;letter-spacing:-.01em;margin:16px 0 0}
+.nb-h2 em{font-style:normal;color:var(--blue-ink)}
+.nb-lede{font-size:18px;color:var(--ink-2);margin:16px 0 0;max-width:60ch}
+.nb-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 24px;border-radius:999px;font-weight:800;font-size:16px;text-decoration:none;border:2px solid transparent;transition:background .2s,color .2s,border-color .2s,transform .2s}
+.nb-btn .i{transition:transform .3s var(--ease)}
+.nb-btn:hover .i{transform:translateX(3px)}
+.nb-btn-p{background:var(--blue-ink);color:#fff}
+.nb-btn-p:hover{background:var(--blue-d)}
+.nb-btn-g{background:#fff;color:var(--ink);border-color:var(--ink)}
+.nb-btn-g:hover{background:var(--ink);color:#fff}
+.nb-btn-y{background:var(--yellow);color:var(--ink)}
+.nb-btn-y:hover{background:var(--yellow-d)}
+.nb-btn:disabled{opacity:.5;cursor:not-allowed}
+.nb-link{display:inline-flex;align-items:center;gap:8px;font-weight:800;color:var(--blue-ink);text-decoration:none;border-bottom:2px solid transparent;transition:border-color .2s,color .2s}
+.nb-link:hover{border-color:currentColor;color:var(--blue-d)}
+.nb-sec{padding:88px 0}
+@media (min-width:1024px){.nb-sec{padding:120px 0}}
+.nb-mint{background:var(--mint)}
+.nb-sky{background:var(--sky)}
+.nb-head{display:grid;grid-template-columns:minmax(0,1fr);gap:16px;align-items:end;margin-bottom:44px}
+@media (min-width:1024px){.nb-head{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:64px}.nb-head .nb-lede{margin:0}}
+.js .nb-rv{opacity:0;transform:translateY(20px);transition:opacity .8s var(--ease),transform .9s var(--ease)}
+.js .nb-rv.in{opacity:1;transform:none}
+
+/* ---------- Utility bar + header ---------- */
+.nb-util{background:var(--ink);color:#fff;font-size:14px}
+.nb-util .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:42px}
+.nb-util p{margin:0;display:flex;align-items:center;gap:8px}
+.nb-util .i{width:16px;height:16px;color:var(--yellow)}
+.nb-util b{font-weight:800}
+.nb-util a{color:#fff;text-decoration:none;font-weight:700}
+.nb-util a:hover{text-decoration:underline;text-underline-offset:3px}
+.nb-util ul{display:none;list-style:none;margin:0;padding:0;gap:22px}
+@media (min-width:900px){.nb-util ul{display:flex}}
+.nb-hdr{position:sticky;top:0;z-index:60;background:#fff;border-bottom:1px solid transparent;transition:border-color .25s,box-shadow .25s}
+.nb-hdr.scrolled{border-color:var(--line);box-shadow:0 10px 30px -24px rgba(24,35,58,.5)}
+.nb-hdr .wrap{display:flex;align-items:center;gap:20px;height:var(--hdr)}
+.nb-logo{display:flex;align-items:center;gap:12px;text-decoration:none;flex:none;min-width:0}
+.nb-logo svg{width:46px;height:46px;flex:none}
+.nb-logo span{display:flex;flex-direction:column;line-height:1.05;min-width:0}
+.nb-logo b{font-family:var(--head);font-weight:600;font-size:22px;color:var(--ink);white-space:nowrap}
+.nb-logo small{font-size:12.5px;font-weight:800;letter-spacing:.06em;color:var(--blue-ink);text-transform:uppercase;margin-top:3px;white-space:nowrap}
+.nb-nav{display:none;margin-left:auto;gap:2px}
+.nb-nav a{position:relative;padding:10px 12px;border-radius:10px;font-weight:700;font-size:15.5px;text-decoration:none;color:var(--ink);transition:background .2s,color .2s}
+.nb-nav a:hover{background:var(--sky);color:var(--blue-ink)}
+.nb-hdr-r{display:flex;align-items:center;gap:10px;margin-left:auto}
+.nb-hdr-r .nb-btn{min-height:46px;padding:0 20px;font-size:15px}
+.nb-burger{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px;padding:0 16px;border-radius:999px;border:2px solid var(--line);background:#fff;font-weight:800;font-size:15px;transition:border-color .2s,color .2s}
+.nb-burger:hover{border-color:var(--blue-ink);color:var(--blue-ink)}
+@media (min-width:1200px){.nb-nav{display:flex}.nb-burger{display:none}.nb-hdr-r{margin-left:14px}}
+@media (max-width:560px){.nb-hdr-r .nb-btn{display:none}.nb-logo b{font-size:19px}.nb-logo small{font-size:11px}.nb-logo svg{width:40px;height:40px}}
+.nb-menu{position:fixed;inset:0;z-index:90;visibility:hidden;transition:visibility 0s .4s}
+.nb-menu.open{visibility:visible;transition:visibility 0s}
+.nb-menu-scrim{position:absolute;inset:0;background:rgba(24,35,58,.45);opacity:0;transition:opacity .35s}
+.nb-menu.open .nb-menu-scrim{opacity:1}
+.nb-menu-pnl{position:absolute;top:0;right:0;bottom:0;width:min(420px,100%);background:#fff;padding:20px 24px 32px;display:flex;flex-direction:column;transform:translateX(100%);transition:transform .45s var(--ease);overflow-y:auto}
+.nb-menu.open .nb-menu-pnl{transform:none}
+.nb-menu-top{display:flex;justify-content:space-between;align-items:center}
+.nb-menu-x{width:46px;height:46px;border-radius:50%;border:2px solid var(--line);background:#fff;display:grid;place-items:center;transition:border-color .2s}
+.nb-menu-x:hover{border-color:var(--ink)}
+.nb-menu nav{display:grid;margin-top:20px}
+.nb-menu nav a{display:flex;justify-content:space-between;align-items:center;padding:14px 4px;border-bottom:1px solid var(--line);font-family:var(--head);font-weight:500;font-size:22px;text-decoration:none;transition:color .2s}
+.nb-menu nav a:hover{color:var(--blue-ink)}
+.nb-menu-foot{margin-top:auto;padding-top:28px;display:grid;gap:10px}
+.nb-menu-alert{margin:0;padding:14px 16px;border-radius:14px;background:#fff4d6;font-size:14.5px}
+
+/* ---------- Hero ---------- */
+.nb-hero{position:relative;overflow:hidden;background:linear-gradient(180deg,#e6f1fe 0%,#f1f8ff 55%,#ffffff 100%);isolation:isolate}
+.nb-scene{position:absolute;inset:0;z-index:0;pointer-events:none}
+.nb-lyr{position:absolute;left:-4%;width:108%;bottom:0;will-change:transform}
+.nb-lyr svg{display:block;width:100%;height:100%}
+.nb-far{height:46%}
+.nb-mid{height:40%}
+.nb-near{height:30%}
+.nb-front{height:18%;bottom:-2px}
+.nb-cloud{position:absolute;will-change:transform}
+.nb-cloud svg{display:block;width:100%;height:auto}
+.nb-cloud i{display:block;animation:nbDrift var(--t,70s) ease-in-out infinite alternate}
+@keyframes nbDrift{from{transform:translateX(-40px)}to{transform:translateX(60px)}}
+.nb-c1{top:3%;left:-1%;width:150px;--t:64s}
+.nb-c2{top:5%;left:42%;width:120px;--t:80s}
+.nb-c3{top:17%;left:70%;width:200px;--t:72s}
+.nb-c4{top:10%;left:29%;width:96px;--t:90s;opacity:.8}
+.nb-kite{position:absolute;top:6%;right:5%;width:120px;will-change:transform}
+.nb-kite i{display:block;transform-origin:50% 0;animation:nbSway 6s ease-in-out infinite alternate}
+@keyframes nbSway{from{transform:rotate(-5deg)}to{transform:rotate(5deg)}}
+.nb-balloons{position:absolute;top:13%;left:51%;width:92px;will-change:transform}
+.nb-balloons i{display:block;animation:nbBob 7s ease-in-out infinite alternate}
+@keyframes nbBob{from{transform:translateY(0)}to{transform:translateY(-16px)}}
+.nb-hero-in{position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,1fr);gap:40px;align-items:center;padding-top:56px;padding-bottom:120px}
+@media (min-width:1024px){.nb-hero-in{grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:56px;min-height:clamp(620px,calc(100svh - 118px),840px);padding-top:48px;padding-bottom:150px}}
+.nb-hero h1{font-family:var(--head);font-weight:600;font-size:clamp(46px,5.6vw,88px);line-height:1.02;letter-spacing:-.02em;margin:20px 0 0}
+.nb-hero h1 span{position:relative;display:inline-block;color:var(--blue-ink)}
+.nb-hero h1 span svg{position:absolute;left:0;right:0;bottom:-.12em;width:100%;height:.28em;overflow:visible}
+.nb-hero-p{font-size:clamp(17.5px,1.3vw,19.5px);color:var(--ink-2);margin:24px 0 0;max-width:52ch}
+.nb-hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.nb-hero-ticks{list-style:none;margin:28px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:10px 22px;font-weight:700;font-size:15.5px}
+.nb-hero-ticks li{display:flex;align-items:center;gap:8px}
+.nb-hero-ticks .i{width:22px;height:22px;padding:3px;border-radius:50%;background:var(--mint-2);color:var(--green-ink);stroke-width:2.4}
+.nb-photo{position:relative;justify-self:center;width:min(100%,520px);will-change:transform}
+.nb-blob{aspect-ratio:5/6;border-radius:58% 42% 52% 48% / 46% 52% 48% 54%;overflow:hidden;background:var(--sky-2);box-shadow:0 0 0 10px #fff,0 40px 70px -34px rgba(24,35,58,.5);animation:nbMorph 16s ease-in-out infinite alternate}
+@keyframes nbMorph{to{border-radius:46% 54% 44% 56% / 55% 45% 56% 44%}}
+.nb-blob img{width:100%;height:100%;object-fit:cover;object-position:50% 40%}
+.nb-photo-tag{position:absolute;left:-6px;bottom:8%;display:flex;align-items:center;gap:12px;background:#fff;border-radius:18px;padding:12px 18px 12px 12px;box-shadow:0 18px 40px -20px rgba(24,35,58,.45);font-weight:800;font-size:15px;line-height:1.25;max-width:260px}
+.nb-photo-tag .tg-ic{width:44px;height:44px;border-radius:14px;background:var(--yellow);display:grid;place-items:center;flex:none}
+.nb-photo-tag small{display:block;font-weight:600;color:var(--ink-3);font-size:13.5px}
+@media (max-width:1023px){
+  .nb-hero-in{padding-bottom:96px}
+  .nb-photo{width:min(100%,440px)}
+  .nb-far,.nb-c4,.nb-balloons{display:none}
+  .nb-mid{height:22%}.nb-near{height:16%}.nb-front{height:9%}
+  .nb-kite{width:80px;top:3%;right:3%}
+  .nb-c3{top:6%;left:58%;width:140px}
+}
+@media (max-width:600px){.nb-photo-tag{left:0;max-width:230px;padding:10px 14px 10px 10px;font-size:14px}.nb-c2{display:none}}
+
+.nb-trust{border-bottom:1px solid var(--line)}
+.nb-trust ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:minmax(0,1fr)}
+@media (min-width:640px){.nb-trust ul{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (min-width:1100px){.nb-trust ul{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.nb-trust li{display:flex;align-items:center;gap:14px;padding:22px 12px 22px 0;font-weight:700;line-height:1.35}
+.nb-trust li span.ic{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;flex:none;background:var(--sky);color:var(--blue-ink)}
+.nb-trust li:nth-child(2) span.ic{background:var(--mint);color:var(--green-ink)}
+.nb-trust li:nth-child(3) span.ic{background:#fff4d6;color:#8a5a00}
+.nb-trust small{display:block;font-weight:600;color:var(--ink-3);font-size:14px}
+
+/* ---------- Who are you ---------- */
+.nb-who-tabs{display:inline-flex;gap:6px;padding:6px;border-radius:999px;background:#fff;border:1px solid var(--line);margin-top:28px;max-width:100%;flex-wrap:wrap}
+.nb-who-tab{min-height:48px;padding:0 22px;border-radius:999px;border:0;background:transparent;font-weight:800;font-size:15.5px;transition:background .2s,color .2s}
+.nb-who-tab:hover{background:var(--sky);color:var(--blue-ink)}
+.nb-who-tab[aria-selected="true"]{background:var(--blue-ink);color:#fff}
+.nb-who-pnl{display:grid;grid-template-columns:minmax(0,1fr);gap:36px;align-items:center;margin-top:40px}
+@media (min-width:1024px){.nb-who-pnl{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:72px}}
+.nb-who-pnl.swap>*{animation:nbUp .6s var(--ease) both}
+@keyframes nbUp{from{opacity:0;transform:translateY(12px)}}
+.nb-who-pnl h3{font-family:var(--head);font-weight:600;font-size:clamp(26px,2.2vw,32px);margin:0;line-height:1.15}
+.nb-who-pnl>div>p{color:var(--ink-2);margin:12px 0 0}
+.nb-who-list{list-style:none;margin:24px 0 0;padding:0;display:grid;gap:14px}
+.nb-who-list li{display:grid;grid-template-columns:40px minmax(0,1fr);gap:14px;align-items:start;padding:16px;border-radius:16px;background:#fff}
+.nb-who-list li>span{width:40px;height:40px;border-radius:12px;background:var(--mint);color:var(--green-ink);display:grid;place-items:center}
+.nb-who-list b{display:block}
+.nb-who-list p{margin:2px 0 0;color:var(--ink-2);font-size:16px}
+.nb-who-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.nb-who-img{border-radius:28px;overflow:hidden;aspect-ratio:4/3.4;background:var(--sky-2)}
+.nb-who-img img{width:100%;height:100%;object-fit:cover}
+
+/* ---------- Services ---------- */
+.nb-ages{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
+.nb-age{min-height:44px;padding:0 18px;border-radius:999px;border:2px solid var(--line);background:#fff;font-weight:800;font-size:15px;transition:border-color .2s,background .2s,color .2s}
+.nb-age:hover{border-color:var(--blue-ink);color:var(--blue-ink)}
+.nb-age[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+.nb-svc-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:16px}
+@media (min-width:700px){.nb-svc-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (min-width:1100px){.nb-svc-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}}
+.nb-svc{position:relative;display:flex;flex-direction:column;padding:26px;border-radius:22px;border:1px solid var(--line);background:#fff;text-decoration:none;transition:border-color .25s,box-shadow .25s,transform .35s var(--ease)}
+.nb-svc:hover{border-color:var(--blue);box-shadow:0 22px 44px -30px rgba(22,96,204,.55);transform:translateY(-3px)}
+.nb-svc-ic{width:56px;height:56px;border-radius:18px;display:grid;place-items:center;background:var(--sky);color:var(--blue-ink)}
+.nb-svc-ic .i{width:28px;height:28px}
+.nb-svc:nth-child(3n+2) .nb-svc-ic{background:var(--mint);color:var(--green-ink)}
+.nb-svc:nth-child(3n) .nb-svc-ic{background:#fff4d6;color:#8a5a00}
+.nb-svc h3{margin:18px 0 0;font-family:var(--head);font-weight:600;font-size:23px;line-height:1.2}
+.nb-svc p{margin:8px 0 0;color:var(--ink-2);font-size:16px}
+.nb-svc-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
+.nb-svc-tags span{font-size:12.5px;font-weight:800;padding:4px 10px;border-radius:99px;background:#f1f4f8;color:var(--ink-2)}
+.nb-svc-f{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:auto;padding-top:20px}
+.nb-svc-f b{font-size:15px}
+.nb-svc-f .nb-go{display:inline-flex;align-items:center;gap:6px;font-weight:800;font-size:15px;color:var(--blue-ink)}
+.nb-svc:hover .nb-go .i{transform:translateX(3px)}
+.nb-go .i{transition:transform .3s var(--ease)}
+.nb-svc-none{grid-column:1/-1;padding:28px;border-radius:20px;background:var(--sky);text-align:center;font-weight:700}
+
+/* ---------- Team ---------- */
+.nb-team{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 16px}
+@media (min-width:900px){.nb-team{grid-template-columns:repeat(3,minmax(0,1fr));gap:36px 24px}}
+@media (min-width:1280px){.nb-team{grid-template-columns:repeat(6,minmax(0,1fr));gap:22px}}
+.nb-doc-ph{aspect-ratio:4/5;border-radius:22px;overflow:hidden;background:var(--sky-2)}
+.nb-doc-ph img{width:100%;height:100%;object-fit:cover;object-position:50% 20%;transition:transform .8s var(--ease)}
+.nb-doc:hover .nb-doc-ph img{transform:scale(1.04)}
+.nb-doc h3{margin:14px 0 0;font-family:var(--head);font-weight:600;font-size:20px;line-height:1.2}
+.nb-doc .role{margin:4px 0 0;font-weight:800;font-size:14.5px;color:var(--blue-ink)}
+.nb-doc .spec{margin:2px 0 0;font-size:15px;color:var(--ink-2);line-height:1.45}
+.nb-doc .reg{display:inline-block;margin-top:8px;font-size:12.5px;font-weight:800;padding:3px 9px;border-radius:8px;background:#f1f4f8;color:var(--ink-2)}
+.nb-doc .nb-link{margin-top:10px;font-size:14.5px}
+.nb-team-note{margin:36px 0 0;padding:20px 22px;border-radius:18px;background:var(--mint);display:flex;gap:14px;align-items:flex-start;font-size:16px}
+.nb-team-note .i{color:var(--green-ink);margin-top:3px}
+
+/* ---------- Visit journey ---------- */
+.nb-vj{display:grid;grid-template-columns:minmax(0,1fr);gap:24px}
+@media (min-width:1100px){.nb-vj{grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:32px;align-items:start}.nb-steps-card{position:sticky;top:calc(var(--hdr) + 24px)}}
+.nb-steps-card{background:#fff;border-radius:28px;border:1px solid var(--line);overflow:hidden}
+.nb-steps-nav{display:flex;overflow-x:auto;border-bottom:1px solid var(--line);scrollbar-width:none}
+.nb-steps-nav::-webkit-scrollbar{display:none}
+.nb-step-b{flex:1 0 auto;display:flex;align-items:center;gap:10px;padding:18px 20px;border:0;border-bottom:3px solid transparent;background:none;font-weight:800;font-size:15px;color:var(--ink-3);white-space:nowrap;transition:color .2s,border-color .2s,background .2s}
+.nb-step-b span{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:#f1f4f8;font-size:13.5px;transition:background .2s,color .2s}
+.nb-step-b:hover{color:var(--ink);background:#f8fafc}
+.nb-step-b[aria-selected="true"]{color:var(--ink);border-color:var(--blue-ink)}
+.nb-step-b[aria-selected="true"] span{background:var(--blue-ink);color:#fff}
+.nb-step-b.done span{background:var(--mint-2);color:var(--green-ink)}
+@media (min-width:760px){.nb-steps-nav{display:grid;grid-template-columns:repeat(5,minmax(0,1fr))}.nb-step-b{flex-direction:column;justify-content:flex-start;gap:6px;padding:16px 8px;white-space:normal;text-align:center;font-size:14.5px;line-height:1.25}}
+.nb-step-body{display:grid;grid-template-columns:minmax(0,1fr);gap:24px;padding:28px 24px;align-items:center}
+@media (min-width:760px){.nb-step-body{grid-template-columns:220px minmax(0,1fr);gap:36px;padding:36px 40px}}
+.nb-step-art{width:100%;max-width:240px;aspect-ratio:10/7;border-radius:22px;background:var(--sky);display:grid;place-items:center;justify-self:center}
+.nb-step-art svg{width:86%;height:auto}
+.nb-step-body h3{margin:0;font-family:var(--head);font-weight:600;font-size:26px;line-height:1.2}
+.nb-step-body p{margin:10px 0 0;color:var(--ink-2)}
+.nb-step-tip{display:flex;gap:10px;margin-top:16px;padding:14px 16px;border-radius:14px;background:#fff4d6;font-size:15.5px}
+.nb-step-tip .i{color:#8a5a00;margin-top:2px}
+.nb-step-body.swap>*{animation:nbUp .5s var(--ease) both}
+.nb-steps-foot{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 24px;border-top:1px solid var(--line);background:#fafcfe}
+@media (min-width:760px){.nb-steps-foot{padding:18px 40px}}
+.nb-steps-prog{flex:1;height:6px;border-radius:9px;background:#e8eef5;overflow:hidden;max-width:240px}
+.nb-steps-prog i{display:block;height:100%;background:var(--blue-ink);border-radius:9px;transition:width .5s var(--ease)}
+.nb-steps-btns{display:flex;gap:8px}
+.nb-round{width:48px;height:48px;border-radius:50%;border:2px solid var(--line);background:#fff;display:grid;place-items:center;transition:border-color .2s,color .2s,background .2s}
+.nb-round:hover:not(:disabled){border-color:var(--blue-ink);color:var(--blue-ink);background:var(--sky)}
+.nb-round:disabled{opacity:.4;cursor:not-allowed}
+.nb-check{background:#fff;border-radius:28px;border:1px solid var(--line);padding:28px}
+.nb-check h3{margin:0;font-family:var(--head);font-weight:600;font-size:24px}
+.nb-check>p{margin:6px 0 0;color:var(--ink-2);font-size:15.5px}
+.nb-check ul{list-style:none;margin:18px 0 0;padding:0;display:grid;gap:4px}
+.nb-check label{display:flex;gap:12px;align-items:flex-start;padding:10px 8px;border-radius:12px;cursor:pointer;font-size:16px;transition:background .2s}
+.nb-check label:hover{background:#f6f9fc}
+.nb-check input{width:20px;height:20px;accent-color:var(--green);margin:2px 0 0;flex:none}
+.nb-check input:checked+span{color:var(--ink-3);text-decoration:line-through}
+.nb-check-f{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;margin-top:18px;padding-top:18px;border-top:1px solid var(--line)}
+.nb-check-f small{color:var(--ink-3);font-weight:700}
+
+/* ---------- Booking ---------- */
+.nb-bk{display:grid;grid-template-columns:minmax(0,1fr);gap:40px}
+@media (min-width:1024px){.nb-bk{grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:72px;align-items:start}.nb-bk-l{position:sticky;top:calc(var(--hdr) + 24px)}}
+.nb-bk-l dl{margin:28px 0 0}
+.nb-bk-l dl div{display:grid;grid-template-columns:120px minmax(0,1fr);gap:14px;padding:14px 0;border-top:1px solid #cfe3d9}
+.nb-bk-l dt{font-weight:800;font-size:14px;color:var(--ink-3)}
+.nb-bk-l dd{margin:0;font-weight:700;overflow-wrap:anywhere}
+.nb-bk-l dd a{text-decoration:none;color:var(--blue-ink)}
+.nb-bk-l dd a:hover{text-decoration:underline}
+.nb-bk-warn{display:flex;gap:12px;margin-top:24px;padding:16px 18px;border-radius:16px;background:#fff;border-left:5px solid var(--coral);font-size:15.5px}
+.nb-bk-warn .i{color:#c2412f;margin-top:2px}
+.nb-form{background:#fff;border-radius:28px;padding:28px 20px;box-shadow:0 30px 70px -48px rgba(24,35,58,.5)}
+@media (min-width:768px){.nb-form{padding:40px 44px}}
+.nb-fs{border:0;margin:0 0 28px;padding:0;min-width:0}
+.nb-fs legend{display:flex;align-items:center;gap:10px;padding:0;margin-bottom:14px;font-family:var(--head);font-weight:600;font-size:21px}
+.nb-fs legend span{width:30px;height:30px;border-radius:50%;background:var(--sky);color:var(--blue-ink);display:grid;place-items:center;font-family:var(--body);font-weight:800;font-size:14px}
+.nb-row{display:grid;grid-template-columns:minmax(0,1fr);gap:14px}
+@media (min-width:640px){.nb-row{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}
+.nb-f{display:block;min-width:0}
+.nb-f>span{display:block;font-weight:800;font-size:15px;margin-bottom:6px}
+.nb-f>span small{font-weight:600;color:var(--ink-3)}
+.nb-in{width:100%;min-height:52px;border:2px solid #d3dde8;border-radius:14px;padding:0 14px;font:inherit;font-size:16px;color:var(--ink);background:#fff;transition:border-color .2s,box-shadow .2s}
+.nb-in:focus{outline:none;border-color:var(--blue-ink);box-shadow:0 0 0 4px var(--sky-2)}
+.nb-in[aria-invalid="true"]{border-color:#c2412f}
+select.nb-in{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none' stroke='%2318233a' stroke-width='2'%3E%3Cpath d='m1 1.5 5 5 5-5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center;padding-right:44px}
+.nb-err{display:block;margin-top:6px;font-size:14px;font-weight:700;color:#b3321f}
+.nb-dates{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;scrollbar-width:thin}
+.nb-date{flex:none;display:flex;flex-direction:column;align-items:center;min-width:70px;padding:10px 6px;border-radius:14px;border:2px solid #d3dde8;background:#fff;font-size:13px;font-weight:700;color:var(--ink-3);transition:border-color .2s,background .2s,color .2s}
+.nb-date b{font-size:20px;color:var(--ink);font-weight:800;line-height:1.25}
+.nb-date:hover{border-color:var(--blue-ink)}
+.nb-date[aria-pressed="true"]{background:var(--blue-ink);border-color:var(--blue-ink);color:rgba(255,255,255,.85)}
+.nb-date[aria-pressed="true"] b{color:#fff}
+.nb-opts{display:grid;grid-template-columns:minmax(0,1fr);gap:8px;margin-top:14px}
+@media (min-width:640px){.nb-opts{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.nb-opt{position:relative;display:flex;flex-direction:column;gap:2px;padding:14px 16px;border-radius:14px;border:2px solid #d3dde8;cursor:pointer;font-weight:800;font-size:15.5px;transition:border-color .2s,background .2s}
+.nb-opt small{font-weight:600;color:var(--ink-3);font-size:13.5px}
+.nb-opt input{position:absolute;opacity:0;pointer-events:none}
+.nb-opt:hover{border-color:#9db4cc}
+.nb-opt:has(input:checked){border-color:var(--blue-ink);background:var(--sky)}
+.nb-opt:has(input:focus-visible){outline:3px solid var(--blue-ink);outline-offset:2px}
+.nb-pay{display:grid;grid-template-columns:minmax(0,1fr);gap:8px}
+@media (min-width:640px){.nb-pay{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.nb-ins{margin-top:14px;padding:16px;border-radius:16px;background:#f6f9fc}
+.nb-consent{display:flex;gap:12px;align-items:flex-start;font-size:15px;color:var(--ink-2);cursor:pointer}
+.nb-consent input{width:20px;height:20px;accent-color:var(--blue-ink);margin:2px 0 0;flex:none}
+.nb-consent a{color:var(--blue-ink);font-weight:700}
+.nb-form-f{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;margin-top:24px;padding-top:24px;border-top:1px solid var(--line)}
+.nb-form-f p{margin:0;font-size:14.5px;color:var(--ink-3);max-width:40ch}
+.nb-done{text-align:center;padding:12px 0}
+.nb-done-ic{width:76px;height:76px;margin:0 auto;border-radius:50%;background:var(--mint-2);color:var(--green-ink);display:grid;place-items:center}
+.nb-done-ic .i{width:36px;height:36px;stroke-width:2.4}
+.nb-done h3{margin:18px 0 0;font-family:var(--head);font-weight:600;font-size:28px}
+.nb-done p{color:var(--ink-2);max-width:48ch;margin:10px auto 0}
+.nb-done dl{margin:22px auto 0;max-width:460px;text-align:left;background:#f6f9fc;border-radius:18px;padding:8px 20px}
+.nb-done dl div{display:grid;grid-template-columns:120px minmax(0,1fr);gap:12px;padding:10px 0;border-bottom:1px solid var(--line);font-size:15.5px}
+.nb-done dl div:last-child{border-bottom:0}
+.nb-done dt{color:var(--ink-3);font-weight:700}
+.nb-done dd{margin:0;font-weight:800;overflow-wrap:anywhere}
+
+/* ---------- Staying with us ---------- */
+.nb-stay{display:grid;grid-template-columns:minmax(0,1fr);gap:28px}
+@media (min-width:1024px){.nb-stay{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:56px;align-items:start}.nb-stay-media{position:sticky;top:calc(var(--hdr) + 24px)}}
+.nb-stay-media{position:relative}
+.nb-stay-media img{width:100%;aspect-ratio:4/4.4;object-fit:cover;border-radius:28px}
+.nb-stay-media figcaption{position:absolute;left:16px;right:16px;bottom:16px;padding:14px 18px;border-radius:16px;background:rgba(255,255,255,.95);font-size:15px;font-weight:600}
+.nb-stay-media figcaption b{display:block;font-family:var(--head);font-weight:600;font-size:18px}
+.nb-stay-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:16px;margin-top:32px}
+@media (min-width:700px){.nb-stay-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.nb-stay-card{padding:24px;border-radius:22px;background:#fff;border:1px solid var(--line)}
+.nb-stay-card .ic{width:48px;height:48px;border-radius:15px;display:grid;place-items:center;background:var(--sky);color:var(--blue-ink)}
+.nb-stay-card:nth-child(2) .ic{background:var(--mint);color:var(--green-ink)}
+.nb-stay-card:nth-child(3) .ic{background:#fff4d6;color:#8a5a00}
+.nb-stay-card:nth-child(4) .ic{background:#ffe7e3;color:#b3321f}
+.nb-stay-card h3{margin:16px 0 0;font-family:var(--head);font-weight:600;font-size:21px}
+.nb-stay-card p{margin:8px 0 0;color:var(--ink-2);font-size:16px}
+.nb-vis{width:100%;border-collapse:collapse;margin-top:12px;font-size:15px}
+.nb-vis th,.nb-vis td{text-align:left;padding:9px 0;border-bottom:1px solid var(--line);vertical-align:top}
+.nb-vis th{font-weight:800;padding-right:12px;width:46%}
+.nb-vis tr:last-child th,.nb-vis tr:last-child td{border-bottom:0}
+
+/* ---------- Prices ---------- */
+.nb-pr{display:grid;grid-template-columns:minmax(0,1fr);gap:28px}
+@media (min-width:1024px){.nb-pr{grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:48px;align-items:start}.nb-ins-card{position:sticky;top:calc(var(--hdr) + 24px)}}
+.nb-ptable{width:100%;border-collapse:collapse;background:#fff;border-radius:22px;overflow:hidden;border:1px solid var(--line)}
+.nb-ptable caption{text-align:left;font-weight:700;color:var(--ink-2);padding-bottom:12px;font-size:15.5px}
+.nb-ptable th,.nb-ptable td{padding:18px 22px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+.nb-ptable thead th{background:#f6f9fc;font-size:13px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3)}
+.nb-ptable tbody th{font-weight:700}
+.nb-ptable tbody th small{display:block;font-weight:600;color:var(--ink-3);font-size:14px;margin-top:2px}
+.nb-ptable td{font-weight:800;white-space:nowrap;text-align:right}
+.nb-ptable thead th:last-child{text-align:right}
+.nb-ptable tr:last-child th,.nb-ptable tr:last-child td{border-bottom:0}
+.nb-pnote{margin:16px 0 0;font-size:15px;color:var(--ink-2)}
+.nb-ins-card{padding:28px;border-radius:28px;background:var(--ink);color:#fff}
+.nb-ins-card h3{margin:0;font-family:var(--head);font-weight:600;font-size:25px}
+.nb-ins-card>p{margin:8px 0 0;color:rgba(255,255,255,.82);font-size:16px}
+.nb-ins-card ol{list-style:none;counter-reset:ins;margin:20px 0 0;padding:0;display:grid;gap:12px}
+.nb-ins-card ol li{counter-increment:ins;display:grid;grid-template-columns:32px minmax(0,1fr);gap:12px;font-size:16px}
+.nb-ins-card ol li::before{content:counter(ins);width:32px;height:32px;border-radius:50%;background:var(--yellow);color:var(--ink);display:grid;place-items:center;font-weight:800;font-size:14px}
+.nb-ins-logos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:22px}
+.nb-ins-logos span{display:grid;place-items:center;min-height:52px;padding:6px;border-radius:12px;border:1px dashed rgba(255,255,255,.35);font-size:12px;font-weight:700;color:rgba(255,255,255,.7);text-align:center}
+.nb-ins-card .nb-btn{margin-top:22px;width:100%}
+
+/* ---------- Safeguarding ---------- */
+.nb-safe{display:grid;grid-template-columns:minmax(0,1fr);gap:24px;padding:32px 24px;border-radius:28px;background:#fff;border:2px solid var(--mint-2)}
+@media (min-width:900px){.nb-safe{grid-template-columns:80px minmax(0,1.3fr) minmax(0,1fr);gap:32px;padding:40px;align-items:start}}
+.nb-safe-ic{width:72px;height:72px;border-radius:22px;background:var(--mint);color:var(--green-ink);display:grid;place-items:center}
+.nb-safe-ic .i{width:36px;height:36px}
+.nb-safe h2{margin:0;font-family:var(--head);font-weight:600;font-size:28px}
+.nb-safe p{margin:10px 0 0;color:var(--ink-2)}
+.nb-safe-lead{padding:20px;border-radius:18px;background:var(--mint)}
+.nb-safe-lead b{display:block;font-size:17px}
+.nb-safe-lead p{margin:4px 0 0;font-size:15.5px}
+.nb-safe-lead a{color:var(--green-ink);font-weight:800;overflow-wrap:anywhere}
+
+/* ---------- Reviews ---------- */
+.nb-revs{display:grid;grid-template-columns:minmax(0,1fr);gap:16px}
+@media (min-width:900px){.nb-revs{grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}}
+.nb-rev{margin:0;padding:28px;border-radius:24px;background:#fff;border:1px solid var(--line);display:flex;flex-direction:column}
+.nb-stars{color:#d18b00;letter-spacing:2px;font-size:18px}
+.nb-rev p{margin:12px 0 0;font-size:17.5px;line-height:1.55}
+.nb-rev cite{margin-top:auto;padding-top:18px;font-style:normal;font-size:15px;color:var(--ink-3)}
+.nb-rev cite b{display:block;color:var(--ink);font-size:16px}
+.nb-rev-sum{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.nb-rev-sum b{font-family:var(--head);font-size:44px;font-weight:600;line-height:1}
+.nb-rev-sum span{color:var(--ink-2);font-size:15.5px}
+
+/* ---------- FAQ ---------- */
+.nb-faq{display:grid;grid-template-columns:minmax(0,1fr);gap:32px}
+@media (min-width:1024px){.nb-faq{grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:72px;align-items:start}.nb-faq-l{position:sticky;top:calc(var(--hdr) + 24px)}}
+.nb-faq-call{margin-top:28px;padding:24px;border-radius:22px;background:var(--sky)}
+.nb-faq-call span{font-weight:800;color:var(--ink-3);font-size:14px}
+.nb-faq-call a{display:block;margin-top:4px;font-family:var(--head);font-weight:600;font-size:30px;color:var(--blue-ink);text-decoration:none}
+.nb-faq-call a:hover{text-decoration:underline;text-underline-offset:4px}
+.nb-faq-call p{margin:4px 0 0;font-size:15px;color:var(--ink-2)}
+.nb-qa{border-bottom:1px solid var(--line)}
+.nb-qa:first-child{border-top:1px solid var(--line)}
+.nb-qa button{display:flex;align-items:center;justify-content:space-between;gap:16px;width:100%;padding:22px 0;border:0;background:none;text-align:left;font-weight:800;font-size:18.5px;line-height:1.35;transition:color .2s}
+.nb-qa button:hover{color:var(--blue-ink)}
+.nb-pm{width:38px;height:38px;border-radius:50%;background:var(--sky);color:var(--blue-ink);display:grid;place-items:center;flex:none;transition:transform .35s var(--ease),background .2s,color .2s}
+.nb-qa.open .nb-pm{transform:rotate(45deg);background:var(--blue-ink);color:#fff}
+.nb-qa .nb-ans{display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s var(--ease)}
+.nb-qa .nb-ans>div{overflow:hidden}
+.nb-qa.open .nb-ans{grid-template-rows:1fr}
+.nb-qa .nb-ans p{margin:0 0 22px;color:var(--ink-2);max-width:64ch}
+
+/* ---------- Footer (rolling hills) ---------- */
+.nb-ft{position:relative;color:#fff;background:var(--mint)}
+.nb-ft-hills{display:block;width:100%;height:clamp(110px,12vw,190px);margin-bottom:-2px}
+.nb-ft-body{background:#163a63;padding:24px 0 36px}
+.nb-ft-cards{display:grid;grid-template-columns:minmax(0,1fr);gap:16px}
+@media (min-width:760px){.nb-ft-cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (min-width:1200px){.nb-ft-cards{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.nb-fc{padding:26px;border-radius:24px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14)}
+.nb-fc h3{display:flex;align-items:center;gap:10px;margin:0;font-family:var(--head);font-weight:600;font-size:21px}
+.nb-fc h3 .i{color:var(--yellow)}
+.nb-fc table{width:100%;border-collapse:collapse;margin-top:12px;font-size:15px}
+.nb-fc th,.nb-fc td{text-align:left;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.14);vertical-align:top}
+.nb-fc th{font-weight:700;color:rgba(255,255,255,.8);padding-right:12px}
+.nb-fc td{text-align:right;font-weight:800}
+.nb-fc tr:last-child th,.nb-fc tr:last-child td{border-bottom:0}
+.nb-fc td a{color:#fff;text-decoration:none;white-space:nowrap}
+.nb-fc td a:hover{text-decoration:underline;text-underline-offset:3px;color:var(--yellow)}
+.nb-fc-alert{background:var(--yellow);color:var(--ink);border-color:var(--yellow)}
+.nb-fc-alert h3 .i{color:#b3321f}
+.nb-fc-alert p{margin:10px 0 0;font-size:15.5px}
+.nb-fc-alert .nb-big{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.nb-fc-alert .nb-big a{display:inline-flex;align-items:center;gap:8px;min-height:50px;padding:0 18px;border-radius:999px;background:var(--ink);color:#fff;font-weight:800;text-decoration:none;transition:background .2s}
+.nb-fc-alert .nb-big a:hover{background:#000}
+.nb-fc-alert .nb-big a:nth-child(2){background:#fff;color:var(--ink)}
+.nb-fc-alert .nb-big a:nth-child(2):hover{background:#f1f4f8}
+.nb-ft-mid{display:grid;grid-template-columns:minmax(0,1fr);gap:32px;margin-top:48px;padding-top:40px;border-top:1px solid rgba(255,255,255,.14)}
+@media (min-width:900px){.nb-ft-mid{grid-template-columns:minmax(0,1.3fr) repeat(3,minmax(0,1fr))}}
+.nb-ft-brand .nb-logo b,.nb-ft-brand .nb-logo small{color:#fff}
+.nb-ft-brand p{margin:14px 0 0;color:rgba(255,255,255,.78);font-size:15.5px;max-width:40ch}
+.nb-ft-brand address{font-style:normal;margin-top:14px;font-size:15.5px;line-height:1.6}
+.nb-ft-brand address a{color:#fff;font-weight:800;text-decoration:none;overflow-wrap:anywhere}
+.nb-ft-brand address a:hover{color:var(--yellow);text-decoration:underline}
+.nb-ft-col h4{margin:0 0 12px;font-size:14px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--yellow)}
+.nb-ft-col ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.nb-ft-col a{color:rgba(255,255,255,.9);text-decoration:none;font-weight:600;font-size:15.5px;transition:color .2s}
+.nb-ft-col a:hover{color:#fff;text-decoration:underline;text-underline-offset:3px}
+.nb-ft-reg{display:grid;grid-template-columns:minmax(0,1fr);gap:20px;margin-top:40px;padding-top:32px;border-top:1px solid rgba(255,255,255,.14)}
+@media (min-width:1024px){.nb-ft-reg{grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:40px;align-items:start}}
+.nb-ft-reg p{margin:0 0 12px;font-size:14px;line-height:1.65;color:rgba(255,255,255,.75)}
+.nb-ft-reg p b{color:#fff}
+.nb-ft-reg a{color:#fff;font-weight:700}
+.nb-ft-reg a:hover{color:var(--yellow)}
+.nb-cqc{display:flex;align-items:center;gap:14px;padding:16px 18px;border-radius:16px;background:#fff;color:var(--ink);font-size:14px;line-height:1.4}
+.nb-cqc .bx{width:56px;height:56px;border-radius:12px;border:2px solid var(--ink);display:grid;place-items:center;font-weight:800;font-size:13px;flex:none}
+.nb-cqc b{display:block;font-size:15px}
+.nb-ft-base{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;margin-top:28px;padding-top:24px;border-top:1px solid rgba(255,255,255,.14);font-size:14px;color:rgba(255,255,255,.75)}
+.nb-ft-base ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px 20px}
+.nb-ft-base a{color:rgba(255,255,255,.9);text-decoration:none}
+.nb-ft-base a:hover{color:#fff;text-decoration:underline;text-underline-offset:3px}
+.nb-totop{width:54px;height:54px;border-radius:50%;border:0;background:var(--yellow);color:var(--ink);display:grid;place-items:center;transition:transform .3s var(--ease),background .2s}
+.nb-totop:hover{transform:translateY(-4px);background:#fff}
+.nb-totop svg{width:26px;height:26px}
+
+
+/* ---------- New UI bits (all sizes) ---------- */
+.nb-util-short{display:none}
+.nb-call{display:none;width:46px;height:46px;border-radius:50%;border:2px solid var(--line);background:#fff;place-items:center;color:var(--blue-ink);transition:border-color .2s,background .2s}
+.nb-call:hover{border-color:var(--blue-ink);background:var(--sky)}
+.nb-more-wrap{margin:24px 0 0;text-align:center}
+.nb-more-pr{text-align:left;margin-top:12px}
+.nb-swipe{display:none}
+.nb-fbtn{display:none;width:100%;justify-content:space-between;align-items:center;min-height:58px;padding:0;border:0;background:none;color:#fff;font-weight:800;font-size:14.5px;letter-spacing:.06em;text-transform:uppercase}
+.nb-fbtn .i{color:var(--yellow);transition:transform .3s var(--ease)}
+.nb-ft-col.open .nb-fbtn .i{transform:rotate(45deg)}
+.nb-mbar{position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:70;display:none;gap:8px;padding:8px;border-radius:22px;background:#fff;border:1px solid var(--line);box-shadow:0 20px 44px -14px rgba(24,35,58,.5);transform:translateY(calc(100% + 30px));transition:transform .4s var(--ease)}
+.nb-mbar.show{transform:none}
+.nb-mbar .nb-btn{min-height:50px;padding:0 14px;font-size:15.5px}
+.nb-mbar .nb-btn-g{flex:0 0 auto;border-color:var(--line)}
+.nb-mbar .nb-btn-p{flex:1 1 auto}
+
+/* ================= Tablet + mobile (up to 1199) ================= */
+@media (max-width:1199px){
+  .nb-menu-pnl{width:100%;padding:16px var(--gut) 32px}
+  .nb-menu nav{margin-top:28px}
+  .nb-menu nav a{font-size:26px;padding:16px 4px;min-height:60px}
+  .nb-bk-l,.nb-stay-media,.nb-ins-card,.nb-faq-l,.nb-steps-card{position:static}
+  .nb-bk,.nb-stay,.nb-pr,.nb-faq,.nb-vj{grid-template-columns:minmax(0,1fr)}
+  .nb-bk,.nb-stay{gap:36px}
+  .nb-faq{gap:32px}
+}
+
+/* ================= Tablet (768-1199) ================= */
+@media (min-width:768px) and (max-width:1199px){
+  .nb-trust ul{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .nb-svc-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .nb-team{grid-template-columns:repeat(3,minmax(0,1fr));gap:32px 20px}
+  .nb-check ul{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:20px}
+  .nb-bk-l{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:0 48px;align-items:start}
+  .nb-bk-info dl{margin-top:6px}
+  .nb-stay-media img{aspect-ratio:16/8}
+  .nb-ins-card{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:0 40px;align-items:start;padding:34px}
+  .nb-ins-logos{margin-top:4px}
+  .nb-faq-l{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:0 40px;align-items:end}
+  .nb-faq-call{margin-top:0}
+  .nb-revs{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .nb-rev:last-child{grid-column:1/-1}
+  .nb-safe{grid-template-columns:72px minmax(0,1fr);gap:20px 28px}
+  .nb-safe-lead{grid-column:2}
+  .nb-ft-cards{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .nb-fc-alert{grid-column:1/-1;order:-1}
+  .nb-ft-mid{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .nb-ft-brand{grid-column:1/-1}
+}
+/* Tablet portrait: a balanced, centred hero */
+@media (min-width:768px) and (max-width:1023px){
+  .nb-hero-in{text-align:center;justify-items:center;padding-top:56px}
+  .nb-hero-in>div:first-child{max-width:640px}
+  .nb-hero h1{font-size:clamp(52px,7.4vw,66px)}
+  .nb-hero-p{margin-left:auto;margin-right:auto}
+  .nb-hero-cta,.nb-hero-ticks{justify-content:center}
+  .nb-photo{width:min(100%,430px)}
+  .nb-who-img{aspect-ratio:16/8;order:-1}
+  .nb-who-list{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .nb-who-list li{grid-template-columns:minmax(0,1fr);gap:10px}
+}
+
+/* ================= Mobile (up to 767) ================= */
+@media (max-width:767px){
+  :root{--hdr:64px}
+  body{font-size:16.5px}
+  .nb-sec{padding:64px 0}
+  .nb-head{margin-bottom:28px}
+  .nb-lede{font-size:17px}
+  .nb-h2{font-size:clamp(28px,8vw,34px)}
+  .nb-util{font-size:13px}
+  .nb-util .wrap{min-height:36px}
+  .nb-util-full{display:none}
+  .nb-util-short{display:inline}
+  .nb-hdr .wrap{gap:10px}
+  .nb-hdr-r{gap:8px}
+  .nb-hdr-r .nb-btn{display:none}
+  .nb-call{display:grid}
+  .nb-burger{width:46px;padding:0;gap:0}
+  .nb-burger-t{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  .nb-logo b{font-size:19px}
+  .nb-logo small{font-size:10.5px;letter-spacing:.05em}
+  .nb-logo svg{width:40px;height:40px}
+
+  .nb-hero-in{padding-top:28px;padding-bottom:84px;gap:32px}
+  .nb-hero h1{font-size:clamp(40px,11.2vw,52px);margin-top:16px}
+  .nb-hero-p{font-size:16.5px;margin-top:16px}
+  .nb-hero-cta{margin-top:22px;gap:10px}
+  .nb-hero-cta .nb-btn{flex:1 1 100%}
+  .nb-hero-ticks{margin-top:20px;gap:8px 16px;font-size:14.5px}
+  .nb-photo{width:min(100%,330px)}
+  .nb-kite{width:60px}
+  .nb-c1{width:110px}
+  .nb-c3{width:110px;top:4%;left:64%}
+  .nb-trust li{padding:16px 0}
+
+  .nb-who-tabs{display:flex;width:100%;border-radius:20px;flex-wrap:nowrap}
+  .nb-who-tab{flex:1 1 0;min-height:54px;padding:8px 10px;line-height:1.25;font-size:14.5px;border-radius:15px}
+  .nb-who-pnl{margin-top:28px;gap:24px}
+  .nb-who-img{aspect-ratio:4/3;order:-1;border-radius:22px}
+  .nb-who-list li{padding:14px}
+  .nb-who-cta .nb-btn{flex:1 1 100%}
+
+  .nb-ages{flex-wrap:nowrap;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 calc(-1 * var(--gut)) 22px;padding:0 var(--gut) 6px;scroll-padding-left:var(--gut);scrollbar-width:none}
+  .nb-ages::-webkit-scrollbar{display:none}
+  .nb-age{flex:none;scroll-snap-align:start;min-height:46px}
+  .nb-svc{padding:22px}
+  .nb-svc-grid.is-collapsed>.nb-svc:nth-child(n+5){display:none}
+
+  .nb-team{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;margin:0 calc(-1 * var(--gut));padding:0 var(--gut) 10px;scroll-padding-left:var(--gut);scrollbar-width:none}
+  .nb-team::-webkit-scrollbar{display:none}
+  .nb-doc{flex:0 0 68%;scroll-snap-align:start}
+  .nb-doc .nb-link{min-height:44px}
+  .nb-swipe{display:flex;align-items:center;gap:8px;margin:8px 0 0;font-size:14.5px;font-weight:700;color:var(--ink-3)}
+
+  .nb-steps-nav{scroll-snap-type:x mandatory}
+  .nb-step-b{scroll-snap-align:start;padding:14px 16px;min-height:56px}
+  .nb-step-body{padding:22px 18px;gap:18px}
+  .nb-step-art{max-width:170px}
+  .nb-step-body h3{font-size:22px}
+  .nb-steps-foot{padding:14px 18px}
+  .nb-check{padding:22px 18px}
+
+  .nb-bk-l dl div{grid-template-columns:minmax(0,1fr);gap:2px}
+  .nb-form{padding:24px 16px;border-radius:22px}
+  .nb-fs legend{font-size:19px}
+  .nb-dates{scroll-snap-type:x mandatory;margin:0 -16px;padding:0 16px 6px;scroll-padding-left:16px}
+  .nb-date{scroll-snap-align:start}
+  .nb-form-f .nb-btn{width:100%}
+
+  .nb-stay-media img{aspect-ratio:4/3;border-radius:22px}
+  .nb-stay-card{padding:20px}
+  .nb-vis tr{display:block;padding:10px 0;border-bottom:1px solid var(--line)}
+  .nb-vis tr:last-child{border-bottom:0}
+  .nb-vis th,.nb-vis td{display:block;width:auto;padding:0;border:0}
+  .nb-vis td{color:var(--ink-2)}
+
+  .nb-ptable{border:0;background:none;border-radius:0;overflow:visible}
+  .nb-ptable caption{display:block}
+  .nb-ptable thead{display:none}
+  .nb-ptable tbody{display:grid;gap:10px}
+  .nb-ptable tr{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 14px;align-items:start;padding:16px 18px;background:#fff;border:1px solid var(--line);border-radius:16px}
+  .nb-ptable th,.nb-ptable td{padding:0;border:0}
+  .nb-ptable td{font-size:17px}
+  .nb-ptable.is-collapsed tbody tr:nth-child(n+6){display:none}
+  .nb-ins-card{padding:24px 20px;border-radius:22px}
+
+  .nb-safe{padding:24px 20px;gap:16px;border-radius:22px}
+  .nb-safe-ic{width:56px;height:56px;border-radius:18px}
+  .nb-safe h2{font-size:24px}
+  .nb-rev{padding:22px}
+  .nb-rev-sum b{font-size:36px}
+  .nb-qa button{font-size:17px;padding:18px 0;min-height:56px}
+  .nb-faq-call a{font-size:26px}
+
+  .nb-ft-body{padding:16px 0 32px}
+  .nb-fc{padding:22px}
+  .nb-fc-alert{order:-1}
+  .nb-fc tr{display:block;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.14)}
+  .nb-fc tr:last-child{border-bottom:0}
+  .nb-fc th,.nb-fc td{display:block;text-align:left;border:0;padding:0}
+  .nb-fc td{margin-top:2px}
+  .nb-fc td a{display:inline-flex;align-items:center;min-height:36px}
+  .nb-ft-mid{margin-top:32px;padding-top:28px;gap:0}
+  .nb-ft-brand{padding-bottom:22px;border-bottom:1px solid rgba(255,255,255,.14)}
+  .nb-fh{display:none}
+  .nb-fbtn{display:flex}
+  .nb-ft-col{border-bottom:1px solid rgba(255,255,255,.14)}
+  .nb-ft-col:not(.open) ul{display:none}
+  .nb-ft-col ul{gap:0;padding-bottom:10px}
+  .nb-ft-col a{display:flex;align-items:center;min-height:44px}
+  .nb-ft-reg{margin-top:28px}
+  .nb-ft-base{flex-direction:column;align-items:flex-start;gap:10px}
+  .nb-ft-base ul{gap:0 18px}
+  .nb-ft-base ul a{display:inline-flex;align-items:center;min-height:44px}
+  .nb-mbar{display:flex}
+}
+
+@media print{
+  html.nb-printing body *{visibility:hidden!important}
+  html.nb-printing #checklist,html.nb-printing #checklist *{visibility:visible!important}
+  html.nb-printing #checklist{position:absolute;left:0;top:0;width:100%;border:0}
+  html.nb-printing #checklist .nb-check-f{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+  .js .nb-rv{opacity:1;transform:none}
+}
+</style>
+
+<style id="sv-hero-css">
+.svh{--a:#ffc93c;--ad:#ffc93c;--ink:#18233a;--paper:#e8f6f1;--on:#18233a;position:relative;isolation:isolate;overflow:hidden;margin:0;font-family:"Nunito Sans",system-ui,sans-serif;box-sizing:border-box}
+.svh *{box-sizing:border-box}
+.svh .svh-in{position:relative;z-index:2;width:min(1240px,100% - 48px);margin-inline:auto}
+.svh .svh-kicker{display:inline-flex;align-items:center;gap:10px;margin:0;font:600 12.5px/1.3 "Nunito Sans",system-ui,sans-serif;letter-spacing:.16em;text-transform:uppercase}
+.svh .svh-kicker i{width:28px;height:2px;background:var(--a);display:inline-block}
+.svh .svh-h{margin:0;font-family:"Fredoka",Georgia,serif;font-weight:600;letter-spacing:-.025em;line-height:.95}
+.svh .svh-h span{display:block;overflow:hidden;padding-bottom:.06em}
+.svh .svh-h span>b{display:inline-block;font-weight:inherit;transform:translateY(105%);animation:svh-rise 1s cubic-bezier(.16,1,.3,1) forwards}
+.svh .svh-h span:nth-child(2)>b{animation-delay:.12s}.svh .svh-h span:nth-child(3)>b{animation-delay:.24s}
+.svh .svh-h em{font-style:italic;color:var(--a)}
+.svh .svh-lede{margin:0;max-width:46ch;font-size:clamp(16px,1.25vw,19px);line-height:1.6;opacity:0;animation:svh-fade .9s .45s forwards}
+.svh .svh-ctas{display:flex;flex-wrap:wrap;gap:12px;opacity:0;animation:svh-fade .9s .6s forwards}
+.svh .svh-btn{display:inline-flex;align-items:center;gap:10px;padding:15px 26px;border-radius:999px;font:600 15px/1 "Nunito Sans",system-ui,sans-serif;text-decoration:none;background:var(--a);color:var(--on);border:1px solid var(--a);transition:transform .3s cubic-bezier(.16,1,.3,1),background .3s}
+.svh .svh-btn:hover{transform:translateY(-2px)}
+.svh .svh-btn--ghost{background:transparent;color:inherit;border-color:currentColor}
+.svh .svh-btn span{transition:transform .3s}.svh .svh-btn:hover span{transform:translateX(4px)}
+/* the designs style h1/p themselves, so the banner states its own colours */
+.svh--editorial .svh-h,.svh--poster .svh-h,.svh--stage .svh-h{color:#fff}
+.svh--editorial .svh-kicker,.svh--poster .svh-kicker,.svh--stage .svh-kicker{color:rgba(255,255,255,.9)}
+.svh--index .svh-h,.svh--index .svh-kicker{color:var(--ink)}
+@keyframes svh-rise{to{transform:none}}@keyframes svh-fade{to{opacity:1}}
+@keyframes svh-zoom{from{transform:scale(1.12)}to{transform:scale(1)}}
+@keyframes svh-spin{to{transform:rotate(360deg)}}@keyframes svh-tick{to{transform:translateX(-50%)}}
+@keyframes svh-tilt{from{transform:perspective(1400px) rotateX(18deg) translateY(40px);opacity:0}to{transform:none;opacity:1}}
+
+/* Editorial: words spread across a full-bleed photo */
+.svh--editorial{min-height:100svh;display:flex;align-items:flex-end;padding:150px 0 56px;color:#fff;background:var(--ink)}
+.svh--editorial .svh-media{position:absolute;inset:0;z-index:0;background:center/cover no-repeat;animation:svh-zoom 2.4s cubic-bezier(.16,1,.3,1) both}
+.svh--editorial .svh-shade{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(0,0,0,.45),rgba(0,0,0,.1) 35%,rgba(0,0,0,.65))}
+.svh--editorial .svh-h{font-size:clamp(52px,9vw,150px);margin-top:28px}
+.svh--editorial .svh-h span:nth-child(2){text-align:right}
+.svh--editorial .svh-h em{color:#fff}
+.svh--editorial .svh-foot{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:28px;margin-top:42px;padding-top:26px;border-top:1px solid rgba(255,255,255,.3)}
+.svh--editorial .svh-lede{color:rgba(255,255,255,.88)}
+.svh--editorial .svh-btn--ghost{color:#fff}
+
+/* Stage: dark ground, glow, centred words and a tilted picture */
+.svh--stage{padding:160px 0 0;background:var(--ink);color:#fff;text-align:center}
+.svh--stage .svh-glow{position:absolute;z-index:0;left:50%;top:-10%;width:1100px;height:800px;transform:translateX(-50%);background:radial-gradient(closest-side,color-mix(in srgb,var(--a) 55%,transparent),transparent);filter:blur(30px);opacity:.75}
+.svh--stage .svh-grid{position:absolute;inset:0;z-index:0;background-image:linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px);background-size:64px 64px;mask-image:radial-gradient(circle at 50% 30%,#000,transparent 70%)}
+.svh--stage .svh-kicker{padding:8px 16px;border:1px solid rgba(255,255,255,.2);border-radius:999px;background:rgba(255,255,255,.05)}
+.svh--stage .svh-kicker i{width:8px;height:8px;border-radius:50%}
+.svh--stage .svh-h{font-size:clamp(46px,7.4vw,118px);font-weight:500;margin:26px auto 0;max-width:15ch}
+.svh--stage .svh-h em{color:var(--ad)}
+.svh--stage .svh-lede{margin:26px auto 0;color:rgba(255,255,255,.75)}
+.svh--stage .svh-ctas{justify-content:center;margin-top:32px}
+.svh--stage .svh-btn--ghost{color:#fff}
+.svh--stage .svh-frame{margin:60px auto 0;max-width:1100px;aspect-ratio:16/8;border-radius:22px 22px 0 0;overflow:hidden;border:1px solid rgba(255,255,255,.18);border-bottom:0;box-shadow:0 -30px 80px -20px color-mix(in srgb,var(--a) 45%,transparent);animation:svh-tilt 1.4s .3s cubic-bezier(.16,1,.3,1) both}
+.svh--stage .svh-frame img{display:block;width:100%;height:100%;object-fit:cover}
+.svh--stage .svh-chips{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin:28px 0 0;padding:0}
+.svh--stage .svh-chips a{display:block;padding:8px 14px;border-radius:999px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);color:rgba(255,255,255,.85);font-size:14px;text-decoration:none}
+.svh--stage .svh-chips a:hover{border-color:var(--a);color:#fff}
+
+/* Poster: giant uppercase words, spinning badge, a ticker */
+.svh--poster{min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;padding-top:150px;color:#fff;background:var(--ink)}
+.svh--poster .svh-media{position:absolute;inset:0;z-index:0;background:center/cover no-repeat;animation:svh-zoom 2.4s cubic-bezier(.16,1,.3,1) both}
+.svh--poster .svh-shade{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(0,0,0,.2),rgba(0,0,0,.25) 40%,rgba(0,0,0,.82))}
+.svh--poster .svh-h{font-size:clamp(50px,10vw,168px);font-weight:800;text-transform:uppercase;letter-spacing:-.035em;line-height:.88;margin-top:22px}
+.svh--poster .svh-h em{font-style:normal;color:var(--ad)}
+.svh--poster .svh-row{display:flex;flex-wrap:wrap;gap:24px;align-items:flex-end;justify-content:space-between;margin:34px 0 44px}
+.svh--poster .svh-lede{color:rgba(255,255,255,.85)}
+.svh--poster .svh-btn--ghost{color:#fff}
+.svh--poster .svh-badge{position:absolute;z-index:2;right:clamp(20px,5vw,72px);top:clamp(110px,16vh,170px);width:132px;height:132px;display:grid;place-items:center}
+.svh--poster .svh-badge svg{position:absolute;inset:0;animation:svh-spin 14s linear infinite;fill:#fff;font:700 10.5px/1 "Nunito Sans",system-ui,sans-serif;letter-spacing:.22em;text-transform:uppercase}
+.svh--poster .svh-badge b{width:56px;height:56px;border-radius:50%;background:var(--a);display:grid;place-items:center;color:var(--on);font-size:22px}
+.svh--poster .svh-ticker{position:relative;z-index:2;background:var(--a);color:var(--on);overflow:hidden;padding:15px 0}
+.svh--poster .svh-ticker div{display:flex;gap:44px;width:max-content;animation:svh-tick 26s linear infinite;font:700 clamp(16px,1.6vw,22px)/1 "Fredoka",Georgia,serif;text-transform:uppercase;letter-spacing:.02em}
+.svh--poster .svh-ticker span::after{content:"\2726";margin-left:44px;opacity:.7}
+
+/* Index: words on the left, the site's sections as a big list on the right */
+.svh--index{padding:150px 0 90px;background:var(--paper);color:var(--ink)}
+.svh--index .svh-in{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(32px,5vw,90px);align-items:end}
+.svh--index .svh-kicker{color:var(--ink)}
+.svh--index .svh-h{font-size:clamp(46px,6.6vw,104px);margin:24px 0 0}
+.svh--index .svh-lede{margin-top:26px;color:color-mix(in srgb,var(--ink) 72%,transparent)}
+.svh--index .svh-ctas{margin-top:30px}
+.svh--index .svh-photo{aspect-ratio:16/10;border-radius:18px;background:center/cover no-repeat;margin-bottom:22px;clip-path:inset(0 0 100% 0 round 18px);animation:svh-reveal 1.3s .2s cubic-bezier(.16,1,.3,1) forwards}
+@keyframes svh-reveal{to{clip-path:inset(0 0 0 0 round 18px)}}
+.svh--index .svh-list{list-style:none;margin:0;padding:0;border-top:1px solid color-mix(in srgb,var(--ink) 18%,transparent)}
+.svh--index .svh-list a{display:grid;grid-template-columns:44px 1fr auto;align-items:baseline;gap:12px;padding:14px 0;border-bottom:1px solid color-mix(in srgb,var(--ink) 18%,transparent);color:var(--ink);text-decoration:none;font:500 clamp(22px,2.4vw,36px)/1.1 "Fredoka",Georgia,serif;letter-spacing:-.02em;transition:color .3s,padding .3s}
+.svh--index .svh-list a small{font:600 12px/1 "Nunito Sans",system-ui,sans-serif;letter-spacing:.1em;color:color-mix(in srgb,var(--ink) 55%,transparent)}
+.svh--index .svh-list a:hover{color:var(--a);padding-left:8px}
+.svh--index .svh-list a i{font-style:normal;transition:transform .3s}.svh--index .svh-list a:hover i{transform:translateX(6px)}
+
+@media (max-width:860px){
+  .svh--index .svh-in{grid-template-columns:1fr}
+  .svh--editorial .svh-h span:nth-child(2){text-align:left}
+  .svh--poster .svh-badge{width:96px;height:96px;top:96px}
+  .svh--stage .svh-frame{aspect-ratio:4/3}
+}
+@media (prefers-reduced-motion:reduce){.svh *,.svh{animation:none!important;transition:none!important}.svh .svh-h span>b{transform:none}.svh .svh-lede,.svh .svh-ctas{opacity:1}.svh--index .svh-photo{clip-path:none}}
+/* the old banner stays in the page, invisible, laid over the new one, so the design's own
+   scripts (sticky header, "past the hero" checks) still find it where the banner is */
+[data-sv-old-hero]{position:absolute!important;left:0!important;right:0!important;width:auto!important;max-width:none!important;margin:0!important;padding:0!important;min-height:0!important;overflow:hidden!important;visibility:hidden!important;opacity:0!important;pointer-events:none!important;z-index:-1!important;transform:none!important}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-left" viewBox="0 0 24 24"><path d="M19 12H5M11 6l-6 6 6 6"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 3 2 20h20z"/><path d="M12 10v4M12 17h.01"/></symbol>
+  <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3 5 6v6c0 4.5 3 7.5 7 9 4-1.5 7-4.5 7-9V6z"/><path d="m9 12 2 2 4-4"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></symbol>
+  <symbol id="i-bed" viewBox="0 0 24 24"><path d="M3 18V6M3 14h18v4M21 14v-2a3 3 0 0 0-3-3h-7v5"/><circle cx="7" cy="11" r="1.6"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M16 5.2a3 3 0 0 1 0 5.6M18 14.4c1.8.8 3 2.7 3 5.6"/></symbol>
+  <symbol id="i-print" viewBox="0 0 24 24"><path d="M7 9V3h10v6"/><rect x="3" y="9" width="18" height="8" rx="2"/><path d="M7 14h10v7H7z"/></symbol>
+  <symbol id="i-food" viewBox="0 0 24 24"><path d="M7 3v8M5 3v5a2 2 0 0 0 4 0V3M7 11v10M16 21V3c-2 1.5-3 4-3 7h3"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><rect x="3" y="11" width="8" height="8" rx="1.5"/><path d="M13 19l4-8 4 8z"/><circle cx="8" cy="6" r="3"/></symbol>
+  <symbol id="i-steth" viewBox="0 0 24 24"><path d="M6 3v5a5 5 0 0 0 10 0V3"/><path d="M11 13v2a5 5 0 0 0 10 0v-2"/><circle cx="21" cy="11" r="2"/></symbol>
+  <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M5 19C5 11 11 5 20 4c0 9-6 15-15 15z"/><path d="M5 19l8-8"/></symbol>
+  <symbol id="i-ear" viewBox="0 0 24 24"><path d="M7 9a5.5 5.5 0 1 1 11 0c0 3-2.5 4-3.5 6S13 21 10 20.5"/><path d="M10 9.5a2.5 2.5 0 1 1 5 0c0 1.5-1.5 2-1.5 3"/></symbol>
+  <symbol id="i-bone" viewBox="0 0 24 24"><path d="M8.5 6.5A2.3 2.3 0 1 0 6 9l9 9a2.3 2.3 0 1 0 2.5 2.5A2.3 2.3 0 1 0 18 15L9 6a2.3 2.3 0 0 0-.5.5z"/></symbol>
+  <symbol id="i-puzzle" viewBox="0 0 24 24"><path d="M10 4h4v2.5a1.5 1.5 0 1 0 3 0V4h3v6h-2.5a1.5 1.5 0 1 0 0 3H20v7h-6v-2.5a1.5 1.5 0 1 0-3 0V20H4v-6h2.5a1.5 1.5 0 1 0 0-3H4V4z"/></symbol>
+  <symbol id="i-lungs" viewBox="0 0 24 24"><path d="M12 4v7"/><path d="M12 11c-1.5 0-2.5-2-4.5-2S4 12 4 16c0 2.5 1 4 3 4s4-1.5 4-4.5"/><path d="M12 11c1.5 0 2.5-2 4.5-2S20 12 20 16c0 2.5-1 4-3 4s-4-1.5-4-4.5"/></symbol>
+  <symbol id="i-apple" viewBox="0 0 24 24"><path d="M12 8c-3-2-8-1-8 5s4 8 6 8c1 0 1.5-.5 2-.5s1 .5 2 .5c2 0 6-2 6-8s-5-7-8-5z"/><path d="M12 8c0-2 1-3.5 3-4.5"/></symbol>
+  <symbol id="i-drop" viewBox="0 0 24 24"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/></symbol>
+  <symbol id="i-scalpel" viewBox="0 0 24 24"><path d="M3 21 14 10l3 3L8 20z"/><path d="m14 10 5-5a2.1 2.1 0 0 1 3 3l-5 5"/></symbol>
+  <symbol id="i-balloon" viewBox="0 0 24 24"><path d="M12 15c-3.3 0-6-3-6-6.5S8.7 2.5 12 2.5s6 2.6 6 6.1S15.3 15 12 15z"/><path d="M11 15.2h2l-1 1.6zM12 17c-1.5 1.5 1.5 2.5 0 4"/></symbol>
+</svg>
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="nb-util">
+  <div class="wrap">
+    <p><svg class="i"><use href="#i-alert"/></svg><span class="nb-util-full"><b>Emergency? Call 999.</b> For urgent advice, call NHS 111.</span><span class="nb-util-short"><b>Emergency? Call 999.</b> Urgent advice: NHS 111</span></p>
+    <ul>
+      <li><a href="tel:+441614960301">Switchboard 0161 496 0301 (24 hours)</a></li>
+      <li><a href="#who" data-who="gp">For referrers</a></li>
+      <li><a href="#careers">Careers</a></li>
+    </ul>
+  </div>
+</div>
+
+<header class="nb-hdr" id="hdr">
+  <div class="wrap">
+    <a class="nb-logo" href="#top" aria-label="Little Oaks Children's Hospital, home">
+      <svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="15" fill="#2f80ed"/><path d="M24 8 35 21 24 36 13 21Z" fill="#fff"/><path d="M24 8 35 21H24Z" fill="#ffc93c"/><path d="M13 21H24V36Z" fill="#ffc93c"/><path d="M24 36c-2 3 2 4 0 7" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+      <span><b>Little Oaks</b><small>Children's Hospital</small></span>
+    </a>
+    <nav class="nb-nav" aria-label="Main">
+      <a href="#services">Services</a>
+      <a href="#visit">Your visit</a>
+      <a href="#team">Our team</a>
+      <a href="#prices">Prices</a>
+      <a href="#who" data-who="gp">For clinicians</a>
+      <a href="#faq">Questions</a>
+    </nav>
+    <div class="nb-hdr-r">
+      <a class="nb-btn nb-btn-p" href="#book">Book an appointment</a>
+      <a class="nb-call" href="tel:+441614960300" aria-label="Call us on 0161 496 0300"><svg class="i"><use href="#i-phone"/></svg></a>
+      <button class="nb-burger" id="burger" aria-expanded="false" aria-controls="menu"><svg class="i"><use href="#i-menu"/></svg><span class="nb-burger-t">Menu</span></button>
+    </div>
+  </div>
+</header>
+
+<div class="nb-menu" id="menu" aria-hidden="true">
+  <div class="nb-menu-scrim" data-close></div>
+  <div class="nb-menu-pnl" role="dialog" aria-modal="true" aria-label="Menu">
+    <div class="nb-menu-top"><a class="nb-logo" href="#top" data-close aria-label="Home"><svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="15" fill="#2f80ed"/><path d="M24 8 35 21 24 36 13 21Z" fill="#fff"/><path d="M24 8 35 21H24Z" fill="#ffc93c"/><path d="M13 21H24V36Z" fill="#ffc93c"/></svg><span><b>Little Oaks</b><small>Children's Hospital</small></span></a><button class="nb-menu-x" data-close aria-label="Close menu"><svg class="i"><use href="#i-x"/></svg></button></div>
+    <nav aria-label="Mobile">
+      <a href="#services" data-close>Services<svg class="i"><use href="#i-arrow"/></svg></a>
+      <a href="#visit" data-close>Your visit<svg class="i"><use href="#i-arrow"/></svg></a>
+      <a href="#team" data-close>Our team<svg class="i"><use href="#i-arrow"/></svg></a>
+      <a href="#stay" data-close>Staying with us<svg class="i"><use href="#i-arrow"/></svg></a>
+      <a href="#prices" data-close>Prices and insurance<svg class="i"><use href="#i-arrow"/></svg></a>
+      <a href="#who" data-who="gp" data-close>For clinicians<svg class="i"><use href="#i-arrow"/></svg></a>
+      <a href="#faq" data-close>Questions<svg class="i"><use href="#i-arrow"/></svg></a>
+    </nav>
+    <div class="nb-menu-foot">
+      <a class="nb-btn nb-btn-p" href="#book" data-close>Book an appointment</a>
+      <a class="nb-btn nb-btn-g" href="tel:+441614960300"><svg class="i"><use href="#i-phone"/></svg>0161 496 0300</a>
+      <p class="nb-menu-alert"><b>Emergency?</b> Call 999. For urgent advice, call NHS 111.</p>
+    </div>
+  </div>
+</div>
+
+<main id="main">
+
+<!-- Hero -->
+<section class="svh svh--editorial" aria-label="Little Oaks Children's Hospital"><div class="svh-media" style="background-image:url('https://images.pexels.com/photos/39192344/pexels-photo-39192344.jpeg?auto=compress&cs=tinysrgb&w=2000&h=1250&fit=crop')"></div><div class="svh-shade"></div><div class="svh-in"><p class="svh-kicker"><i></i>Independent children's hospital in Manchester</p><h1 class="svh-h"><span><b>Big care</b></span><span><b>for little</b></span><span><b><em>people.</em></b></span></h1><div class="svh-foot"><p class="svh-lede">Consultant-led outpatients, day surgery and assessments for babies, children and teenagers, in a hospital built around them. Parents stay free, and appointments are usually available within a week.</p><div class="svh-ctas"><a class="svh-btn" href="#book">Book an appointment <span>&rarr;</span></a><a class="svh-btn svh-btn--ghost" href="#services">Our services</a></div></div></div></section><section data-sv-old-hero aria-hidden="true" inert class="nb-hero" id="top" aria-labelledby="hero-h"><script>(()=>{const b=document.querySelector(".svh"),o=document.querySelector("[data-sv-old-hero]");if(!b||!o)return;const hd=document.querySelector("header");if(hd){const cs=getComputedStyle(hd),n=(c)=>(c.match(/[\d.]+/g)||[]).map(Number),bg=n(cs.backgroundColor),fg=n(cs.color),clear=cs.backgroundColor==="transparent"||bg[3]===0,light=fg.length>2&&(0.299*fg[0]+0.587*fg[1]+0.114*fg[2])/255>0.7,top=b.getBoundingClientRect().top+scrollY;if(clear&&light&&cs.position!=="fixed"&&cs.position!=="absolute"&&top>0&&top<260){b.style.marginTop=-top+"px";b.style.paddingTop=parseFloat(getComputedStyle(b).paddingTop)+top+"px"}}const f=()=>{o.style.setProperty("top",b.offsetTop+"px","important");o.style.setProperty("height",b.offsetHeight+"px","important")};f();addEventListener("resize",f);addEventListener("load",f)})()</script>
+  <div class="nb-scene" id="scene" aria-hidden="true">
+    <div class="nb-cloud nb-c1" data-depth="0.25"><i><svg viewBox="0 0 200 90"><path d="M38 84a34 34 0 0 1 4-67 46 46 0 0 1 84-6 32 32 0 0 1 50 23 26 26 0 0 1-6 50z" fill="#fff"/></svg></i></div>
+    <div class="nb-cloud nb-c2" data-depth="0.2"><i><svg viewBox="0 0 200 90"><path d="M38 84a34 34 0 0 1 4-67 46 46 0 0 1 84-6 32 32 0 0 1 50 23 26 26 0 0 1-6 50z" fill="#fff" opacity=".9"/></svg></i></div>
+    <div class="nb-cloud nb-c3" data-depth="0.3"><i><svg viewBox="0 0 200 90"><path d="M38 84a34 34 0 0 1 4-67 46 46 0 0 1 84-6 32 32 0 0 1 50 23 26 26 0 0 1-6 50z" fill="#fff"/></svg></i></div>
+    <div class="nb-cloud nb-c4" data-depth="0.18"><i><svg viewBox="0 0 200 90"><path d="M38 84a34 34 0 0 1 4-67 46 46 0 0 1 84-6 32 32 0 0 1 50 23 26 26 0 0 1-6 50z" fill="#fff"/></svg></i></div>
+    <div class="nb-kite" data-depth="1.1"><i><svg viewBox="0 0 140 280"><path d="M70 150c-8 30 24 48 6 78s14 32 2 50" fill="none" stroke="#18233a" stroke-opacity=".35" stroke-width="1.6"/><path d="m66 178 14-4-6 12zM74 214l14 2-10 9zM70 250l12 6-12 6z" fill="#ff7a6b"/><path d="M70 6 122 64 70 150 18 64Z" fill="#ffc93c"/><path d="M70 6 122 64H70Z" fill="#2f80ed"/><path d="M18 64H70V150Z" fill="#2f80ed"/><path d="M70 6v144M18 64h104" stroke="#fff" stroke-width="2.5" opacity=".9"/></svg></i></div>
+    <div class="nb-balloons" data-depth="0.9"><i><svg viewBox="0 0 120 220"><path d="M34 82c6 40 20 70 26 120M86 74c-6 44-18 76-26 128M60 64v138" fill="none" stroke="#18233a" stroke-opacity=".3" stroke-width="1.4"/><ellipse cx="34" cy="48" rx="26" ry="32" fill="#ffc93c"/><ellipse cx="86" cy="42" rx="26" ry="32" fill="#2f80ed"/><ellipse cx="60" cy="34" rx="25" ry="31" fill="#4fbf95"/><path d="M30 34c2-8 8-12 13-12" stroke="#fff" stroke-width="4" stroke-linecap="round" opacity=".6" fill="none"/><path d="M80 28c2-8 8-12 13-12" stroke="#fff" stroke-width="4" stroke-linecap="round" opacity=".5" fill="none"/></svg></i></div>
+    <div class="nb-lyr nb-far" data-depth="0.35"><svg viewBox="0 0 1600 400" preserveAspectRatio="xMidYMax slice"><path d="M0 220C200 150 360 160 520 200s340 45 540-50 340 70 540 40V400H0Z" fill="#d8eafc"/></svg></div>
+    <div class="nb-lyr nb-mid" data-depth="0.6"><svg viewBox="0 0 1600 400" preserveAspectRatio="xMidYMax slice">
+      <path d="M0 270C180 230 330 220 470 250c170 36 330-20 510-25s320 45 620 20V400H0Z" fill="#bfe6d5"/>
+          </svg></div>
+    <div class="nb-lyr nb-near" data-depth="0.85"><svg viewBox="0 0 1600 400" preserveAspectRatio="xMidYMax slice">
+      <path d="M0 300c220-30 380-20 560-2s340-22 540-26 340 28 500 18V400H0Z" fill="#9fd8c0"/>
+      <g><rect x="134" y="252" width="8" height="40" rx="3" fill="#6b8f7f"/><circle cx="138" cy="240" r="26" fill="#4fbf95"/><rect x="208" y="262" width="7" height="34" rx="3" fill="#6b8f7f"/><circle cx="211" cy="252" r="20" fill="#3fae84"/><rect x="1410" y="246" width="8" height="40" rx="3" fill="#6b8f7f"/><circle cx="1414" cy="234" r="26" fill="#4fbf95"/><rect x="1478" y="258" width="7" height="34" rx="3" fill="#6b8f7f"/><circle cx="1481" cy="248" r="19" fill="#3fae84"/></g>
+    </svg></div>
+    <div class="nb-lyr nb-front" data-depth="1"><svg viewBox="0 0 1600 400" preserveAspectRatio="none"><path d="M0 200C300 120 600 160 800 180s500-50 800-10V400H0Z" fill="#fff"/></svg></div>
+  </div>
+
+  <div class="wrap nb-hero-in">
+    <div>
+      <span class="nb-kick">Independent children's hospital · Manchester</span>
+      <h1 id="hero-h">Big care for <span>little people.<svg viewBox="0 0 300 30" preserveAspectRatio="none" aria-hidden="true"><path d="M4 20C70 6 160 4 296 14" fill="none" stroke="#ffc93c" stroke-width="10" stroke-linecap="round"/></svg></span></h1>
+      <p class="nb-hero-p">Consultant-led outpatients, day surgery and assessments for babies, children and teenagers, in a hospital built around them. Parents stay free, and appointments are usually available within a week.</p>
+      <div class="nb-hero-cta">
+        <a class="nb-btn nb-btn-p" href="#book">Book an appointment<svg class="i"><use href="#i-arrow"/></svg></a>
+        <a class="nb-btn nb-btn-g" href="#services">Our services</a>
+      </div>
+      <ul class="nb-hero-ticks">
+        <li><svg class="i"><use href="#i-check"/></svg>No GP referral needed for most visits</li>
+        <li><svg class="i"><use href="#i-check"/></svg>After-school appointments until 7pm</li>
+      </ul>
+    </div>
+    <div class="nb-photo" data-depth="0.22">
+      <div class="nb-blob"><img src="https://images.pexels.com/photos/7447001/pexels-photo-7447001.jpeg?auto=compress&cs=tinysrgb&w=1000&h=1200&fit=crop" alt="A children's nurse giving a smiling boy a high five on a hospital bed" fetchpriority="high" /></div>
+      <p class="nb-photo-tag"><span class="tg-ic"><svg class="i"><use href="#i-bed"/></svg></span><span>Parents stay free<small>A bed beside your child, every night</small></span></p>
+    </div>
+  </div>
+</section>
+
+<div class="nb-trust">
+  <div class="wrap">
+    <ul>
+      <li class="nb-rv"><span class="ic"><svg class="i"><use href="#i-users"/></svg></span><span>Only children and young people<small>From newborns to 18</small></span></li>
+      <li class="nb-rv"><span class="ic"><svg class="i"><use href="#i-steth"/></svg></span><span>Consultant-led care<small>Seen by a specialist, not a rota</small></span></li>
+      <li class="nb-rv"><span class="ic"><svg class="i"><use href="#i-heart"/></svg></span><span>Parents stay 24/7<small>Free, beside your child's bed</small></span></li>
+      <li class="nb-rv"><span class="ic"><svg class="i"><use href="#i-shield"/></svg></span><span>Registered with the CQC<small>See our latest rating below</small></span></li>
+    </ul>
+  </div>
+</div>
+
+<!-- Who are you -->
+<section class="nb-sec nb-mint" id="who" aria-labelledby="who-h">
+  <div class="wrap">
+    <span class="nb-kick">Getting started</span>
+    <h2 class="nb-h2" id="who-h">How can we <em>help you today?</em></h2>
+    <div class="nb-who-tabs" role="tablist" aria-label="Who are you?">
+      <button class="nb-who-tab" role="tab" id="who-t-parent" aria-controls="who-pnl" aria-selected="true" data-who-tab="parent">I'm a parent or carer</button>
+      <button class="nb-who-tab" role="tab" id="who-t-gp" aria-controls="who-pnl" aria-selected="false" tabindex="-1" data-who-tab="gp">I'm a GP or clinician</button>
+    </div>
+    <div class="nb-who-pnl" id="who-pnl" role="tabpanel" aria-labelledby="who-t-parent"></div>
+  </div>
+</section>
+
+<!-- Services -->
+<section class="nb-sec" id="services" aria-labelledby="svc-h">
+  <div class="wrap">
+    <div class="nb-head">
+      <div><span class="nb-kick">Our services</span><h2 class="nb-h2" id="svc-h">Care for every <em>age and stage</em></h2></div>
+      <p class="nb-lede">Every clinic is run by consultants who only treat children, with children's nurses and play specialists alongside. Choose an age to see what's most relevant.</p>
+    </div>
+    <div class="nb-ages" role="group" aria-label="Filter services by age">
+      <button class="nb-age" aria-pressed="true" data-age="all">All ages</button>
+      <button class="nb-age" aria-pressed="false" data-age="baby">Babies (0–1)</button>
+      <button class="nb-age" aria-pressed="false" data-age="toddler">Toddlers (1–4)</button>
+      <button class="nb-age" aria-pressed="false" data-age="child">Children (5–11)</button>
+      <button class="nb-age" aria-pressed="false" data-age="teen">Teenagers (12–18)</button>
+    </div>
+    <div class="nb-svc-grid" id="svc-grid" aria-live="polite"></div>
+    <p class="nb-more-wrap"><button class="nb-btn nb-btn-g nb-more" id="svc-more" type="button" aria-controls="svc-grid" aria-expanded="false" hidden>Show all services</button></p>
+  </div>
+</section>
+
+<!-- Team -->
+<section class="nb-sec nb-sky" id="team" aria-labelledby="team-h">
+  <div class="wrap">
+    <div class="nb-head">
+      <div><span class="nb-kick">Our team</span><h2 class="nb-h2" id="team-h">The people who'll <em>look after your child</em></h2></div>
+      <p class="nb-lede">Our consultants all hold substantive NHS or university posts in paediatrics, and every nurse on the ward is a registered children's nurse.</p>
+    </div>
+    <div class="nb-team" id="team-grid"></div>
+    <p class="nb-swipe" aria-hidden="true">Swipe to meet the whole team <svg class="i"><use href="#i-arrow"/></svg></p>
+    <p class="nb-team-note nb-rv"><svg class="i"><use href="#i-play"/></svg><span><b>Meet Hannah and Leo, our play specialists.</b> They help children understand what's going to happen using dolls, pictures and play, and can be with your child for blood tests and before an anaesthetic.</span></p>
+  </div>
+</section>
+
+<!-- Visit journey -->
+<section class="nb-sec" id="visit" aria-labelledby="visit-h">
+  <div class="wrap">
+    <div class="nb-head">
+      <div><span class="nb-kick">Your visit</span><h2 class="nb-h2" id="visit-h">What happens on <em>the day</em></h2></div>
+      <p class="nb-lede">Knowing what to expect helps children (and parents) feel calmer. Go through the steps together, then print the checklist for the night before.</p>
+    </div>
+    <div class="nb-vj">
+      <div class="nb-steps-card">
+        <div class="nb-steps-nav" role="tablist" aria-label="Visit steps" id="steps-nav"></div>
+        <div class="nb-step-body" id="step-body" role="tabpanel" aria-live="polite"></div>
+        <div class="nb-steps-foot">
+          <div class="nb-steps-prog" aria-hidden="true"><i id="steps-prog"></i></div>
+          <div class="nb-steps-btns">
+            <button class="nb-round" id="step-prev" aria-label="Previous step"><svg class="i"><use href="#i-left"/></svg></button>
+            <button class="nb-round" id="step-next" aria-label="Next step"><svg class="i"><use href="#i-arrow"/></svg></button>
+          </div>
+        </div>
+      </div>
+      <aside class="nb-check" id="checklist" aria-labelledby="check-h">
+        <h3 id="check-h">What to bring</h3>
+        <p>Tick things off as you pack. We'll remember your ticks on this device.</p>
+        <ul id="check-list"></ul>
+        <div class="nb-check-f"><small id="check-count">0 of 8 packed</small><button class="nb-btn nb-btn-g" id="check-print" type="button" style="min-height:46px"><svg class="i"><use href="#i-print"/></svg>Print checklist</button></div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- Booking -->
+<section class="nb-sec nb-mint" id="book" aria-labelledby="book-h">
+  <div class="wrap nb-bk">
+    <div class="nb-bk-l">
+      <div class="nb-bk-intro">
+      <span class="nb-kick">Appointments</span>
+      <h2 class="nb-h2" id="book-h">Request an <em>appointment</em></h2>
+      <p class="nb-lede">Tell us a little about your child and when suits you. Our booking team will call you within one working day to confirm a time.</p>
+      </div>
+      <div class="nb-bk-info">
+      <dl>
+        <div><dt>Booking team</dt><dd><a href="tel:+441614960300">0161 496 0300</a></dd></div>
+        <div><dt>Hours</dt><dd>Monday to Friday 8am to 7pm, Saturday 9am to 1pm</dd></div>
+        <div><dt>Email</dt><dd><a href="mailto:appointments@example.com">appointments@example.com</a></dd></div>
+      </dl>
+      <p class="nb-bk-warn"><svg class="i"><use href="#i-alert"/></svg><span><b>Not for urgent problems.</b> If your child is seriously unwell, call 999. For urgent advice, call NHS 111.</span></p>
+      </div>
+    </div>
+    <div class="nb-form">
+      <form id="bk-form" novalidate>
+        <fieldset class="nb-fs">
+          <legend><span>1</span>About your child</legend>
+          <div class="nb-row">
+            <label class="nb-f"><span>Child's first name</span><input class="nb-in" name="child" autocomplete="off" required /></label>
+            <label class="nb-f"><span>Age</span><select class="nb-in" name="age" required><option value="">Please choose</option><option>Under 1</option><option>1 to 4</option><option>5 to 11</option><option>12 to 17</option></select></label>
+          </div>
+        </fieldset>
+        <fieldset class="nb-fs">
+          <legend><span>2</span>What do you need?</legend>
+          <div class="nb-row">
+            <label class="nb-f"><span>Service</span><select class="nb-in" name="service" id="bk-service" required></select></label>
+            <label class="nb-f"><span>Consultant <small>(optional)</small></span><select class="nb-in" name="consultant" id="bk-cons"></select></label>
+          </div>
+        </fieldset>
+        <fieldset class="nb-fs">
+          <legend><span>3</span>When suits you?</legend>
+          <div class="nb-dates" id="bk-dates" role="group" aria-label="Preferred date"></div>
+          <div class="nb-opts" role="radiogroup" aria-label="Preferred time of day">
+            <label class="nb-opt"><input type="radio" name="time" value="Morning" checked />Morning<small>8am to 12pm</small></label>
+            <label class="nb-opt"><input type="radio" name="time" value="Afternoon" />Afternoon<small>12pm to 4pm</small></label>
+            <label class="nb-opt"><input type="radio" name="time" value="After school" />After school<small>4pm to 7pm</small></label>
+          </div>
+        </fieldset>
+        <fieldset class="nb-fs">
+          <legend><span>4</span>How are you paying?</legend>
+          <div class="nb-pay">
+            <label class="nb-opt"><input type="radio" name="pay" value="Self-pay" checked />Paying myself<small>Prices are fixed and shown below</small></label>
+            <label class="nb-opt"><input type="radio" name="pay" value="Health insurance" />Health insurance<small>We'll check your cover with you</small></label>
+          </div>
+          <div class="nb-ins nb-row" id="bk-ins" hidden>
+            <label class="nb-f"><span>Insurer</span><input class="nb-in" name="insurer" autocomplete="off" /></label>
+            <label class="nb-f"><span>Membership number</span><input class="nb-in" name="member" autocomplete="off" /></label>
+          </div>
+        </fieldset>
+        <fieldset class="nb-fs" style="margin-bottom:0">
+          <legend><span>5</span>Your details</legend>
+          <div class="nb-row">
+            <label class="nb-f"><span>Your name</span><input class="nb-in" name="parent" autocomplete="name" required /></label>
+            <label class="nb-f"><span>Phone number</span><input class="nb-in" name="phone" type="tel" autocomplete="tel" required /></label>
+          </div>
+          <label class="nb-f" style="margin-top:14px"><span>Email address</span><input class="nb-in" name="email" type="email" autocomplete="email" required /></label>
+          <label class="nb-consent" style="margin-top:16px"><input type="checkbox" name="consent" required /><span>I'm the child's parent or legal guardian, and I agree to Little Oaks contacting me about this request. See our <a href="#privacy">privacy notice</a>.</span></label>
+        </fieldset>
+        <div class="nb-form-f">
+          <p>We only use these details to arrange this appointment. Please don't include medical details here.</p>
+          <button class="nb-btn nb-btn-p" type="submit" id="bk-submit">Send request<svg class="i"><use href="#i-arrow"/></svg></button>
+        </div>
+        <p class="nb-err" id="bk-errsum" role="alert" hidden></p>
+      </form>
+      <div class="nb-done" id="bk-done" hidden tabindex="-1">
+        <div class="nb-done-ic"><svg class="i"><use href="#i-check"/></svg></div>
+        <h3>Thank you, we've got your request</h3>
+        <p>Our booking team will call you within one working day to confirm a time. You'll get a welcome pack by email once it's booked.</p>
+        <dl id="bk-summary"></dl>
+        <p style="margin-top:18px"><button class="nb-btn nb-btn-g" type="button" id="bk-again">Make another request</button></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Staying with us -->
+<section class="nb-sec" id="stay" aria-labelledby="stay-h">
+  <div class="wrap nb-stay">
+    <figure class="nb-stay-media nb-rv" style="margin:0">
+      <img src="https://images.pexels.com/photos/39192346/pexels-photo-39192346.jpeg?auto=compress&cs=tinysrgb&w=1000&h=1100&fit=crop" alt="A young girl exploring a bright children's play room with books and toys" loading="lazy" />
+      <figcaption><b>The Den, our play room</b>Open every day from 8am to 7pm, with a play specialist on hand.</figcaption>
+    </figure>
+    <div>
+      <span class="nb-kick">Staying with us</span>
+      <h2 class="nb-h2" id="stay-h">Somewhere you can <em>both feel at home</em></h2>
+      <p class="nb-lede">Our ward has 24 single rooms, each with a fold-down bed for a parent, a private bathroom and a TV with games and films for every age.</p>
+      <div class="nb-stay-grid">
+        <article class="nb-stay-card nb-rv"><span class="ic"><svg class="i"><use href="#i-bed"/></svg></span><h3>Parent accommodation</h3><p>One parent or carer can stay overnight beside their child, free of charge. A second parent can book our family room down the corridor.</p></article>
+        <article class="nb-stay-card nb-rv"><span class="ic"><svg class="i"><use href="#i-food"/></svg></span><h3>Food for fussy eaters</h3><p>A children's menu with plenty of familiar choices, plus free meals for the parent who's staying. There's a parents' kitchen open all night.</p></article>
+        <article class="nb-stay-card nb-rv"><span class="ic"><svg class="i"><use href="#i-play"/></svg></span><h3>Play and school</h3><p>The Den has toys, games consoles and a quiet corner for teenagers. For longer stays, our teacher can help keep schoolwork ticking over.</p></article>
+        <article class="nb-stay-card nb-rv"><span class="ic"><svg class="i"><use href="#i-users"/></svg></span><h3>Visiting</h3>
+          <table class="nb-vis"><tbody>
+            <tr><th scope="row">Parents and carers</th><td>Any time, 24 hours</td></tr>
+            <tr><th scope="row">Brothers and sisters</th><td>10am to 7pm, with an adult</td></tr>
+            <tr><th scope="row">Other visitors</th><td>2pm to 7pm, two at a time</td></tr>
+            <tr><th scope="row">Quiet time</th><td>1pm to 2pm every day</td></tr>
+          </tbody></table>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Prices -->
+<section class="nb-sec nb-sky" id="prices" aria-labelledby="prices-h">
+  <div class="wrap">
+    <div class="nb-head">
+      <div><span class="nb-kick">Prices and insurance</span><h2 class="nb-h2" id="prices-h">Clear prices, <em>agreed before we start</em></h2></div>
+      <p class="nb-lede">Paying for your child's care yourself? These are our most common prices. Before any treatment, you'll get a written quote that won't change.</p>
+    </div>
+    <div class="nb-pr">
+      <div class="nb-rv">
+        <table class="nb-ptable">
+          <caption>Self-pay prices for 2026</caption>
+          <thead><tr><th scope="col">Appointment or treatment</th><th scope="col">Price</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">New outpatient consultation<small>Up to 40 minutes with a consultant</small></th><td>£250</td></tr>
+            <tr><th scope="row">Follow-up consultation<small>Up to 20 minutes</small></th><td>£175</td></tr>
+            <tr><th scope="row">Allergy skin-prick testing<small>Up to 12 allergens, with results the same day</small></th><td>from £395</td></tr>
+            <tr><th scope="row">Supervised food challenge<small>Day case on our allergy unit</small></th><td>from £850</td></tr>
+            <tr><th scope="row">Hearing test<small>With a children's audiologist</small></th><td>£180</td></tr>
+            <tr><th scope="row">Grommets, fixed-price package<small>Surgeon, anaesthetist, day-case stay and one follow-up</small></th><td>from £2,450</td></tr>
+            <tr><th scope="row">Tonsillectomy, fixed-price package<small>Including an overnight stay if needed</small></th><td>from £3,950</td></tr>
+            <tr><th scope="row">Autism assessment<small>Multidisciplinary, with a written report</small></th><td>from £2,400</td></tr>
+            <tr><th scope="row">ADHD assessment<small>Consultant-led, with a written report</small></th><td>from £1,950</td></tr>
+          </tbody>
+        </table>
+        <p class="nb-more-wrap nb-more-pr"><button class="nb-btn nb-btn-g nb-more" id="pr-more" type="button" aria-expanded="false" hidden>Show all prices</button></p>
+        <p class="nb-pnote">Medical care is exempt from VAT. Packages include the consultant's and anaesthetist's fees, the hospital stay and one follow-up. Prices last reviewed 1 November 2026.</p>
+      </div>
+      <aside class="nb-ins-card nb-rv" aria-labelledby="ins-h">
+        <div class="nb-ins-a">
+        <h3 id="ins-h">Using health insurance</h3>
+        <p>Many parents' workplace policies cover children. We're recognised by all major UK health insurers.</p>
+        <ol>
+          <li><span>Check your policy covers your child and the type of appointment.</span></li>
+          <li><span>Call your insurer for a pre-authorisation number.</span></li>
+          <li><span>Bring it to your first appointment and we'll bill them directly.</span></li>
+        </ol>
+        </div>
+        <div class="nb-ins-b">
+        <div class="nb-ins-logos" aria-label="Insurer logos (placeholders)">
+          <span>Insurer logo</span><span>Insurer logo</span><span>Insurer logo</span><span>Insurer logo</span><span>Insurer logo</span><span>Insurer logo</span>
+        </div>
+        <a class="nb-btn nb-btn-y" href="#book">Request an appointment</a>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- Safeguarding -->
+<section class="nb-sec" style="padding-bottom:0" aria-labelledby="safe-h">
+  <div class="wrap">
+    <div class="nb-safe nb-rv">
+      <div class="nb-safe-ic"><svg class="i"><use href="#i-shield"/></svg></div>
+      <div>
+        <h2 id="safe-h">Keeping children safe</h2>
+        <p>Every member of our team, from consultants to reception, is trained in safeguarding children to the level their role needs, and checked by the Disclosure and Barring Service. Children are always seen with a parent, carer or chaperone in the room.</p>
+        <p>We follow Manchester Safeguarding Partnership procedures and will always share concerns with the right people.</p>
+      </div>
+      <div class="nb-safe-lead">
+        <b>Our safeguarding lead</b>
+        <p>Rosa Delgado, Lead Children's Nurse</p>
+        <p><a href="tel:+441614960330">0161 496 0330</a><br /><a href="mailto:safeguarding@example.com">safeguarding@example.com</a></p>
+        <p style="margin-top:10px"><b style="display:inline;font-size:15.5px">If a child is in danger right now, call 999.</b></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Reviews -->
+<section class="nb-sec" aria-labelledby="rev-h">
+  <div class="wrap">
+    <div class="nb-head">
+      <div><span class="nb-kick">From parents</span><h2 class="nb-h2" id="rev-h">What families <em>tell us</em></h2></div>
+      <div class="nb-rev-sum"><b>4.9</b><span><span class="nb-stars" aria-hidden="true">★★★★★</span><br />Average from 612 parent feedback surveys in 2026</span></div>
+    </div>
+    <div class="nb-revs">
+      <blockquote class="nb-rev nb-rv"><div class="nb-stars" aria-label="5 out of 5">★★★★★</div><p>“Hannah spent twenty minutes with Maisie and a teddy before her blood test. She was proud of herself afterwards, which I never thought I'd say.”</p><cite><b>Sophie, mum of Maisie (6)</b>Allergy clinic</cite></blockquote>
+      <blockquote class="nb-rev nb-rv"><div class="nb-stars" aria-label="5 out of 5">★★★★★</div><p>“We were seen four days after I rang. Mr Hargreaves explained the grommets operation to Theo first, then to us. I stayed with him until he fell asleep.”</p><cite><b>Daniel, dad of Theo (3)</b>Ear, nose and throat</cite></blockquote>
+      <blockquote class="nb-rev nb-rv"><div class="nb-stars" aria-label="5 out of 5">★★★★★</div><p>“The assessment was thorough without being exhausting, and the report was written so school could actually use it.”</p><cite><b>Priya, mum of Arjun (13)</b>Neurodevelopment</cite></blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="nb-sec nb-mint" id="faq" aria-labelledby="faq-h">
+  <div class="wrap nb-faq">
+    <div class="nb-faq-l">
+      <div><span class="nb-kick">Questions</span>
+      <h2 class="nb-h2" id="faq-h">Things parents <em>often ask</em></h2></div>
+      <div class="nb-faq-call"><span>Can't see your question?</span><a href="tel:+441614960300">0161 496 0300</a><p>Monday to Friday 8am to 7pm, Saturday 9am to 1pm</p></div>
+    </div>
+    <div id="qas">
+      <div class="nb-qa open"><button aria-expanded="true">Do I need a referral from my GP?<span class="nb-pm"><svg class="i"><use href="#i-plus"/></svg></span></button><div class="nb-ans"><div><p>Not if you're paying yourself; you can book most appointments directly. Some insurers ask for a GP referral before they'll cover a visit, so it's worth checking your policy first.</p></div></div></div>
+      <div class="nb-qa"><button aria-expanded="false">Can both parents stay overnight?<span class="nb-pm"><svg class="i"><use href="#i-plus"/></svg></span></button><div class="nb-ans"><div><p>One parent or carer can sleep beside your child for free. A second parent can stay in our family room, which you can book through the ward. Breastfeeding mums can bring a baby sibling.</p></div></div></div>
+      <div class="nb-qa"><button aria-expanded="false">My child is scared of needles. What can you do?<span class="nb-pm"><svg class="i"><use href="#i-plus"/></svg></span></button><div class="nb-ans"><div><p>Lots. We use numbing cream as standard, our play specialists can prepare your child beforehand and distract them on the day, and you can stay with them throughout. Just let us know when you book.</p></div></div></div>
+      <div class="nb-qa"><button aria-expanded="false">Do you see NHS patients?<span class="nb-pm"><svg class="i"><use href="#i-plus"/></svg></span></button><div class="nb-ans"><div><p>We see NHS-funded patients for some ear, nose and throat and orthopaedic treatments. If your GP is referring you, ask them about choosing Little Oaks through the NHS e-Referral Service.</p></div></div></div>
+      <div class="nb-qa"><button aria-expanded="false">What happens if my child becomes very unwell while they're here?<span class="nb-pm"><svg class="i"><use href="#i-plus"/></svg></span></button><div class="nb-ans"><div><p>A paediatric doctor and children's nurses are on site 24 hours a day. If a child needs intensive care, we have an agreed transfer arrangement with the regional NHS children's hospital, and a parent can travel with them.</p></div></div></div>
+      <div class="nb-qa"><button aria-expanded="false">Is there parking?<span class="nb-pm"><svg class="i"><use href="#i-plus"/></svg></span></button><div class="nb-ans"><div><p>Yes, free parking for patients and visitors, including six accessible bays by the entrance. We're also on the 50 bus route and a ten-minute walk from Burnage station.</p></div></div></div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<div class="nb-mbar" id="mbar" aria-hidden="true">
+  <a class="nb-btn nb-btn-g" href="tel:+441614960300" tabindex="-1"><svg class="i"><use href="#i-phone"/></svg>Call</a>
+  <a class="nb-btn nb-btn-p" href="#book" tabindex="-1">Book an appointment</a>
+</div>
+
+<footer class="nb-ft" aria-labelledby="ft-h">
+  <h2 class="sr" id="ft-h">Contact and information</h2>
+  <svg class="nb-ft-hills" viewBox="0 0 1600 200" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 110C200 60 380 70 560 96s360 20 560-14 340-30 480 6V200H0Z" fill="#cdeee0"/>
+    <path d="M0 140c180-34 360-40 540-18s380 26 580-6 340-24 480 0V200H0Z" fill="#8cc4f2"/>
+    <g transform="translate(1180 70)"><rect x="0" y="22" width="64" height="40" rx="5" fill="#fff"/><rect x="0" y="22" width="64" height="8" rx="4" fill="#2f80ed"/><rect x="64" y="38" width="30" height="24" rx="4" fill="#fff"/><rect x="26" y="46" width="13" height="16" rx="2" fill="#2f80ed"/><g fill="#cfe2fb"><rect x="8" y="36" width="10" height="8" rx="2"/><rect x="46" y="36" width="10" height="8" rx="2"/><rect x="72" y="46" width="9" height="7" rx="2"/></g><circle cx="32" cy="12" r="9" fill="#fff"/><path d="M32 17s-4.5-2.7-4.5-5.8a2.4 2.4 0 0 1 4.5-1.3 2.4 2.4 0 0 1 4.5 1.3c0 3.1-4.5 5.8-4.5 5.8z" fill="#ffc93c"/></g>
+    <g><rect x="300" y="96" width="5" height="22" rx="2" fill="#5a86b5"/><circle cx="302" cy="90" r="14" fill="#3fae84"/><rect x="340" y="102" width="4" height="18" rx="2" fill="#5a86b5"/><circle cx="342" cy="96" r="11" fill="#4fbf95"/><rect x="1380" y="96" width="5" height="22" rx="2" fill="#5a86b5"/><circle cx="1382" cy="90" r="14" fill="#3fae84"/></g>
+    <path d="M0 172c200-24 420-30 640-14s440 18 640-2 240-16 320-8V200H0Z" fill="#163a63"/>
+  </svg>
+  <div class="nb-ft-body">
+    <div class="wrap">
+      <div class="nb-ft-cards">
+        <section class="nb-fc" aria-labelledby="fc-vis">
+          <h3 id="fc-vis"><svg class="i"><use href="#i-clock"/></svg>Visiting times</h3>
+          <table><tbody>
+            <tr><th scope="row">Parents and carers</th><td>24 hours</td></tr>
+            <tr><th scope="row">Brothers and sisters</th><td>10am to 7pm</td></tr>
+            <tr><th scope="row">Other visitors</th><td>2pm to 7pm</td></tr>
+            <tr><th scope="row">Outpatients</th><td>Mon to Fri 8am to 7pm, Sat 9am to 1pm</td></tr>
+          </tbody></table>
+        </section>
+        <section class="nb-fc" aria-labelledby="fc-ward">
+          <h3 id="fc-ward"><svg class="i"><use href="#i-phone"/></svg>Ward and clinic numbers</h3>
+          <table><tbody>
+            <tr><th scope="row">Switchboard (24 hours)</th><td><a href="tel:+441614960301">0161 496 0301</a></td></tr>
+            <tr><th scope="row">Kestrel Ward</th><td><a href="tel:+441614960311">0161 496 0311</a></td></tr>
+            <tr><th scope="row">Day surgery unit</th><td><a href="tel:+441614960312">0161 496 0312</a></td></tr>
+            <tr><th scope="row">Appointments</th><td><a href="tel:+441614960300">0161 496 0300</a></td></tr>
+          </tbody></table>
+        </section>
+        <section class="nb-fc nb-fc-alert" aria-labelledby="fc-worried">
+          <h3 id="fc-worried"><svg class="i"><use href="#i-alert"/></svg>Worried about your child right now?</h3>
+          <p>If your child is seriously ill or injured, call 999. If you need urgent medical advice, call NHS 111. If your child is already our patient, our 24-hour nurse line is <b>0161 496 0310</b>.</p>
+          <div class="nb-big"><a href="tel:999"><svg class="i"><use href="#i-phone"/></svg>Call 999</a><a href="tel:111"><svg class="i"><use href="#i-phone"/></svg>Call NHS 111</a></div>
+        </section>
+      </div>
+
+      <div class="nb-ft-mid">
+        <div class="nb-ft-brand">
+          <a class="nb-logo" href="#top" aria-label="Little Oaks Children's Hospital, back to top"><svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="15" fill="#2f80ed"/><path d="M24 8 35 21 24 36 13 21Z" fill="#fff"/><path d="M24 8 35 21H24Z" fill="#ffc93c"/><path d="M13 21H24V36Z" fill="#ffc93c"/></svg><span><b>Little Oaks</b><small>Children's Hospital</small></span></a>
+          <p>An independent hospital caring only for babies, children and young people.</p>
+          <address>40 Little Oaks Road, Manchester M14 0NB<br /><a href="mailto:hello@example.com">hello@example.com</a></address>
+        </div>
+        <nav class="nb-ft-col" aria-label="Services"><h4 class="nb-fh">Services</h4><button class="nb-fbtn" type="button" aria-expanded="false" aria-controls="ftl-1">Services<svg class="i"><use href="#i-plus"/></svg></button><ul id="ftl-1"><li><a href="#services">General paediatrics</a></li><li><a href="#services">Allergy</a></li><li><a href="#services">Ear, nose and throat</a></li><li><a href="#services">Orthopaedics</a></li><li><a href="#services">Day surgery</a></li></ul></nav>
+        <nav class="nb-ft-col" aria-label="Families"><h4 class="nb-fh">For families</h4><button class="nb-fbtn" type="button" aria-expanded="false" aria-controls="ftl-2">For families<svg class="i"><use href="#i-plus"/></svg></button><ul id="ftl-2"><li><a href="#visit">Your visit</a></li><li><a href="#stay">Staying with us</a></li><li><a href="#prices">Prices and insurance</a></li><li><a href="#faq">Questions</a></li><li><a href="#book">Request an appointment</a></li></ul></nav>
+        <nav class="nb-ft-col" aria-label="About"><h4 class="nb-fh">About us</h4><button class="nb-fbtn" type="button" aria-expanded="false" aria-controls="ftl-3">About us<svg class="i"><use href="#i-plus"/></svg></button><ul id="ftl-3"><li><a href="#team">Our team</a></li><li><a href="#who" data-who="gp">For clinicians</a></li><li><a href="#careers">Careers</a></li><li><a href="#quality">Quality and safety</a></li><li><a href="#news">News</a></li></ul></nav>
+      </div>
+
+      <div class="nb-ft-reg">
+        <div>
+          <p><b>Little Oaks Children's Hospital</b> is run by Little Oaks Healthcare Ltd, registered in England and Wales, company no. 00000000. Registered office: 40 Little Oaks Road, Manchester M14 0NB. Registered with the Care Quality Commission (provider ID 1-000000000).</p>
+          <p><b>Safeguarding lead:</b> Rosa Delgado, Lead Children's Nurse, <a href="tel:+441614960330">0161 496 0330</a>.</p>
+          <p><b>Complaints:</b> please talk to the nurse in charge or email <a href="mailto:feedback@example.com">feedback@example.com</a>, and read our <a href="#complaints">complaints procedure</a>. If you're unhappy with our final response, you can ask the Independent Sector Complaints Adjudication Service (ISCAS) to review it. NHS-funded patients can contact the Parliamentary and Health Service Ombudsman.</p>
+        </div>
+        <div class="nb-cqc" role="note"><span class="bx">CQC</span><span><b>CQC rating widget</b>Replace this box with the rating widget from your CQC provider page.</span></div>
+      </div>
+
+      <div class="nb-ft-base">
+        <ul>
+          <li><a href="#privacy">Privacy notice</a></li>
+          <li><a href="#cookies">Cookies</a></li>
+          <li><a href="#accessibility">Accessibility</a></li>
+          <li><a href="#terms">Terms and conditions</a></li>
+          <li><a href="#charter">Patient charter</a></li>
+          <li><a href="#modern-slavery">Modern slavery statement</a></li>
+        </ul>
+        <span>© 2026 Little Oaks Healthcare Ltd</span>
+        <button class="nb-totop" id="totop" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-balloon"/></svg></button>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+  var $ = function (s, r) { return (r || document).querySelector(s); };
+  var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+  var IMG = function (id, w, h) { return 'https://images.pexels.com/photo-' + id + '?w=' + w + '&h=' + h + '&fit=crop&q=75&auto=format'; };
+  var esc = function (s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
+  var icon = function (n) { return '<svg class="i"><use href="#i-' + n + '"/></svg>'; };
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- Content ---------- */
+  var SERVICES = [
+    { n: 'General paediatrics', ic: 'steth', d: 'Fevers that keep coming back, tummy aches, growth worries and anything you are unsure about.', ages: ['baby', 'toddler', 'child', 'teen'], p: 'Consultation £250' },
+    { n: 'Allergy and immunology', ic: 'leaf', d: 'Food allergies, eczema and hay fever, with skin-prick testing and supervised food challenges.', ages: ['baby', 'toddler', 'child', 'teen'], p: 'Testing from £395' },
+    { n: 'Ear, nose and throat', ic: 'ear', d: 'Glue ear, hearing tests, tonsils and adenoids, snoring and blocked noses.', ages: ['toddler', 'child', 'teen'], p: 'Hearing test £180' },
+    { n: 'Orthopaedics and fractures', ic: 'bone', d: 'Broken bones, limps, flat feet, knee pain and sports injuries in growing bodies.', ages: ['toddler', 'child', 'teen'], p: 'Consultation £250' },
+    { n: 'Day surgery', ic: 'scalpel', d: 'Grommets, tonsils, hernias and minor procedures. A parent stays until your child is asleep.', ages: ['toddler', 'child', 'teen'], p: 'Packages from £2,450' },
+    { n: 'Neurodevelopment', ic: 'puzzle', d: 'Autism and ADHD assessments by a multidisciplinary team, with a report school can use.', ages: ['child', 'teen'], p: 'From £1,950' },
+    { n: 'Breathing and asthma', ic: 'lungs', d: 'Wheeze, asthma reviews, persistent coughs and sleep studies for snoring.', ages: ['baby', 'toddler', 'child', 'teen'], p: 'Consultation £250' },
+    { n: 'Gastroenterology and feeding', ic: 'apple', d: 'Reflux, constipation, coeliac testing and feeding difficulties, with our children’s dietitian.', ages: ['baby', 'toddler', 'child'], p: 'Consultation £250' },
+    { n: 'Skin', ic: 'drop', d: 'Eczema, birthmarks, rashes and teenage acne, with practical plans for home.', ages: ['baby', 'toddler', 'child', 'teen'], p: 'Consultation £250' }
+  ];
+  var AGE_LABEL = { baby: 'Babies', toddler: 'Toddlers', child: 'Children', teen: 'Teenagers' };
+
+  var TEAM = [
+    { n: 'Dr Amaka Eze', r: 'Consultant Paediatrician', s: 'General paediatrics · Medical Director', reg: 'GMC 0000000', img: '1678695972687-033fa0bdbac9', svc: 'General paediatrics', book: true },
+    { n: 'Mr Tom Hargreaves', r: 'Consultant ENT Surgeon', s: 'Glue ear, tonsils and hearing', reg: 'GMC 0000000', img: '1758691463582-11aea602cd4a', svc: 'Ear, nose and throat', book: true },
+    { n: 'Mr Sanjay Mehta', r: 'Consultant Orthopaedic Surgeon', s: 'Fractures, hips and sports injuries', reg: 'GMC 0000000', img: '1612349317150-e413f6a5b16d', svc: 'Orthopaedics and fractures', book: true },
+    { n: 'Dr Clare Whitworth', r: 'Consultant in Paediatric Allergy', s: 'Food allergy and eczema', reg: 'GMC 0000000', img: '1758691462651-611d730c5272', svc: 'Allergy and immunology', book: true },
+    { n: 'Rosa Delgado', r: "Lead Children's Nurse", s: 'Ward manager and safeguarding lead', reg: 'NMC 00A0000A', img: '1594824476967-48c8b964273f' },
+    { n: 'Kwame Mensah', r: "Children's Nurse", s: 'Day surgery and recovery', reg: 'NMC 00A0000A', img: '1622253692010-333f2da6031d' }
+  ];
+
+  var WHO = {
+    parent: {
+      h: 'Booking for your child',
+      p: "You can book most appointments yourself, without a GP referral. We'll help you choose the right specialist if you're not sure.",
+      img: '1632053002928-1919605ee6f7', alt: 'A mother holding her baby while a doctor smiles and examines him',
+      list: [['users', 'Choose a consultant, or the first available', 'Most new appointments are within a week.'], ['clock', 'Appointments that fit around school', 'Weekdays until 7pm and Saturday mornings.'], ['mail', 'A welcome pack before you come', 'Directions, what to bring and who you will meet.']],
+      cta: '<a class="nb-btn nb-btn-p" href="#book">Request an appointment' + icon('arrow') + '</a><a class="nb-btn nb-btn-g" href="tel:+441614960300">' + icon('phone') + 'Call 0161 496 0300</a>'
+    },
+    gp: {
+      h: 'Referring a patient',
+      p: 'We accept referrals from GPs, health visitors, school nurses and NHS consultants for self-paying, insured and some NHS-funded patients.',
+      img: '1758691463331-2ac00e6f676f', alt: 'A doctor talking with a boy and his mother at a desk',
+      list: [['mail', 'Refer by secure email', 'referrals@example.com, using our referral form.'], ['phone', 'Consultant advice line for GPs', '0161 496 0320, Monday to Friday 8am to 6pm.'], ['check', 'Letters within five working days', "We'll triage within one working day and write to you after every appointment."]],
+      cta: '<a class="nb-btn nb-btn-p" href="#referral-form">Download referral form (PDF)' + icon('arrow') + '</a><a class="nb-btn nb-btn-g" href="tel:+441614960320">' + icon('phone') + 'GP advice line</a>'
+    }
+  };
+
+  var ART = {
+    letter: '<svg viewBox="0 0 200 140"><rect x="30" y="34" width="110" height="78" rx="10" fill="#fff"/><path d="M30 44l55 38 55-38" fill="none" stroke="#2f80ed" stroke-width="5" stroke-linejoin="round"/><rect x="118" y="20" width="56" height="74" rx="8" fill="#ffc93c"/><path d="M130 38h32M130 52h32M130 66h22" stroke="#18233a" stroke-width="4" stroke-linecap="round" opacity=".6"/><circle cx="160" cy="98" r="14" fill="#4fbf95"/><path d="m153 98 5 5 9-10" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+    arrive: '<svg viewBox="0 0 200 140"><rect x="40" y="30" width="120" height="84" rx="10" fill="#fff"/><rect x="40" y="30" width="120" height="14" rx="7" fill="#2f80ed"/><rect x="82" y="72" width="36" height="42" rx="6" fill="#2f80ed"/><g fill="#cfe2fb"><rect x="54" y="56" width="20" height="14" rx="3"/><rect x="126" y="56" width="20" height="14" rx="3"/></g><circle cx="100" cy="18" r="14" fill="#fff"/><path d="M100 26s-7-4-7-9a3.6 3.6 0 0 1 7-1.6 3.6 3.6 0 0 1 7 1.6c0 5-7 9-7 9z" fill="#ffc93c"/><rect x="0" y="114" width="200" height="26" fill="#bfe6d5"/></svg>',
+    doctor: '<svg viewBox="0 0 200 140"><rect x="22" y="70" width="70" height="44" rx="10" fill="#4fbf95"/><rect x="30" y="50" width="54" height="30" rx="10" fill="#4fbf95"/><circle cx="140" cy="56" r="26" fill="#c98c5a"/><circle cx="128" cy="40" r="10" fill="#c98c5a"/><circle cx="152" cy="40" r="10" fill="#c98c5a"/><ellipse cx="140" cy="100" rx="30" ry="22" fill="#c98c5a"/><circle cx="132" cy="54" r="3" fill="#18233a"/><circle cx="148" cy="54" r="3" fill="#18233a"/><ellipse cx="140" cy="64" rx="6" ry="4" fill="#18233a"/><path d="M60 30v14a12 12 0 0 0 24 0V30" fill="none" stroke="#2f80ed" stroke-width="4"/><path d="M72 56v14c0 14 22 16 40 22" fill="none" stroke="#2f80ed" stroke-width="4"/><circle cx="114" cy="93" r="7" fill="#2f80ed"/></svg>',
+    procedure: '<svg viewBox="0 0 200 140"><circle cx="100" cy="56" r="30" fill="#c98c5a"/><circle cx="84" cy="34" r="11" fill="#c98c5a"/><circle cx="116" cy="34" r="11" fill="#c98c5a"/><ellipse cx="100" cy="108" rx="40" ry="28" fill="#c98c5a"/><circle cx="90" cy="54" r="3.2" fill="#18233a"/><circle cx="110" cy="54" r="3.2" fill="#18233a"/><path d="M93 66q7 6 14 0" stroke="#18233a" stroke-width="3" fill="none" stroke-linecap="round"/><g transform="rotate(-30 70 104)"><rect x="50" y="96" width="40" height="16" rx="8" fill="#ffc93c"/><rect x="64" y="96" width="12" height="16" fill="#ffe08a"/></g><circle cx="160" cy="34" r="12" fill="#ff7a6b"/><path d="M160 46v34" stroke="#18233a" stroke-opacity=".4" stroke-width="2"/></svg>',
+    home: '<svg viewBox="0 0 200 140"><path d="M44 70 100 26l56 44v52H44z" fill="#fff"/><path d="M36 74 100 22l64 52" fill="none" stroke="#2f80ed" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><rect x="88" y="90" width="24" height="32" rx="4" fill="#2f80ed"/><path d="M100 76s-10-6-10-13a5.5 5.5 0 0 1 10-3 5.5 5.5 0 0 1 10 3c0 7-10 13-10 13z" fill="#ff7a6b"/><rect x="0" y="122" width="200" height="18" fill="#bfe6d5"/><circle cx="170" cy="100" r="16" fill="#4fbf95"/><rect x="168" y="108" width="4" height="16" fill="#6b8f7f"/></svg>'
+  };
+  var STEPS = [
+    { t: 'Before you come', art: 'letter', h: 'We send you a welcome pack', p: "You'll get an email with your appointment time, who you'll see, directions and a short form about your child's health. Fill it in at home, it saves time on the day.", tip: "Talk to your child about the visit a day or two before, using simple words. Our picture guide can help." },
+    { t: 'Arriving', art: 'arrive', h: 'Park free and come to the yellow door', p: 'Reception is just inside the main entrance. We’ll check your details and take you to a waiting area with toys, books and a quiet corner.', tip: 'Arrive 15 minutes early for a first appointment. There are baby-changing rooms by reception.' },
+    { t: 'Meeting your doctor', art: 'doctor', h: 'A proper conversation, not a rush', p: 'New appointments last up to 40 minutes. The consultant talks to your child as well as to you, examines them gently and explains what they think is going on.', tip: 'Write down your questions beforehand, and bring the red book (personal child health record) if you have it.' },
+    { t: 'Tests or procedures', art: 'procedure', h: 'Prepared with play', p: 'If your child needs a blood test, scan or an operation, a play specialist explains it first with dolls and pictures. Numbing cream is standard, and you can stay with them.', tip: 'For an operation, we’ll tell you when your child needs to stop eating and drinking. Most can have water until two hours before.' },
+    { t: 'Going home', art: 'home', h: 'A clear plan, written down', p: "Before you leave, you'll know what happens next and who to call. We write to your GP within five working days, with a copy for you.", tip: 'Our 24-hour nurse line is there if you’re worried once you’re home: 0161 496 0310.' }
+  ];
+  var CHECK = ['Red book (personal child health record)', 'A list of any medicines your child takes', 'Insurance pre-authorisation number, if insured', 'A favourite toy, comforter or blanket', 'Snacks and a drink (unless told to fast)', 'Any letters, scans or test results', 'Phone charger and headphones', 'Something to keep them busy in the waiting room'];
+
+  /* ---------- Header & menu ---------- */
+  var hdr = $('#hdr');
+  addEventListener('scroll', function () { hdr.classList.toggle('scrolled', scrollY > 50); }, { passive: true });
+  var menu = $('#menu'), burger = $('#burger');
+  function setMenu(open) {
+    menu.classList.toggle('open', open); menu.setAttribute('aria-hidden', String(!open)); burger.setAttribute('aria-expanded', String(open));
+    document.body.style.overflow = open ? 'hidden' : '';
+    if (open) setTimeout(function () { $('.nb-menu-x').focus(); }, 60); else burger.focus({ preventScroll: true });
+    syncBar();
+  }
+  burger.addEventListener('click', function () { setMenu(true); });
+  menu.addEventListener('click', function (e) { if (e.target.closest('[data-close]')) setMenu(false); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && menu.classList.contains('open')) setMenu(false); });
+  $('#totop').addEventListener('click', function () { scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' }); });
+
+  /* ---------- Hero parallax ---------- */
+  var hero = $('.nb-hero'), layers = $$('[data-depth]', hero);
+  var fine = matchMedia('(hover:hover) and (pointer:fine) and (min-width:1024px)');
+  var px = 0, py = 0, cx = 0, cy = 0, sy = 0, heroVis = true, raf = 0;
+  function frame() {
+    cx += (px - cx) * 0.06; cy += (py - cy) * 0.06;
+    var s = Math.min(scrollY, hero.offsetHeight);
+    layers.forEach(function (el) {
+      var d = parseFloat(el.dataset.depth);
+      var x = -cx * d * 16, y = -cy * d * 9 + s * d * 0.12;
+      el.style.transform = 'translate3d(' + x.toFixed(2) + 'px,' + y.toFixed(2) + 'px,0)';
+    });
+    raf = heroVis ? requestAnimationFrame(frame) : 0;
+  }
+  if (!reduce) {
+    hero.addEventListener('pointermove', function (e) {
+      if (!fine.matches) return;
+      var r = hero.getBoundingClientRect();
+      px = (e.clientX - r.left) / r.width * 2 - 1; py = (e.clientY - r.top) / r.height * 2 - 1;
+    });
+    hero.addEventListener('pointerleave', function () { px = 0; py = 0; });
+    if ('IntersectionObserver' in window) new IntersectionObserver(function (es) { heroVis = es[0].isIntersecting; if (heroVis && !raf) raf = requestAnimationFrame(frame); }).observe(hero);
+    raf = requestAnimationFrame(frame);
+  }
+
+  /* ---------- Who are you ---------- */
+  var whoPnl = $('#who-pnl'), whoCur = null;
+  function renderWho(k, focus) {
+    if (k === whoCur) return; whoCur = k; var w = WHO[k];
+    $$('[data-who-tab]').forEach(function (b) { var on = b.dataset.whoTab === k; b.setAttribute('aria-selected', String(on)); b.tabIndex = on ? 0 : -1; if (on && focus) b.focus(); });
+    whoPnl.setAttribute('aria-labelledby', 'who-t-' + k);
+    whoPnl.innerHTML = '<div><h3>' + w.h + '</h3><p>' + w.p + '</p><ul class="nb-who-list">' + w.list.map(function (l) { return '<li><span>' + icon(l[0]) + '</span><div><b>' + l[1] + '</b><p>' + l[2] + '</p></div></li>'; }).join('') + '</ul><div class="nb-who-cta">' + w.cta + '</div></div>' +
+      '<div class="nb-who-img"><img src="' + IMG(w.img, 1000, 850) + '" alt="' + w.alt + '" /></div>';
+    whoPnl.classList.remove('swap'); void whoPnl.offsetWidth; whoPnl.classList.add('swap');
+  }
+  $$('[data-who-tab]').forEach(function (b) {
+    b.addEventListener('click', function () { renderWho(b.dataset.whoTab); });
+    b.addEventListener('keydown', function (e) { if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') { e.preventDefault(); renderWho(whoCur === 'parent' ? 'gp' : 'parent', true); } });
+  });
+  renderWho('parent');
+  document.addEventListener('click', function (e) { var a = e.target.closest('a[data-who]'); if (a) renderWho(a.dataset.who); });
+
+  /* ---------- Services ---------- */
+  var grid = $('#svc-grid');
+  function renderSvc(age) {
+    var list = SERVICES.filter(function (s) { return age === 'all' || s.ages.indexOf(age) > -1; });
+    grid.innerHTML = list.map(function (s) {
+      return '<a class="nb-svc" href="#book" data-svc="' + esc(s.n) + '"><span class="nb-svc-ic">' + icon(s.ic) + '</span><h3>' + s.n + '</h3><p>' + s.d + '</p><div class="nb-svc-tags">' + s.ages.map(function (a) { return '<span>' + AGE_LABEL[a] + '</span>'; }).join('') + '</div><div class="nb-svc-f"><b>' + s.p + '</b><span class="nb-go">Book' + icon('arrow') + '</span></div></a>';
+    }).join('') || '<p class="nb-svc-none">No services for this age group.</p>';
+  }
+  $$('.nb-age').forEach(function (b) {
+    b.addEventListener('click', function () { $$('.nb-age').forEach(function (x) { x.setAttribute('aria-pressed', String(x === b)); }); renderSvc(b.dataset.age); });
+  });
+  renderSvc('all');
+
+  /* ---------- Team ---------- */
+  $('#team-grid').innerHTML = TEAM.map(function (p) {
+    return '<article class="nb-doc nb-rv"><div class="nb-doc-ph"><img src="' + IMG(p.img, 500, 625) + '&crop=faces" alt="' + esc(p.n) + '" loading="lazy" /></div><h3>' + p.n + '</h3><p class="role">' + p.r + '</p><p class="spec">' + p.s + '</p><span class="reg">' + p.reg + '</span>' +
+      (p.book ? '<br /><a class="nb-link" href="#book" data-svc="' + esc(p.svc) + '" data-cons="' + esc(p.n) + '">Book with ' + p.n.split(' ')[0] + ' ' + p.n.split(' ').slice(-1)[0] + icon('arrow') + '</a>' : '') + '</article>';
+  }).join('');
+
+  /* ---------- Visit journey ---------- */
+  var sNav = $('#steps-nav'), sBody = $('#step-body'), sCur = -1;
+  sNav.innerHTML = STEPS.map(function (s, i) { return '<button class="nb-step-b" role="tab" id="st-' + i + '" aria-controls="step-body" aria-selected="false" tabindex="-1" data-step="' + i + '"><span>' + (i + 1) + '</span>' + s.t + '</button>'; }).join('');
+  var sBtns = $$('.nb-step-b', sNav);
+  function setStep(i, focus) {
+    if (i === sCur || i < 0 || i >= STEPS.length) return; sCur = i; var s = STEPS[i];
+    sBtns.forEach(function (b, k) { b.setAttribute('aria-selected', String(k === i)); b.tabIndex = k === i ? 0 : -1; b.classList.toggle('done', k < i); });
+    if (focus) sBtns[i].focus();
+    if (sNav.scrollWidth > sNav.clientWidth) { var bl = sBtns[i].offsetLeft, br = bl + sBtns[i].offsetWidth; if (bl < sNav.scrollLeft || br > sNav.scrollLeft + sNav.clientWidth) sNav.scrollTo({ left: Math.max(0, bl - 16), behavior: reduce ? 'auto' : 'smooth' }); }
+    sBody.setAttribute('aria-labelledby', 'st-' + i);
+    sBody.innerHTML = '<div class="nb-step-art" aria-hidden="true">' + ART[s.art] + '</div><div><h3>' + s.h + '</h3><p>' + s.p + '</p><p class="nb-step-tip">' + icon('info') + '<span>' + s.tip + '</span></p></div>';
+    sBody.classList.remove('swap'); void sBody.offsetWidth; sBody.classList.add('swap');
+    $('#steps-prog').style.width = ((i + 1) / STEPS.length * 100) + '%';
+    $('#step-prev').disabled = i === 0; $('#step-next').disabled = i === STEPS.length - 1;
+  }
+  sNav.addEventListener('click', function (e) { var b = e.target.closest('[data-step]'); if (b) setStep(+b.dataset.step); });
+  sNav.addEventListener('keydown', function (e) { var d = { ArrowRight: 1, ArrowLeft: -1 }[e.key]; if (d) { e.preventDefault(); setStep(Math.max(0, Math.min(STEPS.length - 1, sCur + d)), true); } });
+  $('#step-prev').addEventListener('click', function () { setStep(sCur - 1); });
+  $('#step-next').addEventListener('click', function () { setStep(sCur + 1); });
+  setStep(0);
+
+  var store = { get: function () { try { return JSON.parse(localStorage.getItem('nb-check') || '[]'); } catch (e) { return []; } }, set: function (v) { try { localStorage.setItem('nb-check', JSON.stringify(v)); } catch (e) {} } };
+  var ticked = store.get();
+  $('#check-list').innerHTML = CHECK.map(function (c, i) { return '<li><label><input type="checkbox" data-ci="' + i + '"' + (ticked.indexOf(i) > -1 ? ' checked' : '') + ' /><span>' + c + '</span></label></li>'; }).join('');
+  function countCheck() { var n = $$('#check-list input:checked').length; $('#check-count').textContent = n + ' of ' + CHECK.length + ' packed'; }
+  $('#check-list').addEventListener('change', function () { store.set($$('#check-list input:checked').map(function (x) { return +x.dataset.ci; })); countCheck(); });
+  countCheck();
+  $('#check-print').addEventListener('click', function () { document.documentElement.classList.add('nb-printing'); window.print(); });
+  addEventListener('afterprint', function () { document.documentElement.classList.remove('nb-printing'); });
+
+  /* ---------- Booking ---------- */
+  var form = $('#bk-form'), svcSel = $('#bk-service'), consSel = $('#bk-cons');
+  svcSel.innerHTML = '<option value="">Please choose</option>' + SERVICES.map(function (s) { return '<option>' + s.n + '</option>'; }).join('') + '<option>Not sure yet</option>';
+  consSel.innerHTML = '<option value="">First available</option>' + TEAM.filter(function (p) { return p.book; }).map(function (p) { return '<option>' + p.n + '</option>'; }).join('');
+  var dShort = new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/London', weekday: 'short' });
+  var dNum = new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/London', day: 'numeric' });
+  var dMon = new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/London', month: 'short' });
+  var dFull = new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/London', weekday: 'long', day: 'numeric', month: 'long' });
+  var DATES = [], now = Date.now();
+  for (var k = 1; DATES.length < 12 && k < 20; k++) { var d = new Date(now + k * 864e5); if (dShort.format(d) !== 'Sun') DATES.push(d); }
+  var dateIdx = 0;
+  $('#bk-dates').innerHTML = DATES.map(function (d, i) { return '<button type="button" class="nb-date" data-di="' + i + '" aria-pressed="' + (i === 0) + '" aria-label="' + dFull.format(d) + '">' + dShort.format(d) + '<b>' + dNum.format(d) + '</b>' + dMon.format(d) + '</button>'; }).join('');
+  $('#bk-dates').addEventListener('click', function (e) { var b = e.target.closest('[data-di]'); if (!b) return; dateIdx = +b.dataset.di; $$('.nb-date').forEach(function (x) { x.setAttribute('aria-pressed', String(x === b)); }); });
+  form.addEventListener('change', function (e) { if (e.target.name === 'pay') $('#bk-ins').hidden = e.target.value !== 'Health insurance'; });
+  function setErr(el, msg) {
+    var wrap = el.closest('.nb-f') || el.closest('.nb-consent'); var ex = wrap && wrap.querySelector('.nb-err');
+    if (msg) { el.setAttribute('aria-invalid', 'true'); if (!ex && wrap) { ex = document.createElement('span'); ex.className = 'nb-err'; ex.id = 'err-' + el.name; wrap.appendChild(ex); el.setAttribute('aria-describedby', ex.id); } if (ex) ex.textContent = msg; }
+    else { el.removeAttribute('aria-invalid'); if (ex) ex.remove(); }
+  }
+  var MSG = { child: "Please enter your child's first name.", age: "Please choose your child's age.", service: 'Please choose a service, or "Not sure yet".', parent: 'Please enter your name.', phone: 'Please enter a phone number we can call.', email: 'Please enter a valid email address.', consent: 'Please confirm you agree to us contacting you.' };
+  form.addEventListener('input', function (e) { if (e.target.getAttribute('aria-invalid') === 'true' && e.target.checkValidity()) setErr(e.target, null); });
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var bad = [];
+    Object.keys(MSG).forEach(function (n) { var el = form.elements[n]; var ok = el.type === 'checkbox' ? el.checked : el.checkValidity() && String(el.value).trim() !== ''; setErr(el, ok ? null : MSG[n]); if (!ok) bad.push(el); });
+    var sum = $('#bk-errsum');
+    if (bad.length) { sum.hidden = false; sum.textContent = 'Please check ' + bad.length + (bad.length === 1 ? ' field' : ' fields') + ' above.'; bad[0].focus(); return; }
+    sum.hidden = true;
+    var btn = $('#bk-submit'); btn.disabled = true; btn.textContent = 'Sending…';
+    setTimeout(function () {
+      var f = form.elements, ref = 'NCH-' + String(Math.floor(10000 + Math.random() * 89999));
+      var rows = [['Reference', ref], ['Child', f.child.value + ', ' + f.age.value], ['Service', f.service.value + (f.consultant.value ? ' with ' + f.consultant.value : '')], ['Preferred', dFull.format(DATES[dateIdx]) + ', ' + form.querySelector('[name=time]:checked').value.toLowerCase()], ['Paying', form.querySelector('[name=pay]:checked').value], ['We’ll call', f.phone.value]];
+      $('#bk-summary').innerHTML = rows.map(function (r) { return '<div><dt>' + r[0] + '</dt><dd>' + esc(r[1]) + '</dd></div>'; }).join('');
+      form.hidden = true; var done = $('#bk-done'); done.hidden = false; done.focus();
+    }, 650);
+  });
+  $('#bk-again').addEventListener('click', function () { form.reset(); $('#bk-ins').hidden = true; var btn = $('#bk-submit'); btn.disabled = false; btn.innerHTML = 'Send request' + icon('arrow'); form.hidden = false; $('#bk-done').hidden = true; form.elements.child.focus(); });
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('[data-svc]'); if (!a) return;
+    svcSel.value = a.dataset.svc; if (a.dataset.cons) consSel.value = a.dataset.cons;
+  });
+
+  /* ---------- FAQ ---------- */
+  $('#qas').addEventListener('click', function (e) {
+    var b = e.target.closest('.nb-qa button'); if (!b) return;
+    var qa = b.parentNode, open = !qa.classList.contains('open');
+    qa.classList.toggle('open', open); b.setAttribute('aria-expanded', String(open));
+  });
+
+  /* ---------- Mobile: collapsible lists, footer accordions, action bar ---------- */
+  var mqM = matchMedia('(max-width:767px)');
+  var svcOpen = false, prOpen = false;
+  function applySvc() {
+    var n = $$('.nb-svc', grid).length, b = $('#svc-more'), need = mqM.matches && n > 4;
+    grid.classList.toggle('is-collapsed', need && !svcOpen);
+    b.hidden = !need; b.setAttribute('aria-expanded', String(svcOpen));
+    b.textContent = svcOpen ? 'Show fewer services' : 'Show all ' + n + ' services';
+  }
+  $('#svc-more').addEventListener('click', function () { svcOpen = !svcOpen; applySvc(); if (!svcOpen) grid.scrollIntoView({ block: 'start', behavior: reduce ? 'auto' : 'smooth' }); });
+  $$('.nb-age').forEach(function (b) { b.addEventListener('click', function () { svcOpen = false; applySvc(); }); });
+  var ptab = $('.nb-ptable');
+  function applyPr() {
+    var b = $('#pr-more'), n = ptab.tBodies[0].rows.length;
+    ptab.classList.toggle('is-collapsed', mqM.matches && !prOpen);
+    b.hidden = !mqM.matches; b.setAttribute('aria-expanded', String(prOpen));
+    b.textContent = prOpen ? 'Show fewer prices' : 'Show all ' + n + ' prices';
+  }
+  $('#pr-more').addEventListener('click', function () { prOpen = !prOpen; applyPr(); });
+  $$('.nb-fbtn').forEach(function (b) { b.addEventListener('click', function () { var col = b.parentNode, open = !col.classList.contains('open'); col.classList.toggle('open', open); b.setAttribute('aria-expanded', String(open)); }); });
+  var mbar = $('#mbar'), ctaVis = true, bookVis = false, footVis = false;
+  function syncBar() {
+    var show = mqM.matches && !ctaVis && !bookVis && !footVis && !menu.classList.contains('open');
+    mbar.classList.toggle('show', show); mbar.setAttribute('aria-hidden', String(!show));
+    $$('a', mbar).forEach(function (a) { a.tabIndex = show ? 0 : -1; });
+  }
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (es) { ctaVis = es[0].isIntersecting || es[0].boundingClientRect.top > 0; syncBar(); }).observe($('.nb-hero-cta'));
+    new IntersectionObserver(function (es) { bookVis = es[0].isIntersecting; syncBar(); }).observe($('#book'));
+    new IntersectionObserver(function (es) { footVis = es[0].isIntersecting; syncBar(); }).observe($('footer'));
+  }
+  menu.addEventListener('transitionstart', syncBar);
+  burger.addEventListener('click', syncBar);
+  function onMq() { applySvc(); applyPr(); syncBar(); }
+  if (mqM.addEventListener) mqM.addEventListener('change', onMq);
+  onMq();
+
+  /* ---------- Reveal ---------- */
+  if ('IntersectionObserver' in window && !reduce) {
+    var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }); }, { rootMargin: '0px 0px -6% 0px' });
+    $$('.nb-rv').forEach(function (el, i) { el.style.transitionDelay = (i % 4) * 70 + 'ms'; io.observe(el); });
+  } else $$('.nb-rv').forEach(function (el) { el.classList.add('in'); });
+})();
+</script>
+</body>
+</html>

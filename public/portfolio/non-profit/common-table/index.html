@@ -1,0 +1,1864 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta name="robots" content="noindex">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Common Table Food Network | Food banks, pantries and advice in Leeds</title>
+<meta name="description" content="Common Table Food Network runs food banks and community pantries across Leeds and West Yorkshire. Get help, donate, give food or volunteer.">
+<meta name="theme-color" content="#17402f">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 44 44'%3E%3Ccircle cx='22' cy='22' r='22' fill='%2317402f'/%3E%3Cpath d='M10 22h24a12 12 0 0 1-24 0z' fill='%23e5533d'/%3E%3Cpath d='M22.4 19.6c-.6-4 1.4-7.6 5.6-9.2-.2 4.3-2.4 7.6-5.6 9.2z' fill='%23ffcf4a'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://images.pexels.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Caveat:wght@600;700&family=Figtree:ital,wght@0,400..700;1,400&display=swap" rel="stylesheet">
+<style>
+/* ===== Common Table Food Network — tokens ===== */
+:root{
+  --fs-green:#17402f; --fs-green-dk:#0f2d21; --fs-green-md:#245a43; --fs-green-lt:#9cc4b0;
+  --fs-tomato:#e5533d; --fs-tomato-ink:#c8432e; --fs-tomato-dk:#a93623;
+  --fs-mint:#edf6f1; --fs-mint-2:#dcece3; --fs-sun:#ffcf4a;
+  --fs-ink:#13231b; --fs-muted:#475a50; --fs-line:#d3e3da; --fs-white:#fff;
+  --fs-head:"Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --fs-body:"Figtree", "Segoe UI", system-ui, sans-serif;
+  --fs-hand:"Caveat", "Segoe Print", cursive;
+  --fs-gutter:20px; --fs-header-h:64px; --fs-radius:20px;
+  --fs-focus:#17402f;
+}
+@media (min-width:768px){ :root{ --fs-gutter:32px; --fs-header-h:72px; } }
+@media (min-width:1200px){ :root{ --fs-gutter:48px; --fs-header-h:80px; } }
+
+/* ===== Base ===== */
+*,*::before,*::after{ box-sizing:border-box; }
+[hidden]{ display:none !important; }
+html{ -webkit-text-size-adjust:100%; scroll-behavior:smooth; }
+@media (prefers-reduced-motion:reduce){ html{ scroll-behavior:auto; } }
+body{ margin:0; font-family:var(--fs-body); font-size:clamp(16px, .25vw + 15.2px, 18px); line-height:1.6; color:var(--fs-ink); background:#fff; text-rendering:optimizeLegibility; }
+body.fs-lock{ overflow:hidden; }
+img{ max-width:100%; height:auto; display:block; }
+a{ color:inherit; }
+button,input,select,textarea{ font:inherit; color:inherit; }
+h1,h2,h3,h4{ font-family:var(--fs-head); color:var(--fs-green); margin:0; line-height:1.1; letter-spacing:-.015em; }
+p{ margin:0 0 1em; }
+ul,ol{ margin:0; padding:0; }
+:focus-visible{ outline:3px solid var(--fs-focus); outline-offset:3px; }
+.fs-vh{ position:absolute !important; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; border:0; }
+.fs-wrap{ width:100%; max-width:1440px; margin-inline:auto; padding-inline:var(--fs-gutter); }
+.fs-skip{ position:absolute; left:12px; top:-100px; z-index:500; background:var(--fs-green); color:#fff; padding:12px 18px; border-radius:10px; font-weight:700; text-decoration:none; }
+.fs-skip:focus{ top:12px; --fs-focus:var(--fs-sun); }
+section[id], [id].fs-anchor{ scroll-margin-top:calc(var(--fs-header-h) + 12px); }
+
+/* ===== Type helpers ===== */
+.fs-kicker{ display:inline-flex; align-items:center; gap:10px; margin:0 0 14px; font-size:14px; font-weight:700; letter-spacing:.09em; text-transform:uppercase; color:var(--fs-tomato-ink); }
+.fs-kicker::before{ content:""; width:22px; height:3px; border-radius:3px; background:var(--fs-tomato); }
+.fs-h2{ font-size:clamp(31px, 2.9vw + 8px, 54px); font-weight:700; line-height:1.04; letter-spacing:-.025em; margin-bottom:18px; text-wrap:balance; }
+.fs-h3{ font-size:clamp(21px, .6vw + 17px, 26px); font-weight:700; letter-spacing:-.01em; }
+.fs-lead{ font-size:clamp(17px, .35vw + 15.5px, 20px); color:var(--fs-muted); max-width:58ch; }
+.fs-small{ font-size:14px; line-height:1.5; color:var(--fs-muted); }
+.fs-link{ display:inline-flex; align-items:center; gap:8px; font-weight:700; color:var(--fs-green); text-decoration:underline; text-decoration-thickness:2px; text-underline-offset:4px; text-decoration-color:var(--fs-tomato); }
+.fs-link svg{ width:18px; height:18px; flex:none; transition:transform .2s; }
+.fs-link:hover{ color:var(--fs-tomato-ink); }
+.fs-link:hover svg{ transform:translateX(3px); }
+
+/* ===== Buttons ===== */
+.fs-btn{ display:inline-flex; align-items:center; justify-content:center; gap:10px; min-height:48px; padding:0 22px; border-radius:999px; border:2px solid transparent; font-weight:700; font-size:16px; line-height:1.1; text-decoration:none; cursor:pointer; white-space:nowrap; transition:background-color .18s, color .18s, border-color .18s, box-shadow .18s; }
+.fs-btn svg{ width:18px; height:18px; flex:none; }
+.fs-btn--primary{ background:var(--fs-tomato-ink); color:#fff; }
+.fs-btn--primary:hover{ background:var(--fs-tomato-dk); }
+.fs-btn--ghost{ background:#fff; color:var(--fs-green); border-color:var(--fs-green); }
+.fs-btn--ghost:hover{ background:var(--fs-green); color:#fff; }
+.fs-btn--light{ background:transparent; color:#fff; border-color:rgba(255,255,255,.75); }
+.fs-btn--light:hover{ background:#fff; color:var(--fs-green); border-color:#fff; }
+.fs-btn--lg{ min-height:56px; padding:0 30px; font-size:17px; }
+.fs-btn--block{ width:100%; }
+
+/* ===== Utility bar + header ===== */
+.fs-util{ background:var(--fs-green); color:#e6f1eb; font-size:14px; --fs-focus:var(--fs-sun); }
+.fs-util__in{ display:flex; align-items:center; justify-content:space-between; gap:20px; min-height:40px; }
+.fs-util p{ margin:0; display:flex; align-items:center; gap:8px; }
+.fs-util svg{ width:16px; height:16px; color:var(--fs-sun); }
+.fs-util a{ color:#fff; font-weight:700; text-underline-offset:3px; }
+.fs-util ul{ list-style:none; display:flex; gap:22px; }
+.fs-util ul a{ font-weight:500; text-decoration:none; }
+.fs-util ul a:hover{ text-decoration:underline; }
+
+.fs-header{ position:sticky; top:0; z-index:100; background:rgba(255,255,255,.97); border-bottom:1px solid transparent; transition:border-color .2s, box-shadow .2s; }
+.fs-header.is-scrolled{ border-bottom-color:var(--fs-line); box-shadow:0 6px 20px -16px rgba(15,45,33,.5); }
+.fs-header__in{ display:flex; align-items:center; gap:24px; height:var(--fs-header-h); }
+.fs-logo{ display:inline-flex; align-items:center; gap:12px; text-decoration:none; color:var(--fs-green); flex:none; border-radius:12px; }
+.fs-logo svg{ width:44px; height:44px; flex:none; }
+.fs-logo__txt{ display:flex; flex-direction:column; line-height:1; }
+.fs-logo__txt b{ font-family:var(--fs-head); font-size:22px; font-weight:800; letter-spacing:-.02em; }
+.fs-logo__txt span{ font-size:13px; font-weight:600; letter-spacing:.04em; color:var(--fs-muted); margin-top:4px; }
+.fs-nav{ margin-left:auto; }
+.fs-nav ul{ list-style:none; display:flex; gap:4px; }
+.fs-nav a{ display:inline-flex; align-items:center; min-height:44px; padding:0 13px; border-radius:10px; text-decoration:none; font-weight:600; font-size:16px; color:var(--fs-ink); position:relative; }
+.fs-nav a::after{ content:""; position:absolute; left:13px; right:13px; bottom:6px; height:2px; background:var(--fs-tomato); transform:scaleX(0); transform-origin:left; transition:transform .2s; }
+.fs-nav a:hover{ color:var(--fs-green); }
+.fs-nav a:hover::after{ transform:scaleX(1); }
+.fs-header__cta{ display:flex; gap:10px; }
+.fs-header__cta .fs-btn{ min-height:46px; }
+.fs-pill{ display:none; }
+.fs-burger{ display:none; }
+
+/* tablet + mobile header */
+@media (max-width:1199px){
+  .fs-nav,.fs-header__cta{ display:none; }
+  .fs-header__in{ gap:12px; }
+  .fs-header__tools{ margin-left:auto; display:flex; align-items:center; gap:10px; }
+  .fs-pill{ display:inline-flex; min-height:44px; padding:0 20px; }
+  .fs-burger{ display:inline-flex; align-items:center; justify-content:center; gap:10px; min-width:48px; height:48px; padding:0 14px; border-radius:999px; border:2px solid var(--fs-line); background:#fff; color:var(--fs-green); font-weight:700; cursor:pointer; }
+  .fs-burger:hover{ border-color:var(--fs-green); }
+  .fs-burger svg{ width:22px; height:22px; }
+}
+@media (min-width:1200px){ .fs-header__tools{ display:none; } }
+.fs-tools__help{ display:none; }
+@media (min-width:768px) and (max-width:1199px){ .fs-tools__help{ display:inline-flex; min-height:44px; } }
+@media (max-width:767px){
+  .fs-util{ display:none; }
+  .fs-logo svg{ width:38px; height:38px; }
+  .fs-logo__txt b{ font-size:19px; }
+  .fs-logo__txt span{ font-size:12px; }
+  .fs-burger__txt{ display:none; }
+  .fs-burger{ width:48px; padding:0; }
+  .fs-pill{ padding:0 18px; font-size:15px; }
+}
+@media (max-width:359px){ .fs-logo__txt span{ display:none; } }
+
+/* ===== Full-screen menu (tablet + mobile) ===== */
+.fs-menu{ position:fixed; inset:0; z-index:300; background:var(--fs-green); color:#fff; display:flex; flex-direction:column; overflow-y:auto; overscroll-behavior:contain; --fs-focus:var(--fs-sun); padding-bottom:env(safe-area-inset-bottom); }
+.fs-menu.is-open{ animation:fs-fade .22s ease-out; }
+@keyframes fs-fade{ from{ opacity:0; transform:translateY(-8px); } to{ opacity:1; transform:none; } }
+.fs-menu__top{ display:flex; align-items:center; justify-content:space-between; min-height:var(--fs-header-h); }
+.fs-menu .fs-logo{ color:#fff; }
+.fs-menu .fs-logo__txt span{ color:#bfd8cb; }
+.fs-menu__close{ width:48px; height:48px; border-radius:50%; border:2px solid rgba(255,255,255,.4); background:transparent; color:#fff; display:grid; place-items:center; cursor:pointer; }
+.fs-menu__close:hover{ border-color:#fff; }
+.fs-menu__close svg{ width:22px; height:22px; }
+.fs-menu__nav{ padding-top:clamp(16px, 4vh, 40px); }
+.fs-menu__nav ul{ list-style:none; display:grid; gap:2px; }
+.fs-menu__nav li a{ display:flex; align-items:center; justify-content:space-between; min-height:56px; padding:6px 0; border-bottom:1px solid rgba(255,255,255,.14); font-family:var(--fs-head); font-weight:700; font-size:clamp(24px, 4vw, 34px); letter-spacing:-.02em; text-decoration:none; color:#fff; }
+.fs-menu__nav li a svg{ width:22px; height:22px; color:var(--fs-sun); opacity:.8; }
+.fs-menu__nav li a:hover{ color:var(--fs-sun); }
+.fs-menu__cta{ display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:28px; }
+.fs-menu__cta .fs-btn{ min-height:56px; }
+.fs-menu__note{ margin:22px 0 32px; color:#cfe2d8; font-size:16px; }
+.fs-menu__note a{ color:#fff; font-weight:700; }
+@media (min-width:768px){ .fs-menu__nav ul{ grid-template-columns:1fr 1fr; column-gap:48px; } .fs-menu__cta{ max-width:560px; } }
+
+/* ===== Hero: orbit of items ===== */
+.fs-hero{ position:relative; padding:clamp(14px, 2vw, 28px) 0 clamp(36px, 4vw, 56px); background:radial-gradient(58% 52% at 50% 44%, #f1f8f4 0%, rgba(255,255,255,0) 72%), #fff; overflow:hidden; }
+.fs-stage{ --fs-tile:124px; position:relative; height:clamp(560px, calc(100vh - 280px), 680px); }
+.fs-track{ position:absolute; inset:0; width:100%; height:100%; pointer-events:none; overflow:visible; }
+.fs-track ellipse{ fill:none; stroke:#c9dfd2; stroke-width:1.5; stroke-dasharray:3 9; stroke-linecap:round; }
+.fs-orbit{ list-style:none; position:absolute; inset:0; pointer-events:none; }
+.fs-orb{ --s:1; position:absolute; left:50%; top:50%; width:var(--fs-tile); height:var(--fs-tile); margin:calc(var(--fs-tile) / -2) 0 0 calc(var(--fs-tile) / -2); will-change:transform; }
+.fs-orb__disc{ display:block; width:100%; height:100%; padding:0; border:4px solid #fff; border-radius:50%; overflow:hidden; background:var(--fs-mint); box-shadow:0 14px 26px -14px rgba(15,45,33,.55), 0 0 0 1px rgba(23,64,47,.10); transform:scale(var(--s)); pointer-events:auto; cursor:pointer; transition:box-shadow .2s; }
+.fs-orb__disc img{ width:100%; height:100%; object-fit:cover; }
+.fs-orb.is-active .fs-orb__disc{ box-shadow:0 0 0 4px var(--fs-sun), 0 18px 30px -14px rgba(15,45,33,.6); }
+.fs-orb__tip{ position:absolute; left:50%; bottom:calc(50% + var(--s) * var(--fs-tile) / 2 + 10px); --tx:-50%; --ty:4px; transform:translate(var(--tx), var(--ty)); z-index:2; background:var(--fs-green); color:#fff; font-size:14px; line-height:1.3; font-weight:500; padding:8px 12px; border-radius:10px; white-space:nowrap; opacity:0; visibility:hidden; pointer-events:none; transition:opacity .18s, transform .18s, visibility .18s; box-shadow:0 10px 24px -12px rgba(15,45,33,.6); }
+.fs-orb__tip b{ font-weight:700; color:#fff; }
+.fs-orb__tip i{ font-style:normal; color:var(--fs-sun); }
+.fs-orb__tip::after{ content:""; position:absolute; left:50%; top:100%; margin-left:-6px; border:6px solid transparent; border-top-color:var(--fs-green); }
+.fs-orb.is-top .fs-orb__tip{ bottom:auto; top:calc(50% + var(--s) * var(--fs-tile) / 2 + 10px); --ty:-4px; }
+.fs-orb.is-top .fs-orb__tip::after{ top:auto; bottom:100%; border-top-color:transparent; border-bottom-color:var(--fs-green); }
+.fs-orb.is-r .fs-orb__tip{ left:auto; right:calc(50% - 22px); --tx:0px; }
+.fs-orb.is-l .fs-orb__tip{ left:calc(50% - 22px); --tx:0px; }
+.fs-orb.is-r .fs-orb__tip::after{ left:auto; right:16px; margin-left:0; }
+.fs-orb.is-l .fs-orb__tip::after{ left:16px; margin-left:0; }
+.fs-orb.is-active .fs-orb__tip{ opacity:1; visibility:visible; --ty:0px; }
+
+.fs-hero__core{ position:absolute; left:50%; top:50%; z-index:60; width:min(640px, calc(100% - 2 * var(--fs-tile) - 120px)); transform:translate(-50%, -50%); text-align:center; }
+.fs-eyebrow{ display:inline-flex; align-items:center; gap:10px; margin:0 0 18px; padding:7px 14px 7px 10px; border-radius:999px; background:var(--fs-mint); color:var(--fs-green); font-size:14px; font-weight:600; line-height:1.3; }
+.fs-eyebrow svg{ width:18px; height:18px; flex:none; color:var(--fs-tomato-ink); }
+.fs-h1{ font-size:clamp(38px, 4.4vw + 4px, 76px); font-weight:800; line-height:.98; letter-spacing:-.035em; margin:0 0 18px; text-wrap:balance; }
+.fs-mark{ background:linear-gradient(transparent 64%, var(--fs-sun) 64%, var(--fs-sun) 90%, transparent 90%); -webkit-box-decoration-break:clone; box-decoration-break:clone; padding:0 .04em; }
+.fs-hero__line{ font-size:clamp(18px, .5vw + 15px, 22px); font-weight:600; color:var(--fs-ink); margin:0 0 24px; }
+.fs-hero__line strong{ color:var(--fs-tomato-ink); }
+.fs-hero__btns{ display:flex; justify-content:center; flex-wrap:wrap; gap:12px; }
+.fs-hero__note{ margin:18px 0 0; font-size:15px; color:var(--fs-muted); }
+.fs-hero__note a{ color:var(--fs-green); font-weight:700; white-space:nowrap; }
+@media (min-width:768px){ .fs-hero__note{ display:none; } }
+
+.fs-pause{ position:absolute; right:0; bottom:6px; z-index:70; display:inline-flex; align-items:center; gap:8px; min-height:44px; padding:0 16px 0 12px; border-radius:999px; border:1px solid var(--fs-line); background:#fff; color:var(--fs-green); font-size:14px; font-weight:700; cursor:pointer; }
+.fs-pause:hover{ border-color:var(--fs-green); }
+.fs-pause svg{ width:18px; height:18px; }
+.fs-pause .fs-i-play{ display:none; }
+.fs-pause.is-paused .fs-i-play{ display:block; }
+.fs-pause.is-paused .fs-i-pause{ display:none; }
+
+.fs-marquee{ display:none; }
+
+/* "Most needed" strip */
+.fs-hero__foot{ display:flex; align-items:center; gap:20px 28px; margin-top:10px; padding:14px 14px 14px 22px; border:1px solid var(--fs-line); border-radius:22px; background:#fff; box-shadow:0 18px 40px -34px rgba(15,45,33,.6); }
+.fs-needs{ display:flex; align-items:center; gap:14px 24px; flex:1; min-width:0; }
+.fs-needs__h{ margin:0; flex:none; line-height:1.25; }
+.fs-needs__h strong{ display:flex; align-items:center; gap:10px; font-family:var(--fs-head); font-size:18px; color:var(--fs-green); }
+.fs-needs__meta{ display:block; margin-left:20px; font-size:13px; color:var(--fs-muted); }
+.fs-live{ position:relative; width:10px; height:10px; border-radius:50%; background:var(--fs-tomato); flex:none; }
+.fs-live::after{ content:""; position:absolute; inset:-5px; border-radius:50%; border:2px solid var(--fs-tomato); opacity:0; animation:fs-ping 2.4s ease-out infinite; }
+@keyframes fs-ping{ 0%{ transform:scale(.5); opacity:.8; } 100%{ transform:scale(1.6); opacity:0; } }
+.fs-chips{ list-style:none; display:flex; flex-wrap:wrap; gap:8px; min-width:0; }
+.fs-chip{ display:inline-flex; align-items:center; gap:8px; min-height:38px; padding:0 14px 0 12px; border-radius:999px; background:var(--fs-mint); color:var(--fs-green); font-size:15px; font-weight:600; white-space:nowrap; }
+.fs-chip::before{ content:""; width:8px; height:8px; border-radius:50%; background:var(--fs-green-lt); flex:none; }
+.fs-chip--urgent::before{ background:var(--fs-tomato); }
+.fs-chip--low::before{ background:#e0a800; }
+@media (min-width:1200px) and (max-width:1439px){ .fs-chip:nth-child(n+5){ display:none; } }
+.fs-hero__help{ flex:none; display:inline-flex; align-items:center; gap:12px; min-height:48px; padding:0 20px; border-radius:999px; background:var(--fs-green); color:#fff; font-weight:700; text-decoration:none; }
+.fs-hero__help svg{ width:18px; height:18px; transition:transform .2s; }
+.fs-hero__help:hover{ background:var(--fs-green-md); }
+.fs-hero__help-pin,.fs-hero__help-t small{ display:none; }
+.fs-hero__help:hover svg{ transform:translateX(3px); }
+.fs-hero.is-paused .fs-live::after{ animation-play-state:paused; }
+
+/* hero — tablet */
+@media (min-width:768px) and (max-width:1199px){
+  .fs-stage{ --fs-tile:92px; height:620px; }
+  .fs-hero__core{ width:min(480px, calc(100% - 2 * var(--fs-tile) - 64px)); }
+  .fs-eyebrow{ font-size:13px; }
+  .fs-hero__foot{ display:grid; grid-template-columns:minmax(0, 1.55fr) minmax(0, 1fr); gap:16px; margin-top:18px; padding:0; border:0; border-radius:0; background:none; box-shadow:none; align-items:stretch; }
+  .fs-needs{ display:block; padding:20px 22px; border:1px solid var(--fs-line); border-radius:20px; background:#fff; }
+  .fs-needs__h{ margin-bottom:14px; }
+  .fs-hero__help{ display:grid; grid-template-columns:minmax(0, 1fr) auto; grid-template-rows:1fr auto; align-items:end; gap:12px; border-radius:20px; padding:20px 22px; font-size:19px; line-height:1.3; white-space:normal; }
+  .fs-hero__help-pin{ display:block; grid-column:1; grid-row:1; align-self:start; width:46px !important; height:46px !important; padding:11px; border-radius:50%; background:rgba(255,255,255,.12); color:var(--fs-sun); }
+  .fs-hero__help-t{ grid-column:1; grid-row:2; max-width:16ch; }
+  .fs-hero__help-t small{ display:block; margin-bottom:4px; font-size:15px; font-weight:600; color:#bfd8cb; }
+  .fs-hero__help-arrow{ grid-column:2; grid-row:2; width:26px !important; height:26px !important; }
+}
+@media (min-width:768px) and (max-width:1199px) and (orientation:landscape){
+  .fs-stage{ height:clamp(470px, calc(100vh - 210px), 560px); }
+  .fs-hero__core{ width:min(560px, calc(100% - 2 * var(--fs-tile) - 120px)); }
+  .fs-h1{ font-size:clamp(38px, 4.6vw, 54px); }
+}
+/* hero — mobile: ring becomes a marquee above the statement */
+@media (max-width:767px){
+  .fs-hero{ padding:8px 0 36px; background:#fff; }
+  .fs-stage{ --fs-tile:74px; height:auto; }
+  .fs-track,.fs-orbit{ display:none; }
+  .fs-marquee{ display:block; position:relative; margin:0 calc(var(--fs-gutter) * -1) 16px; padding:8px 0 4px; overflow:hidden; -webkit-mask-image:linear-gradient(90deg, transparent 0, #000 6%, #000 86%, transparent 100%); mask-image:linear-gradient(90deg, transparent 0, #000 6%, #000 86%, transparent 100%); }
+  .fs-marquee__track{ list-style:none; display:flex; width:max-content; animation:fs-mq 52s linear infinite; }
+  .fs-mq{ flex:none; width:calc(var(--fs-tile) + 18px); padding:0 9px; text-align:center; font-size:12.5px; font-weight:600; line-height:1.2; color:var(--fs-green); }
+  .fs-mq img{ width:var(--fs-tile); height:var(--fs-tile); margin:0 auto 7px; border-radius:50%; border:3px solid #fff; object-fit:cover; box-shadow:0 8px 16px -10px rgba(15,45,33,.6), 0 0 0 1px rgba(23,64,47,.1); }
+  .fs-hero.is-paused .fs-marquee__track{ animation-play-state:paused; }
+  .fs-pause{ top:22px; right:0; bottom:auto; width:44px; height:44px; padding:0; justify-content:center; box-shadow:0 6px 16px -8px rgba(15,45,33,.5); }
+  .fs-pause .fs-pause__txt{ position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }
+  .fs-hero__core{ position:static; width:auto; transform:none; text-align:left; }
+  .fs-eyebrow{ margin-bottom:14px; font-size:13px; padding:6px 12px 6px 9px; }
+  .fs-h1{ font-size:clamp(35px, 9.4vw, 44px); margin-bottom:14px; }
+  .fs-hero__line{ margin-bottom:20px; }
+  .fs-hero__btns{ display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+  .fs-hero__btns .fs-btn{ min-height:54px; padding:0 12px; }
+  .fs-hero__note{ font-size:14.5px; margin-top:14px; }
+  .fs-hero__foot{ display:block; margin-top:28px; padding:0; border:0; border-radius:0; background:none; box-shadow:none; }
+  .fs-needs{ display:block; }
+  .fs-needs__h{ margin-bottom:10px; }
+  .fs-chips{ flex-wrap:nowrap; overflow-x:auto; scroll-snap-type:x mandatory; margin:0 calc(var(--fs-gutter) * -1); padding:2px var(--fs-gutter) 8px; scroll-padding-inline:var(--fs-gutter); scrollbar-width:none; }
+  .fs-chips::-webkit-scrollbar{ display:none; }
+  .fs-chip{ scroll-snap-align:start; min-height:44px; }
+  .fs-hero__help{ width:100%; justify-content:space-between; margin-top:14px; min-height:56px; border-radius:16px; }
+}
+@keyframes fs-mq{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
+@media (prefers-reduced-motion:reduce){
+  .fs-marquee__track{ animation:none !important; }
+  .fs-marquee{ overflow-x:auto; scroll-snap-type:x mandatory; scrollbar-width:none; }
+  .fs-mq{ scroll-snap-align:start; }
+  .fs-live::after{ animation:none; }
+  .fs-menu.is-open{ animation:none; }
+}
+
+/* ===== Sections — shared ===== */
+.fs-sec{ padding-block:clamp(64px, 7vw, 120px); }
+.fs-sec--mint{ background:var(--fs-mint); }
+.fs-sec-head{ max-width:760px; margin-bottom:clamp(32px, 4vw, 56px); }
+.fs-split{ display:grid; gap:clamp(36px, 5vw, 88px); align-items:start; }
+@media (min-width:1200px){
+  .fs-split{ grid-template-columns:minmax(0, 1fr) minmax(0, 1fr); }
+  .fs-split--7-5{ grid-template-columns:minmax(0, 7fr) minmax(0, 5fr); }
+  .fs-split--5-7{ grid-template-columns:minmax(0, 5fr) minmax(0, 7fr); }
+  .fs-split > .is-sticky{ position:sticky; top:calc(var(--fs-header-h) + 28px); }
+}
+.fs-ic{ display:grid; place-items:center; width:48px; height:48px; border-radius:50%; background:var(--fs-mint); color:var(--fs-green); flex:none; }
+.fs-ic svg{ width:24px; height:24px; }
+
+/* ===== Get help ===== */
+.fs-help__sub{ margin:36px 0 16px; }
+.fs-steps{ list-style:none; display:grid; gap:12px; }
+.fs-step{ display:grid; grid-template-columns:48px minmax(0, 1fr); gap:18px; padding:20px 22px; border:1px solid var(--fs-line); border-radius:18px; background:#fff; }
+.fs-step__n{ display:grid; place-items:center; width:48px; height:48px; border-radius:50%; background:var(--fs-mint); color:var(--fs-green); font-family:var(--fs-head); font-weight:800; font-size:21px; }
+.fs-step h4{ font-size:19px; margin:3px 0 6px; }
+.fs-step p{ margin:0; color:var(--fs-muted); }
+.fs-assure{ display:grid; grid-template-columns:auto minmax(0, 1fr); gap:18px; margin-top:20px; padding:26px; border-radius:20px; background:var(--fs-green); color:#e3efe8; --fs-focus:var(--fs-sun); }
+.fs-assure .fs-ic{ width:52px; height:52px; background:var(--fs-sun); }
+.fs-assure h3{ color:#fff; font-size:23px; margin:4px 0 8px; }
+.fs-assure p{ margin:0 0 10px; }
+.fs-assure p:last-child{ margin:0; }
+.fs-assure a{ color:#fff; font-weight:700; text-underline-offset:3px; }
+
+.fs-finder{ padding:clamp(24px, 2.6vw, 38px); border-radius:24px; background:var(--fs-mint); }
+.fs-finder__h{ display:flex; align-items:center; gap:14px; margin-bottom:12px; }
+.fs-finder__h .fs-ic{ background:#fff; }
+.fs-finder > p{ color:var(--fs-muted); }
+.fs-finder__form{ margin-top:6px; }
+.fs-finder__row{ display:flex; gap:10px; }
+.fs-finder__row .fs-input{ flex:1; min-width:0; text-transform:uppercase; }
+.fs-finder__row .fs-input::placeholder{ text-transform:none; }
+.fs-label{ display:block; margin-bottom:6px; font-weight:700; color:var(--fs-green); }
+.fs-input{ width:100%; min-height:52px; padding:0 16px; border:2px solid #98b4a6; border-radius:12px; background:#fff; font-size:17px; transition:border-color .15s; }
+.fs-input:hover{ border-color:var(--fs-green-md); }
+.fs-input:focus-visible{ border-color:var(--fs-green); outline:3px solid var(--fs-green); outline-offset:2px; }
+.fs-input[aria-invalid="true"]{ border-color:var(--fs-tomato-ink); }
+.fs-hint{ margin:8px 0 0; font-size:14px; color:var(--fs-muted); }
+.fs-err{ margin:8px 0 0; font-size:15px; font-weight:600; color:var(--fs-tomato-dk); }
+.fs-results{ margin-top:22px; }
+.fs-results:empty{ display:none; }
+.fs-results__head{ margin:0 0 12px; font-size:15px; color:var(--fs-muted); }
+.fs-results__head strong{ color:var(--fs-green); }
+.fs-venues{ list-style:none; display:grid; gap:10px; }
+.fs-venue{ padding:18px 20px; border:1px solid var(--fs-line); border-radius:16px; background:#fff; }
+.fs-venue__top{ display:flex; justify-content:space-between; align-items:baseline; gap:12px; }
+.fs-venue h4{ font-size:18px; }
+.fs-venue__dist{ flex:none; font-size:14px; font-weight:700; color:var(--fs-tomato-ink); }
+.fs-tag{ display:inline-flex; align-items:center; min-height:26px; padding:0 10px; border-radius:999px; font-size:13px; font-weight:700; background:var(--fs-mint); color:var(--fs-green); white-space:nowrap; }
+.fs-tag--urgent{ background:#fde5df; color:#9c2c1b; }
+.fs-tag--low{ background:#fff1c7; color:#5f4500; }
+.fs-venue .fs-tag{ margin:8px 0 8px; white-space:normal; padding:3px 10px; }
+.fs-venue__addr{ margin:0 0 8px; font-size:15px; color:var(--fs-muted); }
+.fs-times{ display:grid; grid-template-columns:auto minmax(0, 1fr); gap:2px 14px; margin:0 0 10px; font-size:15px; }
+.fs-times dt{ font-weight:700; color:var(--fs-green); }
+.fs-times dd{ margin:0; }
+.fs-venue .fs-link{ font-size:15px; }
+.fs-finder__privacy{ margin:16px 0 0; font-size:14px; color:var(--fs-muted); }
+
+.fs-services{ margin-top:clamp(56px, 6vw, 96px); }
+.fs-services__head{ display:flex; justify-content:space-between; align-items:end; gap:20px; margin-bottom:24px; }
+.fs-services__head p{ margin:6px 0 0; color:var(--fs-muted); }
+.fs-svc-grid{ list-style:none; display:grid; grid-template-columns:repeat(4, minmax(0, 1fr)); gap:20px; }
+.fs-svc{ display:flex; flex-direction:column; overflow:hidden; border:1px solid var(--fs-line); border-radius:20px; background:#fff; transition:box-shadow .2s, transform .2s; }
+@media (hover:hover){ .fs-svc:hover{ transform:translateY(-3px); box-shadow:0 26px 40px -32px rgba(15,45,33,.7); } }
+.fs-svc__media{ position:relative; aspect-ratio:3 / 2; background:var(--fs-mint); }
+.fs-svc__media img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+.fs-svc__body{ display:flex; flex-direction:column; flex:1; padding:20px 22px 24px; }
+.fs-svc__meta{ align-self:flex-start; margin-bottom:10px; }
+.fs-svc h4{ font-size:21px; margin-bottom:8px; }
+.fs-svc p{ flex:1; font-size:16px; color:var(--fs-muted); margin-bottom:14px; }
+
+/* ===== Donate ===== */
+.fs-donate__extras{ display:grid; gap:20px; margin-top:32px; }
+.fs-gabox{ padding:24px; border-radius:20px; background:#fff; border:1px solid var(--fs-line); }
+.fs-gabox h3{ font-size:21px; margin-bottom:8px; }
+.fs-gabox p{ color:var(--fs-muted); font-size:16px; }
+.fs-gabox .fs-mt{ margin-top:22px; }
+.fs-eq{ display:flex; align-items:stretch; gap:8px; margin:16px 0 14px; }
+.fs-eq__t{ flex:1; padding:12px 10px; border-radius:14px; background:var(--fs-mint); text-align:center; line-height:1.2; }
+.fs-eq__t b{ display:block; font-family:var(--fs-head); font-size:26px; color:var(--fs-green); }
+.fs-eq__t span{ font-size:13px; color:var(--fs-muted); }
+.fs-eq__t--sum{ background:var(--fs-green); }
+.fs-eq__t--sum b{ color:#fff; }
+.fs-eq__t--sum span{ color:#cfe3d8; }
+.fs-eq__op{ display:grid; place-items:center; font-family:var(--fs-head); font-weight:800; font-size:22px; color:var(--fs-tomato-ink); }
+.fs-trust{ list-style:none; display:grid; gap:10px; }
+.fs-trust li{ display:flex; gap:12px; align-items:flex-start; }
+.fs-trust svg{ width:22px; height:22px; flex:none; margin-top:2px; color:var(--fs-green); }
+.fs-frrow{ display:flex; gap:16px; align-items:center; padding-top:20px; border-top:1px solid #cfe0d6; }
+.fs-frbadge{ flex:none; display:grid; place-items:center; width:132px; min-height:64px; padding:8px; border:1.5px solid #9aa9a1; border-radius:8px; background:#fff; color:#56645d; font-size:11.5px; font-weight:700; line-height:1.25; text-align:center; letter-spacing:.02em; }
+.fs-frrow p{ margin:0; font-size:15px; color:var(--fs-muted); }
+.fs-ways{ list-style:none; display:flex; flex-wrap:wrap; gap:8px 18px; }
+.fs-ways a{ font-size:16px; }
+
+.fs-give{ scroll-margin-top:calc(var(--fs-header-h) + 16px); padding:clamp(22px, 2.6vw, 38px); border:1px solid var(--fs-line); border-radius:26px; background:#fff; box-shadow:0 34px 60px -44px rgba(15,45,33,.6); }
+.fs-give__top{ display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:18px; }
+.fs-give__title{ font-size:clamp(22px, 1vw + 16px, 27px); }
+.fs-give__title:focus{ outline:none; }
+.fs-give__count{ flex:none; margin:0; font-size:14px; font-weight:700; color:var(--fs-muted); }
+.fs-seg{ position:relative; display:grid; grid-template-columns:1fr 1fr; margin:0 0 20px; padding:4px; border:0; border-radius:999px; background:var(--fs-mint); }
+.fs-seg input,.fs-amt input{ position:absolute; opacity:0; width:1px; height:1px; pointer-events:none; }
+.fs-seg label{ display:flex; align-items:center; justify-content:center; min-height:48px; border-radius:999px; font-weight:700; color:var(--fs-green); cursor:pointer; transition:background-color .18s, color .18s; }
+.fs-seg input:checked + label{ background:var(--fs-green); color:#fff; }
+.fs-seg input:focus-visible + label,.fs-amt input:focus-visible + label{ outline:3px solid var(--fs-tomato-ink); outline-offset:2px; }
+.fs-amts{ margin:0; padding:0; border:0; min-width:0; }
+.fs-amts legend{ padding:0; margin-bottom:10px; font-weight:700; color:var(--fs-green); }
+.fs-amts__grid{ display:grid; grid-template-columns:repeat(4, minmax(0, 1fr)); gap:10px; }
+.fs-amt{ position:relative; }
+.fs-amt label{ display:flex; align-items:center; justify-content:center; min-height:62px; border:2px solid var(--fs-line); border-radius:14px; background:#fff; font-family:var(--fs-head); font-size:23px; font-weight:700; color:var(--fs-green); cursor:pointer; transition:border-color .15s, background-color .15s, color .15s; }
+.fs-amt label:hover{ border-color:var(--fs-green); }
+.fs-amt input:checked + label{ border-color:var(--fs-green); background:var(--fs-green); color:#fff; }
+.fs-amt--other label{ font-family:var(--fs-body); font-size:17px; }
+.fs-other{ margin-top:12px; }
+.fs-money{ position:relative; }
+.fs-money > span{ position:absolute; left:16px; top:50%; transform:translateY(-50%); font-weight:700; color:var(--fs-green); }
+.fs-money .fs-input{ padding-left:34px; }
+.fs-impact{ display:flex; align-items:flex-start; gap:14px; min-height:86px; margin:18px 0 0; padding:16px 18px; border:1px solid #f1dd9c; border-radius:16px; background:#fff8e0; }
+.fs-impact .fs-ic{ width:40px; height:40px; background:var(--fs-sun); }
+.fs-impact .fs-ic svg{ width:20px; height:20px; }
+.fs-impact p{ margin:0; line-height:1.45; }
+.fs-impact strong{ color:var(--fs-green); }
+.fs-gaw{ margin-top:16px; padding:18px; border:1px solid var(--fs-line); border-radius:16px; }
+.fs-gaw__head{ display:flex; justify-content:space-between; align-items:baseline; gap:12px; flex-wrap:wrap; margin-bottom:12px; }
+.fs-gaw__badge{ font-family:var(--fs-head); font-size:19px; font-weight:800; color:var(--fs-green); }
+.fs-gaw__calc{ font-weight:700; color:var(--fs-tomato-ink); }
+.fs-check{ display:grid; grid-template-columns:26px minmax(0, 1fr); gap:12px; align-items:start; font-size:15px; line-height:1.5; cursor:pointer; }
+.fs-check input{ width:22px; height:22px; margin:1px 0 0; accent-color:var(--fs-green); cursor:pointer; }
+.fs-gaw .fs-small{ margin:12px 0 0; }
+.fs-give__go{ margin-top:20px; }
+.fs-give__sum{ display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:18px; padding:12px 16px; border-radius:14px; background:var(--fs-mint); }
+.fs-give__sum p{ margin:0; font-weight:600; }
+.fs-textbtn{ min-height:44px; padding:0 4px; border:0; background:none; color:var(--fs-green); font-weight:700; text-decoration:underline; text-underline-offset:4px; text-decoration-color:var(--fs-tomato); cursor:pointer; }
+.fs-textbtn:hover{ color:var(--fs-tomato-ink); }
+.fs-fields{ display:grid; grid-template-columns:minmax(0, 1fr) minmax(0, 1fr); gap:14px; }
+.fs-field--full{ grid-column:1 / -1; }
+.fs-consent{ margin-top:18px; padding-top:16px; border-top:1px solid var(--fs-line); }
+.fs-consent > p{ font-size:14px; color:var(--fs-muted); }
+.fs-consent a{ color:var(--fs-green); font-weight:600; }
+.fs-give__nav{ display:flex; gap:10px; margin-top:20px; }
+.fs-give__nav .fs-btn--primary{ flex:1; }
+@media (max-width:767px){ .fs-give__nav{ flex-direction:column-reverse; } .fs-give__nav .fs-btn{ white-space:normal; } }
+.fs-done{ text-align:center; }
+.fs-done .fs-ic{ width:72px; height:72px; margin:4px auto 16px; }
+.fs-done .fs-ic svg{ width:34px; height:34px; }
+.fs-done h4{ font-size:28px; margin-bottom:10px; }
+.fs-notebox{ margin:16px 0 20px; padding:14px 16px; border:1.5px dashed #d1ad3f; border-radius:14px; background:#fff8e0; font-size:15px; text-align:left; }
+.fs-give__secure{ display:flex; gap:10px; align-items:flex-start; margin:16px 4px 0; font-size:14px; color:var(--fs-muted); }
+.fs-give__secure svg{ width:18px; height:18px; flex:none; margin-top:2px; color:var(--fs-green); }
+
+/* ===== Donate food ===== */
+.fs-legend-row{ display:flex; flex-wrap:wrap; gap:8px 16px; margin:8px 0 14px; font-size:14px; color:var(--fs-muted); }
+.fs-needlist{ list-style:none; display:grid; grid-template-columns:minmax(0, 1fr) minmax(0, 1fr); column-gap:32px; border-top:1px solid var(--fs-line); }
+.fs-needlist li{ display:flex; justify-content:space-between; align-items:center; gap:12px; min-height:56px; border-bottom:1px solid var(--fs-line); font-weight:600; }
+.fs-dont{ display:flex; gap:16px; margin-top:28px; padding:20px 22px; border-radius:18px; background:#fff5f2; border:1px solid #f6d3ca; }
+.fs-dont .fs-ic{ background:#fde5df; color:#9c2c1b; }
+.fs-dont h3{ font-size:19px; margin:4px 0 6px; }
+.fs-dont p{ margin:0; color:var(--fs-muted); font-size:16px; }
+.fs-food__side{ padding:clamp(24px, 2.6vw, 36px); border-radius:24px; background:var(--fs-mint); }
+.fs-drops{ list-style:none; margin-top:12px; }
+.fs-drop{ display:grid; grid-template-columns:48px minmax(0, 1fr); gap:16px; padding:18px 0; border-top:1px solid #cfe0d6; }
+.fs-drop:first-child{ border-top:0; }
+.fs-drop .fs-ic{ background:#fff; }
+.fs-drop h4{ font-size:18px; margin:2px 0 4px; }
+.fs-drop p{ margin:0; font-size:15.5px; color:var(--fs-muted); }
+.fs-drop p + p{ margin-top:4px; }
+.fs-drop strong{ color:var(--fs-green); }
+.fs-drop a{ color:var(--fs-green); font-weight:700; }
+.fs-food__side .fs-btn{ margin-top:10px; }
+
+/* ===== Volunteer ===== */
+.fs-vol__intro{ display:grid; grid-template-columns:minmax(0, 1fr) minmax(0, 1fr); gap:clamp(36px, 5vw, 88px); align-items:center; margin-bottom:clamp(40px, 5vw, 72px); }
+.fs-vol__btns{ display:flex; flex-wrap:wrap; gap:12px; margin-top:26px; }
+.fs-vol__fig{ margin:0; position:relative; border-radius:24px; overflow:hidden; aspect-ratio:4 / 3; background:var(--fs-mint-2); }
+.fs-vol__fig img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+.fs-vol__fig figcaption{ position:absolute; left:16px; bottom:16px; padding:8px 14px; border-radius:999px; background:rgba(255,255,255,.94); font-size:14px; font-weight:600; color:var(--fs-green); }
+.fs-roles{ list-style:none; display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:18px; }
+.fs-role{ display:flex; flex-direction:column; padding:26px; border-radius:20px; background:#fff; border:1px solid #d6e6dd; transition:box-shadow .2s, border-color .2s; }
+@media (hover:hover){ .fs-role:hover{ border-color:var(--fs-green-lt); box-shadow:0 22px 40px -32px rgba(15,45,33,.7); } }
+.fs-role .fs-ic{ margin-bottom:16px; }
+.fs-role h3{ font-size:21px; margin-bottom:8px; }
+.fs-role p{ flex:1; color:var(--fs-muted); font-size:16px; }
+.fs-role__meta{ list-style:none; display:flex; flex-wrap:wrap; gap:6px; }
+.fs-vol__safe{ display:flex; gap:12px; align-items:flex-start; margin:28px 0 0; font-size:15px; color:var(--fs-muted); }
+.fs-vol__safe svg{ width:20px; height:20px; flex:none; margin-top:2px; color:var(--fs-green); }
+.fs-vol__safe a{ color:var(--fs-green); font-weight:700; }
+
+/* ===== Impact + money ===== */
+.fs-stats{ background:var(--fs-green); color:#d8e8df; --fs-focus:var(--fs-sun); }
+.fs-stats .fs-kicker{ color:var(--fs-sun); }
+.fs-stats .fs-kicker::before{ background:var(--fs-sun); }
+.fs-stats .fs-h2{ color:#fff; }
+.fs-stats__head{ display:flex; justify-content:space-between; align-items:flex-end; gap:24px; margin-bottom:clamp(32px, 4vw, 56px); }
+.fs-stats__head .fs-h2{ margin:0; max-width:16ch; }
+.fs-illus{ display:inline-flex; align-items:center; gap:8px; margin:0; padding:8px 14px; border-radius:999px; border:1px solid rgba(255,255,255,.3); font-size:14px; color:#e7f1eb; }
+.fs-illus svg{ width:16px; height:16px; flex:none; color:var(--fs-sun); }
+.fs-stats__grid{ list-style:none; display:grid; grid-template-columns:repeat(4, minmax(0, 1fr)); border-top:1px solid rgba(255,255,255,.2); }
+.fs-stat{ padding:28px 28px 8px 0; }
+.fs-stat + .fs-stat{ padding-left:28px; border-left:1px solid rgba(255,255,255,.2); }
+.fs-stat__n{ display:block; font-family:var(--fs-head); font-size:clamp(40px, 3.4vw + 6px, 66px); font-weight:700; line-height:1; letter-spacing:-.03em; color:#fff; }
+.fs-stat__l{ display:block; margin-top:12px; font-size:16px; max-width:22ch; }
+.fs-moneybox{ display:grid; grid-template-columns:minmax(0, 4fr) minmax(0, 7fr); gap:clamp(28px, 4vw, 64px); align-items:center; margin-top:clamp(40px, 5vw, 72px); padding:clamp(24px, 3vw, 44px); border-radius:26px; background:var(--fs-green-dk); }
+.fs-moneybox h3{ color:#fff; font-size:clamp(24px, 1.4vw + 14px, 34px); margin-bottom:12px; }
+.fs-moneybox p{ font-size:16px; }
+.fs-moneybox .fs-link{ color:#fff; }
+.fs-moneybox .fs-link:hover{ color:var(--fs-sun); }
+.fs-bar{ display:flex; height:68px; border-radius:16px; overflow:hidden; }
+.fs-bar__seg{ display:flex; align-items:center; padding:0 18px; font-family:var(--fs-head); font-weight:800; font-size:22px; white-space:nowrap; }
+.fs-bar__seg--a{ flex:84 1 0; background:var(--fs-tomato-ink); color:#fff; }
+.fs-bar__seg--b{ flex:10 1 0; background:var(--fs-sun); color:var(--fs-green); padding:0 10px; justify-content:center; }
+.fs-bar__seg--c{ flex:6 1 0; background:var(--fs-mint); color:var(--fs-green); padding:0; justify-content:center; font-size:17px; }
+.fs-legend{ list-style:none; display:grid; gap:12px; margin-top:20px; }
+.fs-legend li{ display:grid; grid-template-columns:16px 52px minmax(0, 1fr); gap:12px; align-items:baseline; font-size:16px; }
+.fs-legend i{ width:14px; height:14px; border-radius:4px; transform:translateY(1px); }
+.fs-legend b{ font-family:var(--fs-head); font-size:19px; color:#fff; }
+
+/* ===== Stories ===== */
+.fs-stories__grid{ display:grid; grid-template-columns:minmax(0, 1.2fr) minmax(0, 1fr); grid-template-rows:auto auto; gap:20px; }
+.fs-story{ display:grid; grid-template-columns:minmax(0, 2fr) minmax(0, 3fr); overflow:hidden; border-radius:22px; background:var(--fs-mint); }
+.fs-story__media{ position:relative; min-height:240px; background:var(--fs-mint-2); }
+.fs-story__media img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+.fs-story__media--r img{ object-position:74% 50%; }
+.fs-story__body{ display:flex; flex-direction:column; padding:26px 28px; }
+.fs-story blockquote{ margin:0 0 16px; flex:1; }
+.fs-story blockquote p{ margin:0; font-family:var(--fs-head); font-size:clamp(18px, .5vw + 15px, 21px); font-weight:600; line-height:1.35; color:var(--fs-green); letter-spacing:-.01em; }
+.fs-story blockquote p::before{ content:"\201C"; display:block; height:.5em; margin-bottom:6px; font-size:2.4em; line-height:1; color:var(--fs-tomato); }
+.fs-story__by{ margin:0 0 12px; font-size:15px; color:var(--fs-muted); }
+.fs-story__by b{ color:var(--fs-ink); }
+.fs-story--feature{ grid-row:1 / 3; grid-template-columns:1fr; grid-template-rows:minmax(0, 1fr) auto; }
+.fs-story--feature .fs-story__media{ min-height:380px; }
+.fs-story--feature .fs-story__body{ padding:30px 34px 32px; }
+.fs-story--feature blockquote p{ font-size:clamp(22px, .9vw + 16px, 29px); }
+.fs-stories__note{ display:flex; gap:10px; align-items:flex-start; margin:22px 0 0; font-size:15px; color:var(--fs-muted); }
+.fs-stories__note svg{ width:20px; height:20px; flex:none; margin-top:2px; color:var(--fs-green); }
+
+/* ===== Partners ===== */
+.fs-partners{ padding-block:clamp(56px, 6vw, 96px); border-top:1px solid var(--fs-line); }
+.fs-partners__in{ display:grid; grid-template-columns:minmax(0, 4fr) minmax(0, 7fr); gap:clamp(32px, 5vw, 88px); align-items:center; }
+.fs-partners .fs-h2{ font-size:clamp(28px, 1.8vw + 12px, 40px); }
+.fs-partners p{ color:var(--fs-muted); }
+.fs-logos{ list-style:none; display:grid; grid-template-columns:repeat(4, minmax(0, 1fr)); gap:14px; }
+.fs-logos li{ display:grid; place-items:center; min-height:100px; padding:10px; border:1.5px dashed #b6ccc0; border-radius:16px; color:#5f7369; font-size:14px; font-weight:600; text-align:center; line-height:1.3; }
+.fs-logos li span{ display:block; font-size:12px; font-weight:500; color:#6c7e75; }
+
+/* ===== FAQ ===== */
+.fs-faq__help{ margin-top:28px; padding:24px; border-radius:20px; background:#fff; border:1px solid var(--fs-line); }
+.fs-faq__help h3{ font-size:21px; margin-bottom:10px; }
+.fs-faq__help p{ margin:0 0 6px; color:var(--fs-muted); }
+.fs-faq__help a{ color:var(--fs-green); font-weight:700; overflow-wrap:anywhere; }
+.fs-qa{ margin-bottom:10px; border:1px solid var(--fs-line); border-radius:16px; background:#fff; }
+.fs-qa summary{ display:flex; justify-content:space-between; align-items:center; gap:16px; min-height:64px; padding:14px 18px 14px 22px; border-radius:16px; list-style:none; cursor:pointer; font-family:var(--fs-head); font-size:clamp(17px, .4vw + 15px, 20px); font-weight:700; line-height:1.3; color:var(--fs-green); }
+.fs-qa summary::-webkit-details-marker{ display:none; }
+.fs-qa summary:hover{ color:var(--fs-tomato-ink); }
+.fs-qa__ic{ position:relative; width:34px; height:34px; flex:none; border-radius:50%; background:var(--fs-mint); }
+.fs-qa__ic::before,.fs-qa__ic::after{ content:""; position:absolute; left:50%; top:50%; width:14px; height:2.5px; margin:-1.25px 0 0 -7px; border-radius:2px; background:var(--fs-green); transition:transform .2s; }
+.fs-qa__ic::after{ transform:rotate(90deg); }
+.fs-qa[open] .fs-qa__ic::after{ transform:rotate(0deg); }
+.fs-qa[open] .fs-qa__ic{ background:var(--fs-sun); }
+.fs-qa__a{ padding:0 22px 20px; color:var(--fs-muted); }
+.fs-qa__a p:last-child{ margin:0; }
+.fs-qa__a a{ color:var(--fs-green); font-weight:700; overflow-wrap:anywhere; }
+
+/* ===== Footer: shopping-list notepad ===== */
+.fs-foot{ background:var(--fs-green); color:#d6e7dd; padding:clamp(72px, 7vw, 112px) 0 calc(28px + env(safe-area-inset-bottom)); --fs-focus:var(--fs-sun); }
+.fs-foot__in{ display:grid; grid-template-columns:minmax(0, 1.75fr) minmax(0, 1fr); gap:clamp(40px, 5vw, 88px); align-items:start; }
+.fs-pad{ --fs-rule:36px; --fs-margin:72px; --fs-focus:var(--fs-green); position:relative; margin-top:14px; padding:var(--fs-rule) clamp(20px, 3vw, 44px) calc(var(--fs-rule) * 1.5) calc(var(--fs-margin) + 22px); color:var(--fs-ink); background-color:#fff; background-image:linear-gradient(90deg, transparent var(--fs-margin), rgba(229,83,61,.55) var(--fs-margin), rgba(229,83,61,.55) calc(var(--fs-margin) + 2px), transparent calc(var(--fs-margin) + 2px)), repeating-linear-gradient(180deg, transparent 0, transparent calc(var(--fs-rule) - 1px), #c6daee calc(var(--fs-rule) - 1px), #c6daee var(--fs-rule)); border-radius:0 0 8px 8px; box-shadow:0 36px 50px -32px rgba(0,0,0,.65); transform:rotate(-.5deg); }
+.fs-pad::before{ content:""; position:absolute; left:0; right:0; bottom:calc(100% - 1px); height:14px; background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 14' preserveAspectRatio='none'%3E%3Cpath fill='%23fff' d='M0 14V8l6-3 5 4 6-6 7 4 6-5 7 6 6-3 6 5 7-6 6 3 7-5 6 7 7-4 6 3 7-5 6 3 7-4 6 7 7-5 6 3 7-4 6 7 7-5 6 3 7-6 6 4 7-2 6 5 7-6 6 4 7-2 6 5 7-6 6 4 7-5 6 3 5-2 4 4v6z'/%3E%3C/svg%3E") repeat-x 0 0 / 240px 14px; }
+.fs-pad__title{ margin:0; font-family:var(--fs-hand); font-size:46px; font-weight:700; line-height:var(--fs-rule); color:var(--fs-green); letter-spacing:0; }
+.fs-pad__sub{ margin:0 0 var(--fs-rule); font-size:15px; line-height:var(--fs-rule); color:var(--fs-muted); }
+.fs-pad__cols{ display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); column-gap:28px; }
+.fs-fh{ margin:0; font-family:var(--fs-hand); font-size:31px; font-weight:700; line-height:var(--fs-rule); color:var(--fs-tomato-ink); letter-spacing:0; }
+.fs-fh-btn{ display:none; width:100%; height:var(--fs-rule); padding:0 2px 5px 0; border:0; background:none; justify-content:space-between; align-items:flex-end; font-family:var(--fs-hand); font-size:32px; font-weight:700; line-height:1; color:var(--fs-tomato-ink); cursor:pointer; }
+.fs-fh-btn svg{ width:22px; height:22px; margin-bottom:4px; color:var(--fs-green); transition:transform .2s; }
+.fs-fh-btn[aria-expanded="true"] svg{ transform:rotate(180deg); }
+.fs-flist{ list-style:none; }
+.fs-flist a{ display:flex; align-items:flex-end; gap:12px; height:var(--fs-rule); padding-bottom:4px; color:var(--fs-ink); text-decoration:none; font-size:16.5px; font-weight:500; line-height:1.2; border-radius:4px; }
+.fs-box{ position:relative; flex:none; width:18px; height:18px; margin-bottom:2px; border:2px solid #2f5275; border-radius:3px; background:#fff; }
+.fs-box::after{ content:""; position:absolute; left:4px; top:-7px; width:7px; height:15px; border:solid var(--fs-tomato-ink); border-width:0 3px 3px 0; transform:rotate(40deg) scale(.4); opacity:0; transition:opacity .15s, transform .18s; }
+.fs-flist__t{ text-decoration-line:line-through; text-decoration-color:transparent; text-decoration-thickness:2px; transition:text-decoration-color .18s, color .18s; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.fs-flist a:hover .fs-box::after,.fs-flist a:focus-visible .fs-box::after,.fs-flist a:active .fs-box::after{ opacity:1; transform:rotate(40deg) scale(1); }
+.fs-flist a:hover .fs-flist__t,.fs-flist a:focus-visible .fs-flist__t,.fs-flist a:active .fs-flist__t{ text-decoration-color:var(--fs-tomato-ink); color:#56685f; }
+.fs-flist a:focus-visible{ outline:3px solid var(--fs-green); outline-offset:1px; }
+
+.fs-foot__side .fs-logo{ color:#fff; }
+.fs-foot__side .fs-logo__txt span{ color:#bad4c6; }
+.fs-foot__about{ margin:18px 0 26px; max-width:40ch; }
+.fs-contact{ display:grid; gap:12px; margin-bottom:28px; font-style:normal; }
+.fs-contact p{ display:grid; grid-template-columns:100px minmax(0, 1fr); gap:12px; margin:0; }
+.fs-contact__k{ padding-top:3px; font-size:12.5px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--fs-green-lt); }
+.fs-contact a{ color:#fff; font-weight:700; text-decoration-color:rgba(255,255,255,.45); text-underline-offset:3px; overflow-wrap:anywhere; }
+.fs-contact a:hover{ text-decoration-color:var(--fs-sun); }
+.fs-contact small{ display:block; font-size:14px; color:#b6cfc1; }
+.fs-foot .fs-frrow{ border-top-color:rgba(255,255,255,.18); }
+.fs-foot .fs-frrow p{ color:#cfe2d8; }
+.fs-social{ list-style:none; display:flex; flex-wrap:wrap; gap:10px; margin-top:24px; }
+.fs-social a{ display:inline-flex; align-items:center; min-height:44px; padding:0 16px; border:1px solid rgba(255,255,255,.3); border-radius:999px; color:#fff; font-size:15px; font-weight:600; text-decoration:none; }
+.fs-social a:hover{ border-color:#fff; background:rgba(255,255,255,.08); }
+.fs-legal{ display:grid; grid-template-columns:minmax(0, 1fr) auto auto; gap:20px 32px; align-items:center; margin-top:clamp(48px, 5vw, 80px); padding-top:24px; border-top:1px solid rgba(255,255,255,.18); font-size:14px; }
+.fs-legal p{ margin:0 0 4px; color:#bcd3c6; }
+.fs-legal__links{ list-style:none; display:flex; flex-wrap:wrap; gap:0 18px; }
+.fs-legal__links a{ display:inline-flex; align-items:center; min-height:44px; color:#fff; font-weight:600; text-underline-offset:3px; }
+.fs-legal__links a:hover{ color:var(--fs-sun); }
+.fs-totop{ display:grid; place-items:center; width:52px; height:52px; border:2px solid rgba(255,255,255,.5); border-radius:50%; background:transparent; color:#fff; cursor:pointer; transition:background-color .18s, color .18s, border-color .18s; }
+.fs-totop:hover{ background:var(--fs-sun); border-color:var(--fs-sun); color:var(--fs-green); }
+.fs-totop svg{ width:22px; height:22px; }
+
+/* ===== Mobile action bar ===== */
+.fs-actbar{ display:none; }
+
+/* ===== Tablet 768–1199 ===== */
+@media (min-width:768px) and (max-width:1199px){
+  .fs-split{ grid-template-columns:minmax(0, 1fr); }
+  .fs-steps{ grid-template-columns:minmax(0, 1fr); }
+  .fs-finder__row{ max-width:600px; }
+  .fs-svc-grid{ grid-template-columns:repeat(2, minmax(0, 1fr)); }
+  .fs-donate__copy{ display:contents; }
+  .fs-donate__head{ order:1; }
+  .fs-donate__widget{ order:2; }
+  .fs-donate__extras{ order:3; grid-template-columns:repeat(2, minmax(0, 1fr)); margin-top:0; }
+  .fs-donate__extras .fs-frrow{ grid-column:1 / -1; }
+  .fs-give__s1{ display:grid; grid-template-columns:minmax(0, 1fr) minmax(0, 1fr); gap:24px; align-items:start; }
+  .fs-gaw{ margin-top:0; }
+  .fs-needlist{ grid-template-columns:repeat(2, minmax(0, 1fr)); }
+  .fs-drops{ display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); column-gap:28px; }
+  .fs-drop:nth-child(2){ border-top:0; }
+  .fs-vol__intro{ gap:36px; }
+  .fs-roles{ grid-template-columns:repeat(2, minmax(0, 1fr)); }
+  .fs-stats__grid{ grid-template-columns:repeat(2, minmax(0, 1fr)); }
+  .fs-stat:nth-child(3){ padding-left:0; border-left:0; }
+  .fs-stat:nth-child(n+3){ border-top:1px solid rgba(255,255,255,.2); }
+  .fs-stat{ padding-bottom:24px; }
+  .fs-moneybox{ grid-template-columns:minmax(0, 1fr); }
+  .fs-stories__grid{ grid-template-columns:repeat(2, minmax(0, 1fr)); }
+  .fs-story{ grid-template-columns:minmax(0, 1fr); grid-template-rows:240px auto; }
+  .fs-story--feature{ grid-column:1 / -1; grid-row:auto; grid-template-columns:minmax(0, 1fr) minmax(0, 1fr); grid-template-rows:auto; }
+  .fs-story--feature .fs-story__media{ min-height:360px; }
+  .fs-partners__in{ grid-template-columns:minmax(0, 1fr); }
+  .fs-foot__in{ grid-template-columns:minmax(0, 1fr); }
+  .fs-pad{ --fs-margin:56px; }
+  .fs-flist a{ font-size:16px; }
+  .fs-foot__side{ display:grid; grid-template-columns:minmax(0, 1fr) minmax(0, 1fr); gap:8px 40px; }
+  .fs-foot__side > .fs-logo,.fs-foot__about{ grid-column:1; }
+  .fs-foot__side .fs-contact{ grid-column:2; grid-row:1 / 4; }
+  .fs-foot__side .fs-contact p{ grid-template-columns:minmax(0, 1fr); gap:2px; }
+  .fs-legal{ grid-template-columns:minmax(0, 1fr) auto; }
+  .fs-legal__links{ grid-column:1; grid-row:2; }
+  .fs-totop{ grid-column:2; grid-row:1 / 3; }
+}
+@media (min-width:1024px) and (max-width:1199px){
+  .fs-venues{ grid-template-columns:repeat(3, minmax(0, 1fr)); }
+  .fs-svc-grid{ grid-template-columns:repeat(4, minmax(0, 1fr)); }
+  .fs-roles{ grid-template-columns:repeat(3, minmax(0, 1fr)); }
+}
+
+/* ===== Mobile ≤767 ===== */
+@media (max-width:767px){
+  .fs-sec{ padding-block:56px; }
+  .fs-sec-head{ margin-bottom:28px; }
+  .fs-step{ grid-template-columns:40px minmax(0, 1fr); gap:14px; padding:18px; }
+  .fs-step__n{ width:40px; height:40px; font-size:18px; }
+  .fs-step h4{ font-size:18px; margin-top:6px; }
+  .fs-assure{ grid-template-columns:minmax(0, 1fr); gap:12px; padding:22px; }
+  .fs-finder__row{ flex-direction:column; }
+  .fs-finder__row .fs-btn{ width:100%; min-height:52px; }
+  .fs-services__head{ display:block; }
+  .fs-svc-grid{ grid-template-columns:minmax(0, 1fr); gap:12px; }
+  .fs-svc{ flex-direction:row; }
+  .fs-svc__media{ flex:none; width:108px; aspect-ratio:auto; }
+  .fs-svc__body{ padding:16px 16px 14px; }
+  .fs-svc__meta{ display:none; }
+  .fs-svc h4{ font-size:18px; margin-bottom:4px; }
+  .fs-svc p{ font-size:15px; line-height:1.45; margin-bottom:6px; }
+  .fs-svc .fs-link{ min-height:44px; font-size:15px; }
+  .fs-donate__copy{ display:contents; }
+  .fs-donate__head{ order:1; }
+  .fs-donate__widget{ order:2; }
+  .fs-donate__extras{ order:3; margin-top:0; }
+  .fs-donate__grid{ gap:28px; }
+  .fs-give{ padding:20px 18px 22px; border-radius:22px; }
+  .fs-amts__grid{ gap:8px; }
+  .fs-amt label{ min-height:56px; font-size:21px; }
+  .fs-amt--other label{ font-size:16px; }
+  .fs-fields{ grid-template-columns:minmax(0, 1fr); }
+  .fs-eq__t b{ font-size:21px; }
+  .fs-eq__t span{ font-size:12px; }
+  .fs-frrow{ align-items:flex-start; }
+  .fs-frbadge{ width:112px; }
+  .fs-needlist{ grid-template-columns:minmax(0, 1fr); }
+  .fs-dont{ padding:18px; }
+  .fs-vol__intro{ grid-template-columns:minmax(0, 1fr); gap:28px; }
+  .fs-vol__btns .fs-btn{ flex:1; }
+  .fs-roles{ grid-template-columns:minmax(0, 1fr); gap:12px; }
+  .fs-role{ padding:22px; }
+  .fs-stats__head{ display:block; }
+  .fs-illus{ margin-top:18px; }
+  .fs-stats__grid{ grid-template-columns:repeat(2, minmax(0, 1fr)); }
+  .fs-stat{ padding:22px 14px 20px 0; }
+  .fs-stat + .fs-stat{ padding-left:14px; }
+  .fs-stat:nth-child(3){ padding-left:0; border-left:0; }
+  .fs-stat:nth-child(n+3){ border-top:1px solid rgba(255,255,255,.2); }
+  .fs-stat__l{ font-size:15px; margin-top:8px; }
+  .fs-moneybox{ grid-template-columns:minmax(0, 1fr); padding:22px 18px; border-radius:20px; }
+  .fs-bar{ height:56px; }
+  .fs-bar__seg{ font-size:19px; }
+  .fs-bar__seg--b,.fs-bar__seg--c{ font-size:0; }
+  .fs-legend li{ grid-template-columns:16px 44px minmax(0, 1fr); font-size:15px; }
+  .fs-stories__grid{ grid-template-columns:minmax(0, 1fr); }
+  .fs-story,.fs-story--feature{ grid-row:auto; grid-template-columns:minmax(0, 1fr); grid-template-rows:auto; }
+  .fs-story__media,.fs-story--feature .fs-story__media{ min-height:0; aspect-ratio:4 / 3; }
+  .fs-story__body,.fs-story--feature .fs-story__body{ padding:22px 20px 18px; }
+  .fs-story .fs-link{ min-height:44px; }
+  .fs-partners__in{ grid-template-columns:minmax(0, 1fr); }
+  .fs-logos{ grid-template-columns:repeat(2, minmax(0, 1fr)); gap:10px; }
+  .fs-logos li{ min-height:84px; }
+  .fs-logos li:nth-child(n+7){ display:none; }
+  .fs-qa summary{ padding:12px 14px 12px 18px; }
+  .fs-qa__a{ padding:0 18px 18px; }
+  .fs-foot{ padding-top:64px; }
+  .fs-foot__in{ grid-template-columns:minmax(0, 1fr); gap:48px; }
+  .fs-pad{ --fs-rule:44px; --fs-margin:34px; padding:var(--fs-rule) 18px var(--fs-rule) calc(var(--fs-margin) + 16px); transform:rotate(-.4deg); }
+  .fs-pad__title{ font-size:40px; }
+  .fs-pad__sub{ line-height:1.4; margin:0 0 calc(var(--fs-rule) - 8px); padding-top:8px; font-size:14px; }
+  .fs-pad__cols{ grid-template-columns:minmax(0, 1fr); }
+  .fs-fh{ display:none; }
+  .fs-fh-btn{ display:flex; }
+  .fs-flist{ display:none; }
+  .fs-flist.is-open{ display:block; }
+  .fs-flist a{ font-size:17px; }
+  .fs-contact p{ grid-template-columns:minmax(0, 1fr); gap:2px; }
+  .fs-legal{ grid-template-columns:minmax(0, 1fr) auto; }
+  .fs-legal__reg{ grid-column:1 / -1; }
+  .fs-legal__links{ grid-column:1; }
+  .fs-totop{ grid-column:2; align-self:end; }
+  .fs-actbar{ display:grid; grid-template-columns:minmax(0, 1fr) minmax(0, 1fr); gap:10px; position:fixed; left:0; right:0; bottom:0; z-index:90; padding:10px var(--fs-gutter) calc(10px + env(safe-area-inset-bottom)); background:rgba(255,255,255,.98); border-top:1px solid var(--fs-line); box-shadow:0 -12px 30px -22px rgba(15,45,33,.6); transform:translateY(110%); visibility:hidden; transition:transform .25s ease, visibility 0s linear .25s; }
+  .fs-actbar.is-on{ transform:none; visibility:visible; transition:transform .25s ease, visibility 0s; }
+  .fs-actbar .fs-btn{ min-height:50px; padding:0 12px; }
+}
+@media (prefers-reduced-motion:reduce){
+  .fs-actbar,.fs-actbar.is-on{ transition:none; }
+  .fs-svc,.fs-role,.fs-box::after{ transition:none; }
+}
+</style>
+
+<style id="sv-hero-css">
+.svh{--a:#ffcf4a;--ad:#ffcf4a;--ink:#13231b;--paper:#fff;--on:#13231b;position:relative;isolation:isolate;overflow:hidden;margin:0;font-family:"Caveat",system-ui,sans-serif;box-sizing:border-box}
+.svh *{box-sizing:border-box}
+.svh .svh-in{position:relative;z-index:2;width:min(1240px,100% - 48px);margin-inline:auto}
+.svh .svh-kicker{display:inline-flex;align-items:center;gap:10px;margin:0;font:600 12.5px/1.3 "Caveat",system-ui,sans-serif;letter-spacing:.16em;text-transform:uppercase}
+.svh .svh-kicker i{width:28px;height:2px;background:var(--a);display:inline-block}
+.svh .svh-h{margin:0;font-family:"Bricolage Grotesque",Georgia,serif;font-weight:600;letter-spacing:-.025em;line-height:.95}
+.svh .svh-h span{display:block;overflow:hidden;padding-bottom:.06em}
+.svh .svh-h span>b{display:inline-block;font-weight:inherit;transform:translateY(105%);animation:svh-rise 1s cubic-bezier(.16,1,.3,1) forwards}
+.svh .svh-h span:nth-child(2)>b{animation-delay:.12s}.svh .svh-h span:nth-child(3)>b{animation-delay:.24s}
+.svh .svh-h em{font-style:italic;color:var(--a)}
+.svh .svh-lede{margin:0;max-width:46ch;font-size:clamp(16px,1.25vw,19px);line-height:1.6;opacity:0;animation:svh-fade .9s .45s forwards}
+.svh .svh-ctas{display:flex;flex-wrap:wrap;gap:12px;opacity:0;animation:svh-fade .9s .6s forwards}
+.svh .svh-btn{display:inline-flex;align-items:center;gap:10px;padding:15px 26px;border-radius:999px;font:600 15px/1 "Caveat",system-ui,sans-serif;text-decoration:none;background:var(--a);color:var(--on);border:1px solid var(--a);transition:transform .3s cubic-bezier(.16,1,.3,1),background .3s}
+.svh .svh-btn:hover{transform:translateY(-2px)}
+.svh .svh-btn--ghost{background:transparent;color:inherit;border-color:currentColor}
+.svh .svh-btn span{transition:transform .3s}.svh .svh-btn:hover span{transform:translateX(4px)}
+/* the designs style h1/p themselves, so the banner states its own colours */
+.svh--editorial .svh-h,.svh--poster .svh-h,.svh--stage .svh-h{color:#fff}
+.svh--editorial .svh-kicker,.svh--poster .svh-kicker,.svh--stage .svh-kicker{color:rgba(255,255,255,.9)}
+.svh--index .svh-h,.svh--index .svh-kicker{color:var(--ink)}
+@keyframes svh-rise{to{transform:none}}@keyframes svh-fade{to{opacity:1}}
+@keyframes svh-zoom{from{transform:scale(1.12)}to{transform:scale(1)}}
+@keyframes svh-spin{to{transform:rotate(360deg)}}@keyframes svh-tick{to{transform:translateX(-50%)}}
+@keyframes svh-tilt{from{transform:perspective(1400px) rotateX(18deg) translateY(40px);opacity:0}to{transform:none;opacity:1}}
+
+/* Editorial: words spread across a full-bleed photo */
+.svh--editorial{min-height:100svh;display:flex;align-items:flex-end;padding:150px 0 56px;color:#fff;background:var(--ink)}
+.svh--editorial .svh-media{position:absolute;inset:0;z-index:0;background:center/cover no-repeat;animation:svh-zoom 2.4s cubic-bezier(.16,1,.3,1) both}
+.svh--editorial .svh-shade{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(0,0,0,.45),rgba(0,0,0,.1) 35%,rgba(0,0,0,.65))}
+.svh--editorial .svh-h{font-size:clamp(52px,9vw,150px);margin-top:28px}
+.svh--editorial .svh-h span:nth-child(2){text-align:right}
+.svh--editorial .svh-h em{color:#fff}
+.svh--editorial .svh-foot{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:28px;margin-top:42px;padding-top:26px;border-top:1px solid rgba(255,255,255,.3)}
+.svh--editorial .svh-lede{color:rgba(255,255,255,.88)}
+.svh--editorial .svh-btn--ghost{color:#fff}
+
+/* Stage: dark ground, glow, centred words and a tilted picture */
+.svh--stage{padding:160px 0 0;background:var(--ink);color:#fff;text-align:center}
+.svh--stage .svh-glow{position:absolute;z-index:0;left:50%;top:-10%;width:1100px;height:800px;transform:translateX(-50%);background:radial-gradient(closest-side,color-mix(in srgb,var(--a) 55%,transparent),transparent);filter:blur(30px);opacity:.75}
+.svh--stage .svh-grid{position:absolute;inset:0;z-index:0;background-image:linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px);background-size:64px 64px;mask-image:radial-gradient(circle at 50% 30%,#000,transparent 70%)}
+.svh--stage .svh-kicker{padding:8px 16px;border:1px solid rgba(255,255,255,.2);border-radius:999px;background:rgba(255,255,255,.05)}
+.svh--stage .svh-kicker i{width:8px;height:8px;border-radius:50%}
+.svh--stage .svh-h{font-size:clamp(46px,7.4vw,118px);font-weight:500;margin:26px auto 0;max-width:15ch}
+.svh--stage .svh-h em{color:var(--ad)}
+.svh--stage .svh-lede{margin:26px auto 0;color:rgba(255,255,255,.75)}
+.svh--stage .svh-ctas{justify-content:center;margin-top:32px}
+.svh--stage .svh-btn--ghost{color:#fff}
+.svh--stage .svh-frame{margin:60px auto 0;max-width:1100px;aspect-ratio:16/8;border-radius:22px 22px 0 0;overflow:hidden;border:1px solid rgba(255,255,255,.18);border-bottom:0;box-shadow:0 -30px 80px -20px color-mix(in srgb,var(--a) 45%,transparent);animation:svh-tilt 1.4s .3s cubic-bezier(.16,1,.3,1) both}
+.svh--stage .svh-frame img{display:block;width:100%;height:100%;object-fit:cover}
+.svh--stage .svh-chips{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin:28px 0 0;padding:0}
+.svh--stage .svh-chips a{display:block;padding:8px 14px;border-radius:999px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);color:rgba(255,255,255,.85);font-size:14px;text-decoration:none}
+.svh--stage .svh-chips a:hover{border-color:var(--a);color:#fff}
+
+/* Poster: giant uppercase words, spinning badge, a ticker */
+.svh--poster{min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;padding-top:150px;color:#fff;background:var(--ink)}
+.svh--poster .svh-media{position:absolute;inset:0;z-index:0;background:center/cover no-repeat;animation:svh-zoom 2.4s cubic-bezier(.16,1,.3,1) both}
+.svh--poster .svh-shade{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(0,0,0,.2),rgba(0,0,0,.25) 40%,rgba(0,0,0,.82))}
+.svh--poster .svh-h{font-size:clamp(50px,10vw,168px);font-weight:800;text-transform:uppercase;letter-spacing:-.035em;line-height:.88;margin-top:22px}
+.svh--poster .svh-h em{font-style:normal;color:var(--ad)}
+.svh--poster .svh-row{display:flex;flex-wrap:wrap;gap:24px;align-items:flex-end;justify-content:space-between;margin:34px 0 44px}
+.svh--poster .svh-lede{color:rgba(255,255,255,.85)}
+.svh--poster .svh-btn--ghost{color:#fff}
+.svh--poster .svh-badge{position:absolute;z-index:2;right:clamp(20px,5vw,72px);top:clamp(110px,16vh,170px);width:132px;height:132px;display:grid;place-items:center}
+.svh--poster .svh-badge svg{position:absolute;inset:0;animation:svh-spin 14s linear infinite;fill:#fff;font:700 10.5px/1 "Caveat",system-ui,sans-serif;letter-spacing:.22em;text-transform:uppercase}
+.svh--poster .svh-badge b{width:56px;height:56px;border-radius:50%;background:var(--a);display:grid;place-items:center;color:var(--on);font-size:22px}
+.svh--poster .svh-ticker{position:relative;z-index:2;background:var(--a);color:var(--on);overflow:hidden;padding:15px 0}
+.svh--poster .svh-ticker div{display:flex;gap:44px;width:max-content;animation:svh-tick 26s linear infinite;font:700 clamp(16px,1.6vw,22px)/1 "Bricolage Grotesque",Georgia,serif;text-transform:uppercase;letter-spacing:.02em}
+.svh--poster .svh-ticker span::after{content:"\2726";margin-left:44px;opacity:.7}
+
+/* Index: words on the left, the site's sections as a big list on the right */
+.svh--index{padding:150px 0 90px;background:var(--paper);color:var(--ink)}
+.svh--index .svh-in{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(32px,5vw,90px);align-items:end}
+.svh--index .svh-kicker{color:var(--ink)}
+.svh--index .svh-h{font-size:clamp(46px,6.6vw,104px);margin:24px 0 0}
+.svh--index .svh-lede{margin-top:26px;color:color-mix(in srgb,var(--ink) 72%,transparent)}
+.svh--index .svh-ctas{margin-top:30px}
+.svh--index .svh-photo{aspect-ratio:16/10;border-radius:18px;background:center/cover no-repeat;margin-bottom:22px;clip-path:inset(0 0 100% 0 round 18px);animation:svh-reveal 1.3s .2s cubic-bezier(.16,1,.3,1) forwards}
+@keyframes svh-reveal{to{clip-path:inset(0 0 0 0 round 18px)}}
+.svh--index .svh-list{list-style:none;margin:0;padding:0;border-top:1px solid color-mix(in srgb,var(--ink) 18%,transparent)}
+.svh--index .svh-list a{display:grid;grid-template-columns:44px 1fr auto;align-items:baseline;gap:12px;padding:14px 0;border-bottom:1px solid color-mix(in srgb,var(--ink) 18%,transparent);color:var(--ink);text-decoration:none;font:500 clamp(22px,2.4vw,36px)/1.1 "Bricolage Grotesque",Georgia,serif;letter-spacing:-.02em;transition:color .3s,padding .3s}
+.svh--index .svh-list a small{font:600 12px/1 "Caveat",system-ui,sans-serif;letter-spacing:.1em;color:color-mix(in srgb,var(--ink) 55%,transparent)}
+.svh--index .svh-list a:hover{color:var(--a);padding-left:8px}
+.svh--index .svh-list a i{font-style:normal;transition:transform .3s}.svh--index .svh-list a:hover i{transform:translateX(6px)}
+
+@media (max-width:860px){
+  .svh--index .svh-in{grid-template-columns:1fr}
+  .svh--editorial .svh-h span:nth-child(2){text-align:left}
+  .svh--poster .svh-badge{width:96px;height:96px;top:96px}
+  .svh--stage .svh-frame{aspect-ratio:4/3}
+}
+@media (prefers-reduced-motion:reduce){.svh *,.svh{animation:none!important;transition:none!important}.svh .svh-h span>b{transform:none}.svh .svh-lede,.svh .svh-ctas{opacity:1}.svh--index .svh-photo{clip-path:none}}
+/* the old banner stays in the page, invisible, laid over the new one, so the design's own
+   scripts (sticky header, "past the hero" checks) still find it where the banner is */
+[data-sv-old-hero]{position:absolute!important;left:0!important;right:0!important;width:auto!important;max-width:none!important;margin:0!important;padding:0!important;min-height:0!important;overflow:hidden!important;visibility:hidden!important;opacity:0!important;pointer-events:none!important;z-index:-1!important;transform:none!important}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="fs-i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="fs-i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></symbol>
+    <symbol id="fs-i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+    <symbol id="fs-i-pause" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M9 6v12M15 6v12"/></symbol>
+    <symbol id="fs-i-play" viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></symbol>
+    <symbol id="fs-i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+    <symbol id="fs-i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+    <symbol id="fs-i-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></symbol>
+    <symbol id="fs-i-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M6 11l6-6 6 6"/></symbol>
+    <symbol id="fs-i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></symbol>
+    <symbol id="fs-i-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7.5-4.6-9.3-9.2C1.5 7.5 3.6 4.5 6.9 4.5c2 0 3.5 1.1 5.1 3 1.6-1.9 3.1-3 5.1-3 3.3 0 5.4 3 4.2 6.3C19.5 15.4 12 20 12 20z"/></symbol>
+    <symbol id="fs-i-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="10.5" width="14" height="10" rx="2"/><path d="M8 10.5V8a4 4 0 0 1 8 0v2.5"/></symbol>
+    <symbol id="fs-i-info" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.6v.2"/></symbol>
+    <symbol id="fs-i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5.5c0 4.5-3 8-7 9.5-4-1.5-7-5-7-9.5V6z"/><path d="M9 12l2 2 4-4"/></symbol>
+    <symbol id="fs-i-box" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 7.5L12 3l8.5 4.5v9L12 21l-8.5-4.5z"/><path d="M3.5 7.5L12 12l8.5-4.5M12 12v9"/></symbol>
+    <symbol id="fs-i-van" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.5h11v9h-11zM13.5 9.5h4l3 3.5v2.5h-7"/><circle cx="6.5" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></symbol>
+    <symbol id="fs-i-cup" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5h12v4.5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5zM16 11h1.5a2.5 2.5 0 0 1 0 5H16M8 3.5c-.8 1 .8 2 0 3M12 3.5c-.8 1 .8 2 0 3"/></symbol>
+    <symbol id="fs-i-basket" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10h18l-2 9.5H5zM8 10l3-6M16 10l-3-6M9.5 13.5v3M14.5 13.5v3"/></symbol>
+    <symbol id="fs-i-pot" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11h14v3a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5zM18 12.5h3M2 12.5h2M8 7.5c-.6-1 .6-2 0-3M12 7.5c-.6-1 .6-2 0-3"/></symbol>
+    <symbol id="fs-i-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H9.5L4 20z"/><path d="M8 9.5h8M8 12.5h5"/></symbol>
+    <symbol id="fs-i-store" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 9.5l1.5-5h14l1.5 5M4.5 9.5v10h15v-10M3.5 9.5h17M9.5 19.5v-5h5v5"/></symbol>
+    <symbol id="fs-i-ban" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M5.7 5.7l12.6 12.6"/></symbol>
+    <symbol id="fs-i-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M16 4.6a3.5 3.5 0 0 1 0 6.8M18.5 14.2A6.5 6.5 0 0 1 21.5 20"/></symbol>
+    <symbol id="fs-i-cal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/></symbol>
+    <symbol id="fs-i-pound" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16.5 6.5A3.5 3.5 0 0 0 10 8v4.5c0 3-1 5-3 6h11M7.5 12.5h7"/></symbol>
+  </defs>
+</svg>
+
+<a class="fs-skip" href="#main">Skip to main content</a>
+
+<div class="fs-util">
+  <div class="fs-wrap fs-util__in">
+    <p><svg aria-hidden="true"><use href="#fs-i-phone"/></svg>Need food today? Call our helpline on <a href="tel:+441134960123">0113 496 0123</a> &middot; Mon&ndash;Fri, 9am&ndash;5pm</p>
+    <ul>
+      <li><a href="#faq">FAQs</a></li>
+      <li><a href="#">Jobs</a></li>
+      <li><a href="#fs-contact">Contact us</a></li>
+    </ul>
+  </div>
+</div>
+
+<header class="fs-header" id="top">
+  <div class="fs-wrap fs-header__in">
+    <a class="fs-logo" href="#top" aria-label="Common Table Food Network, home">
+      <svg viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="22" fill="#17402f"/><path d="M10 22h24a12 12 0 0 1-24 0z" fill="#e5533d"/><path d="M22.4 19.6c-.6-4 1.4-7.6 5.6-9.2-.2 4.3-2.4 7.6-5.6 9.2z" fill="#ffcf4a"/><path d="M21.6 19.8c-2.7-1.2-4.2-3.4-4.3-6.3 2.9.8 4.5 3 4.3 6.3z" fill="#9cc4b0"/></svg>
+      <span class="fs-logo__txt"><b>Common Table</b><span>Food Network</span></span>
+    </a>
+    <nav class="fs-nav" aria-label="Main">
+      <ul>
+        <li><a href="#help">Get help</a></li>
+        <li><a href="#give-food">Donate food</a></li>
+        <li><a href="#volunteer">Volunteer</a></li>
+        <li><a href="#impact">Our impact</a></li>
+        <li><a href="#stories">Stories</a></li>
+        <li><a href="#faq">FAQs</a></li>
+      </ul>
+    </nav>
+    <div class="fs-header__cta">
+      <a class="fs-btn fs-btn--ghost" href="#help">Get help</a>
+      <a class="fs-btn fs-btn--primary" href="#donate"><svg aria-hidden="true"><use href="#fs-i-heart"/></svg>Donate</a>
+    </div>
+    <div class="fs-header__tools">
+      <a class="fs-btn fs-btn--ghost fs-tools__help" href="#help">Get help</a>
+      <a class="fs-btn fs-btn--primary fs-pill" href="#donate">Donate</a>
+      <button class="fs-burger" id="fs-burger" type="button" aria-expanded="false" aria-controls="fs-menu"><svg aria-hidden="true"><use href="#fs-i-menu"/></svg><span class="fs-burger__txt">Menu</span><span class="fs-vh">Open menu</span></button>
+    </div>
+  </div>
+</header>
+
+<div class="fs-menu" id="fs-menu" role="dialog" aria-modal="true" aria-label="Site menu" hidden>
+  <div class="fs-wrap fs-menu__top">
+    <a class="fs-logo" href="#top" aria-label="Common Table Food Network, home">
+      <svg viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="22" fill="#fff"/><path d="M10 22h24a12 12 0 0 1-24 0z" fill="#e5533d"/><path d="M22.4 19.6c-.6-4 1.4-7.6 5.6-9.2-.2 4.3-2.4 7.6-5.6 9.2z" fill="#e0a800"/><path d="M21.6 19.8c-2.7-1.2-4.2-3.4-4.3-6.3 2.9.8 4.5 3 4.3 6.3z" fill="#17402f"/></svg>
+      <span class="fs-logo__txt"><b>Common Table</b><span>Food Network</span></span>
+    </a>
+    <button class="fs-menu__close" id="fs-menu-close" type="button" aria-label="Close menu"><svg aria-hidden="true"><use href="#fs-i-close"/></svg></button>
+  </div>
+  <nav class="fs-wrap fs-menu__nav" aria-label="Menu">
+    <ul>
+      <li><a href="#help">Get help <svg aria-hidden="true"><use href="#fs-i-arrow"/></svg></a></li>
+      <li><a href="#donate">Donate money <svg aria-hidden="true"><use href="#fs-i-arrow"/></svg></a></li>
+      <li><a href="#give-food">Donate food <svg aria-hidden="true"><use href="#fs-i-arrow"/></svg></a></li>
+      <li><a href="#volunteer">Volunteer <svg aria-hidden="true"><use href="#fs-i-arrow"/></svg></a></li>
+      <li><a href="#impact">Our impact <svg aria-hidden="true"><use href="#fs-i-arrow"/></svg></a></li>
+      <li><a href="#stories">Stories <svg aria-hidden="true"><use href="#fs-i-arrow"/></svg></a></li>
+      <li><a href="#partners">Partner with us <svg aria-hidden="true"><use href="#fs-i-arrow"/></svg></a></li>
+      <li><a href="#faq">FAQs <svg aria-hidden="true"><use href="#fs-i-arrow"/></svg></a></li>
+    </ul>
+    <div class="fs-menu__cta">
+      <a class="fs-btn fs-btn--primary" href="#donate"><svg aria-hidden="true"><use href="#fs-i-heart"/></svg>Donate</a>
+      <a class="fs-btn fs-btn--light" href="#help">Get help</a>
+    </div>
+    <p class="fs-menu__note">Need food today? Call <a href="tel:+441134960123">0113 496 0123</a>, Monday to Friday, 9am&ndash;5pm. Free, confidential and no judgement.</p>
+  </nav>
+</div>
+
+<main id="main">
+
+<!-- ===== HERO: orbit of everyday items ===== -->
+<section class="svh svh--editorial" aria-label="Common Table Food Network"><div class="svh-media" style="background-image:url('https://images.pexels.com/photos/6591154/pexels-photo-6591154.jpeg?auto=compress&cs=tinysrgb&w=2000&h=1250&fit=crop')"></div><div class="svh-shade"></div><div class="svh-in"><p class="svh-kicker"><i></i>Food banks, pantries and advice in Leeds</p><h1 class="svh-h"><span><b>Nobody here</b></span><span><b>should go</b></span><span><b><em>hungry.</em></b></span></h1><div class="svh-foot"><p class="svh-lede">Food banks, pantries and advice across Leeds &amp; West Yorkshire</p><div class="svh-ctas"><a class="svh-btn" href="#donate">Donate <span>&rarr;</span></a><a class="svh-btn svh-btn--ghost" href="#help">Get help</a></div></div></div></section><section data-sv-old-hero aria-hidden="true" inert class="fs-hero" id="hero" aria-labelledby="fs-hero-title"><script>(()=>{const b=document.querySelector(".svh"),o=document.querySelector("[data-sv-old-hero]");if(!b||!o)return;const hd=document.querySelector("header");if(hd){const cs=getComputedStyle(hd),n=(c)=>(c.match(/[\d.]+/g)||[]).map(Number),bg=n(cs.backgroundColor),fg=n(cs.color),clear=cs.backgroundColor==="transparent"||bg[3]===0,light=fg.length>2&&(0.299*fg[0]+0.587*fg[1]+0.114*fg[2])/255>0.7,top=b.getBoundingClientRect().top+scrollY;if(clear&&light&&cs.position!=="fixed"&&cs.position!=="absolute"&&top>0&&top<260){b.style.marginTop=-top+"px";b.style.paddingTop=parseFloat(getComputedStyle(b).paddingTop)+top+"px"}}const f=()=>{o.style.setProperty("top",b.offsetTop+"px","important");o.style.setProperty("height",b.offsetHeight+"px","important")};f();addEventListener("resize",f);addEventListener("load",f)})()</script>
+  <div class="fs-wrap">
+    <div class="fs-stage" id="fs-stage">
+      <div class="fs-marquee" aria-hidden="true">
+        <ul class="fs-marquee__track" id="fs-mq-track"></ul>
+      </div>
+      <svg class="fs-track" aria-hidden="true" focusable="false"><ellipse id="fs-ellipse" cx="50%" cy="50%" rx="40%" ry="38%"/></svg>
+      <ul class="fs-orbit" id="fs-orbit" aria-label="Everyday items we hand out, and how stocks are this week">
+        <li class="fs-orb" data-short="Pasta"><span class="fs-orb__disc"><img src="https://images.pexels.com/photos/40450343/pexels-photo-40450343.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=260&amp;h=260&amp;fit=crop" srcset="https://images.pexels.com/photos/40450343/pexels-photo-40450343.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=160&amp;h=160&amp;fit=crop 160w, https://images.pexels.com/photos/40450343/pexels-photo-40450343.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=260&amp;h=260&amp;fit=crop 260w" sizes="(max-width: 1199px) 92px, 124px" width="124" height="124" alt="Dried spaghetti and tagliatelle" loading="lazy" decoding="async"></span><span class="fs-orb__tip"><b>Pasta</b> &mdash; <i>most needed this week</i></span></li>
+        <li class="fs-orb" data-short="Apples"><span class="fs-orb__disc"><img src="https://images.pexels.com/photos/6591147/pexels-photo-6591147.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=260&amp;h=260&amp;fit=crop" srcset="https://images.pexels.com/photos/6591147/pexels-photo-6591147.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=160&amp;h=160&amp;fit=crop 160w, https://images.pexels.com/photos/6591147/pexels-photo-6591147.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=260&amp;h=260&amp;fit=crop 260w" sizes="(max-width: 1199px) 92px, 124px" width="124" height="124" alt="A red apple" loading="lazy" decoding="async"></span><span class="fs-orb__tip"><b>Fresh fruit</b> &mdash; given out at our pantries</span></li>
+        <li class="fs-orb" data-short="Toilet roll"><span class="fs-orb__disc"><img src="https://images.pexels.com/photos/9090903/pexels-photo-9090903.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=260&amp;h=260&amp;fit=crop" srcset="https://images.pexels.com/photos/9090903/pexels-photo-9090903.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=160&amp;h=160&amp;fit=crop 160w, https://images.pexels.com/photos/9090903/pexels-photo-9090903.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=260&amp;h=260&amp;fit=crop 260w" sizes="(max-width: 1199px) 92px, 124px" width="124" height="124" alt="A pile of toilet rolls" loading="lazy" decoding="async"></span><span class="fs-orb__tip"><b>Toilet roll</b> &mdash; <i>most needed this week</i></span></li>
+        <li class="fs-orb" data-short="Cereal"><span class="fs-orb__disc"><img src="https://images.pexels.com/photos/6995221/pexels-photo-6995221.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=260&amp;h=260&amp;fit=crop" srcset="https://images.pexels.com/photos/6995221/pexels-photo-6995221.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=160&amp;h=160&amp;fit=crop 160w, https://images.pexels.com/photos/6995221/pexels-photo-6995221.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=260&amp;h=260&amp;fit=crop 260w" sizes="(max-width: 1199px) 92px, 124px" width="124" height="124" alt="A bowl of cornflakes" loading="lazy" decoding="async"></span><span class="fs-orb__tip"><b>Cereal</b> &mdash; running low</span></li>
+        <li class="fs-orb" data-short="Tins"><span class="fs-orb__disc"><img src="https://images.pexels.com/photos/6590928/pexels-photo-6590928.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=260&amp;h=260&amp;fit=crop" srcset="https://images.pexels.com/photos/6590928/pexels-photo-6590928.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=160&amp;h=160&amp;fit=crop 160w, https://images.pexels.com/photos/6590928/pexels-photo-6590928.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=260&amp;h=260&amp;fit=crop 260w" sizes="(max-width: 1199px) 92px, 124px" width="124" height="124" alt="Tins standing in dried beans" loading="lazy" decoding="async"></span><span class="fs-orb__tip"><b>Tinned beans &amp; veg</b> &mdash; running low</span></li>
+        <li class="fs-orb" data-short="Tea"><span class="fs-orb__disc"><img src="https://images.pexels.com/photos/6995212/pexels-photo-6995212.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=260&amp;h=260&amp;fit=crop" srcset="https://images.pexels.com/photos/6995212/pexels-photo-6995212.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=160&amp;h=160&amp;fit=crop 160w, https://images.pexels.com/photos/6995212/pexels-photo-6995212.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=260&amp;h=260&amp;fit=crop 260w" sizes="(max-width: 1199px) 92px, 124px" width="124" height="124" alt="A cup of tea" loading="lazy" decoding="async"></span><span class="fs-orb__tip"><b>Tea bags</b> &mdash; always welcome</span></li>
+        <li class="fs-orb" data-short="Bananas"><span class="fs-orb__disc"><img src="https://images.pexels.com/photos/7156158/pexels-photo-7156158.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=260&amp;h=260&amp;fit=crop" srcset="https://images.pexels.com/photos/7156158/pexels-photo-7156158.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=160&amp;h=160&amp;fit=crop 160w, https://images.pexels.com/photos/7156158/pexels-photo-7156158.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=260&amp;h=260&amp;fit=crop 260w" sizes="(max-width: 1199px) 92px, 124px" width="124" height="124" alt="A bunch of bananas" loading="lazy" decoding="async"></span><span class="fs-orb__tip"><b>Bananas</b> &mdash; given out at our pantries</span></li>
+        <li class="fs-orb" data-short="Nappies"><span class="fs-orb__disc"><img src="https://images.pexels.com/photos/6994993/pexels-photo-6994993.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=260&amp;h=260&amp;fit=crop" srcset="https://images.pexels.com/photos/6994993/pexels-photo-6994993.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=160&amp;h=160&amp;fit=crop 160w, https://images.pexels.com/photos/6994993/pexels-photo-6994993.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=260&amp;h=260&amp;fit=crop 260w" sizes="(max-width: 1199px) 92px, 124px" width="124" height="124" alt="Stacks of nappies" loading="lazy" decoding="async"></span><span class="fs-orb__tip"><b>Nappies, sizes 5&ndash;6</b> &mdash; <i>most needed this week</i></span></li>
+        <li class="fs-orb" data-short="Bread"><span class="fs-orb__disc"><img src="https://images.pexels.com/photos/6646864/pexels-photo-6646864.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=260&amp;h=260&amp;fit=crop" srcset="https://images.pexels.com/photos/6646864/pexels-photo-6646864.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=160&amp;h=160&amp;fit=crop 160w, https://images.pexels.com/photos/6646864/pexels-photo-6646864.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=260&amp;h=260&amp;fit=crop 260w" sizes="(max-width: 1199px) 92px, 124px" width="124" height="124" alt="Slices of brown bread" loading="lazy" decoding="async"></span><span class="fs-orb__tip"><b>Bread</b> &mdash; donated daily by local bakers</span></li>
+        <li class="fs-orb" data-short="Rice"><span class="fs-orb__disc"><img src="https://images.pexels.com/photos/7156155/pexels-photo-7156155.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=260&amp;h=260&amp;fit=crop" srcset="https://images.pexels.com/photos/7156155/pexels-photo-7156155.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=160&amp;h=160&amp;fit=crop 160w, https://images.pexels.com/photos/7156155/pexels-photo-7156155.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=260&amp;h=260&amp;fit=crop 260w" sizes="(max-width: 1199px) 92px, 124px" width="124" height="124" alt="A heap of white rice" loading="lazy" decoding="async"></span><span class="fs-orb__tip"><b>Rice</b> &mdash; well stocked, thank you</span></li>
+      </ul>
+
+      <div class="fs-hero__core">
+        <p class="fs-eyebrow"><svg aria-hidden="true"><use href="#fs-i-pin"/></svg>Food banks, pantries and advice across Leeds &amp; West Yorkshire</p>
+        <h1 class="fs-h1" id="fs-hero-title">Nobody in Leeds should go <span class="fs-mark">hungry.</span></h1>
+        <p class="fs-hero__line"><strong>&pound;10</strong> could pack a 3-day food parcel.</p>
+        <div class="fs-hero__btns" id="fs-hero-btns">
+          <a class="fs-btn fs-btn--primary fs-btn--lg" href="#donate"><svg aria-hidden="true"><use href="#fs-i-heart"/></svg>Donate</a>
+          <a class="fs-btn fs-btn--ghost fs-btn--lg" href="#help">Get help</a>
+        </div>
+        <p class="fs-hero__note">Need food today? Call <a href="tel:+441134960123">0113 496 0123</a>. Free, confidential, no judgement.</p>
+      </div>
+
+      <button class="fs-pause" id="fs-pause" type="button"><svg class="fs-i-pause" aria-hidden="true"><use href="#fs-i-pause"/></svg><svg class="fs-i-play" aria-hidden="true"><use href="#fs-i-play"/></svg><span class="fs-pause__txt">Pause motion</span></button>
+    </div>
+
+    <div class="fs-hero__foot">
+      <div class="fs-needs">
+        <p class="fs-needs__h"><strong><span class="fs-live" aria-hidden="true"></span>Most needed this week</strong><span class="fs-needs__meta">Updated Tue 18 Nov &middot; illustrative</span></p>
+        <ul class="fs-chips" aria-label="Most needed items">
+          <li class="fs-chip fs-chip--urgent">Pasta<span class="fs-vh"> (urgent)</span></li>
+          <li class="fs-chip fs-chip--urgent">UHT milk<span class="fs-vh"> (urgent)</span></li>
+          <li class="fs-chip fs-chip--urgent">Toilet roll<span class="fs-vh"> (urgent)</span></li>
+          <li class="fs-chip fs-chip--urgent">Nappies, sizes 5&ndash;6<span class="fs-vh"> (urgent)</span></li>
+          <li class="fs-chip fs-chip--low">Tinned fish<span class="fs-vh"> (running low)</span></li>
+          <li class="fs-chip fs-chip--low">Cereal<span class="fs-vh"> (running low)</span></li>
+        </ul>
+      </div>
+      <a class="fs-hero__help" href="#fs-finder"><svg class="fs-hero__help-pin" aria-hidden="true"><use href="#fs-i-pin"/></svg><span class="fs-hero__help-t"><small>Need food today?</small>Find a food bank near you</span><svg class="fs-hero__help-arrow" aria-hidden="true"><use href="#fs-i-arrow"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== GET HELP ===== -->
+<section class="fs-sec fs-help" id="help" aria-labelledby="fs-help-h">
+  <div class="fs-wrap">
+    <div class="fs-split" data-sticky-split>
+      <div class="fs-help__main">
+        <p class="fs-kicker">Get help</p>
+        <h2 class="fs-h2" id="fs-help-h">Need food? You&rsquo;re welcome here.</h2>
+        <p class="fs-lead">If you&rsquo;re finding it hard to afford food, we can help this week. Most people need a referral first. It only takes a few minutes, and we can do it for you over the phone.</p>
+
+        <h3 class="fs-h3 fs-help__sub">How referrals work</h3>
+        <ol class="fs-steps">
+          <li class="fs-step"><span class="fs-step__n" aria-hidden="true">1</span><div><h4>Talk to someone you trust</h4><p>Your GP surgery, school, housing officer, a local advice service or our own helpline can refer you. Just say you need food.</p></div></li>
+          <li class="fs-step"><span class="fs-step__n" aria-hidden="true">2</span><div><h4>Get your voucher by text</h4><p>We&rsquo;ll text you a voucher with your nearest food bank and its opening times. There&rsquo;s nothing to print.</p></div></li>
+          <li class="fs-step"><span class="fs-step__n" aria-hidden="true">3</span><div><h4>Visit when it suits you</h4><p>Collect three days of food and toiletries, have a cuppa, and talk to an adviser about money, benefits or energy if you&rsquo;d like to.</p></div></li>
+        </ol>
+
+        <aside class="fs-assure" aria-label="Our promise to you">
+          <span class="fs-ic"><svg aria-hidden="true"><use href="#fs-i-heart"/></svg></span>
+          <div>
+            <h3>No judgement. Ever.</h3>
+            <p>Anyone can hit a hard patch: a late wage, a benefits delay, a broken boiler, a bereavement. You won&rsquo;t be asked to prove anything. We&rsquo;ll treat you the way we&rsquo;d want to be treated.</p>
+            <p>Can&rsquo;t get a referral? Call <a href="tel:+441134960123">0113 496 0123</a> and we&rsquo;ll sort it with you.</p>
+          </div>
+        </aside>
+      </div>
+
+      <div class="fs-help__side">
+        <div class="fs-finder fs-anchor" id="fs-finder">
+          <div class="fs-finder__h"><span class="fs-ic"><svg aria-hidden="true"><use href="#fs-i-pin"/></svg></span><h3 class="fs-h3">Find your nearest food bank</h3></div>
+          <p>Type your postcode to see the three nearest Common Table venues and when they&rsquo;re open.</p>
+          <form class="fs-finder__form" id="fs-finder-form" novalidate>
+            <label class="fs-label" for="fs-pc">Your postcode</label>
+            <div class="fs-finder__row">
+              <input class="fs-input" id="fs-pc" name="postcode" type="text" autocomplete="postal-code" autocapitalize="characters" spellcheck="false" maxlength="9" placeholder="e.g. LS9 7AB" aria-describedby="fs-pc-hint fs-pc-err">
+              <button class="fs-btn fs-btn--primary" type="submit">Search</button>
+            </div>
+            <p class="fs-hint" id="fs-pc-hint">A full postcode or just the first part, like LS8, works.</p>
+            <p class="fs-err" id="fs-pc-err" hidden>Enter a postcode, like LS9 7AB or LS8.</p>
+          </form>
+          <div class="fs-results" id="fs-results" aria-live="polite"></div>
+          <p class="fs-finder__privacy">We only use your postcode to show nearby venues. It isn&rsquo;t stored or shared.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="fs-services">
+      <div class="fs-services__head">
+        <div>
+          <h3 class="fs-h3">More ways we can help</h3>
+          <p>Food is often the first step. These services help with what comes next.</p>
+        </div>
+        <a class="fs-link" href="#faq">Questions about getting help <svg aria-hidden="true"><use href="#fs-i-arrow"/></svg></a>
+      </div>
+      <ul class="fs-svc-grid">
+        <li class="fs-svc">
+          <div class="fs-svc__media"><img src="https://images.pexels.com/photos/7156172/pexels-photo-7156172.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=720&amp;h=480&amp;fit=crop" srcset="https://images.pexels.com/photos/7156172/pexels-photo-7156172.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=360&amp;h=240&amp;fit=crop 360w, https://images.pexels.com/photos/7156172/pexels-photo-7156172.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=720&amp;h=480&amp;fit=crop 720w" sizes="(max-width: 767px) 108px, (max-width: 1023px) 46vw, (max-width: 1199px) 23vw, 330px" width="720" height="480" alt="A paper bag of groceries with apples, bananas, cabbage and bread" loading="lazy" decoding="async"></div>
+          <div class="fs-svc__body"><span class="fs-tag fs-svc__meta">With a referral</span><h4>Emergency food parcels</h4><p>Three days of balanced food, plus toiletries, nappies and pet food when you need them.</p><a class="fs-link" href="#fs-finder">Find a food bank <svg aria-hidden="true"><use href="#fs-i-arrow"/></svg></a></div>
+        </li>
+        <li class="fs-svc">
+          <div class="fs-svc__media"><img src="https://images.pexels.com/photos/8061641/pexels-photo-8061641.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=720&amp;h=480&amp;fit=crop" srcset="https://images.pexels.com/photos/8061641/pexels-photo-8061641.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=360&amp;h=240&amp;fit=crop 360w, https://images.pexels.com/photos/8061641/pexels-photo-8061641.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=720&amp;h=480&amp;fit=crop 720w" sizes="(max-width: 767px) 108px, (max-width: 1023px) 46vw, (max-width: 1199px) 23vw, 330px" width="720" height="480" alt="Volunteers sorting tins and fresh food at a long table" loading="lazy" decoding="async"></div>
+          <div class="fs-svc__body"><span class="fs-tag fs-svc__meta">No referral needed</span><h4>Community pantries</h4><p>Become a member for &pound;3.50 a week and choose around &pound;20 of groceries, including fresh fruit and veg.</p><a class="fs-link" href="#fs-finder">Find a pantry <svg aria-hidden="true"><use href="#fs-i-arrow"/></svg></a></div>
+        </li>
+        <li class="fs-svc">
+          <div class="fs-svc__media"><img src="https://images.pexels.com/photos/39006612/pexels-photo-39006612.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=720&amp;h=480&amp;fit=crop" srcset="https://images.pexels.com/photos/39006612/pexels-photo-39006612.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=360&amp;h=240&amp;fit=crop 360w, https://images.pexels.com/photos/39006612/pexels-photo-39006612.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=720&amp;h=480&amp;fit=crop 720w" sizes="(max-width: 767px) 108px, (max-width: 1023px) 46vw, (max-width: 1199px) 23vw, 330px" width="720" height="480" alt="A grandfather and two children preparing food together in a kitchen" loading="lazy" decoding="async"></div>
+          <div class="fs-svc__body"><span class="fs-tag fs-svc__meta">School holidays</span><h4>Holiday meals for kids</h4><p>Free lunches, cooking and games at 14 holiday clubs, plus recipe bags to take home.</p><a class="fs-link" href="#">See holiday clubs <svg aria-hidden="true"><use href="#fs-i-arrow"/></svg></a></div>
+        </li>
+        <li class="fs-svc">
+          <div class="fs-svc__media"><img src="https://images.pexels.com/photos/6994855/pexels-photo-6994855.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=720&amp;h=480&amp;fit=crop" srcset="https://images.pexels.com/photos/6994855/pexels-photo-6994855.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=360&amp;h=240&amp;fit=crop 360w, https://images.pexels.com/photos/6994855/pexels-photo-6994855.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=720&amp;h=480&amp;fit=crop 720w" sizes="(max-width: 767px) 108px, (max-width: 1023px) 46vw, (max-width: 1199px) 23vw, 330px" width="720" height="480" alt="Two people talking over cups of tea at a kitchen table" loading="lazy" decoding="async"></div>
+          <div class="fs-svc__body"><span class="fs-tag fs-svc__meta">Free &amp; confidential</span><h4>Money, benefits &amp; energy advice</h4><p>Talk to a trained adviser about benefits checks, debts and keeping the heating on.</p><a class="fs-link" href="#">Book an advice chat <svg aria-hidden="true"><use href="#fs-i-arrow"/></svg></a></div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===== DONATE ===== -->
+<section class="fs-sec fs-sec--mint fs-donate" id="donate" aria-labelledby="fs-donate-h">
+  <div class="fs-wrap">
+    <div class="fs-split fs-donate__grid" data-sticky-split>
+      <div class="fs-donate__copy">
+        <div class="fs-donate__head">
+          <p class="fs-kicker">Donate</p>
+          <h2 class="fs-h2" id="fs-donate-h">Help keep the shelves full this winter.</h2>
+          <p class="fs-lead">Most of our food is given by people like you. Money keeps the vans on the road, the warehouse warm and our advisers free to talk, so fewer people need a food bank next time.</p>
+        </div>
+        <div class="fs-donate__extras">
+          <div class="fs-gabox">
+            <h3>How Gift Aid works</h3>
+            <p>If you&rsquo;re a UK taxpayer, Gift Aid adds 25p for every &pound;1 you give, at no extra cost to you. We claim it back from HMRC.</p>
+            <div class="fs-eq" aria-label="&pound;10 gift plus &pound;2.50 Gift Aid equals &pound;12.50 for Common Table">
+              <div class="fs-eq__t"><b>&pound;10</b><span>your gift</span></div>
+              <span class="fs-eq__op" aria-hidden="true">+</span>
+              <div class="fs-eq__t"><b>&pound;2.50</b><span>Gift Aid</span></div>
+              <span class="fs-eq__op" aria-hidden="true">=</span>
+              <div class="fs-eq__t fs-eq__t--sum"><b>&pound;12.50</b><span>to Common Table</span></div>
+            </div>
+            <p class="fs-small">You need to have paid enough UK Income Tax or Capital Gains Tax in the tax year to cover the Gift Aid all charities claim on your gifts.</p>
+          </div>
+          <div class="fs-gabox">
+            <h3>Give with confidence</h3>
+            <ul class="fs-trust">
+              <li><svg aria-hidden="true"><use href="#fs-i-lock"/></svg><span>Pay on our payment provider&rsquo;s secure page</span></li>
+              <li><svg aria-hidden="true"><use href="#fs-i-check"/></svg><span>Change or cancel a monthly gift whenever you like</span></li>
+              <li><svg aria-hidden="true"><use href="#fs-i-shield"/></svg><span>We&rsquo;ll never sell or swap your details</span></li>
+            </ul>
+            <h3 class="fs-mt">Other ways to give</h3>
+            <ul class="fs-ways">
+              <li><a class="fs-link" href="#">Give in memory</a></li>
+              <li><a class="fs-link" href="#">Leave a gift in your Will</a></li>
+              <li><a class="fs-link" href="#">Fundraise for us</a></li>
+              <li><a class="fs-link" href="#">Pay in money you&rsquo;ve raised</a></li>
+            </ul>
+          </div>
+          <div class="fs-frrow">
+            <div class="fs-frbadge" role="img" aria-label="Fundraising Regulator badge placeholder">FUNDRAISING REGULATOR<br>badge placeholder</div>
+            <p>We&rsquo;re registered with the Fundraising Regulator and follow the Code of Fundraising Practice. <a class="fs-link" href="#">Read our annual report &amp; accounts</a></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="fs-donate__widget">
+        <div class="fs-give" id="fs-give">
+          <form id="fs-give-form" novalidate>
+            <div class="fs-give__top">
+              <h3 class="fs-give__title" id="fs-give-title" tabindex="-1">Make a donation</h3>
+              <p class="fs-give__count" id="fs-give-count">Step 1 of 3</p>
+            </div>
+
+            <div class="fs-give__step" data-step="1">
+              <div class="fs-give__s1">
+                <div>
+                  <fieldset class="fs-seg">
+                    <legend class="fs-vh">How often would you like to give?</legend>
+                    <input type="radio" name="freq" id="fs-f-once" value="once" checked><label for="fs-f-once">One-off</label>
+                    <input type="radio" name="freq" id="fs-f-month" value="monthly"><label for="fs-f-month">Monthly</label>
+                  </fieldset>
+                  <fieldset class="fs-amts">
+                    <legend>Choose an amount</legend>
+                    <div class="fs-amts__grid">
+                      <div class="fs-amt"><input type="radio" name="amt" id="fs-a5" value="5"><label for="fs-a5">&pound;5</label></div>
+                      <div class="fs-amt"><input type="radio" name="amt" id="fs-a10" value="10" checked><label for="fs-a10">&pound;10</label></div>
+                      <div class="fs-amt"><input type="radio" name="amt" id="fs-a25" value="25"><label for="fs-a25">&pound;25</label></div>
+                      <div class="fs-amt fs-amt--other"><input type="radio" name="amt" id="fs-aother" value="other"><label for="fs-aother">Other</label></div>
+                    </div>
+                  </fieldset>
+                  <div class="fs-other" id="fs-other" hidden>
+                    <label class="fs-label" for="fs-other-amt">Your amount</label>
+                    <div class="fs-money"><span aria-hidden="true">&pound;</span><input class="fs-input" id="fs-other-amt" type="text" inputmode="decimal" autocomplete="off" aria-describedby="fs-other-err"></div>
+                    <p class="fs-err" id="fs-other-err" hidden>Enter an amount of &pound;2 or more.</p>
+                  </div>
+                  <div class="fs-impact"><span class="fs-ic"><svg aria-hidden="true"><use href="#fs-i-heart"/></svg></span><p id="fs-impact-txt" aria-live="polite"><strong>&pound;10</strong> could pack a 3-day food parcel for one person.</p></div>
+                </div>
+                <div>
+                  <div class="fs-gaw">
+                    <div class="fs-gaw__head"><span class="fs-gaw__badge">Gift Aid</span><span class="fs-gaw__calc" id="fs-ga-calc">&pound;10 becomes &pound;12.50</span></div>
+                    <label class="fs-check" for="fs-ga"><input type="checkbox" id="fs-ga" name="giftaid"><span>Yes, I&rsquo;m a UK taxpayer. Please treat this gift, and any I make in future or have made in the past 4 years, as Gift Aid donations to Common Table Food Network.</span></label>
+                    <p class="fs-small">Gift Aid adds 25p for every &pound;1 if you&rsquo;re a UK taxpayer. If I pay less Income Tax and/or Capital Gains Tax in the current tax year than the Gift Aid claimed on all my donations, I understand it&rsquo;s my responsibility to pay any difference.</p>
+                  </div>
+                  <button class="fs-btn fs-btn--primary fs-btn--lg fs-btn--block fs-give__go" type="button" data-go="2">Continue <svg aria-hidden="true"><use href="#fs-i-arrow"/></svg></button>
+                </div>
+              </div>
+            </div>
+
+            <div class="fs-give__step" data-step="2" hidden>
+              <div class="fs-give__sum"><p id="fs-sum">You&rsquo;re giving &pound;10 once</p><button type="button" class="fs-textbtn" data-go="1">Change<span class="fs-vh"> amount</span></button></div>
+              <div class="fs-fields">
+                <div class="fs-field"><label class="fs-label" for="fs-fn">First name</label><input class="fs-input" id="fs-fn" name="fname" type="text" autocomplete="given-name" aria-describedby="fs-fn-err"><p class="fs-err" id="fs-fn-err" hidden>Enter your first name.</p></div>
+                <div class="fs-field"><label class="fs-label" for="fs-ln">Last name</label><input class="fs-input" id="fs-ln" name="lname" type="text" autocomplete="family-name" aria-describedby="fs-ln-err"><p class="fs-err" id="fs-ln-err" hidden>Enter your last name.</p></div>
+                <div class="fs-field fs-field--full"><label class="fs-label" for="fs-em">Email address</label><input class="fs-input" id="fs-em" name="email" type="email" autocomplete="email" aria-describedby="fs-em-hint fs-em-err"><p class="fs-hint" id="fs-em-hint">We&rsquo;ll send your receipt here.</p><p class="fs-err" id="fs-em-err" hidden>Enter an email address, like jo@mail.example.</p></div>
+                <div class="fs-field fs-field--full" data-ga-only hidden><label class="fs-label" for="fs-ad">Home address <span class="fs-small">(needed for Gift Aid)</span></label><input class="fs-input" id="fs-ad" name="address" type="text" autocomplete="address-line1" aria-describedby="fs-ad-err"><p class="fs-err" id="fs-ad-err" hidden>Enter the first line of your home address.</p></div>
+                <div class="fs-field" data-ga-only hidden><label class="fs-label" for="fs-pc2">Postcode</label><input class="fs-input" id="fs-pc2" name="postcode2" type="text" autocomplete="postal-code" autocapitalize="characters" aria-describedby="fs-pc2-err"><p class="fs-err" id="fs-pc2-err" hidden>Enter a full postcode, like LS9 7AB.</p></div>
+              </div>
+              <div class="fs-consent">
+                <p>We&rsquo;ll use your details to take your donation, <span id="fs-ga-use" hidden>claim Gift Aid, </span>and send your receipt. Our <a href="#">privacy notice</a> explains how we look after your data under UK GDPR.</p>
+                <label class="fs-check" for="fs-optin"><input type="checkbox" id="fs-optin" name="optin"><span>Yes, email me news about Common Table&rsquo;s work and ways to help. I can unsubscribe at any time. <span class="fs-small">(Optional)</span></span></label>
+              </div>
+              <div class="fs-give__nav">
+                <button type="button" class="fs-btn fs-btn--ghost" data-go="1">Back</button>
+                <button type="button" class="fs-btn fs-btn--primary" data-go="3"><svg aria-hidden="true"><use href="#fs-i-lock"/></svg>Continue to secure payment</button>
+              </div>
+            </div>
+
+            <div class="fs-give__step fs-done" data-step="3" hidden>
+              <span class="fs-ic"><svg aria-hidden="true"><use href="#fs-i-check"/></svg></span>
+              <h4 class="fs-h3" id="fs-done-h">Thank you.</h4>
+              <p id="fs-done-p">Next, you&rsquo;d go to our secure payment page to finish your gift.</p>
+              <div class="fs-notebox"><strong>This is a placeholder.</strong> There&rsquo;s no payment page in this design: nothing has been charged, and no card or bank details are collected here.</div>
+              <button type="button" class="fs-btn fs-btn--ghost" data-reset>Start again</button>
+            </div>
+          </form>
+        </div>
+        <p class="fs-give__secure"><svg aria-hidden="true"><use href="#fs-i-lock"/></svg><span>Payments are taken on our payment provider&rsquo;s secure page. We never see or store card details.</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== DONATE FOOD ===== -->
+<section class="fs-sec fs-food" id="give-food" aria-labelledby="fs-food-h">
+  <div class="fs-wrap">
+    <div class="fs-split fs-split--7-5" data-sticky-split>
+      <div class="fs-food__main">
+        <p class="fs-kicker">Donate food</p>
+        <h2 class="fs-h2" id="fs-food-h">What we need most right now</h2>
+        <p class="fs-lead">Our shelves change week to week. This is what&rsquo;s running lowest across our Leeds warehouse. Long-life, unopened and in date, please.</p>
+        <p class="fs-legend-row" aria-hidden="true"><span class="fs-tag fs-tag--urgent">Urgent</span><span class="fs-tag fs-tag--low">Running low</span><span class="fs-tag">Well stocked</span></p>
+        <ul class="fs-needlist" aria-label="Stock levels this week (illustrative)">
+          <li>UHT milk <span class="fs-tag fs-tag--urgent">Urgent</span></li>
+          <li>Pasta <span class="fs-tag fs-tag--urgent">Urgent</span></li>
+          <li>Tinned fish <span class="fs-tag fs-tag--urgent">Urgent</span></li>
+          <li>Toilet roll <span class="fs-tag fs-tag--urgent">Urgent</span></li>
+          <li>Nappies, sizes 5&ndash;6 <span class="fs-tag fs-tag--urgent">Urgent</span></li>
+          <li>Cereal <span class="fs-tag fs-tag--low">Running low</span></li>
+          <li>Tinned vegetables <span class="fs-tag fs-tag--low">Running low</span></li>
+          <li>Tinned tomatoes <span class="fs-tag fs-tag--low">Running low</span></li>
+          <li>Shower gel &amp; deodorant <span class="fs-tag fs-tag--low">Running low</span></li>
+          <li>Rice <span class="fs-tag">Well stocked</span></li>
+          <li>Soup <span class="fs-tag">Well stocked</span></li>
+          <li>Biscuits <span class="fs-tag">Well stocked</span></li>
+        </ul>
+        <div class="fs-dont">
+          <span class="fs-ic"><svg aria-hidden="true"><use href="#fs-i-ban"/></svg></span>
+          <div><h3>Please don&rsquo;t donate</h3><p>Fresh or chilled food, home-cooked food, alcohol, or anything opened or past its best-before date. We can&rsquo;t hand it out safely.</p></div>
+        </div>
+      </div>
+
+      <div class="fs-food__side">
+        <h3 class="fs-h3">Drop-off points</h3>
+        <ul class="fs-drops">
+          <li class="fs-drop"><span class="fs-ic"><svg aria-hidden="true"><use href="#fs-i-box"/></svg></span><div><h4>Our warehouse</h4><p>Unit 4, Wharfside Trading Estate, Leeds LS11</p><p><strong>Mon&ndash;Fri 9am&ndash;4pm, Sat 10am&ndash;12pm.</strong> Bringing a car-load? Call <a href="tel:+441134960456">0113 496 0456</a> and we&rsquo;ll help you unload.</p></div></li>
+          <li class="fs-drop"><span class="fs-ic"><svg aria-hidden="true"><use href="#fs-i-store"/></svg></span><div><h4>Supermarket trolleys</h4><p>Look for the green Common Table trolley after the tills in 24 supermarkets across Leeds. Open shop hours.</p></div></li>
+          <li class="fs-drop"><span class="fs-ic"><svg aria-hidden="true"><use href="#fs-i-pin"/></svg></span><div><h4>Any Common Table food bank</h4><p>Hand donations to a volunteer during opening hours. <a class="fs-link" href="#fs-finder">Find one near you</a></p></div></li>
+          <li class="fs-drop"><span class="fs-ic"><svg aria-hidden="true"><use href="#fs-i-users"/></svg></span><div><h4>Schools, workplaces &amp; faith groups</h4><p>Run a collection and we&rsquo;ll send a free kit with posters, labels and this week&rsquo;s list.</p></div></li>
+        </ul>
+        <a class="fs-btn fs-btn--ghost" href="#">Order a free collection kit</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== VOLUNTEER ===== -->
+<section class="fs-sec fs-sec--mint fs-vol" id="volunteer" aria-labelledby="fs-vol-h">
+  <div class="fs-wrap">
+    <div class="fs-vol__intro">
+      <div>
+        <p class="fs-kicker">Volunteer</p>
+        <h2 class="fs-h2" id="fs-vol-h">Give a few hours. Change someone&rsquo;s week.</h2>
+        <p class="fs-lead">Around 1,100 people volunteer with us. Some come every Tuesday, some help once at Christmas. Every role comes with training, a named contact and a good cup of tea.</p>
+        <div class="fs-vol__btns">
+          <a class="fs-btn fs-btn--primary" href="#">Register your interest</a>
+          <a class="fs-btn fs-btn--ghost" href="#faq">Volunteering FAQs</a>
+        </div>
+      </div>
+      <figure class="fs-vol__fig">
+        <img src="https://images.pexels.com/photos/40736557/pexels-photo-40736557.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1000&amp;h=750&amp;fit=crop" srcset="https://images.pexels.com/photos/40736557/pexels-photo-40736557.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=600&amp;h=450&amp;fit=crop 600w, https://images.pexels.com/photos/40736557/pexels-photo-40736557.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1000&amp;h=750&amp;fit=crop 1000w" sizes="(max-width: 767px) 92vw, (max-width: 1199px) 46vw, 640px" width="1000" height="750" alt="Smiling volunteers with lanyards sorting tins and fruit together" loading="lazy" decoding="async">
+        <figcaption>Thursday sorting shift, Leeds warehouse</figcaption>
+      </figure>
+    </div>
+    <ul class="fs-roles">
+      <li class="fs-role"><span class="fs-ic"><svg aria-hidden="true"><use href="#fs-i-box"/></svg></span><h3>Warehouse sorter</h3><p>Check dates, sort donations and pack parcels with a friendly team. No experience needed.</p><ul class="fs-role__meta"><li class="fs-tag">3 hours a week</li><li class="fs-tag">Leeds LS11</li></ul></li>
+      <li class="fs-role"><span class="fs-ic"><svg aria-hidden="true"><use href="#fs-i-cup"/></svg></span><h3>Food bank host</h3><p>Welcome guests, make the tea and listen. You&rsquo;re the first friendly face people see.</p><ul class="fs-role__meta"><li class="fs-tag">Weekday mornings</li><li class="fs-tag">Across Leeds</li></ul></li>
+      <li class="fs-role"><span class="fs-ic"><svg aria-hidden="true"><use href="#fs-i-van"/></svg></span><h3>Van driver</h3><p>Collect from supermarkets and deliver to our venues. You&rsquo;ll need a full UK licence held for two years.</p><ul class="fs-role__meta"><li class="fs-tag">Flexible shifts</li><li class="fs-tag">Training given</li></ul></li>
+      <li class="fs-role"><span class="fs-ic"><svg aria-hidden="true"><use href="#fs-i-pot"/></svg></span><h3>Holiday kitchen helper</h3><p>Cook, serve and play at our school-holiday clubs. We&rsquo;ll arrange your DBS check.</p><ul class="fs-role__meta"><li class="fs-tag">Easter, summer, Christmas</li></ul></li>
+      <li class="fs-role"><span class="fs-ic"><svg aria-hidden="true"><use href="#fs-i-basket"/></svg></span><h3>Pantry checkout</h3><p>Run the till at a community pantry and help members find what they need.</p><ul class="fs-role__meta"><li class="fs-tag">2&ndash;4 hours a week</li><li class="fs-tag">6 pantries</li></ul></li>
+      <li class="fs-role"><span class="fs-ic"><svg aria-hidden="true"><use href="#fs-i-chat"/></svg></span><h3>Money advice volunteer</h3><p>Help people check benefits and energy support after our six-week training course.</p><ul class="fs-role__meta"><li class="fs-tag">1 day a week</li><li class="fs-tag">Accredited training</li></ul></li>
+    </ul>
+    <p class="fs-vol__safe"><svg aria-hidden="true"><use href="#fs-i-shield"/></svg><span>Some roles need a DBS check, which we arrange and pay for. Everyone follows our <a href="#">safeguarding policy</a> and gets safeguarding training in their first month.</span></p>
+  </div>
+</section>
+
+<!-- ===== IMPACT + WHERE YOUR MONEY GOES ===== -->
+<section class="fs-sec fs-stats" id="impact" aria-labelledby="fs-impact-h">
+  <div class="fs-wrap">
+    <div class="fs-stats__head">
+      <div>
+        <p class="fs-kicker">Our impact</p>
+        <h2 class="fs-h2" id="fs-impact-h">Last year, together, we&hellip;</h2>
+      </div>
+      <p class="fs-illus"><svg aria-hidden="true"><use href="#fs-i-info"/></svg>Illustrative figures for this design, not real data</p>
+    </div>
+    <ul class="fs-stats__grid">
+      <li class="fs-stat"><span class="fs-stat__n">48,210</span><span class="fs-stat__l">three-day food parcels handed out across Leeds</span></li>
+      <li class="fs-stat"><span class="fs-stat__n">31</span><span class="fs-stat__l">food banks and community pantries open each week</span></li>
+      <li class="fs-stat"><span class="fs-stat__n">1,140</span><span class="fs-stat__l">volunteers giving their time and kindness</span></li>
+      <li class="fs-stat"><span class="fs-stat__n">&pound;1.3m</span><span class="fs-stat__l">in extra income people received after advice</span></li>
+    </ul>
+
+    <div class="fs-moneybox">
+      <div>
+        <h3>Where every &pound;1 goes</h3>
+        <p>We keep running costs low and publish our accounts every year, so you can see exactly how your money is used.</p>
+        <a class="fs-link" href="#">Annual report &amp; accounts (PDF) <svg aria-hidden="true"><use href="#fs-i-arrow"/></svg></a>
+      </div>
+      <div>
+        <div class="fs-bar" role="img" aria-label="Of every pound: 84p food, pantries and advice; 10p raising the next pound; 6p running the charity safely">
+          <span class="fs-bar__seg fs-bar__seg--a">84p</span>
+          <span class="fs-bar__seg fs-bar__seg--b">10p</span>
+          <span class="fs-bar__seg fs-bar__seg--c">6p</span>
+        </div>
+        <ul class="fs-legend">
+          <li><i style="background:var(--fs-tomato-ink)"></i><b>84p</b><span>Food, pantries, holiday meals and advice</span></li>
+          <li><i style="background:var(--fs-sun)"></i><b>10p</b><span>Raising the next pound</span></li>
+          <li><i style="background:var(--fs-mint)"></i><b>6p</b><span>Running the charity safely: governance, safeguarding and IT</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== STORIES ===== -->
+<section class="fs-sec fs-stories" id="stories" aria-labelledby="fs-stories-h">
+  <div class="fs-wrap">
+    <div class="fs-sec-head">
+      <p class="fs-kicker">Stories</p>
+      <h2 class="fs-h2" id="fs-stories-h">In their own words</h2>
+      <p class="fs-lead">People share their stories with us because they want others to know help is here. They choose what&rsquo;s said, and they can change their mind at any time.</p>
+    </div>
+    <div class="fs-stories__grid">
+      <article class="fs-story fs-story--feature">
+        <div class="fs-story__media"><img src="https://images.pexels.com/photos/6995214/pexels-photo-6995214.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1100&amp;h=760&amp;fit=crop" srcset="https://images.pexels.com/photos/6995214/pexels-photo-6995214.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=600&amp;h=450&amp;fit=crop 600w, https://images.pexels.com/photos/6995214/pexels-photo-6995214.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1100&amp;h=760&amp;fit=crop 1100w" sizes="(max-width: 767px) 92vw, (max-width: 1199px) 46vw, 720px" width="1100" height="760" alt="An older woman smiling as she chats over a cup of tea" loading="lazy" decoding="async"></div>
+        <div class="fs-story__body">
+          <blockquote><p>After my husband died, the bills were all in his name and everything went wrong at once. The lady at the food bank sat with me for an hour and sorted my pension credit. Now I&rsquo;m on the tea urn every Thursday.</p></blockquote>
+          <p class="fs-story__by"><b>Jean, 71, Armley</b> &middot; now volunteers at our Thursday caf&eacute;</p>
+          <a class="fs-link" href="#">Read Jean&rsquo;s story <svg aria-hidden="true"><use href="#fs-i-arrow"/></svg></a>
+        </div>
+      </article>
+      <article class="fs-story">
+        <div class="fs-story__media fs-story__media--r"><img src="https://images.pexels.com/photos/9090900/pexels-photo-9090900.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800&amp;h=600&amp;fit=crop" srcset="https://images.pexels.com/photos/9090900/pexels-photo-9090900.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=480&amp;h=360&amp;fit=crop 480w, https://images.pexels.com/photos/9090900/pexels-photo-9090900.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800&amp;h=600&amp;fit=crop 800w" sizes="(max-width: 767px) 92vw, (max-width: 1199px) 46vw, 240px" width="800" height="600" alt="A mother and her young daughter cooking together at home" loading="lazy" decoding="async"></div>
+        <div class="fs-story__body">
+          <blockquote><p>The holiday club meant one less thing to worry about in August. My daughter came home with a recipe bag and cooked tea for all of us.</p></blockquote>
+          <p class="fs-story__by"><b>Aisha, Harehills</b> &middot; mum of two</p>
+          <a class="fs-link" href="#">Read Aisha&rsquo;s story <svg aria-hidden="true"><use href="#fs-i-arrow"/></svg></a>
+        </div>
+      </article>
+      <article class="fs-story">
+        <div class="fs-story__media"><img src="https://images.pexels.com/photos/6994806/pexels-photo-6994806.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=640&amp;h=640&amp;fit=crop" srcset="https://images.pexels.com/photos/6994806/pexels-photo-6994806.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=420&amp;h=420&amp;fit=crop 420w, https://images.pexels.com/photos/6994806/pexels-photo-6994806.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=640&amp;h=640&amp;fit=crop 640w" sizes="(max-width: 767px) 92vw, (max-width: 1199px) 46vw, 240px" width="640" height="640" alt="Three generations of a family talking around a kitchen table with mugs of tea" loading="lazy" decoding="async"></div>
+        <div class="fs-story__body">
+          <blockquote><p>When my hours were cut we were short for three weeks. Nobody made me feel small, and the energy advice now saves us &pound;40 a month.</p></blockquote>
+          <p class="fs-story__by"><b>Dan, Beeston</b> &middot; warehouse worker and dad</p>
+          <a class="fs-link" href="#">Read Dan&rsquo;s story <svg aria-hidden="true"><use href="#fs-i-arrow"/></svg></a>
+        </div>
+      </article>
+    </div>
+    <p class="fs-stories__note"><svg aria-hidden="true"><use href="#fs-i-info"/></svg><span>Stories are shared with permission. Names have been changed and photos are posed by models.</span></p>
+  </div>
+</section>
+
+<!-- ===== PARTNERS ===== -->
+<section class="fs-partners" id="partners" aria-labelledby="fs-partners-h">
+  <div class="fs-wrap fs-partners__in">
+    <div>
+      <p class="fs-kicker">Partners</p>
+      <h2 class="fs-h2" id="fs-partners-h">Businesses that stand with us</h2>
+      <p>Local firms help with food drives, staff volunteering days, payroll giving and free warehouse space. Talk to our partnerships team at <a class="fs-link" href="mailto:partners@example.com">partners@example.com</a></p>
+    </div>
+    <ul class="fs-logos" aria-label="Corporate partners (placeholders)">
+      <li>Partner logo<span>Placeholder</span></li>
+      <li>Partner logo<span>Placeholder</span></li>
+      <li>Partner logo<span>Placeholder</span></li>
+      <li>Partner logo<span>Placeholder</span></li>
+      <li>Partner logo<span>Placeholder</span></li>
+      <li>Partner logo<span>Placeholder</span></li>
+      <li>Partner logo<span>Placeholder</span></li>
+      <li>Partner logo<span>Placeholder</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="fs-sec fs-sec--mint fs-faq" id="faq" aria-labelledby="fs-faq-h">
+  <div class="fs-wrap">
+    <div class="fs-split fs-split--5-7" data-sticky-split>
+      <div class="fs-faq__side">
+        <p class="fs-kicker">FAQs</p>
+        <h2 class="fs-h2" id="fs-faq-h">Questions people ask us</h2>
+        <p class="fs-lead">Straight answers about getting help, giving and how we work.</p>
+        <div class="fs-faq__help">
+          <h3>Still have a question?</h3>
+          <p>Call <a href="tel:+441134960123">0113 496 0123</a>, Monday to Friday, 9am&ndash;5pm.</p>
+          <p>Or email <a href="mailto:hello@example.com">hello@example.com</a>. We reply within two working days.</p>
+        </div>
+      </div>
+      <div class="fs-faq__list">
+        <details class="fs-qa">
+          <summary>Do I need a referral to get food?<span class="fs-qa__ic" aria-hidden="true"></span></summary>
+          <div class="fs-qa__a"><p>For an emergency food parcel, yes. A GP, school, housing officer, advice service or our helpline can refer you, often the same day. Our community pantries don&rsquo;t need a referral: anyone living nearby can join.</p></div>
+        </details>
+        <details class="fs-qa">
+          <summary>What&rsquo;s in a food parcel?<span class="fs-qa__ic" aria-hidden="true"></span></summary>
+          <div class="fs-qa__a"><p>At least three days of balanced, long-life food: cereal, soup, pasta, rice, tinned tomatoes, vegetables, meat or fish, fruit, tea and biscuits. We add toiletries, nappies and pet food when you need them, and cater for halal, vegetarian and other diets wherever we can.</p></div>
+        </details>
+        <details class="fs-qa">
+          <summary>Will anyone know I&rsquo;ve used a food bank?<span class="fs-qa__ic" aria-hidden="true"></span></summary>
+          <div class="fs-qa__a"><p>No. What you tell us stays confidential. We only share information with your permission, unless we&rsquo;re worried someone is at risk of harm, as our <a href="#">safeguarding policy</a> explains.</p></div>
+        </details>
+        <details class="fs-qa">
+          <summary>How does Gift Aid work?<span class="fs-qa__ic" aria-hidden="true"></span></summary>
+          <div class="fs-qa__a"><p>If you&rsquo;re a UK taxpayer, Gift Aid adds 25p for every &pound;1 you give. You tick the declaration and we claim it from HMRC, at no cost to you. You need to pay at least as much Income Tax or Capital Gains Tax in the tax year as all charities claim on your gifts. Please tell us if that changes.</p></div>
+        </details>
+        <details class="fs-qa">
+          <summary>Can I donate fresh food?<span class="fs-qa__ic" aria-hidden="true"></span></summary>
+          <div class="fs-qa__a"><p>Our food banks can only take long-life food. Our pantries do take fresh food from registered food businesses. If you&rsquo;re a grower or retailer with surplus, email <a href="mailto:food@example.com">food@example.com</a>.</p></div>
+        </details>
+        <details class="fs-qa">
+          <summary>How do you keep people safe?<span class="fs-qa__ic" aria-hidden="true"></span></summary>
+          <div class="fs-qa__a"><p>Every venue has a trained safeguarding lead, volunteers working with children or adults at risk are DBS checked, and our trustees review safeguarding at every meeting. To raise a concern, call <a href="tel:+441134960789">0113 496 0789</a> or email <a href="mailto:safeguarding@example.com">safeguarding@example.com</a>.</p></div>
+        </details>
+        <details class="fs-qa">
+          <summary>Can I change or cancel a monthly gift?<span class="fs-qa__ic" aria-hidden="true"></span></summary>
+          <div class="fs-qa__a"><p>Of course, at any time. Call our supporter care team on <a href="tel:+441134960456">0113 496 0456</a> or email <a href="mailto:supporters@example.com">supporters@example.com</a>. You can also cancel a Direct Debit through your bank.</p></div>
+        </details>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ===== FOOTER: shopping-list notepad ===== -->
+<footer class="fs-foot" id="fs-foot">
+  <div class="fs-wrap fs-foot__in">
+    <nav class="fs-pad" aria-label="Footer">
+      <p class="fs-pad__title">This week&rsquo;s list</p>
+      <p class="fs-pad__sub">Small things that make a big difference. Tick one off today.</p>
+      <div class="fs-pad__cols">
+        <div class="fs-fgroup">
+          <h2 class="fs-fh">Get help</h2>
+          <button class="fs-fh-btn" type="button" aria-expanded="false" aria-controls="fs-fl-1">Get help<svg aria-hidden="true"><use href="#fs-i-chev"/></svg></button>
+          <ul class="fs-flist" id="fs-fl-1">
+            <li><a href="#fs-finder"><span class="fs-box" aria-hidden="true"></span><span class="fs-flist__t">Find a food bank</span></a></li>
+            <li><a href="#help"><span class="fs-box" aria-hidden="true"></span><span class="fs-flist__t">How referrals work</span></a></li>
+            <li><a href="#help"><span class="fs-box" aria-hidden="true"></span><span class="fs-flist__t">Community pantries</span></a></li>
+            <li><a href="#"><span class="fs-box" aria-hidden="true"></span><span class="fs-flist__t">Holiday meals</span></a></li>
+            <li><a href="#"><span class="fs-box" aria-hidden="true"></span><span class="fs-flist__t">Money advice</span></a></li>
+          </ul>
+        </div>
+        <div class="fs-fgroup">
+          <h2 class="fs-fh">Give</h2>
+          <button class="fs-fh-btn" type="button" aria-expanded="false" aria-controls="fs-fl-2">Give<svg aria-hidden="true"><use href="#fs-i-chev"/></svg></button>
+          <ul class="fs-flist" id="fs-fl-2">
+            <li><a href="#donate"><span class="fs-box" aria-hidden="true"></span><span class="fs-flist__t">Donate</span></a></li>
+            <li><a href="#give-food"><span class="fs-box" aria-hidden="true"></span><span class="fs-flist__t">Donate food</span></a></li>
+            <li><a href="#volunteer"><span class="fs-box" aria-hidden="true"></span><span class="fs-flist__t">Volunteer</span></a></li>
+            <li><a href="#"><span class="fs-box" aria-hidden="true"></span><span class="fs-flist__t">Fundraise for us</span></a></li>
+            <li><a href="#"><span class="fs-box" aria-hidden="true"></span><span class="fs-flist__t">Gift in your Will</span></a></li>
+            <li><a href="#partners"><span class="fs-box" aria-hidden="true"></span><span class="fs-flist__t">Partner with us</span></a></li>
+          </ul>
+        </div>
+        <div class="fs-fgroup">
+          <h2 class="fs-fh">About us</h2>
+          <button class="fs-fh-btn" type="button" aria-expanded="false" aria-controls="fs-fl-3">About us<svg aria-hidden="true"><use href="#fs-i-chev"/></svg></button>
+          <ul class="fs-flist" id="fs-fl-3">
+            <li><a href="#impact"><span class="fs-box" aria-hidden="true"></span><span class="fs-flist__t">Our impact</span></a></li>
+            <li><a href="#stories"><span class="fs-box" aria-hidden="true"></span><span class="fs-flist__t">Stories</span></a></li>
+            <li><a href="#"><span class="fs-box" aria-hidden="true"></span><span class="fs-flist__t">Report &amp; accounts</span></a></li>
+            <li><a href="#"><span class="fs-box" aria-hidden="true"></span><span class="fs-flist__t">Jobs</span></a></li>
+            <li><a href="#faq"><span class="fs-box" aria-hidden="true"></span><span class="fs-flist__t">FAQs</span></a></li>
+            <li><a href="#fs-contact"><span class="fs-box" aria-hidden="true"></span><span class="fs-flist__t">Contact us</span></a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="fs-foot__side">
+      <a class="fs-logo" href="#top" aria-label="Common Table Food Network, back to top of page">
+        <svg viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="22" fill="#fff"/><path d="M10 22h24a12 12 0 0 1-24 0z" fill="#e5533d"/><path d="M22.4 19.6c-.6-4 1.4-7.6 5.6-9.2-.2 4.3-2.4 7.6-5.6 9.2z" fill="#e0a800"/><path d="M21.6 19.8c-2.7-1.2-4.2-3.4-4.3-6.3 2.9.8 4.5 3 4.3 6.3z" fill="#17402f"/></svg>
+        <span class="fs-logo__txt"><b>Common Table</b><span>Food Network</span></span>
+      </a>
+      <p class="fs-foot__about">Food banks, community pantries and free advice across Leeds and West Yorkshire, run with more than a thousand volunteers.</p>
+      <address class="fs-contact fs-anchor" id="fs-contact">
+        <p><span class="fs-contact__k">Helpline</span><span><a href="tel:+441134960123">0113 496 0123</a><small>Mon&ndash;Fri, 9am&ndash;5pm. Free and confidential.</small></span></p>
+        <p><span class="fs-contact__k">Office</span><a href="tel:+441134960456">0113 496 0456</a></p>
+        <p><span class="fs-contact__k">Email</span><a href="mailto:hello@example.com">hello@example.com</a></p>
+        <p><span class="fs-contact__k">Warehouse</span><span>Unit 4, Wharfside Trading Estate, Leeds LS11</span></p>
+      </address>
+      <div class="fs-frrow">
+        <div class="fs-frbadge" role="img" aria-label="Fundraising Regulator badge placeholder">FUNDRAISING REGULATOR<br>badge placeholder</div>
+        <p>Registered with the Fundraising Regulator. We follow the Code of Fundraising Practice.</p>
+      </div>
+      <ul class="fs-social" aria-label="Social media">
+        <li><a href="#">Facebook</a></li>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="fs-wrap">
+    <div class="fs-legal">
+      <div class="fs-legal__reg">
+        <p>Common Table Food Network. Registered charity in England and Wales No. 0000000. Company limited by guarantee, registered in England and Wales No. 00000000. Registered office: Unit 4, Wharfside Trading Estate, Leeds LS11.</p>
+        <p>&copy; 2026 Common Table Food Network &middot; example.com</p>
+      </div>
+      <ul class="fs-legal__links">
+        <li><a href="#">Safeguarding policy</a></li>
+        <li><a href="#">Privacy notice</a></li>
+        <li><a href="#">Cookie policy</a></li>
+        <li><a href="#">Accessibility</a></li>
+        <li><a href="#">Complaints</a></li>
+      </ul>
+      <button class="fs-totop" id="fs-totop" type="button" aria-label="Back to top"><svg aria-hidden="true"><use href="#fs-i-up"/></svg></button>
+    </div>
+  </div>
+</footer>
+
+<div class="fs-actbar" id="fs-actbar" aria-hidden="true">
+  <a class="fs-btn fs-btn--ghost" href="#help">Get help</a>
+  <a class="fs-btn fs-btn--primary" href="#donate"><svg aria-hidden="true"><use href="#fs-i-heart"/></svg>Donate</a>
+</div>
+
+<script>
+(() => {
+  'use strict';
+  const d = document, w = window;
+  const $ = (s, c) => (c || d).querySelector(s);
+  const $$ = (s, c) => Array.from((c || d).querySelectorAll(s));
+  const mqMobile = w.matchMedia('(max-width: 767px)');
+  const mqDesktop = w.matchMedia('(min-width: 1200px)');
+  const mqReduce = w.matchMedia('(prefers-reduced-motion: reduce)');
+  const onMQ = (mq, fn) => (mq.addEventListener ? mq.addEventListener('change', fn) : mq.addListener(fn));
+  const smooth = () => (mqReduce.matches ? 'auto' : 'smooth');
+
+  /* Placeholder links (href="#") stay put */
+  d.addEventListener('click', (e) => {
+    const a = e.target.closest && e.target.closest('a[href="#"]');
+    if (a) e.preventDefault();
+  });
+
+  /* ---------- Header shadow ---------- */
+  const header = $('.fs-header');
+  const onScroll = () => header.classList.toggle('is-scrolled', w.scrollY > 8);
+  w.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  /* ---------- Full-screen menu ---------- */
+  const burger = $('#fs-burger'), menu = $('#fs-menu'), menuClose = $('#fs-menu-close');
+  let lastFocus = null;
+  function openMenu() {
+    lastFocus = d.activeElement;
+    menu.hidden = false;
+    menu.classList.add('is-open');
+    burger.setAttribute('aria-expanded', 'true');
+    d.body.classList.add('fs-lock');
+    menuClose.focus();
+    updateBar();
+  }
+  function closeMenu(restore) {
+    if (menu.hidden) return;
+    menu.hidden = true;
+    menu.classList.remove('is-open');
+    burger.setAttribute('aria-expanded', 'false');
+    d.body.classList.remove('fs-lock');
+    if (restore !== false && lastFocus) lastFocus.focus();
+    updateBar();
+  }
+  burger.addEventListener('click', openMenu);
+  menuClose.addEventListener('click', () => closeMenu());
+  menu.addEventListener('click', (e) => { if (e.target.closest('a')) closeMenu(false); });
+  onMQ(mqDesktop, (e) => { if (e.matches) closeMenu(false); });
+
+  /* ---------- Hero: orbit of items ---------- */
+  const hero = $('#hero'), stage = $('#fs-stage'), ell = $('#fs-ellipse'), core = $('.fs-hero__core');
+  const orbs = $$('.fs-orb', stage);
+  const pauseBtn = $('#fs-pause'), pauseTxt = $('.fs-pause__txt', pauseBtn);
+  const track = $('#fs-mq-track');
+  const N = orbs.length, STEP = (Math.PI * 2) / N, PERIOD = 90000;
+  let ang = -Math.PI / 2 + STEP / 2, rx = 0, ry = 0, raf = 0, last = 0;
+  let userPaused = false, hoverPaused = false, inView = true, active = null, locked = false;
+
+  // Mobile marquee: built from the same items
+  (() => {
+    const frag = d.createDocumentFragment();
+    const copies = mqReduce.matches ? 1 : 2;
+    for (let k = 0; k < copies; k++) {
+      orbs.forEach((o) => {
+        const li = d.createElement('li');
+        li.className = 'fs-mq';
+        const im = d.createElement('img');
+        im.src = $('img', o).getAttribute('src').replace('w=260&h=260', 'w=160&h=160');
+        im.alt = '';
+        im.width = 74; im.height = 74;
+        im.loading = 'lazy'; im.decoding = 'async';
+        li.appendChild(im);
+        li.appendChild(d.createTextNode(o.dataset.short));
+        frag.appendChild(li);
+      });
+    }
+    track.appendChild(frag);
+  })();
+
+  const orbitMode = () => !mqMobile.matches;
+  function measure() {
+    if (!orbitMode()) { stage.style.minHeight = ''; return; }
+    const t = orbs[0].offsetWidth;
+    const need = Math.ceil(core.offsetHeight + t * 2 + 40);
+    if (Math.abs((parseFloat(stage.style.minHeight) || 0) - need) > 1) stage.style.minHeight = need + 'px';
+    const W = stage.clientWidth, H = stage.clientHeight;
+    rx = Math.max(0, W / 2 - t / 2 - 4);
+    ry = Math.max(0, H / 2 - t / 2 - 4);
+    ell.setAttribute('cx', W / 2); ell.setAttribute('cy', H / 2);
+    ell.setAttribute('rx', rx); ell.setAttribute('ry', ry);
+  }
+  function place() {
+    if (!orbitMode()) return;
+    for (let i = 0; i < N; i++) {
+      const th = ang + i * STEP, s = Math.sin(th), depth = (s + 1) / 2, o = orbs[i];
+      o.style.transform = 'translate3d(' + (rx * Math.cos(th)).toFixed(1) + 'px,' + (ry * s).toFixed(1) + 'px,0)';
+      o.style.setProperty('--s', (0.62 + 0.38 * depth).toFixed(3));
+      o.style.zIndex = o === active ? 100 : 10 + Math.round(depth * 40);
+      o.classList.toggle('is-top', s < -0.25);
+      o.classList.toggle('is-r', Math.cos(th) > 0.5);
+      o.classList.toggle('is-l', Math.cos(th) < -0.5);
+    }
+  }
+  const moving = () => orbitMode() && !mqReduce.matches && !userPaused && !hoverPaused && inView && !d.hidden;
+  function frame(t) {
+    raf = 0;
+    if (!moving()) { last = 0; return; }
+    if (last) ang += (Math.min(t - last, 64) / PERIOD) * Math.PI * 2;
+    last = t;
+    place();
+    raf = w.requestAnimationFrame(frame);
+  }
+  function sync() {
+    const marqueeRuns = !userPaused && inView && !d.hidden && !mqReduce.matches;
+    hero.classList.toggle('is-paused', orbitMode() ? !moving() : !marqueeRuns);
+    if (moving() && !raf) { last = 0; raf = w.requestAnimationFrame(frame); }
+  }
+  function setActive(o) {
+    if (active && active !== o) active.classList.remove('is-active');
+    active = o;
+    if (o) o.classList.add('is-active');
+    place();
+  }
+  function release() {
+    if (!active && !locked) return;
+    locked = false; hoverPaused = false; setActive(null); sync();
+  }
+  orbs.forEach((o) => {
+    const disc = $('.fs-orb__disc', o);
+    disc.addEventListener('pointerenter', (e) => {
+      if (e.pointerType !== 'mouse' || locked) return;
+      setActive(o); hoverPaused = true; sync();
+    });
+    disc.addEventListener('pointerleave', (e) => {
+      if (e.pointerType !== 'mouse' || locked) return;
+      setActive(null); hoverPaused = false; sync();
+    });
+    disc.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (locked && active === o) { release(); return; }
+      locked = true; hoverPaused = true; setActive(o); sync();
+    });
+  });
+  d.addEventListener('click', () => { if (locked) release(); });
+
+  pauseBtn.addEventListener('click', () => {
+    userPaused = !userPaused;
+    pauseBtn.classList.toggle('is-paused', userPaused);
+    pauseTxt.textContent = userPaused ? 'Play motion' : 'Pause motion';
+    sync();
+  });
+  const reduceChanged = () => { pauseBtn.hidden = mqReduce.matches; place(); sync(); };
+  onMQ(mqReduce, reduceChanged);
+  onMQ(mqMobile, () => { measure(); place(); sync(); });
+  if ('IntersectionObserver' in w) {
+    new IntersectionObserver((es) => { inView = es[0].isIntersecting; sync(); }).observe(hero);
+  }
+  d.addEventListener('visibilitychange', sync);
+  if ('ResizeObserver' in w) { const hro = new ResizeObserver(() => { measure(); place(); }); hro.observe(stage); hro.observe(core); }
+  else w.addEventListener('resize', () => { measure(); place(); });
+  pauseBtn.hidden = mqReduce.matches;
+  measure(); place(); sync();
+
+  /* ---------- Food bank finder (simulated) ---------- */
+  const VENUES = [
+    { n: 'Harehills Food Bank', type: 'Food bank', tag: 'Referral needed', cls: '', a: 'Linden Row Community Hall, Harehills, LS8', t: [['Mon', '10am to 1pm'], ['Thu', '10am to 1pm'], ['Sat', '10am to 12pm']] },
+    { n: 'Chapeltown Community Pantry', type: 'Pantry', tag: 'No referral, £3.50 a visit', cls: 'fs-tag--low', a: 'The Old Library, Mercer Street, Chapeltown, LS7', t: [['Tue', '12pm to 3pm'], ['Fri', '12pm to 3pm']] },
+    { n: 'Armley Food Bank', type: 'Food bank', tag: 'Referral needed', cls: '', a: 'Wharf Lane Community Centre, Armley, LS12', t: [['Wed', '1pm to 4pm'], ['Fri', '10am to 1pm']] },
+    { n: 'Beeston Food Bank', type: 'Food bank', tag: 'Referral needed', cls: '', a: 'Elmtree Road Community Rooms, Beeston, LS11', t: [['Tue', '10am to 1pm'], ['Thu', '4pm to 7pm']] },
+    { n: 'Seacroft Community Pantry', type: 'Pantry', tag: 'No referral, £3.50 a visit', cls: 'fs-tag--low', a: 'Seacroft Green Hub, Kestrel Way, LS14', t: [['Mon', '1pm to 4pm'], ['Sat', '10am to 1pm']] }
+  ];
+  const finder = $('#fs-finder-form'), pc = $('#fs-pc'), pcErr = $('#fs-pc-err'), results = $('#fs-results');
+  finder.addEventListener('submit', (e) => {
+    e.preventDefault();
+    let v = pc.value.toUpperCase().replace(/[^A-Z0-9 ]/g, '').replace(/\s+/g, ' ').trim();
+    if (/^[A-Z]{1,2}\d[A-Z\d]?\d[A-Z]{2}$/.test(v)) v = v.slice(0, -3) + ' ' + v.slice(-3);
+    const ok = /^[A-Z]{1,2}\d[A-Z\d]?( \d[A-Z]{2})?$/.test(v);
+    pcErr.hidden = ok;
+    if (!ok) { pc.setAttribute('aria-invalid', 'true'); results.innerHTML = ''; pc.focus(); return; }
+    pc.removeAttribute('aria-invalid');
+    pc.value = v;
+    let h = 7;
+    for (const ch of v) h = (h * 31 + ch.charCodeAt(0)) >>> 0;
+    const start = h % VENUES.length;
+    let dist = 0.3 + (h % 6) / 10;
+    const local = /^(LS|BD|WF|HX|HD)\d/.test(v);
+    const items = [0, 1, 2].map((k) => {
+      const ven = VENUES[(start + k * 2) % VENUES.length];
+      if (k) dist += 0.5 + ((h >> (k * 3)) % 7) / 10;
+      const times = ven.t.map((x) => '<dt>' + x[0] + '</dt><dd>' + x[1] + '</dd>').join('');
+      return '<li class="fs-venue"><div class="fs-venue__top"><h4>' + ven.n + '</h4><span class="fs-venue__dist">' + dist.toFixed(1) + ' miles</span></div>' +
+        '<span class="fs-tag ' + ven.cls + '">' + ven.type + ': ' + ven.tag + '</span>' +
+        '<p class="fs-venue__addr">' + ven.a + '</p><dl class="fs-times">' + times + '</dl>' +
+        '<a class="fs-link" href="#">Get directions<span class="fs-vh"> to ' + ven.n + '</span> <svg aria-hidden="true"><use href="#fs-i-arrow"/></svg></a></li>';
+    }).join('');
+    results.innerHTML = '<p class="fs-results__head">Nearest to <strong>' + v + '</strong> &middot; example results' +
+      (local ? '' : '<br>That postcode looks outside West Yorkshire. Call us and we&rsquo;ll help you find support nearer home.') +
+      '</p><ol class="fs-venues">' + items + '</ol>';
+  });
+
+  /* ---------- Donation widget (simulated, no payment fields) ---------- */
+  const form = $('#fs-give-form'), give = $('#fs-give');
+  const steps = $$('.fs-give__step', form);
+  const count = $('#fs-give-count'), title = $('#fs-give-title');
+  const otherRadio = $('#fs-aother'), otherWrap = $('#fs-other'), otherIn = $('#fs-other-amt'), otherErr = $('#fs-other-err');
+  const impactTxt = $('#fs-impact-txt'), gaCalc = $('#fs-ga-calc'), gaBox = $('#fs-ga');
+  const IMPACT = {
+    once: { 5: 'could provide nappies and wipes for a baby for a week.', 10: 'could pack a 3-day food parcel for one person.', 25: 'could give a child hot lunches for a whole week of the school holidays.' },
+    monthly: { 5: 'could keep a pantry shelf stocked with tea, milk and cereal.', 10: 'could pack twelve food parcels over a year.', 25: 'could pay for twelve money and energy advice sessions a year.' }
+  };
+  const money = (v) => '£' + (Number.isInteger(v) ? String(v) : v.toFixed(2));
+  const freq = () => $('input[name="freq"]:checked', form).value;
+  function amount() {
+    const r = $('input[name="amt"]:checked', form);
+    if (!r) return 0;
+    if (r.value !== 'other') return +r.value;
+    const v = parseFloat(otherIn.value.replace(/[£,\s]/g, ''));
+    return isFinite(v) ? Math.round(v * 100) / 100 : 0;
+  }
+  function refresh() {
+    const isOther = otherRadio.checked;
+    otherWrap.hidden = !isOther;
+    const a = amount(), per = freq() === 'monthly' ? ' a month' : '';
+    if (isOther) {
+      impactTxt.innerHTML = a >= 2
+        ? '<strong>' + money(a) + per + '</strong> helps keep our food banks, pantries and advice running.'
+        : 'Every pound helps keep our food banks open. Enter any amount from &pound;2.';
+    } else {
+      impactTxt.innerHTML = '<strong>' + money(a) + per + '</strong> ' + IMPACT[freq()][a];
+    }
+    gaCalc.textContent = a >= 2 ? money(a) + per + ' becomes ' + money(Math.round(a * 125) / 100) : 'Adds 25% to your gift';
+  }
+  function setErr(input, err, bad) {
+    err.hidden = !bad;
+    if (bad) input.setAttribute('aria-invalid', 'true'); else input.removeAttribute('aria-invalid');
+    return bad;
+  }
+  function check1() {
+    if (!otherRadio.checked) return true;
+    const a = amount();
+    if (setErr(otherIn, otherErr, a < 2 || a > 100000)) { otherIn.focus(); return false; }
+    return true;
+  }
+  function check2() {
+    const rules = [
+      ['#fs-fn', (v) => v.trim().length > 0],
+      ['#fs-ln', (v) => v.trim().length > 0],
+      ['#fs-em', (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim())]
+    ];
+    if (gaBox.checked) rules.push(['#fs-ad', (v) => v.trim().length > 2], ['#fs-pc2', (v) => /^[A-Z]{1,2}\d[A-Z\d]?\s*\d[A-Z]{2}$/i.test(v.trim())]);
+    let first = null;
+    rules.forEach(([sel, ok]) => {
+      const el = $(sel);
+      if (setErr(el, $(sel + '-err'), !ok(el.value)) && !first) first = el;
+    });
+    if (first) { first.focus(); return false; }
+    return true;
+  }
+  function current() { return +steps.find((s) => !s.hidden).dataset.step; }
+  function show(n) {
+    steps.forEach((s) => { s.hidden = +s.dataset.step !== n; });
+    count.textContent = 'Step ' + n + ' of 3';
+    title.textContent = n === 1 ? 'Make a donation' : n === 2 ? 'Your details' : 'Almost done';
+    const r = give.getBoundingClientRect();
+    if (r.top < 0 || r.top > w.innerHeight * 0.6) give.scrollIntoView({ behavior: smooth(), block: 'start' });
+    title.focus({ preventScroll: true });
+  }
+  function prep2() {
+    const ga = gaBox.checked, a = amount(), monthly = freq() === 'monthly';
+    $$('[data-ga-only]', form).forEach((f) => {
+      f.hidden = !ga;
+      if (!ga) { const i = $('input', f); i.removeAttribute('aria-invalid'); $('.fs-err', f).hidden = true; }
+    });
+    $('#fs-ga-use').hidden = !ga;
+    $('#fs-sum').textContent = 'You’re giving ' + money(a) + (monthly ? ' a month' : ' once') + (ga ? ', plus Gift Aid' : '');
+  }
+  function prep3() {
+    const a = amount(), monthly = freq() === 'monthly', ga = gaBox.checked;
+    $('#fs-done-h').textContent = 'Thank you, ' + $('#fs-fn').value.trim() + '.';
+    $('#fs-done-p').textContent = 'Next, you’d go to our secure payment page to set up your ' + money(a) + (monthly ? ' monthly gift' : ' one-off gift') +
+      (ga ? ', worth ' + money(Math.round(a * 125) / 100) + ' to us with Gift Aid.' : '.');
+  }
+  form.addEventListener('change', (e) => {
+    refresh();
+    if (e.target === otherRadio) otherIn.focus();
+  });
+  otherIn.addEventListener('input', () => { refresh(); if (!otherErr.hidden) setErr(otherIn, otherErr, amount() < 2); });
+  form.addEventListener('submit', (e) => e.preventDefault());
+  form.addEventListener('click', (e) => {
+    const go = e.target.closest('[data-go]');
+    if (go) {
+      const to = +go.dataset.go, cur = current();
+      if (to > cur && cur === 1 && !check1()) return;
+      if (to > cur && cur === 2 && !check2()) return;
+      if (to === 2) prep2();
+      if (to === 3) prep3();
+      show(to);
+      return;
+    }
+    if (e.target.closest('[data-reset]')) {
+      form.reset();
+      $$('[aria-invalid]', form).forEach((i) => i.removeAttribute('aria-invalid'));
+      $$('.fs-err', form).forEach((x) => { x.hidden = true; });
+      refresh();
+      show(1);
+    }
+  });
+  refresh();
+
+  /* ---------- Sticky shorter column (desktop only) ---------- */
+  const splits = $$('[data-sticky-split]');
+  let stickyRaf = 0;
+  function stickies() {
+    stickyRaf = 0;
+    splits.forEach((sp) => {
+      const cols = Array.from(sp.children);
+      cols.forEach((c) => c.classList.remove('is-sticky'));
+      if (!mqDesktop.matches || cols.length < 2) return;
+      const a = cols[0].offsetHeight, b = cols[1].offsetHeight;
+      const short = a < b ? cols[0] : cols[1];
+      const room = w.innerHeight - header.offsetHeight - 48;
+      if (Math.abs(a - b) < 48 || short.offsetHeight > room) return;
+      short.classList.add('is-sticky');
+    });
+  }
+  const queueSticky = () => { if (!stickyRaf) stickyRaf = w.requestAnimationFrame(stickies); };
+  if ('ResizeObserver' in w) {
+    const ro = new ResizeObserver(queueSticky);
+    splits.forEach((sp) => Array.from(sp.children).forEach((c) => ro.observe(c)));
+  }
+  w.addEventListener('resize', queueSticky);
+  onMQ(mqDesktop, queueSticky);
+  queueSticky();
+
+  /* ---------- Footer list accordions (mobile) ---------- */
+  $$('.fs-fh-btn').forEach((b) => {
+    const list = d.getElementById(b.getAttribute('aria-controls'));
+    b.addEventListener('click', () => {
+      const open = b.getAttribute('aria-expanded') !== 'true';
+      b.setAttribute('aria-expanded', String(open));
+      list.classList.toggle('is-open', open);
+    });
+  });
+
+  /* ---------- Mobile sticky action bar ---------- */
+  const bar = $('#fs-actbar');
+  const seen = { cta: true, foot: false, give: false };
+  function updateBar() {
+    const on = mqMobile.matches && !seen.cta && !seen.foot && !seen.give && menu.hidden;
+    bar.classList.toggle('is-on', on);
+    bar.setAttribute('aria-hidden', on ? 'false' : 'true');
+    bar.inert = !on;
+  }
+  if ('IntersectionObserver' in w) {
+    const io = new IntersectionObserver((es) => {
+      es.forEach((en) => { seen[en.target.dataset.fsWatch] = en.isIntersecting; });
+      updateBar();
+    });
+    [['#fs-hero-btns', 'cta'], ['#fs-foot', 'foot'], ['#fs-give', 'give']].forEach(([s, k]) => {
+      const el = $(s); el.dataset.fsWatch = k; io.observe(el);
+    });
+  }
+  onMQ(mqMobile, updateBar);
+  updateBar();
+
+  /* ---------- Back to top + Escape ---------- */
+  $('#fs-totop').addEventListener('click', () => {
+    w.scrollTo({ top: 0, behavior: smooth() });
+    $('.fs-header .fs-logo').focus({ preventScroll: true });
+  });
+  d.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      if (!menu.hidden) closeMenu();
+      else if (locked) release();
+      return;
+    }
+    if (e.key === 'Tab' && !menu.hidden) {
+      const f = $$('a[href], button:not([disabled])', menu).filter((el) => el.offsetParent !== null);
+      if (!f.length) return;
+      const first = f[0], lastEl = f[f.length - 1];
+      if (e.shiftKey && d.activeElement === first) { e.preventDefault(); lastEl.focus(); }
+      else if (!e.shiftKey && d.activeElement === lastEl) { e.preventDefault(); first.focus(); }
+    }
+  });
+})();
+</script>
+</body>
+</html>

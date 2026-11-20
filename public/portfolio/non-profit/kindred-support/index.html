@@ -1,0 +1,2396 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta name="robots" content="noindex">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kindred | Mental health support in Greater Manchester</title>
+<meta name="description" content="Kindred is a Greater Manchester mental health charity. Evening listening line, peer support groups, free counselling for 18 to 25-year-olds and workplace wellbeing training.">
+<meta name="theme-color" content="#ece9fb">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600&family=Nunito+Sans:ital,opsz,wght@0,6..12,400;0,6..12,600;0,6..12,700;1,6..12,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ol-ink:#2b2a5c;--ol-ink-2:#46447a;--ol-ink-3:#5c5a8a;
+  --ol-lav:#ece9fb;--ol-lav-2:#f6f5fe;--ol-lav-3:#dcd7f6;--ol-violet:#6159c2;
+  --ol-peach:#ffb38a;--ol-peach-2:#ffe1cf;--ol-peach-ink:#9a4318;
+  --ol-sage:#9cc5a1;--ol-sage-2:#ebf4ec;--ol-sage-ink:#2f5f39;
+  --ol-night:#23224d;--ol-night-2:#2e2d61;
+  --ol-err:#a8261c;
+  --ol-r:22px;--ol-r-s:14px;
+  --ol-shadow:0 1px 2px rgba(43,42,92,.05),0 10px 30px -14px rgba(43,42,92,.22);
+  --ol-head:"Lexend",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --ol-body:"Nunito Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --ol-headh:76px;
+}
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
+html{-webkit-text-size-adjust:100%;scroll-padding-top:96px}
+body{margin:0;font-family:var(--ol-body);font-size:1.0625rem;line-height:1.6;color:var(--ol-ink);background:#fff;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:var(--ol-head);font-weight:500;line-height:1.15;margin:0;letter-spacing:-.015em;color:var(--ol-ink)}
+p,ul,ol,figure,blockquote,fieldset{margin:0}
+ul,ol{padding:0;list-style:none}
+fieldset{border:0;padding:0;min-width:0}
+a{color:inherit}
+img{max-width:100%;display:block;height:auto}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+svg{flex:none}
+:focus-visible{outline:3px solid var(--ol-violet);outline-offset:3px;border-radius:6px}
+[tabindex="-1"]:focus{outline:none}
+.ol-vh{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.ol-skip{position:absolute;left:16px;top:-80px;z-index:200;background:var(--ol-ink);color:#fff;padding:12px 18px;border-radius:10px;font-weight:700;text-decoration:none}
+.ol-skip:focus{top:12px}
+
+/* layout */
+.ol-wrap{width:100%;max-width:1440px;margin-inline:auto;padding-inline:20px}
+@media (min-width:768px){.ol-wrap{padding-inline:32px}}
+@media (min-width:1200px){.ol-wrap{padding-inline:48px}}
+.ol-sec{padding-block:clamp(64px,8vw,120px)}
+.ol-sec--lav{background:var(--ol-lav-2)}
+.ol-sec--sage{background:var(--ol-sage-2)}
+.ol-split{display:grid;gap:clamp(40px,5vw,80px);align-items:start}
+@media (min-width:1200px){
+  .ol-split{grid-template-columns:5fr 7fr}
+  .ol-split--wide-a{grid-template-columns:6fr 6fr}
+  .ol-pin{position:sticky;top:calc(var(--ol-headh) + 28px)}
+}
+
+/* type */
+.ol-eyebrow{display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ol-sage-ink);margin-bottom:14px}
+.ol-eyebrow::before{content:"";width:22px;height:2px;border-radius:2px;background:var(--ol-peach)}
+.ol-h2{font-size:clamp(1.85rem,1.25rem + 1.9vw,2.85rem);text-wrap:balance}
+.ol-lead{font-size:clamp(1.05rem,1rem + .25vw,1.18rem);color:var(--ol-ink-2);margin-top:16px;max-width:62ch}
+.ol-sechead{margin-bottom:clamp(32px,4vw,56px);max-width:760px}
+@media (min-width:1200px){
+  .ol-sechead--row{display:grid;grid-template-columns:1fr 1fr;gap:80px;max-width:none;align-items:end}
+  .ol-sechead--row .ol-lead{margin-top:0}
+}
+.ol-small{font-size:.9rem;color:var(--ol-ink-3)}
+.ol-demo{display:inline-flex;align-items:center;gap:6px;padding:4px 11px;border-radius:999px;background:var(--ol-lav);color:var(--ol-ink-2);font-size:.76rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;white-space:nowrap}
+.ol-demo::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--ol-violet)}
+
+/* buttons & links */
+.ol-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:50px;padding:0 24px;border-radius:999px;border:1.5px solid transparent;font-family:var(--ol-head);font-weight:500;font-size:1rem;line-height:1.2;text-decoration:none;cursor:pointer;transition:background-color .2s,border-color .2s,transform .2s,box-shadow .2s,color .2s;white-space:nowrap;-webkit-tap-highlight-color:transparent}
+.ol-btn svg{width:18px;height:18px}
+.ol-btn--ink{background:var(--ol-ink);color:#fff}
+.ol-btn--ink:hover{background:#403f82;box-shadow:0 8px 20px -10px rgba(43,42,92,.6)}
+.ol-btn--peach{background:var(--ol-peach);color:var(--ol-ink)}
+.ol-btn--peach:hover{background:#ff9f6c;box-shadow:0 8px 20px -10px rgba(198,90,42,.55)}
+.ol-btn--line{border-color:rgba(43,42,92,.3);color:var(--ol-ink);background:rgba(255,255,255,.7)}
+.ol-btn--line:hover{border-color:var(--ol-ink);background:#fff}
+.ol-btn--block{width:100%}
+.ol-btn:active{transform:translateY(1px) scale(.99)}
+.ol-link{color:var(--ol-ink);font-weight:700;text-decoration:underline;text-decoration-color:var(--ol-peach);text-decoration-thickness:2px;text-underline-offset:4px;transition:text-decoration-color .2s}
+.ol-link:hover{text-decoration-color:var(--ol-ink)}
+.ol-more{display:inline-flex;align-items:center;gap:8px;font-family:var(--ol-head);font-weight:500;text-decoration:none;color:var(--ol-ink);min-height:44px}
+.ol-more svg{width:18px;height:18px;transition:transform .25s}
+.ol-more:hover svg{transform:translateX(4px)}
+.ol-more span{text-decoration:underline;text-decoration-color:transparent;text-underline-offset:5px;text-decoration-thickness:2px;transition:text-decoration-color .2s}
+.ol-more:hover span{text-decoration-color:var(--ol-peach)}
+
+/* utility bar + header */
+.ol-util{background:var(--ol-ink);color:#e9e7fb;font-size:.88rem}
+.ol-util__in{display:flex;justify-content:space-between;gap:24px;min-height:40px;align-items:center}
+.ol-util a{color:#fff;font-weight:700;text-underline-offset:3px}
+.ol-util a:focus-visible{outline-color:var(--ol-peach)}
+.ol-head{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.92);-webkit-backdrop-filter:saturate(140%) blur(12px);backdrop-filter:saturate(140%) blur(12px);border-bottom:1px solid transparent;transition:border-color .3s,box-shadow .3s}
+.ol-head.is-scrolled{border-bottom-color:rgba(43,42,92,.08);box-shadow:0 6px 24px -18px rgba(43,42,92,.35)}
+.ol-head__in{display:flex;align-items:center;gap:24px;height:var(--ol-headh)}
+.ol-logo{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--ol-head);font-weight:600;font-size:1.35rem;letter-spacing:-.02em;color:var(--ol-ink);min-height:44px}
+.ol-logo svg{width:34px;height:34px}
+.ol-nav{margin-left:auto}
+.ol-nav ul{display:flex;gap:4px}
+.ol-nav a{display:inline-flex;align-items:center;min-height:44px;padding:0 12px;border-radius:10px;text-decoration:none;font-family:var(--ol-head);font-size:.95rem;color:var(--ol-ink);position:relative}
+.ol-nav a::after{content:"";position:absolute;left:12px;right:12px;bottom:8px;height:2px;border-radius:2px;background:var(--ol-peach);transform:scaleX(0);transform-origin:left;transition:transform .25s}
+.ol-nav a:hover::after,.ol-nav a:focus-visible::after{transform:scaleX(1)}
+.ol-head__act{display:flex;align-items:center;gap:10px}
+.ol-helppill{display:inline-flex;align-items:center;gap:9px;min-height:44px;padding:0 16px;border-radius:999px;border:1.5px solid rgba(43,42,92,.22);background:#fff;font-family:var(--ol-head);font-weight:500;font-size:.92rem;text-decoration:none;color:var(--ol-ink);white-space:nowrap;transition:border-color .2s,background-color .2s}
+.ol-helppill:hover{border-color:var(--ol-ink);background:var(--ol-lav-2)}
+.ol-helppill i{width:9px;height:9px;border-radius:50%;background:#e8794a;box-shadow:0 0 0 4px rgba(255,179,138,.45)}
+.ol-head__donate{min-height:44px;padding:0 20px}
+.ol-burger{display:none;width:48px;height:48px;border-radius:14px;border:1.5px solid rgba(43,42,92,.2);background:#fff;align-items:center;justify-content:center;flex-direction:column}
+.ol-burger:hover{border-color:var(--ol-ink)}
+.ol-burger span{display:block;width:20px;height:2px;border-radius:2px;background:var(--ol-ink);margin:2.5px 0}
+
+/* full-screen menu */
+.ol-menu{position:fixed;inset:0;z-index:90;background:var(--ol-lav-2);overflow-y:auto;overscroll-behavior:contain;padding-bottom:calc(32px + env(safe-area-inset-bottom))}
+.ol-menu__top{display:flex;align-items:center;justify-content:space-between;height:72px}
+.ol-menu__close{width:48px;height:48px;border-radius:14px;border:1.5px solid rgba(43,42,92,.2);background:#fff;display:inline-flex;align-items:center;justify-content:center}
+.ol-menu__close:hover{border-color:var(--ol-ink)}
+.ol-menu__close svg{width:20px;height:20px}
+.ol-menu__body{display:grid;gap:28px;padding-top:12px}
+.ol-menu__links a{display:flex;align-items:center;justify-content:space-between;min-height:58px;border-bottom:1px solid rgba(43,42,92,.1);font-family:var(--ol-head);font-size:clamp(1.3rem,1.1rem + 1vw,1.7rem);text-decoration:none}
+.ol-menu__links a svg{width:20px;height:20px;opacity:.5;transition:transform .2s,opacity .2s}
+.ol-menu__links a:hover svg,.ol-menu__links a:active svg{transform:translateX(4px);opacity:1}
+.ol-menu__cta{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.ol-menu__hours{font-size:.95rem;color:var(--ol-ink-2)}
+.ol-menu__crisis{background:#fff;border:1.5px solid var(--ol-lav-3);border-radius:var(--ol-r-s);padding:18px 20px;display:grid;gap:6px}
+.ol-menu__crisis strong{font-family:var(--ol-head);font-weight:500;font-size:1.1rem}
+.ol-menu__crisis a{font-weight:700}
+@media (min-width:768px){.ol-menu__body{max-width:720px}}
+</style>
+<style>
+/* hero: dawn sky, character clouds, breathing sun */
+.ol-hero{position:relative;isolation:isolate;overflow:hidden;display:flex;flex-direction:column;min-height:clamp(700px,calc(100vh - 116px),900px);background:#e9e5fa}
+.ol-hero__sky{position:absolute;inset:0;z-index:0;pointer-events:none;
+  background:radial-gradient(46% 50% at 66% 54%,rgba(255,198,160,.6),rgba(255,198,160,0) 70%),
+  linear-gradient(180deg,#28275a 0,#353281 56px,#5a53aa 118px,#8e86d2 186px,#bdb5ec 262px,#ddd7f6 42%,#efe9f9 60%,#fde7dc 82%,#ffd6bc 100%)}
+.ol-hero__sky::after{content:"";position:absolute;inset:0;opacity:.25;animation:ol-light 30s ease-in-out infinite alternate;
+  background:radial-gradient(55% 55% at 66% 56%,rgba(255,168,118,.42),rgba(255,168,118,0) 70%),linear-gradient(180deg,rgba(80,60,150,.22),rgba(80,60,150,0) 34%,rgba(255,196,160,.3))}
+@keyframes ol-light{to{opacity:1}}
+.ol-sun{position:absolute;left:calc(66% - 78px);top:calc(52% - 78px);width:156px;height:156px;z-index:1;pointer-events:none}
+.ol-sun__glow{position:absolute;inset:-150px;border-radius:50%;background:radial-gradient(closest-side,rgba(255,200,158,.85),rgba(255,182,138,.4) 42%,rgba(255,182,138,0));opacity:.8;will-change:transform,opacity}
+.ol-sun__disc{position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle at 46% 40%,#fff7ee 0%,#ffe0c8 38%,#ffc29d 70%,#ffab7f 100%);box-shadow:0 0 50px 18px rgba(255,190,146,.5),0 0 120px 40px rgba(255,190,146,.25);transform:scale(.93);will-change:transform}
+.ol-hero__clouds{position:absolute;inset:0;width:100%;height:100%;z-index:2;display:block;pointer-events:none}
+.ol-hero.is-paused .ol-hero__sky::after{animation-play-state:paused}
+.ol-hero__in{flex:1;display:grid;grid-template-columns:minmax(0,660px) 1fr;align-items:center;gap:40px;padding-block:136px 36px;position:relative;z-index:3}
+.ol-hero__copy{max-width:660px;position:relative}
+.ol-hero__copy::before{content:"";position:absolute;inset:-90px -120px -70px -110px;z-index:-1;border-radius:50%;background:radial-gradient(closest-side,rgba(243,241,253,.9) 0%,rgba(243,241,253,.84) 55%,rgba(243,241,253,.5) 80%,rgba(243,241,253,0) 100%);filter:blur(18px);pointer-events:none}
+.ol-hero h1{font-size:clamp(2.45rem,1.15rem + 4.3vw,4.85rem);line-height:1.04;letter-spacing:-.03em;font-weight:500;position:relative;z-index:0}
+.ol-hl{display:block;animation:ol-rise 1.1s cubic-bezier(.22,.8,.24,1) .1s both}
+.ol-hl+.ol-hl{animation-delay:.32s}
+.ol-u{position:relative;white-space:nowrap;display:inline-block}
+.ol-u::after{content:"";position:absolute;left:-.03em;right:-.02em;bottom:.04em;height:.17em;border-radius:.12em;z-index:-1;background:linear-gradient(90deg,rgba(255,179,138,.95),rgba(255,201,168,.9));transform:scaleX(0);transform-origin:left center;animation:ol-draw 1.2s cubic-bezier(.65,.05,.25,1) 1.05s both}
+@keyframes ol-rise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+@keyframes ol-draw{to{transform:scaleX(1)}}
+@keyframes ol-fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.ol-hero .ol-eyebrow{animation:ol-fade .9s ease both}
+.ol-hero__lead{margin-top:22px;font-size:clamp(1.06rem,1rem + .35vw,1.25rem);color:var(--ol-ink-2);max-width:54ch;animation:ol-fade 1s ease .55s both}
+.ol-hero__cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px;animation:ol-fade 1s ease .7s both}
+.ol-hero__cta .ol-btn{min-height:54px;padding:0 28px;font-size:1.05rem}
+.ol-hero__meta{display:flex;flex-wrap:wrap;align-items:center;gap:10px 22px;margin-top:26px;animation:ol-fade 1s ease .85s both}
+.ol-hero__quiet{display:inline-flex;align-items:center;gap:10px;color:var(--ol-ink-2);font-size:.98rem}
+.ol-hero__quiet i{width:9px;height:9px;border-radius:50%;background:#4f8f59;box-shadow:0 0 0 4px rgba(156,197,161,.5);flex:none}
+.ol-hero__crisis{display:inline-flex;align-items:center;gap:6px;min-height:44px;font-weight:700;font-size:.98rem;color:var(--ol-ink);text-underline-offset:4px;text-decoration-color:var(--ol-peach);text-decoration-thickness:2px}
+.ol-hero__crisis:hover{text-decoration-color:var(--ol-ink)}
+
+/* breathing companion (glass card) */
+.ol-breath{justify-self:end;align-self:end;display:grid;grid-template-columns:76px 1fr;gap:6px 18px;align-items:center;width:min(100%,348px);padding:18px 20px 16px;border-radius:24px;background:rgba(255,255,255,.66);border:1px solid rgba(255,255,255,.75);box-shadow:0 24px 50px -26px rgba(43,42,92,.5),inset 0 1px 0 rgba(255,255,255,.8);-webkit-backdrop-filter:blur(16px) saturate(140%);backdrop-filter:blur(16px) saturate(140%);animation:ol-fade 1.1s ease 1s both}
+.ol-breath__ring{grid-row:span 2;position:relative;width:76px;height:76px;border-radius:50%;border:1.5px dashed rgba(43,42,92,.28);display:grid;place-items:center}
+.ol-breath__dot{width:68px;height:68px;border-radius:50%;background:radial-gradient(circle at 45% 38%,#fff1e6,#ffcaa8 58%,#ffad80);box-shadow:0 0 0 6px rgba(255,179,138,.2),0 6px 18px -6px rgba(232,121,74,.55);transform:scale(.6);will-change:transform}
+.ol-breath__title{font-family:var(--ol-head);font-weight:500;font-size:1.06rem;line-height:1.25}
+.ol-breath__cue{font-size:.98rem;color:var(--ol-ink-2);min-height:1.5em;margin-top:2px}
+.ol-breath__foot{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:8px;padding-top:10px;border-top:1px solid rgba(43,42,92,.1)}
+.ol-breath__note{font-size:.8rem;color:var(--ol-ink-3);line-height:1.35}
+.ol-breath__btn{display:inline-flex;align-items:center;gap:7px;min-height:44px;padding:0 16px;border-radius:999px;border:1.5px solid rgba(43,42,92,.25);background:#fff;font-family:var(--ol-head);font-weight:500;font-size:.9rem;color:var(--ol-ink);flex:none;transition:border-color .2s,background-color .2s}
+.ol-breath__btn:hover{border-color:var(--ol-ink);background:var(--ol-lav-2)}
+.ol-breath__btn svg{width:13px;height:13px}
+
+/* quick links row */
+.ol-hero__ways{padding-bottom:32px;position:relative;z-index:3}
+.ol-hero__ways ul{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.ol-way{display:flex;align-items:center;gap:14px;min-height:76px;padding:14px 18px;border-radius:18px;background:rgba(255,255,255,.76);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.7);box-shadow:0 10px 30px -22px rgba(43,42,92,.45);text-decoration:none;transition:background-color .2s,border-color .2s,transform .25s}
+.ol-way:hover{background:#fff;border-color:rgba(43,42,92,.2);transform:translateY(-2px)}
+.ol-way:active{transform:scale(.99)}
+.ol-way__ic{width:42px;height:42px;border-radius:12px;background:var(--ol-lav);display:grid;place-items:center;flex:none}
+.ol-way__ic svg{width:22px;height:22px}
+.ol-way strong{display:block;font-family:var(--ol-head);font-weight:500;font-size:1rem;line-height:1.25}
+.ol-way span span{display:block;font-size:.88rem;color:var(--ol-ink-3);line-height:1.35}
+.ol-hero__pause{position:absolute;right:20px;top:18px;width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.5);background:rgba(255,255,255,.78);display:grid;place-items:center;color:var(--ol-ink);z-index:4;transition:background-color .2s,border-color .2s}
+.ol-hero__pause:hover{background:#fff;border-color:#fff}
+.ol-hero__pause svg{width:16px;height:16px}
+.ol-hero__pause:focus-visible{outline-color:#fff}
+@media (min-width:1200px){.ol-hero__pause{right:max(24px,calc((100vw - 1440px)/2 + 24px))}}
+
+/* hero: tablet */
+@media (max-width:1199px){
+  .ol-hero{min-height:0}
+  .ol-hero__sky{background:radial-gradient(40% 240px at 84% 120px,rgba(255,198,160,.55),rgba(255,198,160,0) 70%),
+    linear-gradient(180deg,#28275a 0,#363380 46px,#5d56ac 96px,#9089d3 150px,#c6bfef 210px,#e3ddf8 300px,#efe9f9 58%,#fbe8e0 84%,#ffd9c1 100%)}
+  .ol-hero__sky::after{background:radial-gradient(45% 260px at 84% 130px,rgba(255,168,118,.4),rgba(255,168,118,0) 70%),linear-gradient(180deg,rgba(80,60,150,.2),rgba(80,60,150,0) 25%,rgba(255,196,160,.26))}
+  .ol-sun{left:calc(84% - 56px);top:62px;width:112px;height:112px}
+  .ol-sun__glow{inset:-110px}
+  .ol-hero__in{display:flex;flex-direction:column;align-items:center;text-align:center;padding-block:176px 40px}
+  .ol-hero__copy{margin-inline:auto}
+  .ol-hero__copy::before{inset:-48px -56px -40px;background:rgba(242,240,253,.88)}
+  .ol-hero__lead{margin-inline:auto}
+  .ol-hero__cta,.ol-hero__meta{justify-content:center}
+  .ol-breath{justify-self:auto;align-self:auto;margin-top:32px;text-align:left;width:min(100%,420px)}
+  .ol-hero__ways ul{grid-template-columns:1fr 1fr}
+}
+/* hero: mobile */
+@media (max-width:767px){
+  .ol-hero__sky{background:radial-gradient(60% 150px at 80% 118px,rgba(255,198,160,.6),rgba(255,198,160,0) 70%),
+    linear-gradient(180deg,#28275a 0,#383583 34px,#625baf 74px,#9a92d8 112px,#d2cbf3 148px,#ece8fa 196px,#f6f3fd 270px,#fcfaff 100%)}
+  .ol-hero__sky::after{background:radial-gradient(60% 150px at 80% 118px,rgba(255,168,118,.4),rgba(255,168,118,0) 70%)}
+  .ol-sun{left:calc(80% - 38px);top:76px;width:76px;height:76px}
+  .ol-sun__glow{inset:-70px}
+  .ol-sun__disc{box-shadow:0 0 30px 10px rgba(255,190,146,.5)}
+  .ol-hero__in{align-items:stretch;text-align:left;padding-block:140px 28px}
+  .ol-hero__copy::before{inset:-26px -16px -20px;border-radius:40px;background:rgba(246,244,254,.86);filter:blur(20px)}
+  .ol-hero .ol-eyebrow{font-size:.72rem;letter-spacing:.1em;margin-bottom:12px}
+  .ol-hero h1{font-size:clamp(2.2rem,1.3rem + 4.4vw,2.7rem);line-height:1.06}
+  .ol-hero__lead{margin-top:14px;font-size:1.02rem}
+  .ol-hero__cta{margin-top:20px;display:grid;grid-template-columns:1fr;gap:10px}
+  .ol-hero__cta .ol-btn{min-height:52px;width:100%}
+  .ol-hero__meta{justify-content:flex-start;margin-top:14px;gap:2px 16px}
+  .ol-breath{width:100%;margin-top:24px;grid-template-columns:64px 1fr;padding:16px}
+  .ol-breath__ring{width:64px;height:64px}
+  .ol-breath__dot{width:56px;height:56px}
+  .ol-hero__ways{display:none}
+  .ol-hero__pause{top:12px;right:12px}
+}
+@media (prefers-reduced-motion:reduce){
+  .ol-hero__sky::after{animation:none;opacity:.6}
+  .ol-sun__disc,.ol-sun__glow{will-change:auto}
+}
+
+/* crisis */
+.ol-crisis{padding-block:clamp(40px,5vw,64px) 0}
+.ol-crisis__box{display:grid;gap:28px;padding:clamp(24px,3vw,40px);border-radius:28px;background:var(--ol-lav-2);border:1.5px solid var(--ol-lav-3)}
+.ol-crisis__head h2{font-size:clamp(1.5rem,1.2rem + 1vw,2rem);display:flex;align-items:center;gap:12px}
+.ol-crisis__head h2 svg{width:30px;height:30px;color:#c8643a}
+.ol-crisis__head p{margin-top:10px;color:var(--ol-ink-2);max-width:46ch}
+.ol-crisis__list{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.ol-crisis__list li{background:#fff;border-radius:var(--ol-r-s);padding:18px 20px;border:1px solid rgba(43,42,92,.07);display:grid;gap:4px;align-content:start}
+.ol-crisis__tag{font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ol-peach-ink)}
+.ol-crisis__list p{font-size:1.02rem;line-height:1.5}
+.ol-crisis__list a{font-family:var(--ol-head);font-weight:600;font-size:1.12rem;white-space:nowrap;text-decoration-color:var(--ol-peach);text-decoration-thickness:2px;text-underline-offset:4px}
+.ol-crisis__list a:hover{text-decoration-color:var(--ol-ink)}
+@media (min-width:1200px){.ol-crisis__box{grid-template-columns:4fr 7fr;align-items:center;gap:48px}}
+
+/* help cards */
+.ol-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.ol-card{position:relative;display:flex;flex-direction:column;background:#fff;border-radius:var(--ol-r);overflow:hidden;box-shadow:var(--ol-shadow);transition:transform .3s,box-shadow .3s}
+.ol-card__img{aspect-ratio:4/3;overflow:hidden;background:var(--ol-lav)}
+.ol-card__img img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.ol-card__body{display:flex;flex-direction:column;gap:10px;padding:22px 24px 18px;flex:1}
+.ol-card__meta{font-size:.82rem;font-weight:700;color:var(--ol-sage-ink);letter-spacing:.02em}
+.ol-card h3{font-size:1.32rem}
+.ol-card p{color:var(--ol-ink-2);font-size:1rem}
+.ol-card .ol-more{margin-top:auto;padding-top:6px}
+.ol-card .ol-more::after{content:"";position:absolute;inset:0;border-radius:var(--ol-r)}
+.ol-card:has(.ol-more:focus-visible){outline:3px solid var(--ol-violet);outline-offset:3px}
+.ol-card .ol-more:focus-visible{outline:none}
+@media (hover:hover){
+  .ol-card:hover{transform:translateY(-4px);box-shadow:0 2px 4px rgba(43,42,92,.05),0 22px 44px -20px rgba(43,42,92,.35)}
+  .ol-card:hover .ol-card__img img{transform:scale(1.04)}
+  .ol-card:hover .ol-more svg{transform:translateX(4px)}
+  .ol-card:hover .ol-more span{text-decoration-color:var(--ol-peach)}
+}
+.ol-card:active{transform:scale(.99)}
+@media (hover:none){.ol-card .ol-more span{text-decoration-color:var(--ol-peach)}}
+
+/* call steps */
+.ol-numcard{margin-top:28px;display:grid;gap:4px;padding:22px 24px;border-radius:var(--ol-r);background:var(--ol-lav)}
+.ol-numcard small{font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ol-ink-2)}
+.ol-numcard a{font-family:var(--ol-head);font-weight:500;font-size:clamp(1.6rem,1.3rem + 1vw,2.1rem);letter-spacing:-.01em;text-decoration:none;width:max-content;max-width:100%}
+.ol-numcard a:hover{text-decoration:underline;text-decoration-color:var(--ol-peach);text-decoration-thickness:2px;text-underline-offset:6px}
+.ol-numcard p{color:var(--ol-ink-2);font-size:.97rem}
+.ol-photo{border-radius:var(--ol-r);overflow:hidden;background:var(--ol-lav)}
+.ol-photo img{width:100%;height:100%;object-fit:cover}
+.ol-call__photo{margin-top:20px;aspect-ratio:3/2}
+.ol-steps{display:grid}
+.ol-step{position:relative;display:grid;grid-template-columns:56px 1fr;gap:22px;padding-bottom:36px}
+.ol-step::before{content:"";position:absolute;left:27px;top:64px;bottom:8px;width:2px;background:linear-gradient(var(--ol-lav-3),rgba(220,215,246,0))}
+.ol-step:last-child::before{display:none}
+.ol-step__n{width:56px;height:56px;border-radius:50%;background:var(--ol-peach-2);display:grid;place-items:center;font-family:var(--ol-head);font-weight:500;font-size:1.3rem}
+.ol-step h3{font-size:clamp(1.25rem,1.1rem + .5vw,1.5rem);margin-top:12px}
+.ol-step p{margin-top:10px;color:var(--ol-ink-2);max-width:56ch}
+.ol-good{margin-top:8px;padding:28px;border-radius:var(--ol-r);background:var(--ol-sage-2);display:grid;gap:14px}
+.ol-good h3{font-size:1.2rem}
+.ol-ticks{display:grid;gap:10px}
+.ol-ticks li{display:grid;grid-template-columns:24px 1fr;gap:12px;align-items:start}
+.ol-ticks svg{width:22px;height:22px;margin-top:2px;color:var(--ol-sage-ink)}
+.ol-callnote{margin-top:22px;color:var(--ol-ink-2)}
+
+/* groups */
+.ol-filter{background:#fff;border-radius:var(--ol-r);padding:22px 24px;box-shadow:var(--ol-shadow);display:grid;gap:16px}
+.ol-filter fieldset{display:grid;grid-template-columns:72px 1fr;align-items:center;gap:12px}
+.ol-filter legend{float:left;font-weight:700;font-size:.92rem;color:var(--ol-ink-2);padding:0}
+.ol-chips{display:flex;flex-wrap:wrap;gap:8px}
+.ol-chip{position:relative;display:inline-flex}
+.ol-chip input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer;width:100%;height:100%}
+.ol-chip span{display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border-radius:999px;border:1.5px solid rgba(43,42,92,.16);background:#fff;font-weight:600;font-size:.95rem;white-space:nowrap;transition:background-color .2s,border-color .2s,color .2s}
+.ol-chip:hover span{border-color:var(--ol-ink)}
+.ol-chip input:checked+span{background:var(--ol-ink);border-color:var(--ol-ink);color:#fff}
+.ol-chip input:focus-visible+span{outline:3px solid var(--ol-violet);outline-offset:2px}
+.ol-gres{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;margin:32px 0 18px}
+.ol-gres p{font-family:var(--ol-head);font-weight:500;font-size:1.1rem}
+.ol-sessions{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.ol-sess{background:#fff;border-radius:18px;padding:22px 22px 12px;border:1px solid rgba(43,42,92,.07);display:flex;flex-direction:column;gap:10px;transition:border-color .2s,box-shadow .2s}
+.ol-sess:hover{border-color:rgba(43,42,92,.2);box-shadow:var(--ol-shadow)}
+.ol-sess__top{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.ol-sess__when{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:.92rem}
+.ol-sess__day{display:inline-grid;place-items:center;min-width:44px;height:30px;padding:0 8px;border-radius:8px;background:var(--ol-lav);font-family:var(--ol-head);font-weight:500;font-size:.85rem}
+.ol-tag{display:inline-flex;align-items:center;height:26px;padding:0 10px;border-radius:999px;font-size:.78rem;font-weight:700}
+.ol-tag--drop{background:var(--ol-sage-2);color:var(--ol-sage-ink)}
+.ol-tag--book{background:var(--ol-peach-2);color:var(--ol-peach-ink)}
+.ol-tag--online{background:var(--ol-lav);color:var(--ol-ink-2)}
+.ol-sess h3{font-size:1.15rem}
+.ol-sess__where{display:flex;gap:8px;align-items:flex-start;color:var(--ol-ink-2);font-size:.95rem}
+.ol-sess__where svg{width:18px;height:18px;margin-top:3px}
+.ol-sess__detail{font-size:.95rem;color:var(--ol-ink-2)}
+.ol-sess__more{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:10px;border-top:1px solid rgba(43,42,92,.08);padding-top:4px}
+.ol-sess__btn{background:none;border:0;padding:0 2px;min-height:44px;display:inline-flex;align-items:center;gap:6px;font-family:var(--ol-head);font-weight:500;font-size:.95rem;color:var(--ol-ink)}
+.ol-sess__btn svg{width:16px;height:16px;transition:transform .25s}
+.ol-sess__btn[aria-expanded="true"] svg{transform:rotate(180deg)}
+.ol-sess__btn:hover{text-decoration:underline;text-decoration-color:var(--ol-peach);text-decoration-thickness:2px;text-underline-offset:5px}
+.ol-sess__acc{font-size:.85rem;color:var(--ol-sage-ink);font-weight:700}
+.ol-gempty{background:#fff;border-radius:18px;padding:28px;text-align:center;color:var(--ol-ink-2)}
+.ol-gfoot{display:flex;flex-wrap:wrap;gap:16px 24px;align-items:center;justify-content:center;margin-top:28px;text-align:center}
+
+/* forms */
+.ol-formcard{background:var(--ol-lav-2);border:1.5px solid var(--ol-lav-3);border-radius:28px;padding:clamp(22px,3vw,40px)}
+.ol-formcard__top{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 16px;margin-bottom:6px}
+.ol-formcard__top h3{font-size:1.45rem}
+.ol-formgrid{display:grid;grid-template-columns:1fr 1fr;gap:18px 20px;margin-top:24px}
+.ol-span2{grid-column:1/-1}
+.ol-field{display:grid;gap:6px;align-content:start}
+.ol-field label,.ol-field legend{font-weight:700;font-size:.95rem}
+.ol-hint{font-size:.86rem;color:var(--ol-ink-3)}
+.ol-opt{font-weight:400;color:var(--ol-ink-3)}
+.ol-input{width:100%;min-height:50px;border:1.5px solid #9d97d4;border-radius:12px;background:#fff;padding:10px 14px;font-size:1rem;transition:border-color .2s,box-shadow .2s}
+textarea.ol-input{min-height:110px;resize:vertical}
+select.ol-input{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%232b2a5c' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:40px}
+.ol-input:hover{border-color:#6f68c4}
+.ol-input:focus{outline:none;border-color:var(--ol-violet);box-shadow:0 0 0 4px rgba(97,89,194,.25)}
+.ol-input[aria-invalid="true"]{border-color:var(--ol-err);border-width:2px}
+.ol-err{color:var(--ol-err);font-size:.88rem;font-weight:700;display:flex;gap:6px;align-items:flex-start}
+.ol-err::before{content:"!";flex:none;display:inline-grid;place-items:center;width:18px;height:18px;border-radius:50%;background:var(--ol-err);color:#fff;font-size:.72rem;margin-top:2px}
+.ol-pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.ol-check{display:grid;grid-template-columns:24px 1fr;gap:12px;align-items:start;font-size:.95rem;cursor:pointer;min-height:44px;padding-top:8px}
+.ol-check input{width:22px;height:22px;margin:1px 0 0;accent-color:var(--ol-ink);cursor:pointer}
+.ol-check a{font-weight:700}
+.ol-errsum{border:2px solid var(--ol-err);background:#fff;border-radius:var(--ol-r-s);padding:16px 18px;margin-top:20px}
+.ol-errsum h4{font-size:1.05rem;color:var(--ol-err)}
+.ol-errsum ul{margin-top:8px;display:grid;gap:4px;list-style:disc;padding-left:20px}
+.ol-errsum a{color:var(--ol-err);font-weight:700}
+.ol-formnote{font-size:.88rem;color:var(--ol-ink-3);margin-top:14px}
+.ol-success{display:grid;gap:12px;padding:8px 0}
+.ol-success__ic{width:56px;height:56px;border-radius:50%;background:var(--ol-sage-2);display:grid;place-items:center;color:var(--ol-sage-ink)}
+.ol-success__ic svg{width:28px;height:28px}
+.ol-success h3{font-size:1.45rem}
+.ol-success p{color:var(--ol-ink-2)}
+
+/* referral expectations */
+.ol-expect{display:grid;gap:14px;margin-top:28px}
+.ol-expect__item{display:grid;grid-template-columns:44px 1fr;gap:16px;padding:20px;border-radius:18px;background:#fff;border:1px solid rgba(43,42,92,.1)}
+.ol-expect__ic{width:44px;height:44px;border-radius:12px;background:var(--ol-lav);display:grid;place-items:center}
+.ol-expect__ic svg{width:22px;height:22px}
+.ol-expect h3{font-size:1.1rem}
+.ol-expect p,.ol-expect li{color:var(--ol-ink-2);font-size:.98rem}
+.ol-expect ul{margin-top:6px;display:grid;gap:4px;list-style:disc;padding-left:18px}
+.ol-expect__item p{margin-top:4px}
+.ol-wait{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}
+.ol-wait div{border-radius:10px;background:var(--ol-lav-2);padding:10px 12px;font-size:.85rem;line-height:1.35;color:var(--ol-ink-2)}
+.ol-wait strong{display:block;font-family:var(--ol-head);font-weight:500;color:var(--ol-ink);font-size:.95rem;margin-bottom:2px}
+.ol-expect__item--warn{background:var(--ol-peach-2);border-color:transparent}
+.ol-expect__item--warn .ol-expect__ic{background:#fff}
+
+/* stories */
+.ol-stories{display:grid;grid-template-columns:1.35fr 1fr;gap:20px}
+.ol-story{background:#fff;border-radius:var(--ol-r);padding:clamp(24px,3vw,36px);display:flex;flex-direction:column;gap:18px}
+.ol-story--feature{grid-row:span 2;padding:0;overflow:hidden;display:grid;grid-template-rows:auto 1fr;gap:0}
+.ol-story__img{aspect-ratio:16/9;overflow:hidden}
+.ol-story__img img{width:100%;height:100%;object-fit:cover}
+.ol-story__txt{padding:clamp(24px,3vw,40px);display:flex;flex-direction:column;gap:18px}
+.ol-story svg.ol-q{width:34px;height:34px;color:var(--ol-peach)}
+.ol-story blockquote p{font-family:var(--ol-head);font-weight:400;font-size:clamp(1.12rem,1rem + .4vw,1.3rem);line-height:1.45;letter-spacing:-.005em}
+.ol-story--feature blockquote p{font-size:clamp(1.25rem,1.05rem + .8vw,1.65rem);line-height:1.38}
+.ol-story figcaption{margin-top:auto;display:grid;gap:2px}
+.ol-story figcaption strong{font-weight:700}
+.ol-story figcaption span{font-size:.92rem;color:var(--ol-ink-3)}
+.ol-consent{margin-top:24px;display:flex;gap:10px;align-items:flex-start;font-size:.92rem;color:var(--ol-ink-2);max-width:80ch}
+.ol-consent svg{width:20px;height:20px;margin-top:2px;color:var(--ol-sage-ink)}
+
+/* donate */
+.ol-donate{background:linear-gradient(180deg,var(--ol-lav-2) 0%,#fff 100%)}
+.ol-donate__photo{aspect-ratio:16/9;margin-top:28px}
+.ol-impact-list{margin-top:24px;display:grid;gap:10px}
+.ol-impact-list li{display:grid;grid-template-columns:64px 1fr;gap:14px;align-items:center;padding:14px 16px;border-radius:14px;background:#fff;border:1px solid rgba(43,42,92,.08)}
+.ol-impact-list b{font-family:var(--ol-head);font-weight:500;font-size:1.3rem}
+.ol-trust{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;margin-top:22px;font-size:.9rem;color:var(--ol-ink-2)}
+.ol-trust span:last-child{flex:1 1 220px}
+.ol-frbadge{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:6px 14px;border:1.5px dashed #8f8bb5;border-radius:8px;background:#fff;color:#4f4d73;font-size:.78rem;font-weight:700;line-height:1.25;text-align:center;flex:none}
+.ol-give{background:#fff;border-radius:28px;box-shadow:0 2px 6px rgba(43,42,92,.05),0 30px 60px -30px rgba(43,42,92,.35);border:1px solid rgba(43,42,92,.08);padding:clamp(22px,3vw,40px)}
+.ol-give__top{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.ol-give__top h3{font-size:1.45rem}
+.ol-give__steps{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:20px 0 24px;counter-reset:olg}
+.ol-give__steps li{counter-increment:olg;font-size:.84rem;font-weight:700;color:var(--ol-ink-3);padding-top:10px;border-top:3px solid var(--ol-lav)}
+.ol-give__steps li::before{content:counter(olg) ". "}
+.ol-give__steps li.is-done,.ol-give__steps li[aria-current="step"]{border-top-color:var(--ol-ink);color:var(--ol-ink)}
+.ol-seg{display:grid;grid-template-columns:1fr 1fr;padding:5px;border-radius:999px;background:var(--ol-lav-2);border:1px solid var(--ol-lav-3)}
+.ol-seg label{position:relative;display:block}
+.ol-seg input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer;width:100%;height:100%}
+.ol-seg span{display:flex;align-items:center;justify-content:center;min-height:46px;border-radius:999px;font-family:var(--ol-head);font-weight:500;transition:background-color .2s,color .2s,box-shadow .2s}
+.ol-seg input:checked+span{background:var(--ol-ink);color:#fff;box-shadow:0 4px 12px -6px rgba(43,42,92,.6)}
+.ol-seg label:hover input:not(:checked)+span{background:#fff}
+.ol-seg input:focus-visible+span{outline:3px solid var(--ol-violet);outline-offset:2px}
+.ol-amts{margin-top:22px}
+.ol-amts legend{font-weight:700;font-size:.95rem;margin-bottom:10px}
+.ol-amts__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.ol-amt{position:relative;display:block}
+.ol-amt input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer;width:100%;height:100%}
+.ol-amt span{display:flex;align-items:center;justify-content:center;min-height:58px;border-radius:14px;border:1.5px solid #b9b3e6;font-family:var(--ol-head);font-weight:500;font-size:1.2rem;transition:border-color .2s,background-color .2s,color .2s}
+.ol-amt:hover span{border-color:var(--ol-ink)}
+.ol-amt input:checked+span{border-color:var(--ol-ink);background:var(--ol-ink);color:#fff}
+.ol-amt input:focus-visible+span{outline:3px solid var(--ol-violet);outline-offset:2px}
+.ol-money{position:relative}
+.ol-money span{position:absolute;left:14px;top:50%;transform:translateY(-50%);font-family:var(--ol-head);font-weight:500;color:var(--ol-ink-2)}
+.ol-money .ol-input{padding-left:30px}
+.ol-other{margin-top:14px}
+.ol-impact{margin-top:18px;display:flex;gap:12px;align-items:center;padding:14px 16px;border-radius:14px;background:var(--ol-sage-2);font-size:1rem}
+.ol-impact svg{width:24px;height:24px;color:var(--ol-sage-ink)}
+.ol-ga{margin-top:18px;padding:18px;border-radius:16px;border:1.5px solid var(--ol-lav-3)}
+.ol-ga h4{font-size:1.05rem}
+.ol-ga>p{font-size:.95rem;color:var(--ol-ink-2);margin-top:4px}
+.ol-ga__decl{font-size:.82rem;color:var(--ol-ink-3);margin-top:6px;padding-left:36px}
+.ol-ga__total{margin-top:10px;font-weight:700;font-size:.95rem;padding-left:36px}
+.ol-give__nav{display:flex;gap:10px;margin-top:22px}
+.ol-give__nav .ol-btn{flex:1}
+.ol-summary{display:grid;gap:8px;padding:18px;border-radius:16px;background:var(--ol-lav-2)}
+.ol-summary div{display:flex;justify-content:space-between;gap:12px}
+.ol-summary div:last-child{border-top:1px solid var(--ol-lav-3);padding-top:8px;font-weight:700}
+.ol-secure{display:grid;grid-template-columns:44px 1fr;gap:14px;margin-top:16px;padding:18px;border-radius:16px;border:1.5px dashed #a9a4d6}
+.ol-secure__ic{width:44px;height:44px;border-radius:12px;background:var(--ol-sage-2);display:grid;place-items:center;color:var(--ol-sage-ink)}
+.ol-secure__ic svg{width:22px;height:22px}
+.ol-secure p{font-size:.95rem;color:var(--ol-ink-2)}
+.ol-secure strong{display:block;color:var(--ol-ink);font-family:var(--ol-head);font-weight:500;font-size:1.05rem;margin-bottom:2px}
+
+/* volunteer */
+.ol-vol__photo{aspect-ratio:4/5;position:relative}
+.ol-vol__stat{position:absolute;left:20px;bottom:20px;right:20px;max-width:320px;background:rgba(255,255,255,.95);border-radius:16px;padding:16px 18px;display:grid;gap:2px}
+.ol-vol__stat b{font-family:var(--ol-head);font-weight:500;font-size:1.6rem;line-height:1.1}
+.ol-vol__stat span{font-size:.9rem;color:var(--ol-ink-2)}
+.ol-feats{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px}
+.ol-feat{padding:20px;border-radius:18px;background:var(--ol-lav-2);display:grid;gap:6px;align-content:start}
+.ol-feat svg{width:26px;height:26px;color:var(--ol-violet)}
+.ol-feat h3{font-size:1.08rem;margin-top:4px}
+.ol-feat p{font-size:.96rem;color:var(--ol-ink-2)}
+.ol-path{margin-top:32px}
+.ol-path h3{font-size:1.15rem}
+.ol-path ol{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:14px}
+.ol-path li{position:relative;padding:14px 12px 0 0;border-top:3px solid var(--ol-sage);font-size:.92rem;line-height:1.35}
+.ol-path li b{display:block;font-family:var(--ol-head);font-weight:500;font-size:.78rem;color:var(--ol-sage-ink);letter-spacing:.06em;text-transform:uppercase;margin-bottom:4px}
+.ol-actions{display:flex;flex-wrap:wrap;gap:12px 20px;margin-top:30px;align-items:center}
+
+/* workplace */
+.ol-work{display:grid;grid-template-columns:1.15fr 1fr 1fr 1fr;gap:20px}
+.ol-work__photo{border-radius:var(--ol-r);overflow:hidden;position:relative;min-height:320px}
+.ol-work__photo img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.ol-course{background:#fff;border-radius:var(--ol-r);padding:26px 24px 22px;display:flex;flex-direction:column;gap:12px;border:1px solid rgba(43,42,92,.08);transition:border-color .2s,box-shadow .2s,transform .3s}
+.ol-course:hover{border-color:rgba(43,42,92,.2);box-shadow:var(--ol-shadow);transform:translateY(-3px)}
+.ol-course__tag{font-size:.82rem;font-weight:700;color:var(--ol-sage-ink)}
+.ol-course h3{font-size:1.3rem}
+.ol-course>p{color:var(--ol-ink-2);font-size:.98rem}
+.ol-course ul{display:grid;gap:6px;font-size:.95rem}
+.ol-course ul li{display:grid;grid-template-columns:20px 1fr;gap:8px}
+.ol-course ul svg{width:18px;height:18px;margin-top:3px;color:var(--ol-sage-ink)}
+.ol-price{margin-top:auto;padding-top:14px;border-top:1px solid rgba(43,42,92,.08);display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.ol-price b{font-family:var(--ol-head);font-weight:500;font-size:1.65rem;letter-spacing:-.01em}
+.ol-price span{font-size:.9rem;color:var(--ol-ink-3)}
+.ol-worknote{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px 32px;margin-top:28px;padding:22px 26px;border-radius:var(--ol-r);background:#fff;border:1px solid rgba(43,42,92,.08)}
+.ol-worknote p{color:var(--ol-ink-2);max-width:70ch;font-size:.98rem}
+
+/* faq */
+.ol-contact{margin-top:28px;padding:24px;border-radius:var(--ol-r);background:var(--ol-lav-2);display:grid;gap:10px}
+.ol-contact h3{font-size:1.15rem}
+.ol-contact p{color:var(--ol-ink-2);font-size:.97rem}
+.ol-contact a{font-weight:700;color:var(--ol-ink)}
+.ol-faq details{border-bottom:1px solid rgba(43,42,92,.14)}
+.ol-faq details:first-child{border-top:1px solid rgba(43,42,92,.14)}
+.ol-faq summary{list-style:none;display:flex;justify-content:space-between;align-items:center;gap:20px;min-height:72px;padding:16px 4px;cursor:pointer;font-family:var(--ol-head);font-weight:500;font-size:clamp(1.05rem,1rem + .3vw,1.22rem);border-radius:8px}
+.ol-faq summary::-webkit-details-marker{display:none}
+.ol-faq summary:hover{color:#45439a}
+.ol-faq__ic{width:36px;height:36px;border-radius:50%;background:var(--ol-lav);display:grid;place-items:center;flex:none;transition:transform .3s,background-color .2s}
+.ol-faq__ic svg{width:16px;height:16px}
+.ol-faq summary:hover .ol-faq__ic{background:var(--ol-lav-3)}
+.ol-faq details[open] .ol-faq__ic{transform:rotate(45deg);background:var(--ol-peach-2)}
+.ol-faq__a{padding:0 56px 24px 4px;color:var(--ol-ink-2);display:grid;gap:10px}
+.ol-faq__a a{font-weight:700;color:var(--ol-ink)}
+</style>
+<style>
+/* footer: calm horizon */
+.ol-foot{color:#e7e5fb}
+.ol-horizon{position:relative;overflow:hidden;background:linear-gradient(180deg,#fff 0%,#f3f1fd 22%,#ece9fb 46%,#fbe3d6 80%,#ffcfb3 100%)}
+.ol-horizon::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:linear-gradient(90deg,rgba(255,179,138,0),rgba(255,179,138,.95),rgba(255,179,138,0))}
+.ol-horizon__in{display:grid;justify-items:center;text-align:center;padding-block:clamp(56px,7vw,88px) clamp(40px,5vw,56px);gap:16px;color:var(--ol-ink)}
+.ol-breathe{position:relative;width:200px;height:200px;display:grid;place-items:center}
+.ol-breathe__glow{position:absolute;inset:-34px;border-radius:50%;background:radial-gradient(closest-side,rgba(255,179,138,.5),rgba(255,179,138,0));animation:ol-glow 8s ease-in-out infinite}
+.ol-breathe__sun{width:200px;height:200px;border-radius:50%;background:radial-gradient(circle at 50% 40%,#ffd7bf 0%,#ffbf9b 55%,#ffad80 100%);box-shadow:inset 0 -10px 30px rgba(232,121,74,.25),0 0 0 10px rgba(255,255,255,.35);transform:scale(.62);animation:ol-breathe 8s ease-in-out infinite}
+.ol-breathe__ring{position:absolute;inset:0;border-radius:50%;border:1.5px dashed rgba(43,42,92,.2)}
+@keyframes ol-breathe{0%,100%{transform:scale(.62)}50%{transform:scale(1)}}
+@keyframes ol-glow{0%,100%{opacity:.45;transform:scale(.8)}50%{opacity:1;transform:scale(1.05)}}
+.ol-horizon__label{font-family:var(--ol-head);font-weight:500;font-size:clamp(1.4rem,1.2rem + .8vw,1.9rem);margin-top:6px}
+.ol-cue{position:relative;height:1.6em;width:22em;max-width:100%;color:var(--ol-ink-2);font-size:1.02rem}
+.ol-cue span{position:absolute;inset:0;animation:ol-cue-in 8s ease-in-out infinite}
+.ol-cue span+span{animation-name:ol-cue-out}
+@keyframes ol-cue-in{0%,42%{opacity:1}50%,92%{opacity:0}100%{opacity:1}}
+@keyframes ol-cue-out{0%,42%{opacity:0}50%,92%{opacity:1}100%{opacity:0}}
+.ol-cue span.ol-cue__static{display:none;animation:none;position:static}
+.ol-horizon__pause{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 16px;border-radius:999px;border:1.5px solid rgba(43,42,92,.24);background:rgba(255,255,255,.65);font-weight:700;font-size:.9rem;color:var(--ol-ink)}
+.ol-horizon__pause:hover{background:#fff;border-color:var(--ol-ink)}
+.ol-horizon__pause svg{width:14px;height:14px}
+.ol-horizon.is-paused .ol-breathe__sun,.ol-horizon.is-paused .ol-breathe__glow,.ol-horizon.is-paused .ol-cue span{animation-play-state:paused}
+
+.ol-foot__main{background:linear-gradient(180deg,var(--ol-night-2) 0%,var(--ol-night) 260px);padding-block:clamp(48px,6vw,80px) 0}
+.ol-foot a{color:#fff}
+.ol-foot__main :focus-visible{outline-color:var(--ol-peach)}
+.ol-foot__top{display:grid;grid-template-columns:4fr 8fr;gap:56px;align-items:start}
+.ol-foot__brand .ol-logo{color:#fff}
+.ol-foot__brand p{margin-top:14px;color:#c9c6ee;max-width:38ch}
+.ol-foot__contact{margin-top:22px;display:grid;gap:12px;font-size:.98rem;color:#d9d7f6}
+.ol-foot__contact li{display:grid;grid-template-columns:22px 1fr;gap:10px;align-items:start}
+.ol-foot__contact svg{width:18px;height:18px;margin-top:4px;color:var(--ol-peach)}
+.ol-foot__contact a{text-decoration-color:rgba(255,179,138,.7);text-underline-offset:3px;font-weight:700}
+.ol-fcrisis{border-radius:24px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);padding:clamp(22px,2.6vw,32px)}
+.ol-fcrisis h2{color:#fff;font-size:1.45rem;display:flex;align-items:center;gap:12px}
+.ol-fcrisis h2 svg{width:26px;height:26px;color:var(--ol-peach)}
+.ol-fcrisis>p{color:#c9c6ee;margin-top:6px;font-size:.97rem}
+.ol-fcrisis ul{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}
+.ol-fcrisis li{padding:14px 16px;border-radius:14px;background:rgba(255,255,255,.07);font-size:1rem;line-height:1.5;color:#efeefd}
+.ol-fcrisis li a{font-family:var(--ol-head);font-weight:600;white-space:nowrap;text-decoration-color:var(--ol-peach);text-decoration-thickness:2px;text-underline-offset:4px}
+.ol-fcols{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;margin-top:56px;padding-top:40px;border-top:1px solid rgba(255,255,255,.12)}
+.ol-fgroup summary{list-style:none;font-family:var(--ol-head);font-weight:500;font-size:1.05rem;color:#fff;display:flex;justify-content:space-between;align-items:center;pointer-events:none;margin-bottom:10px}
+.ol-fgroup summary::-webkit-details-marker{display:none}
+.ol-fgroup summary svg{display:none;width:18px;height:18px;transition:transform .25s}
+.ol-fgroup ul{display:grid;gap:2px}
+.ol-fgroup a{display:inline-flex;align-items:center;min-height:36px;color:#d4d1f4;text-decoration:none;font-size:.98rem}
+.ol-fgroup a:hover{color:#fff;text-decoration:underline;text-decoration-color:var(--ol-peach);text-underline-offset:4px}
+.ol-foot__base{margin-top:48px;padding-block:28px calc(28px + env(safe-area-inset-bottom));border-top:1px solid rgba(255,255,255,.12);display:grid;grid-template-columns:1fr auto;gap:24px 40px;align-items:start}
+.ol-legal{display:grid;gap:10px;font-size:.9rem;color:#c3bfea}
+.ol-legal__links{display:flex;flex-wrap:wrap;gap:4px 18px}
+.ol-legal__links a{display:inline-flex;align-items:center;min-height:36px;color:#e0defa;text-underline-offset:3px;text-decoration-color:rgba(255,179,138,.6)}
+.ol-legal__links a:hover{color:#fff;text-decoration-color:var(--ol-peach)}
+.ol-foot__right{display:flex;align-items:center;gap:16px}
+.ol-foot .ol-frbadge{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.4);color:#dcd9f7}
+.ol-totop{width:52px;height:52px;border-radius:50%;display:grid;place-items:center;border:1.5px solid rgba(255,255,255,.32);color:#fff;transition:background-color .2s,border-color .2s,transform .2s}
+.ol-totop:hover{background:rgba(255,255,255,.1);border-color:var(--ol-peach);transform:translateY(-2px)}
+.ol-totop svg{width:20px;height:20px}
+
+/* mobile action bar */
+.ol-bar{display:none}
+
+/* ---------- TABLET 768–1199 ---------- */
+@media (max-width:1199px){
+  :root{--ol-headh:70px}
+  .ol-nav{display:none}
+  .ol-burger{display:inline-flex}
+  .ol-head__act{margin-left:auto}
+  .ol-cards{grid-template-columns:1fr 1fr}
+  .ol-sessions{grid-template-columns:1fr 1fr}
+  .ol-call__intro{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:stretch}
+  .ol-call__intro .ol-call__photo{margin-top:0;aspect-ratio:auto;min-height:280px}
+  .ol-expect{grid-template-columns:1fr 1fr}
+  .ol-stories{grid-template-columns:1fr 1fr}
+  .ol-story--feature{grid-column:1/-1;grid-row:auto;grid-template-columns:1fr 1fr;grid-template-rows:none}
+  .ol-story--feature .ol-story__img{aspect-ratio:auto;min-height:100%}
+  .ol-vol__photo{aspect-ratio:16/8}
+  .ol-work{grid-template-columns:1fr 1fr}
+  .ol-foot__top{grid-template-columns:1fr;gap:40px}
+  .ol-donate__photo{display:none}
+  .ol-give{max-width:760px}
+}
+@media (min-width:768px) and (max-width:1199px){
+  .ol-util__in p:last-child{display:none}
+  .ol-util__in{justify-content:center}
+  .ol-crisis__box{grid-template-columns:1fr}
+  .ol-foot__top{grid-template-columns:1fr 1.4fr;gap:32px}
+  .ol-fcrisis ul{grid-template-columns:1fr}
+}
+@media (min-width:768px) and (max-width:1023px){
+  .ol-fcols{grid-template-columns:1fr 1fr}
+  .ol-path ol{grid-template-columns:repeat(3,1fr);row-gap:18px}
+  .ol-foot__top{grid-template-columns:1fr}
+  .ol-fcrisis ul{grid-template-columns:1fr 1fr}
+  .ol-expect{grid-template-columns:1fr}
+}
+
+/* ---------- MOBILE ≤767 ---------- */
+@media (max-width:767px){
+  :root{--ol-headh:64px}
+  body{font-size:1rem;padding-bottom:calc(72px + env(safe-area-inset-bottom))}
+  html{scroll-padding-top:80px}
+  .ol-util{display:none}
+  .ol-head__in{gap:10px}
+  .ol-logo{font-size:1.2rem}
+  .ol-logo svg{width:30px;height:30px}
+  .ol-head__donate{display:none}
+  .ol-helppill{padding:0 14px;font-size:.88rem}
+  .ol-burger{width:44px;height:44px;border-radius:12px}
+  .ol-menu__top{height:64px}
+  .ol-crisis{padding-top:32px}
+  .ol-crisis__box{border-radius:22px;gap:20px;padding:22px 18px}
+  .ol-crisis__list{grid-template-columns:1fr;gap:10px}
+  .ol-crisis__list li{padding:14px 16px}
+  .ol-cards{grid-template-columns:1fr;gap:14px}
+  .ol-card{flex-direction:row}
+  .ol-card__img{aspect-ratio:auto;width:108px;flex:none}
+  .ol-card__body{padding:16px 16px 8px;gap:6px}
+  .ol-card h3{font-size:1.12rem}
+  .ol-card p{font-size:.94rem}
+  .ol-call__intro{display:block}
+  .ol-call__intro .ol-call__photo{margin-top:20px;aspect-ratio:3/2;min-height:0}
+  .ol-step{grid-template-columns:44px 1fr;gap:16px;padding-bottom:28px}
+  .ol-step__n{width:44px;height:44px;font-size:1.1rem}
+  .ol-step::before{left:21px;top:52px}
+  .ol-step h3{margin-top:8px}
+  .ol-good{padding:22px}
+  .ol-filter{padding:18px 0 14px;border-radius:18px}
+  .ol-filter fieldset{grid-template-columns:minmax(0,1fr);gap:8px}
+  .ol-filter legend{padding-inline:18px}
+  .ol-chips{flex-wrap:nowrap;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:18px;padding:2px 18px 6px;scrollbar-width:none}
+  .ol-chips::-webkit-scrollbar{display:none}
+  .ol-chip{scroll-snap-align:start;flex:none}
+  .ol-sessions{grid-template-columns:1fr}
+  .ol-formgrid{grid-template-columns:1fr;gap:16px}
+  .ol-formcard{border-radius:22px;padding:22px 18px}
+  .ol-expect{grid-template-columns:1fr}
+  .ol-expect__item{grid-template-columns:1fr;gap:10px;padding:18px}
+  .ol-wait{grid-template-columns:1fr}
+  .ol-stories{grid-template-columns:1fr}
+  .ol-story--feature{grid-template-columns:1fr}
+  .ol-story--feature .ol-story__img{aspect-ratio:3/2;min-height:0}
+  .ol-amts__grid{grid-template-columns:repeat(2,1fr)}
+  .ol-give{border-radius:22px;padding:22px 18px}
+  .ol-give__steps li{font-size:.78rem}
+  .ol-ga__decl,.ol-ga__total{padding-left:0}
+  .ol-give__nav{flex-direction:column-reverse}
+  .ol-impact-list li{grid-template-columns:52px 1fr}
+  .ol-vol__photo{aspect-ratio:4/3}
+  .ol-feats{grid-template-columns:1fr}
+  .ol-path ol{grid-template-columns:1fr;gap:0}
+  .ol-path li{border-top:0;border-left:3px solid var(--ol-sage);padding:6px 0 14px 16px}
+  .ol-actions .ol-btn{width:100%}
+  .ol-work{grid-template-columns:1fr}
+  .ol-work__photo{min-height:220px}
+  .ol-worknote{padding:20px}
+  .ol-worknote .ol-btn{width:100%}
+  .ol-faq summary{min-height:64px}
+  .ol-faq__a{padding-right:4px}
+  .ol-breathe,.ol-breathe__sun{width:160px;height:160px}
+  .ol-fcrisis ul{grid-template-columns:1fr}
+  .ol-fcols{grid-template-columns:1fr;gap:0;margin-top:40px;padding-top:8px}
+  .ol-fgroup{border-bottom:1px solid rgba(255,255,255,.12)}
+  .ol-fgroup summary{pointer-events:auto;min-height:56px;margin:0;cursor:pointer}
+  .ol-fgroup summary svg{display:block}
+  .ol-fgroup[open] summary svg{transform:rotate(180deg)}
+  .ol-fgroup ul{padding-bottom:14px}
+  .ol-fgroup a{min-height:44px}
+  .ol-foot__base{grid-template-columns:1fr;margin-top:24px}
+  .ol-foot__right{justify-content:space-between}
+  .ol-legal__links a{min-height:44px}
+  .ol-bar{display:grid;grid-template-columns:1fr 1fr;gap:10px;position:fixed;left:0;right:0;bottom:0;z-index:70;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:rgba(255,255,255,.96);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-top:1px solid rgba(43,42,92,.1);box-shadow:0 -10px 30px -20px rgba(43,42,92,.4);transition:transform .35s ease,visibility .35s}
+  .ol-bar .ol-btn{min-height:50px;padding:0 12px}
+  .ol-bar.is-hidden{transform:translateY(110%);visibility:hidden}
+}
+@media (max-width:380px){
+  .ol-helppill{padding:0 12px;font-size:.84rem;gap:7px}
+  .ol-logo{font-size:1.1rem}
+}
+
+/* reduced motion */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important;animation-iteration-count:1!important}
+  .ol-breathe__sun{animation:none;transform:scale(.85)}
+  .ol-breathe__glow{animation:none;opacity:.8}
+  .ol-cue span{display:none}
+  .ol-cue span.ol-cue__static{display:block}
+  .ol-cue{height:auto}
+  .ol-horizon__pause,.ol-hero__pause{display:none}
+}
+</style>
+
+<style id="sv-hero-css">
+.svh{--a:#9a4318;--ad:color-mix(in srgb, #9a4318 53%, #ffffff);--ink:#121614;--paper:#ebf4ec;--on:#ffffff;position:relative;isolation:isolate;overflow:hidden;margin:0;font-family:"Nunito Sans",system-ui,sans-serif;box-sizing:border-box}
+.svh *{box-sizing:border-box}
+.svh .svh-in{position:relative;z-index:2;width:min(1240px,100% - 48px);margin-inline:auto}
+.svh .svh-kicker{display:inline-flex;align-items:center;gap:10px;margin:0;font:600 12.5px/1.3 "Nunito Sans",system-ui,sans-serif;letter-spacing:.16em;text-transform:uppercase}
+.svh .svh-kicker i{width:28px;height:2px;background:var(--a);display:inline-block}
+.svh .svh-h{margin:0;font-family:"Lexend",Georgia,serif;font-weight:600;letter-spacing:-.025em;line-height:.95}
+.svh .svh-h span{display:block;overflow:hidden;padding-bottom:.06em}
+.svh .svh-h span>b{display:inline-block;font-weight:inherit;transform:translateY(105%);animation:svh-rise 1s cubic-bezier(.16,1,.3,1) forwards}
+.svh .svh-h span:nth-child(2)>b{animation-delay:.12s}.svh .svh-h span:nth-child(3)>b{animation-delay:.24s}
+.svh .svh-h em{font-style:italic;color:var(--a)}
+.svh .svh-lede{margin:0;max-width:46ch;font-size:clamp(16px,1.25vw,19px);line-height:1.6;opacity:0;animation:svh-fade .9s .45s forwards}
+.svh .svh-ctas{display:flex;flex-wrap:wrap;gap:12px;opacity:0;animation:svh-fade .9s .6s forwards}
+.svh .svh-btn{display:inline-flex;align-items:center;gap:10px;padding:15px 26px;border-radius:999px;font:600 15px/1 "Nunito Sans",system-ui,sans-serif;text-decoration:none;background:var(--a);color:var(--on);border:1px solid var(--a);transition:transform .3s cubic-bezier(.16,1,.3,1),background .3s}
+.svh .svh-btn:hover{transform:translateY(-2px)}
+.svh .svh-btn--ghost{background:transparent;color:inherit;border-color:currentColor}
+.svh .svh-btn span{transition:transform .3s}.svh .svh-btn:hover span{transform:translateX(4px)}
+/* the designs style h1/p themselves, so the banner states its own colours */
+.svh--editorial .svh-h,.svh--poster .svh-h,.svh--stage .svh-h{color:#fff}
+.svh--editorial .svh-kicker,.svh--poster .svh-kicker,.svh--stage .svh-kicker{color:rgba(255,255,255,.9)}
+.svh--index .svh-h,.svh--index .svh-kicker{color:var(--ink)}
+@keyframes svh-rise{to{transform:none}}@keyframes svh-fade{to{opacity:1}}
+@keyframes svh-zoom{from{transform:scale(1.12)}to{transform:scale(1)}}
+@keyframes svh-spin{to{transform:rotate(360deg)}}@keyframes svh-tick{to{transform:translateX(-50%)}}
+@keyframes svh-tilt{from{transform:perspective(1400px) rotateX(18deg) translateY(40px);opacity:0}to{transform:none;opacity:1}}
+
+/* Editorial: words spread across a full-bleed photo */
+.svh--editorial{min-height:100svh;display:flex;align-items:flex-end;padding:150px 0 56px;color:#fff;background:var(--ink)}
+.svh--editorial .svh-media{position:absolute;inset:0;z-index:0;background:center/cover no-repeat;animation:svh-zoom 2.4s cubic-bezier(.16,1,.3,1) both}
+.svh--editorial .svh-shade{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(0,0,0,.45),rgba(0,0,0,.1) 35%,rgba(0,0,0,.65))}
+.svh--editorial .svh-h{font-size:clamp(52px,9vw,150px);margin-top:28px}
+.svh--editorial .svh-h span:nth-child(2){text-align:right}
+.svh--editorial .svh-h em{color:#fff}
+.svh--editorial .svh-foot{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:28px;margin-top:42px;padding-top:26px;border-top:1px solid rgba(255,255,255,.3)}
+.svh--editorial .svh-lede{color:rgba(255,255,255,.88)}
+.svh--editorial .svh-btn--ghost{color:#fff}
+
+/* Stage: dark ground, glow, centred words and a tilted picture */
+.svh--stage{padding:160px 0 0;background:var(--ink);color:#fff;text-align:center}
+.svh--stage .svh-glow{position:absolute;z-index:0;left:50%;top:-10%;width:1100px;height:800px;transform:translateX(-50%);background:radial-gradient(closest-side,color-mix(in srgb,var(--a) 55%,transparent),transparent);filter:blur(30px);opacity:.75}
+.svh--stage .svh-grid{position:absolute;inset:0;z-index:0;background-image:linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px);background-size:64px 64px;mask-image:radial-gradient(circle at 50% 30%,#000,transparent 70%)}
+.svh--stage .svh-kicker{padding:8px 16px;border:1px solid rgba(255,255,255,.2);border-radius:999px;background:rgba(255,255,255,.05)}
+.svh--stage .svh-kicker i{width:8px;height:8px;border-radius:50%}
+.svh--stage .svh-h{font-size:clamp(46px,7.4vw,118px);font-weight:500;margin:26px auto 0;max-width:15ch}
+.svh--stage .svh-h em{color:var(--ad)}
+.svh--stage .svh-lede{margin:26px auto 0;color:rgba(255,255,255,.75)}
+.svh--stage .svh-ctas{justify-content:center;margin-top:32px}
+.svh--stage .svh-btn--ghost{color:#fff}
+.svh--stage .svh-frame{margin:60px auto 0;max-width:1100px;aspect-ratio:16/8;border-radius:22px 22px 0 0;overflow:hidden;border:1px solid rgba(255,255,255,.18);border-bottom:0;box-shadow:0 -30px 80px -20px color-mix(in srgb,var(--a) 45%,transparent);animation:svh-tilt 1.4s .3s cubic-bezier(.16,1,.3,1) both}
+.svh--stage .svh-frame img{display:block;width:100%;height:100%;object-fit:cover}
+.svh--stage .svh-chips{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin:28px 0 0;padding:0}
+.svh--stage .svh-chips a{display:block;padding:8px 14px;border-radius:999px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);color:rgba(255,255,255,.85);font-size:14px;text-decoration:none}
+.svh--stage .svh-chips a:hover{border-color:var(--a);color:#fff}
+
+/* Poster: giant uppercase words, spinning badge, a ticker */
+.svh--poster{min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;padding-top:150px;color:#fff;background:var(--ink)}
+.svh--poster .svh-media{position:absolute;inset:0;z-index:0;background:center/cover no-repeat;animation:svh-zoom 2.4s cubic-bezier(.16,1,.3,1) both}
+.svh--poster .svh-shade{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(0,0,0,.2),rgba(0,0,0,.25) 40%,rgba(0,0,0,.82))}
+.svh--poster .svh-h{font-size:clamp(50px,10vw,168px);font-weight:800;text-transform:uppercase;letter-spacing:-.035em;line-height:.88;margin-top:22px}
+.svh--poster .svh-h em{font-style:normal;color:var(--ad)}
+.svh--poster .svh-row{display:flex;flex-wrap:wrap;gap:24px;align-items:flex-end;justify-content:space-between;margin:34px 0 44px}
+.svh--poster .svh-lede{color:rgba(255,255,255,.85)}
+.svh--poster .svh-btn--ghost{color:#fff}
+.svh--poster .svh-badge{position:absolute;z-index:2;right:clamp(20px,5vw,72px);top:clamp(110px,16vh,170px);width:132px;height:132px;display:grid;place-items:center}
+.svh--poster .svh-badge svg{position:absolute;inset:0;animation:svh-spin 14s linear infinite;fill:#fff;font:700 10.5px/1 "Nunito Sans",system-ui,sans-serif;letter-spacing:.22em;text-transform:uppercase}
+.svh--poster .svh-badge b{width:56px;height:56px;border-radius:50%;background:var(--a);display:grid;place-items:center;color:var(--on);font-size:22px}
+.svh--poster .svh-ticker{position:relative;z-index:2;background:var(--a);color:var(--on);overflow:hidden;padding:15px 0}
+.svh--poster .svh-ticker div{display:flex;gap:44px;width:max-content;animation:svh-tick 26s linear infinite;font:700 clamp(16px,1.6vw,22px)/1 "Lexend",Georgia,serif;text-transform:uppercase;letter-spacing:.02em}
+.svh--poster .svh-ticker span::after{content:"\2726";margin-left:44px;opacity:.7}
+
+/* Index: words on the left, the site's sections as a big list on the right */
+.svh--index{padding:150px 0 90px;background:var(--paper);color:var(--ink)}
+.svh--index .svh-in{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(32px,5vw,90px);align-items:end}
+.svh--index .svh-kicker{color:var(--ink)}
+.svh--index .svh-h{font-size:clamp(46px,6.6vw,104px);margin:24px 0 0}
+.svh--index .svh-lede{margin-top:26px;color:color-mix(in srgb,var(--ink) 72%,transparent)}
+.svh--index .svh-ctas{margin-top:30px}
+.svh--index .svh-photo{aspect-ratio:16/10;border-radius:18px;background:center/cover no-repeat;margin-bottom:22px;clip-path:inset(0 0 100% 0 round 18px);animation:svh-reveal 1.3s .2s cubic-bezier(.16,1,.3,1) forwards}
+@keyframes svh-reveal{to{clip-path:inset(0 0 0 0 round 18px)}}
+.svh--index .svh-list{list-style:none;margin:0;padding:0;border-top:1px solid color-mix(in srgb,var(--ink) 18%,transparent)}
+.svh--index .svh-list a{display:grid;grid-template-columns:44px 1fr auto;align-items:baseline;gap:12px;padding:14px 0;border-bottom:1px solid color-mix(in srgb,var(--ink) 18%,transparent);color:var(--ink);text-decoration:none;font:500 clamp(22px,2.4vw,36px)/1.1 "Lexend",Georgia,serif;letter-spacing:-.02em;transition:color .3s,padding .3s}
+.svh--index .svh-list a small{font:600 12px/1 "Nunito Sans",system-ui,sans-serif;letter-spacing:.1em;color:color-mix(in srgb,var(--ink) 55%,transparent)}
+.svh--index .svh-list a:hover{color:var(--a);padding-left:8px}
+.svh--index .svh-list a i{font-style:normal;transition:transform .3s}.svh--index .svh-list a:hover i{transform:translateX(6px)}
+
+@media (max-width:860px){
+  .svh--index .svh-in{grid-template-columns:1fr}
+  .svh--editorial .svh-h span:nth-child(2){text-align:left}
+  .svh--poster .svh-badge{width:96px;height:96px;top:96px}
+  .svh--stage .svh-frame{aspect-ratio:4/3}
+}
+@media (prefers-reduced-motion:reduce){.svh *,.svh{animation:none!important;transition:none!important}.svh .svh-h span>b{transform:none}.svh .svh-lede,.svh .svh-ctas{opacity:1}.svh--index .svh-photo{clip-path:none}}
+/* the old banner stays in the page, invisible, laid over the new one, so the design's own
+   scripts (sticky header, "past the hero" checks) still find it where the banner is */
+[data-sv-old-hero]{position:absolute!important;left:0!important;right:0!important;width:auto!important;max-width:none!important;margin:0!important;padding:0!important;min-height:0!important;overflow:hidden!important;visibility:hidden!important;opacity:0!important;pointer-events:none!important;z-index:-1!important;transform:none!important}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="ol-i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="ol-i-phone" viewBox="0 0 24 24"><path d="M5 4h3.5l1.8 4.5-2.3 1.4a11 11 0 0 0 6.1 6.1l1.4-2.3L20 15.5V19a1.5 1.5 0 0 1-1.6 1.5A16.5 16.5 0 0 1 3.5 5.6 1.5 1.5 0 0 1 5 4z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+    <symbol id="ol-i-users" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="9" cy="8.5" r="3.3"/><path d="M3 19.5c.6-3.2 3-5 6-5s5.4 1.8 6 5"/><circle cx="17" cy="9.5" r="2.6"/><path d="M16.5 14.6c2.3.2 3.9 1.7 4.5 4.4"/></g></symbol>
+    <symbol id="ol-i-chat" viewBox="0 0 24 24"><path d="M4 6.5A2.5 2.5 0 0 1 6.5 4h11A2.5 2.5 0 0 1 20 6.5v7a2.5 2.5 0 0 1-2.5 2.5H11l-4.5 4v-4A2.5 2.5 0 0 1 4 13.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M8.5 10h7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="ol-i-brief" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="3.5" y="7" width="17" height="12.5" rx="2.5"/><path d="M9 7V5.5A1.5 1.5 0 0 1 10.5 4h3A1.5 1.5 0 0 1 15 5.5V7M3.5 12.5h17"/></g></symbol>
+    <symbol id="ol-i-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.6" opacity=".45"/><path d="m8 12.3 2.6 2.6L16.2 9.3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="ol-i-tick" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="ol-i-pin" viewBox="0 0 24 24"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="10" r="2.3" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+    <symbol id="ol-i-chev" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="ol-i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="ol-i-heart" viewBox="0 0 24 24"><path d="M12 20s-7.5-4.4-7.5-10A4.3 4.3 0 0 1 12 7.4 4.3 4.3 0 0 1 19.5 10c0 5.6-7.5 10-7.5 10z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+    <symbol id="ol-i-lock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8"><rect x="5" y="10.5" width="14" height="10" rx="2.5"/><path d="M8.5 10.5V8a3.5 3.5 0 0 1 7 0v2.5"/></g></symbol>
+    <symbol id="ol-i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 11v5.5M12 7.6v.2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="ol-i-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="3.5" y="5.5" width="17" height="13" rx="2.5"/><path d="m4.5 7 7.5 6 7.5-6"/></g></symbol>
+    <symbol id="ol-i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 7.5V12l3 2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="ol-i-shield" viewBox="0 0 24 24"><path d="M12 3.5 5 6v5.5c0 4.4 3 7.8 7 9 4-1.2 7-4.6 7-9V6z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="m9 12 2.2 2.2L15.5 10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="ol-i-book" viewBox="0 0 24 24"><path d="M4 5.5C6.8 4.5 9.6 4.6 12 6.5c2.4-1.9 5.2-2 8-1v13c-2.8-1-5.6-.9-8 1-2.4-1.9-5.2-2-8-1zM12 6.5v13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+    <symbol id="ol-i-lifebuoy" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="3.6"/><path d="m6 6 3.4 3.4M14.6 14.6 18 18M18 6l-3.4 3.4M9.4 14.6 6 18"/></g></symbol>
+    <symbol id="ol-i-quote" viewBox="0 0 32 32"><path d="M6 25c-1.7-1.6-2.6-3.6-2.6-6.4 0-5 3.4-9.4 8.4-11.6l1.1 1.8C9.2 10.9 7.6 13.6 7.4 16c.4-.2 1-.3 1.6-.3 2.6 0 4.6 2 4.6 4.6S11.4 25 8.7 25c-1 0-2-.3-2.7-.9zm13.2 0c-1.7-1.6-2.6-3.6-2.6-6.4 0-5 3.4-9.4 8.4-11.6l1.1 1.8c-3.7 2.1-5.3 4.8-5.5 7.2.4-.2 1-.3 1.6-.3 2.6 0 4.6 2 4.6 4.6S24.6 25 21.9 25c-1 0-2-.3-2.7-.9z" fill="currentColor"/></symbol>
+    <symbol id="ol-i-pause" viewBox="0 0 24 24"><path d="M8 5v14M16 5v14" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></symbol>
+    <symbol id="ol-i-play" viewBox="0 0 24 24"><path d="M7 4.5v15l12-7.5z" fill="currentColor"/></symbol>
+    <symbol id="ol-i-up" viewBox="0 0 24 24"><path d="M12 19V5M6 11l6-6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="ol-i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="ol-i-logo" viewBox="0 0 40 40"><path d="M33 12.5A15 15 0 1 0 33 27.5" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/><path d="M20 20h16.5" stroke="#ffb38a" stroke-width="3.4" stroke-linecap="round"/><circle cx="20" cy="20" r="3.4" fill="#ffb38a"/></symbol>
+  </defs>
+</svg>
+
+<a class="ol-skip" href="#ol-main">Skip to main content</a>
+
+<div class="ol-util">
+  <div class="ol-wrap ol-util__in">
+    <p>Listening line <a href="tel:01614960310">0161 496 0310</a> · open 6pm–11pm, every day</p>
+    <p>In crisis? Call <a href="tel:999">999</a> or Samaritans free on <a href="tel:116123">116 123</a></p>
+  </div>
+</div>
+
+<header class="ol-head" id="ol-top">
+  <div class="ol-wrap ol-head__in">
+    <a class="ol-logo" href="#ol-top" aria-label="Kindred home"><svg aria-hidden="true"><use href="#ol-i-logo"/></svg><span>Kindred</span></a>
+    <nav class="ol-nav" aria-label="Main">
+      <ul>
+        <li><a href="#ol-help">How we help</a></li>
+        <li><a href="#ol-groups">Find a group</a></li>
+        <li><a href="#ol-refer">Counselling 18–25</a></li>
+        <li><a href="#ol-volunteer">Volunteer</a></li>
+        <li><a href="#ol-workplace">Workplace training</a></li>
+        <li><a href="#ol-faq">FAQs</a></li>
+      </ul>
+    </nav>
+    <div class="ol-head__act">
+      <a class="ol-helppill" href="#ol-crisis"><i aria-hidden="true"></i>Get help now</a>
+      <a class="ol-btn ol-btn--peach ol-head__donate" href="#ol-donate">Donate</a>
+      <button class="ol-burger" type="button" aria-expanded="false" aria-controls="ol-menu" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="ol-menu" id="ol-menu" role="dialog" aria-modal="true" aria-label="Site menu" hidden>
+  <div class="ol-wrap ol-menu__top">
+    <a class="ol-logo" href="#ol-top" aria-label="Kindred home"><svg aria-hidden="true"><use href="#ol-i-logo"/></svg><span>Kindred</span></a>
+    <button class="ol-menu__close" type="button" aria-label="Close menu"><svg aria-hidden="true"><use href="#ol-i-close"/></svg></button>
+  </div>
+  <div class="ol-wrap ol-menu__body">
+    <nav aria-label="Menu">
+      <ul class="ol-menu__links">
+        <li><a href="#ol-help">How we help <svg aria-hidden="true"><use href="#ol-i-arrow"/></svg></a></li>
+        <li><a href="#ol-call">What happens when you call <svg aria-hidden="true"><use href="#ol-i-arrow"/></svg></a></li>
+        <li><a href="#ol-groups">Find a group <svg aria-hidden="true"><use href="#ol-i-arrow"/></svg></a></li>
+        <li><a href="#ol-refer">Counselling for 18–25s <svg aria-hidden="true"><use href="#ol-i-arrow"/></svg></a></li>
+        <li><a href="#ol-volunteer">Volunteer as a listener <svg aria-hidden="true"><use href="#ol-i-arrow"/></svg></a></li>
+        <li><a href="#ol-workplace">Workplace training <svg aria-hidden="true"><use href="#ol-i-arrow"/></svg></a></li>
+        <li><a href="#ol-faq">FAQs <svg aria-hidden="true"><use href="#ol-i-arrow"/></svg></a></li>
+      </ul>
+    </nav>
+    <div class="ol-menu__cta">
+      <a class="ol-btn ol-btn--ink" href="tel:01614960310"><svg aria-hidden="true"><use href="#ol-i-phone"/></svg>Talk to someone</a>
+      <a class="ol-btn ol-btn--peach" href="#ol-donate"><svg aria-hidden="true"><use href="#ol-i-heart"/></svg>Donate</a>
+    </div>
+    <p class="ol-menu__hours">Listening line 0161 496 0310 · open 6pm–11pm, every day</p>
+    <div class="ol-menu__crisis">
+      <strong>In crisis right now?</strong>
+      <p>Call Samaritans free on <a href="tel:116123">116 123</a>, any time. If your life is at risk, call <a href="tel:999">999</a> or go to A&amp;E.</p>
+      <p><a href="#ol-crisis">See all urgent contacts</a></p>
+    </div>
+  </div>
+</div>
+
+<main id="ol-main">
+
+<section class="svh svh--stage" aria-label="Kindred"><div class="svh-glow"></div><div class="svh-grid"></div><div class="svh-in"><p class="svh-kicker"><i></i>Mental health support in Greater Manchester</p><h1 class="svh-h"><span><b>You don't have</b></span><span><b><em>to carry it alone.</em></b></span></h1><p class="svh-lede">Kindred is a local charity for anyone who's finding things hard. Talk to a trained listener, meet people who understand, or get free counselling if you're 18 to 25.</p><div class="svh-ctas"><a class="svh-btn" href="#ol-call">Talk to someone <span>&rarr;</span></a><a class="svh-btn svh-btn--ghost" href="#ol-groups">Find a group</a></div><ul class="svh-chips"><li><a href="#ol-help">How we help</a></li><li><a href="#ol-groups">Find a group</a></li><li><a href="#ol-refer">Counselling 18–25</a></li><li><a href="#ol-volunteer">Volunteer</a></li><li><a href="#ol-workplace">Workplace training</a></li><li><a href="#ol-faq">FAQs</a></li></ul><figure class="svh-frame"><img src="https://images.pexels.com/photos/5711023/pexels-photo-5711023.jpeg?auto=compress&cs=tinysrgb&w=2000&h=1250&fit=crop" alt="" loading="eager"></figure></div></section><section data-sv-old-hero aria-hidden="true" inert class="ol-hero" aria-labelledby="ol-hero-title"><script>(()=>{const b=document.querySelector(".svh"),o=document.querySelector("[data-sv-old-hero]");if(!b||!o)return;const hd=document.querySelector("header");if(hd){const cs=getComputedStyle(hd),n=(c)=>(c.match(/[\d.]+/g)||[]).map(Number),bg=n(cs.backgroundColor),fg=n(cs.color),clear=cs.backgroundColor==="transparent"||bg[3]===0,light=fg.length>2&&(0.299*fg[0]+0.587*fg[1]+0.114*fg[2])/255>0.7,top=b.getBoundingClientRect().top+scrollY;if(clear&&light&&cs.position!=="fixed"&&cs.position!=="absolute"&&top>0&&top<260){b.style.marginTop=-top+"px";b.style.paddingTop=parseFloat(getComputedStyle(b).paddingTop)+top+"px"}}const f=()=>{o.style.setProperty("top",b.offsetTop+"px","important");o.style.setProperty("height",b.offsetHeight+"px","important")};f();addEventListener("resize",f);addEventListener("load",f)})()</script>
+  <div class="ol-hero__sky" aria-hidden="true"><div class="ol-sun"><span class="ol-sun__glow"></span><span class="ol-sun__disc"></span></div></div>
+  <canvas class="ol-hero__clouds" aria-hidden="true"></canvas>
+  <button class="ol-hero__pause" type="button" aria-label="Pause the sky animation"><svg aria-hidden="true"><use href="#ol-i-pause"/></svg></button>
+  <div class="ol-wrap ol-hero__in">
+    <div class="ol-hero__copy">
+      <p class="ol-eyebrow">Mental health support across Greater Manchester</p>
+      <h1 id="ol-hero-title"><span class="ol-hl">You don't have</span> <span class="ol-hl">to carry it <span class="ol-u">alone.</span></span></h1>
+      <p class="ol-hero__lead">Kindred is a local charity for anyone who's finding things hard. Talk to a trained listener, meet people who understand, or get free counselling if you're 18 to 25.</p>
+      <div class="ol-hero__cta">
+        <a class="ol-btn ol-btn--ink" href="#ol-call"><svg aria-hidden="true"><use href="#ol-i-phone"/></svg>Talk to someone</a>
+        <a class="ol-btn ol-btn--line" href="#ol-groups"><svg aria-hidden="true"><use href="#ol-i-users"/></svg>Find a group</a>
+      </div>
+      <div class="ol-hero__meta">
+        <p class="ol-hero__quiet"><i aria-hidden="true"></i>Our listening line is open 6pm–11pm, every day.</p>
+        <a class="ol-hero__crisis" href="#ol-crisis">In crisis right now? Get urgent help</a>
+      </div>
+    </div>
+    <aside class="ol-breath" aria-labelledby="ol-breath-title">
+      <div class="ol-breath__ring" aria-hidden="true"><span class="ol-breath__dot"></span></div>
+      <p class="ol-breath__title" id="ol-breath-title">Breathe with us</p>
+      <p class="ol-breath__cue" aria-hidden="true">Breathe in…</p>
+      <div class="ol-breath__foot">
+        <p class="ol-breath__note">In for 4, hold for 2, out for 6. Stop if it feels uncomfortable.</p>
+        <button class="ol-breath__btn" type="button" aria-label="Pause breathing guide"><svg aria-hidden="true"><use href="#ol-i-pause"/></svg><span>Pause</span></button>
+      </div>
+    </aside>
+  </div>
+  <div class="ol-wrap ol-hero__ways">
+    <ul aria-label="Ways we can help">
+      <li><a class="ol-way" href="#ol-call"><span class="ol-way__ic"><svg aria-hidden="true"><use href="#ol-i-phone"/></svg></span><span><strong>Listening line</strong><span>Every evening, 6pm–11pm</span></span></a></li>
+      <li><a class="ol-way" href="#ol-groups"><span class="ol-way__ic"><svg aria-hidden="true"><use href="#ol-i-users"/></svg></span><span><strong>Peer support groups</strong><span>34 a week across the city region</span></span></a></li>
+      <li><a class="ol-way" href="#ol-refer"><span class="ol-way__ic"><svg aria-hidden="true"><use href="#ol-i-chat"/></svg></span><span><strong>Counselling, 18–25</strong><span>Free, up to eight sessions</span></span></a></li>
+      <li><a class="ol-way" href="#ol-workplace"><span class="ol-way__ic"><svg aria-hidden="true"><use href="#ol-i-brief"/></svg></span><span><strong>Workplace training</strong><span>For teams and managers</span></span></a></li>
+    </ul>
+  </div>
+</section>
+
+<section class="ol-crisis" id="ol-crisis" aria-labelledby="ol-crisis-title">
+  <div class="ol-wrap">
+    <div class="ol-crisis__box">
+      <div class="ol-crisis__head">
+        <h2 id="ol-crisis-title"><svg aria-hidden="true"><use href="#ol-i-lifebuoy"/></svg>In crisis right now?</h2>
+        <p>Kindred isn't an emergency service, and our line is only open in the evenings. If you need help now, these services are free and ready to listen.</p>
+      </div>
+      <ul class="ol-crisis__list">
+        <li><span class="ol-crisis__tag">Emergency</span><p>If your life is at risk, call <a href="tel:999">999</a> or go to A&amp;E.</p></li>
+        <li><span class="ol-crisis__tag">Samaritans</span><p>Call Samaritans free on <a href="tel:116123">116 123</a>, any time.</p></li>
+        <li><span class="ol-crisis__tag">Shout</span><p>Text SHOUT to <a href="sms:85258?&amp;body=SHOUT">85258</a>.</p></li>
+        <li><span class="ol-crisis__tag">NHS 111</span><p>Call NHS <a href="tel:111">111</a> and choose the mental health option.</p></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="ol-sec ol-sec--lav" id="ol-help" aria-labelledby="ol-help-title" style="margin-top:clamp(40px,5vw,64px)">
+  <div class="ol-wrap">
+    <div class="ol-sechead ol-sechead--row">
+      <div>
+        <p class="ol-eyebrow">How we can help</p>
+        <h2 class="ol-h2" id="ol-help-title">Support that meets you where you are</h2>
+      </div>
+      <p class="ol-lead">Whether you want to talk tonight, find people who get it, or work something through with a counsellor, there's a way in that suits you. All our support for individuals is free.</p>
+    </div>
+    <div class="ol-cards">
+      <article class="ol-card">
+        <div class="ol-card__img"><img src="https://images.pexels.com/photos/7176302/pexels-photo-7176302.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800&amp;h=600&amp;fit=crop" srcset="https://images.pexels.com/photos/7176302/pexels-photo-7176302.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=480&amp;h=360&amp;fit=crop 480w, https://images.pexels.com/photos/7176302/pexels-photo-7176302.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800&amp;h=600&amp;fit=crop 800w" sizes="(min-width:1200px) 330px, (min-width:768px) 45vw, 108px" width="800" height="600" alt="A young man on a phone call at home in the evening, listening thoughtfully" loading="lazy"></div>
+        <div class="ol-card__body">
+          <p class="ol-card__meta">Every day, 6pm–11pm</p>
+          <h3>Listening line</h3>
+          <p>A trained volunteer will listen without judging or rushing you. You don't need a reason to call.</p>
+          <a class="ol-more" href="#ol-call"><span>What to expect</span><svg aria-hidden="true"><use href="#ol-i-arrow"/></svg></a>
+        </div>
+      </article>
+      <article class="ol-card">
+        <div class="ol-card__img"><img src="https://images.pexels.com/photos/7176137/pexels-photo-7176137.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800&amp;h=600&amp;fit=crop" srcset="https://images.pexels.com/photos/7176137/pexels-photo-7176137.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=480&amp;h=360&amp;fit=crop 480w, https://images.pexels.com/photos/7176137/pexels-photo-7176137.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800&amp;h=600&amp;fit=crop 800w" sizes="(min-width:1200px) 330px, (min-width:768px) 45vw, 108px" width="800" height="600" alt="A small group sitting together in a bright room, listening to one another" loading="lazy"></div>
+        <div class="ol-card__body">
+          <p class="ol-card__meta">34 groups a week</p>
+          <h3>Peer support groups</h3>
+          <p>Small, friendly groups led by people with lived experience. Come along, listen, and share only if you want to.</p>
+          <a class="ol-more" href="#ol-groups"><span>Find a group</span><svg aria-hidden="true"><use href="#ol-i-arrow"/></svg></a>
+        </div>
+      </article>
+      <article class="ol-card">
+        <div class="ol-card__img"><img src="https://images.pexels.com/photos/7468207/pexels-photo-7468207.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800&amp;h=600&amp;fit=crop" srcset="https://images.pexels.com/photos/7468207/pexels-photo-7468207.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=480&amp;h=360&amp;fit=crop 480w, https://images.pexels.com/photos/7468207/pexels-photo-7468207.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800&amp;h=600&amp;fit=crop 800w" sizes="(min-width:1200px) 330px, (min-width:768px) 45vw, 108px" width="800" height="600" alt="A young woman talking with a counsellor in a calm, light room" loading="lazy"></div>
+        <div class="ol-card__body">
+          <p class="ol-card__meta">Free for 18 to 25-year-olds</p>
+          <h3>Counselling for 18–25s</h3>
+          <p>Up to eight free sessions with a qualified counsellor, in person or by video, if you live, work or study in Greater Manchester.</p>
+          <a class="ol-more" href="#ol-refer"><span>Refer yourself</span><svg aria-hidden="true"><use href="#ol-i-arrow"/></svg></a>
+        </div>
+      </article>
+      <article class="ol-card">
+        <div class="ol-card__img"><img src="https://images.pexels.com/photos/7467927/pexels-photo-7467927.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800&amp;h=600&amp;fit=crop" srcset="https://images.pexels.com/photos/7467927/pexels-photo-7467927.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=480&amp;h=360&amp;fit=crop 480w, https://images.pexels.com/photos/7467927/pexels-photo-7467927.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800&amp;h=600&amp;fit=crop 800w" sizes="(min-width:1200px) 330px, (min-width:768px) 45vw, 108px" width="800" height="600" alt="Colleagues chatting over coffee in a relaxed office meeting" loading="lazy"></div>
+        <div class="ol-card__body">
+          <p class="ol-card__meta">For employers</p>
+          <h3>Workplace wellbeing training</h3>
+          <p>Practical courses that help teams talk about mental health and look out for each other. Every booking funds our free support.</p>
+          <a class="ol-more" href="#ol-workplace"><span>See courses</span><svg aria-hidden="true"><use href="#ol-i-arrow"/></svg></a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="ol-sec" id="ol-call" aria-labelledby="ol-call-title">
+  <div class="ol-wrap">
+    <div class="ol-split" data-ol-split>
+      <div class="ol-split__col">
+        <div class="ol-call__intro">
+          <div>
+            <p class="ol-eyebrow">Our listening line</p>
+            <h2 class="ol-h2" id="ol-call-title">What happens when you call</h2>
+            <p class="ol-lead">Picking up the phone can feel like a big step. Here's what to expect, so there are no surprises.</p>
+            <div class="ol-numcard">
+              <small>Listening line</small>
+              <a href="tel:01614960310">0161 496 0310</a>
+              <p>Every day, 6pm–11pm. Costs the same as a local call.</p>
+            </div>
+          </div>
+          <div class="ol-photo ol-call__photo"><img src="https://images.pexels.com/photos/7176298/pexels-photo-7176298.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=900&amp;h=600&amp;fit=crop" srcset="https://images.pexels.com/photos/7176298/pexels-photo-7176298.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=600&amp;h=400&amp;fit=crop 600w, https://images.pexels.com/photos/7176298/pexels-photo-7176298.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=900&amp;h=600&amp;fit=crop 900w" sizes="(min-width:1200px) 540px, (min-width:768px) 45vw, 100vw" width="900" height="600" alt="A woman smiling as she talks on the phone while walking through a park" loading="lazy"></div>
+        </div>
+      </div>
+      <div class="ol-split__col">
+        <ol class="ol-steps">
+          <li class="ol-step">
+            <span class="ol-step__n" aria-hidden="true">1</span>
+            <div>
+              <h3>A listener picks up</h3>
+              <p>You'll hear a calm voice say "Hello, Kindred." Our listeners are trained volunteers from across Greater Manchester. You don't have to give your name, and it's fine to take a moment before you speak.</p>
+            </div>
+          </li>
+          <li class="ol-step">
+            <span class="ol-step__n" aria-hidden="true">2</span>
+            <div>
+              <h3>You talk, they listen</h3>
+              <p>Talk about whatever's on your mind, big or small. Your listener won't judge, lecture or tell you what to do. They'll help you think things through at your own pace.</p>
+            </div>
+          </li>
+          <li class="ol-step">
+            <span class="ol-step__n" aria-hidden="true">3</span>
+            <div>
+              <h3>You decide what happens next</h3>
+              <p>Calls usually last 20 to 40 minutes, and you can end the call whenever you like. If it would help, your listener can tell you about our groups, counselling or other local support.</p>
+            </div>
+          </li>
+        </ol>
+        <div class="ol-good">
+          <h3>Good to know</h3>
+          <ul class="ol-ticks">
+            <li><svg aria-hidden="true"><use href="#ol-i-check"/></svg><span>We don't record calls, and your number isn't shown to the listener.</span></li>
+            <li><svg aria-hidden="true"><use href="#ol-i-check"/></svg><span>You can call as often as you need to. Some people call once, others most weeks.</span></li>
+            <li><svg aria-hidden="true"><use href="#ol-i-check"/></svg><span>What you say stays with us, unless we're worried someone's life is at serious risk. Read about <a class="ol-link" href="#ol-faq">confidentiality</a>.</span></li>
+            <li><svg aria-hidden="true"><use href="#ol-i-check"/></svg><span>If the line is busy, please try again in a few minutes. It's usually quietest between 9pm and 10pm.</span></li>
+          </ul>
+        </div>
+        <p class="ol-callnote">Not ready to talk? You could <a class="ol-link" href="#ol-groups">come to a group</a> and just listen, or text SHOUT to 85258 at any time.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ol-sec ol-sec--lav" id="ol-groups" aria-labelledby="ol-groups-title">
+  <div class="ol-wrap">
+    <div class="ol-sechead ol-sechead--row">
+      <div>
+        <p class="ol-eyebrow">Peer support</p>
+        <h2 class="ol-h2" id="ol-groups-title">Find a group near you</h2>
+      </div>
+      <p class="ol-lead">Groups are free, small (usually 6 to 12 people) and run by trained facilitators with lived experience. Most are drop-in, so you can just turn up. Nobody has to speak.</p>
+    </div>
+    <form class="ol-filter" aria-label="Filter groups" id="ol-gfilter">
+      <fieldset>
+        <legend>Day</legend>
+        <div class="ol-chips" data-ol-chips="day"></div>
+      </fieldset>
+      <fieldset>
+        <legend>Area</legend>
+        <div class="ol-chips" data-ol-chips="area"></div>
+      </fieldset>
+    </form>
+    <div class="ol-gres">
+      <p id="ol-gcount" aria-live="polite">Showing sessions</p>
+      <span class="ol-demo">Demo listings</span>
+    </div>
+    <div class="ol-sessions" id="ol-sessions"></div>
+    <div class="ol-gempty" id="ol-gempty" hidden>
+      <p><strong>No groups match those choices yet.</strong> Try another day or area, or join our online evening drop-in from anywhere.</p>
+    </div>
+    <div class="ol-gfoot">
+      <button class="ol-btn ol-btn--line" type="button" id="ol-gmore">Show all sessions</button>
+      <p class="ol-small">Sessions shown here are generated for this demo. Questions? Email <a class="ol-link" href="mailto:groups@example.com">groups@example.com</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="ol-sec" id="ol-refer" aria-labelledby="ol-refer-title">
+  <div class="ol-wrap">
+    <div class="ol-split" data-ol-split>
+      <div class="ol-split__col">
+        <p class="ol-eyebrow">Counselling for 18 to 25-year-olds</p>
+        <h2 class="ol-h2" id="ol-refer-title">Refer yourself for free counselling</h2>
+        <p class="ol-lead">You don't need to see your GP first. Tell us a little about yourself and we'll take it from there, at a pace that suits you.</p>
+        <div class="ol-expect">
+          <div class="ol-expect__item">
+            <span class="ol-expect__ic"><svg aria-hidden="true"><use href="#ol-i-users"/></svg></span>
+            <div>
+              <h3>Who it's for</h3>
+              <ul>
+                <li>You're aged 18 to 25</li>
+                <li>You live, work or study in Greater Manchester</li>
+                <li>You're not having other talking therapy right now</li>
+              </ul>
+            </div>
+          </div>
+          <div class="ol-expect__item">
+            <span class="ol-expect__ic"><svg aria-hidden="true"><use href="#ol-i-chat"/></svg></span>
+            <div>
+              <h3>What you'll get</h3>
+              <p>Up to eight weekly sessions of 50 minutes with a qualified, professionally registered counsellor. In person in Manchester, Stockport or Bolton, or by video.</p>
+            </div>
+          </div>
+          <div class="ol-expect__item">
+            <span class="ol-expect__ic"><svg aria-hidden="true"><use href="#ol-i-clock"/></svg></span>
+            <div>
+              <h3>How long it takes</h3>
+              <div class="ol-wait">
+                <div><strong>Today</strong>You send your referral</div>
+                <div><strong>Within 5 working days</strong>A 20-minute call with us</div>
+                <div><strong>About 6 weeks</strong>Your first session</div>
+              </div>
+              <p class="ol-small" style="margin-top:8px">We update waiting times every Monday. Last updated 16 November 2026.</p>
+            </div>
+          </div>
+          <div class="ol-expect__item ol-expect__item--warn">
+            <span class="ol-expect__ic"><svg aria-hidden="true"><use href="#ol-i-lifebuoy"/></svg></span>
+            <div>
+              <h3>If you need help sooner</h3>
+              <p>Counselling isn't a crisis service. If you're struggling to keep yourself safe, please don't wait for us: <a class="ol-link" href="#ol-crisis">use the urgent contacts</a>. If you're over 25, your GP can talk you through local options.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="ol-split__col">
+        <div class="ol-formcard" id="ol-refer-card">
+          <div class="ol-formcard__top">
+            <h3>Your referral</h3>
+            <span class="ol-demo">Demo form</span>
+          </div>
+          <p class="ol-small">This is a demonstration. Nothing you type here is sent or stored.</p>
+          <form id="ol-refer-form" novalidate>
+            <div class="ol-errsum" id="ol-refer-errs" tabindex="-1" role="alert" hidden>
+              <h4>Please check a few things</h4>
+              <ul></ul>
+            </div>
+            <div class="ol-formgrid">
+              <div class="ol-field">
+                <label for="ol-r-name">What should we call you?</label>
+                <input class="ol-input" id="ol-r-name" name="name" type="text" autocomplete="given-name" aria-describedby="ol-r-name-e">
+                <p class="ol-err" id="ol-r-name-e" hidden></p>
+              </div>
+              <div class="ol-field">
+                <label for="ol-r-age">Your age</label>
+                <select class="ol-input" id="ol-r-age" name="age" aria-describedby="ol-r-age-e">
+                  <option value="">Choose your age</option>
+                  <option>18</option><option>19</option><option>20</option><option>21</option><option>22</option><option>23</option><option>24</option><option>25</option>
+                  <option value="u18">Under 18</option>
+                  <option value="o25">Over 25</option>
+                </select>
+                <p class="ol-err" id="ol-r-age-e" hidden></p>
+              </div>
+              <div class="ol-field">
+                <label for="ol-r-area">Where you live, work or study</label>
+                <select class="ol-input" id="ol-r-area" name="area" aria-describedby="ol-r-area-e">
+                  <option value="">Choose an area</option>
+                  <option>Bolton</option><option>Bury</option><option>Manchester</option><option>Oldham</option><option>Rochdale</option><option>Salford</option><option>Stockport</option><option>Tameside</option><option>Trafford</option><option>Wigan</option>
+                  <option value="out">Outside Greater Manchester</option>
+                </select>
+                <p class="ol-err" id="ol-r-area-e" hidden></p>
+              </div>
+              <div class="ol-field">
+                <label for="ol-r-phone">Phone number</label>
+                <input class="ol-input" id="ol-r-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" aria-describedby="ol-r-phone-h ol-r-phone-e">
+                <p class="ol-hint" id="ol-r-phone-h">For example, 07700 900123</p>
+                <p class="ol-err" id="ol-r-phone-e" hidden></p>
+              </div>
+              <div class="ol-field">
+                <label for="ol-r-email">Email <span class="ol-opt">(optional)</span></label>
+                <input class="ol-input" id="ol-r-email" name="email" type="email" autocomplete="email" aria-describedby="ol-r-email-e">
+                <p class="ol-err" id="ol-r-email-e" hidden></p>
+              </div>
+              <div class="ol-field">
+                <label for="ol-r-meet">How you'd like to meet</label>
+                <select class="ol-input" id="ol-r-meet" name="meet">
+                  <option>No preference</option>
+                  <option>In person</option>
+                  <option>By video</option>
+                </select>
+              </div>
+              <fieldset class="ol-field ol-span2">
+                <legend>Best times for us to call <span class="ol-opt">(choose any)</span></legend>
+                <div class="ol-pills">
+                  <label class="ol-chip"><input type="checkbox" name="times" value="mornings"><span>Mornings</span></label>
+                  <label class="ol-chip"><input type="checkbox" name="times" value="afternoons"><span>Afternoons</span></label>
+                  <label class="ol-chip"><input type="checkbox" name="times" value="early evenings"><span>Early evenings</span></label>
+                </div>
+              </fieldset>
+              <fieldset class="ol-field ol-span2">
+                <legend>Can we leave a voicemail?</legend>
+                <div class="ol-pills">
+                  <label class="ol-chip"><input type="radio" name="vm" value="yes"><span>Yes, that's fine</span></label>
+                  <label class="ol-chip"><input type="radio" name="vm" value="no" checked><span>No, please don't</span></label>
+                </div>
+              </fieldset>
+              <div class="ol-field ol-span2">
+                <label for="ol-r-note">Anything you'd like us to know? <span class="ol-opt">(optional)</span></label>
+                <p class="ol-hint" id="ol-r-note-h">A sentence or two is plenty. You can tell us more when we call.</p>
+                <textarea class="ol-input" id="ol-r-note" name="note" rows="4" aria-describedby="ol-r-note-h"></textarea>
+              </div>
+              <div class="ol-span2">
+                <label class="ol-check"><input type="checkbox" id="ol-r-consent" aria-describedby="ol-r-consent-e"><span>I agree to Kindred using these details to process my referral, as explained in our <a href="#ol-footer">privacy notice</a>.</span></label>
+                <p class="ol-err" id="ol-r-consent-e" hidden></p>
+                <label class="ol-check"><input type="checkbox" id="ol-r-news"><span>I'd like occasional emails about Kindred's news and events. <span class="ol-opt">(Optional. You can unsubscribe at any time.)</span></span></label>
+              </div>
+            </div>
+            <div style="margin-top:24px"><button class="ol-btn ol-btn--ink ol-btn--block" type="submit">Send my referral (demo)</button></div>
+            <p class="ol-formnote">We'll only use these details to arrange your counselling, and we keep them securely in line with UK GDPR.</p>
+          </form>
+          <div class="ol-success" id="ol-refer-done" tabindex="-1" hidden>
+            <span class="ol-success__ic"><svg aria-hidden="true"><use href="#ol-i-tick"/></svg></span>
+            <h3>Thank you</h3>
+            <p id="ol-refer-done-text"></p>
+            <p>If things get harder while you wait, please use the <a class="ol-link" href="#ol-crisis">urgent contacts</a> or call our listening line any evening.</p>
+            <p><button class="ol-btn ol-btn--line" type="button" id="ol-refer-reset">Start a new referral</button></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ol-sec ol-sec--sage" id="ol-stories" aria-labelledby="ol-stories-title">
+  <div class="ol-wrap">
+    <div class="ol-sechead ol-sechead--row">
+      <div>
+        <p class="ol-eyebrow">Stories</p>
+        <h2 class="ol-h2" id="ol-stories-title">In their own words</h2>
+      </div>
+      <p class="ol-lead">Everyone's story is different. These were shared with us so that someone reading might feel a little less alone.</p>
+    </div>
+    <div class="ol-stories">
+      <figure class="ol-story ol-story--feature">
+        <div class="ol-story__img"><img src="https://images.pexels.com/photos/5711167/pexels-photo-5711167.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1000&amp;h=563&amp;fit=crop" srcset="https://images.pexels.com/photos/5711167/pexels-photo-5711167.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=600&amp;h=400&amp;fit=crop 600w, https://images.pexels.com/photos/5711167/pexels-photo-5711167.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1000&amp;h=563&amp;fit=crop 1000w" sizes="(min-width:1200px) 760px, (min-width:768px) 50vw, 100vw" width="1000" height="563" alt="Two women walking arm in arm across a grassy park, smiling (posed by models)" loading="lazy"></div>
+        <div class="ol-story__txt">
+          <svg class="ol-q" aria-hidden="true"><use href="#ol-i-quote"/></svg>
+          <blockquote><p>I'd been putting off calling for months. When I finally did, nobody rushed me. I just talked, and for the first time in ages I felt lighter. Counselling came later, and it helped me find my feet again.</p></blockquote>
+          <figcaption><strong>Jess*, 24, Stockport</strong><span>Listening line caller, then counselling</span></figcaption>
+        </div>
+      </figure>
+      <figure class="ol-story">
+        <svg class="ol-q" aria-hidden="true"><use href="#ol-i-quote"/></svg>
+        <blockquote><p>The Thursday group is the one place I don't have to explain myself. We laugh more than you'd think.</p></blockquote>
+        <figcaption><strong>Dev*, 38, Bolton</strong><span>Peer support group member for two years</span></figcaption>
+      </figure>
+      <figure class="ol-story">
+        <svg class="ol-q" aria-hidden="true"><use href="#ol-i-quote"/></svg>
+        <blockquote><p>After the training, our managers stopped saying "let me know if you need anything" and started actually asking. It's changed how we check in on a Monday.</p></blockquote>
+        <figcaption><strong>People lead, Trafford logistics firm</strong><span>Workplace wellbeing training, 2026</span></figcaption>
+      </figure>
+    </div>
+    <p class="ol-consent"><svg aria-hidden="true"><use href="#ol-i-info"/></svg><span>*Names and some details have been changed to protect privacy. Every story is shared with written consent, and the person reviewed it before we published. Photos are posed by models.</span></p>
+  </div>
+</section>
+
+<section class="ol-sec ol-donate" id="ol-donate" aria-labelledby="ol-donate-title">
+  <div class="ol-wrap">
+    <div class="ol-split ol-split--wide-a" data-ol-split>
+      <div class="ol-split__col">
+        <p class="ol-eyebrow">Donate</p>
+        <h2 class="ol-h2" id="ol-donate-title">Help keep the line open tonight</h2>
+        <p class="ol-lead">It costs us about £5 to answer a call: training and supervising volunteers, phone lines and a safe place to work. Most of our income comes from people in Greater Manchester giving what they can.</p>
+        <ul class="ol-impact-list">
+          <li><b>£5</b><span>could answer one call to our listening line</span></li>
+          <li><b>£10</b><span>could answer 2 calls</span></li>
+          <li><b>£20</b><span>could run a peer support group for an evening</span></li>
+        </ul>
+        <div class="ol-trust">
+          <span class="ol-frbadge">Fundraising Regulator<br>badge placeholder</span>
+          <span>We follow the Code of Fundraising Practice, and we never sell or swap your details.</span>
+        </div>
+        <div class="ol-photo ol-donate__photo"><img src="https://images.pexels.com/photos/5711124/pexels-photo-5711124.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=900&amp;h=506&amp;fit=crop" srcset="https://images.pexels.com/photos/5711124/pexels-photo-5711124.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=600&amp;h=338&amp;fit=crop 600w, https://images.pexels.com/photos/5711124/pexels-photo-5711124.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=900&amp;h=506&amp;fit=crop 900w" sizes="(min-width:1200px) 640px, 100vw" width="900" height="506" alt="Soft sunrise over a misty meadow" loading="lazy"></div>
+      </div>
+      <div class="ol-split__col">
+        <div class="ol-give" id="ol-give">
+          <div class="ol-give__top">
+            <h3 id="ol-give-title">Make a donation</h3>
+            <span class="ol-demo">Demo: nothing is charged</span>
+          </div>
+          <ol class="ol-give__steps" aria-label="Donation steps">
+            <li aria-current="step">Amount</li>
+            <li>Your details</li>
+            <li>Payment</li>
+          </ol>
+          <form id="ol-give-form" novalidate>
+            <div data-ol-step="1">
+              <fieldset class="ol-seg">
+                <legend class="ol-vh">How often would you like to give?</legend>
+                <label><input type="radio" name="freq" value="once" checked><span>One-off</span></label>
+                <label><input type="radio" name="freq" value="monthly"><span>Monthly</span></label>
+              </fieldset>
+              <fieldset class="ol-amts">
+                <legend>Choose an amount</legend>
+                <div class="ol-amts__grid">
+                  <label class="ol-amt"><input type="radio" name="amt" value="5"><span>£5</span></label>
+                  <label class="ol-amt"><input type="radio" name="amt" value="10" checked><span>£10</span></label>
+                  <label class="ol-amt"><input type="radio" name="amt" value="20"><span>£20</span></label>
+                  <label class="ol-amt"><input type="radio" name="amt" value="other"><span>Other</span></label>
+                </div>
+              </fieldset>
+              <div class="ol-other ol-field" id="ol-other" hidden>
+                <label for="ol-other-amt">Your amount</label>
+                <div class="ol-money"><span aria-hidden="true">£</span><input class="ol-input" id="ol-other-amt" type="text" inputmode="decimal" autocomplete="off" aria-describedby="ol-other-e"></div>
+                <p class="ol-err" id="ol-other-e" hidden></p>
+              </div>
+              <p class="ol-impact" aria-live="polite"><svg aria-hidden="true"><use href="#ol-i-heart"/></svg><span id="ol-impact-txt"><strong>£10</strong> could answer 2 calls.</span></p>
+              <div class="ol-ga">
+                <h4>Boost your gift with Gift Aid</h4>
+                <p>Gift Aid adds 25p for every £1 if you're a UK taxpayer, at no extra cost to you. We claim it back from HMRC.</p>
+                <label class="ol-check"><input type="checkbox" id="ol-ga-check" aria-describedby="ol-ga-decl"><span>Yes, I'm a UK taxpayer. Please add Gift Aid.</span></label>
+                <p class="ol-ga__decl" id="ol-ga-decl">I want Kindred to treat this donation, and any donations I make in the future or have made in the past 4 years, as Gift Aid donations. I understand that if I pay less Income Tax and/or Capital Gains Tax in the current tax year than the amount of Gift Aid claimed on all my donations, it is my responsibility to pay any difference.</p>
+                <p class="ol-ga__total" id="ol-ga-total" aria-live="polite"></p>
+              </div>
+              <div class="ol-give__nav"><button class="ol-btn ol-btn--ink" type="button" data-ol-next>Continue</button></div>
+            </div>
+
+            <div data-ol-step="2" hidden>
+              <div class="ol-errsum" id="ol-give-errs" tabindex="-1" role="alert" hidden>
+                <h4>Please check a few things</h4>
+                <ul></ul>
+              </div>
+              <div class="ol-formgrid" style="margin-top:4px">
+                <div class="ol-field">
+                  <label for="ol-g-first">First name</label>
+                  <input class="ol-input" id="ol-g-first" type="text" autocomplete="given-name" aria-describedby="ol-g-first-e">
+                  <p class="ol-err" id="ol-g-first-e" hidden></p>
+                </div>
+                <div class="ol-field">
+                  <label for="ol-g-last">Last name</label>
+                  <input class="ol-input" id="ol-g-last" type="text" autocomplete="family-name" aria-describedby="ol-g-last-e">
+                  <p class="ol-err" id="ol-g-last-e" hidden></p>
+                </div>
+                <div class="ol-field ol-span2">
+                  <label for="ol-g-email">Email</label>
+                  <p class="ol-hint" id="ol-g-email-h">We'll send your receipt here.</p>
+                  <input class="ol-input" id="ol-g-email" type="email" autocomplete="email" aria-describedby="ol-g-email-h ol-g-email-e">
+                  <p class="ol-err" id="ol-g-email-e" hidden></p>
+                </div>
+                <div class="ol-field" data-ol-ga-only hidden>
+                  <label for="ol-g-addr">House number and street</label>
+                  <input class="ol-input" id="ol-g-addr" type="text" autocomplete="address-line1" aria-describedby="ol-g-addr-e">
+                  <p class="ol-err" id="ol-g-addr-e" hidden></p>
+                </div>
+                <div class="ol-field" data-ol-ga-only hidden>
+                  <label for="ol-g-post">Postcode</label>
+                  <input class="ol-input" id="ol-g-post" type="text" autocomplete="postal-code" aria-describedby="ol-g-post-e">
+                  <p class="ol-err" id="ol-g-post-e" hidden></p>
+                </div>
+                <p class="ol-small ol-span2" data-ol-ga-only hidden>HMRC needs your home address so we can claim Gift Aid.</p>
+                <div class="ol-span2">
+                  <label class="ol-check"><input type="checkbox" id="ol-g-news"><span>Keep me updated by email about Kindred's work and other ways to help. <span class="ol-opt">(Optional. Unsubscribe at any time.)</span></span></label>
+                </div>
+              </div>
+              <p class="ol-formnote">We'll use your details to process your donation and, if you've chosen it, to claim Gift Aid. See our <a class="ol-link" href="#ol-footer">privacy notice</a>.</p>
+              <div class="ol-give__nav">
+                <button class="ol-btn ol-btn--line" type="button" data-ol-back>Back</button>
+                <button class="ol-btn ol-btn--ink" type="button" data-ol-next>Continue to payment</button>
+              </div>
+            </div>
+
+            <div data-ol-step="3" hidden tabindex="-1" id="ol-give-final">
+              <div class="ol-summary" id="ol-give-sum"></div>
+              <div class="ol-secure">
+                <span class="ol-secure__ic"><svg aria-hidden="true"><use href="#ol-i-lock"/></svg></span>
+                <p><strong>Next, you'd go to our secure payment page</strong>On the live site you'd now be taken to our payment provider's secure page to finish your gift. This is a demo, so you won't go anywhere and nothing has been charged.</p>
+              </div>
+              <div class="ol-give__nav">
+                <button class="ol-btn ol-btn--line" type="button" data-ol-back>Back</button>
+                <button class="ol-btn ol-btn--peach" type="button" id="ol-give-reset">Start again</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ol-sec" id="ol-volunteer" aria-labelledby="ol-vol-title">
+  <div class="ol-wrap">
+    <div class="ol-split ol-volgrid" data-ol-split>
+      <div class="ol-split__col">
+        <div class="ol-photo ol-vol__photo">
+          <img src="https://images.pexels.com/photos/7467911/pexels-photo-7467911.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800&amp;h=1000&amp;fit=crop" srcset="https://images.pexels.com/photos/7467911/pexels-photo-7467911.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=600&amp;h=450&amp;fit=crop 600w, https://images.pexels.com/photos/7467911/pexels-photo-7467911.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800&amp;h=1000&amp;fit=crop 800w" sizes="(min-width:1200px) 540px, 100vw" width="800" height="1000" alt="Two women laughing together while chatting on a sofa" loading="lazy">
+          <p class="ol-vol__stat"><b>9,400 calls</b><span>answered last year by 120 volunteer listeners</span></p>
+        </div>
+      </div>
+      <div class="ol-split__col">
+        <p class="ol-eyebrow">Volunteer with us</p>
+        <h2 class="ol-h2" id="ol-vol-title">Could you be a listener?</h2>
+        <p class="ol-lead">Give one evening a week to listen. You don't need any experience, just patience, warmth and an open mind. We'll give you the training and support for everything else.</p>
+        <div class="ol-feats">
+          <div class="ol-feat"><svg aria-hidden="true"><use href="#ol-i-book"/></svg><h3>Free, thorough training</h3><p>30 hours over eight evenings, covering listening skills, boundaries and how to look after yourself.</p></div>
+          <div class="ol-feat"><svg aria-hidden="true"><use href="#ol-i-users"/></svg><h3>Support after every shift</h3><p>A short debrief with a duty supervisor every time, and a monthly group supervision session.</p></div>
+          <div class="ol-feat"><svg aria-hidden="true"><use href="#ol-i-shield"/></svg><h3>Safe and checked</h3><p>We'll arrange and pay for your DBS check and take two references before you start.</p></div>
+          <div class="ol-feat"><svg aria-hidden="true"><use href="#ol-i-clock"/></svg><h3>Shifts that fit</h3><p>2½-hour shifts, 6pm–8:30pm or 8:30pm–11pm, from our base near Piccadilly. We ask for a year's commitment.</p></div>
+        </div>
+        <div class="ol-path">
+          <h3>How it works</h3>
+          <ol>
+            <li><b>Step 1</b>Register your interest</li>
+            <li><b>Step 2</b>An informal chat with our team</li>
+            <li><b>Step 3</b>Eight-week training course</li>
+            <li><b>Step 4</b>DBS check and references</li>
+            <li><b>Step 5</b>First shifts alongside a buddy</li>
+          </ol>
+        </div>
+        <p class="ol-small" style="margin-top:20px">You'll need to be 18 or over. Our next training course starts in January 2027.</p>
+        <div class="ol-actions">
+          <a class="ol-btn ol-btn--ink" href="mailto:volunteer@example.com?subject=Listener%20volunteering">Register your interest</a>
+          <a class="ol-more" href="#ol-volunteer"><span>Read the volunteer pack (PDF placeholder)</span><svg aria-hidden="true"><use href="#ol-i-arrow"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ol-sec ol-sec--lav" id="ol-workplace" aria-labelledby="ol-work-title">
+  <div class="ol-wrap">
+    <div class="ol-sechead ol-sechead--row">
+      <div>
+        <p class="ol-eyebrow">For employers</p>
+        <h2 class="ol-h2" id="ol-work-title">Wellbeing training for your workplace</h2>
+      </div>
+      <p class="ol-lead">Down-to-earth courses from trainers with real experience, in person across the North West or online. This is a paid service, and every booking helps fund our free support.</p>
+    </div>
+    <div class="ol-work">
+      <div class="ol-work__photo"><img src="https://images.pexels.com/photos/7447073/pexels-photo-7447073.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=700&amp;h=800&amp;fit=crop" srcset="https://images.pexels.com/photos/7447073/pexels-photo-7447073.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=600&amp;h=450&amp;fit=crop 600w, https://images.pexels.com/photos/7447073/pexels-photo-7447073.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=700&amp;h=800&amp;fit=crop 700w" sizes="(min-width:1200px) 380px, (min-width:768px) 50vw, 100vw" width="700" height="800" alt="Four colleagues gathered around a table in a training session" loading="lazy"></div>
+      <article class="ol-course">
+        <p class="ol-course__tag">Half day · up to 16 people</p>
+        <h3>Mental health awareness</h3>
+        <p>A friendly introduction for whole teams.</p>
+        <ul>
+          <li><svg aria-hidden="true"><use href="#ol-i-tick"/></svg>Spot the early signs</li>
+          <li><svg aria-hidden="true"><use href="#ol-i-tick"/></svg>Start a conversation that helps</li>
+          <li><svg aria-hidden="true"><use href="#ol-i-tick"/></svg>Know where to point people</li>
+        </ul>
+        <p class="ol-price"><b>£650</b><span>+ VAT per course</span></p>
+      </article>
+      <article class="ol-course">
+        <p class="ol-course__tag">Full day · up to 14 people</p>
+        <h3>Supporting a colleague</h3>
+        <p>Practical listening skills for anyone people turn to.</p>
+        <ul>
+          <li><svg aria-hidden="true"><use href="#ol-i-tick"/></svg>Listening without fixing</li>
+          <li><svg aria-hidden="true"><use href="#ol-i-tick"/></svg>Healthy boundaries</li>
+          <li><svg aria-hidden="true"><use href="#ol-i-tick"/></svg>Looking after yourself too</li>
+        </ul>
+        <p class="ol-price"><b>£1,150</b><span>+ VAT per course</span></p>
+      </article>
+      <article class="ol-course">
+        <p class="ol-course__tag">Two half days · up to 12 managers</p>
+        <h3>Wellbeing for managers</h3>
+        <p>Confidence for the conversations managers find hardest.</p>
+        <ul>
+          <li><svg aria-hidden="true"><use href="#ol-i-tick"/></svg>Return-to-work conversations</li>
+          <li><svg aria-hidden="true"><use href="#ol-i-tick"/></svg>Reasonable adjustments</li>
+          <li><svg aria-hidden="true"><use href="#ol-i-tick"/></svg>Building a supportive team</li>
+        </ul>
+        <p class="ol-price"><b>£1,400</b><span>+ VAT per course</span></p>
+      </article>
+    </div>
+    <div class="ol-worknote">
+      <p>Prices are per course and exclude VAT at the standard rate. We offer reduced rates for charities and businesses with fewer than 10 staff, and can tailor any course to your team.</p>
+      <a class="ol-btn ol-btn--ink" href="mailto:training@example.com?subject=Workplace%20training%20enquiry"><svg aria-hidden="true"><use href="#ol-i-mail"/></svg>Enquire about training</a>
+    </div>
+  </div>
+</section>
+
+<section class="ol-sec" id="ol-faq" aria-labelledby="ol-faq-title">
+  <div class="ol-wrap">
+    <div class="ol-split" data-ol-split>
+      <div class="ol-split__col">
+        <p class="ol-eyebrow">Questions</p>
+        <h2 class="ol-h2" id="ol-faq-title">Things people often ask us</h2>
+        <p class="ol-lead">If you're wondering about something before you get in touch, you're not the only one.</p>
+        <div class="ol-contact">
+          <h3>Can't find your answer?</h3>
+          <p>Email <a href="mailto:hello@example.com">hello@example.com</a> or call our office on <a href="tel:01614960455">0161 496 0455</a>, Monday to Friday, 9am–5pm.</p>
+          <p class="ol-small">Our office can't offer emotional support. Please call the listening line in the evening, or use the urgent contacts if you need help now.</p>
+        </div>
+      </div>
+      <div class="ol-split__col ol-faq">
+        <details open>
+          <summary>Is what I say confidential?<span class="ol-faq__ic"><svg aria-hidden="true"><use href="#ol-i-plus"/></svg></span></summary>
+          <div class="ol-faq__a"><p>Yes. What you tell us stays with Kindred. We don't record calls, and we don't share what you say with your GP, family or employer.</p><p>The only exception is if we believe you or someone else is at serious risk of harm. Even then, we'll try to talk it through with you first. Read our <a href="#ol-footer">confidentiality policy</a> and <a href="#ol-footer">safeguarding policy</a>.</p></div>
+        </details>
+        <details>
+          <summary>Are you an emergency service?<span class="ol-faq__ic"><svg aria-hidden="true"><use href="#ol-i-plus"/></svg></span></summary>
+          <div class="ol-faq__a"><p>No. We can't send help to you or trace calls, and our line is only open in the evening. If your life is at risk, call 999 or go to A&amp;E. You can call Samaritans free on 116 123, any time.</p></div>
+        </details>
+        <details>
+          <summary>What can't Kindred do?<span class="ol-faq__ic"><svg aria-hidden="true"><use href="#ol-i-plus"/></svg></span></summary>
+          <div class="ol-faq__a"><p>We're not a medical service, so we can't diagnose, prescribe or give medical advice. We're not a crisis team, and we don't replace your GP or NHS mental health services. We're here to listen, connect and support you alongside them.</p></div>
+        </details>
+        <details>
+          <summary>Do I have to give my name?<span class="ol-faq__ic"><svg aria-hidden="true"><use href="#ol-i-plus"/></svg></span></summary>
+          <div class="ol-faq__a"><p>No. You can call the listening line or come to most groups without giving your real name. For counselling we'll need a way to contact you, so we can arrange your sessions.</p></div>
+        </details>
+        <details>
+          <summary>How much does it cost to call?<span class="ol-faq__ic"><svg aria-hidden="true"><use href="#ol-i-plus"/></svg></span></summary>
+          <div class="ol-faq__a"><p>Calls to 0161 496 0310 cost the same as a local call and are usually included in your phone plan's minutes. If cost is a worry, just say and we'll call you back.</p></div>
+        </details>
+        <details>
+          <summary>Can I get help for someone I'm worried about?<span class="ol-faq__ic"><svg aria-hidden="true"><use href="#ol-i-plus"/></svg></span></summary>
+          <div class="ol-faq__a"><p>Yes. You can call the line to talk about how you're feeling as a friend, partner or family member, and you're welcome to share our details with them. If you think they're in immediate danger, call 999.</p></div>
+        </details>
+        <details>
+          <summary>How do I give feedback or make a complaint?<span class="ol-faq__ic"><svg aria-hidden="true"><use href="#ol-i-plus"/></svg></span></summary>
+          <div class="ol-faq__a"><p>We'd really like to hear from you. Email <a href="mailto:feedback@example.com">feedback@example.com</a> or ask any volunteer for a feedback form. You can also read our <a href="#ol-footer">complaints procedure</a>.</p></div>
+        </details>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="ol-foot" id="ol-footer">
+  <div class="ol-horizon" id="ol-horizon">
+    <div class="ol-wrap ol-horizon__in">
+      <div class="ol-breathe" aria-hidden="true"><span class="ol-breathe__glow"></span><span class="ol-breathe__sun"></span><span class="ol-breathe__ring"></span></div>
+      <p class="ol-horizon__label">Breathe with me</p>
+      <p class="ol-cue"><span>Breathe in as the circle grows…</span><span>…and slowly out as it settles.</span><span class="ol-cue__static">Breathe in for four, and out for four.</span></p>
+      <button class="ol-horizon__pause" type="button"><svg aria-hidden="true"><use href="#ol-i-pause"/></svg><span>Pause animation</span></button>
+    </div>
+  </div>
+  <div class="ol-foot__main">
+    <div class="ol-wrap">
+      <div class="ol-foot__top">
+        <div class="ol-foot__brand">
+          <a class="ol-logo" href="#ol-top" aria-label="Kindred home"><svg aria-hidden="true"><use href="#ol-i-logo"/></svg><span>Kindred</span></a>
+          <p>Listening, connecting and supporting people across Greater Manchester since 2009.</p>
+          <ul class="ol-foot__contact">
+            <li><svg aria-hidden="true"><use href="#ol-i-phone"/></svg><span>Listening line <a href="tel:01614960310">0161 496 0310</a><br>Every day, 6pm–11pm</span></li>
+            <li><svg aria-hidden="true"><use href="#ol-i-phone"/></svg><span>Office <a href="tel:01614960455">0161 496 0455</a><br>Mon–Fri, 9am–5pm</span></li>
+            <li><svg aria-hidden="true"><use href="#ol-i-mail"/></svg><span><a href="mailto:hello@example.com">hello@example.com</a></span></li>
+            <li><svg aria-hidden="true"><use href="#ol-i-pin"/></svg><span>Kindred, 2nd Floor, Weaver House, Example Street, Manchester M1 0XX</span></li>
+          </ul>
+        </div>
+        <div class="ol-fcrisis" aria-labelledby="ol-fcrisis-title" role="region">
+          <h2 id="ol-fcrisis-title"><svg aria-hidden="true"><use href="#ol-i-lifebuoy"/></svg>In crisis right now?</h2>
+          <p>We're not an emergency service. If you need help now, please contact:</p>
+          <ul>
+            <li>If your life is at risk, call <a href="tel:999">999</a> or go to A&amp;E.</li>
+            <li>Call Samaritans free on <a href="tel:116123">116 123</a>, any time.</li>
+            <li>Text SHOUT to <a href="sms:85258?&amp;body=SHOUT">85258</a>.</li>
+            <li>Call NHS <a href="tel:111">111</a> and choose the mental health option.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="ol-fcols">
+        <details class="ol-fgroup" open>
+          <summary>Get support<svg aria-hidden="true"><use href="#ol-i-chev"/></svg></summary>
+          <ul>
+            <li><a href="#ol-call">Listening line</a></li>
+            <li><a href="#ol-groups">Peer support groups</a></li>
+            <li><a href="#ol-refer">Counselling for 18–25s</a></li>
+            <li><a href="#ol-crisis">Urgent help</a></li>
+            <li><a href="#ol-faq">Supporting someone else</a></li>
+          </ul>
+        </details>
+        <details class="ol-fgroup" open>
+          <summary>Get involved<svg aria-hidden="true"><use href="#ol-i-chev"/></svg></summary>
+          <ul>
+            <li><a href="#ol-donate">Donate</a></li>
+            <li><a href="#ol-volunteer">Volunteer as a listener</a></li>
+            <li><a href="#ol-donate">Fundraise for us</a></li>
+            <li><a href="#ol-donate">Leave a gift in your will</a></li>
+            <li><a href="#ol-workplace">Workplace training</a></li>
+          </ul>
+        </details>
+        <details class="ol-fgroup" open>
+          <summary>About us<svg aria-hidden="true"><use href="#ol-i-chev"/></svg></summary>
+          <ul>
+            <li><a href="#ol-stories">Our story and values</a></li>
+            <li><a href="#ol-footer">Annual report &amp; accounts (placeholder)</a></li>
+            <li><a href="#ol-footer">Trustees and team</a></li>
+            <li><a href="#ol-footer">Jobs</a></li>
+            <li><a href="#ol-footer">News</a></li>
+          </ul>
+        </details>
+        <details class="ol-fgroup" open>
+          <summary>Policies<svg aria-hidden="true"><use href="#ol-i-chev"/></svg></summary>
+          <ul>
+            <li><a href="#ol-footer">Safeguarding policy</a></li>
+            <li><a href="#ol-footer">Confidentiality policy</a></li>
+            <li><a href="#ol-footer">Complaints procedure</a></li>
+            <li><a href="#ol-footer">Fundraising promise</a></li>
+            <li><a href="#ol-footer">Accessibility</a></li>
+          </ul>
+        </details>
+      </div>
+
+      <div class="ol-foot__base">
+        <div class="ol-legal">
+          <p>© 2026 Kindred. Registered charity in England and Wales (no. 1XXXXXX). Company limited by guarantee, registered in England and Wales (no. 0XXXXXXX). Registered office as above.</p>
+          <div class="ol-legal__links">
+            <a href="#ol-footer">Privacy notice</a>
+            <a href="#ol-footer">Cookies</a>
+            <a href="#ol-footer">Safeguarding</a>
+            <a href="#ol-footer">Confidentiality</a>
+            <a href="#ol-footer">Accessibility statement</a>
+          </div>
+        </div>
+        <div class="ol-foot__right">
+          <span class="ol-frbadge">Fundraising Regulator<br>badge placeholder</span>
+          <a class="ol-totop" href="#ol-top" aria-label="Back to top"><svg aria-hidden="true"><use href="#ol-i-up"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div class="ol-bar" id="ol-bar" role="region" aria-label="Quick actions">
+  <a class="ol-btn ol-btn--ink" href="tel:01614960310"><svg aria-hidden="true"><use href="#ol-i-phone"/></svg>Call our line</a>
+  <a class="ol-btn ol-btn--peach" href="#ol-donate"><svg aria-hidden="true"><use href="#ol-i-heart"/></svg>Donate</a>
+</div>
+
+<script>
+(function () {
+  'use strict';
+  var d = document, w = window;
+  var rm = w.matchMedia('(prefers-reduced-motion: reduce)');
+  var mqDesk = w.matchMedia('(min-width: 1200px)');
+  var mqMob = w.matchMedia('(max-width: 767px)');
+  function $(s, c) { return (c || d).querySelector(s); }
+  function $$(s, c) { return Array.prototype.slice.call((c || d).querySelectorAll(s)); }
+  function onMq(mq, fn) { if (mq.addEventListener) mq.addEventListener('change', fn); else if (mq.addListener) mq.addListener(fn); }
+  function debounce(fn, ms) { var t; return function () { clearTimeout(t); t = setTimeout(fn, ms || 120); }; }
+
+  /* ---------- sticky shorter column (desktop only) ---------- */
+  function pin() {
+    $$('[data-ol-split]').forEach(function (s) {
+      var cols = $$(':scope > .ol-split__col', s);
+      if (cols.length < 2) return;
+      cols.forEach(function (c) { c.classList.remove('ol-pin'); });
+      if (!mqDesk.matches) return;
+      var a = cols[0].offsetHeight, b = cols[1].offsetHeight;
+      if (Math.abs(a - b) < 48) return;
+      (a < b ? cols[0] : cols[1]).classList.add('ol-pin');
+    });
+  }
+  var pinSoon = debounce(pin, 80);
+
+  /* ---------- mobile action bar ---------- */
+  var bar = $('#ol-bar');
+  var hideFor = {};
+  var menuOpen = false;
+  function updateBar() {
+    if (!bar) return;
+    var hide = menuOpen || Object.keys(hideFor).length > 0;
+    bar.classList.toggle('is-hidden', hide);
+  }
+  if ('IntersectionObserver' in w) {
+    var barIO = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) hideFor[en.target.id] = 1; else delete hideFor[en.target.id];
+      });
+      updateBar();
+    }, { threshold: 0 });
+    ['ol-footer', 'ol-give'].forEach(function (id) { var el = d.getElementById(id); if (el) barIO.observe(el); });
+  }
+
+  /* ---------- header + menu ---------- */
+  var head = $('.ol-head');
+  function onScroll() { head.classList.toggle('is-scrolled', w.scrollY > 8); }
+  w.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  var menu = $('#ol-menu'), burger = $('.ol-burger'), closeBtn = $('.ol-menu__close');
+  function openMenu() {
+    menu.hidden = false; menuOpen = true;
+    burger.setAttribute('aria-expanded', 'true');
+    d.documentElement.style.overflow = 'hidden';
+    updateBar();
+    closeBtn.focus();
+  }
+  function closeMenu(returnFocus) {
+    if (!menuOpen) return;
+    menu.hidden = true; menuOpen = false;
+    burger.setAttribute('aria-expanded', 'false');
+    d.documentElement.style.overflow = '';
+    updateBar();
+    if (returnFocus) burger.focus();
+  }
+  burger.addEventListener('click', openMenu);
+  closeBtn.addEventListener('click', function () { closeMenu(true); });
+  d.addEventListener('keydown', function (e) {
+    if (!menuOpen) return;
+    if (e.key === 'Escape') { closeMenu(true); return; }
+    if (e.key === 'Tab') {
+      var f = $$('a[href], button:not([disabled])', menu);
+      var first = f[0], last = f[f.length - 1];
+      if (e.shiftKey && d.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && d.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
+  });
+  onMq(mqDesk, function (e) { if (e.matches) closeMenu(false); });
+
+  /* ---------- in-page links: calm scroll + focus ---------- */
+  d.addEventListener('click', function (e) {
+    var a = e.target.closest ? e.target.closest('a[href^="#"]') : null;
+    if (!a) return;
+    var id = a.getAttribute('href');
+    if (!id || id.length < 2) return;
+    var t = d.getElementById(id.slice(1));
+    if (!t) return;
+    e.preventDefault();
+    closeMenu(false);
+    var behavior = rm.matches ? 'auto' : 'smooth';
+    if (id === '#ol-top') w.scrollTo({ top: 0, behavior: behavior });
+    else t.scrollIntoView({ behavior: behavior, block: 'start' });
+    if (!/^(A|BUTTON|INPUT|SELECT|TEXTAREA)$/.test(t.tagName) && !t.hasAttribute('tabindex')) t.setAttribute('tabindex', '-1');
+    try { t.focus({ preventScroll: true }); } catch (err) { t.focus(); }
+    try { history.replaceState(null, '', id); } catch (err) { /* file:// may refuse */ }
+  });
+
+  /* ---------- HERO: dawn sky, character clouds, breathing sun ---------- */
+  (function () {
+    var hero = $('.ol-hero'), cv = $('.ol-hero__clouds'), copy = $('.ol-hero__copy'), pauseBtn = $('.ol-hero__pause');
+    var sunEl = $('.ol-sun'), sunDisc = $('.ol-sun__disc'), sunGlow = $('.ol-sun__glow');
+    var dot = $('.ol-breath__dot'), cue = $('.ol-breath__cue'), bBtn = $('.ol-breath__btn');
+    if (!hero || !cv || !cv.getContext) return;
+    var ctx = cv.getContext('2d');
+    var fine = w.matchMedia('(hover: hover) and (pointer: fine)');
+
+    /* seeded value noise + fbm with rotated octaves (soft, billowy, no grid artefacts) */
+    var seed = 7331;
+    function rnd() { seed = (seed * 16807) % 2147483647; return seed / 2147483647; }
+    var perm = new Uint8Array(512), val = new Float32Array(256), p = [], i, j, tmp;
+    for (i = 0; i < 256; i++) { p[i] = i; val[i] = rnd(); }
+    for (i = 255; i > 0; i--) { j = Math.floor(rnd() * (i + 1)); tmp = p[i]; p[i] = p[j]; p[j] = tmp; }
+    for (i = 0; i < 512; i++) perm[i] = p[i & 255];
+    function vn(x, y) {
+      var xi = Math.floor(x), yi = Math.floor(y), xf = x - xi, yf = y - yi, X = xi & 255, Y = yi & 255;
+      var a = val[perm[perm[X] + Y]], b = val[perm[perm[X + 1] + Y]], c = val[perm[perm[X] + Y + 1]], e = val[perm[perm[X + 1] + Y + 1]];
+      var u = xf * xf * (3 - 2 * xf), v = yf * yf * (3 - 2 * yf);
+      return a + (b - a) * u + (c - a) * v + (a - b - c + e) * u * v;
+    }
+    function fbm(x, y, o) {
+      var s = 0, amp = 0.5, n = 0, nx;
+      for (var k = 0; k < o; k++) { s += amp * vn(x, y); n += amp; nx = 1.6 * x - 1.2 * y + 3.1; y = 1.2 * x + 1.6 * y + 1.7; x = nx; amp *= 0.5; }
+      return s / n;
+    }
+    function sstep(a, b, x) { var t = (x - a) / (b - a); t = t < 0 ? 0 : t > 1 ? 1 : t; return t * t * (3 - 2 * t); }
+    function hash(c, r) {
+      var h = Math.imul(c, 374761393) + Math.imul(r, 668265263) | 0;
+      h = Math.imul(h ^ (h >>> 13), 1274126177);
+      return ((h ^ (h >>> 16)) >>> 0) / 4294967295;
+    }
+
+    /* glyph sprites: a soft ramp (tiny dots to round glyphs) x light/warm tones x three shimmer alphas */
+    var GL = ['.', '·', ':', '°', '•', 'o', 'O', '●'], NG = GL.length;
+    var GA = [0.44, 0.5, 0.52, 0.54, 0.56, 0.58, 0.58, 0.46];
+    var SH = [0.6, 0.8, 1], NS = SH.length;
+    var NLIT = 6, NWARM = 3, NTONE = NLIT * NWARM;
+    var atlas = d.createElement('canvas'), actx = atlas.getContext('2d'), sp = 16;
+    function buildAtlas(cellPx, dpr) {
+      sp = Math.ceil(cellPx * dpr);
+      atlas.width = sp * NTONE; atlas.height = sp * NG * NS;
+      actx.clearRect(0, 0, atlas.width, atlas.height);
+      actx.font = '600 ' + Math.round(cellPx * dpr) + 'px ui-monospace, "SFMono-Regular", Menlo, Consolas, "Segoe UI Symbol", monospace';
+      actx.textAlign = 'center'; actx.textBaseline = 'middle';
+      for (var t = 0; t < NTONE; t++) {
+        var li = ((t / NWARM) | 0) / (NLIT - 1), wi = (t % NWARM) / (NWARM - 1);
+        var r = 112 + (255 - 112) * li, g = 103 + (251 - 103) * li, b = 188 + (246 - 188) * li, wm = wi * 0.7;
+        r += (255 - r) * wm; g += (156 - g) * wm; b += (108 - b) * wm;
+        for (var gi = 0; gi < NG; gi++) for (var si = 0; si < NS; si++) {
+          actx.fillStyle = 'rgba(' + (r | 0) + ',' + (g | 0) + ',' + (b | 0) + ',' + (GA[gi] * SH[si]).toFixed(3) + ')';
+          actx.fillText(GL[gi], t * sp + sp / 2, (gi * NS + si) * sp + sp / 2);
+        }
+      }
+    }
+
+    /* cumulus: a soft flat base plus 3-5 overlapping puffs of different radii and a lump or two on top */
+    function cumulus(cw, ch, r2) {
+      var sh = [{ dx: 0, dy: -ch * 0.2, rx: cw * 0.5, ry: ch * 0.3 }], k = 3 + ((r2() * 3) | 0), big = null, j;
+      for (j = 0; j < k; j++) {
+        var u = (j / (k - 1) - 0.5) * 0.8 + (r2() - 0.5) * 0.08;
+        var rr = ch * (0.38 + 0.42 * (1 - 4 * u * u)) * (0.82 + 0.36 * r2());
+        var P = { dx: u * cw, dy: -rr * 0.7 - ch * 0.08, rx: rr * 1.12, ry: rr };
+        sh.push(P); if (!big || rr > big.ry) big = P;
+      }
+      var extra = 1 + ((r2() * 2) | 0);
+      for (j = 0; j < extra; j++) {
+        var q = big.ry * (0.4 + 0.18 * r2());
+        sh.push({ dx: big.dx + (r2() - 0.5) * big.rx * 1.1, dy: big.dy - big.ry * (0.5 + 0.15 * r2()), rx: q * 1.1, ry: q });
+      }
+      var top = 0, left = 0, right = 0;
+      sh.forEach(function (s) { top = Math.max(top, s.ry - s.dy); left = Math.min(left, s.dx - s.rx); right = Math.max(right, s.dx + s.rx); });
+      return { sh: sh, top: top, left: left, right: right };
+    }
+
+    var W = 0, H = 0, cell = 10, cols = 0, rows = 0, mode = 'd', oct = 4, bandH = 140, dprC = 1;
+    var dens, lit, warm, mask, part, offX, offY, hsh, jx, jy;
+    var body = d.createElement('canvas'), bctx = body.getContext('2d'), bimg = null;
+    var sun = { x: 0, y: 0, s: 200 }, CL = [], VL = [1.2, 2, 3], BIAS = [0.32, 0.14, 0];
+    var simT = 34, cloudsOn = !rm.matches, heroPaused = false, visible = true, running = false, raf = 0, last = 0;
+
+    /* a composed sky per layout: few clouds of clearly different sizes, high wisps, one large sunlit cloud */
+    function buildClouds(hr) {
+      var sd = 4242;
+      function r2() { sd = (sd * 16807) % 2147483647; return sd / 2147483647; }
+      var B = bandH, spec;
+      if (mode === 'd') {
+        var cardEl = $('.ol-breath'), cardTop = cardEl ? cardEl.getBoundingClientRect().top - hr.top : H * 0.6;
+        spec = [
+          { L: 2, x: 0.79, by: cardTop - 4, cw: 0.34 * W },
+          { L: 2, x: 1.55, by: cardTop - 20, cw: 0.28 * W },
+          { L: 1, x: 0.9, by: 0.3 * H, cw: 0.19 * W },
+          { L: 1, x: 0.6, by: 0.25 * H, cw: 0.12 * W },
+          { L: 0, x: 0.71, by: 0.15 * H, cw: 0.115 * W },
+          { L: 0, x: 0.98, by: 0.2 * H, cw: 0.085 * W },
+          { L: 0, ci: 1, x: 0.57, y: 0.07 * H, len: 0.085 * W },
+          { L: 0, ci: 1, x: 0.82, y: 0.42 * H, len: 0.06 * W },
+          { L: 0, ci: 1, x: 0.67, y: 0.2 * H, len: 0.05 * W }];
+      } else if (mode === 't') {
+        spec = [
+          { L: 2, x: 0.93, by: 0.92 * B, cw: 250 },
+          { L: 2, x: 0.05, by: 0.74 * H, cw: 280 },
+          { L: 1, x: 0.5, by: 0.72 * B, cw: 180 },
+          { L: 1, x: 0.97, by: 0.64 * H, cw: 210 },
+          { L: 0, x: 0.17, by: 0.46 * B, cw: 125 },
+          { L: 0, ci: 1, x: 0.42, y: 0.2 * B, len: 0.13 * W },
+          { L: 0, ci: 1, x: 0.75, y: 0.32 * B, len: 0.08 * W }];
+      } else {
+        var s = Math.min(1.3, W / 375);
+        spec = [
+          { L: 2, x: 0.86, by: 0.95 * B, cw: 150 * s },
+          { L: 1, x: 0.5, by: 0.7 * B, cw: 118 * s },
+          { L: 0, x: 0.18, by: 0.45 * B, cw: 86 * s },
+          { L: 0, ci: 1, x: 0.56, y: 0.17 * B, len: 0.2 * W },
+          { L: 0, ci: 1, x: 0.25, y: 0.76 * B, len: 0.13 * W }];
+      }
+      var margin = 10 + cell;
+      CL = spec.map(function (S) {
+        var C = { L: S.L, v: VL[S.L], nx: r2() * 400, ny: r2() * 400, ph: r2() * 6.28, ci: !!S.ci };
+        if (S.ci) {
+          C.len = S.len; C.by = Math.max(margin, S.y); C.left = -S.len; C.right = S.len; C.top = 10; C.ch = 10;
+        } else {
+          var ch = S.cw * (S.cw < 220 ? 0.36 + r2() * 0.04 : 0.24 + r2() * 0.05), g = cumulus(S.cw, ch, r2);
+          C.sh = g.sh; C.top = g.top; C.left = g.left; C.right = g.right; C.ch = ch;
+          C.by = Math.max(S.by, g.top + margin);
+        }
+        var x0 = S.x * W, lo = (mode === 'd' ? 0.3 * W : 0) - C.right - 24, hi = W - C.left + 24;
+        C.lo = lo; C.span = hi - lo; C.x0 = x0;
+        C.cx = 0; C.l = 0; C.r = 0; C.t = 0; C.b = 0;
+        return C;
+      });
+    }
+
+    function size() {
+      var hr = hero.getBoundingClientRect();
+      W = Math.max(1, Math.round(hr.width)); H = Math.max(1, Math.round(hr.height));
+      mode = W >= 1200 ? 'd' : W >= 768 ? 't' : 'm';
+      cell = mode === 'd' ? 10 : mode === 't' ? 11 : 12;
+      oct = mode === 'm' ? 3 : 4;
+      dprC = Math.min(w.devicePixelRatio || 1, 1.5);
+      cv.width = Math.round(W * dprC); cv.height = Math.round(H * dprC);
+      ctx.setTransform(dprC, 0, 0, dprC, 0, 0);
+      buildAtlas(cell, dprC);
+      cols = Math.ceil(W / cell); rows = Math.ceil(H / cell);
+      var n = cols * rows;
+      dens = new Float32Array(n); lit = new Float32Array(n); warm = new Float32Array(n);
+      mask = new Float32Array(n); part = new Float32Array(n); offX = new Float32Array(n); offY = new Float32Array(n); hsh = new Float32Array(n); jx = new Float32Array(n); jy = new Float32Array(n);
+      body.width = cols; body.height = rows; bimg = bctx.createImageData(cols, rows);
+      var cr = copy.getBoundingClientRect();
+      bandH = Math.max(90, cr.top - hr.top);
+      var sr = sunEl.getBoundingClientRect();
+      sun.x = sr.left - hr.left + sr.width / 2; sun.y = sr.top - hr.top + sr.height / 2; sun.s = sr.width * (mode === 'm' ? 2.2 : 1.9);
+      buildClouds(hr);
+      // soft mask under the copy, around the pause button and (desktop) across the left third
+      var px = mode === 'm' ? 12 : 34, py = mode === 'm' ? 10 : 26, F = mode === 'm' ? 46 : mode === 't' ? 76 : 120, k = mode === 'd' ? 0.94 : mode === 't' ? 0.95 : 0.9;
+      var x0 = cr.left - hr.left - px, x1 = cr.right - hr.left + px, y0 = cr.top - hr.top - py, y1 = cr.bottom - hr.top + py;
+      var pr = pauseBtn.getBoundingClientRect(), pcx = pr.left - hr.left + pr.width / 2, pcy = pr.top - hr.top + pr.height / 2;
+      for (var r = 0, idx = 0; r < rows; r++) {
+        var y = r * cell + cell / 2;
+        for (var c = 0; c < cols; c++, idx++) {
+          var x = c * cell + cell / 2;
+          var dx = Math.max(x0 - x, 0, x - x1), dy = Math.max(y0 - y, 0, y - y1);
+          var m = 1 - k * (1 - sstep(0, F, Math.sqrt(dx * dx + dy * dy)));
+          var bx = x - pcx, byy = y - pcy;
+          if (pr.width) m *= sstep(30, 78, Math.sqrt(bx * bx + byy * byy));
+          if (mode === 'd') m *= sstep(0.3 * W, 0.5 * W, x);
+          mask[idx] = m;
+          hsh[idx] = hash(c, r);
+          jx[idx] = (hash(c + 911, r + 37) - 0.5) * cell * 0.28; jy[idx] = (hash(c + 53, r + 1301) - 0.5) * cell * 0.28;
+        }
+      }
+    }
+
+    /* density field: three parallax layers composited front to back; fbm noise feathers edges and adds texture */
+    function field(t) {
+      var ci, C, NC = CL.length;
+      for (ci = 0; ci < NC; ci++) {
+        C = CL[ci];
+        C.cx = C.lo + (((C.x0 - C.v * t - C.lo) % C.span) + C.span) % C.span;
+        C.l = C.cx + C.left - 2; C.r = C.cx + C.right + 2;
+        if (C.ci) { C.t = C.by - 14; C.b = C.by + 14; } else { C.t = C.by - C.top - 4; C.b = C.by + C.ch * 0.3; }
+      }
+      var nf = 1 / (mode === 'm' ? 30 : 44), horizon = mode === 'm' ? bandH : H, s2 = 2 * sun.s * sun.s, idx = 0;
+      for (var r = 0; r < rows; r++) {
+        var y = r * cell + cell / 2;
+        var hz = mode === 'm' ? sstep(0.5, 1.1, y / horizon) : sstep(0.5, 1, y / H);
+        for (var c = 0; c < cols; c++, idx++) {
+          var x = c * cell + cell / 2, acc = 0, cl = 0;
+          for (var L = 2; L >= 0; L--) {
+            var best = 0, bUy = 0, bC = null;
+            for (ci = 0; ci < NC; ci++) {
+              C = CL[ci];
+              if (C.L !== L || x < C.l || x > C.r || y < C.t || y > C.b) continue;
+              if (C.ci) {
+                var ex = x - C.cx, wy = C.by + Math.sin(ex * 0.012 + C.ph) * 5, ddy = (y - wy) / 5.5;
+                var tp = sstep(-C.len, -C.len * 0.35, ex) * (1 - sstep(C.len * 0.35, C.len, ex));
+                var fw = Math.exp(-ddy * ddy) * tp;
+                if (fw > best) { best = fw; bUy = -1; bC = C; }
+              } else {
+                for (var k = 0; k < C.sh.length; k++) {
+                  var S = C.sh[k], ux = (x - C.cx - S.dx) / S.rx, uy = (y - C.by - S.dy) / S.ry, dd2 = ux * ux + uy * uy;
+                  if (dd2 >= 1) continue;
+                  var f = 1 - sstep(0.66, 1, Math.sqrt(dd2));
+                  if (f > best) { best = f; bUy = uy; bC = C; }
+                }
+              }
+            }
+            if (!bC) continue;
+            var nz = fbm((x - bC.cx + bC.nx) * nf + t * 0.008, (y - bC.by) * nf * 1.3 + bC.ny, oct), dv, li;
+            if (bC.ci) {
+              dv = best * (0.3 + 0.7 * sstep(0.38, 0.68, nz)) * 0.62;
+              li = 0.92;
+            } else {
+              var base = 1 - sstep(bC.by - 0.06 * bC.ch, bC.by + 0.16 * bC.ch, y), core = best * base;
+              dv = sstep(0.06, 0.94, core + (nz - 0.5) * 0.55 * (1 - 0.5 * core));
+              var hn = (bC.by - y) / bC.top; hn = hn < 0 ? 0 : hn > 1 ? 1 : hn;
+              li = 0.26 + 0.5 * hn - 0.26 * bUy + (nz - 0.5) * 0.45 + BIAS[L];
+              li = li < 0 ? 0 : li > 1 ? 1 : li;
+            }
+            if (dv < 0.02) continue;
+            var a = dv * (L === 0 ? 0.85 : L === 1 ? 0.93 : 1) * (1 - acc);
+            cl += a * li; acc += a;
+            if (acc > 0.97) break;
+          }
+          dens[idx] = acc;
+          if (acc > 0.02) {
+            var l = cl / acc, sx = x - sun.x, sy = y - sun.y;
+            var wv = Math.exp(-(sx * sx + sy * sy) / s2) * 1.25 + hz * 0.4;
+            lit[idx] = l; warm[idx] = (wv > 1 ? 1 : wv) * (0.3 + 0.7 * l);
+          }
+        }
+      }
+    }
+
+    /* pointer: a soft parting that eases open and closes back slowly; touch: a slow ripple */
+    var ptr = { x: 0, y: 0, tx: 0, ty: 0, on: false, seen: false }, trail = [], ripples = [], lastPush = 0;
+    function shape(now, dt) {
+      part.fill(0); offX.fill(0); offY.fill(0);
+      if (ptr.on) {
+        ptr.x += (ptr.tx - ptr.x) * 0.12; ptr.y += (ptr.ty - ptr.y) * 0.12;
+        if (now - lastPush > 90) { trail.push({ x: ptr.x, y: ptr.y, s: 0.25 }); if (trail.length > 18) trail.shift(); lastPush = now; }
+      }
+      var k, P, R, c0, c1, r0, r1, c, r, idx, dx, dy, dist, f;
+      for (k = trail.length - 1; k >= 0; k--) {
+        P = trail[k];
+        P.s = (k === trail.length - 1 && ptr.on) ? Math.min(1, P.s + dt * 2.2) : P.s * Math.exp(-dt / 1.3);
+        if (P.s < 0.02) { trail.splice(k, 1); continue; }
+        R = mode === 'm' ? 110 : 160;
+        c0 = Math.max(0, ((P.x - R) / cell) | 0); c1 = Math.min(cols - 1, ((P.x + R) / cell) | 0);
+        r0 = Math.max(0, ((P.y - R) / cell) | 0); r1 = Math.min(rows - 1, ((P.y + R) / cell) | 0);
+        for (r = r0; r <= r1; r++) for (c = c0; c <= c1; c++) {
+          dx = c * cell + cell / 2 - P.x; dy = r * cell + cell / 2 - P.y; dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist >= R) continue;
+          f = 1 - dist / R; f = f * f * (3 - 2 * f) * P.s;
+          idx = r * cols + c;
+          if (f > part[idx]) { part[idx] = f * 0.96; if (dist > 0.5) { offX[idx] = dx / dist * f * 12; offY[idx] = dy / dist * f * 12; } }
+        }
+      }
+      for (k = ripples.length - 1; k >= 0; k--) {
+        P = ripples[k]; P.age += dt;
+        var life = 3.2;
+        if (P.age > life) { ripples.splice(k, 1); continue; }
+        var e = P.age / life, rad = 20 + 300 * (1 - Math.pow(1 - e, 3)), wid = 44, amp = Math.pow(1 - e, 1.4);
+        R = rad + wid * 2;
+        c0 = Math.max(0, ((P.x - R) / cell) | 0); c1 = Math.min(cols - 1, ((P.x + R) / cell) | 0);
+        r0 = Math.max(0, ((P.y - R) / cell) | 0); r1 = Math.min(rows - 1, ((P.y + R) / cell) | 0);
+        for (r = r0; r <= r1; r++) for (c = c0; c <= c1; c++) {
+          dx = c * cell + cell / 2 - P.x; dy = r * cell + cell / 2 - P.y; dist = Math.sqrt(dx * dx + dy * dy);
+          var g = (dist - rad) / wid; f = Math.exp(-g * g) * amp;
+          if (f < 0.02) continue;
+          idx = r * cols + c;
+          if (f > part[idx]) { part[idx] = f * 0.85; if (dist > 0.5) { offX[idx] = dx / dist * f * 9; offY[idx] = dy / dist * f * 9; } }
+        }
+      }
+    }
+
+    function render() {
+      ctx.clearRect(0, 0, W, H);
+      var bd = bimg.data, n = cols * rows, q, a0, li0, wm0, br, bg, bb;
+      for (q = 0; q < n; q++) {
+        a0 = dens[q] * mask[q] * (1 - part[q]);
+        if (a0 < 0.02) { bd[q * 4 + 3] = 0; continue; }
+        li0 = lit[q]; wm0 = warm[q] * 0.75;
+        br = 186 + 69 * li0; bg = 178 + 74 * li0; bb = 232 + 18 * li0;
+        br += (255 - br) * wm0; bg += (186 - bg) * wm0; bb += (150 - bb) * wm0;
+        bd[q * 4] = br; bd[q * 4 + 1] = bg; bd[q * 4 + 2] = bb; bd[q * 4 + 3] = a0 * 140;
+      }
+      bctx.putImageData(bimg, 0, 0);
+      ctx.imageSmoothingEnabled = true; ctx.imageSmoothingQuality = 'low';
+      ctx.drawImage(body, 0, 0, cols * cell, rows * cell);
+      var idx = 0, starY = mode === 'm' ? bandH * 0.45 : H * 0.24, tt = simT;
+      for (var r = 0; r < rows; r++) {
+        var y = r * cell;
+        for (var c = 0; c < cols; c++, idx++) {
+          var a = dens[idx] * mask[idx] * (1 - part[idx]);
+          if (a < 0.03) {
+            // a few faint, fading stars in the deep blue
+            if (y < starY && hsh[idx] < 0.016 * (1 - y / starY) && mask[idx] > 0.6) ctx.drawImage(atlas, ((NLIT - 1) * NWARM) * sp, (1 * NS + 1) * sp, sp, sp, c * cell, y, cell, cell);
+            continue;
+          }
+          if (a < 0.28 && hsh[idx] > a / 0.28 + 0.05) continue;
+          // gentle shimmer: glyph alpha (and a little of the glyph choice) drifts with a slow noise
+          var sv = vn(c * 0.33 + tt * 0.2, r * 0.33 + 7.7 - tt * 0.13), si = sv < 0.42 ? 0 : sv < 0.6 ? 1 : 2;
+          var g = ((Math.pow(a, 0.9) + (sv - 0.5) * 0.22) * NG) | 0; if (g >= NG) g = NG - 1; if (g < 0) g = 0;
+          if (mask[idx] < 0.5 && g > 1) g = 1;
+          var li = Math.round(lit[idx] * (NLIT - 1)), wi = Math.round(warm[idx] * (NWARM - 1));
+          ctx.drawImage(atlas, (li * NWARM + wi) * sp, (g * NS + si) * sp, sp, sp, c * cell + offX[idx] + jx[idx], y + offY[idx] + jy[idx], cell, cell);
+        }
+      }
+    }
+
+    /* breathing: in 4s, hold 2s, out 6s; drives the sun and the card ring together */
+    var CYCLE = 12, breathT = 0, breathOn = !rm.matches, cueTxt = '';
+    function easeIO(x) { return x < 0.5 ? 2 * x * x : 1 - Math.pow(-2 * x + 2, 2) / 2; }
+    function breathVal(tt) { var q = tt % CYCLE; return q < 4 ? easeIO(q / 4) : q < 6 ? 1 : 1 - easeIO((q - 6) / 6); }
+    function setCue(s) { if (s !== cueTxt) { cueTxt = s; cue.textContent = s; } }
+    function applyBreath() {
+      var b = breathVal(breathT), q = breathT % CYCLE;
+      dot.style.transform = 'scale(' + (0.42 + 0.58 * b).toFixed(3) + ')';
+      if (!rm.matches) {
+        sunDisc.style.transform = 'scale(' + (0.86 + 0.14 * b).toFixed(3) + ')';
+        sunGlow.style.transform = 'scale(' + (0.84 + 0.24 * b).toFixed(3) + ')';
+        sunGlow.style.opacity = (0.58 + 0.42 * b).toFixed(3);
+      }
+      setCue(q < 4 ? 'Breathe in…' : q < 6 ? 'Hold…' : 'Breathe out…');
+    }
+    function syncBreathBtn() {
+      $('span', bBtn).textContent = breathOn ? 'Pause' : 'Play';
+      bBtn.setAttribute('aria-label', (breathOn ? 'Pause' : 'Play') + ' breathing guide');
+      $('use', bBtn).setAttribute('href', breathOn ? '#ol-i-pause' : '#ol-i-play');
+      if (!breathOn) setCue(breathT > 0 ? 'Paused. Press play when you’re ready.' : 'Press play to begin.');
+    }
+
+    function frame(now) {
+      raf = w.requestAnimationFrame(frame);
+      if (now - last < 32) return;
+      var dt = Math.min(0.1, (now - last) / 1000); last = now;
+      if (breathOn) { breathT += dt; applyBreath(); }
+      if (cloudsOn && !heroPaused) { simT += dt; shape(now, dt); field(simT); render(); }
+    }
+    function wanted() { return visible && !d.hidden && ((cloudsOn && !heroPaused) || breathOn); }
+    function sync() {
+      if (wanted()) { if (!running) { running = true; last = performance.now(); raf = w.requestAnimationFrame(frame); } }
+      else if (running) { running = false; w.cancelAnimationFrame(raf); }
+    }
+    function still() { part.fill(0); offX.fill(0); offY.fill(0); field(simT); render(); }
+
+    hero.addEventListener('pointermove', function (e) {
+      if (mode === 'm' || !fine.matches || e.pointerType === 'touch') return;
+      var hr = hero.getBoundingClientRect();
+      ptr.tx = e.clientX - hr.left; ptr.ty = e.clientY - hr.top;
+      if (!ptr.seen) { ptr.x = ptr.tx; ptr.y = ptr.ty; ptr.seen = true; }
+      ptr.on = true;
+    });
+    hero.addEventListener('pointerleave', function () { ptr.on = false; ptr.seen = false; });
+    hero.addEventListener('pointerdown', function (e) {
+      if (e.pointerType !== 'touch' || !cloudsOn || heroPaused) return;
+      var hr = hero.getBoundingClientRect();
+      ripples.push({ x: e.clientX - hr.left, y: e.clientY - hr.top, age: 0 });
+      if (ripples.length > 3) ripples.shift();
+    }, { passive: true });
+
+    pauseBtn.addEventListener('click', function () {
+      heroPaused = !heroPaused;
+      hero.classList.toggle('is-paused', heroPaused);
+      pauseBtn.setAttribute('aria-label', heroPaused ? 'Play the sky animation' : 'Pause the sky animation');
+      $('use', pauseBtn).setAttribute('href', heroPaused ? '#ol-i-play' : '#ol-i-pause');
+      breathOn = !heroPaused;
+      syncBreathBtn(); sync();
+    });
+    bBtn.addEventListener('click', function () {
+      breathOn = !breathOn;
+      syncBreathBtn(); if (breathOn) applyBreath(); sync();
+    });
+
+    if ('IntersectionObserver' in w) {
+      new IntersectionObserver(function (en) { visible = en[0].isIntersecting; sync(); }, { threshold: 0 }).observe(hero);
+    }
+    d.addEventListener('visibilitychange', sync);
+    onMq(rm, function () { cloudsOn = !rm.matches; if (rm.matches) { breathOn = false; syncBreathBtn(); } still(); sync(); });
+
+    var resize = debounce(function () { size(); still(); }, 120);
+    if ('ResizeObserver' in w) new ResizeObserver(resize).observe(hero); else w.addEventListener('resize', resize);
+    if (d.fonts && d.fonts.ready) d.fonts.ready.then(function () { size(); still(); });
+
+    size(); still();
+    if (breathOn) applyBreath(); else { dot.style.transform = 'scale(.7)'; syncBreathBtn(); }
+    sync();
+  })();
+
+  /* ---------- FIND A GROUP (simulated) ---------- */
+  (function () {
+    var wrap = $('#ol-sessions'); if (!wrap) return;
+    var DAYS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+    var DAYF = { Mon: 'Monday', Tue: 'Tuesday', Wed: 'Wednesday', Thu: 'Thursday', Fri: 'Friday', Sat: 'Saturday', Sun: 'Sunday' };
+    var AREAS = [
+      { a: 'Manchester', p: ['Ancoats', 'Hulme', 'Levenshulme'] }, { a: 'Salford', p: ['Eccles', 'Swinton', 'Ordsall'] },
+      { a: 'Stockport', p: ['Edgeley', 'Heaton Moor', 'Marple'] }, { a: 'Trafford', p: ['Stretford', 'Sale', 'Altrincham'] },
+      { a: 'Bolton', p: ['Bolton town centre', 'Horwich', 'Farnworth'] }, { a: 'Bury', p: ['Ramsbottom', 'Prestwich', 'Bury town centre'] },
+      { a: 'Oldham', p: ['Chadderton', 'Uppermill', 'Oldham town centre'] }, { a: 'Rochdale', p: ['Heywood', 'Middleton', 'Rochdale town centre'] },
+      { a: 'Tameside', p: ['Ashton-under-Lyne', 'Hyde', 'Stalybridge'] }, { a: 'Wigan', p: ['Leigh', 'Standish', 'Wigan town centre'] }
+    ];
+    var VEN = ['Community centre', 'Library meeting room', 'Church hall', 'Wellbeing café', 'Neighbourhood hub'];
+    var TYPES = [
+      { t: 'Low mood & anxiety group', f: 'drop', s: 'any', d: 'A gentle space to talk about how the week has been. Tea, biscuits and no pressure to speak.' },
+      { t: 'Walk & talk', f: 'drop', s: 'day', walk: true, d: 'A slow 45-minute walk in green space, chatting side by side. Suitable for most fitness levels.' },
+      { t: 'Young adults group (18–25)', f: 'drop', s: 'eve', d: 'For 18 to 25-year-olds, led by younger facilitators with lived experience.' },
+      { t: "Men's space", f: 'drop', s: 'eve', d: 'An informal group for men to talk, or just listen, over a brew.' },
+      { t: 'LGBTQ+ peer support', f: 'book', s: 'eve', d: 'A welcoming group run by LGBTQ+ facilitators. Book first and we’ll share the venue details privately.' },
+      { t: "Carers' cuppa & chat", f: 'drop', s: 'day', d: 'For anyone looking after someone else. Time to talk about you, for a change.' },
+      { t: 'Loss & bereavement circle', f: 'book', s: 'any', d: 'A small, steady group for people living with grief. We’ll have a short call with you before your first visit.' },
+      { t: 'Creative calm', f: 'drop', s: 'day', d: 'Drawing, collage and craft while you chat. No art skills needed, and materials are provided.' }
+    ];
+    var SLOTS = { day: ['10:30–12:00', '11:00–12:30', '13:00–14:30', '14:00–15:30'], eve: ['18:00–19:30', '18:30–20:00', '19:00–20:30'] };
+    var seed = 9;
+    function rnd() { seed = (seed * 16807) % 2147483647; return seed / 2147483647; }
+    function pick(arr) { return arr[Math.floor(rnd() * arr.length)]; }
+    var S = [], n = 0;
+    AREAS.forEach(function (ar, ai) {
+      var used = {};
+      for (var k = 0; k < 3; k++) {
+        var ty = TYPES[(ai * 3 + k) % TYPES.length];
+        var day; do { day = pick(ty.walk ? ['Tue', 'Wed', 'Thu', 'Sat', 'Sun'] : DAYS); } while (used[day]);
+        used[day] = 1;
+        var slot = ty.s === 'any' ? (rnd() < 0.5 ? 'day' : 'eve') : ty.s;
+        if (day === 'Sun' && slot === 'eve') slot = 'day';
+        S.push({ id: 'ol-s' + (n++), day: day, time: pick(SLOTS[slot]), area: ar.a, place: ar.p[k], venue: ty.walk ? 'Meets at the park gates' : pick(VEN), type: ty, step: ty.walk ? false : rnd() > 0.2 });
+      }
+    });
+    [['Mon', '19:30–20:45'], ['Wed', '19:30–20:45'], ['Thu', '12:30–13:30'], ['Sun', '19:00–20:15']].forEach(function (o) {
+      S.push({ id: 'ol-s' + (n++), day: o[0], time: o[1], area: 'Online', place: '', venue: 'Video call', online: true, type: { t: 'Online drop-in', f: 'online', d: 'Join by video from home, cameras optional. Register and we’ll email you a link on the day.' }, step: true });
+    });
+    S.sort(function (a, b) { return DAYS.indexOf(a.day) - DAYS.indexOf(b.day) || (a.time < b.time ? -1 : a.time > b.time ? 1 : 0); });
+
+    function chips(name, opts) {
+      var box = $('[data-ol-chips="' + name + '"]');
+      box.innerHTML = opts.map(function (o, idx) {
+        return '<label class="ol-chip"><input type="radio" name="ol-' + name + '" value="' + o[0] + '"' + (idx === 0 ? ' checked' : '') + '><span>' + o[1] + '</span></label>';
+      }).join('');
+    }
+    chips('day', [['all', 'Any day']].concat(DAYS.map(function (x) { return [x, DAYF[x]]; })));
+    chips('area', [['all', 'All areas']].concat(AREAS.map(function (x) { return [x.a, x.a]; })).concat([['Online', 'Online']]));
+
+    var LIMIT = 6, showAll = false;
+    var count = $('#ol-gcount'), empty = $('#ol-gempty'), more = $('#ol-gmore'), form = $('#ol-gfilter');
+    var TAG = { drop: ['ol-tag--drop', 'Drop in'], book: ['ol-tag--book', 'Book first'], online: ['ol-tag--online', 'Online'] };
+    function current(name) { var el = $('input[name="ol-' + name + '"]:checked'); return el ? el.value : 'all'; }
+    function card(s) {
+      var tag = TAG[s.type.f];
+      var where = s.online ? 'Online, by video' : s.venue + ', ' + s.place + (s.place.indexOf(s.area) === -1 ? ' · ' + s.area : '');
+      var acc = s.online ? 'Captions available' : (s.step ? 'Step-free access' : (s.type.walk ? 'Gentle pace, flat route' : 'Ask us about access'));
+      return '<article class="ol-sess">' +
+        '<div class="ol-sess__top"><span class="ol-sess__when"><span class="ol-sess__day"><span aria-hidden="true">' + s.day + '</span><span class="ol-vh">' + DAYF[s.day] + '</span></span>' + s.time + '</span><span class="ol-tag ' + tag[0] + '">' + tag[1] + '</span></div>' +
+        '<h3>' + s.type.t + '</h3>' +
+        '<p class="ol-sess__where"><svg aria-hidden="true"><use href="#ol-i-pin"/></svg><span>' + where + '</span></p>' +
+        '<p class="ol-sess__detail" id="' + s.id + '-d" hidden>' + s.type.d + '</p>' +
+        '<div class="ol-sess__more"><span class="ol-sess__acc">' + acc + '</span><button class="ol-sess__btn" type="button" aria-expanded="false" aria-controls="' + s.id + '-d">Details<svg aria-hidden="true"><use href="#ol-i-chev"/></svg></button></div>' +
+        '</article>';
+    }
+    function render() {
+      var day = current('day'), area = current('area');
+      var list = S.filter(function (s) { return (day === 'all' || s.day === day) && (area === 'all' || s.area === area); });
+      var shown = showAll ? list : list.slice(0, LIMIT);
+      wrap.innerHTML = shown.map(card).join('');
+      wrap.hidden = !list.length;
+      empty.hidden = !!list.length;
+      count.textContent = list.length ? 'Showing ' + shown.length + ' of ' + list.length + (list.length === 1 ? ' session' : ' sessions') : 'No sessions found';
+      more.hidden = showAll || list.length <= LIMIT;
+      more.textContent = 'Show all ' + list.length + ' sessions';
+    }
+    form.addEventListener('change', function () { showAll = false; render(); });
+    form.addEventListener('submit', function (e) { e.preventDefault(); });
+    more.addEventListener('click', function () {
+      showAll = true; var before = wrap.children.length; render();
+      var nxt = wrap.children[before]; if (nxt) { var b = $('button', nxt); if (b) b.focus({ preventScroll: true }); }
+    });
+    wrap.addEventListener('click', function (e) {
+      var b = e.target.closest('.ol-sess__btn'); if (!b) return;
+      var p = d.getElementById(b.getAttribute('aria-controls'));
+      var open = b.getAttribute('aria-expanded') === 'true';
+      b.setAttribute('aria-expanded', String(!open)); p.hidden = open;
+    });
+    render();
+  })();
+
+  /* ---------- shared form helpers ---------- */
+  function setErr(id, msg) {
+    var el = d.getElementById(id), e = d.getElementById(id + '-e');
+    if (el) el.setAttribute('aria-invalid', 'true');
+    if (e) { e.textContent = msg; e.hidden = false; }
+  }
+  function clearErrs(scope) {
+    $$('[aria-invalid]', scope).forEach(function (el) { el.removeAttribute('aria-invalid'); });
+    $$('.ol-err', scope).forEach(function (el) { el.hidden = true; el.textContent = ''; });
+  }
+  function showSummary(box, errs) {
+    var ul = $('ul', box);
+    ul.innerHTML = errs.map(function (x) { return '<li><a href="#' + x[0] + '">' + x[1] + '</a></li>'; }).join('');
+    box.hidden = false;
+    box.focus({ preventScroll: true });
+    var top = box.getBoundingClientRect().top;
+    if (top < 90 || top > w.innerHeight - 120) box.scrollIntoView({ behavior: rm.matches ? 'auto' : 'smooth', block: 'center' });
+  }
+  var EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  /* ---------- SELF-REFERRAL (simulated) ---------- */
+  (function () {
+    var f = $('#ol-refer-form'); if (!f) return;
+    var sum = $('#ol-refer-errs'), done = $('#ol-refer-done');
+    f.addEventListener('submit', function (e) {
+      e.preventDefault();
+      clearErrs(f); sum.hidden = true;
+      var errs = [];
+      function add(id, msg) { setErr(id, msg); errs.push([id, msg]); }
+      var name = $('#ol-r-name').value.trim(), age = $('#ol-r-age').value, area = $('#ol-r-area').value;
+      var phone = $('#ol-r-phone').value.replace(/[\s()-]/g, ''), email = $('#ol-r-email').value.trim();
+      if (!name) add('ol-r-name', 'Tell us what you’d like us to call you.');
+      if (!age) add('ol-r-age', 'Choose your age.');
+      else if (age === 'u18') add('ol-r-age', 'Our counselling is for 18 to 25-year-olds. If you’re under 18, your school, college or GP can help you find support.');
+      else if (age === 'o25') add('ol-r-age', 'Our counselling is for 18 to 25-year-olds. You’re welcome to call our listening line or join a group, and your GP can tell you about local counselling.');
+      if (!area) add('ol-r-area', 'Choose where you live, work or study.');
+      else if (area === 'out') add('ol-r-area', 'This service is for people in Greater Manchester. Your GP can tell you about support near you.');
+      if (!phone) add('ol-r-phone', 'Enter a phone number so we can arrange your first call.');
+      else if (!/^(\+44|0)\d{9,10}$/.test(phone)) add('ol-r-phone', 'Enter a UK phone number, like 07700 900123.');
+      if (email && !EMAIL.test(email)) add('ol-r-email', 'Check your email address, or leave it blank.');
+      if (!$('#ol-r-consent').checked) add('ol-r-consent', 'Tick the box so we can use your details to process your referral.');
+      if (errs.length) { showSummary(sum, errs); pinSoon(); return; }
+      var times = $$('input[name="times"]:checked', f).map(function (x) { return x.value; });
+      var when = times.length ? ' in the ' + (times.length > 1 ? times.slice(0, -1).join(', ') + ' or ' + times[times.length - 1] : times[0]) : '';
+      $('#ol-refer-done-text').textContent = 'Thanks, ' + name + '. This is a demo, so nothing has been sent. On the live site we’d text you to confirm, then call you within 5 working days' + when + '.';
+      f.hidden = true; done.hidden = false; done.focus({ preventScroll: true });
+      pinSoon();
+    });
+    $('#ol-refer-reset').addEventListener('click', function () {
+      f.reset(); clearErrs(f); sum.hidden = true; done.hidden = true; f.hidden = false;
+      $('#ol-r-name').focus(); pinSoon();
+    });
+  })();
+
+  /* ---------- DONATE (simulated, no payment fields) ---------- */
+  (function () {
+    var f = $('#ol-give-form'); if (!f) return;
+    var steps = $$('[data-ol-step]', f), crumbs = $$('.ol-give__steps li'), give = $('#ol-give');
+    var other = $('#ol-other'), otherIn = $('#ol-other-amt'), impact = $('#ol-impact-txt'), gaBox = $('#ol-ga-check'), gaTot = $('#ol-ga-total');
+    var cur = 1;
+    function freq() { return $('input[name="freq"]:checked', f).value; }
+    function amtSel() { return $('input[name="amt"]:checked', f).value; }
+    function amount() {
+      if (amtSel() !== 'other') return +amtSel();
+      var v = parseFloat((otherIn.value || '').replace(/[£,\s]/g, ''));
+      return isFinite(v) ? Math.round(v * 100) / 100 : NaN;
+    }
+    function money(v) { return '£' + v.toLocaleString('en-GB', { minimumFractionDigits: v % 1 ? 2 : 0, maximumFractionDigits: 2 }); }
+    function update() {
+      other.hidden = amtSel() !== 'other';
+      var a = amount(), mo = freq() === 'monthly', txt;
+      if (!(a > 0)) txt = 'Choose or enter an amount to see what it could do.';
+      else if (!mo) {
+        var calls = Math.floor(a / 5);
+        if (a === 20) txt = '<strong>£20</strong> could run a peer support group for an evening.';
+        else if (calls < 1) txt = '<strong>' + money(a) + '</strong> helps keep our listening line open.';
+        else txt = '<strong>' + money(a) + '</strong> could answer ' + (calls === 1 ? 'one call to our listening line' : calls + ' calls') + '.';
+      } else {
+        var yr = Math.floor(a * 12 / 5);
+        if (a === 20) txt = '<strong>£20 a month</strong> could help train a new volunteer listener every year.';
+        else if (yr < 1) txt = '<strong>' + money(a) + ' a month</strong> helps keep our listening line open.';
+        else txt = '<strong>' + money(a) + ' a month</strong> could answer ' + yr + ' calls over a year.';
+      }
+      impact.innerHTML = txt;
+      if (a > 0) {
+        var ga = Math.round(a * 25) / 100, per = mo ? ' a month' : '';
+        gaTot.textContent = gaBox.checked ? 'Thank you. With Gift Aid, your ' + money(a) + per + ' becomes ' + money(a + ga) + per + '.' : 'With Gift Aid, your ' + money(a) + per + ' would be worth ' + money(a + ga) + per + ' to us.';
+      } else gaTot.textContent = '';
+      $$('[data-ol-ga-only]', f).forEach(function (el) { el.hidden = !gaBox.checked; });
+    }
+    function go(n) {
+      cur = n;
+      steps.forEach(function (s) { s.hidden = +s.getAttribute('data-ol-step') !== n; });
+      crumbs.forEach(function (li, idx) {
+        if (idx + 1 === n) li.setAttribute('aria-current', 'step'); else li.removeAttribute('aria-current');
+        li.classList.toggle('is-done', idx + 1 < n);
+      });
+      var tgt = n === 1 ? $('input[name="amt"]:checked', f) : n === 2 ? $('#ol-g-first') : $('#ol-give-final');
+      if (tgt) tgt.focus({ preventScroll: true });
+      var top = give.getBoundingClientRect().top;
+      if (top < 70) give.scrollIntoView({ behavior: rm.matches ? 'auto' : 'smooth', block: 'start' });
+      pinSoon();
+    }
+    function check1() {
+      clearErrs(steps[0]);
+      if (amtSel() === 'other') {
+        var a = amount();
+        if (!(a >= 2)) { setErr('ol-other-amt', 'Enter an amount of £2 or more.'); otherIn.focus(); return false; }
+        if (a > 10000) { setErr('ol-other-amt', 'For gifts over £10,000, please email giving@example.com and we’ll help.'); otherIn.focus(); return false; }
+      }
+      return true;
+    }
+    function check2() {
+      var box = $('#ol-give-errs'); clearErrs(steps[1]); box.hidden = true;
+      var errs = [];
+      function add(id, msg) { setErr(id, msg); errs.push([id, msg]); }
+      if (!$('#ol-g-first').value.trim()) add('ol-g-first', 'Enter your first name.');
+      if (!$('#ol-g-last').value.trim()) add('ol-g-last', 'Enter your last name.');
+      var em = $('#ol-g-email').value.trim();
+      if (!em) add('ol-g-email', 'Enter your email address for your receipt.');
+      else if (!EMAIL.test(em)) add('ol-g-email', 'Check your email address.');
+      if (gaBox.checked) {
+        if (!$('#ol-g-addr').value.trim()) add('ol-g-addr', 'Enter your house number and street for Gift Aid.');
+        var pc = $('#ol-g-post').value.trim();
+        if (!pc) add('ol-g-post', 'Enter your postcode for Gift Aid.');
+        else if (!/^[A-Z]{1,2}\d[A-Z\d]?\s*\d[A-Z]{2}$/i.test(pc)) add('ol-g-post', 'Enter a full UK postcode, like M1 0XX.');
+      }
+      if (errs.length) { showSummary(box, errs); return false; }
+      return true;
+    }
+    function summary() {
+      var a = amount(), mo = freq() === 'monthly', per = mo ? ' a month' : '', ga = gaBox.checked ? Math.round(a * 25) / 100 : 0;
+      var rows = [[mo ? 'Monthly donation' : 'One-off donation', money(a) + per]];
+      if (ga) rows.push(['Gift Aid we’ll claim from HMRC', money(ga) + per]);
+      rows.push(['Total to Kindred', money(a + ga) + per]);
+      $('#ol-give-sum').innerHTML = rows.map(function (r) { return '<div><span>' + r[0] + '</span><span>' + r[1] + '</span></div>'; }).join('');
+    }
+    f.addEventListener('change', update);
+    f.addEventListener('input', function (e) { if (e.target === otherIn) update(); });
+    f.addEventListener('submit', function (e) { e.preventDefault(); });
+    f.addEventListener('click', function (e) {
+      var nx = e.target.closest('[data-ol-next]'), bk = e.target.closest('[data-ol-back]');
+      if (nx) {
+        if (cur === 1 && check1()) go(2);
+        else if (cur === 2 && check2()) { summary(); go(3); }
+      } else if (bk) go(cur - 1);
+    });
+    $('#ol-give-reset').addEventListener('click', function () {
+      f.reset(); clearErrs(f); $('#ol-give-errs').hidden = true; update(); go(1);
+    });
+    update();
+  })();
+
+  /* ---------- FOOTER: breathing pause + accordions ---------- */
+  (function () {
+    var hz = $('#ol-horizon'), hp = $('.ol-horizon__pause');
+    if (hz && hp) hp.addEventListener('click', function () {
+      var p = hz.classList.toggle('is-paused');
+      $('span', hp).textContent = p ? 'Play animation' : 'Pause animation';
+      $('use', hp).setAttribute('href', p ? '#ol-i-play' : '#ol-i-pause');
+    });
+    var groups = $$('.ol-fgroup');
+    function setGroups() {
+      groups.forEach(function (g) {
+        var s = $('summary', g);
+        if (mqMob.matches) { g.open = false; s.removeAttribute('tabindex'); }
+        else { g.open = true; s.setAttribute('tabindex', '-1'); }
+      });
+    }
+    groups.forEach(function (g) {
+      $('summary', g).addEventListener('click', function (e) { if (!mqMob.matches) e.preventDefault(); });
+    });
+    onMq(mqMob, setGroups);
+    setGroups();
+  })();
+
+  /* ---------- keep sticky columns right ---------- */
+  pin();
+  w.addEventListener('resize', pinSoon);
+  onMq(mqDesk, pin);
+  d.addEventListener('toggle', pinSoon, true);
+  if (d.fonts && d.fonts.ready) d.fonts.ready.then(pin);
+  w.addEventListener('load', pin);
+})();
+</script>
+</body>
+</html>

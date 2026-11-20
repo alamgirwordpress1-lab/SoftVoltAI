@@ -1,0 +1,1900 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta name="robots" content="noindex">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Clearday Tax | Self Assessment accountants in Bristol and online</title>
+<meta name="description" content="Fixed-fee Self Assessment and personal tax returns for freelancers, landlords, high earners and people with side incomes. Bristol accountants serving clients across the UK. From £195 including VAT.">
+<meta name="theme-color" content="#2a1b5f">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://images.pexels.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+/* ===== Tokens ===== */
+:root{
+  --nl-violet:#2a1b5f; --nl-violet-2:#3a2a7d; --nl-deep:#1d1248; --nl-night:#130b31;
+  --nl-lav:#f3f0ff; --nl-lav-2:#e8e3ff; --nl-glow:#8b7bff; --nl-glow-ink:#5b4bd1; --nl-warm:#ffb547;
+  --nl-ink:#1c1537; --nl-text:#2f2a45; --nl-muted:#5d5677; --nl-line:#e3def5; --nl-field:#cfc8ea;
+  --nl-font-h:'Outfit',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --nl-font-b:'Source Sans 3',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --nl-radius:18px; --nl-gutter:20px; --nl-header-h:60px;
+  --nl-shadow:0 1px 2px rgba(28,21,55,.06),0 14px 34px -14px rgba(28,21,55,.22);
+}
+@media (min-width:768px){:root{--nl-gutter:32px;--nl-header-h:72px}}
+@media (min-width:1200px){:root{--nl-gutter:48px;--nl-header-h:78px}}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--nl-header-h) + 16px);-webkit-text-size-adjust:100%}
+html.nl-lock{overflow:hidden}
+body{margin:0;font-family:var(--nl-font-b);font-size:1.0625rem;line-height:1.6;color:var(--nl-text);background:#fff;-webkit-font-smoothing:antialiased}
+[hidden]{display:none!important}
+img{max-width:100%;height:auto;display:block}
+svg{flex:none}
+h1,h2,h3,h4{font-family:var(--nl-font-h);color:var(--nl-ink);margin:0;font-weight:600;letter-spacing:-.015em}
+p{margin:0}
+a{color:var(--nl-glow-ink);text-underline-offset:3px}
+a:hover{color:var(--nl-violet)}
+button,input,select,textarea{font:inherit}
+:focus-visible{outline:3px solid var(--nl-glow-ink);outline-offset:3px}
+.nl-dark :focus-visible,.nl-hero :focus-visible,.nl-head :focus-visible{outline-color:var(--nl-warm)}
+.nl-sr{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;border:0}
+.nl-skip{position:absolute;left:12px;top:-60px;z-index:200;background:var(--nl-warm);color:var(--nl-violet);padding:10px 16px;border-radius:10px;font-weight:700;text-decoration:none}
+.nl-skip:focus{top:12px}
+.nl-wrap{width:100%;max-width:1440px;margin-inline:auto;padding-inline:var(--nl-gutter)}
+.nl-ico{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+
+/* ===== Buttons ===== */
+.nl-btn{display:inline-flex;align-items:center;justify-content:center;gap:.55em;min-height:50px;padding:.75em 1.4em;border-radius:999px;font-family:var(--nl-font-h);font-weight:600;font-size:1rem;line-height:1.2;text-decoration:none;text-align:center;border:1.5px solid transparent;cursor:pointer;transition:background-color .2s,color .2s,border-color .2s,transform .2s,box-shadow .2s}
+.nl-btn .nl-ico{width:18px;height:18px}
+.nl-btn--amber{background:var(--nl-warm);color:var(--nl-violet);box-shadow:0 8px 20px -10px rgba(255,181,71,.8)}
+.nl-btn--amber:hover{background:#ffc876;color:var(--nl-violet);transform:translateY(-1px);box-shadow:0 12px 26px -10px rgba(255,181,71,.9)}
+.nl-btn--violet{background:var(--nl-violet);color:#fff}
+.nl-btn--violet:hover{background:var(--nl-violet-2);color:#fff;transform:translateY(-1px)}
+.nl-btn--line{background:#fff;color:var(--nl-violet);border-color:var(--nl-violet)}
+.nl-btn--line:hover{background:var(--nl-violet);color:#fff}
+.nl-btn--ghost{background:rgba(255,255,255,.05);color:#fff;border-color:rgba(255,255,255,.5)}
+.nl-btn--ghost:hover{background:#fff;color:var(--nl-violet);border-color:#fff}
+.nl-btn:active{transform:translateY(0)}
+
+/* ===== Utility bar + header ===== */
+.nl-util{display:none;background:var(--nl-night);color:#cfc8f5;font-size:.875rem}
+.nl-util__row{display:flex;justify-content:space-between;align-items:center;gap:24px;min-height:38px}
+.nl-util__list{display:flex;gap:22px;align-items:center;margin:0;padding:0;list-style:none}
+.nl-util a{color:#fff;text-decoration:none}
+.nl-util a:hover{color:var(--nl-warm);text-decoration:underline}
+.nl-head{position:sticky;top:0;z-index:50;background:var(--nl-violet);color:#fff;border-bottom:1px solid rgba(255,255,255,.08);transition:box-shadow .25s}
+.nl-head.is-scrolled{box-shadow:0 10px 28px -8px rgba(10,5,30,.55)}
+.nl-head__row{display:flex;align-items:center;gap:12px;height:var(--nl-header-h)}
+.nl-logo{display:inline-flex;align-items:center;gap:10px;min-height:44px;color:#fff;text-decoration:none;font-family:var(--nl-font-h);font-weight:600;font-size:1.22rem;letter-spacing:-.01em;margin-right:auto}
+.nl-logo:hover{color:#fff}
+.nl-logo svg{width:34px;height:34px}
+.nl-logo__tax{color:#c9c0ff;font-weight:500;margin-left:.25em}
+.nl-nav{display:none}
+.nl-nav ul{display:flex;gap:2px;margin:0;padding:0;list-style:none}
+.nl-nav a{position:relative;display:inline-flex;align-items:center;min-height:44px;padding:0 13px;color:#e4dfff;text-decoration:none;font-family:var(--nl-font-h);font-weight:500;font-size:.98rem}
+.nl-nav a::after{content:"";position:absolute;left:13px;right:13px;bottom:8px;height:2px;border-radius:2px;background:var(--nl-warm);transform:scaleX(0);transform-origin:left;transition:transform .2s}
+.nl-nav a:hover{color:#fff}
+.nl-nav a:hover::after,.nl-nav a:focus-visible::after{transform:scaleX(1)}
+.nl-head__phone{display:none;align-items:center;gap:8px;min-height:44px;color:#fff;text-decoration:none;font-family:var(--nl-font-h);font-weight:500}
+.nl-head__phone:hover{color:var(--nl-warm)}
+.nl-head__cta{display:none}
+.nl-head__call,.nl-burger{display:inline-grid;place-items:center;width:44px;height:44px;border-radius:12px;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.06);color:#fff;cursor:pointer;transition:background-color .2s,border-color .2s}
+.nl-head__call:hover,.nl-burger:hover{background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.45);color:#fff}
+.nl-burger__lines{display:grid;gap:5px;width:20px}
+.nl-burger__line{display:block;height:2px;border-radius:2px;background:currentColor}
+.nl-burger__line:nth-child(2){width:14px;justify-self:end}
+@media (min-width:768px){
+  .nl-head__call{display:none}
+  .nl-head__phone{display:inline-flex}
+  .nl-head__cta{display:inline-flex;min-height:46px;padding:.6em 1.2em}
+}
+@media (min-width:1200px){
+  .nl-util{display:block}
+  .nl-nav{display:block;margin-left:auto}
+  .nl-logo{margin-right:0}
+  .nl-head__phone,.nl-burger{display:none}
+  .nl-head__cta{margin-left:10px}
+}
+
+/* ===== Full-screen menu (tablet + mobile) ===== */
+.nl-menu{position:fixed;inset:0;z-index:90;background:var(--nl-violet);color:#fff;overflow-y:auto;overscroll-behavior:contain;display:flex;flex-direction:column}
+.nl-menu.is-open{animation:nlFade .22s ease}
+@keyframes nlFade{from{opacity:0}to{opacity:1}}
+.nl-menu__top{display:flex;align-items:center;justify-content:space-between;height:var(--nl-header-h);border-bottom:1px solid rgba(255,255,255,.1)}
+.nl-menu__close{display:inline-grid;place-items:center;width:44px;height:44px;border-radius:12px;border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.06);color:#fff;cursor:pointer}
+.nl-menu__close:hover{background:#fff;color:var(--nl-violet)}
+.nl-menu__body{padding-top:16px;padding-bottom:calc(32px + env(safe-area-inset-bottom));display:grid;gap:32px}
+.nl-menu__links{list-style:none;margin:0;padding:0}
+.nl-menu__links a{display:flex;align-items:center;justify-content:space-between;min-height:58px;border-bottom:1px solid rgba(255,255,255,.12);color:#fff;text-decoration:none;font-family:var(--nl-font-h);font-weight:500;font-size:clamp(1.3rem,1.1rem + 1vw,1.7rem)}
+.nl-menu__links a:hover{color:var(--nl-warm)}
+.nl-menu__links .nl-ico{opacity:.6}
+.nl-menu__contact{display:grid;gap:12px;align-content:start;padding:24px;border-radius:20px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12)}
+.nl-menu__label{font-family:var(--nl-font-h);font-size:.8rem;letter-spacing:.09em;text-transform:uppercase;color:#c9c0ff}
+.nl-menu__phone{display:inline-flex;align-items:center;gap:10px;min-height:48px;font-family:var(--nl-font-h);font-weight:600;font-size:1.65rem;color:#fff;text-decoration:none}
+.nl-menu__phone:hover{color:var(--nl-warm)}
+.nl-menu__hours{color:#cfc8f5;font-size:.95rem}
+.nl-menu__portal{display:inline-flex;align-items:center;min-height:44px;color:#fff}
+.nl-menu__portal:hover{color:var(--nl-warm)}
+@media (min-width:768px){.nl-menu__body{grid-template-columns:1.3fr 1fr;gap:56px;padding-top:40px}}
+@media (min-width:1200px){.nl-menu{display:none!important}}
+</style>
+<style>
+/* ===== HERO: floating glass card over a reflective floor ===== */
+.nl-hero{position:relative;overflow:hidden;color:#fff;
+  background:radial-gradient(70% 55% at 50% 12%,rgba(139,123,255,.26),transparent 70%),linear-gradient(180deg,var(--nl-violet) 0%,var(--nl-deep) 42%,var(--nl-night) 100%);
+  --nl-stage-h:300px;--nl-floor-h:92px;--nl-card-w:290px;--nl-card-h:186px;--nl-arch-w:330px;--nl-arch-h:206px;--nl-dip:8px;--nl-gap:20px}
+.nl-hero__grid{position:relative;display:flex;flex-direction:column}
+.nl-hero__copy{position:relative;z-index:4;padding:14px 0 44px}
+.nl-hero__eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--nl-font-h);font-weight:500;font-size:.82rem;letter-spacing:.07em;text-transform:uppercase;color:#cfc8f5}
+.nl-hero__eyebrow::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--nl-warm);box-shadow:0 0 0 4px rgba(255,181,71,.18)}
+.nl-hero h1{margin-top:12px;color:#fff;font-size:clamp(2.3rem,1.45rem + 3.7vw,4.4rem);line-height:1.04;letter-spacing:-.032em;font-weight:600}
+.nl-hero h1 em{font-style:normal;color:#c9c0ff}
+.nl-hero__lede{margin-top:14px;font-size:clamp(1.0625rem,1rem + .35vw,1.25rem);line-height:1.55;color:#ddd8f7;max-width:36em}
+.nl-hero__ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+.nl-hero__ctas .nl-btn{min-height:52px}
+.nl-hero__ticks{display:flex;flex-wrap:wrap;gap:8px 20px;margin:22px 0 0;padding:0;list-style:none;font-size:.95rem;color:#cfc8f5}
+.nl-hero__ticks li{display:inline-flex;align-items:center;gap:8px}
+.nl-hero__ticks .nl-ico{width:18px;height:18px;color:#a99dff}
+.nl-hero__call{margin-top:16px;font-size:.98rem;color:#cfc8f5}
+.nl-hero__call a{color:#fff;font-weight:600}
+.nl-hero__call a:hover{color:var(--nl-warm)}
+
+.nl-stage{position:relative;order:-1;height:var(--nl-stage-h)}
+.nl-floor{position:absolute;z-index:0;left:-100vw;right:-100vw;top:calc(var(--nl-stage-h) - var(--nl-floor-h));height:1200px;
+  background:linear-gradient(180deg,#24185c 0px,#1a1046 70px,var(--nl-night) 180px)}
+.nl-floor::before{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:linear-gradient(90deg,transparent 44%,rgba(200,190,255,.75) 50%,transparent 56%)}
+.nl-floor::after{content:"";position:absolute;left:50%;top:0;width:min(900px,180vw);height:240px;transform:translateX(-50%);background:radial-gradient(50% 60% at 50% 0%,rgba(139,123,255,.30),transparent 72%)}
+.nl-halo{position:absolute;z-index:1;left:50%;bottom:var(--nl-floor-h);width:calc(var(--nl-arch-w) * 1.9);height:calc(var(--nl-arch-h) * 1.35);transform:translateX(-50%);background:radial-gradient(closest-side at 50% 70%,rgba(139,123,255,.38),rgba(139,123,255,.10) 60%,transparent);pointer-events:none}
+.nl-arch{position:absolute;z-index:2;left:50%;bottom:var(--nl-floor-h);width:var(--nl-arch-w);height:var(--nl-arch-h);transform:translateX(-50%);border-radius:999px 999px 0 0;pointer-events:none;
+  background:radial-gradient(60% 34% at 50% 100%,rgba(255,181,71,.30),transparent 75%),radial-gradient(85% 75% at 50% 88%,rgba(214,206,255,.85),rgba(139,123,255,.45) 42%,rgba(70,48,170,.25) 78%),linear-gradient(180deg,rgba(139,123,255,.30),rgba(139,123,255,.6));
+  box-shadow:0 0 0 1px rgba(220,214,255,.6),0 0 50px 6px rgba(139,123,255,.5),0 0 140px 30px rgba(139,123,255,.22),inset 0 0 40px rgba(255,255,255,.2)}
+.nl-arch::before,.nl-arch::after{content:"";position:absolute;border-radius:999px 999px 0 0;pointer-events:none}
+.nl-arch::before{inset:14px 14px 0;border:1px solid rgba(255,255,255,.35);border-bottom:0}
+.nl-arch::after{inset:-22px -22px 0;border:1px solid rgba(160,148,255,.35);border-bottom:0}
+.nl-mirror{position:absolute;z-index:2;left:-40px;right:-40px;top:calc(var(--nl-stage-h) - var(--nl-floor-h));height:var(--nl-floor-h);overflow:hidden;pointer-events:none;
+  -webkit-mask-image:linear-gradient(180deg,rgba(0,0,0,.8),rgba(0,0,0,.3) 45%,transparent 92%);mask-image:linear-gradient(180deg,rgba(0,0,0,.8),rgba(0,0,0,.3) 45%,transparent 92%)}
+.nl-arch--mirror{top:0;bottom:auto;transform:translateX(-50%) scaleY(-1);opacity:.5;filter:blur(3px);box-shadow:0 0 50px 6px rgba(139,123,255,.4)}
+.nl-mirror__scene{position:absolute;left:50%;top:calc(var(--nl-dip) + 2 * var(--nl-gap));width:var(--nl-card-w);height:var(--nl-card-h);margin-left:calc(var(--nl-card-w) / -2);perspective:1000px;opacity:.42;filter:blur(1.2px)}
+.nl-cast{position:absolute;z-index:2;left:50%;top:calc(var(--nl-stage-h) - var(--nl-floor-h) + var(--nl-dip) + var(--nl-gap) - 14px);width:calc(var(--nl-card-w) * .86);height:28px;margin-left:calc(var(--nl-card-w) * -.43);border-radius:50%;
+  background:radial-gradient(closest-side,rgba(4,2,18,.75),rgba(4,2,18,0));transform:scale(var(--nl-cast-s,1));pointer-events:none}
+.nl-cast::after{content:"";position:absolute;inset:-14px -30px;border-radius:50%;background:radial-gradient(closest-side,rgba(139,123,255,.25),transparent)}
+.nl-ripples{position:absolute;z-index:1;left:0;bottom:0;width:100%;height:var(--nl-floor-h);pointer-events:none;display:none}
+
+.nl-scene{position:absolute;z-index:3;left:50%;bottom:calc(100% - var(--nl-stage-h) + var(--nl-floor-h) - var(--nl-dip));width:var(--nl-card-w);height:var(--nl-card-h);margin-left:calc(var(--nl-card-w) / -2);perspective:1000px;touch-action:pan-y}
+.nl-card{position:relative;width:100%;height:100%;font-size:calc(var(--nl-card-w) / 25);transform-style:preserve-3d;
+  transform:translate3d(0,var(--nl-fy,0px),0) rotateX(var(--nl-rx,7deg)) rotateY(var(--nl-ry,-14deg))}
+.nl-card--mirror{transform:scaleY(-1) translate3d(0,var(--nl-fy,0px),0) rotateX(var(--nl-rx,7deg)) rotateY(var(--nl-ry,-14deg))}
+.nl-card__back,.nl-card__glass,.nl-card__sheen{position:absolute;inset:0;border-radius:1.35em}
+.nl-card__back{transform:translateZ(-9px);background:linear-gradient(150deg,rgba(70,52,160,.75),rgba(24,14,64,.85));border:1px solid rgba(190,180,255,.35);box-shadow:0 34px 60px -24px rgba(4,2,20,.85)}
+.nl-card__glass{background:linear-gradient(145deg,rgba(255,255,255,.30),rgba(255,255,255,.09) 44%,rgba(139,123,255,.22));border:1px solid rgba(255,255,255,.5);
+  -webkit-backdrop-filter:blur(14px) saturate(150%);backdrop-filter:blur(14px) saturate(150%);box-shadow:inset 0 1px 0 rgba(255,255,255,.65),inset 0 -24px 40px -24px rgba(30,18,80,.6)}
+.nl-card--mirror .nl-card__glass{-webkit-backdrop-filter:none;backdrop-filter:none;background:linear-gradient(145deg,rgba(150,135,255,.55),rgba(80,60,180,.45))}
+.nl-card__sheen{transform:translateZ(1px);pointer-events:none;
+  background:radial-gradient(110% 90% at var(--nl-sx,30%) var(--nl-sy,0%),rgba(255,255,255,.34),transparent 55%),linear-gradient(115deg,transparent 38%,rgba(255,255,255,.10) 47%,transparent 58%)}
+.nl-card__body{position:absolute;inset:0;padding:1.3em 1.45em 1.2em;display:flex;flex-direction:column;transform:translateZ(24px);transform-style:preserve-3d;color:#fff;font-family:var(--nl-font-b)}
+.nl-card__top{display:flex;align-items:center;justify-content:space-between;gap:.6em}
+.nl-card__brand{display:inline-flex;align-items:center;gap:.45em;font-family:var(--nl-font-h);font-weight:600;font-size:.82em;letter-spacing:.01em;opacity:.92}
+.nl-card__brand svg{width:1.5em;height:1.5em}
+.nl-card__pill{display:inline-flex;align-items:center;gap:.35em;padding:.32em .75em .32em .45em;border-radius:999px;background:#fff;color:var(--nl-violet);font-family:var(--nl-font-h);font-weight:600;font-size:.74em;transform:translateZ(16px);box-shadow:0 .5em 1.2em -.4em rgba(10,5,40,.6)}
+.nl-card__tick{display:inline-grid;place-items:center;width:1.35em;height:1.35em;border-radius:50%;background:var(--nl-glow);color:#fff}
+.nl-card__tick svg{width:.9em;height:.9em;stroke-width:3}
+.nl-card__title{margin-top:.75em;font-family:var(--nl-font-h);font-weight:600;font-size:1.42em;line-height:1.1;letter-spacing:-.01em}
+.nl-card__sub{margin-top:.25em;font-size:.72em;color:#e4dfff;opacity:.9}
+.nl-card__rows{margin:.75em 0 0;display:grid;gap:.28em}
+.nl-card__row{display:grid;grid-template-columns:5.6em 1fr;font-size:.74em;padding-bottom:.28em;border-bottom:1px solid rgba(255,255,255,.18)}
+.nl-card__row dt{color:#d6d0fb;opacity:.85}
+.nl-card__row dd{margin:0;font-weight:600}
+.nl-card__foot{margin-top:auto;display:flex;align-items:flex-end;justify-content:space-between;gap:1em;transform:translateZ(10px)}
+.nl-card__label{display:block;font-family:var(--nl-font-h);font-size:.6em;letter-spacing:.12em;text-transform:uppercase;color:#d6d0fb}
+.nl-card__due{display:block;font-family:var(--nl-font-h);font-weight:600;font-size:1.75em;line-height:1.05;letter-spacing:-.01em}
+.nl-card__payby{display:block;font-size:.64em;color:#e4dfff}
+.nl-card__ref{text-align:right}
+.nl-card__refnum{display:block;font-family:ui-monospace,'Cascadia Mono',Consolas,monospace;font-size:.78em;letter-spacing:.06em;margin-top:.2em}
+.nl-card__ph{display:block;font-size:.58em;color:#d6d0fb;opacity:.85}
+
+@media (prefers-reduced-motion:no-preference){
+  .nl-scene{animation:nlRise .9s cubic-bezier(.2,.7,.2,1) both}
+  @keyframes nlRise{from{opacity:0;translate:0 18px}to{opacity:1;translate:0 0}}
+}
+
+/* Tablet portrait 768-1023: centred copy, stage below */
+@media (min-width:768px){
+  .nl-hero{--nl-stage-h:480px;--nl-floor-h:170px;--nl-card-w:360px;--nl-card-h:230px;--nl-arch-w:420px;--nl-arch-h:380px;--nl-dip:12px;--nl-gap:30px}
+  .nl-hero__grid{display:block}
+  .nl-hero__copy{text-align:center;max-width:700px;margin-inline:auto;padding:64px 0 8px}
+  .nl-hero__lede{margin-inline:auto}
+  .nl-hero__ctas,.nl-hero__ticks{justify-content:center}
+  .nl-floor{top:auto;bottom:0;height:var(--nl-floor-h)}
+  .nl-mirror{top:auto;bottom:0}
+  .nl-cast{top:auto;bottom:calc(var(--nl-floor-h) - var(--nl-dip) - var(--nl-gap) - 14px)}
+  .nl-scene{bottom:calc(var(--nl-floor-h) - var(--nl-dip))}
+  .nl-ripples{display:block}
+}
+/* Tablet landscape 1024-1199 + desktop: two columns, stage on the right */
+@media (min-width:1024px){
+  .nl-hero{--nl-floor-h:180px;--nl-card-w:340px;--nl-card-h:218px;--nl-arch-w:390px;--nl-arch-h:400px;--nl-dip:12px;--nl-gap:30px}
+  .nl-hero__grid{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);gap:24px;min-height:clamp(560px,calc(100svh - var(--nl-header-h)),720px)}
+  .nl-hero__copy{text-align:left;margin:0;max-width:600px;align-self:center;padding:48px 0 calc(var(--nl-floor-h) - 30px)}
+  .nl-hero h1{font-size:clamp(2.6rem,1.2rem + 3.2vw,4.4rem)}
+  .nl-hero__lede{margin-inline:0}
+  .nl-hero__ctas,.nl-hero__ticks{justify-content:flex-start}
+  .nl-stage{order:0;height:auto;align-self:stretch}
+}
+@media (min-width:1200px){
+  .nl-hero{--nl-floor-h:230px;--nl-card-w:410px;--nl-card-h:264px;--nl-arch-w:480px;--nl-arch-h:500px;--nl-dip:16px;--nl-gap:36px}
+  .nl-hero__grid{grid-template-columns:minmax(0,1.04fr) minmax(0,1fr);gap:32px;min-height:clamp(700px,calc(100svh - var(--nl-header-h) - 38px),880px)}
+  .nl-hero__copy{max-width:660px;padding:56px 0 calc(var(--nl-floor-h) - 70px)}
+}
+</style>
+<style>
+/* ===== Section shells ===== */
+.nl-sec{padding-block:clamp(64px,8vw,112px)}
+.nl-sec--lav{background:var(--nl-lav)}
+.nl-sec__head{max-width:760px;margin-bottom:clamp(32px,4vw,52px)}
+.nl-kicker{display:inline-flex;align-items:center;gap:10px;margin-bottom:14px;font-family:var(--nl-font-h);font-weight:500;font-size:.8125rem;letter-spacing:.09em;text-transform:uppercase;color:var(--nl-glow-ink)}
+.nl-kicker::before{content:"";width:22px;height:2px;border-radius:2px;background:currentColor}
+.nl-h2{font-size:clamp(1.8rem,1.25rem + 2.1vw,2.85rem);line-height:1.12;letter-spacing:-.025em}
+.nl-lede{margin-top:16px;font-size:clamp(1.0625rem,1rem + .3vw,1.1875rem);color:var(--nl-muted);max-width:62ch}
+.nl-pin{align-self:start}
+@media (min-width:1200px){.nl-pin{position:sticky;top:calc(var(--nl-header-h) + 28px)}}
+
+/* ===== Facts strip ===== */
+.nl-facts{background:#fff;border-bottom:1px solid var(--nl-line)}
+.nl-facts__list{list-style:none;margin:0;padding:24px 0;display:grid;grid-template-columns:1fr;gap:18px}
+.nl-facts__item{display:flex;gap:14px;align-items:center}
+.nl-facts__icon{flex:none;display:grid;place-items:center;width:44px;height:44px;border-radius:12px;background:var(--nl-lav);color:var(--nl-glow-ink)}
+.nl-facts__txt strong{display:block;font-family:var(--nl-font-h);font-weight:600;color:var(--nl-ink);font-size:1rem;line-height:1.3}
+.nl-facts__txt span{display:block;font-size:.92rem;color:var(--nl-muted);line-height:1.4}
+@media (min-width:768px){.nl-facts__list{grid-template-columns:1fr 1fr;gap:22px 32px;padding:28px 0}}
+@media (min-width:1200px){.nl-facts__list{grid-template-columns:repeat(4,1fr);gap:24px}.nl-facts__item+.nl-facts__item{border-left:1px solid var(--nl-line);padding-left:24px}}
+
+/* ===== Who we help ===== */
+.nl-who__grid{display:grid;gap:16px;grid-template-columns:1fr}
+.nl-who__card{position:relative;display:flex;flex-direction:column;padding:26px;border:1px solid var(--nl-line);border-radius:var(--nl-radius);background:#fff;transition:border-color .2s,box-shadow .2s,transform .2s,background-color .2s}
+.nl-who__icon{display:grid;place-items:center;width:50px;height:50px;border-radius:14px;background:var(--nl-lav);color:var(--nl-glow-ink);margin-bottom:18px;transition:background-color .2s,color .2s}
+.nl-who__icon .nl-ico{width:24px;height:24px}
+.nl-who__card h3{font-size:1.3rem;line-height:1.25}
+.nl-who__card p{margin-top:8px;color:var(--nl-muted)}
+.nl-who__meta{margin-top:auto;padding-top:18px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.nl-who__fee{font-size:.93rem;color:var(--nl-muted)}
+.nl-who__fee strong{color:var(--nl-ink);font-family:var(--nl-font-h);font-weight:600}
+.nl-who__link{display:inline-flex;align-items:center;gap:6px;min-height:44px;font-family:var(--nl-font-h);font-weight:600;font-size:.95rem;color:var(--nl-glow-ink);text-decoration:none}
+.nl-who__link::after{content:"";position:absolute;inset:0;border-radius:inherit}
+.nl-who__link .nl-ico{transition:transform .2s}
+.nl-who__spacer{display:block;height:1px;background:var(--nl-line);margin-top:20px}
+.nl-who__card:focus-within{border-color:var(--nl-glow-ink)}
+.nl-who__card:active{background:#faf9ff;border-color:#bdb3f5}
+@media (hover:hover){
+  .nl-who__card:hover{border-color:#bdb3f5;box-shadow:var(--nl-shadow);transform:translateY(-3px)}
+  .nl-who__card:hover .nl-who__icon{background:var(--nl-violet);color:#fff}
+  .nl-who__card:hover .nl-who__link .nl-ico{transform:translateX(4px)}
+}
+@media (min-width:768px){.nl-who__grid{grid-template-columns:1fr 1fr;gap:20px}}
+@media (min-width:1200px){.nl-who__grid{grid-template-columns:repeat(3,1fr);gap:24px}.nl-who__card{padding:32px}}
+
+/* ===== Prices ===== */
+.nl-ptable{width:100%;border-collapse:separate;border-spacing:0;background:#fff;border:1px solid var(--nl-line);border-radius:var(--nl-radius);overflow:hidden}
+.nl-ptable th,.nl-ptable td{padding:22px 24px;text-align:left;vertical-align:top;border-bottom:1px solid var(--nl-line)}
+.nl-ptable thead th{background:var(--nl-violet);color:#fff;font-family:var(--nl-font-h);font-weight:500;font-size:.88rem;letter-spacing:.03em;padding-block:16px;border-bottom:0}
+.nl-ptable tbody tr:last-child th,.nl-ptable tbody tr:last-child td{border-bottom:0}
+.nl-ptable tbody tr{transition:background-color .2s}
+.nl-ptable tbody tr:hover{background:#fbfaff}
+.nl-ptable__name{font-family:var(--nl-font-h);font-weight:600;font-size:1.22rem;color:var(--nl-ink);line-height:1.25}
+.nl-ptable__tag{display:inline-block;margin-top:8px;padding:3px 10px;border-radius:999px;background:var(--nl-lav);color:var(--nl-glow-ink);font-family:var(--nl-font-h);font-weight:500;font-size:.78rem}
+.nl-ptable__suits{color:var(--nl-muted);font-size:.98rem}
+.nl-ptable__list{list-style:none;margin:0;padding:0;display:grid;gap:7px;font-size:.98rem}
+.nl-ptable__list li{display:flex;gap:9px;align-items:flex-start}
+.nl-ptable__list .nl-ico{width:18px;height:18px;margin-top:3px;color:var(--nl-glow-ink)}
+.nl-ptable__price{font-family:var(--nl-font-h);font-weight:600;font-size:clamp(1.6rem,1.3rem + .8vw,2rem);line-height:1.1;color:var(--nl-violet);white-space:nowrap}
+.nl-ptable__from{display:block;font-family:var(--nl-font-b);font-weight:600;font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;color:var(--nl-muted)}
+.nl-ptable__note{display:block;margin-top:6px;font-family:var(--nl-font-b);font-weight:400;font-size:.88rem;color:var(--nl-muted);white-space:normal}
+.nl-addons{margin-top:28px;display:grid;gap:12px;grid-template-columns:1fr}
+.nl-addon{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:16px 20px;border-radius:14px;background:#fff;border:1px solid var(--nl-line)}
+.nl-addon span{color:var(--nl-text)}
+.nl-addon strong{font-family:var(--nl-font-h);font-weight:600;color:var(--nl-violet);white-space:nowrap}
+.nl-prices__foot{margin-top:28px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 32px}
+.nl-prices__small{color:var(--nl-muted);font-size:.95rem;max-width:70ch}
+@media (min-width:768px){.nl-addons{grid-template-columns:1fr 1fr}}
+@media (min-width:1200px){.nl-addons{grid-template-columns:repeat(4,1fr)}.nl-ptable th,.nl-ptable td{padding:26px 30px}}
+@media (min-width:768px) and (max-width:1199px){.nl-ptable th,.nl-ptable td{padding:18px 16px}.nl-ptable__list,.nl-ptable__suits{font-size:.94rem}}
+@media (max-width:767px){
+  .nl-ptable,.nl-ptable tbody,.nl-ptable tr,.nl-ptable th,.nl-ptable td{display:block;width:100%}
+  .nl-ptable{border:0;background:none;border-radius:0;overflow:visible}
+  .nl-ptable thead{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+  .nl-ptable tbody tr{display:flex;flex-direction:column;margin-bottom:16px;background:#fff;border:1px solid var(--nl-line);border-radius:18px;overflow:hidden}
+  .nl-ptable tbody tr:hover{background:#fff}
+  .nl-ptable th,.nl-ptable td{padding:14px 18px}
+  .nl-ptable tbody tr:last-child th,.nl-ptable tbody tr:last-child td{border-bottom:1px solid var(--nl-line)}
+  .nl-ptable tbody tr td:last-child{border-bottom:0!important}
+  .nl-ptable th[scope=row]{order:-2;background:var(--nl-violet);border-bottom:0}
+  .nl-ptable th[scope=row] .nl-ptable__name{color:#fff}
+  .nl-ptable th[scope=row] .nl-ptable__tag{background:rgba(255,255,255,.14);color:#fff}
+  .nl-ptable td.nl-ptable__pricecell{order:-1;background:var(--nl-lav)}
+  .nl-ptable td::before{content:attr(data-label);display:block;margin-bottom:6px;font-family:var(--nl-font-h);font-weight:600;font-size:.74rem;letter-spacing:.09em;text-transform:uppercase;color:var(--nl-glow-ink)}
+}
+
+/* ===== How it works ===== */
+.nl-how__grid{display:grid;gap:36px}
+.nl-how__intro .nl-btn{margin-top:26px}
+.nl-how__photo{margin-top:28px;border-radius:20px;overflow:hidden;aspect-ratio:4/3.2;background:var(--nl-lav)}
+.nl-how__photo img{width:100%;height:100%;object-fit:cover}
+.nl-steps{list-style:none;margin:0;padding:0;display:grid;gap:16px}
+.nl-step{display:grid;grid-template-columns:52px 1fr;gap:18px;padding:24px;border:1px solid var(--nl-line);border-radius:var(--nl-radius);background:#fff}
+.nl-step__num{display:grid;place-items:center;width:52px;height:52px;border-radius:50%;background:var(--nl-lav);color:var(--nl-glow-ink)}
+.nl-step__num .nl-ico{width:24px;height:24px}
+.nl-step__label{font-family:var(--nl-font-h);font-weight:500;font-size:.8rem;letter-spacing:.09em;text-transform:uppercase;color:var(--nl-glow-ink)}
+.nl-step h3{margin-top:2px;font-size:1.3rem}
+.nl-step__text{margin-top:8px;color:var(--nl-muted)}
+.nl-step__detail{display:inline-flex;align-items:center;gap:8px;margin-top:14px;padding:6px 12px;border-radius:999px;background:var(--nl-lav);color:var(--nl-ink);font-size:.9rem}
+.nl-step__detail .nl-ico{width:16px;height:16px;color:var(--nl-glow-ink)}
+.nl-soft{margin-top:24px;padding:20px 22px;border:1px dashed var(--nl-field);border-radius:16px;display:flex;flex-wrap:wrap;align-items:center;gap:12px 18px}
+.nl-soft p{font-family:var(--nl-font-h);font-weight:500;color:var(--nl-ink);font-size:.95rem}
+.nl-soft ul{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin:0;padding:0}
+.nl-soft li{padding:8px 14px;border-radius:10px;background:#f7f6fb;border:1px solid var(--nl-line);color:var(--nl-muted);font-size:.88rem}
+@media (min-width:768px){
+  .nl-how__intro{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:center}
+  .nl-how__photo{margin-top:0}
+  .nl-steps{grid-template-columns:1fr 1fr;gap:20px}
+  .nl-step{grid-template-columns:1fr;gap:14px}
+}
+@media (min-width:1200px){
+  .nl-how__grid{grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:72px;align-items:start}
+  .nl-how__intro{display:block}
+  .nl-how__photo{margin-top:32px}
+  .nl-steps{grid-template-columns:1fr;gap:16px}
+  .nl-step{grid-template-columns:60px 1fr;gap:22px;padding:30px}
+  .nl-step__num{width:60px;height:60px}
+}
+
+/* ===== Estimator ===== */
+.nl-est__grid{display:grid;gap:24px}
+.nl-flag{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:999px;border:1.5px solid var(--nl-warm);background:#fff;color:#6b4100;font-family:var(--nl-font-h);font-weight:600;font-size:.85rem}
+.nl-flag::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--nl-warm)}
+.nl-est__form{background:#fff;border:1px solid var(--nl-line);border-radius:22px;padding:clamp(22px,3vw,32px)}
+.nl-est__form h3{font-size:1.25rem}
+.nl-est__intro{margin-top:6px;color:var(--nl-muted);font-size:.98rem}
+.nl-est__fields{display:grid;gap:18px;margin-top:22px}
+.nl-field{display:grid;gap:6px;align-content:start}
+.nl-field__label{font-family:var(--nl-font-h);font-weight:500;color:var(--nl-ink);font-size:1rem}
+.nl-field__hint{font-size:.88rem;color:var(--nl-muted);line-height:1.4}
+.nl-money{position:relative}
+.nl-money__sign{position:absolute;left:15px;top:50%;transform:translateY(-50%);color:var(--nl-muted);font-weight:600;pointer-events:none}
+.nl-input{width:100%;min-height:52px;padding:12px 14px;border:1.5px solid var(--nl-field);border-radius:12px;color:var(--nl-ink);background:#fff;font-size:1.05rem;transition:border-color .2s,box-shadow .2s}
+.nl-money .nl-input{padding-left:32px;font-variant-numeric:tabular-nums}
+.nl-input:hover{border-color:#a99ee6}
+.nl-input:focus,.nl-input:focus-visible{outline:none;border-color:var(--nl-glow-ink);box-shadow:0 0 0 4px rgba(139,123,255,.28)}
+.nl-est__examples{margin-top:22px}
+.nl-est__exlabel{font-size:.88rem;color:var(--nl-muted);margin-bottom:8px}
+.nl-chiprow{display:flex;flex-wrap:wrap;gap:8px}
+.nl-chip{display:inline-flex;align-items:center;min-height:44px;padding:8px 16px;border-radius:999px;border:1.5px solid var(--nl-field);background:#fff;color:var(--nl-ink);font-family:var(--nl-font-h);font-weight:500;font-size:.92rem;cursor:pointer;white-space:nowrap;transition:border-color .2s,color .2s,background-color .2s}
+.nl-chip:hover{border-color:var(--nl-glow-ink);color:var(--nl-glow-ink)}
+.nl-chip[aria-pressed="true"]{background:var(--nl-violet);border-color:var(--nl-violet);color:#fff}
+.nl-chip[aria-pressed="true"]:hover{background:var(--nl-violet-2);border-color:var(--nl-violet-2);color:#fff}
+.nl-est__actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.nl-est__out{background:#fff;border:1px solid var(--nl-line);border-radius:22px;overflow:hidden}
+.nl-est__total{padding:clamp(22px,3vw,32px);background:var(--nl-violet);color:#fff}
+.nl-est__tlabel{font-family:var(--nl-font-h);font-size:.85rem;letter-spacing:.08em;text-transform:uppercase;color:#cfc8f5}
+.nl-est__big{margin-top:6px;font-family:var(--nl-font-h);font-weight:600;font-size:clamp(2.4rem,1.8rem + 2vw,3.4rem);line-height:1;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.nl-est__split{display:flex;flex-wrap:wrap;gap:10px 28px;margin-top:16px;color:#ddd8f7;font-size:.98rem}
+.nl-est__split strong{color:#fff;font-family:var(--nl-font-h);font-weight:600;font-variant-numeric:tabular-nums}
+.nl-est__body{padding:clamp(18px,3vw,30px)}
+.nl-est__body h3{font-size:1.15rem;margin-bottom:10px}
+.nl-work{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+.nl-work th,.nl-work td{padding:11px 0;border-bottom:1px solid var(--nl-line);vertical-align:top}
+.nl-work th{text-align:left;font-weight:600;color:var(--nl-ink);font-size:.98rem;padding-right:16px}
+.nl-work td{text-align:right;white-space:nowrap;font-weight:600;color:var(--nl-ink)}
+.nl-work__calc{display:block;font-weight:400;color:var(--nl-muted);font-size:.88rem;margin-top:2px}
+.nl-work tr.is-zero th,.nl-work tr.is-zero td{color:#8f89a9}
+.nl-work tr.is-zero .nl-work__calc{color:#9a94b3}
+.nl-work tr.is-sub th,.nl-work tr.is-sub td{background:var(--nl-lav);padding-inline:12px}
+.nl-work tr.is-total th,.nl-work tr.is-total td{border-bottom:0;border-top:2px solid var(--nl-ink);font-family:var(--nl-font-h);font-size:1.15rem;padding-top:14px}
+.nl-est__notes{margin-top:18px;padding:16px 18px;border-radius:14px;background:#f7f6fb;color:var(--nl-muted);font-size:.9rem}
+.nl-est__notes ul{margin:8px 0 0;padding-left:18px;display:grid;gap:4px}
+.nl-est__notes strong{color:var(--nl-ink)}
+@media (min-width:768px){
+  .nl-est__fields{grid-template-columns:repeat(3,1fr)}
+}
+@media (min-width:1200px){
+  .nl-est__grid{grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:32px;align-items:start}
+  .nl-est__fields{grid-template-columns:1fr}
+}
+@media (max-width:767px){
+  .nl-chiprow--scroll{flex-wrap:nowrap;overflow-x:auto;scroll-snap-type:x mandatory;margin-inline:calc(var(--nl-gutter) * -1);padding:2px var(--nl-gutter) 6px;scrollbar-width:none}
+  .nl-chiprow--scroll::-webkit-scrollbar{display:none}
+  .nl-chiprow--scroll .nl-chip{scroll-snap-align:start;flex:none}
+}
+</style>
+<style>
+/* ===== Deadlines ===== */
+.nl-dl__grid{display:grid;gap:28px}
+.nl-cd{position:relative;overflow:hidden;padding:clamp(24px,3.2vw,40px);border-radius:24px;color:#fff;background:radial-gradient(90% 70% at 85% 0%,rgba(139,123,255,.35),transparent 60%),linear-gradient(160deg,var(--nl-violet),var(--nl-deep))}
+.nl-cd__label{font-family:var(--nl-font-h);font-size:.82rem;letter-spacing:.09em;text-transform:uppercase;color:#cfc8f5}
+.nl-cd__date{margin-top:8px;font-family:var(--nl-font-h);font-weight:600;font-size:clamp(1.7rem,1.3rem + 1.4vw,2.4rem);line-height:1.1;color:#fff}
+.nl-cd__what{margin-top:8px;color:#ddd8f7}
+.nl-cd__units{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:26px 0 0;padding:0;list-style:none}
+.nl-cd__unit{padding:14px 6px;border-radius:14px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);text-align:center}
+.nl-cd__num{display:block;font-family:var(--nl-font-h);font-weight:600;font-size:clamp(1.6rem,1.2rem + 1.6vw,2.6rem);line-height:1;font-variant-numeric:tabular-nums}
+.nl-cd__unitlabel{display:block;margin-top:6px;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:#cfc8f5}
+.nl-cd__penalty{margin-top:22px;padding-top:18px;border-top:1px solid rgba(255,255,255,.15);color:#ddd8f7;font-size:.95rem}
+.nl-cd__penalty strong{color:var(--nl-warm)}
+.nl-cd .nl-btn{margin-top:22px}
+.nl-dates{list-style:none;margin:0;padding:0;display:grid}
+.nl-date{display:grid;grid-template-columns:84px 1fr;gap:18px;padding:20px 0;border-bottom:1px solid var(--nl-line)}
+.nl-date:first-child{padding-top:0}
+.nl-date__cal{display:grid;align-content:center;justify-items:center;height:84px;border-radius:16px;border:1px solid var(--nl-line);background:#fff;font-family:var(--nl-font-h)}
+.nl-date__day{font-weight:600;font-size:1.9rem;line-height:1;color:var(--nl-violet)}
+.nl-date__mon{margin-top:4px;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--nl-muted)}
+.nl-date h3{font-size:1.18rem}
+.nl-date__yr{display:inline-block;margin-left:6px;font-family:var(--nl-font-b);font-weight:400;font-size:.92rem;color:var(--nl-muted)}
+.nl-date p{margin-top:4px;color:var(--nl-muted)}
+.nl-date.is-next .nl-date__cal{background:var(--nl-violet);border-color:var(--nl-violet)}
+.nl-date.is-next .nl-date__day{color:#fff}
+.nl-date.is-next .nl-date__mon{color:#cfc8f5}
+.nl-mtd{margin-top:24px;padding:24px;border-radius:18px;background:var(--nl-lav);border:1px solid var(--nl-lav-2)}
+.nl-mtd h3{font-size:1.2rem}
+.nl-mtd__rows{margin:14px 0 0;padding:0;list-style:none;display:grid;gap:10px}
+.nl-mtd__rows li{display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:baseline}
+.nl-mtd__when{font-family:var(--nl-font-h);font-weight:600;color:var(--nl-violet);white-space:nowrap}
+.nl-mtd p{margin-top:12px;color:var(--nl-muted);font-size:.95rem}
+@media (min-width:768px) and (max-width:1199px){.nl-dates{grid-template-columns:1fr 1fr;column-gap:32px}.nl-date:nth-child(2){padding-top:0}}
+@media (min-width:1200px){.nl-dl__grid{grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:56px;align-items:start}}
+
+/* ===== About + team ===== */
+.nl-about__grid{display:grid;gap:32px}
+.nl-about__photo{border-radius:22px;overflow:hidden;aspect-ratio:4/3;background:#ddd8f0}
+.nl-about__photo img{width:100%;height:100%;object-fit:cover}
+.nl-about__caption{margin-top:10px;font-size:.88rem;color:var(--nl-muted)}
+.nl-about__text>p+p{margin-top:14px}
+.nl-about__text .nl-lede{margin-bottom:18px}
+.nl-body{color:var(--nl-text)}
+.nl-statement{margin-top:22px;padding:16px 18px;border-left:3px solid var(--nl-glow);background:#fff;border-radius:0 12px 12px 0;color:var(--nl-muted);font-size:.95rem}
+.nl-team{display:grid;grid-auto-flow:column;grid-auto-columns:72%;gap:14px;margin-top:28px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px;scrollbar-width:thin}
+.nl-team__card{scroll-snap-align:start;background:#fff;border:1px solid var(--nl-line);border-radius:18px;overflow:hidden}
+.nl-team__img{aspect-ratio:1/1;background:#e9e6f3}
+.nl-team__img img{width:100%;height:100%;object-fit:cover}
+.nl-team__txt{padding:14px 16px 16px}
+.nl-team__name{font-family:var(--nl-font-h);font-weight:600;color:var(--nl-ink);font-size:1.05rem}
+.nl-team__role{font-size:.9rem;color:var(--nl-muted)}
+@media (min-width:768px){.nl-team{grid-auto-flow:row;grid-template-columns:repeat(3,1fr);overflow:visible;padding-bottom:0}}
+@media (min-width:1200px){.nl-about__grid{grid-template-columns:minmax(0,6fr) minmax(0,6fr);gap:64px;align-items:start}.nl-about__photo{aspect-ratio:4/4.3}}
+
+/* ===== Reviews ===== */
+.nl-revs{display:grid;grid-auto-flow:column;grid-auto-columns:86%;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:10px;margin:0;list-style:none;padding-left:0}
+.nl-revs>li{scroll-snap-align:start;display:flex;min-width:0}
+.nl-rev{flex:1;min-width:0;display:flex;flex-direction:column;margin:0;padding:24px;border:1px solid var(--nl-line);border-radius:var(--nl-radius);background:#fff}
+.nl-rev__stars{display:flex;gap:3px;color:var(--nl-warm)}
+.nl-rev__stars svg{width:18px;height:18px;fill:currentColor}
+.nl-rev blockquote{margin:14px 0 0;color:var(--nl-text);font-size:1.03rem}
+.nl-rev figcaption{margin-top:auto;padding-top:18px;display:flex;align-items:center;gap:12px}
+.nl-rev__init{display:grid;place-items:center;width:42px;height:42px;border-radius:50%;background:var(--nl-lav);color:var(--nl-glow-ink);font-family:var(--nl-font-h);font-weight:600}
+.nl-rev__who{font-family:var(--nl-font-h);font-weight:600;color:var(--nl-ink);line-height:1.2}
+.nl-rev__meta{display:block;font-family:var(--nl-font-b);font-weight:400;font-size:.88rem;color:var(--nl-muted)}
+.nl-revs__note{margin-top:18px;font-size:.9rem;color:var(--nl-muted)}
+@media (min-width:768px){.nl-revs{grid-auto-flow:row;grid-template-columns:1fr 1fr;overflow:visible;gap:20px;padding-bottom:0}}
+@media (min-width:1200px){.nl-revs{grid-template-columns:repeat(3,1fr);gap:24px}.nl-rev{padding:30px}}
+
+/* ===== FAQ ===== */
+.nl-faq__grid{display:grid;gap:28px}
+.nl-faq__help{margin-top:24px;padding:22px;border-radius:18px;background:#fff;border:1px solid var(--nl-line)}
+.nl-faq__help h3{font-size:1.1rem}
+.nl-faq__help p{margin-top:6px;color:var(--nl-muted);font-size:.96rem}
+.nl-faq__phone{display:inline-flex;align-items:center;gap:8px;min-height:44px;margin-top:8px;font-family:var(--nl-font-h);font-weight:600;font-size:1.25rem;color:var(--nl-violet);text-decoration:none}
+.nl-faq__phone:hover{color:var(--nl-glow-ink);text-decoration:underline}
+.nl-faq__chips{margin-bottom:12px}
+.nl-qa{border-bottom:1px solid #d9d3f0}
+.nl-qa__h{margin:0;font-size:inherit}
+.nl-qa__btn{display:flex;width:100%;align-items:center;justify-content:space-between;gap:16px;min-height:60px;padding:18px 2px;border:0;background:none;text-align:left;cursor:pointer;font-family:var(--nl-font-h);font-weight:600;font-size:clamp(1.03rem,1rem + .2vw,1.15rem);line-height:1.35;color:var(--nl-ink);transition:color .2s}
+.nl-qa__btn:hover{color:var(--nl-glow-ink)}
+.nl-qa__icon{display:grid;place-items:center;flex:none;width:34px;height:34px;border-radius:50%;border:1.5px solid var(--nl-field);background:#fff;transition:transform .25s,background-color .2s,color .2s,border-color .2s}
+.nl-qa__icon .nl-ico{width:18px;height:18px}
+.nl-qa__btn:hover .nl-qa__icon{border-color:var(--nl-glow-ink)}
+.nl-qa__btn[aria-expanded="true"] .nl-qa__icon{transform:rotate(180deg);background:var(--nl-violet);border-color:var(--nl-violet);color:#fff}
+.nl-qa__panel{padding:0 2px 22px;color:var(--nl-muted);max-width:70ch}
+.nl-qa__panel p+p{margin-top:10px}
+@media (min-width:1200px){.nl-faq__grid{grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:72px;align-items:start}}
+
+/* ===== Start form ===== */
+.nl-start__grid{display:grid;gap:32px}
+.nl-next{list-style:none;margin:24px 0 0;padding:0;display:grid;gap:16px;counter-reset:nlnext}
+.nl-next li{position:relative;padding-left:48px;counter-increment:nlnext;color:var(--nl-muted)}
+.nl-next li::before{content:counter(nlnext);position:absolute;left:0;top:0;display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:var(--nl-violet);color:#fff;font-family:var(--nl-font-h);font-weight:600;font-size:.9rem}
+.nl-next strong{display:block;color:var(--nl-ink);font-family:var(--nl-font-h);font-weight:600}
+.nl-contact{margin-top:28px;padding:22px;border-radius:18px;background:var(--nl-lav);display:grid;gap:12px}
+.nl-contact__row{display:flex;gap:12px;align-items:flex-start;color:var(--nl-text)}
+.nl-contact__row .nl-ico{margin-top:3px;color:var(--nl-glow-ink)}
+.nl-contact a{color:var(--nl-violet);font-weight:600}
+.nl-contact a:hover{color:var(--nl-glow-ink)}
+.nl-form{background:#fff;border:1px solid var(--nl-line);border-radius:24px;padding:clamp(22px,3vw,40px);box-shadow:var(--nl-shadow)}
+.nl-form h3{font-size:1.35rem}
+.nl-form__intro{margin-top:6px;color:var(--nl-muted);font-size:.96rem}
+.nl-form__grid{display:grid;gap:18px;margin-top:24px}
+.nl-form__full{grid-column:1/-1}
+.nl-req{color:#b42318}
+.nl-select{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%235b4bd1' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:44px}
+textarea.nl-input{min-height:120px;resize:vertical}
+.nl-checks{display:grid;grid-template-columns:1fr;gap:8px;margin:0;padding:0;border:0}
+.nl-checks legend{padding:0;margin-bottom:8px;font-family:var(--nl-font-h);font-weight:500;color:var(--nl-ink)}
+.nl-check{display:flex;align-items:center;gap:12px;min-height:48px;padding:10px 14px;border:1.5px solid var(--nl-line);border-radius:12px;cursor:pointer;transition:border-color .2s,background-color .2s}
+.nl-check:hover{border-color:#a99ee6;background:#fbfaff}
+.nl-check input{width:20px;height:20px;margin:0;accent-color:var(--nl-violet);flex:none}
+.nl-check:has(input:checked){border-color:var(--nl-glow-ink);background:var(--nl-lav)}
+.nl-consent{display:flex;gap:12px;align-items:flex-start;font-size:.95rem;color:var(--nl-muted)}
+.nl-consent input{width:22px;height:22px;margin:1px 0 0;accent-color:var(--nl-violet);flex:none}
+.nl-err{display:block;margin-top:2px;color:#b42318;font-size:.88rem;font-weight:600}
+.nl-input[aria-invalid="true"]{border-color:#b42318}
+.nl-form__submit{width:100%;margin-top:6px}
+.nl-form__fine{margin-top:12px;font-size:.86rem;color:var(--nl-muted);text-align:center}
+.nl-done{text-align:center;padding:24px 8px}
+.nl-done__icon{display:inline-grid;place-items:center;width:64px;height:64px;border-radius:50%;background:var(--nl-violet);color:#fff}
+.nl-done__icon .nl-ico{width:30px;height:30px;stroke-width:2.4}
+.nl-done h3{margin-top:16px;font-size:1.5rem}
+.nl-done p{margin-top:10px;color:var(--nl-muted)}
+.nl-done__ref{display:inline-block;margin-top:14px;padding:8px 16px;border-radius:10px;background:var(--nl-lav);font-family:ui-monospace,Consolas,monospace;color:var(--nl-ink)}
+@media (min-width:768px){.nl-form__grid{grid-template-columns:1fr 1fr}.nl-checks{grid-template-columns:1fr 1fr}}
+@media (min-width:1200px){.nl-start__grid{grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:64px;align-items:start}.nl-checks{grid-template-columns:repeat(3,1fr)}}
+</style>
+<style>
+/* ===== Footer: the tax-year footer ===== */
+.nl-foot{background:var(--nl-night);color:#cfc8f5;padding-top:clamp(48px,6vw,80px);font-size:.98rem}
+.nl-year{padding:clamp(20px,3vw,36px);border-radius:24px;border:1px solid rgba(255,255,255,.12);background:linear-gradient(180deg,rgba(139,123,255,.12),rgba(139,123,255,.03))}
+.nl-year__head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:6px 24px}
+.nl-year__title{font-family:var(--nl-font-h);font-weight:600;font-size:clamp(1.3rem,1.1rem + .8vw,1.7rem);color:#fff}
+.nl-year__range{color:#a9a1d6;font-size:.95rem}
+.nl-ruler{position:relative;margin-top:46px}
+.nl-ruler__track{position:relative;height:12px;border-radius:999px;background:rgba(255,255,255,.1)}
+.nl-ruler__fill{position:absolute;left:0;top:0;bottom:0;width:0;border-radius:inherit;background:linear-gradient(90deg,#5b4bd1,var(--nl-glow))}
+.nl-ruler__today{position:absolute;top:-9px;bottom:-9px;width:2px;margin-left:-1px;background:#fff;border-radius:2px}
+.nl-ruler__tag{position:absolute;bottom:calc(100% + 6px);left:50%;transform:translateX(-50%);padding:3px 10px;border-radius:999px;background:#fff;color:var(--nl-violet);font-family:var(--nl-font-h);font-weight:600;font-size:.75rem;white-space:nowrap}
+.nl-ruler__mark{position:absolute;top:50%;width:12px;height:12px;margin:-6px 0 0 -6px;background:var(--nl-night);border:2px solid var(--nl-warm);transform:rotate(45deg)}
+.nl-ruler__months{display:grid;grid-template-columns:repeat(12,1fr);margin:12px 0 0;padding:0;list-style:none;font-size:.76rem;color:#a9a1d6}
+.nl-ruler__months li{padding-left:4px;border-left:1px solid rgba(255,255,255,.14)}
+.nl-ruler__legend{display:flex;flex-wrap:wrap;gap:8px 22px;margin:18px 0 0;padding:0;list-style:none;font-size:.88rem;color:#cfc8f5}
+.nl-ruler__legend li{display:inline-flex;align-items:center;gap:8px}
+.nl-ruler__legend li::before{content:"";width:9px;height:9px;border:2px solid var(--nl-warm);transform:rotate(45deg);flex:none}
+.nl-ruler__legend b{color:#fff;font-weight:600}
+.nl-year__stats{display:grid;gap:14px;margin-top:26px;padding-top:22px;border-top:1px solid rgba(255,255,255,.1)}
+.nl-stat__num{display:block;font-family:var(--nl-font-h);font-weight:600;font-size:clamp(1.6rem,1.3rem + 1vw,2.1rem);line-height:1.1;color:#fff;font-variant-numeric:tabular-nums}
+.nl-stat__lbl{display:block;font-size:.9rem;color:#a9a1d6}
+.nl-stat--next{padding:16px 18px;border-radius:16px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12)}
+.nl-stat--next .nl-stat__num{font-size:clamp(1.25rem,1.1rem + .6vw,1.55rem)}
+.nl-stat__cd{display:block;margin-top:6px;font-family:var(--nl-font-h);font-weight:600;color:var(--nl-warm);font-variant-numeric:tabular-nums}
+.nl-foot__cols{display:grid;gap:8px;margin-top:clamp(40px,5vw,64px)}
+.nl-foot__brand{padding-bottom:20px}
+.nl-foot__brand .nl-logo{margin-right:0}
+.nl-foot__blurb{margin-top:12px;max-width:40ch;color:#cfc8f5}
+.nl-foot__contact{list-style:none;margin:18px 0 0;padding:0;display:grid;gap:4px}
+.nl-foot__contact li{display:flex;gap:10px;align-items:center;min-height:36px}
+.nl-foot__contact .nl-ico{color:#a99dff;width:18px;height:18px}
+.nl-flink{display:inline-flex;align-items:center;min-height:36px;color:#ece9ff;text-decoration:none}
+.nl-flink:hover{color:#fff;text-decoration:underline;text-decoration-color:var(--nl-warm);text-underline-offset:4px}
+.nl-fcol__title{display:none;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;color:#a9a1d6;font-weight:500;margin-bottom:10px}
+.nl-fcol__h{margin:0;font-size:inherit}
+.nl-fcol__btn{display:flex;width:100%;align-items:center;justify-content:space-between;min-height:54px;padding:0;border:0;background:none;color:#fff;font-family:var(--nl-font-h);font-weight:500;font-size:1.05rem;cursor:pointer}
+.nl-fcol__btn:hover{color:var(--nl-warm)}
+.nl-fcol__btn .nl-ico{transition:transform .25s}
+.nl-fcol__btn[aria-expanded="true"] .nl-ico{transform:rotate(180deg)}
+.nl-fcol{border-top:1px solid rgba(255,255,255,.12)}
+.nl-fcol__list{list-style:none;margin:0;padding:0 0 14px}
+.nl-fcol__list .nl-flink{min-height:44px}
+.nl-reg{margin-top:clamp(36px,4vw,56px);padding-top:28px;border-top:1px solid rgba(255,255,255,.12);display:grid;gap:14px;font-size:.88rem;line-height:1.6;color:#b5aedc}
+.nl-reg strong{color:#ece9ff;font-weight:600}
+.nl-reg a{color:#ece9ff}
+.nl-reg a:hover{color:var(--nl-warm)}
+.nl-base{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:28px;padding:22px 0 calc(22px + env(safe-area-inset-bottom));border-top:1px solid rgba(255,255,255,.12);font-size:.88rem;color:#a9a1d6}
+.nl-base__links{display:flex;flex-wrap:wrap;gap:4px 18px}
+.nl-totop{display:inline-grid;place-items:center;flex:none;width:48px;height:48px;border-radius:50%;border:1.5px solid rgba(255,255,255,.35);background:transparent;color:#fff;cursor:pointer;transition:background-color .2s,color .2s,border-color .2s,transform .2s}
+.nl-totop:hover{background:#fff;color:var(--nl-violet);border-color:#fff;transform:translateY(-2px)}
+@media (max-width:767px){
+  .nl-ruler__months li{font-size:0;border-left-color:rgba(255,255,255,.18)}
+  .nl-ruler__months li::first-letter{font-size:.72rem}
+  .nl-ruler__legend{display:grid;grid-template-columns:1fr 1fr}
+  .nl-base{flex-wrap:wrap}
+}
+@media (min-width:768px){
+  .nl-year__stats{grid-template-columns:1fr 1fr 1.6fr;align-items:center;gap:24px}
+  .nl-foot__cols{grid-template-columns:1fr 1fr 1fr;gap:28px 32px}
+  .nl-foot__brand{grid-column:1/-1}
+  .nl-fcol{border-top:0}
+  .nl-fcol__title{display:block}
+  .nl-fcol__btn{display:none}
+  .nl-reg{grid-template-columns:1fr 1fr;column-gap:40px}
+}
+@media (min-width:1200px){
+  .nl-foot__cols{grid-template-columns:1.5fr 1fr 1fr 1fr;gap:48px}
+  .nl-foot__brand{grid-column:auto}
+}
+
+/* ===== Mobile action bar ===== */
+.nl-bar{position:fixed;z-index:60;left:0;right:0;bottom:0;display:none;grid-template-columns:auto 1fr;gap:10px;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:rgba(255,255,255,.97);border-top:1px solid var(--nl-line);box-shadow:0 -10px 28px -8px rgba(28,21,55,.18);transition:transform .25s ease,visibility 0s linear 0s}
+.nl-bar.is-hidden{transform:translateY(110%);visibility:hidden;transition:transform .25s ease,visibility 0s linear .25s}
+.nl-bar .nl-btn{min-height:50px}
+.nl-bar__call{padding-inline:1.1em}
+@media (max-width:767px){.nl-bar{display:grid}}
+</style>
+
+<style id="sv-hero-css">
+.svh{--a:#ffb547;--ad:#ffb547;--ink:#130b31;--paper:#e3def5;--on:#130b31;position:relative;isolation:isolate;overflow:hidden;margin:0;font-family:"Source Sans 3",system-ui,sans-serif;box-sizing:border-box}
+.svh *{box-sizing:border-box}
+.svh .svh-in{position:relative;z-index:2;width:min(1240px,100% - 48px);margin-inline:auto}
+.svh .svh-kicker{display:inline-flex;align-items:center;gap:10px;margin:0;font:600 12.5px/1.3 "Source Sans 3",system-ui,sans-serif;letter-spacing:.16em;text-transform:uppercase}
+.svh .svh-kicker i{width:28px;height:2px;background:var(--a);display:inline-block}
+.svh .svh-h{margin:0;font-family:"Outfit",Georgia,serif;font-weight:600;letter-spacing:-.025em;line-height:.95}
+.svh .svh-h span{display:block;overflow:hidden;padding-bottom:.06em}
+.svh .svh-h span>b{display:inline-block;font-weight:inherit;transform:translateY(105%);animation:svh-rise 1s cubic-bezier(.16,1,.3,1) forwards}
+.svh .svh-h span:nth-child(2)>b{animation-delay:.12s}.svh .svh-h span:nth-child(3)>b{animation-delay:.24s}
+.svh .svh-h em{font-style:italic;color:var(--a)}
+.svh .svh-lede{margin:0;max-width:46ch;font-size:clamp(16px,1.25vw,19px);line-height:1.6;opacity:0;animation:svh-fade .9s .45s forwards}
+.svh .svh-ctas{display:flex;flex-wrap:wrap;gap:12px;opacity:0;animation:svh-fade .9s .6s forwards}
+.svh .svh-btn{display:inline-flex;align-items:center;gap:10px;padding:15px 26px;border-radius:999px;font:600 15px/1 "Source Sans 3",system-ui,sans-serif;text-decoration:none;background:var(--a);color:var(--on);border:1px solid var(--a);transition:transform .3s cubic-bezier(.16,1,.3,1),background .3s}
+.svh .svh-btn:hover{transform:translateY(-2px)}
+.svh .svh-btn--ghost{background:transparent;color:inherit;border-color:currentColor}
+.svh .svh-btn span{transition:transform .3s}.svh .svh-btn:hover span{transform:translateX(4px)}
+/* the designs style h1/p themselves, so the banner states its own colours */
+.svh--editorial .svh-h,.svh--poster .svh-h,.svh--stage .svh-h{color:#fff}
+.svh--editorial .svh-kicker,.svh--poster .svh-kicker,.svh--stage .svh-kicker{color:rgba(255,255,255,.9)}
+.svh--index .svh-h,.svh--index .svh-kicker{color:var(--ink)}
+@keyframes svh-rise{to{transform:none}}@keyframes svh-fade{to{opacity:1}}
+@keyframes svh-zoom{from{transform:scale(1.12)}to{transform:scale(1)}}
+@keyframes svh-spin{to{transform:rotate(360deg)}}@keyframes svh-tick{to{transform:translateX(-50%)}}
+@keyframes svh-tilt{from{transform:perspective(1400px) rotateX(18deg) translateY(40px);opacity:0}to{transform:none;opacity:1}}
+
+/* Editorial: words spread across a full-bleed photo */
+.svh--editorial{min-height:100svh;display:flex;align-items:flex-end;padding:150px 0 56px;color:#fff;background:var(--ink)}
+.svh--editorial .svh-media{position:absolute;inset:0;z-index:0;background:center/cover no-repeat;animation:svh-zoom 2.4s cubic-bezier(.16,1,.3,1) both}
+.svh--editorial .svh-shade{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(0,0,0,.45),rgba(0,0,0,.1) 35%,rgba(0,0,0,.65))}
+.svh--editorial .svh-h{font-size:clamp(52px,9vw,150px);margin-top:28px}
+.svh--editorial .svh-h span:nth-child(2){text-align:right}
+.svh--editorial .svh-h em{color:#fff}
+.svh--editorial .svh-foot{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:28px;margin-top:42px;padding-top:26px;border-top:1px solid rgba(255,255,255,.3)}
+.svh--editorial .svh-lede{color:rgba(255,255,255,.88)}
+.svh--editorial .svh-btn--ghost{color:#fff}
+
+/* Stage: dark ground, glow, centred words and a tilted picture */
+.svh--stage{padding:160px 0 0;background:var(--ink);color:#fff;text-align:center}
+.svh--stage .svh-glow{position:absolute;z-index:0;left:50%;top:-10%;width:1100px;height:800px;transform:translateX(-50%);background:radial-gradient(closest-side,color-mix(in srgb,var(--a) 55%,transparent),transparent);filter:blur(30px);opacity:.75}
+.svh--stage .svh-grid{position:absolute;inset:0;z-index:0;background-image:linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px);background-size:64px 64px;mask-image:radial-gradient(circle at 50% 30%,#000,transparent 70%)}
+.svh--stage .svh-kicker{padding:8px 16px;border:1px solid rgba(255,255,255,.2);border-radius:999px;background:rgba(255,255,255,.05)}
+.svh--stage .svh-kicker i{width:8px;height:8px;border-radius:50%}
+.svh--stage .svh-h{font-size:clamp(46px,7.4vw,118px);font-weight:500;margin:26px auto 0;max-width:15ch}
+.svh--stage .svh-h em{color:var(--ad)}
+.svh--stage .svh-lede{margin:26px auto 0;color:rgba(255,255,255,.75)}
+.svh--stage .svh-ctas{justify-content:center;margin-top:32px}
+.svh--stage .svh-btn--ghost{color:#fff}
+.svh--stage .svh-frame{margin:60px auto 0;max-width:1100px;aspect-ratio:16/8;border-radius:22px 22px 0 0;overflow:hidden;border:1px solid rgba(255,255,255,.18);border-bottom:0;box-shadow:0 -30px 80px -20px color-mix(in srgb,var(--a) 45%,transparent);animation:svh-tilt 1.4s .3s cubic-bezier(.16,1,.3,1) both}
+.svh--stage .svh-frame img{display:block;width:100%;height:100%;object-fit:cover}
+.svh--stage .svh-chips{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin:28px 0 0;padding:0}
+.svh--stage .svh-chips a{display:block;padding:8px 14px;border-radius:999px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);color:rgba(255,255,255,.85);font-size:14px;text-decoration:none}
+.svh--stage .svh-chips a:hover{border-color:var(--a);color:#fff}
+
+/* Poster: giant uppercase words, spinning badge, a ticker */
+.svh--poster{min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;padding-top:150px;color:#fff;background:var(--ink)}
+.svh--poster .svh-media{position:absolute;inset:0;z-index:0;background:center/cover no-repeat;animation:svh-zoom 2.4s cubic-bezier(.16,1,.3,1) both}
+.svh--poster .svh-shade{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(0,0,0,.2),rgba(0,0,0,.25) 40%,rgba(0,0,0,.82))}
+.svh--poster .svh-h{font-size:clamp(50px,10vw,168px);font-weight:800;text-transform:uppercase;letter-spacing:-.035em;line-height:.88;margin-top:22px}
+.svh--poster .svh-h em{font-style:normal;color:var(--ad)}
+.svh--poster .svh-row{display:flex;flex-wrap:wrap;gap:24px;align-items:flex-end;justify-content:space-between;margin:34px 0 44px}
+.svh--poster .svh-lede{color:rgba(255,255,255,.85)}
+.svh--poster .svh-btn--ghost{color:#fff}
+.svh--poster .svh-badge{position:absolute;z-index:2;right:clamp(20px,5vw,72px);top:clamp(110px,16vh,170px);width:132px;height:132px;display:grid;place-items:center}
+.svh--poster .svh-badge svg{position:absolute;inset:0;animation:svh-spin 14s linear infinite;fill:#fff;font:700 10.5px/1 "Source Sans 3",system-ui,sans-serif;letter-spacing:.22em;text-transform:uppercase}
+.svh--poster .svh-badge b{width:56px;height:56px;border-radius:50%;background:var(--a);display:grid;place-items:center;color:var(--on);font-size:22px}
+.svh--poster .svh-ticker{position:relative;z-index:2;background:var(--a);color:var(--on);overflow:hidden;padding:15px 0}
+.svh--poster .svh-ticker div{display:flex;gap:44px;width:max-content;animation:svh-tick 26s linear infinite;font:700 clamp(16px,1.6vw,22px)/1 "Outfit",Georgia,serif;text-transform:uppercase;letter-spacing:.02em}
+.svh--poster .svh-ticker span::after{content:"\2726";margin-left:44px;opacity:.7}
+
+/* Index: words on the left, the site's sections as a big list on the right */
+.svh--index{padding:150px 0 90px;background:var(--paper);color:var(--ink)}
+.svh--index .svh-in{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(32px,5vw,90px);align-items:end}
+.svh--index .svh-kicker{color:var(--ink)}
+.svh--index .svh-h{font-size:clamp(46px,6.6vw,104px);margin:24px 0 0}
+.svh--index .svh-lede{margin-top:26px;color:color-mix(in srgb,var(--ink) 72%,transparent)}
+.svh--index .svh-ctas{margin-top:30px}
+.svh--index .svh-photo{aspect-ratio:16/10;border-radius:18px;background:center/cover no-repeat;margin-bottom:22px;clip-path:inset(0 0 100% 0 round 18px);animation:svh-reveal 1.3s .2s cubic-bezier(.16,1,.3,1) forwards}
+@keyframes svh-reveal{to{clip-path:inset(0 0 0 0 round 18px)}}
+.svh--index .svh-list{list-style:none;margin:0;padding:0;border-top:1px solid color-mix(in srgb,var(--ink) 18%,transparent)}
+.svh--index .svh-list a{display:grid;grid-template-columns:44px 1fr auto;align-items:baseline;gap:12px;padding:14px 0;border-bottom:1px solid color-mix(in srgb,var(--ink) 18%,transparent);color:var(--ink);text-decoration:none;font:500 clamp(22px,2.4vw,36px)/1.1 "Outfit",Georgia,serif;letter-spacing:-.02em;transition:color .3s,padding .3s}
+.svh--index .svh-list a small{font:600 12px/1 "Source Sans 3",system-ui,sans-serif;letter-spacing:.1em;color:color-mix(in srgb,var(--ink) 55%,transparent)}
+.svh--index .svh-list a:hover{color:var(--a);padding-left:8px}
+.svh--index .svh-list a i{font-style:normal;transition:transform .3s}.svh--index .svh-list a:hover i{transform:translateX(6px)}
+
+@media (max-width:860px){
+  .svh--index .svh-in{grid-template-columns:1fr}
+  .svh--editorial .svh-h span:nth-child(2){text-align:left}
+  .svh--poster .svh-badge{width:96px;height:96px;top:96px}
+  .svh--stage .svh-frame{aspect-ratio:4/3}
+}
+@media (prefers-reduced-motion:reduce){.svh *,.svh{animation:none!important;transition:none!important}.svh .svh-h span>b{transform:none}.svh .svh-lede,.svh .svh-ctas{opacity:1}.svh--index .svh-photo{clip-path:none}}
+/* the old banner stays in the page, invisible, laid over the new one, so the design's own
+   scripts (sticky header, "past the hero" checks) still find it where the banner is */
+[data-sv-old-hero]{position:absolute!important;left:0!important;right:0!important;width:auto!important;max-width:none!important;margin:0!important;padding:0!important;min-height:0!important;overflow:hidden!important;visibility:hidden!important;opacity:0!important;pointer-events:none!important;z-index:-1!important;transform:none!important}
+</style>
+<style id="sv-fix-css">.nl-est__grid>*,.nl-faq__grid>*{min-width:0}</style>
+</head>
+<body>
+<a class="nl-skip" href="#main">Skip to content</a>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="nl-star-g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#b9adff"/></linearGradient>
+  </defs>
+  <symbol id="nl-mark" viewBox="0 0 34 34"><rect x="1" y="1" width="32" height="32" rx="10" fill="none" stroke="rgba(255,255,255,.28)"/><path d="M17 5.5l2.3 9.2 9.2 2.3-9.2 2.3L17 28.5l-2.3-9.2L5.5 17l9.2-2.3z" fill="url(#nl-star-g)"/><circle cx="25.5" cy="8.5" r="1.6" fill="#ffb547"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M21.5 16.6v2.9a2 2 0 0 1-2.2 2 19.6 19.6 0 0 1-8.5-3 19.3 19.3 0 0 1-6-6 19.6 19.6 0 0 1-3-8.6A2 2 0 0 1 3.8 2h2.9a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L7.7 9.7a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.8 1.9z"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+  <symbol id="i-chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+  <symbol id="i-up" viewBox="0 0 24 24"><path d="M12 19V5M6 11l6-6 6 6"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 6.5l8.5 6 8.5-6"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.1-7-11.5a7 7 0 0 1 14 0C19 14.9 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.2 2"/></symbol>
+  <symbol id="i-laptop" viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="11" rx="1.5"/><path d="M2 19h20"/></symbol>
+  <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 11l9-7 9 7"/><path d="M5 9.5V20h14V9.5"/><path d="M10 20v-6h4v6"/></symbol>
+  <symbol id="i-trend" viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></symbol>
+  <symbol id="i-coin" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.5 7.5v9M9.5 8h3.8a2 2 0 0 1 0 4H9.5h4.3a2.1 2.1 0 0 1 0 4.2H9.5M11.5 6v2M11.5 16v2"/></symbol>
+  <symbol id="i-bag" viewBox="0 0 24 24"><path d="M5.5 8h13l-1 12h-11z"/><path d="M9 8V7a3 3 0 0 1 6 0v1"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9M12 3C9.5 5.6 8.2 8.6 8.2 12s1.3 6.4 3.8 9"/></symbol>
+  <symbol id="i-upload" viewBox="0 0 24 24"><path d="M12 15V4M7 9l5-5 5 5"/><path d="M4 15v4a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-4"/></symbol>
+  <symbol id="i-calc" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8.5 7h7M8.5 11.5h.01M12 11.5h.01M15.5 11.5h.01M8.5 15h.01M12 15h.01M15.5 15h.01M8.5 18h.01M12 18h3.5"/></symbol>
+  <symbol id="i-approve" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.2l2.4 2.4 4.6-4.8"/></symbol>
+  <symbol id="i-send" viewBox="0 0 24 24"><path d="M21 3L10 14"/><path d="M21 3l-6.5 18-4.5-7-7-4.5z"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 4.4-3.3 8.2-8 9-4.7-.8-8-4.6-8-9V6z"/><path d="M8.8 12.2l2.2 2.2 4.2-4.4"/></symbol>
+  <symbol id="i-receipt" viewBox="0 0 24 24"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2z"/><path d="M9 8h6M9 12h6M9 16h3"/></symbol>
+  <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.6-3.9 4.5-6 8-6s6.4 2.1 8 6"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.3L12 17.1l-5.7 3.1 1.2-6.3-4.7-4.4 6.4-.8z"/></symbol>
+</svg>
+
+<div class="nl-util">
+  <div class="nl-wrap nl-util__row">
+    <p>Self Assessment and personal tax &middot; Bristol office, clients across the UK</p>
+    <ul class="nl-util__list">
+      <li>Mon&ndash;Fri, 9am&ndash;5.30pm</li>
+      <li><a href="tel:+441174960418">0117 496 0418</a></li>
+      <li><a href="#">Client portal login</a></li>
+    </ul>
+  </div>
+</div>
+
+<header class="nl-head" id="nl-head">
+  <div class="nl-wrap nl-head__row">
+    <a class="nl-logo" href="#top" aria-label="Clearday Tax, back to the top of the home page">
+      <svg aria-hidden="true"><use href="#nl-mark"/></svg><span>Clearday<span class="nl-logo__tax">Tax</span></span>
+    </a>
+    <nav class="nl-nav" aria-label="Main">
+      <ul>
+        <li><a href="#who">Who we help</a></li>
+        <li><a href="#prices">Prices</a></li>
+        <li><a href="#how">How it works</a></li>
+        <li><a href="#estimator">Tax estimator</a></li>
+        <li><a href="#deadlines">Deadlines</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+    </nav>
+    <a class="nl-head__phone" href="tel:+441174960418"><svg class="nl-ico" aria-hidden="true"><use href="#i-phone"/></svg>0117 496 0418</a>
+    <a class="nl-btn nl-btn--amber nl-head__cta" href="#start">Start my return</a>
+    <a class="nl-head__call" href="tel:+441174960418" aria-label="Call us on 0117 496 0418"><svg class="nl-ico" aria-hidden="true"><use href="#i-phone"/></svg></a>
+    <button class="nl-burger" id="nl-burger" type="button" aria-expanded="false" aria-controls="nl-menu" aria-label="Open menu">
+      <span class="nl-burger__lines" aria-hidden="true"><span class="nl-burger__line"></span><span class="nl-burger__line"></span><span class="nl-burger__line"></span></span>
+    </button>
+  </div>
+</header>
+
+<div class="nl-menu nl-dark" id="nl-menu" role="dialog" aria-modal="true" aria-label="Site menu" hidden>
+  <div class="nl-wrap nl-menu__top">
+    <a class="nl-logo" href="#top" aria-label="Clearday Tax, back to the top of the home page"><svg aria-hidden="true"><use href="#nl-mark"/></svg><span>Clearday<span class="nl-logo__tax">Tax</span></span></a>
+    <button class="nl-menu__close" id="nl-menu-close" type="button" aria-label="Close menu"><svg class="nl-ico" aria-hidden="true"><use href="#i-close"/></svg></button>
+  </div>
+  <div class="nl-wrap nl-menu__body">
+    <nav aria-label="Menu">
+      <ul class="nl-menu__links">
+        <li><a href="#who">Who we help <svg class="nl-ico" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+        <li><a href="#prices">Prices <svg class="nl-ico" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+        <li><a href="#how">How it works <svg class="nl-ico" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+        <li><a href="#estimator">Tax estimator <svg class="nl-ico" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+        <li><a href="#deadlines">Deadlines <svg class="nl-ico" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+        <li><a href="#faq">FAQ <svg class="nl-ico" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+      </ul>
+    </nav>
+    <div class="nl-menu__contact">
+      <p class="nl-menu__label">Speak to an accountant</p>
+      <a class="nl-menu__phone" href="tel:+441174960418"><svg class="nl-ico" aria-hidden="true"><use href="#i-phone"/></svg>0117 496 0418</a>
+      <p class="nl-menu__hours">Monday to Friday, 9am to 5.30pm. Office in Redcliffe, Bristol BS1.</p>
+      <a class="nl-btn nl-btn--amber" href="#start">Start my return &mdash; from &pound;195</a>
+      <a class="nl-menu__portal" href="#">Client portal login</a>
+    </div>
+  </div>
+</div>
+
+<main id="main">
+
+<!-- ===== HERO ===== -->
+<section class="svh svh--stage" aria-label="Clearday Tax"><div class="svh-glow"></div><div class="svh-grid"></div><div class="svh-in"><p class="svh-kicker"><i></i>Self Assessment accountants in Bristol and online</p><h1 class="svh-h"><span><b>Your tax return,</b></span><span><b><em>finished early.</em></b></span></h1><p class="svh-lede">Self Assessment specialists &middot; Bristol &amp; UK-wide</p><div class="svh-ctas"><a class="svh-btn" href="#start">Start my return &mdash; from &pound;195 <span>&rarr;</span></a><a class="svh-btn svh-btn--ghost" href="#estimator">Estimate my tax bill</a></div><ul class="svh-chips"><li><a href="#who">Who we help</a></li><li><a href="#prices">Prices</a></li><li><a href="#how">How it works</a></li><li><a href="#estimator">Tax estimator</a></li><li><a href="#deadlines">Deadlines</a></li><li><a href="#faq">FAQ</a></li></ul><figure class="svh-frame"><img src="https://images.pexels.com/photos/6928878/pexels-photo-6928878.jpeg?auto=compress&cs=tinysrgb&w=2000&h=1250&fit=crop" alt="" loading="eager"></figure></div></section><section data-sv-old-hero aria-hidden="true" inert class="nl-hero" id="top" aria-labelledby="nl-hero-title"><script>(()=>{const b=document.querySelector(".svh"),o=document.querySelector("[data-sv-old-hero]");if(!b||!o)return;const hd=document.querySelector("header");if(hd){const cs=getComputedStyle(hd),n=(c)=>(c.match(/[\d.]+/g)||[]).map(Number),bg=n(cs.backgroundColor),fg=n(cs.color),clear=cs.backgroundColor==="transparent"||bg[3]===0,light=fg.length>2&&(0.299*fg[0]+0.587*fg[1]+0.114*fg[2])/255>0.7,top=b.getBoundingClientRect().top+scrollY;if(clear&&light&&cs.position!=="fixed"&&cs.position!=="absolute"&&top>0&&top<260){b.style.marginTop=-top+"px";b.style.paddingTop=parseFloat(getComputedStyle(b).paddingTop)+top+"px"}}const f=()=>{o.style.setProperty("top",b.offsetTop+"px","important");o.style.setProperty("height",b.offsetHeight+"px","important")};f();addEventListener("resize",f);addEventListener("load",f)})()</script>
+  <div class="nl-wrap nl-hero__grid">
+    <div class="nl-hero__copy">
+      <p class="nl-hero__eyebrow">Self Assessment specialists &middot; Bristol &amp; UK-wide</p>
+      <h1 id="nl-hero-title">Your tax return, done <em>properly</em>.</h1>
+      <p class="nl-hero__lede">Fixed-fee Self Assessment for freelancers, landlords, high earners and anyone with income on the side. A qualified accountant prepares your return, you approve it, and we file it with HMRC.</p>
+      <div class="nl-hero__ctas">
+        <a class="nl-btn nl-btn--amber" href="#start">Start my return &mdash; from &pound;195 <svg class="nl-ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="nl-btn nl-btn--ghost" href="#estimator">Estimate my tax bill</a>
+      </div>
+      <ul class="nl-hero__ticks">
+        <li><svg class="nl-ico" aria-hidden="true"><use href="#i-check"/></svg>Prices include VAT</li>
+        <li><svg class="nl-ico" aria-hidden="true"><use href="#i-check"/></svg>Nothing filed until you approve</li>
+        <li><svg class="nl-ico" aria-hidden="true"><use href="#i-check"/></svg>Reply within one working day</li>
+      </ul>
+    </div>
+
+    <div class="nl-stage" id="nl-stage" role="img" aria-label="Example of a finished return: Self Assessment 2025 to 26, submitted, showing tax due and a placeholder HMRC reference.">
+      <div class="nl-floor" aria-hidden="true"></div>
+      <div class="nl-halo" aria-hidden="true"></div>
+      <div class="nl-arch" aria-hidden="true"></div>
+      <div class="nl-mirror" aria-hidden="true">
+        <div class="nl-arch nl-arch--mirror"></div>
+        <div class="nl-mirror__scene" id="nl-mirror-scene"></div>
+      </div>
+      <div class="nl-cast" aria-hidden="true"></div>
+      <div class="nl-scene" id="nl-scene" aria-hidden="true">
+        <div class="nl-card" id="nl-card">
+          <div class="nl-card__back"></div>
+          <div class="nl-card__glass"></div>
+          <div class="nl-card__sheen"></div>
+          <div class="nl-card__body">
+            <div class="nl-card__top">
+              <span class="nl-card__brand"><svg><use href="#nl-mark"/></svg>Clearday Tax</span>
+              <span class="nl-card__pill"><span class="nl-card__tick"><svg class="nl-ico"><use href="#i-check"/></svg></span>Submitted</span>
+            </div>
+            <p class="nl-card__title">Self Assessment 2025&ndash;26</p>
+            <p class="nl-card__sub">Online return &middot; sent to HMRC 14 Nov 2026, 10:42</p>
+            <dl class="nl-card__rows">
+              <div class="nl-card__row"><dt>Taxpayer</dt><dd>Hannah Rees</dd></div>
+              <div class="nl-card__row"><dt>Income</dt><dd>Self-employment, UK property</dd></div>
+            </dl>
+            <div class="nl-card__foot">
+              <div>
+                <span class="nl-card__label">Tax due</span>
+                <span class="nl-card__due">&pound;4,286.40</span>
+                <span class="nl-card__payby">Pay by 31 January 2027</span>
+              </div>
+              <div class="nl-card__ref">
+                <span class="nl-card__label">HMRC ref.</span>
+                <span class="nl-card__refnum">XXXX XXXX XXXX</span>
+                <span class="nl-card__ph">placeholder</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <canvas class="nl-ripples" id="nl-ripples" aria-hidden="true"></canvas>
+</section>
+
+<!-- ===== FACTS ===== -->
+<section class="nl-facts" aria-label="Why clients choose Clearday Tax">
+  <div class="nl-wrap">
+    <ul class="nl-facts__list">
+      <li class="nl-facts__item"><span class="nl-facts__icon"><svg class="nl-ico" aria-hidden="true"><use href="#i-receipt"/></svg></span><div class="nl-facts__txt"><strong>Personal tax is all we do</strong><span>Self Assessment, every day of the year</span></div></li>
+      <li class="nl-facts__item"><span class="nl-facts__icon"><svg class="nl-ico" aria-hidden="true"><use href="#i-check"/></svg></span><div class="nl-facts__txt"><strong>Fixed fees, agreed up front</strong><span>Confirmed in your engagement letter</span></div></li>
+      <li class="nl-facts__item"><span class="nl-facts__icon"><svg class="nl-ico" aria-hidden="true"><use href="#i-shield"/></svg></span><div class="nl-facts__txt"><strong>Checked before it&rsquo;s filed</strong><span>A second accountant reviews every return</span></div></li>
+      <li class="nl-facts__item"><span class="nl-facts__icon"><svg class="nl-ico" aria-hidden="true"><use href="#i-pin"/></svg></span><div class="nl-facts__txt"><strong>Bristol office, UK-wide clients</strong><span>Meet in person or on a video call</span></div></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===== WHO WE HELP ===== -->
+<section class="nl-sec" id="who" aria-labelledby="nl-who-title">
+  <div class="nl-wrap">
+    <div class="nl-sec__head">
+      <p class="nl-kicker">Who we help</p>
+      <h2 class="nl-h2" id="nl-who-title">Returns for people whose tax isn&rsquo;t all done through PAYE</h2>
+      <p class="nl-lede">If some of your income doesn&rsquo;t have tax taken off before you&rsquo;re paid, HMRC usually expects a Self Assessment return. These are the situations we deal with every week.</p>
+    </div>
+    <div class="nl-who__grid">
+      <article class="nl-who__card">
+        <span class="nl-who__icon"><svg class="nl-ico" aria-hidden="true"><use href="#i-laptop"/></svg></span>
+        <h3>Freelancers and sole traders</h3>
+        <p>Allowable expenses, Class 4 National Insurance and payments on account worked out properly, plus a Making Tax Digital check if your turnover is over the threshold.</p>
+        <span class="nl-who__spacer" aria-hidden="true"></span>
+        <div class="nl-who__meta"><span class="nl-who__fee">Usually <strong>Simple</strong> or <strong>Complex</strong></span><a class="nl-who__link" href="#prices">See fees<span class="nl-sr"> for freelancers</span> <svg class="nl-ico" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
+      </article>
+      <article class="nl-who__card">
+        <span class="nl-who__icon"><svg class="nl-ico" aria-hidden="true"><use href="#i-home"/></svg></span>
+        <h3>Landlords</h3>
+        <p>Rental income and expenses, the 20% credit for mortgage interest, jointly owned property, and what quarterly updates under MTD will mean for you.</p>
+        <span class="nl-who__spacer" aria-hidden="true"></span>
+        <div class="nl-who__meta"><span class="nl-who__fee"><strong>Landlord return</strong> from &pound;295</span><a class="nl-who__link" href="#prices">See fees<span class="nl-sr"> for landlords</span> <svg class="nl-ico" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
+      </article>
+      <article class="nl-who__card">
+        <span class="nl-who__icon"><svg class="nl-ico" aria-hidden="true"><use href="#i-trend"/></svg></span>
+        <h3>High earners</h3>
+        <p>Income over &pound;100,000 and the personal allowance taper, pension tax relief, and the High Income Child Benefit Charge if your income is over &pound;60,000.</p>
+        <span class="nl-who__spacer" aria-hidden="true"></span>
+        <div class="nl-who__meta"><span class="nl-who__fee"><strong>Complex return</strong> from &pound;450</span><a class="nl-who__link" href="#prices">See fees<span class="nl-sr"> for high earners</span> <svg class="nl-ico" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
+      </article>
+      <article class="nl-who__card">
+        <span class="nl-who__icon"><svg class="nl-ico" aria-hidden="true"><use href="#i-coin"/></svg></span>
+        <h3>Crypto investors</h3>
+        <p>Capital Gains Tax on disposals and swaps, worked out from your exchange and wallet reports, with the &pound;3,000 annual exempt amount applied.</p>
+        <span class="nl-who__spacer" aria-hidden="true"></span>
+        <div class="nl-who__meta"><span class="nl-who__fee"><strong>Complex return</strong> from &pound;450</span><a class="nl-who__link" href="#prices">See fees<span class="nl-sr"> for crypto investors</span> <svg class="nl-ico" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
+      </article>
+      <article class="nl-who__card">
+        <span class="nl-who__icon"><svg class="nl-ico" aria-hidden="true"><use href="#i-bag"/></svg></span>
+        <h3>Side incomes</h3>
+        <p>Selling online, tutoring, content, gig work or a weekend business. We&rsquo;ll check first whether the &pound;1,000 trading allowance means you don&rsquo;t need to report it.</p>
+        <span class="nl-who__spacer" aria-hidden="true"></span>
+        <div class="nl-who__meta"><span class="nl-who__fee"><strong>Simple return</strong> &pound;195</span><a class="nl-who__link" href="#prices">See fees<span class="nl-sr"> for side incomes</span> <svg class="nl-ico" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
+      </article>
+      <article class="nl-who__card">
+        <span class="nl-who__icon"><svg class="nl-ico" aria-hidden="true"><use href="#i-globe"/></svg></span>
+        <h3>Overseas income</h3>
+        <p>Foreign salaries, pensions, rent or investments, double taxation relief, and the residence questions that come with moving to or from the UK.</p>
+        <span class="nl-who__spacer" aria-hidden="true"></span>
+        <div class="nl-who__meta"><span class="nl-who__fee"><strong>Complex return</strong> from &pound;450</span><a class="nl-who__link" href="#prices">See fees<span class="nl-sr"> for overseas income</span> <svg class="nl-ico" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PRICES ===== -->
+<section class="nl-sec nl-sec--lav" id="prices" aria-labelledby="nl-prices-title">
+  <div class="nl-wrap">
+    <div class="nl-sec__head">
+      <p class="nl-kicker">Fixed prices</p>
+      <h2 class="nl-h2" id="nl-prices-title">Clear fees, with VAT already included</h2>
+      <p class="nl-lede">Most of our clients are individuals who can&rsquo;t reclaim VAT, so every price here includes it. We confirm your fee in writing before any work starts.</p>
+    </div>
+    <table class="nl-ptable">
+      <caption class="nl-sr">Self Assessment fees for individuals, including VAT at 20%</caption>
+      <thead>
+        <tr><th scope="col">Return</th><th scope="col">Best for</th><th scope="col">What&rsquo;s included</th><th scope="col">Fixed fee (incl. VAT)</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row"><span class="nl-ptable__name">Simple return</span><br><span class="nl-ptable__tag">Most popular</span></th>
+          <td data-label="Best for"><span class="nl-ptable__suits">Employed or retired people with one extra source of income, or who need to pay the Child Benefit charge.</span></td>
+          <td data-label="What&rsquo;s included"><ul class="nl-ptable__list">
+            <li><svg class="nl-ico" aria-hidden="true"><use href="#i-check"/></svg>Return prepared, checked and filed</li>
+            <li><svg class="nl-ico" aria-hidden="true"><use href="#i-check"/></svg>Your tax calculation explained in plain English</li>
+            <li><svg class="nl-ico" aria-hidden="true"><use href="#i-check"/></svg>HMRC registration if you&rsquo;re new</li>
+            <li><svg class="nl-ico" aria-hidden="true"><use href="#i-check"/></svg>Payment reminders before each deadline</li>
+          </ul></td>
+          <td class="nl-ptable__pricecell" data-label="Fixed fee (incl. VAT)"><span class="nl-ptable__price">&pound;195</span><span class="nl-ptable__note">&pound;162.50 + VAT</span></td>
+        </tr>
+        <tr>
+          <th scope="row"><span class="nl-ptable__name">Landlord return</span></th>
+          <td data-label="Best for"><span class="nl-ptable__suits">Landlords with UK rental property, owned on your own or jointly, alongside a job or pension.</span></td>
+          <td data-label="What&rsquo;s included"><ul class="nl-ptable__list">
+            <li><svg class="nl-ico" aria-hidden="true"><use href="#i-check"/></svg>Everything in the simple return</li>
+            <li><svg class="nl-ico" aria-hidden="true"><use href="#i-check"/></svg>Rental income and allowable expenses</li>
+            <li><svg class="nl-ico" aria-hidden="true"><use href="#i-check"/></svg>Mortgage interest (finance cost) credit</li>
+            <li><svg class="nl-ico" aria-hidden="true"><use href="#i-check"/></svg>Making Tax Digital readiness check</li>
+          </ul></td>
+          <td class="nl-ptable__pricecell" data-label="Fixed fee (incl. VAT)"><span class="nl-ptable__from">From</span><span class="nl-ptable__price">&pound;295</span><span class="nl-ptable__note">Includes one property</span></td>
+        </tr>
+        <tr>
+          <th scope="row"><span class="nl-ptable__name">Complex return</span></th>
+          <td data-label="Best for"><span class="nl-ptable__suits">Income over &pound;100,000, several income sources, capital gains, crypto or overseas income.</span></td>
+          <td data-label="What&rsquo;s included"><ul class="nl-ptable__list">
+            <li><svg class="nl-ico" aria-hidden="true"><use href="#i-check"/></svg>Everything in the simple return</li>
+            <li><svg class="nl-ico" aria-hidden="true"><use href="#i-check"/></svg>Capital gains computations</li>
+            <li><svg class="nl-ico" aria-hidden="true"><use href="#i-check"/></svg>Allowance taper and pension relief checked</li>
+            <li><svg class="nl-ico" aria-hidden="true"><use href="#i-check"/></svg>Foreign income and double taxation relief</li>
+          </ul></td>
+          <td class="nl-ptable__pricecell" data-label="Fixed fee (incl. VAT)"><span class="nl-ptable__from">From</span><span class="nl-ptable__price">&pound;450</span><span class="nl-ptable__note">Quoted after a free call</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="nl-addons" aria-label="Optional extras, including VAT">
+      <div class="nl-addon"><span>Each extra rental property</span><strong>+&pound;45</strong></div>
+      <div class="nl-addon"><span>Capital gains report (shares or crypto)</span><strong>from &pound;120</strong></div>
+      <div class="nl-addon"><span>Missed earlier year, per return</span><strong>from &pound;195</strong></div>
+      <div class="nl-addon"><span>Claim to reduce payments on account</span><strong>&pound;45</strong></div>
+    </div>
+
+    <div class="nl-prices__foot">
+      <p class="nl-prices__small">All prices include VAT at 20%. &ldquo;From&rdquo; prices only change if your return needs extra work, and we&rsquo;ll always tell you before doing anything that costs more. Our terms are set out in the engagement letter you sign before we start.</p>
+      <a class="nl-btn nl-btn--violet" href="#start">Start my return <svg class="nl-ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== HOW IT WORKS ===== -->
+<section class="nl-sec" id="how" aria-labelledby="nl-how-title">
+  <div class="nl-wrap nl-how__grid">
+    <div class="nl-how__intro" id="nl-how-left">
+      <div>
+        <p class="nl-kicker">How it works</p>
+        <h2 class="nl-h2" id="nl-how-title">Four steps, and most of them are ours</h2>
+        <p class="nl-lede">You send the paperwork once. We do the work, explain the result and only file when you&rsquo;re happy with it.</p>
+        <a class="nl-btn nl-btn--line" href="#start">Get started</a>
+      </div>
+      <figure class="nl-how__photo" style="margin-inline:0;margin-bottom:0">
+        <img src="https://images.pexels.com/photos/6863339/pexels-photo-6863339.jpeg?auto=compress&cs=tinysrgb&w=900&h=760&fit=crop" width="900" height="760" loading="lazy" decoding="async" alt="A woman working on a laptop at a white table in a bright living room">
+      </figure>
+    </div>
+    <div id="nl-how-right">
+      <ol class="nl-steps">
+        <li class="nl-step">
+          <span class="nl-step__num"><svg class="nl-ico" aria-hidden="true"><use href="#i-upload"/></svg></span>
+          <div>
+            <p class="nl-step__label">Step 1</p>
+            <h3>Upload your documents</h3>
+            <p class="nl-step__text">Use our secure client portal to send your P60, invoices, bank statements and rental summaries. A short checklist tells you exactly what we need, and photos of paper documents are fine.</p>
+            <span class="nl-step__detail"><svg class="nl-ico" aria-hidden="true"><use href="#i-clock"/></svg>Takes most people about 20 minutes</span>
+          </div>
+        </li>
+        <li class="nl-step">
+          <span class="nl-step__num"><svg class="nl-ico" aria-hidden="true"><use href="#i-calc"/></svg></span>
+          <div>
+            <p class="nl-step__label">Step 2</p>
+            <h3>We prepare your return</h3>
+            <p class="nl-step__text">Your accountant works through the figures, claims the expenses and allowances you&rsquo;re entitled to, and asks if anything is unclear. A second accountant then checks it.</p>
+            <span class="nl-step__detail"><svg class="nl-ico" aria-hidden="true"><use href="#i-clock"/></svg>Usually within 10 working days</span>
+          </div>
+        </li>
+        <li class="nl-step">
+          <span class="nl-step__num"><svg class="nl-ico" aria-hidden="true"><use href="#i-approve"/></svg></span>
+          <div>
+            <p class="nl-step__label">Step 3</p>
+            <h3>You approve it</h3>
+            <p class="nl-step__text">We send a plain-English summary of what you owe, why, and when to pay. Ask as many questions as you like. Nothing is sent to HMRC until you&rsquo;ve said yes.</p>
+            <span class="nl-step__detail"><svg class="nl-ico" aria-hidden="true"><use href="#i-user"/></svg>One named accountant throughout</span>
+          </div>
+        </li>
+        <li class="nl-step">
+          <span class="nl-step__num"><svg class="nl-ico" aria-hidden="true"><use href="#i-send"/></svg></span>
+          <div>
+            <p class="nl-step__label">Step 4</p>
+            <h3>We file with HMRC</h3>
+            <p class="nl-step__text">We submit your return online and send you HMRC&rsquo;s confirmation and your payment reference. Then we remind you before each payment date, so nothing catches you out.</p>
+            <span class="nl-step__detail"><svg class="nl-ico" aria-hidden="true"><use href="#i-check"/></svg>Confirmation the same day</span>
+          </div>
+        </li>
+      </ol>
+      <!-- PLACEHOLDER: software partners. Neutral labels only; replace with the packages the firm supports. Do not add real brand logos without permission. -->
+      <div class="nl-soft">
+        <p>Works alongside HMRC-recognised software</p>
+        <ul>
+          <li>[Bookkeeping app A]</li>
+          <li>[Bookkeeping app B]</li>
+          <li>[Bridging software]</li>
+          <li>Spreadsheets</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ESTIMATOR ===== -->
+<section class="nl-sec nl-sec--lav" id="estimator" aria-labelledby="nl-est-title">
+  <div class="nl-wrap">
+    <div class="nl-sec__head">
+      <p class="nl-kicker">Tax estimator</p>
+      <h2 class="nl-h2" id="nl-est-title">Roughly what will your 2025/26 bill be?</h2>
+      <p class="nl-lede">Enter your income for the tax year 6 April 2025 to 5 April 2026. We&rsquo;ll show an estimate of your Income Tax and Class 4 National Insurance, with every step of the working.</p>
+      <p style="margin-top:16px"><span class="nl-flag">Estimate, not advice</span></p>
+    </div>
+    <div class="nl-est__grid">
+      <form class="nl-est__form nl-pin" id="nl-est-form" novalidate aria-describedby="nl-est-disclaimer">
+        <h3>Your income for 2025/26</h3>
+        <p class="nl-est__intro">Whole pounds, before tax. Leave a box at 0 if it doesn&rsquo;t apply.</p>
+        <div class="nl-est__fields">
+          <div class="nl-field">
+            <label class="nl-field__label" for="nl-in-emp">Employment income</label>
+            <div class="nl-money"><span class="nl-money__sign" aria-hidden="true">&pound;</span><input class="nl-input" id="nl-in-emp" name="emp" type="text" inputmode="numeric" autocomplete="off" value="0" aria-describedby="nl-in-emp-h"></div>
+            <span class="nl-field__hint" id="nl-in-emp-h">Salary and taxable benefits from your P60 and P11D.</span>
+          </div>
+          <div class="nl-field">
+            <label class="nl-field__label" for="nl-in-se">Self-employed profit</label>
+            <div class="nl-money"><span class="nl-money__sign" aria-hidden="true">&pound;</span><input class="nl-input" id="nl-in-se" name="se" type="text" inputmode="numeric" autocomplete="off" value="42,000" aria-describedby="nl-in-se-h"></div>
+            <span class="nl-field__hint" id="nl-in-se-h">Your takings minus allowable business expenses.</span>
+          </div>
+          <div class="nl-field">
+            <label class="nl-field__label" for="nl-in-rent">Rental profit</label>
+            <div class="nl-money"><span class="nl-money__sign" aria-hidden="true">&pound;</span><input class="nl-input" id="nl-in-rent" name="rent" type="text" inputmode="numeric" autocomplete="off" value="0" aria-describedby="nl-in-rent-h"></div>
+            <span class="nl-field__hint" id="nl-in-rent-h">Rent received minus allowable expenses. The mortgage interest credit isn&rsquo;t included here.</span>
+          </div>
+        </div>
+        <div class="nl-est__examples">
+          <p class="nl-est__exlabel" id="nl-ex-label">Or try an example:</p>
+          <div class="nl-chiprow nl-chiprow--scroll" role="group" aria-labelledby="nl-ex-label">
+            <button class="nl-chip" type="button" data-ex="0,42000,0" aria-pressed="true">Freelancer, &pound;42k</button>
+            <button class="nl-chip" type="button" data-ex="60000,15000,30000" aria-pressed="false">Job, side business and rent</button>
+            <button class="nl-chip" type="button" data-ex="0,150000,0" aria-pressed="false">Over &pound;125,140</button>
+          </div>
+        </div>
+        <div class="nl-est__actions">
+          <button class="nl-btn nl-btn--violet" type="submit">Update estimate</button>
+          <button class="nl-btn nl-btn--line" type="reset" id="nl-est-reset">Clear</button>
+        </div>
+      </form>
+
+      <div class="nl-est__out" id="nl-est-out" aria-live="polite">
+        <div class="nl-est__total">
+          <p class="nl-est__tlabel">Estimated Income Tax and Class 4 NICs, 2025/26</p>
+          <p class="nl-est__big" id="nl-est-big">&pound;7,651.80</p>
+          <p class="nl-est__split"><span>Income Tax <strong id="nl-est-it">&pound;5,886.00</strong></span><span>Class 4 NICs <strong id="nl-est-c4">&pound;1,765.80</strong></span><span>Taxable income <strong id="nl-est-ti">&pound;29,430</strong></span></p>
+        </div>
+        <div class="nl-est__body">
+          <h3>How we worked it out</h3>
+          <table class="nl-work">
+            <caption class="nl-sr">Workings for the estimate</caption>
+            <tbody id="nl-work-body">
+              <tr><th scope="row">Total income<span class="nl-work__calc">&pound;0 + &pound;42,000 + &pound;0</span></th><td>&pound;42,000</td></tr>
+            </tbody>
+          </table>
+          <div class="nl-est__notes" id="nl-est-disclaimer">
+            <strong>Estimate, not advice.</strong> Uses 2025/26 rates for taxpayers in England: personal allowance &pound;12,570, reduced by &pound;1 for every &pound;2 of income over &pound;100,000; basic rate 20% on the first &pound;37,700 of taxable income (up to &pound;50,270 with the full allowance); higher rate 40% up to &pound;125,140; additional rate 45% above that; Class 4 NICs 6% on self-employed profit between &pound;12,570 and &pound;50,270 and 2% above. No Class 2.
+            <ul>
+              <li>Tax already taken off your wages through PAYE isn&rsquo;t deducted here, so what you pay through Self Assessment will usually be less.</li>
+              <li>Savings, dividends, capital gains, student loans, pension contributions, Gift Aid, the mortgage interest credit and the Child Benefit charge aren&rsquo;t included. Scotland has different Income Tax bands.</li>
+              <li>If your Self Assessment bill is over &pound;1,000, HMRC may also ask for payments on account towards next year.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== DEADLINES ===== -->
+<section class="nl-sec" id="deadlines" aria-labelledby="nl-dl-title">
+  <div class="nl-wrap">
+    <div class="nl-sec__head">
+      <p class="nl-kicker">Key dates</p>
+      <h2 class="nl-h2" id="nl-dl-title">The Self Assessment deadlines that matter</h2>
+      <p class="nl-lede">Miss the online deadline and HMRC charges a penalty straight away, even if you have no tax to pay. Here&rsquo;s the calendar we work to.</p>
+    </div>
+    <div class="nl-dl__grid">
+      <div class="nl-cd nl-dark nl-pin" id="nl-cd">
+        <p class="nl-cd__label">Countdown to the online deadline</p>
+        <p class="nl-cd__date" id="nl-cd-date">31 January 2027</p>
+        <p class="nl-cd__what" id="nl-cd-what">File your 2025&ndash;26 return online and pay what you owe.</p>
+        <ul class="nl-cd__units" aria-live="off">
+          <li class="nl-cd__unit"><span class="nl-cd__num" id="nl-cd-d">74</span><span class="nl-cd__unitlabel">Days</span></li>
+          <li class="nl-cd__unit"><span class="nl-cd__num" id="nl-cd-h">00</span><span class="nl-cd__unitlabel">Hours</span></li>
+          <li class="nl-cd__unit"><span class="nl-cd__num" id="nl-cd-m">00</span><span class="nl-cd__unitlabel">Mins</span></li>
+          <li class="nl-cd__unit"><span class="nl-cd__num" id="nl-cd-s">00</span><span class="nl-cd__unitlabel">Secs</span></li>
+        </ul>
+        <p class="nl-cd__penalty"><strong>&pound;100 penalty</strong> if your return is even one day late. After three months, &pound;10 a day can be added for up to 90 days, plus interest on any tax paid late.</p>
+        <a class="nl-btn nl-btn--amber" href="#start">Start my return &mdash; from &pound;195</a>
+      </div>
+      <div>
+        <ol class="nl-dates" id="nl-dates">
+          <li class="nl-date is-next"><div class="nl-date__cal" aria-hidden="true"><span class="nl-date__day">31</span><span class="nl-date__mon">Jan</span></div><div><h3>Online return and payment <span class="nl-date__yr">31 January 2027</span></h3><p>File your 2025&ndash;26 return online and pay the balance, plus your first payment on account for 2026&ndash;27.</p></div></li>
+          <li class="nl-date"><div class="nl-date__cal" aria-hidden="true"><span class="nl-date__day">31</span><span class="nl-date__mon">Jul</span></div><div><h3>Second payment on account <span class="nl-date__yr">31 July 2027</span></h3><p>Your second advance payment towards the 2026&ndash;27 tax year.</p></div></li>
+          <li class="nl-date"><div class="nl-date__cal" aria-hidden="true"><span class="nl-date__day">5</span><span class="nl-date__mon">Oct</span></div><div><h3>Register for Self Assessment <span class="nl-date__yr">5 October 2027</span></h3><p>Tell HMRC by this date if you need to file a return for 2026&ndash;27 for the first time.</p></div></li>
+          <li class="nl-date"><div class="nl-date__cal" aria-hidden="true"><span class="nl-date__day">31</span><span class="nl-date__mon">Oct</span></div><div><h3>Paper return deadline <span class="nl-date__yr">31 October 2027</span></h3><p>Paper returns for 2026&ndash;27 must reach HMRC by this date. Online returns have until 31 January.</p></div></li>
+        </ol>
+        <div class="nl-mtd">
+          <h3>Making Tax Digital for Income Tax</h3>
+          <ul class="nl-mtd__rows">
+            <li><span class="nl-mtd__when">6 April 2026</span><span>Starts for sole traders and landlords with qualifying income over &pound;50,000.</span></li>
+            <li><span class="nl-mtd__when">6 April 2027</span><span>The threshold drops to qualifying income over &pound;30,000.</span></li>
+          </ul>
+          <p>Qualifying income is your self-employed turnover plus gross rent, before expenses. If you&rsquo;re in, you&rsquo;ll keep digital records and send quarterly updates through compatible software. We can set that up and send the updates for you.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section class="nl-sec nl-sec--lav" id="about" aria-labelledby="nl-about-title">
+  <div class="nl-wrap nl-about__grid">
+    <figure class="nl-pin" id="nl-about-left" style="margin:0">
+      <div class="nl-about__photo">
+        <img src="https://images.pexels.com/photos/8927687/pexels-photo-8927687.jpeg?auto=compress&cs=tinysrgb&w=1100&h=1000&fit=crop" width="1100" height="1000" loading="lazy" decoding="async" alt="Colourful terraced houses above Bristol's harbour, with boats moored on the water">
+      </div>
+      <figcaption class="nl-about__caption">Our office is a short walk from the harbourside in Redcliffe.</figcaption>
+    </figure>
+    <div class="nl-about__text" id="nl-about-right">
+      <p class="nl-kicker">About us</p>
+      <h2 class="nl-h2" id="nl-about-title">A Bristol practice, working with clients across the UK</h2>
+      <p class="nl-lede">Clearday Tax has prepared personal tax returns from our office in Redcliffe since 2012.</p>
+      <p class="nl-body">We only do personal tax, so the person preparing your return deals with freelancers, landlords and higher earners every day. You can meet us in Bristol or on a video call, and most clients never need to visit.</p>
+      <p class="nl-body">You&rsquo;ll have one named accountant who knows your situation, and every return is checked by a second member of the team before it goes to HMRC.</p>
+      <!-- PLACEHOLDER: professional body statement. Replace the bracketed text with the firm's real membership wording and number, and check the professional body's rules before using its name or logo. -->
+      <p class="nl-statement">Clearday Tax Ltd is a member firm of [Professional body name]. Membership number [000000]. Our accountants are bound by that body&rsquo;s code of ethics.</p>
+      <div class="nl-team">
+        <div class="nl-team__card">
+          <div class="nl-team__img"><img src="https://images.pexels.com/photos/6964357/pexels-photo-6964357.jpeg?auto=compress&cs=tinysrgb&w=480&h=480&fit=crop" width="480" height="480" loading="lazy" decoding="async" alt="Portrait of Rosa Calloway"></div>
+          <div class="nl-team__txt"><p class="nl-team__name">Rosa Calloway</p><p class="nl-team__role">Director, personal tax</p></div>
+        </div>
+        <div class="nl-team__card">
+          <div class="nl-team__img"><img src="https://images.pexels.com/photos/6927378/pexels-photo-6927378.jpeg?auto=compress&cs=tinysrgb&w=480&h=480&fit=crop" width="480" height="480" loading="lazy" decoding="async" alt="Portrait of Martin Hale"></div>
+          <div class="nl-team__txt"><p class="nl-team__name">Martin Hale</p><p class="nl-team__role">Tax manager, high earners</p></div>
+        </div>
+        <div class="nl-team__card">
+          <div class="nl-team__img"><img src="https://images.pexels.com/photos/6694492/pexels-photo-6694492.jpeg?auto=compress&cs=tinysrgb&w=480&h=480&fit=crop" width="480" height="480" loading="lazy" decoding="async" alt="Portrait of Dev Raman"></div>
+          <div class="nl-team__txt"><p class="nl-team__name">Dev Raman</p><p class="nl-team__role">Landlords and MTD</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== REVIEWS ===== -->
+<section class="nl-sec" id="reviews" aria-labelledby="nl-rev-title">
+  <div class="nl-wrap">
+    <div class="nl-sec__head">
+      <p class="nl-kicker">Client reviews</p>
+      <h2 class="nl-h2" id="nl-rev-title">What clients say after we&rsquo;ve filed</h2>
+    </div>
+    <ul class="nl-revs">
+      <li><figure class="nl-rev"><div class="nl-rev__stars" role="img" aria-label="5 out of 5"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></div><blockquote>I&rsquo;d put off my first return for months. They sent a checklist, I uploaded everything one evening, and it was filed a week later. The fee was exactly what they quoted.</blockquote><figcaption><span class="nl-rev__init" aria-hidden="true">KM</span><span class="nl-rev__who">Kirsty M.<span class="nl-rev__meta">Freelance illustrator, Bristol</span></span></figcaption></figure></li>
+      <li><figure class="nl-rev"><div class="nl-rev__stars" role="img" aria-label="5 out of 5"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></div><blockquote>Two flats, one owned with my sister. They sorted the split, explained the mortgage interest rules properly and told me what Making Tax Digital means for me.</blockquote><figcaption><span class="nl-rev__init" aria-hidden="true">DO</span><span class="nl-rev__who">Daniel O.<span class="nl-rev__meta">Landlord, Bath</span></span></figcaption></figure></li>
+      <li><figure class="nl-rev"><div class="nl-rev__stars" role="img" aria-label="5 out of 5"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></div><blockquote>I went over &pound;100,000 for the first time and had no idea about the allowance taper. They walked me through it and showed me what a pension contribution would change.</blockquote><figcaption><span class="nl-rev__init" aria-hidden="true">PS</span><span class="nl-rev__who">Priya S.<span class="nl-rev__meta">Software engineer, Leeds</span></span></figcaption></figure></li>
+      <li><figure class="nl-rev"><div class="nl-rev__stars" role="img" aria-label="5 out of 5"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></div><blockquote>Crypto across three exchanges and a hardware wallet. They rebuilt the history and the capital gains report actually made sense to me.</blockquote><figcaption><span class="nl-rev__init" aria-hidden="true">TH</span><span class="nl-rev__who">Tom H.<span class="nl-rev__meta">Investor, Cardiff</span></span></figcaption></figure></li>
+      <li><figure class="nl-rev"><div class="nl-rev__stars" role="img" aria-label="5 out of 5"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></div><blockquote>The Child Benefit charge caught us out. They registered me, filed the return and set up reminders for the payments on account. Very calm and clear.</blockquote><figcaption><span class="nl-rev__init" aria-hidden="true">LB</span><span class="nl-rev__who">Laura B.<span class="nl-rev__meta">NHS manager, Swindon</span></span></figcaption></figure></li>
+      <li><figure class="nl-rev"><div class="nl-rev__stars" role="img" aria-label="5 out of 5"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></div><blockquote>Moved back from abroad partway through the year. Straight answers on the residence rules and a fixed fee agreed before they started.</blockquote><figcaption><span class="nl-rev__init" aria-hidden="true">SK</span><span class="nl-rev__who">Sam K.<span class="nl-rev__meta">Consultant, Bristol</span></span></figcaption></figure></li>
+    </ul>
+    <p class="nl-revs__note">Feedback collected by us after filing. Surnames shortened for privacy.</p>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="nl-sec nl-sec--lav" id="faq" aria-labelledby="nl-faq-title">
+  <div class="nl-wrap nl-faq__grid">
+    <div class="nl-pin" id="nl-faq-left">
+      <p class="nl-kicker">Questions</p>
+      <h2 class="nl-h2" id="nl-faq-title">Questions we&rsquo;re asked most</h2>
+      <p class="nl-lede">Short answers to the things people usually want to know before they get in touch.</p>
+      <div class="nl-faq__help">
+        <h3>Can&rsquo;t see your question?</h3>
+        <p>Call us and you&rsquo;ll speak to an accountant, not a call centre.</p>
+        <a class="nl-faq__phone" href="tel:+441174960418"><svg class="nl-ico" aria-hidden="true"><use href="#i-phone"/></svg>0117 496 0418</a>
+      </div>
+    </div>
+    <div id="nl-faq-right">
+      <div class="nl-chiprow nl-chiprow--scroll nl-faq__chips" role="group" aria-label="Filter questions by topic">
+        <button class="nl-chip" type="button" data-cat="all" aria-pressed="true">All questions</button>
+        <button class="nl-chip" type="button" data-cat="start" aria-pressed="false">Getting started</button>
+        <button class="nl-chip" type="button" data-cat="fees" aria-pressed="false">Fees</button>
+        <button class="nl-chip" type="button" data-cat="dead" aria-pressed="false">Deadlines and penalties</button>
+        <button class="nl-chip" type="button" data-cat="land" aria-pressed="false">Landlords</button>
+        <button class="nl-chip" type="button" data-cat="mtd" aria-pressed="false">Making Tax Digital</button>
+      </div>
+      <div class="nl-qas" id="nl-qas">
+        <div class="nl-qa" data-cat="start"><h3 class="nl-qa__h"><button class="nl-qa__btn" type="button" aria-expanded="true" aria-controls="nl-qa-1">Do I need to file a Self Assessment return?<span class="nl-qa__icon" aria-hidden="true"><svg class="nl-ico"><use href="#i-chev"/></svg></span></button></h3>
+          <div class="nl-qa__panel" id="nl-qa-1"><p>You usually do if, in the last tax year, you were self-employed with income over &pound;1,000 before expenses, had rental income over &pound;1,000, had untaxed income such as foreign income, made capital gains you need to report, or need to pay the High Income Child Benefit Charge through Self Assessment. Not sure? Send us a message and we&rsquo;ll tell you, free of charge.</p></div></div>
+        <div class="nl-qa" data-cat="start"><h3 class="nl-qa__h"><button class="nl-qa__btn" type="button" aria-expanded="false" aria-controls="nl-qa-2">What do I need to send you?<span class="nl-qa__icon" aria-hidden="true"><svg class="nl-ico"><use href="#i-chev"/></svg></span></button></h3>
+          <div class="nl-qa__panel" id="nl-qa-2" hidden><p>Your Unique Taxpayer Reference (UTR) if you have one, your P60 or P45, records of self-employed income and expenses, rental statements and costs, and statements for any interest, dividends, pensions or investments you&rsquo;ve sold. After our first call we send a checklist that only asks for what applies to you.</p></div></div>
+        <div class="nl-qa" data-cat="start"><h3 class="nl-qa__h"><button class="nl-qa__btn" type="button" aria-expanded="false" aria-controls="nl-qa-3">Can you deal with HMRC for me?<span class="nl-qa__icon" aria-hidden="true"><svg class="nl-ico"><use href="#i-chev"/></svg></span></button></h3>
+          <div class="nl-qa__panel" id="nl-qa-3" hidden><p>Yes. Once you&rsquo;ve authorised us as your tax agent, we can speak to HMRC for you, check your records and deal with letters about your return.</p></div></div>
+        <div class="nl-qa" data-cat="fees"><h3 class="nl-qa__h"><button class="nl-qa__btn" type="button" aria-expanded="false" aria-controls="nl-qa-4">Are your fees really fixed?<span class="nl-qa__icon" aria-hidden="true"><svg class="nl-ico"><use href="#i-chev"/></svg></span></button></h3>
+          <div class="nl-qa__panel" id="nl-qa-4" hidden><p>Yes. We confirm your fee in an engagement letter before we start. A &ldquo;from&rdquo; price only goes up if your return needs extra work, such as more properties or a capital gains report, and we&rsquo;ll ask you before doing anything that costs more.</p></div></div>
+        <div class="nl-qa" data-cat="fees"><h3 class="nl-qa__h"><button class="nl-qa__btn" type="button" aria-expanded="false" aria-controls="nl-qa-5">Do your prices include VAT?<span class="nl-qa__icon" aria-hidden="true"><svg class="nl-ico"><use href="#i-chev"/></svg></span></button></h3>
+          <div class="nl-qa__panel" id="nl-qa-5" hidden><p>Yes. Every price on this page includes VAT at 20%, because most of our clients are individuals who can&rsquo;t reclaim it.</p></div></div>
+        <div class="nl-qa" data-cat="dead"><h3 class="nl-qa__h"><button class="nl-qa__btn" type="button" aria-expanded="false" aria-controls="nl-qa-6">What happens if I miss 31 January?<span class="nl-qa__icon" aria-hidden="true"><svg class="nl-ico"><use href="#i-chev"/></svg></span></button></h3>
+          <div class="nl-qa__panel" id="nl-qa-6" hidden><p>HMRC charges a &pound;100 penalty as soon as your return is late, even if there&rsquo;s no tax to pay. After three months, &pound;10 a day can be added for up to 90 days, with further penalties at six and twelve months. Interest is charged on tax paid late.</p><p>If you&rsquo;ve already missed a deadline, get in touch. It&rsquo;s usually easier to put right than people expect.</p></div></div>
+        <div class="nl-qa" data-cat="dead"><h3 class="nl-qa__h"><button class="nl-qa__btn" type="button" aria-expanded="false" aria-controls="nl-qa-7">What are payments on account?<span class="nl-qa__icon" aria-hidden="true"><svg class="nl-ico"><use href="#i-chev"/></svg></span></button></h3>
+          <div class="nl-qa__panel" id="nl-qa-7" hidden><p>They&rsquo;re advance payments towards next year&rsquo;s bill. If your last Self Assessment bill was more than &pound;1,000, and less than 80% of your tax was collected at source, HMRC asks for two payments, each half of last year&rsquo;s bill, due on 31 January and 31 July.</p></div></div>
+        <div class="nl-qa" data-cat="land"><h3 class="nl-qa__h"><button class="nl-qa__btn" type="button" aria-expanded="false" aria-controls="nl-qa-8">Can I deduct my mortgage interest?<span class="nl-qa__icon" aria-hidden="true"><svg class="nl-ico"><use href="#i-chev"/></svg></span></button></h3>
+          <div class="nl-qa__panel" id="nl-qa-8" hidden><p>Not as an expense on a residential let. Instead you get a tax credit worth 20% of your mortgage interest and other finance costs. We work it out and show you the effect on your bill.</p></div></div>
+        <div class="nl-qa" data-cat="mtd"><h3 class="nl-qa__h"><button class="nl-qa__btn" type="button" aria-expanded="false" aria-controls="nl-qa-9">Does Making Tax Digital for Income Tax apply to me?<span class="nl-qa__icon" aria-hidden="true"><svg class="nl-ico"><use href="#i-chev"/></svg></span></button></h3>
+          <div class="nl-qa__panel" id="nl-qa-9" hidden><p>From 6 April 2026 it applies to sole traders and landlords whose qualifying income (self-employed turnover plus gross rent) is over &pound;50,000. From April 2027 the threshold falls to &pound;30,000. You keep digital records and send quarterly updates through compatible software, and we can do the updates for you.</p></div></div>
+        <div class="nl-qa" data-cat="mtd"><h3 class="nl-qa__h"><button class="nl-qa__btn" type="button" aria-expanded="false" aria-controls="nl-qa-10">Which software do you use?<span class="nl-qa__icon" aria-hidden="true"><svg class="nl-ico"><use href="#i-chev"/></svg></span></button></h3>
+          <!-- PLACEHOLDER: replace bracketed names with the software the firm supports. No real brand logos. -->
+          <div class="nl-qa__panel" id="nl-qa-10" hidden><p>We file through HMRC-recognised software and can work with what you already use, such as [Bookkeeping app A], [Bookkeeping app B], or a spreadsheet with bridging software.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== START FORM ===== -->
+<section class="nl-sec" id="start" aria-labelledby="nl-start-title">
+  <div class="nl-wrap nl-start__grid">
+    <div class="nl-pin" id="nl-start-left">
+      <p class="nl-kicker">Start my return</p>
+      <h2 class="nl-h2" id="nl-start-title">Tell us a little about your tax</h2>
+      <p class="nl-lede">It takes two minutes. An accountant will reply within one working day with your fixed fee and what we&rsquo;ll need from you.</p>
+      <ol class="nl-next">
+        <li><strong>We confirm your fee</strong>Usually by email the same day, or we&rsquo;ll call if we need to ask a question.</li>
+        <li><strong>You sign the engagement letter</strong>It sets out what we&rsquo;ll do, the fee and our terms.</li>
+        <li><strong>You upload your documents</strong>Through the secure portal, using a checklist made for you.</li>
+      </ol>
+      <div class="nl-contact">
+        <p class="nl-contact__row"><svg class="nl-ico" aria-hidden="true"><use href="#i-phone"/></svg><span><a href="tel:+441174960418">0117 496 0418</a><br>Monday to Friday, 9am to 5.30pm</span></p>
+        <p class="nl-contact__row"><svg class="nl-ico" aria-hidden="true"><use href="#i-mail"/></svg><span><a href="mailto:hello@example.com">hello@example.com</a></span></p>
+        <p class="nl-contact__row"><svg class="nl-ico" aria-hidden="true"><use href="#i-pin"/></svg><span>4 Lantern Yard, Redcliffe, Bristol BS1 6XX</span></p>
+      </div>
+    </div>
+    <div class="nl-form" id="nl-start-form">
+      <form id="nl-form" novalidate>
+        <h3>Your details</h3>
+        <p class="nl-form__intro">Please don&rsquo;t include your UTR, National Insurance number or bank details here. We&rsquo;ll ask for those securely later.</p>
+        <div class="nl-form__grid">
+          <div class="nl-field">
+            <label class="nl-field__label" for="nl-f-name">Full name <span class="nl-req" aria-hidden="true">*</span></label>
+            <input class="nl-input" id="nl-f-name" name="name" type="text" autocomplete="name" required aria-describedby="nl-f-name-e">
+            <span class="nl-err" id="nl-f-name-e" hidden>Please enter your name.</span>
+          </div>
+          <div class="nl-field">
+            <label class="nl-field__label" for="nl-f-email">Email <span class="nl-req" aria-hidden="true">*</span></label>
+            <input class="nl-input" id="nl-f-email" name="email" type="email" autocomplete="email" required aria-describedby="nl-f-email-e">
+            <span class="nl-err" id="nl-f-email-e" hidden>Please enter an email address like name@example.com.</span>
+          </div>
+          <div class="nl-field">
+            <label class="nl-field__label" for="nl-f-phone">Phone <span class="nl-field__hint">(optional)</span></label>
+            <input class="nl-input" id="nl-f-phone" name="phone" type="tel" autocomplete="tel">
+          </div>
+          <div class="nl-field">
+            <label class="nl-field__label" for="nl-f-post">Postcode <span class="nl-field__hint">(optional)</span></label>
+            <input class="nl-input" id="nl-f-post" name="postcode" type="text" autocomplete="postal-code" aria-describedby="nl-f-post-h">
+            <span class="nl-field__hint" id="nl-f-post-h">Helps us check which tax rates apply to you.</span>
+          </div>
+          <div class="nl-field">
+            <label class="nl-field__label" for="nl-f-type">Which return? <span class="nl-req" aria-hidden="true">*</span></label>
+            <select class="nl-input nl-select" id="nl-f-type" name="type" required aria-describedby="nl-f-type-e">
+              <option value="">Choose one</option>
+              <option>Simple return (&pound;195)</option>
+              <option>Landlord return (from &pound;295)</option>
+              <option>Complex return (from &pound;450)</option>
+              <option>Not sure yet</option>
+            </select>
+            <span class="nl-err" id="nl-f-type-e" hidden>Please choose a return, or &ldquo;Not sure yet&rdquo;.</span>
+          </div>
+          <div class="nl-field">
+            <label class="nl-field__label" for="nl-f-year">Tax year</label>
+            <select class="nl-input nl-select" id="nl-f-year" name="year">
+              <option>2025&ndash;26 (due 31 January 2027)</option>
+              <option>An earlier year I&rsquo;ve missed</option>
+              <option>Both</option>
+            </select>
+          </div>
+          <fieldset class="nl-checks nl-form__full">
+            <legend>Your income includes (tick any)</legend>
+            <label class="nl-check"><input type="checkbox" name="inc" value="employment">Employment or pension</label>
+            <label class="nl-check"><input type="checkbox" name="inc" value="self">Self-employment</label>
+            <label class="nl-check"><input type="checkbox" name="inc" value="property">UK rental property</label>
+            <label class="nl-check"><input type="checkbox" name="inc" value="gains">Crypto or capital gains</label>
+            <label class="nl-check"><input type="checkbox" name="inc" value="overseas">Overseas income</label>
+            <label class="nl-check"><input type="checkbox" name="inc" value="hicbc">Child Benefit charge</label>
+          </fieldset>
+          <div class="nl-field nl-form__full">
+            <label class="nl-field__label" for="nl-f-msg">Anything else we should know? <span class="nl-field__hint">(optional)</span></label>
+            <textarea class="nl-input" id="nl-f-msg" name="message" rows="4"></textarea>
+          </div>
+          <div class="nl-form__full">
+            <label class="nl-consent"><input type="checkbox" id="nl-f-consent" name="consent" required aria-describedby="nl-f-consent-e"><span>I&rsquo;m happy for Clearday Tax to contact me about my return. I&rsquo;ve read the <a href="#">privacy notice</a>.</span></label>
+            <span class="nl-err" id="nl-f-consent-e" hidden>Please tick this box so we can reply to you.</span>
+          </div>
+          <div class="nl-form__full">
+            <button class="nl-btn nl-btn--amber nl-form__submit" type="submit">Send my details <svg class="nl-ico" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+            <p class="nl-form__fine">We reply within one working day. This demonstration form doesn&rsquo;t send any data.</p>
+          </div>
+        </div>
+      </form>
+      <div class="nl-done" id="nl-done" tabindex="-1" hidden>
+        <span class="nl-done__icon"><svg class="nl-ico" aria-hidden="true"><use href="#i-check"/></svg></span>
+        <h3>Thanks, we&rsquo;ve got your details</h3>
+        <p id="nl-done-msg">An accountant will be in touch within one working day.</p>
+        <span class="nl-done__ref" id="nl-done-ref">NLT-0000</span>
+        <p>Demo only: nothing has been sent.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ===== FOOTER: tax-year footer ===== -->
+<footer class="nl-foot nl-dark" id="nl-footer">
+  <div class="nl-wrap">
+    <div class="nl-year" aria-labelledby="nl-year-title">
+      <div class="nl-year__head">
+        <h2 class="nl-year__title" id="nl-year-title">Tax year <span id="nl-ty-label">2026&ndash;27</span></h2>
+        <p class="nl-year__range" id="nl-ty-range">6 April 2026 to 5 April 2027</p>
+      </div>
+      <div class="nl-ruler">
+        <div class="nl-ruler__track" id="nl-ruler" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="62" aria-valuetext="62% through the tax year, 138 days left" aria-label="Progress through the current tax year">
+          <span class="nl-ruler__fill" id="nl-ruler-fill" style="width:61.9%"></span>
+          <span id="nl-ruler-marks"><span class="nl-ruler__mark" style="left:31.8%"></span><span class="nl-ruler__mark" style="left:49.9%"></span><span class="nl-ruler__mark" style="left:57%"></span><span class="nl-ruler__mark" style="left:82.2%"></span></span>
+          <span class="nl-ruler__today" id="nl-ruler-today" style="left:61.9%"><span class="nl-ruler__tag" id="nl-ruler-tag">Today, 18 Nov</span></span>
+        </div>
+        <ol class="nl-ruler__months" aria-hidden="true"><li>Apr</li><li>May</li><li>Jun</li><li>Jul</li><li>Aug</li><li>Sep</li><li>Oct</li><li>Nov</li><li>Dec</li><li>Jan</li><li>Feb</li><li>Mar</li></ol>
+        <ul class="nl-ruler__legend" id="nl-ruler-legend">
+          <li><span><b>31 Jul</b> second payment on account</span></li>
+          <li><span><b>5 Oct</b> register for Self Assessment</span></li>
+          <li><span><b>31 Oct</b> paper return deadline</span></li>
+          <li><span><b>31 Jan</b> online return and payment</span></li>
+        </ul>
+      </div>
+      <div class="nl-year__stats">
+        <p><span class="nl-stat__num" id="nl-ty-pct">62%</span><span class="nl-stat__lbl">of the tax year gone</span></p>
+        <p><span class="nl-stat__num" id="nl-ty-left">138 days</span><span class="nl-stat__lbl">left until 5 April</span></p>
+        <p class="nl-stat--next"><span class="nl-stat__lbl">Next Self Assessment deadline</span><span class="nl-stat__num" id="nl-next-date">31 January 2027</span><span class="nl-stat__lbl" id="nl-next-what">Online return and payment for 2025&ndash;26</span><span class="nl-stat__cd" id="nl-next-cd" aria-live="off">74 days to go</span></p>
+      </div>
+    </div>
+
+    <div class="nl-foot__cols">
+      <div class="nl-foot__brand">
+        <a class="nl-logo" href="#top" aria-label="Clearday Tax, back to the top of the home page"><svg aria-hidden="true"><use href="#nl-mark"/></svg><span>Clearday<span class="nl-logo__tax">Tax</span></span></a>
+        <p class="nl-foot__blurb">Self Assessment and personal tax for freelancers, landlords, high earners and people with side incomes. Bristol office, clients UK-wide.</p>
+        <ul class="nl-foot__contact">
+          <li><svg class="nl-ico" aria-hidden="true"><use href="#i-phone"/></svg><a class="nl-flink" href="tel:+441174960418">0117 496 0418</a></li>
+          <li><svg class="nl-ico" aria-hidden="true"><use href="#i-mail"/></svg><a class="nl-flink" href="mailto:hello@example.com">hello@example.com</a></li>
+          <li><svg class="nl-ico" aria-hidden="true"><use href="#i-pin"/></svg><span>4 Lantern Yard, Redcliffe, Bristol BS1 6XX</span></li>
+        </ul>
+      </div>
+      <div class="nl-fcol">
+        <p class="nl-fcol__title" aria-hidden="true">Services</p>
+        <h2 class="nl-fcol__h"><button class="nl-fcol__btn" type="button" aria-expanded="false" aria-controls="nl-fl-1">Services<svg class="nl-ico" aria-hidden="true"><use href="#i-chev"/></svg></button></h2>
+        <ul class="nl-fcol__list" id="nl-fl-1" aria-label="Services">
+          <li><a class="nl-flink" href="#prices">Self Assessment returns</a></li>
+          <li><a class="nl-flink" href="#who">Landlord tax returns</a></li>
+          <li><a class="nl-flink" href="#who">High earners and Child Benefit charge</a></li>
+          <li><a class="nl-flink" href="#who">Crypto and capital gains</a></li>
+          <li><a class="nl-flink" href="#who">Overseas income</a></li>
+          <li><a class="nl-flink" href="#deadlines">Making Tax Digital</a></li>
+        </ul>
+      </div>
+      <div class="nl-fcol">
+        <p class="nl-fcol__title" aria-hidden="true">The firm</p>
+        <h2 class="nl-fcol__h"><button class="nl-fcol__btn" type="button" aria-expanded="false" aria-controls="nl-fl-2">The firm<svg class="nl-ico" aria-hidden="true"><use href="#i-chev"/></svg></button></h2>
+        <ul class="nl-fcol__list" id="nl-fl-2" aria-label="The firm">
+          <li><a class="nl-flink" href="#about">About us</a></li>
+          <li><a class="nl-flink" href="#about">Our team</a></li>
+          <li><a class="nl-flink" href="#reviews">Client reviews</a></li>
+          <li><a class="nl-flink" href="#estimator">Tax estimator</a></li>
+          <li><a class="nl-flink" href="#">Client portal login</a></li>
+          <li><a class="nl-flink" href="#start">Contact us</a></li>
+        </ul>
+      </div>
+      <div class="nl-fcol">
+        <p class="nl-fcol__title" aria-hidden="true">Policies</p>
+        <h2 class="nl-fcol__h"><button class="nl-fcol__btn" type="button" aria-expanded="false" aria-controls="nl-fl-3">Policies<svg class="nl-ico" aria-hidden="true"><use href="#i-chev"/></svg></button></h2>
+        <ul class="nl-fcol__list" id="nl-fl-3" aria-label="Policies">
+          <li><a class="nl-flink" href="#">Privacy notice</a></li>
+          <li><a class="nl-flink" href="#">Cookie policy</a></li>
+          <li><a class="nl-flink" href="#">Terms of business</a></li>
+          <li><a class="nl-flink" href="#">Engagement letter (sample)</a></li>
+          <li><a class="nl-flink" href="#">Complaints procedure</a></li>
+          <li><a class="nl-flink" href="#">Accessibility</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="nl-reg">
+      <!-- PLACEHOLDER: professional body statement. Replace bracketed text with the firm's real membership wording before publishing. -->
+      <p><strong>Professional body.</strong> Clearday Tax Ltd is a member firm of [Professional body name], membership number [000000].</p>
+      <p><strong>Anti-money-laundering supervision.</strong> We are supervised for anti-money-laundering purposes by [Supervisory body &ndash; placeholder] under the Money Laundering, Terrorist Financing and Transfer of Funds Regulations 2017. We&rsquo;ll ask to verify your identity before we start.</p>
+      <p><strong>Professional indemnity insurance.</strong> We hold professional indemnity insurance with [Insurer &ndash; placeholder]. Details, including territorial coverage, are available on request.</p>
+      <p><strong>Complaints.</strong> If you&rsquo;re unhappy with our service, please contact our complaints partner first at <a href="mailto:complaints@example.com">complaints@example.com</a> or on <a href="tel:+441174960427">0117 496 0427</a>. If we can&rsquo;t resolve it, you can refer your complaint to [Professional body name]. See our <a href="#">complaints procedure</a>.</p>
+      <p><strong>Company details.</strong> Clearday Tax Ltd, registered in England and Wales, company number [00000000]. VAT registration number [GB 000 0000 00]. Registered office: 4 Lantern Yard, Redcliffe, Bristol BS1 6XX.</p>
+      <p><strong>Tax information</strong> on this site is general guidance for the 2025/26 and 2026/27 tax years and isn&rsquo;t advice for your circumstances. The estimator gives an estimate only.</p>
+    </div>
+
+    <div class="nl-base">
+      <p>&copy; <span id="nl-year-now">2026</span> Clearday Tax Ltd</p>
+      <div class="nl-base__links"><a class="nl-flink" href="#">Privacy</a><a class="nl-flink" href="#">Cookies</a><a class="nl-flink" href="#">Terms</a></div>
+      <button class="nl-totop" id="nl-totop" type="button" aria-label="Back to top"><svg class="nl-ico" aria-hidden="true"><use href="#i-up"/></svg></button>
+    </div>
+  </div>
+</footer>
+
+<div class="nl-bar" id="nl-bar">
+  <a class="nl-btn nl-btn--line nl-bar__call" href="tel:+441174960418"><svg class="nl-ico" aria-hidden="true"><use href="#i-phone"/></svg>Call</a>
+  <a class="nl-btn nl-btn--amber" href="#start">Start my return</a>
+</div>
+
+<script>
+(() => {
+  'use strict';
+  const $ = (s, r = document) => r.querySelector(s);
+  const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+  const mqMobile = matchMedia('(max-width: 767px)');
+  const mqDesk = matchMedia('(min-width: 1200px)');
+  const mqReduce = matchMedia('(prefers-reduced-motion: reduce)');
+  const onMq = (mq, fn) => (mq.addEventListener ? mq.addEventListener('change', fn) : mq.addListener(fn));
+  const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  const MON3 = MONTHS.map(m => m.slice(0, 3));
+  const ty = y => y + '–' + String((y + 1) % 100).padStart(2, '0');
+  const fmtDate = d => d.getDate() + ' ' + MONTHS[d.getMonth()] + ' ' + d.getFullYear();
+  const pad = n => String(n).padStart(2, '0');
+
+  /* ---------- Header shadow ---------- */
+  const head = $('#nl-head');
+  const onScroll = () => head.classList.toggle('is-scrolled', window.scrollY > 8);
+  addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  /* ---------- Full-screen menu ---------- */
+  const menu = $('#nl-menu'), burger = $('#nl-burger'), menuClose = $('#nl-menu-close');
+  let lastFocus = null;
+  function openMenu() {
+    lastFocus = document.activeElement;
+    menu.hidden = false;
+    burger.setAttribute('aria-expanded', 'true');
+    document.documentElement.classList.add('nl-lock');
+    menu.classList.add('is-open');
+    menuClose.focus();
+    updateBar();
+  }
+  function closeMenu(restore = true) {
+    menu.classList.remove('is-open');
+    menu.hidden = true;
+    burger.setAttribute('aria-expanded', 'false');
+    document.documentElement.classList.remove('nl-lock');
+    updateBar();
+    if (restore && lastFocus) lastFocus.focus();
+  }
+  burger.addEventListener('click', () => (menu.hidden ? openMenu() : closeMenu()));
+  menuClose.addEventListener('click', () => closeMenu());
+  menu.addEventListener('click', e => { if (e.target.closest('a')) closeMenu(false); });
+  document.addEventListener('keydown', e => {
+    if (menu.hidden) return;
+    if (e.key === 'Escape') { closeMenu(); return; }
+    if (e.key === 'Tab') {
+      const f = $$('a[href],button:not([disabled])', menu).filter(el => el.offsetParent !== null);
+      if (!f.length) return;
+      const first = f[0], last = f[f.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
+  });
+  onMq(mqDesk, e => { if (e.matches && !menu.hidden) closeMenu(false); });
+
+  /* ---------- Mobile action bar ---------- */
+  const bar = $('#nl-bar');
+  const inView = new Set();
+  function updateBar() {
+    if (!bar) return;
+    const hide = inView.size > 0 || !menu.hidden;
+    bar.classList.toggle('is-hidden', hide);
+    if (hide) bar.setAttribute('inert', ''); else bar.removeAttribute('inert');
+  }
+  if ('IntersectionObserver' in window) {
+    const barIO = new IntersectionObserver(entries => {
+      entries.forEach(en => (en.isIntersecting ? inView.add(en.target) : inView.delete(en.target)));
+      updateBar();
+    }, { threshold: 0 });
+    [$('#nl-footer'), $('#nl-start-form')].forEach(el => el && barIO.observe(el));
+  }
+  updateBar();
+
+  /* ---------- HERO: 3D card, reflection and ripples ---------- */
+  const hero = $('.nl-hero'), stage = $('#nl-stage'), scene = $('#nl-scene'), card = $('#nl-card');
+  const mirrorHost = $('#nl-mirror-scene'), canvas = $('#nl-ripples');
+  if (card && mirrorHost) {
+    const clone = card.cloneNode(true);
+    clone.removeAttribute('id');
+    clone.classList.add('nl-card--mirror');
+    mirrorHost.appendChild(clone);
+  }
+  const ctx = canvas ? canvas.getContext('2d') : null;
+  const PERIOD = 5600;
+  let mode = 'full', heroVisible = true, raf = 0, t0 = performance.now(), lastPhase = 0;
+  let rx = 7, ry = -14, fy = 0, trx = 7, tryy = -14, pointerOn = false, tapTimer = 0;
+  let dpr = 1, cw = 0, ch = 0, gx = 0, gy = 0, cardW = 300;
+  const ripples = [];
+
+  function setVars() {
+    const s = stage.style;
+    s.setProperty('--nl-rx', rx.toFixed(2) + 'deg');
+    s.setProperty('--nl-ry', ry.toFixed(2) + 'deg');
+    s.setProperty('--nl-fy', fy.toFixed(2) + 'px');
+    s.setProperty('--nl-sx', (50 + ry * 2.6).toFixed(1) + '%');
+    s.setProperty('--nl-sy', (28 - rx * 3).toFixed(1) + '%');
+    s.setProperty('--nl-cast-s', (1 + fy / 70).toFixed(3));
+  }
+  function staticPose() { rx = 7; ry = -14; fy = 0; setVars(); }
+
+  function sizeCanvas() {
+    if (!canvas || !ctx) return;
+    const r = canvas.getBoundingClientRect();
+    if (!r.width || !r.height) { cw = 0; return; }
+    dpr = Math.min(2, window.devicePixelRatio || 1);
+    cw = r.width; ch = r.height;
+    canvas.width = Math.round(cw * dpr); canvas.height = Math.round(ch * dpr);
+    const s = scene.getBoundingClientRect();
+    const gap = parseFloat(getComputedStyle(hero).getPropertyValue('--nl-gap')) || 30;
+    cardW = s.width;
+    gx = s.left + s.width / 2 - r.left;
+    gy = s.bottom - r.top + gap;
+  }
+  function spawn(now, strength = 1) {
+    ripples.push({ t: now, life: 5200, r0: cardW * 0.32, r1: Math.min(cw * 0.42, 560), o: 0.42 * strength });
+    ripples.push({ t: now + 420, life: 4600, r0: cardW * 0.3, r1: Math.min(cw * 0.32, 420), o: 0.22 * strength });
+    if (ripples.length > 12) ripples.splice(0, ripples.length - 12);
+  }
+  function draw(now) {
+    if (!ctx || !cw) return;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.clearRect(0, 0, cw, ch);
+    for (let i = ripples.length - 1; i >= 0; i--) {
+      const r = ripples[i];
+      const a = (now - r.t) / r.life;
+      if (a >= 1) { ripples.splice(i, 1); continue; }
+      if (a < 0) continue;
+      const e = 1 - Math.pow(1 - a, 2.2);
+      const R = r.r0 + e * r.r1;
+      const alpha = Math.pow(1 - a, 1.6) * r.o;
+      ctx.beginPath();
+      ctx.ellipse(gx, gy, R, R * 0.16, 0, 0, Math.PI * 2);
+      ctx.strokeStyle = 'rgba(190,180,255,' + alpha.toFixed(3) + ')';
+      ctx.lineWidth = 1.2;
+      ctx.stroke();
+    }
+  }
+  function drawStatic() {
+    if (!ctx) return;
+    sizeCanvas();
+    const now = performance.now();
+    ripples.length = 0;
+    ripples.push({ t: now - 1500, life: 5200, r0: cardW * 0.32, r1: Math.min(cw * 0.42, 560), o: 0.42 });
+    ripples.push({ t: now - 3300, life: 5200, r0: cardW * 0.32, r1: Math.min(cw * 0.42, 560), o: 0.42 });
+    draw(now);
+  }
+  const shouldRun = () => mode === 'full' && heroVisible && !document.hidden;
+  function frame(now) {
+    raf = 0;
+    if (!shouldRun()) return;
+    const ph = ((now - t0) % PERIOD) / PERIOD;
+    if (lastPhase < 0.25 && ph >= 0.25) spawn(now);
+    lastPhase = ph;
+    fy = Math.sin(ph * Math.PI * 2) * 9;
+    if (!pointerOn) { trx = 7 + Math.sin(now / 3100) * 2.5; tryy = -14 + Math.sin(now / 4300) * 6; }
+    rx += (trx - rx) * 0.07; ry += (tryy - ry) * 0.07;
+    setVars();
+    draw(now);
+    raf = requestAnimationFrame(frame);
+  }
+  function kick() { if (shouldRun() && !raf) raf = requestAnimationFrame(frame); }
+  function evalMode() {
+    mode = (mqMobile.matches || mqReduce.matches) ? 'static' : 'full';
+    if (mode === 'static') {
+      if (raf) { cancelAnimationFrame(raf); raf = 0; }
+      staticPose();
+      if (!mqMobile.matches) drawStatic();
+    } else {
+      sizeCanvas();
+      if (!ripples.length) { const n = performance.now(); spawn(n - 1700); spawn(n - 3600); }
+      kick();
+    }
+  }
+  if (stage && scene && card) {
+    onMq(mqMobile, evalMode); onMq(mqReduce, evalMode);
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(([en]) => { heroVisible = en.isIntersecting; kick(); }, { threshold: 0 }).observe(hero);
+    }
+    document.addEventListener('visibilitychange', kick);
+    if ('ResizeObserver' in window) {
+      new ResizeObserver(() => { if (mode === 'static') { if (!mqMobile.matches) drawStatic(); } else sizeCanvas(); }).observe(hero);
+    } else addEventListener('resize', () => (mode === 'static' ? drawStatic() : sizeCanvas()));
+    hero.addEventListener('pointermove', e => {
+      if (mode !== 'full' || e.pointerType === 'touch') return;
+      const s = scene.getBoundingClientRect();
+      const nx = Math.max(-1, Math.min(1, (e.clientX - (s.left + s.width / 2)) / (window.innerWidth * 0.45)));
+      const ny = Math.max(-1, Math.min(1, (e.clientY - (s.top + s.height / 2)) / (hero.clientHeight * 0.55)));
+      tryy = nx * 20; trx = 5 - ny * 14; pointerOn = true;
+    });
+    hero.addEventListener('pointerleave', () => { pointerOn = false; });
+    // Tap equivalent for touch screens: tilt towards the tap point, then settle
+    scene.addEventListener('pointerdown', e => {
+      if (mode !== 'full' || e.pointerType === 'mouse') return;
+      const s = scene.getBoundingClientRect();
+      const nx = Math.max(-1, Math.min(1, ((e.clientX - s.left) / s.width - 0.5) * 2));
+      const ny = Math.max(-1, Math.min(1, ((e.clientY - s.top) / s.height - 0.5) * 2));
+      tryy = nx * 20; trx = 5 - ny * 14; pointerOn = true;
+      spawn(performance.now(), 0.8);
+      clearTimeout(tapTimer); tapTimer = setTimeout(() => { pointerOn = false; }, 1600);
+    });
+    evalMode();
+  }
+
+  /* ---------- Estimator ---------- */
+  const gbp0 = n => '£' + Math.round(n).toLocaleString('en-GB');
+  const gbp2 = n => '£' + n.toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  const r2 = n => Math.round(n * 100) / 100;
+  function calcTax(emp, se, rent) {
+    const total = emp + se + rent;
+    const taper = total > 100000 ? Math.floor((total - 100000) / 2) : 0;
+    const pa = Math.max(0, 12570 - taper);
+    const taxable = Math.max(0, total - pa);
+    const BASIC = 37700, ART = 125140;
+    const basic = Math.min(taxable, BASIC);
+    const higher = Math.max(0, Math.min(taxable, ART) - BASIC);
+    const add = Math.max(0, taxable - ART);
+    const itB = r2(basic * 0.2), itH = r2(higher * 0.4), itA = r2(add * 0.45);
+    const it = r2(itB + itH + itA);
+    const c4a = Math.max(0, Math.min(se, 50270) - 12570);
+    const c4b = Math.max(0, se - 50270);
+    const c4A = r2(c4a * 0.06), c4B = r2(c4b * 0.02);
+    const c4 = r2(c4A + c4B);
+    return { emp, se, rent, total, taper, pa, taxable, basic, higher, add, itB, itH, itA, it, c4a, c4b, c4A, c4B, c4, sum: r2(it + c4) };
+  }
+  window.nlEstimate = calcTax; // exposed for testing
+  const estForm = $('#nl-est-form');
+  const inEmp = $('#nl-in-emp'), inSe = $('#nl-in-se'), inRent = $('#nl-in-rent');
+  const readMoney = el => { const v = parseFloat(String(el.value).replace(/[^0-9.]/g, '')); return isFinite(v) && v > 0 ? Math.floor(v) : 0; };
+  function row(label, calc, amount, cls) {
+    return '<tr' + (cls ? ' class="' + cls + '"' : '') + '><th scope="row">' + label + (calc ? '<span class="nl-work__calc">' + calc + '</span>' : '') + '</th><td>' + amount + '</td></tr>';
+  }
+  function renderEst() {
+    if (!estForm) return;
+    const r = calcTax(readMoney(inEmp), readMoney(inSe), readMoney(inRent));
+    $('#nl-est-big').textContent = gbp2(r.sum);
+    $('#nl-est-it').textContent = gbp2(r.it);
+    $('#nl-est-c4').textContent = gbp2(r.c4);
+    $('#nl-est-ti').textContent = gbp0(r.taxable);
+    const z = v => (v ? '' : 'is-zero');
+    $('#nl-work-body').innerHTML =
+      row('Total income', 'Employment ' + gbp0(r.emp) + ' + self-employed ' + gbp0(r.se) + ' + rental ' + gbp0(r.rent), gbp0(r.total)) +
+      row('Personal allowance', r.taper ? '£12,570 minus ' + gbp0(r.taper) + ' (£1 for every £2 over £100,000)' : 'Standard allowance, not reduced', '−' + gbp0(Math.min(r.pa, r.total))) +
+      row('Taxable income', '', gbp0(r.taxable), 'is-sub') +
+      row('Basic rate 20%', gbp0(r.basic) + ' × 20%', gbp2(r.itB), z(r.basic)) +
+      row('Higher rate 40%', gbp0(r.higher) + ' × 40%', gbp2(r.itH), z(r.higher)) +
+      row('Additional rate 45%', gbp0(r.add) + ' × 45%', gbp2(r.itA), z(r.add)) +
+      row('Income Tax', '', gbp2(r.it), 'is-sub') +
+      row('Class 4 NICs at 6%', gbp0(r.c4a) + ' × 6% (profit between £12,570 and £50,270)', gbp2(r.c4A), z(r.c4a)) +
+      row('Class 4 NICs at 2%', gbp0(r.c4b) + ' × 2% (profit above £50,270)', gbp2(r.c4B), z(r.c4b)) +
+      row('Class 4 NICs', 'No Class 2 included', gbp2(r.c4), 'is-sub') +
+      row('Estimated total', 'Income Tax + Class 4 NICs', gbp2(r.sum), 'is-total');
+  }
+  if (estForm) {
+    const chips = $$('.nl-chip[data-ex]', estForm);
+    const fmtInput = el => { const v = readMoney(el); el.value = v ? v.toLocaleString('en-GB') : '0'; };
+    [inEmp, inSe, inRent].forEach(el => {
+      el.addEventListener('input', () => { chips.forEach(c => c.setAttribute('aria-pressed', 'false')); renderEst(); });
+      el.addEventListener('blur', () => fmtInput(el));
+    });
+    estForm.addEventListener('submit', e => { e.preventDefault(); [inEmp, inSe, inRent].forEach(fmtInput); renderEst(); });
+    estForm.addEventListener('reset', () => { setTimeout(() => { [inEmp, inSe, inRent].forEach(el => (el.value = '0')); chips.forEach(c => c.setAttribute('aria-pressed', 'false')); renderEst(); }, 0); });
+    chips.forEach(c => c.addEventListener('click', () => {
+      const [a, b, d] = c.dataset.ex.split(',').map(Number);
+      inEmp.value = a.toLocaleString('en-GB'); inSe.value = b.toLocaleString('en-GB'); inRent.value = d.toLocaleString('en-GB');
+      chips.forEach(x => x.setAttribute('aria-pressed', String(x === c)));
+      renderEst();
+    }));
+    window.nlSetEstimate = (a, b, d) => { inEmp.value = a; inSe.value = b; inRent.value = d; estForm.requestSubmit ? estForm.requestSubmit() : renderEst(); return { big: $('#nl-est-big').textContent, it: $('#nl-est-it').textContent, c4: $('#nl-est-c4').textContent }; };
+    renderEst();
+  }
+
+  /* ---------- Dates: deadlines, countdowns, tax year ---------- */
+  function deadlines(now) {
+    const y = now.getFullYear(), out = [];
+    for (let Y = y - 1; Y <= y + 2; Y++) {
+      out.push({ d: new Date(Y, 0, 31, 23, 59, 59), title: 'Online return and payment', text: 'File your ' + ty(Y - 2) + ' return online and pay the balance, plus your first payment on account for ' + ty(Y - 1) + '.', short: 'Online return and payment for ' + ty(Y - 2), key: 'jan' });
+      out.push({ d: new Date(Y, 6, 31, 23, 59, 59), title: 'Second payment on account', text: 'Your second advance payment towards the ' + ty(Y - 1) + ' tax year.', short: 'Second payment on account for ' + ty(Y - 1), key: 'jul' });
+      out.push({ d: new Date(Y, 9, 5, 23, 59, 59), title: 'Register for Self Assessment', text: 'Tell HMRC by this date if you need to file a return for ' + ty(Y - 1) + ' for the first time.', short: 'Register for Self Assessment for ' + ty(Y - 1), key: 'oct5' });
+      out.push({ d: new Date(Y, 9, 31, 23, 59, 59), title: 'Paper return deadline', text: 'Paper returns for ' + ty(Y - 1) + ' must reach HMRC by this date. Online returns have until 31 January.', short: 'Paper return deadline for ' + ty(Y - 1), key: 'oct31' });
+    }
+    return out.sort((a, b) => a.d - b.d);
+  }
+  const now0 = new Date();
+  const upcoming = deadlines(now0).filter(x => x.d > now0);
+  const nextJan = upcoming.find(x => x.key === 'jan');
+  const nextAny = upcoming[0];
+
+  // Key dates list
+  const dl = $('#nl-dates');
+  if (dl) {
+    dl.innerHTML = upcoming.slice(0, 4).map((x, i) =>
+      '<li class="nl-date' + (i === 0 ? ' is-next' : '') + '"><div class="nl-date__cal" aria-hidden="true"><span class="nl-date__day">' + x.d.getDate() + '</span><span class="nl-date__mon">' + MON3[x.d.getMonth()] + '</span></div><div><h3>' + x.title + ' <span class="nl-date__yr">' + fmtDate(x.d) + '</span></h3><p>' + x.text + '</p></div></li>').join('');
+  }
+  if (nextJan) {
+    $('#nl-cd-date').textContent = fmtDate(nextJan.d);
+    $('#nl-cd-what').textContent = 'File your ' + ty(nextJan.d.getFullYear() - 2) + ' return online and pay what you owe.';
+  }
+  function split(ms) {
+    ms = Math.max(0, ms);
+    const d = Math.floor(ms / 864e5), h = Math.floor(ms / 36e5) % 24, m = Math.floor(ms / 6e4) % 60, s = Math.floor(ms / 1e3) % 60;
+    return { d, h, m, s };
+  }
+  function tickCountdown() {
+    if (!nextJan) return;
+    const p = split(nextJan.d - new Date());
+    $('#nl-cd-d').textContent = p.d; $('#nl-cd-h').textContent = pad(p.h); $('#nl-cd-m').textContent = pad(p.m); $('#nl-cd-s').textContent = pad(p.s);
+  }
+  function tickNext() {
+    if (!nextAny) return;
+    const p = split(nextAny.d - new Date());
+    $('#nl-next-cd').textContent = p.d + ' days ' + pad(p.h) + 'h ' + pad(p.m) + 'm ' + pad(p.s) + 's to go';
+  }
+  // Only tick while visible (pauses off-screen)
+  function visibleTicker(el, fn) {
+    if (!el) return;
+    fn();
+    let id = 0;
+    const start = () => { if (!id) id = setInterval(fn, 1000); };
+    const stop = () => { clearInterval(id); id = 0; };
+    if ('IntersectionObserver' in window) new IntersectionObserver(([en]) => (en.isIntersecting ? (fn(), start()) : stop())).observe(el);
+    else start();
+  }
+  visibleTicker($('#nl-cd'), tickCountdown);
+
+  // Tax year footer
+  (function taxYearFooter() {
+    const n = now0, y = n.getFullYear();
+    const startY = n >= new Date(y, 3, 6) ? y : y - 1;
+    const start = new Date(startY, 3, 6), end = new Date(startY + 1, 3, 6);
+    const frac = Math.min(1, Math.max(0, (n - start) / (end - start)));
+    const pct = Math.round(frac * 100);
+    const daysLeft = Math.round((Date.UTC(startY + 1, 3, 5) - Date.UTC(y, n.getMonth(), n.getDate())) / 864e5);
+    $('#nl-ty-label').textContent = ty(startY);
+    $('#nl-ty-range').textContent = '6 April ' + startY + ' to 5 April ' + (startY + 1);
+    $('#nl-ruler-fill').style.width = (frac * 100).toFixed(2) + '%';
+    $('#nl-ruler-today').style.left = (frac * 100).toFixed(2) + '%';
+    $('#nl-ruler-tag').textContent = 'Today, ' + n.getDate() + ' ' + MON3[n.getMonth()];
+    $('#nl-ty-pct').textContent = pct + '%';
+    $('#nl-ty-left').textContent = daysLeft + (daysLeft === 1 ? ' day' : ' days');
+    const rl = $('#nl-ruler');
+    rl.setAttribute('aria-valuenow', pct);
+    rl.setAttribute('aria-valuetext', pct + '% through the ' + ty(startY) + ' tax year, ' + daysLeft + ' days left');
+    const inYear = deadlines(n).filter(x => x.d >= start && x.d < end);
+    $('#nl-ruler-marks').innerHTML = inYear.map(x => '<span class="nl-ruler__mark" style="left:' + (((x.d - start) / (end - start)) * 100).toFixed(2) + '%"></span>').join('');
+    const legendTxt = { jul: 'second payment on account', oct5: 'register for Self Assessment', oct31: 'paper return deadline', jan: 'online return and payment' };
+    $('#nl-ruler-legend').innerHTML = inYear.map(x => '<li><span><b>' + x.d.getDate() + ' ' + MON3[x.d.getMonth()] + '</b> ' + legendTxt[x.key] + '</span></li>').join('');
+    if (nextAny) { $('#nl-next-date').textContent = fmtDate(nextAny.d); $('#nl-next-what').textContent = nextAny.short; }
+    $('#nl-year-now').textContent = y;
+  })();
+  visibleTicker($('#nl-footer'), tickNext);
+
+  /* ---------- FAQ ---------- */
+  $$('.nl-qa__btn').forEach(btn => btn.addEventListener('click', () => {
+    const open = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!open));
+    $('#' + btn.getAttribute('aria-controls')).hidden = open;
+  }));
+  const faqChips = $$('.nl-faq__chips .nl-chip');
+  faqChips.forEach(c => c.addEventListener('click', () => {
+    const cat = c.dataset.cat;
+    faqChips.forEach(x => x.setAttribute('aria-pressed', String(x === c)));
+    $$('#nl-qas .nl-qa').forEach(q => { q.hidden = !(cat === 'all' || q.dataset.cat === cat); });
+  }));
+
+  /* ---------- Footer accordions (mobile only) ---------- */
+  const fcols = $$('.nl-fcol');
+  function footerMode() {
+    fcols.forEach(col => {
+      const b = $('.nl-fcol__btn', col), list = $('.nl-fcol__list', col);
+      if (mqMobile.matches) { const open = b.getAttribute('aria-expanded') === 'true'; list.hidden = !open; }
+      else list.hidden = false;
+    });
+  }
+  fcols.forEach(col => {
+    const b = $('.nl-fcol__btn', col), list = $('.nl-fcol__list', col);
+    b.addEventListener('click', () => { const open = b.getAttribute('aria-expanded') === 'true'; b.setAttribute('aria-expanded', String(!open)); list.hidden = open; });
+  });
+  onMq(mqMobile, footerMode);
+  footerMode();
+
+  /* ---------- Start form (simulated) ---------- */
+  const form = $('#nl-form');
+  if (form) {
+    const fields = [
+      { el: $('#nl-f-name'), err: $('#nl-f-name-e'), ok: el => el.value.trim().length > 1 },
+      { el: $('#nl-f-email'), err: $('#nl-f-email-e'), ok: el => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(el.value.trim()) },
+      { el: $('#nl-f-type'), err: $('#nl-f-type-e'), ok: el => !!el.value },
+      { el: $('#nl-f-consent'), err: $('#nl-f-consent-e'), ok: el => el.checked }
+    ];
+    const check = f => { const good = f.ok(f.el); f.err.hidden = good; f.el.setAttribute('aria-invalid', String(!good)); return good; };
+    fields.forEach(f => f.el.addEventListener('change', () => { if (f.el.getAttribute('aria-invalid') === 'true') check(f); }));
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      const bad = fields.filter(f => !check(f));
+      if (bad.length) { bad[0].el.focus(); return; }
+      const first = $('#nl-f-name').value.trim().split(/\s+/)[0];
+      const d = new Date();
+      $('#nl-done-msg').textContent = 'Thanks, ' + first + '. An accountant will be in touch within one working day with your fixed fee.';
+      $('#nl-done-ref').textContent = 'NLT-' + String(d.getFullYear()).slice(2) + pad(d.getMonth() + 1) + '-' + Math.floor(1000 + Math.random() * 9000);
+      form.hidden = true;
+      const done = $('#nl-done'); done.hidden = false; done.focus();
+    });
+  }
+
+  /* ---------- Back to top ---------- */
+  $('#nl-totop').addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: mqReduce.matches ? 'auto' : 'smooth' });
+    const logo = $('.nl-head .nl-logo'); if (logo) logo.focus({ preventScroll: true });
+  });
+})();
+</script>
+</body>
+</html>
