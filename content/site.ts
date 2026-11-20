@@ -86,7 +86,7 @@ export const resourceLinks = [
   { label: "All services", href: "/services" },
   { label: "Agency solutions", href: "/for" },
   // Case studies and Pricing are in the main menu already, so this column carries the design gallery instead
-  { label: "Our portfolios", href: "/portfolios" },
+  { label: "Portfolios", href: "/portfolios" },
   { label: "How we work", href: "/how-we-work" },
   { label: "FAQ", href: "/faq" },
 ];

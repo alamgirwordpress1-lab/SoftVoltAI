@@ -2,14 +2,14 @@ import { page } from "@/content/copy/schema";
 import { banner, ctaBand, seo } from "@/content/copy/sections";
 
 /** /portfolios — the website designs gallery. The designs themselves are listed in content/portfolios.ts. */
-export const portfoliosCopy = page("portfolios", "/portfolios", "Our portfolios", {
+export const portfoliosCopy = page("portfolios", "/portfolios", "Portfolios", {
   seo: seo(
     "Website design portfolio: live templates",
     "Modern, animated website designs you can open live on desktop, tablet and phone. Like one? We build it with your content and your brand.",
   ),
 
   banner: banner({
-    eyebrow: "Our portfolios",
+    eyebrow: "Portfolios",
     heading: "Website designs you can open, try and make yours.",
     lede: "Modern, animated designs from our team. Open any of them live and switch between desktop, tablet and phone. If one fits, we build it with your content, your brand and your client's domain.",
     facts: [

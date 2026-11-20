@@ -17,7 +17,7 @@ export default async function PortfoliosPage() {
   const copy = await getCopy(portfoliosCopy);
   return (
     <>
-      <PageHero crumbs={[{ name: "Our portfolios", href: "/portfolios" }]} {...bannerProps(copy.banner)} />
+      <PageHero crumbs={[{ name: "Portfolios", href: "/portfolios" }]} {...bannerProps(copy.banner)} />
       <div className="border-t border-line">
         <PortfolioGrid designs={portfolioDesigns} categories={portfolioCategories} />
       </div>
