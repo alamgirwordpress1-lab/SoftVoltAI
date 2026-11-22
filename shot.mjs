@@ -4,7 +4,7 @@ fs.mkdirSync("out", { recursive: true });
 const b = await chromium.launch();
 for (const f of fs.readdirSync("ag")) {
   const slug = f.replace(".html", "");
-  for (const [mode, opt] of [["d", { viewport: { width: 1440, height: 900 } }], ["m", { ...devices["iPhone 13"], deviceScaleFactor: 1 }]]) {
+  for (const [mode, opt] of [["d", { viewport: { width: 1440, height: 900 }, reducedMotion: "reduce" }]]) {
     const ctx = await b.newContext(opt); const p = await ctx.newPage(); const errs=[];
     p.on("pageerror", e => errs.push(String(e).slice(0,100)));
     await p.goto("file://" + process.cwd() + "/ag/" + f, { waitUntil: "networkidle", timeout: 60000 });

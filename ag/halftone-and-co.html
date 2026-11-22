@@ -50,7 +50,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:400;letter-spacing:-.02em;line-hei
 .hero{padding:70px 0 40px}
 .hero h1{font-size:clamp(46px,8.4vw,132px);max-width:13ch}
 .hero h1 em{font-style:italic;color:var(--red)}
-.swap{display:inline-block;min-width:6ch;border-bottom:3px solid var(--red)}
+.swap{font-style:italic;color:var(--red)}
 .hero-row{display:grid;gap:30px;margin-top:40px;align-items:end}
 @media(min-width:900px){.hero-row{grid-template-columns:1.2fr 1fr}}
 .hero p.lede{font-size:19px;max-width:46ch;color:var(--muted);margin:0 0 26px}
@@ -194,7 +194,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:20px;justify-content:space-between}
   <section class="hero">
     <div class="wrap">
       <p class="eyebrow"><span class="dot"></span>Brand identity studio · Clerkenwell, London</p>
-      <h1>Brands that look <em>sure</em> of <span class="swap" id="swap">themselves</span>.</h1>
+      <h1>Brands that look <span class="swap" id="swap">sure of themselves</span>.</h1>
       <div class="hero-row">
         <div>
           <p class="lede">We are an independent studio of eleven. We name companies, build their identities and design the packaging, websites and signage that carry them, for founders who are about to raise, rebrand or launch.</p>
@@ -337,7 +337,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:20px;justify-content:space-between}
   b.addEventListener('click',function(){var o=d.classList.toggle('open');b.setAttribute('aria-expanded',o)});
   d.addEventListener('click',function(e){if(e.target.tagName==='A'){d.classList.remove('open');b.setAttribute('aria-expanded','false')}});
 
-  var words=['themselves','ambitious','honest','inevitable','yours'],i=0,sw=document.getElementById('swap');
+  var words=['sure of themselves','ready to grow','worth the price','like nobody else'],i=0,sw=document.getElementById('swap');
   if(!matchMedia('(prefers-reduced-motion: reduce)').matches)setInterval(function(){i=(i+1)%words.length;sw.textContent=words[i]},2400);
 
   document.querySelectorAll('.filters button').forEach(function(btn){
