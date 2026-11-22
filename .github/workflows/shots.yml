@@ -7,15 +7,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: |
-          sudo apt-get install -y whois >/dev/null 2>&1
-          { echo "== whois"; whois softvoltai.com | grep -iE "creation|registry expiry|registrar:" | head -5
-            echo "== wayback first"; curl -s "https://web.archive.org/cdx/search/cdx?url=softvoltai.com&limit=3&output=json&fl=timestamp,original"
-            echo "== wayback count"; curl -s "https://web.archive.org/cdx/search/cdx?url=softvoltai.com/*&output=json&fl=timestamp&collapse=timestamp:6" | head -c 600
-            echo; echo "== bing site"; curl -s -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120 Safari/537.36" "https://www.bing.com/search?q=site%3Asoftvoltai.com&count=50" | grep -oE 'https://www\.softvoltai\.com[^"<& ]*' | sort -u | head -60
-            echo "== ddg site"; curl -s -A "Mozilla/5.0" "https://html.duckduckgo.com/html/?q=site%3Asoftvoltai.com" | grep -oE 'softvoltai\.com[^"<&% ]*' | sort -u | head -40
-            echo "== ddg brand"; curl -s -A "Mozilla/5.0" "https://html.duckduckgo.com/html/?q=softvoltai" | grep -oE 'result__url[^>]*>[^<]*' | sed 's/.*>//' | head -15
-            echo "== links to old slugs"; for u in / /case-studies /services /blog; do curl -s https://www.softvoltai.com$u | grep -oE 'href="/case-studies/(seo-agency-in-essex|bulk-bag-man|heat-pumps-4-pools)"' | sort -u | sed "s#^#$u #"; done
-            echo "== rates"; curl -s -o /dev/null -w '%{http_code} %{redirect_url}\n' https://www.softvoltai.com/rates
-          } > res/presence.txt 2>&1
+          mkdir -p res/chunks
+          for c in 3lbm-r_1xmrrq 1mbrxa5cb19k1 0abjl_yrkfll5; do curl -s https://www.softvoltai.com/_next/static/chunks/$c.js -o res/chunks/$c.js; done
           git config user.name audit && git config user.email audit@users.noreply.github.com
-          git add res && git commit -qm presence && git push -q
+          git add res && git commit -qm chunks && git push -q
