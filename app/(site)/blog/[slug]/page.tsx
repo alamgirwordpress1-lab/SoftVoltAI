@@ -15,6 +15,7 @@ import { getSiteChrome } from "@/lib/cms/site";
 import { cms } from "@/lib/cms";
 import { ProductLinks } from "@/components/sections/ProductLinks";
 import { postProducts } from "@/content/product-links";
+import { routeHtml } from "@/lib/links/route-cta";
 
 /** Posts published after the last build render on first request, then cache. */
 export const dynamicParams = true;
@@ -149,7 +150,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           ) : null}
 
           {/* the editor's own HTML: headings, lists and links, styled by .prose-site */}
-          <div className="prose-site mt-10" dangerouslySetInnerHTML={{ __html: post.content }} />
+          <div className="prose-site mt-10" dangerouslySetInnerHTML={{ __html: routeHtml(post.content) }} />
 
           <ProductLinks products={products} slugs={postProducts[slug]} variant="inline" />
 

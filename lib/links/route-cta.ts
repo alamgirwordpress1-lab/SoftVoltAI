@@ -14,7 +14,8 @@
  * call booking (#call) or one that mentions a call or a question is left alone.
  */
 
-const BRIEF_WORDS = /\b(brief|quote|project|figma|estimate|start with one)\b|send us one/i;
+const BRIEF_WORDS =
+  /\b(brief|quote|project|figma|estimate|start with one)\b|send us one/i;
 const CONTACT_WORDS = /\b(call|question|contact|ask|talk|support|message)\b/i;
 
 /** Is this an address on the plain contact page (not the call booking)? */
@@ -30,7 +31,22 @@ export function routeCta(text: string, url: string): string {
 }
 
 /** The same rule for a { label, href } link from the site settings. */
-export function routeLink<T extends { label: string; href: string }>(link: T): T {
+export function routeLink<T extends { label: string; href: string }>(
+  link: T,
+): T {
   const href = routeCta(link.label, link.href);
   return href === link.href ? link : { ...link, href };
+}
+
+/** The same rule for the links inside a post's HTML, written in the WordPress editor. */
+export function routeHtml(html: string): string {
+  return html.replace(
+    /<a(\s[^>]*?)href="(?:https:\/\/www\.softvoltai\.com)?(\/contact[^"]*)"([^>]*)>([\s\S]*?)<\/a>/g,
+    (whole, before: string, url: string, after: string, inner: string) => {
+      const href = routeCta(inner.replace(/<[^>]+>/g, " "), url);
+      return href === url
+        ? whole
+        : `<a${before}href="${href}"${after}>${inner}</a>`;
+    },
+  );
 }
