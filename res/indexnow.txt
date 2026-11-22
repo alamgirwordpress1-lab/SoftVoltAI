@@ -1,4 +1,0 @@
-key file: 0bb59e9649e9711c2fc1bd649b64ca2c
-urls: 99
-indexnow: 200
-bing: 200

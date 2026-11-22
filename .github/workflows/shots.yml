@@ -2,13 +2,12 @@ name: preview-shots
 on: { push: { branches: [preview-shots] } }
 permissions: { contents: write }
 jobs:
-  links:
+  live:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with: { node-version: 22 }
-      - run: node links.mjs
+      - run: npm i playwright@1.48.2 && npx playwright install --with-deps chromium
+      - run: node live.mjs
       - run: |
           git config user.name a && git config user.email a@users.noreply.github.com
-          git add res && git commit -qm links && git push -q
+          git add out && git commit -qm live && git push -q
