@@ -2,20 +2,13 @@ name: preview-shots
 on: { push: { branches: [preview-shots] } }
 permissions: { contents: write }
 jobs:
-  shots:
+  links:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: npm i playwright@1.48.2 && npx playwright install --with-deps chromium && pip install pillow
-      - run: node shot.mjs
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - run: node links.mjs
       - run: |
-          python3 -c "
-          from PIL import Image; import glob,os
-          os.makedirs('webp',exist_ok=True); os.makedirs('full',exist_ok=True)
-          for f in glob.glob('out/*.png'):
-              b=os.path.basename(f)[:-4]; im=Image.open(f).convert('RGB')
-              if b.endswith('-full'): im.resize((480,int(im.height*480/im.width))).save('full/'+b+'.jpg',quality=60)
-              else: im.resize((1200,750),Image.LANCZOS).save('webp/'+b+'.webp',quality=80)
-          "
-          git config user.name shots && git config user.email shots@users.noreply.github.com
-          git add webp full && git commit -qm shots && git push -q
+          git config user.name a && git config user.email a@users.noreply.github.com
+          git add res && git commit -qm links && git push -q
