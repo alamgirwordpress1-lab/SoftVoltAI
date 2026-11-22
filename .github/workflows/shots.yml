@@ -11,9 +11,11 @@ jobs:
       - run: |
           python3 -c "
           from PIL import Image; import glob,os
-          os.makedirs('webp',exist_ok=True)
+          os.makedirs('webp',exist_ok=True); os.makedirs('full',exist_ok=True)
           for f in glob.glob('out/*.png'):
-              Image.open(f).convert('RGB').resize((1200,750),Image.LANCZOS).save('webp/'+os.path.basename(f)[:-4]+'.webp',quality=80)
+              b=os.path.basename(f)[:-4]; im=Image.open(f).convert('RGB')
+              if b.endswith('-full'): im.resize((360,int(im.height*360/im.width))).save('full/'+b+'.jpg',quality=55)
+              else: im.resize((1200,750),Image.LANCZOS).save('webp/'+b+'.webp',quality=80)
           "
           git config user.name shots && git config user.email shots@users.noreply.github.com
-          git add webp && git commit -qm shots && git push -q
+          git add webp full && git commit -qm shots && git push -q
