@@ -25,6 +25,8 @@ function isPlainContact(url: string): boolean {
 
 /** The address this call to action should really use. */
 export function routeCta(text: string, url: string): string {
+  // the brief form used to live at the foot of the home page
+  if (url === "/#brief") return "/quote";
   if (!url || !isPlainContact(url)) return url;
   if (!BRIEF_WORDS.test(text) || CONTACT_WORDS.test(text)) return url;
   return "/quote";
