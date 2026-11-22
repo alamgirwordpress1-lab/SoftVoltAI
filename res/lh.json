@@ -1,0 +1,150 @@
+{
+ "lh_x.json": {
+  "perf": 0.79,
+  "seo": 1,
+  "a11y": 1,
+  "bp": 1,
+  "LCP": "3.6 s",
+  "TBT": "390 ms",
+  "CLS": "0",
+  "fails": [
+   "first-contentful-paint:2.1 s",
+   "largest-contentful-paint:3.6 s",
+   "total-blocking-time:390 ms",
+   "max-potential-fid:320 ms",
+   "interactive:6.0 s",
+   "label-content-name-mismatch"
+  ],
+  "details": [
+   "label-content-name-mismatch: [\"<a href=\\\"https://www.linkedin.com/company/softvoltai/\\\" aria-label=\\\"LinkedIn\\\" target=\\\"_blank\\\" rel=\\\"noopener noreferrer\\\" class=\\\"grid h-11 w-11\"]"
+  ]
+ },
+ "lh_xblog_website-go-live-checklist.json": {
+  "perf": 0.85,
+  "seo": 1,
+  "a11y": 1,
+  "bp": 1,
+  "LCP": "4.2 s",
+  "TBT": "30 ms",
+  "CLS": "0",
+  "fails": [
+   "first-contentful-paint:1.9 s",
+   "largest-contentful-paint:4.2 s",
+   "interactive:6.4 s",
+   "label-content-name-mismatch"
+  ],
+  "details": [
+   "label-content-name-mismatch: [\"<a href=\\\"https://www.linkedin.com/company/softvoltai/\\\" aria-label=\\\"LinkedIn\\\" target=\\\"_blank\\\" rel=\\\"noopener noreferrer\\\" class=\\\"grid h-11 w-11\"]"
+  ]
+ },
+ "lh_xcontact.json": {
+  "perf": 0.85,
+  "seo": 1,
+  "a11y": 1,
+  "bp": 1,
+  "LCP": "4.2 s",
+  "TBT": "40 ms",
+  "CLS": "0",
+  "fails": [
+   "first-contentful-paint:1.9 s",
+   "largest-contentful-paint:4.2 s",
+   "interactive:6.1 s",
+   "label-content-name-mismatch"
+  ],
+  "details": [
+   "label-content-name-mismatch: [\"<a href=\\\"https://www.linkedin.com/company/softvoltai/\\\" aria-label=\\\"LinkedIn\\\" target=\\\"_blank\\\" rel=\\\"noopener noreferrer\\\" class=\\\"grid h-11 w-11\"]"
+  ]
+ },
+ "lh_xfor_seo-agencies.json": {
+  "perf": 0.84,
+  "seo": 1,
+  "a11y": 1,
+  "bp": 1,
+  "LCP": "4.2 s",
+  "TBT": "80 ms",
+  "CLS": "0",
+  "fails": [
+   "first-contentful-paint:1.8 s",
+   "largest-contentful-paint:4.2 s",
+   "interactive:5.8 s",
+   "label-content-name-mismatch"
+  ],
+  "details": [
+   "label-content-name-mismatch: [\"<a href=\\\"https://www.linkedin.com/company/softvoltai/\\\" aria-label=\\\"LinkedIn\\\" target=\\\"_blank\\\" rel=\\\"noopener noreferrer\\\" class=\\\"grid h-11 w-11\"]"
+  ]
+ },
+ "lh_xportfolios.json": {
+  "perf": 0.84,
+  "seo": 1,
+  "a11y": 1,
+  "bp": 1,
+  "LCP": "4.2 s",
+  "TBT": "30 ms",
+  "CLS": "0",
+  "fails": [
+   "first-contentful-paint:1.9 s",
+   "largest-contentful-paint:4.2 s",
+   "interactive:6.5 s",
+   "label-content-name-mismatch"
+  ],
+  "details": [
+   "label-content-name-mismatch: [\"<a href=\\\"https://www.linkedin.com/company/softvoltai/\\\" aria-label=\\\"LinkedIn\\\" target=\\\"_blank\\\" rel=\\\"noopener noreferrer\\\" class=\\\"grid h-11 w-11\"]"
+  ]
+ },
+ "lh_xproducts_ai-seo-audit.json": {
+  "perf": 0.86,
+  "seo": 1,
+  "a11y": 1,
+  "bp": 1,
+  "LCP": "4.1 s",
+  "TBT": "40 ms",
+  "CLS": "0",
+  "fails": [
+   "first-contentful-paint:1.8 s",
+   "largest-contentful-paint:4.1 s",
+   "interactive:5.8 s",
+   "label-content-name-mismatch"
+  ],
+  "details": [
+   "label-content-name-mismatch: [\"<a href=\\\"https://www.linkedin.com/company/softvoltai/\\\" aria-label=\\\"LinkedIn\\\" target=\\\"_blank\\\" rel=\\\"noopener noreferrer\\\" class=\\\"grid h-11 w-11\"]"
+  ]
+ },
+ "lh_xquote.json": {
+  "perf": 0.8,
+  "seo": 1,
+  "a11y": 1,
+  "bp": 1,
+  "LCP": "4.1 s",
+  "TBT": "270 ms",
+  "CLS": "0",
+  "fails": [
+   "first-contentful-paint:1.9 s",
+   "largest-contentful-paint:4.1 s",
+   "total-blocking-time:270 ms",
+   "max-potential-fid:280 ms",
+   "interactive:6.3 s",
+   "label-content-name-mismatch"
+  ],
+  "details": [
+   "label-content-name-mismatch: [\"<a href=\\\"https://www.linkedin.com/company/softvoltai/\\\" aria-label=\\\"LinkedIn\\\" target=\\\"_blank\\\" rel=\\\"noopener noreferrer\\\" class=\\\"grid h-11 w-11\"]"
+  ]
+ },
+ "lh_xservices_white-label-wordpress-development.json": {
+  "perf": 0.86,
+  "seo": 1,
+  "a11y": 1,
+  "bp": 1,
+  "LCP": "4.0 s",
+  "TBT": "30 ms",
+  "CLS": "0",
+  "fails": [
+   "first-contentful-paint:1.9 s",
+   "largest-contentful-paint:4.0 s",
+   "interactive:6.3 s",
+   "label-content-name-mismatch"
+  ],
+  "details": [
+   "label-content-name-mismatch: [\"<a href=\\\"https://www.linkedin.com/company/softvoltai/\\\" aria-label=\\\"LinkedIn\\\" target=\\\"_blank\\\" rel=\\\"noopener noreferrer\\\" class=\\\"grid h-11 w-11\"]"
+  ]
+ }
+}
