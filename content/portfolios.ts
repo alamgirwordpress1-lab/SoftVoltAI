@@ -109,15 +109,6 @@ export const portfolioDesigns: PortfolioDesign[] = [
     tags: ["Bakery", "Order ahead", "Bold type"],
   },
   {
-    slug: "teme-and-oak",
-    name: "Teme & Oak",
-    category: "E-commerce",
-    summary:
-      'A made-to-order furniture shop with a "Will it fit?" room planner, product filters and a basket drawer.',
-    ...p("ecommerce", "teme-and-oak"),
-    tags: ["Online shop", "Room planner", "Basket"],
-  },
-  {
     slug: "studio-north",
     name: "Studio North",
     category: "Agency & studio",
