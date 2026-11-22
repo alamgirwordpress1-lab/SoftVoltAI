@@ -1,20 +1,12 @@
 name: preview-shots
 on: { push: { branches: [preview-shots] } }
-permissions: { contents: write }
 jobs:
-  shots:
+  check:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - run: npm i playwright@1.48.2 && npx playwright install --with-deps chromium && pip install pillow
-      - run: node shot.mjs
       - run: |
-          python3 -c "
-          from PIL import Image; import glob,os
-          os.makedirs('webp',exist_ok=True)
-          for f in glob.glob('out/*.png'):
-              im=Image.open(f).convert('RGB').resize((1200,750),Image.LANCZOS)
-              im.save('webp/'+os.path.basename(f)[:-4]+'.webp',quality=80)
-          "
-          git config user.name shots && git config user.email shots@users.noreply.github.com
-          git add webp && git commit -qm "shots" && git push -q
+          B=https://www.softvoltai.com
+          h=$(curl -s $B/portfolios); for k in Hollybrook Glassline Redbrick Porchlight Brightwell "Northside Gyms" "Kelvin &amp; Close"; do echo "PF $k $(echo "$h" | grep -o "$k" | wc -l)"; done
+          for u in /portfolio/fitness/redbrick-gyms-manchester/preview.webp /portfolio/real-estate/byres-and-kerr-glasgow-west-end/preview.webp /portfolio/fitness/northside-gyms-manchester/index.html /portfolios /quote /services/local-seo; do echo "ST $(curl -s -o /dev/null -w '%{http_code} %{content_type}' $B$u) $u"; done
+          s=$(curl -s $B/services/local-seo); echo "SVC $(echo "$s" | grep -oE 'Hollybrook|Glassline|Movewell|Nightwell|Loom|Forgeline|Kinetic|Redbrick|Solace|Ridgeline|Hearth|Brightwell|Ironclad' | sort -u | tr '\n' ' ')"
+          echo "SVCIMG $(echo "$s" | grep -oE 'portfolio/cleaning/[a-z-]+/preview.webp' | sort -u | tr '\n' ' ')"
