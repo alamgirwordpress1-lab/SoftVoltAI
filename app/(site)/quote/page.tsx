@@ -4,6 +4,7 @@ import { BriefCta } from "@/components/sections/BriefCta";
 import { homeCopy } from "@/content/copy/home";
 import { getCopy } from "@/lib/cms/copy";
 import { cms } from "@/lib/cms";
+import { getSiteChrome } from "@/lib/cms/site";
 
 export const metadata: Metadata = {
   title: "Get a quote for your website, SEO or AI project",
