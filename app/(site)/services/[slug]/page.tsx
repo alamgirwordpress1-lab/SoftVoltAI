@@ -20,6 +20,8 @@ import { ServiceArt, pillarArt } from "@/components/illustrations/ServiceArt";
 import { BandDecor } from "@/components/illustrations/BandDecor";
 import { BodyToc, type TocItem } from "@/components/sections/BodyToc";
 import { ServicePortfolio } from "@/components/sections/ServicePortfolio";
+import { ProductLinks } from "@/components/sections/ProductLinks";
+import { serviceProducts } from "@/content/product-links";
 import { designsForService } from "@/content/portfolios";
 
 const ENTITIES: Record<string, string> = {
@@ -126,6 +128,7 @@ export default async function ServicePage({
   }));
   const body = service.body ? withHeadingIds(service.body) : null;
   const designs = designsForService(slug);
+  const products = await cms.getProducts();
 
   return (
     <>
@@ -437,6 +440,8 @@ export default async function ServicePage({
           </ul>
         </section>
       ) : null}
+
+      <ProductLinks products={products} slugs={serviceProducts[slug]} />
 
       {/* the questions are each service's FAQs field; the heading beside them is the same on every service */}
       {faqs.length ? (
