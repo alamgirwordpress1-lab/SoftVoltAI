@@ -1,0 +1,2451 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Forgeline Strength Club | 24/7 powerlifting and strongman gym, Kelham Island, Sheffield</title>
+<meta name="description" content="Forgeline Strength Club is a 24/7 strength gym on Kelham Island, Sheffield: 14 combo racks, 6 deadlift platforms, calibrated plates, a strongman yard and coached powerlifting, weightlifting and beginner barbell programmes. Claim a free day pass.">
+<meta name="theme-color" content="#0D0D0E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://images.pexels.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&amp;family=Big+Shoulders+Display:wght@700;800;900&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('ic-js')</script>
+<style>
+/* ==========================================================
+   Forgeline Strength Club, Sheffield: home page
+   Prefix: ic-   Breakpoints: mobile <=767, tablet 768-1199, desktop >=1200
+   Art direction: dark industrial, chalk dust, hazard stripes, steel plate,
+   competition powerlifting meets Sheffield steelworks signage.
+   ========================================================== */
+:root{
+  --ic-black:#0D0D0E;--ic-steel:#1B1C1F;--ic-iron:#2A2C30;--ic-iron-2:#34373c;--ic-line:#33353a;
+  --ic-chalk:#EDEAE3;--ic-chalk-2:#cfcbc2;--ic-muted:#a5a199;
+  --ic-molten:#FF5A1F;--ic-molten-2:#ff7b47;--ic-molten-ink:#ff8a5c;
+  --ic-red:#D7263D;--ic-blue:#1F5BD7;--ic-yellow:#F2C230;--ic-green:#2E9E5B;--ic-white-plate:#E6E3DC;
+  --ic-fd:"Big Shoulders Display",Impact,"Arial Narrow",sans-serif;
+  --ic-fb:"Archivo",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --ic-fm:"JetBrains Mono",ui-monospace,"Cascadia Mono",Consolas,monospace;
+  --ic-strip:32px;--ic-bar:64px;
+  --ic-ease:cubic-bezier(.2,.8,.2,1);
+  --ic-hazard:repeating-linear-gradient(-45deg,var(--ic-yellow) 0 10px,var(--ic-black) 10px 20px);
+  --ic-noise:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='ic-n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .93 0 0 0 0 .92 0 0 0 0 .89 0 0 0 .5 -.12'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23ic-n)'/%3E%3C/svg%3E");
+  --ic-tread:linear-gradient(45deg,transparent 44%,rgba(237,234,227,.045) 44% 56%,transparent 56%),linear-gradient(-45deg,transparent 44%,rgba(237,234,227,.045) 44% 56%,transparent 56%);
+}
+@media (min-width:768px){:root{--ic-bar:72px;--ic-strip:34px}}
+@media (min-width:1200px){:root{--ic-bar:78px;--ic-strip:38px}}
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:calc(var(--ic-bar) + 14px);background:var(--ic-black)}
+body{margin:0;background:var(--ic-black);color:var(--ic-chalk-2);font-family:var(--ic-fb);font-size:clamp(1rem,.97rem + .15vw,1.0625rem);line-height:1.62;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body.ic-lock{overflow:hidden}
+img,svg,canvas{display:block;max-width:100%}
+img{height:auto}
+a{color:inherit}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+h1,h2,h3,h4{font-family:var(--ic-fd);color:var(--ic-chalk);font-weight:800;line-height:.95;margin:0 0 .5em;text-transform:uppercase}
+h2{font-weight:900;font-size:clamp(2.7rem,1.5rem + 4.6vw,6.25rem);line-height:.88;letter-spacing:-.005em;margin-bottom:.32em}
+h3{font-size:clamp(1.55rem,1.3rem + .8vw,2.1rem);letter-spacing:.01em}
+p{margin:0 0 1em}
+ul,ol{margin:0;padding:0}
+figure{margin:0}
+b,strong{color:var(--ic-chalk);font-weight:700}
+:focus-visible{outline:3px solid var(--ic-yellow);outline-offset:3px}
+::selection{background:var(--ic-molten);color:var(--ic-black)}
+.ic-vh{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.ic-skip{position:absolute;left:12px;top:-90px;z-index:200;background:var(--ic-yellow);color:var(--ic-black);padding:.8rem 1.2rem;font-weight:800;text-decoration:none;text-transform:uppercase;letter-spacing:.06em}
+.ic-skip:focus{top:12px}
+#ic-main:focus{outline:none}
+.ic-wrap{width:100%;max-width:1440px;margin-inline:auto;padding-inline:20px}
+@media (min-width:768px){.ic-wrap{padding-inline:32px}}
+@media (min-width:1200px){.ic-wrap{padding-inline:48px}}
+.ic-sec{position:relative;padding-block:clamp(72px,4vw + 44px,128px)}
+.ic-sec--steel{background-color:var(--ic-steel)}
+.ic-sec--tread{background-color:var(--ic-steel);background-image:var(--ic-tread);background-size:26px 13px;background-position:0 0,13px 6.5px}
+.ic-dust{position:relative;isolation:isolate}
+.ic-dust::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(60% 40% at 12% 8%,rgba(237,234,227,.06),transparent 70%),radial-gradient(40% 30% at 88% 92%,rgba(237,234,227,.05),transparent 70%),var(--ic-noise);opacity:.55}
+.ic-hl{color:var(--ic-molten)}
+.ic-hide-s{display:none}
+@media (min-width:480px){.ic-hide-s{display:inline}.ic-show-s{display:none}}
+
+/* signage label: steelworks bay plates */
+.ic-sign{position:relative;display:inline-flex;align-items:center;gap:.75rem;margin:0 0 1.15rem;padding:.42rem 1.6rem .42rem .42rem;background:var(--ic-iron);border:1px solid #3e4147;box-shadow:inset 0 1px 0 rgba(255,255,255,.06);font:700 .74rem/1 var(--ic-fm);letter-spacing:.16em;text-transform:uppercase;color:var(--ic-chalk)}
+.ic-sign::before,.ic-sign::after{content:"";position:absolute;right:7px;width:6px;height:6px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#a3a6ac,#3a3c41 70%)}
+.ic-sign::before{top:5px}
+.ic-sign::after{bottom:5px}
+.ic-sign__n{padding:.32rem .45rem;background:var(--ic-yellow);color:var(--ic-black)}
+.ic-head{display:grid;gap:1rem 3rem;align-items:end;margin-bottom:clamp(32px,2.4vw + 18px,60px)}
+@media (min-width:1000px){.ic-head{grid-template-columns:minmax(0,1.25fr) minmax(0,.9fr)}}
+.ic-head h2{margin:0}
+.ic-lede{font-size:clamp(1.05rem,1rem + .3vw,1.22rem);color:var(--ic-chalk-2);max-width:60ch;margin:0}
+.ic-small{font-size:.875rem;color:var(--ic-muted)}
+
+/* buttons */
+.ic-btn{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:.6rem;min-height:52px;padding:.8rem 1.45rem;border:2px solid transparent;border-radius:0;font:800 .92rem/1.1 var(--ic-fb);letter-spacing:.08em;text-transform:uppercase;text-decoration:none;white-space:nowrap;transition:background-color .2s,color .2s,border-color .2s,box-shadow .25s,transform .2s}
+.ic-btn svg{width:18px;height:18px;flex:none;transition:transform .2s}
+.ic-btn:hover svg{transform:translateX(3px)}
+.ic-btn:active{transform:translateY(1px)}
+.ic-btn--molten{background:var(--ic-molten);color:var(--ic-black)}
+.ic-btn--molten:hover{background:var(--ic-molten-2);box-shadow:0 0 0 4px rgba(255,90,31,.18),0 14px 30px -12px rgba(255,90,31,.7)}
+.ic-btn--molten:focus-visible{outline-color:var(--ic-chalk)}
+.ic-btn--line{border-color:rgba(237,234,227,.5);color:var(--ic-chalk);background:transparent}
+.ic-btn--line:hover{border-color:var(--ic-chalk);background:var(--ic-chalk);color:var(--ic-black)}
+.ic-btn--block{width:100%}
+.ic-link{display:inline-flex;align-items:center;gap:.4rem;font-weight:700;color:var(--ic-chalk);text-decoration:underline;text-decoration-color:var(--ic-molten);text-decoration-thickness:2px;text-underline-offset:5px}
+.ic-link svg{width:16px;height:16px;transition:transform .2s}
+.ic-link:hover{color:var(--ic-molten-ink)}
+.ic-link:hover svg{transform:translateX(3px)}
+.ic-ticks{list-style:none;display:grid;gap:.55rem}
+.ic-ticks li{display:flex;gap:.65rem;align-items:flex-start}
+.ic-ticks li::before{content:"";flex:none;width:15px;height:15px;margin-top:.3em;background:var(--ic-molten);clip-path:polygon(12% 48%,0 62%,38% 96%,100% 22%,86% 8%,38% 70%)}
+
+/* reveal on scroll (content stays visible without JS) */
+.ic-js .ic-rv{opacity:0;transform:translateY(26px);transition:opacity .7s var(--ic-ease),transform .7s var(--ic-ease);transition-delay:var(--ic-d,0s)}
+.ic-js .ic-rv.is-in{opacity:1;transform:none}
+
+/* ======================= HEADER: two-tier gym floor bar ======================= */
+.ic-header{position:fixed;top:0;left:0;right:0;z-index:70;transition:transform .4s var(--ic-ease)}
+.ic-header.is-scrolled{transform:translateY(calc(-1 * var(--ic-strip)))}
+.ic-strip{height:var(--ic-strip);background:#070708;border-bottom:1px solid #222327;font:500 .72rem/1 var(--ic-fm);letter-spacing:.04em;color:var(--ic-chalk-2);transition:opacity .3s}
+.ic-header.is-scrolled .ic-strip{opacity:0}
+.ic-strip__in{display:flex;align-items:center;justify-content:space-between;gap:.75rem;height:100%}
+@media (min-width:768px){.ic-strip{font-size:.78rem}}
+.ic-occ{display:flex;align-items:center;gap:.55rem;min-width:0;white-space:nowrap}
+.ic-occ__dot{position:relative;width:8px;height:8px;flex:none;border-radius:50%;background:var(--ic-lvl,var(--ic-green))}
+.ic-occ__dot::after{content:"";position:absolute;inset:-4px;border-radius:50%;border:2px solid var(--ic-lvl,var(--ic-green));opacity:0;animation:ic-ping 2.2s ease-out infinite}
+@keyframes ic-ping{0%{transform:scale(.5);opacity:.8}80%,100%{transform:scale(1.5);opacity:0}}
+.ic-occ b{font-weight:700;color:var(--ic-chalk)}
+.ic-occ__track{position:relative;width:clamp(44px,8vw,120px);height:8px;background:#232428;overflow:hidden;flex:none}
+.ic-occ__track::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0 9px,#070708 9px 11px)}
+.ic-occ__fill{position:absolute;inset:0;background:var(--ic-lvl,var(--ic-green));transform-origin:left;transform:scaleX(.31);transition:transform 1.2s var(--ic-ease),background-color .6s}
+.ic-occ__sep{color:#55585e}
+[data-ic-level="quiet"]{--ic-lvl:var(--ic-green)}
+[data-ic-level="steady"]{--ic-lvl:var(--ic-yellow)}
+[data-ic-level="busy"]{--ic-lvl:var(--ic-molten)}
+.ic-strip__end{display:flex;align-items:center;gap:1.1rem;flex:none}
+.ic-247{display:inline-flex;align-items:center;gap:.4rem;padding:.3rem .5rem;background:var(--ic-chalk);color:var(--ic-black);font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.ic-247 svg{width:12px;height:12px}
+.ic-strip__phone{display:none;align-items:center;gap:.4rem;color:var(--ic-chalk);text-decoration:none;font-weight:700}
+.ic-strip__phone svg{width:14px;height:14px;color:var(--ic-molten)}
+.ic-strip__phone:hover{color:var(--ic-molten-ink)}
+@media (min-width:768px){.ic-strip__phone{display:inline-flex}}
+.ic-strip__addr{display:none;color:var(--ic-muted)}
+@media (min-width:1200px){.ic-strip__addr{display:inline}}
+
+.ic-bar{position:relative;height:var(--ic-bar);background:linear-gradient(180deg,rgba(13,13,14,.82),rgba(13,13,14,0));transition:background-color .35s}
+.ic-bar::before{content:"";position:absolute;inset:0;background:var(--ic-black);opacity:0;transition:opacity .35s}
+.ic-header.is-scrolled .ic-bar::before{opacity:1}
+/* chalk-dust bottom border, shown once the bar goes solid */
+.ic-bar::after{content:"";position:absolute;left:0;right:0;top:100%;height:7px;pointer-events:none;opacity:0;transition:opacity .4s;background:radial-gradient(circle at 30% 20%,rgba(237,234,227,.55) 0 .9px,transparent 1.4px) 0 0/9px 7px,radial-gradient(circle at 70% 55%,rgba(237,234,227,.38) 0 1px,transparent 1.5px) 4px 1px/13px 7px,radial-gradient(circle at 50% 80%,rgba(237,234,227,.22) 0 .8px,transparent 1.3px) 2px 0/7px 7px,linear-gradient(180deg,rgba(237,234,227,.4) 0 1px,rgba(237,234,227,.08) 1px,transparent)}
+.ic-header.is-scrolled .ic-bar::after{opacity:1}
+.ic-bar__in{position:relative;display:flex;align-items:center;gap:1rem;height:100%}
+.ic-logo{display:inline-flex;align-items:center;gap:.65rem;margin-right:auto;text-decoration:none;color:var(--ic-chalk)}
+.ic-logo__mark{width:42px;height:42px;flex:none;transition:transform .6s var(--ic-ease)}
+.ic-logo:hover .ic-logo__mark{transform:rotate(90deg)}
+@media (min-width:1200px){.ic-logo__mark{width:48px;height:48px}}
+.ic-logo__name{display:block;font:900 1.65rem/.85 var(--ic-fd);letter-spacing:.02em;text-transform:uppercase}
+.ic-logo__sub{display:block;margin-top:.3rem;font:700 .6rem/1 var(--ic-fm);letter-spacing:.2em;text-transform:uppercase;color:var(--ic-muted)}
+.ic-nav{display:none}
+@media (min-width:1200px){.ic-nav{display:block;margin-inline:auto}}
+@media (min-width:1200px) and (max-width:1399px){.ic-bar .ic-logo__sub{display:none}}
+.ic-nav ol{list-style:none;display:flex;gap:clamp(.9rem,1.5vw,1.8rem);counter-reset:ic-nav;white-space:nowrap}
+.ic-nav a{position:relative;display:block;padding:.65rem .1rem;font:700 .82rem/1 var(--ic-fb);letter-spacing:.1em;text-transform:uppercase;color:var(--ic-chalk);text-decoration:none}
+.ic-nav a::before{counter-increment:ic-nav;content:"0" counter(ic-nav);display:block;margin-bottom:.3rem;font:500 .62rem/1 var(--ic-fm);letter-spacing:.1em;color:var(--ic-muted);transition:color .2s}
+.ic-nav a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:var(--ic-molten);transform:scaleX(0);transform-origin:left;transition:transform .25s var(--ic-ease)}
+.ic-nav a:hover::after,.ic-nav a[aria-current="true"]::after{transform:scaleX(1)}
+.ic-nav a:hover::before,.ic-nav a[aria-current="true"]::before{color:var(--ic-molten)}
+.ic-bar__end{display:flex;align-items:center;gap:.6rem}
+
+/* hazard-striped tag CTA */
+.ic-tag{display:inline-flex;text-decoration:none;color:var(--ic-black);transform:rotate(-2.5deg);transition:transform .3s var(--ic-ease)}
+.ic-tag:hover,.ic-tag:focus-visible{transform:rotate(0) translateY(-1px)}
+.ic-tag:focus-visible{outline:3px solid var(--ic-yellow);outline-offset:5px}
+.ic-tag__body{position:relative;display:inline-flex;align-items:center;min-height:44px;padding:5px 6px 5px 28px;background:var(--ic-hazard);clip-path:polygon(17px 0,100% 0,100% 100%,17px 100%,0 50%)}
+.ic-tag:hover .ic-tag__body{animation:ic-hz .7s linear infinite}
+@keyframes ic-hz{to{background-position:28.28px 0}}
+.ic-tag__body::before{content:"";position:absolute;left:12px;top:50%;width:9px;height:9px;margin-top:-4.5px;border-radius:50%;background:var(--ic-black);box-shadow:0 0 0 2px var(--ic-yellow)}
+.ic-tag__txt{display:flex;align-items:center;gap:.45rem;padding:.6rem .85rem;background:var(--ic-black);color:var(--ic-yellow);font:800 .8rem/1 var(--ic-fb);letter-spacing:.12em;text-transform:uppercase;white-space:nowrap}
+.ic-tag__txt svg{width:14px;height:14px}
+.ic-bar .ic-tag{display:none}
+@media (min-width:560px){.ic-bar .ic-tag{display:inline-flex}}
+.ic-burger{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;min-width:48px;min-height:48px;padding:0 .9rem;border:2px solid #45484e;background:var(--ic-steel);color:var(--ic-chalk);font:800 .78rem/1 var(--ic-fb);letter-spacing:.14em;text-transform:uppercase;transition:border-color .2s,background-color .2s}
+.ic-burger:hover{border-color:var(--ic-chalk)}
+.ic-burger svg{width:22px;height:22px}
+.ic-burger__txt{display:none}
+@media (min-width:768px){.ic-burger__txt{display:inline}}
+@media (min-width:1200px){.ic-burger{display:none}}
+
+/* full-screen mobile menu */
+.ic-menu{position:fixed;inset:0;z-index:90;display:flex;flex-direction:column;background:var(--ic-black);overflow-y:auto;overscroll-behavior:contain;padding-bottom:env(safe-area-inset-bottom)}
+.ic-menu::before{content:"";position:fixed;inset:0;pointer-events:none;background:var(--ic-noise);opacity:.35}
+.ic-menu__top{position:relative;display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:var(--ic-bar);border-bottom:1px solid var(--ic-line)}
+.ic-menu__close{display:inline-flex;align-items:center;gap:.5rem;min-height:48px;padding:0 .9rem;border:2px solid #45484e;background:var(--ic-steel);color:var(--ic-chalk);font:800 .78rem/1 var(--ic-fb);letter-spacing:.14em;text-transform:uppercase}
+.ic-menu__close svg{width:20px;height:20px}
+@media (max-width:479px){.ic-menu__close span{display:none}}
+.ic-menu__close:hover{border-color:var(--ic-chalk)}
+.ic-menu__nav{position:relative;flex:1;padding-block:clamp(18px,4vh,48px)}
+.ic-menu__nav ol{list-style:none;display:grid}
+.ic-menu__nav li{border-bottom:1px solid #222327;overflow:hidden}
+.ic-menu__nav a{display:flex;align-items:baseline;gap:clamp(.8rem,3vw,1.6rem);padding:.35rem 0 .2rem;text-decoration:none;color:var(--ic-chalk);transform:translateX(-14%);opacity:0;transition:transform .55s var(--ic-ease),opacity .45s,color .2s;transition-delay:calc(var(--i) * 65ms + 80ms)}
+.ic-menu.is-open .ic-menu__nav a{transform:none;opacity:1}
+.ic-menu__n{flex:none;width:2.6em;font:700 clamp(.8rem,.7rem + .5vw,1.05rem)/1 var(--ic-fm);color:var(--ic-molten)}
+.ic-menu__t{font:900 clamp(2.3rem,1.15rem + 7.2vw,6.5rem)/.92 var(--ic-fd);text-transform:uppercase;letter-spacing:-.005em}
+.ic-menu__nav a:hover .ic-menu__t,.ic-menu__nav a:focus-visible .ic-menu__t{color:var(--ic-molten)}
+.ic-menu__foot{position:relative;display:grid;gap:1rem;padding-block:20px 28px;border-top:1px solid var(--ic-line)}
+@media (min-width:768px){.ic-menu__foot{grid-template-columns:1fr auto;align-items:center}}
+.ic-menu__info{font:500 .85rem/1.5 var(--ic-fm);color:var(--ic-chalk-2)}
+.ic-menu__info a{color:var(--ic-chalk);font-weight:700}
+.ic-menu__occ{display:inline-flex;align-items:center;gap:.5rem;margin-bottom:.35rem;color:var(--ic-chalk)}
+
+/* ======================= HERO: burn-off reveal ======================= */
+.ic-hero{position:relative;isolation:isolate;display:flex;flex-direction:column;min-height:max(700px,100svh);padding-top:calc(var(--ic-strip) + var(--ic-bar) + clamp(18px,4vh,52px));overflow:hidden;background:var(--ic-black)}
+.ic-hero__media{position:absolute;inset:0;z-index:-1}
+.ic-hero__img{width:100%;height:100%;object-fit:cover;object-position:50% 50%;opacity:.34;filter:grayscale(.3) contrast(1.08)}
+.ic-hero--burn .ic-hero__img{opacity:.06}
+.ic-hero__canvas{position:absolute;inset:0;width:100%;height:100%;display:none}
+.ic-hero--burn .ic-hero__canvas{display:block}
+.ic-hero__media::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(13,13,14,.75) 0%,rgba(13,13,14,0) 26%,rgba(13,13,14,0) 62%,var(--ic-black) 100%),radial-gradient(70% 50% at 18% 30%,rgba(237,234,227,.07),transparent 70%),var(--ic-noise)}
+.ic-hero__kicker .ic-hero__hint{display:none;margin-left:auto;font-weight:500;color:var(--ic-muted);transition:opacity .6s}
+.ic-hero__kicker .ic-hero__hint::before{content:none}
+.ic-hero__hint svg{width:16px;height:16px;color:var(--ic-molten)}
+.ic-hero--burn .ic-hero__kicker .ic-hero__hint{display:inline-flex}
+@media (max-width:599px){.ic-hero__k3{display:none!important}}
+.ic-hero.is-touched .ic-hero__hint{opacity:0}
+.ic-hero__kicker{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem .9rem;margin:0 0 clamp(14px,2.4vh,28px);font:700 .74rem/1 var(--ic-fm);letter-spacing:.16em;text-transform:uppercase;color:var(--ic-chalk-2)}
+.ic-hero__kicker span{display:inline-flex;align-items:center;gap:.5rem}
+.ic-hero__kicker span + span::before{content:"";width:6px;height:6px;background:var(--ic-molten)}
+.ic-hero__title{margin:0;font:900 clamp(4.1rem,16.6vw,16.4rem)/.8 var(--ic-fd);letter-spacing:-.012em;color:var(--ic-chalk);text-transform:uppercase;user-select:none}
+.ic-hero__l1,.ic-hero__l2{display:block;white-space:nowrap}
+.ic-hero__l1{margin-left:-.045em}
+.ic-hero__l2{text-align:right;margin-right:-.11em}
+@media (max-width:1199px){.ic-hero__title{font-size:clamp(3.1rem,15.4vw,9.6rem);padding-inline:20px}.ic-hero__l1{margin-left:-.02em}.ic-hero__l2{margin-right:0}}
+@media (min-width:768px) and (max-width:1199px){.ic-hero__title{padding-inline:32px}}
+.ic-hero__dot{color:var(--ic-molten)}
+@supports (-webkit-text-stroke:2px #fff){.ic-hero__l2 .ic-hero__w{color:transparent;-webkit-text-stroke:2px var(--ic-chalk)}}
+@media (min-width:1200px){@supports (-webkit-text-stroke:3px #fff){.ic-hero__l2 .ic-hero__w{-webkit-text-stroke-width:3px}}}
+.ic-js .ic-hero__l1,.ic-js .ic-hero__l2{animation:ic-slam .9s var(--ic-ease) both}
+.ic-js .ic-hero__l2{animation-delay:.12s}
+@keyframes ic-slam{from{opacity:0;transform:translateY(.25em) scaleY(1.15)}to{opacity:1;transform:none}}
+.ic-hero__row{display:grid;gap:28px;margin-top:clamp(22px,3.5vh,44px)}
+@media (min-width:1000px){.ic-hero__row{grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);align-items:end;gap:48px}}
+.ic-hero__lede{max-width:52ch;margin:0 0 1.4rem;font-size:clamp(1.05rem,1rem + .35vw,1.25rem);color:var(--ic-chalk-2)}
+.ic-hero__lede strong{color:var(--ic-chalk)}
+.ic-hero__cta{display:flex;flex-wrap:wrap;gap:12px}
+.ic-chips{list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+@media (min-width:768px){.ic-chips{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media (min-width:1000px){.ic-chips{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (min-width:1400px){.ic-chips{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.ic-chip{position:relative;padding:14px 14px 14px 18px;background:rgba(27,28,31,.86);border:1px solid var(--ic-line);border-left:6px solid var(--ic-c,var(--ic-molten))}
+.ic-chip b{display:block;font:700 clamp(1.6rem,1.2rem + 1.1vw,2.3rem)/1 var(--ic-fm);letter-spacing:-.03em;color:var(--ic-chalk)}
+.ic-chip span{display:block;margin-top:.4rem;font:600 .72rem/1.3 var(--ic-fb);letter-spacing:.1em;text-transform:uppercase;color:var(--ic-chalk-2)}
+.ic-hero__barwrap{margin-top:auto;padding-top:clamp(18px,3vh,40px)}
+.ic-hero__barbell{width:100%;height:auto;overflow:visible}
+.ic-hero__cap{display:flex;justify-content:space-between;gap:1rem;margin:.6rem 0 clamp(14px,2.5vh,28px);font:500 .72rem/1.3 var(--ic-fm);letter-spacing:.1em;text-transform:uppercase;color:var(--ic-muted)}
+.ic-hero__cap b{color:var(--ic-molten)}
+.ic-js .ic-hb-l{animation:ic-slide-l .8s var(--ic-ease) both;animation-delay:calc(.55s + var(--i) * .13s)}
+.ic-js .ic-hb-r{animation:ic-slide-r .8s var(--ic-ease) both;animation-delay:calc(.55s + var(--i) * .13s)}
+.ic-js .ic-hb-c{animation:ic-fade .5s ease both;animation-delay:1.35s}
+@keyframes ic-slide-l{from{transform:translateX(-380px);opacity:0}to{transform:none;opacity:1}}
+@keyframes ic-slide-r{from{transform:translateX(380px);opacity:0}to{transform:none;opacity:1}}
+@keyframes ic-fade{from{opacity:0}to{opacity:1}}
+
+/* ======================= STATS STRIP + MARQUEE ======================= */
+.ic-stats{position:relative;background:var(--ic-steel);border-block:1px solid var(--ic-line)}
+.ic-stats__grid{list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+@media (max-width:767px){.ic-stat:last-child{grid-column:1/-1}}
+@media (min-width:768px) and (max-width:1199px){.ic-stats__grid{grid-template-columns:repeat(6,minmax(0,1fr))}.ic-stat{grid-column:span 2}.ic-stat:nth-child(n+4){grid-column:span 3}}
+@media (min-width:1200px){.ic-stats__grid{grid-template-columns:repeat(5,minmax(0,1fr))}}
+.ic-stat{position:relative;padding:clamp(22px,2vw + 10px,36px) clamp(14px,1.4vw,26px);border-right:1px solid var(--ic-line);border-bottom:1px solid var(--ic-line)}
+.ic-stat__n{display:block;font:900 clamp(2.8rem,2rem + 2.4vw,4.4rem)/.9 var(--ic-fd);color:var(--ic-chalk)}
+.ic-stat__n small{font-size:.5em;color:var(--ic-molten);margin-left:.08em}
+.ic-stat__l{display:block;margin-top:.55rem;font-size:.92rem;line-height:1.4;color:var(--ic-chalk-2);max-width:24ch}
+.ic-stat__k{display:block;margin-bottom:.8rem;font:500 .66rem/1 var(--ic-fm);letter-spacing:.16em;text-transform:uppercase;color:var(--ic-muted)}
+.ic-mq{position:relative;overflow:hidden;background:var(--ic-black);border-bottom:1px solid var(--ic-line)}
+.ic-mq__track{display:flex;width:max-content;animation:ic-marq 38s linear infinite}
+.ic-mq:hover .ic-mq__track{animation-play-state:paused}
+.ic-mq__list{display:flex;align-items:center;gap:1.6rem;padding:16px .8rem;list-style:none;font:900 clamp(1.4rem,1.1rem + 1vw,2.1rem)/1 var(--ic-fd);text-transform:uppercase;letter-spacing:.03em;color:var(--ic-chalk);white-space:nowrap}
+.ic-mq__list li{display:flex;align-items:center;gap:1.6rem}
+.ic-mq__list li::after{content:"";width:12px;height:12px;background:var(--ic-molten);transform:rotate(45deg)}
+.ic-mq__list li:nth-child(even){color:transparent;-webkit-text-stroke:1.2px var(--ic-chalk-2)}
+@keyframes ic-marq{to{transform:translateX(-50%)}}
+
+/* ======================= THE FLOOR: sideways rail ======================= */
+.ic-floor__top{display:grid;gap:22px;align-items:end;margin-bottom:clamp(28px,2.4vw + 14px,52px)}
+@media (min-width:1000px){.ic-floor__top{grid-template-columns:minmax(0,1fr) auto}}
+.ic-floor__top h2{margin-bottom:.25em}
+.ic-railnav{display:flex;align-items:center;gap:14px}
+.ic-railnav__btn{display:inline-flex;align-items:center;justify-content:center;width:54px;height:54px;border:2px solid #45484e;background:var(--ic-steel);color:var(--ic-chalk);transition:border-color .2s,background-color .2s,color .2s,opacity .2s}
+.ic-railnav__btn svg{width:22px;height:22px}
+.ic-railnav__btn:hover:not(:disabled){border-color:var(--ic-molten);background:var(--ic-molten);color:var(--ic-black)}
+.ic-railnav__btn:disabled{opacity:.35;cursor:default}
+.ic-railnav__prog{position:relative;width:clamp(90px,14vw,200px);height:4px;background:#2b2d31}
+.ic-railnav__bar{position:absolute;inset:0;background:var(--ic-molten);transform-origin:left;transform:scaleX(.15);transition:transform .2s}
+.ic-railbox{position:relative}
+.ic-railbox::after{content:"";position:absolute;top:0;bottom:12px;right:0;width:clamp(24px,6vw,96px);pointer-events:none;background:linear-gradient(90deg,rgba(13,13,14,0),var(--ic-black))}
+.ic-rail{display:flex;gap:clamp(14px,1.4vw,22px);margin:0;padding:4px 20px 20px;list-style:none;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:20px;scrollbar-width:thin;scrollbar-color:var(--ic-molten) #1f2023;overscroll-behavior-x:contain}
+@media (min-width:768px){.ic-rail{padding-inline:32px;scroll-padding-inline:32px}}
+@media (min-width:1200px){.ic-rail{padding-inline:max(48px,calc((100vw - 1440px) / 2 + 48px));scroll-padding-inline:max(48px,calc((100vw - 1440px) / 2 + 48px))}}
+.ic-rail:focus-visible{outline-offset:-3px}
+.ic-rail.is-drag{scroll-snap-type:none;cursor:grabbing;user-select:none}
+.ic-rail.is-drag a{pointer-events:none}
+.ic-rail::-webkit-scrollbar{height:6px}
+.ic-rail::-webkit-scrollbar-track{background:#1f2023}
+.ic-rail::-webkit-scrollbar-thumb{background:var(--ic-molten)}
+.ic-eq{position:relative;flex:0 0 clamp(272px,78vw,340px);scroll-snap-align:start;display:flex;flex-direction:column;background:var(--ic-steel);border:1px solid var(--ic-line);transition:border-color .25s,transform .35s var(--ic-ease)}
+@media (min-width:768px){.ic-eq{flex-basis:340px}}
+@media (min-width:1200px){.ic-eq{flex-basis:372px}}
+.ic-eq:hover{border-color:#55585e;transform:translateY(-4px)}
+.ic-eq__img{position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--ic-iron)}
+.ic-eq__img img{width:100%;height:100%;object-fit:cover;filter:grayscale(.55) contrast(1.06);transition:filter .5s,transform .8s var(--ic-ease)}
+.ic-eq:hover .ic-eq__img img{filter:none;transform:scale(1.04)}
+.ic-eq__bay{position:absolute;left:0;top:14px;padding:.4rem .6rem;background:var(--ic-yellow);color:var(--ic-black);font:700 .7rem/1 var(--ic-fm);letter-spacing:.14em;text-transform:uppercase}
+.ic-eq__body{display:flex;flex-direction:column;flex:1;padding:20px 20px 22px}
+.ic-eq h3{margin-bottom:.35em}
+.ic-eq__spec{margin:0 0 .8rem;font:500 .78rem/1.45 var(--ic-fm);color:var(--ic-molten-ink)}
+.ic-eq p:last-child{margin:0;font-size:.95rem}
+.ic-eq--cta{justify-content:center;padding:26px;background:var(--ic-molten);border-color:var(--ic-molten);color:var(--ic-black)}
+.ic-eq--cta h3{color:var(--ic-black);font-size:clamp(2.2rem,1.8rem + 1.2vw,3rem)}
+.ic-eq--cta p{color:#2a1208}
+.ic-eq--cta .ic-btn{margin-top:auto;align-self:flex-start;background:var(--ic-black);color:var(--ic-chalk)}
+.ic-eq--cta .ic-btn:hover{background:var(--ic-steel)}
+
+/* ======================= HOUSE RULES ======================= */
+.ic-rules__grid{display:grid;gap:clamp(28px,3vw,56px)}
+@media (min-width:1000px){.ic-rules__grid{grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);align-items:start}}
+.ic-rules__photo{position:relative;isolation:isolate}
+.ic-rules__photo img{width:100%;aspect-ratio:4/5;object-fit:cover;filter:grayscale(1) contrast(1.1)}
+.ic-rules__photo::before{content:"";position:absolute;left:-10px;top:-10px;width:44%;height:44%;background:var(--ic-hazard);z-index:-1}
+.ic-rules__photo figcaption{position:absolute;right:0;bottom:0;max-width:82%;padding:14px 18px;background:var(--ic-black);font:500 .8rem/1.45 var(--ic-fm);color:var(--ic-chalk-2)}
+.ic-rules__photo figcaption b{color:var(--ic-yellow)}
+.ic-worry{display:grid;gap:14px;margin:0 0 30px;list-style:none}
+.ic-worry li{display:grid;grid-template-columns:auto 1fr;gap:4px 16px;padding:18px 18px 18px 0;border-top:1px solid var(--ic-line)}
+.ic-worry__ic{grid-row:span 2;display:grid;place-items:center;width:48px;height:48px;background:var(--ic-iron);color:var(--ic-molten)}
+.ic-worry__ic svg{width:24px;height:24px}
+.ic-worry h3{margin:0;font-size:clamp(1.4rem,1.2rem + .6vw,1.8rem)}
+.ic-worry p{margin:0;font-size:.98rem}
+.ic-signboard{position:relative;padding:22px 20px 20px;background:var(--ic-yellow);color:var(--ic-black)}
+.ic-signboard::before{content:"";position:absolute;inset:7px;border:2px solid var(--ic-black);pointer-events:none}
+.ic-signboard h3{color:var(--ic-black);margin:0 0 .6rem;padding-left:8px;font-size:clamp(1.6rem,1.3rem + .9vw,2.2rem)}
+.ic-signboard ol{list-style:none;display:grid;gap:2px;counter-reset:ic-rule}
+@media (min-width:600px){.ic-signboard ol{grid-template-columns:1fr 1fr;column-gap:16px}}
+.ic-signboard li{counter-increment:ic-rule;display:flex;gap:.7rem;padding:.55rem 8px;border-top:2px solid rgba(13,13,14,.85);font-weight:700;line-height:1.35}
+.ic-signboard li::before{content:counter(ic-rule,decimal-leading-zero);font:700 .82rem/1.6 var(--ic-fm)}
+
+/* ======================= PROGRAMMES ======================= */
+.ic-progs{display:grid;gap:clamp(16px,1.6vw,24px)}
+@media (min-width:900px){.ic-progs{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.ic-prog{position:relative;display:flex;flex-direction:column;background:var(--ic-black);border:1px solid var(--ic-line);overflow:hidden}
+.ic-prog__img{position:relative;aspect-ratio:16/11;overflow:hidden}
+.ic-prog__img img{width:100%;height:100%;object-fit:cover;filter:grayscale(.4);transition:transform .9s var(--ic-ease),filter .5s}
+.ic-prog:hover .ic-prog__img img{transform:scale(1.05);filter:none}
+.ic-prog__img::after{content:"";position:absolute;inset:auto 0 0;height:8px;background:var(--ic-c)}
+.ic-prog__tag{position:absolute;left:14px;top:14px;padding:.45rem .6rem;background:var(--ic-black);color:var(--ic-chalk);font:700 .7rem/1 var(--ic-fm);letter-spacing:.12em;text-transform:uppercase}
+.ic-prog__body{display:flex;flex-direction:column;flex:1;padding:22px 22px 24px}
+.ic-prog__meta{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 1rem;list-style:none}
+.ic-prog__meta li{padding:.35rem .55rem;border:1px solid #3c3f44;font:500 .72rem/1 var(--ic-fm);color:var(--ic-chalk-2)}
+.ic-prog .ic-ticks{margin:0 0 1.4rem;font-size:.95rem}
+.ic-prog__foot{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:.8rem 1rem;margin-top:auto;padding-top:18px;border-top:1px dashed #3c3f44}
+.ic-prog__foot .ic-link{white-space:nowrap}
+.ic-prog__price{font:900 2.3rem/.9 var(--ic-fd);color:var(--ic-chalk)}
+.ic-prog__price small{display:block;margin-top:.3rem;font:500 .72rem/1.3 var(--ic-fm);color:var(--ic-muted);text-transform:none}
+
+/* ======================= PLATE LOADER TOOL ======================= */
+.ic-tool{position:relative;background:var(--ic-black);border:1px solid #3a3d42;box-shadow:0 30px 60px -30px rgba(0,0,0,.8)}
+.ic-tool::before{content:"";position:absolute;left:0;right:0;top:-1px;height:8px;background:var(--ic-hazard)}
+.ic-tabs{display:flex;gap:0;padding-top:8px;border-bottom:1px solid #3a3d42}
+.ic-tab{position:relative;flex:1 1 0;min-width:0;min-height:60px;padding:.9rem .8rem;border:0;background:transparent;color:var(--ic-muted);font:800 clamp(1.15rem,1rem + .6vw,1.6rem)/1 var(--ic-fd);letter-spacing:.04em;text-transform:uppercase;white-space:nowrap;transition:color .2s,background-color .2s}
+.ic-tab span{display:block;margin-top:.3rem;font:500 .66rem/1 var(--ic-fm);letter-spacing:.12em}
+.ic-tab:hover{color:var(--ic-chalk)}
+.ic-tab[aria-selected="true"]{color:var(--ic-chalk);background:var(--ic-steel)}
+.ic-tab[aria-selected="true"]::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:4px;background:var(--ic-molten)}
+.ic-tab:focus-visible{outline-offset:-4px}
+.ic-panel{padding:clamp(18px,2.4vw,36px);background:var(--ic-steel)}
+.ic-panel:focus-visible{outline-offset:-4px}
+.ic-loader{display:grid;gap:clamp(20px,2.4vw,36px)}
+@media (min-width:1100px){.ic-loader{grid-template-columns:minmax(300px,.8fr) minmax(0,1.6fr)}}
+.ic-field{display:grid;gap:.5rem;margin-bottom:1.2rem}
+.ic-field > label,.ic-legend{font:700 .74rem/1.2 var(--ic-fm);letter-spacing:.14em;text-transform:uppercase;color:var(--ic-chalk)}
+.ic-legend{padding:0;margin-bottom:.55rem}
+fieldset{margin:0 0 1.2rem;padding:0;border:0;min-width:0}
+.ic-kg{display:flex;align-items:stretch;border:2px solid #45484e;background:var(--ic-black);transition:border-color .2s}
+.ic-kg:focus-within{border-color:var(--ic-molten)}
+.ic-kg input{flex:1;min-width:0;width:100%;padding:.5rem .8rem;border:0;background:transparent;font:700 clamp(2rem,1.6rem + 1.4vw,2.8rem)/1 var(--ic-fm);color:var(--ic-chalk);-moz-appearance:textfield;appearance:textfield}
+.ic-kg input::-webkit-outer-spin-button,.ic-kg input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.ic-kg input:focus{outline:none}
+.ic-kg__u{display:flex;align-items:center;padding:0 .8rem;font:700 1rem/1 var(--ic-fm);color:var(--ic-muted)}
+.ic-kg__step{width:56px;border:0;border-left:2px solid #45484e;background:var(--ic-iron);color:var(--ic-chalk);font:700 .8rem/1 var(--ic-fm);transition:background-color .2s,color .2s}
+.ic-kg__step:hover{background:var(--ic-molten);color:var(--ic-black)}
+.ic-kg__step:focus-visible{outline-offset:-4px}
+.ic-presets{display:flex;flex-wrap:wrap;gap:6px;margin:-.4rem 0 1.3rem;list-style:none}
+.ic-presets button{min-height:36px;padding:.3rem .7rem;border:1px solid #45484e;background:transparent;color:var(--ic-chalk-2);font:500 .8rem/1 var(--ic-fm);transition:border-color .2s,color .2s}
+.ic-presets button:hover{border-color:var(--ic-chalk);color:var(--ic-chalk)}
+.ic-seg{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+.ic-seg label,.ic-exp label{position:relative;display:block;cursor:pointer}
+.ic-seg input,.ic-exp input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.ic-seg span{display:flex;flex-direction:column;justify-content:center;min-height:62px;height:100%;padding:.55rem .6rem;border:2px solid #45484e;background:var(--ic-black);font:800 1.35rem/1 var(--ic-fd);text-transform:uppercase;color:var(--ic-chalk);transition:border-color .2s,background-color .2s}
+.ic-seg small{display:block;margin-top:.3rem;font:500 .64rem/1.2 var(--ic-fm);letter-spacing:.04em;text-transform:none;color:var(--ic-muted)}
+.ic-seg input:checked + span,.ic-exp input[aria-invalid="true"] + span{border-color:#ff6b6b}
+.ic-exp input:checked + span{border-color:var(--ic-molten);background:#2a160f}
+.ic-seg input:focus-visible + span,.ic-exp input:focus-visible + span{outline:3px solid var(--ic-yellow);outline-offset:2px}
+.ic-switch{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.8rem .9rem;border:2px solid #45484e;background:var(--ic-black);cursor:pointer}
+.ic-switch__txt{font-weight:700;color:var(--ic-chalk);line-height:1.3}
+.ic-switch__txt small{display:block;font:500 .72rem/1.3 var(--ic-fm);color:var(--ic-muted)}
+.ic-switch input{position:relative;flex:none;width:52px;height:28px;margin:0;appearance:none;-webkit-appearance:none;background:#3a3c41;cursor:pointer;transition:background-color .2s}
+.ic-switch input::after{content:"";position:absolute;left:4px;top:4px;width:20px;height:20px;background:var(--ic-chalk);transition:transform .25s var(--ic-ease)}
+.ic-switch input:checked{background:var(--ic-molten)}
+.ic-switch input:checked::after{transform:translateX(24px);background:var(--ic-black)}
+.ic-stage{display:flex;flex-direction:column;min-width:0}
+.ic-stage__total{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:.4rem 1rem;margin-bottom:.6rem}
+.ic-stage__kg{font:900 clamp(3.4rem,2.4rem + 4vw,6.4rem)/.85 var(--ic-fd);color:var(--ic-chalk)}
+.ic-stage__kg small{font-size:.38em;color:var(--ic-muted);margin-left:.1em}
+.ic-stage__lb{font:500 .85rem/1.3 var(--ic-fm);color:var(--ic-muted)}
+.ic-stage__svgbox{position:relative;padding:8px 0;background:radial-gradient(60% 70% at 50% 50%,rgba(237,234,227,.06),transparent 70%),var(--ic-black);border:1px solid var(--ic-line)}
+.ic-stage__svgbox::before{content:"";position:absolute;left:0;right:0;bottom:0;height:22%;background:linear-gradient(180deg,transparent,rgba(255,90,31,.05))}
+.ic-stage svg{width:100%;height:auto}
+.ic-pl{transform-box:fill-box}
+.ic-js .ic-pl.is-new{animation:ic-plate-in .5s var(--ic-ease) both;animation-delay:calc(var(--i) * 45ms)}
+@keyframes ic-plate-in{from{opacity:0;transform:translateX(var(--ic-from,-60px))}to{opacity:1;transform:none}}
+.ic-warn{display:flex;gap:.7rem;align-items:flex-start;margin:14px 0 0;padding:.85rem 1rem;border-left:5px solid var(--ic-yellow);background:#221f14;color:var(--ic-chalk);font-size:.95rem;line-height:1.45}
+.ic-warn svg{width:20px;height:20px;flex:none;margin-top:.1em;color:var(--ic-yellow)}
+.ic-warn__acts{display:flex;flex-wrap:wrap;gap:8px;margin-top:.6rem}
+.ic-warn__acts button{min-height:36px;padding:.35rem .75rem;border:1px solid var(--ic-yellow);background:transparent;color:var(--ic-yellow);font:700 .78rem/1 var(--ic-fm)}
+.ic-warn__acts button:hover{background:var(--ic-yellow);color:var(--ic-black)}
+.ic-perside{display:grid;gap:14px;margin-top:16px}
+@media (min-width:640px){.ic-perside{grid-template-columns:minmax(0,1.2fr) minmax(0,1fr)}}
+.ic-perside h3{margin:0 0 .6rem;font:700 .74rem/1 var(--ic-fm);letter-spacing:.14em;color:var(--ic-chalk)}
+.ic-plist{list-style:none;display:grid;gap:6px}
+.ic-plist li{display:flex;align-items:center;gap:.7rem;padding:.45rem .6rem;background:var(--ic-black);border:1px solid var(--ic-line);font:500 .9rem/1.2 var(--ic-fm)}
+.ic-plist li b{margin-left:auto;font-weight:700}
+.ic-plist__sw{width:16px;height:26px;flex:none;border:1px solid rgba(255,255,255,.18)}
+.ic-plist__empty{color:var(--ic-muted)}
+.ic-sum{margin:0;padding:.8rem .9rem;background:var(--ic-black);border:1px dashed #45484e;font:500 .85rem/1.6 var(--ic-fm);color:var(--ic-chalk-2)}
+.ic-sum b{color:var(--ic-chalk)}
+.ic-1rm{display:grid;gap:clamp(20px,2.4vw,36px)}
+@media (min-width:1000px){.ic-1rm{grid-template-columns:minmax(280px,.75fr) minmax(0,1.6fr)}}
+.ic-1rm__res{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-bottom:16px}
+.ic-1rm__box{padding:14px;background:var(--ic-black);border:1px solid var(--ic-line)}
+.ic-1rm__box span{display:block;font:500 .66rem/1.2 var(--ic-fm);letter-spacing:.12em;text-transform:uppercase;color:var(--ic-muted)}
+.ic-1rm__box b{display:block;margin-top:.45rem;font:900 clamp(1.7rem,1.2rem + 1.6vw,2.8rem)/.9 var(--ic-fd)}
+.ic-1rm__box--main{border-color:var(--ic-molten);background:#22140e}
+.ic-1rm__box--main b{color:var(--ic-molten)}
+.ic-pct{width:100%;border-collapse:collapse;font:500 .9rem/1.3 var(--ic-fm)}
+.ic-pct caption{text-align:left;margin-bottom:.6rem;font:700 .74rem/1.3 var(--ic-fm);letter-spacing:.14em;text-transform:uppercase;color:var(--ic-chalk)}
+.ic-pct th,.ic-pct td{padding:.55rem .6rem;border-bottom:1px solid var(--ic-line);text-align:left}
+.ic-pct thead th{font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ic-muted);font-weight:500}
+.ic-pct tbody th{color:var(--ic-chalk);font-weight:700}
+.ic-pct__bar{position:relative;display:block;height:6px;margin-top:5px;background:#26282c}
+.ic-pct__bar i{position:absolute;inset:0;background:var(--ic-molten);transform-origin:left}
+.ic-pct button{min-height:34px;padding:.3rem .6rem;border:1px solid #45484e;background:transparent;color:var(--ic-chalk);font:700 .72rem/1 var(--ic-fm);letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
+.ic-pct button:hover{border-color:var(--ic-molten);background:var(--ic-molten);color:var(--ic-black)}
+@media (max-width:520px){.ic-pct__reps{display:none}}
+.ic-note{margin:14px 0 0;font-size:.85rem;color:var(--ic-muted)}
+
+/* ======================= MEMBERSHIPS ======================= */
+.ic-plans{display:grid;gap:14px}
+@media (min-width:700px){.ic-plans{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (min-width:1200px){.ic-plans{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.ic-plan{position:relative;display:flex;flex-direction:column;padding:26px 22px 24px;background:var(--ic-steel);border:1px solid var(--ic-line);overflow:hidden;transition:transform .35s var(--ic-ease),border-color .25s}
+.ic-plan:hover{transform:translateY(-4px);border-color:#55585e}
+.ic-plan::before{content:"";position:absolute;left:0;right:0;top:0;height:8px;background:var(--ic-c)}
+.ic-plan__plate{position:absolute;right:-46px;top:-46px;width:170px;height:170px;border-radius:50%;background:radial-gradient(circle,var(--ic-steel) 0 13%,transparent 13.5%),radial-gradient(circle,transparent 0 34%,rgba(0,0,0,.22) 34.5% 36%,transparent 36.5%),var(--ic-c);opacity:.16;transition:transform 1s var(--ic-ease)}
+.ic-plan:hover .ic-plan__plate{transform:rotate(60deg)}
+.ic-plan__kg{position:absolute;right:16px;top:20px;font:700 .7rem/1 var(--ic-fm);letter-spacing:.12em;color:var(--ic-muted)}
+.ic-plan h3{margin:.3rem 0 .2rem;font-size:clamp(1.8rem,1.5rem + .8vw,2.4rem)}
+.ic-plan__for{margin:0 0 1.1rem;font-size:.92rem;color:var(--ic-muted);min-height:2.9em}
+.ic-plan__price{display:flex;align-items:baseline;gap:.3rem;margin:0 0 1.2rem;font:900 clamp(3.4rem,2.8rem + 1.8vw,4.6rem)/.85 var(--ic-fd);color:var(--ic-chalk)}
+.ic-plan__price span{font:500 .85rem/1 var(--ic-fm);color:var(--ic-muted)}
+.ic-plan .ic-ticks{margin:0 0 1.5rem;font-size:.94rem}
+.ic-plan .ic-btn{margin-top:auto}
+.ic-plan--top{border-color:var(--ic-molten);background:linear-gradient(180deg,#24150f,var(--ic-steel) 40%)}
+.ic-plan__flag{position:absolute;left:22px;top:8px;padding:.35rem .5rem;background:var(--ic-molten);color:var(--ic-black);font:700 .66rem/1 var(--ic-fm);letter-spacing:.14em;text-transform:uppercase}
+.ic-plan--top h3{margin-top:1.6rem}
+.ic-plans__notes{display:grid;gap:10px;margin-top:22px;list-style:none}
+@media (min-width:900px){.ic-plans__notes{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.ic-plans__notes li{display:flex;gap:.7rem;align-items:flex-start;padding:14px 16px;border:1px dashed #3e4147;font-size:.95rem}
+.ic-plans__notes svg{width:20px;height:20px;flex:none;margin-top:.15em;color:var(--ic-yellow)}
+
+/* ======================= HOW TO START ======================= */
+.ic-steps{display:grid;gap:14px;list-style:none;counter-reset:ic-step}
+@media (min-width:700px){.ic-steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (min-width:1200px){.ic-steps{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.ic-step{position:relative;padding:24px 22px 26px;background:var(--ic-black);border:1px solid var(--ic-line);counter-increment:ic-step}
+.ic-step::before{content:counter(ic-step,decimal-leading-zero);display:block;margin-bottom:1.1rem;font:900 4.6rem/.8 var(--ic-fd);color:transparent;-webkit-text-stroke:1.5px var(--ic-molten)}
+.ic-step__time{position:absolute;right:16px;top:20px;padding:.3rem .5rem;background:var(--ic-iron);font:500 .68rem/1 var(--ic-fm);color:var(--ic-chalk-2)}
+.ic-step h3{font-size:clamp(1.5rem,1.3rem + .5vw,1.85rem)}
+.ic-step p{margin:0;font-size:.96rem}
+@media (min-width:1200px){.ic-step:not(:last-child)::after{content:"";position:absolute;right:-12px;top:52px;width:10px;height:10px;border-top:2px solid var(--ic-molten);border-right:2px solid var(--ic-molten);transform:rotate(45deg);z-index:1}}
+
+/* ======================= PR BOARD ======================= */
+.ic-prbar{display:flex;flex-wrap:wrap;align-items:center;gap:12px 22px;margin-bottom:18px}
+.ic-filter{display:flex;flex-wrap:wrap;gap:0;border:2px solid #45484e}
+.ic-filter button{min-height:46px;padding:.4rem 1rem;border:0;background:transparent;color:var(--ic-chalk-2);font:800 1.05rem/1 var(--ic-fd);letter-spacing:.06em;text-transform:uppercase;transition:background-color .2s,color .2s}
+.ic-filter button + button{border-left:2px solid #45484e}
+.ic-filter button:hover{color:var(--ic-chalk);background:var(--ic-iron)}
+.ic-filter button[aria-pressed="true"]{background:var(--ic-chalk);color:var(--ic-black)}
+.ic-filter button:focus-visible{outline-offset:-5px;outline-color:var(--ic-molten)}
+.ic-filter--sm button{font:600 .76rem/1 var(--ic-fm);letter-spacing:.06em;min-height:40px;padding:.3rem .8rem}
+.ic-prbar__lbl{font:500 .68rem/1 var(--ic-fm);letter-spacing:.14em;text-transform:uppercase;color:var(--ic-muted);margin-right:.5rem}
+.ic-prbar__grp{display:flex;align-items:center;flex-wrap:wrap;gap:6px}
+.ic-board{position:relative;background:var(--ic-black);border:1px solid #3a3d42;overflow-x:auto}
+.ic-board:focus-visible{outline-offset:-3px}
+.ic-pr{width:100%;min-width:640px;border-collapse:collapse;font:500 .92rem/1.3 var(--ic-fm)}
+.ic-pr caption{padding:14px 16px;text-align:left;font:500 .78rem/1.4 var(--ic-fm);color:var(--ic-muted);border-bottom:1px solid var(--ic-line);caption-side:top}
+.ic-pr caption b{color:var(--ic-chalk)}
+.ic-pr th,.ic-pr td{padding:.85rem 1rem;text-align:left;border-bottom:1px solid #222327;white-space:nowrap}
+.ic-pr thead th{font-size:.66rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--ic-muted);background:var(--ic-steel)}
+.ic-pr tbody th{font:700 1rem/1.2 var(--ic-fb);color:var(--ic-chalk)}
+.ic-pr tbody tr{transition:background-color .2s}
+.ic-pr tbody tr:hover{background:#151618}
+.ic-pr td:first-child{width:3.2rem;font:900 1.6rem/1 var(--ic-fd);color:var(--ic-muted)}
+.ic-pr tr.is-top td:first-child{color:var(--ic-yellow)}
+.ic-pr tbody tr.is-top{background:linear-gradient(90deg,rgba(242,194,48,.12),transparent 60%)}
+.ic-pr td:nth-child(5){font:900 1.5rem/1 var(--ic-fd);color:var(--ic-chalk)}
+.ic-pr td:nth-child(5)::after{content:"kg";margin-left:.15em;font:500 .7rem/1 var(--ic-fm);color:var(--ic-muted)}
+.ic-pr td:nth-child(8){font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ic-chalk-2)}
+.ic-pr td:nth-child(8)::before{content:"";display:inline-block;width:8px;height:8px;margin-right:.5rem;background:#55585e}
+.ic-pr td.ic-m{color:#6fd49a}
+.ic-pr td.ic-m::before{background:var(--ic-green)}
+.ic-pr.is-filtered :is(th,td):nth-child(4){display:none}
+.ic-pr.is-dots td:nth-child(6){color:var(--ic-molten-ink);font-weight:700}
+@media (max-width:767px){.ic-pr{min-width:0}.ic-pr th,.ic-pr td{padding:.8rem .55rem}.ic-pr :is(th,td):is(:nth-child(3),:nth-child(7),:nth-child(8)){display:none}.ic-pr td:first-child{width:2.4rem;font-size:1.35rem}.ic-pr tbody th{font-size:.95rem}.ic-pr td:nth-child(5){font-size:1.35rem}}
+.ic-prfoot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 24px;margin-top:14px;font-size:.85rem;color:var(--ic-muted)}
+
+/* ======================= COACHES ======================= */
+.ic-coaches{display:grid;gap:16px;list-style:none}
+@media (min-width:640px){.ic-coaches{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (min-width:1200px){.ic-coaches{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.ic-coach{position:relative;display:flex;flex-direction:column;background:var(--ic-steel);border:1px solid var(--ic-line)}
+.ic-coach__img{position:relative;aspect-ratio:4/5;overflow:hidden;background:var(--ic-iron)}
+.ic-coach__img img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.08);transition:filter .5s,transform .8s var(--ic-ease)}
+.ic-coach:hover .ic-coach__img img{filter:grayscale(.1);transform:scale(1.03)}
+.ic-coach__best{position:absolute;left:0;bottom:0;padding:.55rem .75rem;background:var(--ic-molten);color:var(--ic-black);font:700 .74rem/1.2 var(--ic-fm);letter-spacing:.04em}
+.ic-coach__body{padding:18px 18px 20px}
+.ic-coach h3{margin:0 0 .15rem;font-size:clamp(1.6rem,1.4rem + .6vw,2rem)}
+.ic-coach__role{margin:0 0 .8rem;font:700 .72rem/1.3 var(--ic-fm);letter-spacing:.12em;text-transform:uppercase;color:var(--ic-molten-ink)}
+.ic-coach p{font-size:.95rem}
+.ic-coach__tags{display:flex;flex-wrap:wrap;gap:6px;list-style:none}
+.ic-coach__tags li{padding:.3rem .5rem;background:var(--ic-black);font:500 .7rem/1 var(--ic-fm);color:var(--ic-chalk-2)}
+
+/* ======================= REVIEWS ======================= */
+.ic-score{display:flex;align-items:center;gap:14px;padding:14px 18px;background:var(--ic-black);border:1px solid var(--ic-line);justify-self:start}
+@media (min-width:1000px){.ic-score{justify-self:end}}
+.ic-score b{font:900 3rem/.85 var(--ic-fd)}
+.ic-stars{display:block;width:100px;height:18px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2.8l2.8 6 6.5.7-4.9 4.4 1.4 6.4L12 17l-5.8 3.3 1.4-6.4-4.9-4.4 6.5-.7z' fill='%23F2C230'/%3E%3C/svg%3E") 0 0/20px 18px repeat-x}
+.ic-score small{display:block;margin-top:.3rem;font:500 .74rem/1.3 var(--ic-fm);color:var(--ic-muted)}
+.ic-reviews{columns:1;column-gap:16px}
+@media (min-width:700px){.ic-reviews{columns:2}}
+@media (min-width:1200px){.ic-reviews{columns:3}}
+.ic-review{break-inside:avoid;margin:0 0 16px;padding:24px 22px 20px;background:var(--ic-steel);border:1px solid var(--ic-line);position:relative}
+.ic-review::before{content:"";position:absolute;left:-1px;top:-1px;width:44px;height:6px;background:var(--ic-c,var(--ic-molten))}
+.ic-review .ic-stars{margin-bottom:.9rem}
+.ic-review blockquote{margin:0 0 1.2rem;font-size:1.02rem;color:var(--ic-chalk)}
+.ic-review blockquote p{margin:0}
+.ic-review figcaption{display:flex;align-items:center;gap:12px}
+.ic-review img{width:48px;height:48px;object-fit:cover;filter:grayscale(1);flex:none}
+.ic-review cite{display:block;font-style:normal;font-weight:800;color:var(--ic-chalk)}
+.ic-review figcaption span span{display:block;font:500 .74rem/1.35 var(--ic-fm);color:var(--ic-muted)}
+
+/* ======================= FAQ ======================= */
+.ic-faq__grid{display:grid;gap:clamp(24px,3vw,56px)}
+@media (min-width:1000px){.ic-faq__grid{grid-template-columns:minmax(0,.7fr) minmax(0,1.3fr);align-items:start}}
+.ic-faq__aside{position:relative;padding:22px;background:var(--ic-black);border:1px solid var(--ic-line)}
+@media (min-width:1000px){.ic-faq__aside{position:sticky;top:calc(var(--ic-bar) + 24px)}}
+.ic-faq__aside h3{font-size:1.7rem}
+.ic-faq__aside p{font-size:.95rem}
+.ic-faq__aside .ic-btn{margin-top:.4rem}
+.ic-acc{border-top:1px solid #3a3d42}
+.ic-acc details{border-bottom:1px solid #3a3d42}
+.ic-acc summary{display:flex;align-items:center;gap:1rem;padding:1.15rem 0;cursor:pointer;list-style:none;font:800 clamp(1.25rem,1.1rem + .55vw,1.65rem)/1.1 var(--ic-fd);letter-spacing:.02em;text-transform:uppercase;color:var(--ic-chalk)}
+.ic-acc summary::-webkit-details-marker{display:none}
+.ic-acc summary:hover{color:var(--ic-molten-ink)}
+.ic-acc summary:focus-visible{outline-offset:2px}
+.ic-acc__n{flex:none;font:500 .72rem/1 var(--ic-fm);color:var(--ic-molten);letter-spacing:.08em}
+.ic-acc__q{flex:1}
+.ic-acc__ic{position:relative;flex:none;width:30px;height:30px;border:2px solid #45484e;transition:border-color .2s,background-color .2s}
+.ic-acc__ic::before,.ic-acc__ic::after{content:"";position:absolute;left:50%;top:50%;width:12px;height:2px;margin:-1px 0 0 -6px;background:currentColor;transition:transform .3s var(--ic-ease)}
+.ic-acc__ic::after{transform:rotate(90deg)}
+.ic-acc details[open] .ic-acc__ic{background:var(--ic-molten);border-color:var(--ic-molten);color:var(--ic-black)}
+.ic-acc details[open] .ic-acc__ic::after{transform:rotate(0)}
+.ic-acc__a{padding:0 0 1.3rem calc(.72rem * 2.6 + 1rem);max-width:68ch}
+.ic-acc__a p:last-child{margin:0}
+
+/* ======================= DAY PASS FORM ======================= */
+.ic-pass{position:relative;overflow:hidden}
+.ic-pass__bg{position:absolute;inset:0;z-index:-1}
+.ic-pass__bg img{width:100%;height:100%;object-fit:cover;opacity:.22;filter:grayscale(.6)}
+.ic-pass__bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--ic-black) 10%,rgba(13,13,14,.82) 50%,rgba(13,13,14,.55)),var(--ic-noise)}
+.ic-pass__grid{display:grid;gap:clamp(28px,3vw,64px)}
+@media (min-width:1100px){.ic-pass__grid{grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);align-items:start}}
+.ic-pass__ticket{position:relative;margin-top:26px;padding:20px 22px;background:var(--ic-chalk);color:var(--ic-black);max-width:460px}
+.ic-pass__ticket::before,.ic-pass__ticket::after{content:"";position:absolute;top:50%;width:22px;height:22px;margin-top:-11px;border-radius:50%;background:var(--ic-black)}
+.ic-pass__ticket::before{left:-11px}
+.ic-pass__ticket::after{right:-11px}
+.ic-pass__ticket b{display:block;color:var(--ic-black);font:900 2.2rem/.9 var(--ic-fd);text-transform:uppercase}
+.ic-pass__ticket ul{list-style:none;display:grid;gap:.35rem;margin-top:.8rem;padding-top:.8rem;border-top:2px dashed rgba(13,13,14,.4);font:500 .85rem/1.4 var(--ic-fm)}
+.ic-form{position:relative;padding:clamp(20px,2.4vw,36px);background:var(--ic-steel);border:1px solid #3a3d42}
+.ic-form::before{content:"";position:absolute;left:-1px;right:-1px;top:-1px;height:8px;background:var(--ic-hazard)}
+.ic-form__grid{display:grid;gap:0 16px}
+@media (min-width:640px){.ic-form__grid{grid-template-columns:1fr 1fr}.ic-form__full{grid-column:1/-1}}
+.ic-form .ic-field{margin-bottom:1.1rem}
+.ic-form .ic-field > label,.ic-form .ic-legend{font-size:.7rem}
+.ic-req{color:var(--ic-molten-ink)}
+.ic-input{width:100%;min-height:52px;padding:.7rem .85rem;border:2px solid #45484e;border-radius:0;background:var(--ic-black);color:var(--ic-chalk);font-size:1rem;transition:border-color .2s}
+.ic-input:hover{border-color:#6a6d73}
+.ic-input:focus{outline:none;border-color:var(--ic-molten);box-shadow:0 0 0 3px rgba(255,90,31,.25)}
+.ic-input[aria-invalid="true"]{border-color:#ff6b6b}
+textarea.ic-input{min-height:110px;resize:vertical}
+select.ic-input{appearance:none;-webkit-appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--ic-chalk) 50%),linear-gradient(-45deg,transparent 50%,var(--ic-chalk) 50%);background-position:calc(100% - 20px) 50%,calc(100% - 14px) 50%;background-size:6px 6px;background-repeat:no-repeat;padding-right:2.4rem}
+input[type="date"].ic-input{color-scheme:dark}
+.ic-hint{font-size:.8rem;color:var(--ic-muted);margin:0}
+.ic-err{display:flex;align-items:center;gap:.4rem;margin:0;font-size:.85rem;font-weight:600;color:#ff8f8f}
+.ic-err svg{width:16px;height:16px;flex:none}
+.ic-exp{display:grid;gap:8px}
+@media (min-width:640px){.ic-exp{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.ic-exp span{display:block;height:100%;padding:.8rem .9rem;border:2px solid #45484e;background:var(--ic-black);font-weight:700;color:var(--ic-chalk);line-height:1.3;transition:border-color .2s,background-color .2s}
+.ic-exp small{display:block;margin-top:.25rem;font:500 .74rem/1.35 var(--ic-fm);color:var(--ic-muted)}
+.ic-checks{display:flex;flex-wrap:wrap;gap:8px}
+.ic-checks label{display:inline-flex;align-items:center;gap:.5rem;min-height:44px;padding:.4rem .8rem;border:1px solid #45484e;background:var(--ic-black);cursor:pointer;font-size:.92rem;color:var(--ic-chalk)}
+.ic-checks input,.ic-consent input{width:20px;height:20px;margin:0;accent-color:var(--ic-molten);flex:none}
+.ic-consent{display:flex;gap:.7rem;align-items:flex-start;font-size:.92rem;cursor:pointer}
+.ic-consent input{margin-top:.15em}
+.ic-form__foot{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 20px;margin-top:.4rem}
+.ic-form__foot .ic-small{margin:0;max-width:40ch}
+.ic-success{padding:clamp(22px,2.4vw,36px);background:var(--ic-chalk);color:var(--ic-black);position:relative}
+.ic-success:focus{outline:3px solid var(--ic-molten);outline-offset:4px}
+.ic-success h3{color:var(--ic-black);font-size:clamp(2rem,1.6rem + 1.4vw,3rem)}
+.ic-success p{color:#2c2b28}
+.ic-success__stamp{display:inline-block;margin-bottom:1rem;padding:.4rem .6rem;border:3px solid var(--ic-green);color:var(--ic-green);font:700 .8rem/1 var(--ic-fm);letter-spacing:.16em;text-transform:uppercase;transform:rotate(-3deg)}
+.ic-success .ic-btn--line{border-color:var(--ic-black);color:var(--ic-black)}
+.ic-success .ic-btn--line:hover{background:var(--ic-black);color:var(--ic-chalk)}
+
+/* ======================= FOOTER: scoreboard + giant wordmark ======================= */
+.ic-foot{position:relative;background:#09090a;color:var(--ic-chalk-2);overflow:hidden}
+.ic-foot__hz{height:18px;background:var(--ic-hazard);border-bottom:2px solid var(--ic-black)}
+.ic-foot__main{display:grid;gap:clamp(30px,3vw,56px);padding-block:clamp(48px,4vw + 24px,88px) 36px}
+@media (min-width:900px){.ic-foot__main{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}
+@media (min-width:1200px){.ic-foot__main{grid-template-columns:minmax(0,.95fr) minmax(0,1.25fr) minmax(0,.8fr)}}
+.ic-foot__about p{max-width:42ch;font-size:.95rem}
+.ic-foot__about .ic-logo{margin-bottom:1.2rem}
+.ic-foot h2{font-size:clamp(1.6rem,1.3rem + .9vw,2.1rem);line-height:1;margin:0 0 1rem}
+.ic-foot__h{margin:0 0 .9rem;font:700 .72rem/1 var(--ic-fm);letter-spacing:.16em;text-transform:uppercase;color:var(--ic-chalk)}
+.ic-contact{list-style:none;display:grid;gap:.75rem;margin:0 0 1.4rem;font-size:.95rem}
+.ic-contact li{display:flex;gap:.7rem;align-items:flex-start}
+.ic-contact svg{width:18px;height:18px;flex:none;margin-top:.2em;color:var(--ic-molten)}
+.ic-contact a{color:var(--ic-chalk);text-decoration-color:rgba(255,90,31,.6);text-underline-offset:4px}
+.ic-contact a:hover{color:var(--ic-molten-ink)}
+.ic-social{display:flex;gap:8px;list-style:none}
+.ic-social a{display:grid;place-items:center;width:46px;height:46px;border:2px solid #3a3d42;color:var(--ic-chalk);transition:border-color .2s,background-color .2s,color .2s}
+.ic-social a:hover{border-color:var(--ic-molten);background:var(--ic-molten);color:var(--ic-black)}
+.ic-social svg{width:20px;height:20px}
+
+/* LED-dot hours scoreboard */
+.ic-board-led{position:relative;padding:18px clamp(14px,1.6vw,22px) 16px;background:#050505;border:2px solid #26282c;box-shadow:inset 0 0 0 4px #101113,inset 0 0 40px rgba(0,0,0,.9),0 20px 40px -24px rgba(0,0,0,.9)}
+.ic-board-led::before,.ic-board-led::after{content:"";position:absolute;top:8px;width:8px;height:8px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#9a9da3,#2c2e32 70%)}
+.ic-board-led::before{left:8px}
+.ic-board-led::after{right:8px}
+.ic-led-head{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 16px;margin-bottom:14px;padding:0 6px 12px;border-bottom:1px solid #1d1e21}
+.ic-led-head__title{margin:0;font:700 .7rem/1 var(--ic-fm);letter-spacing:.18em;text-transform:uppercase;color:var(--ic-muted)}
+.ic-led-banner{width:min(220px,60%);height:auto;color:var(--ic-molten)}
+.ic-led-banner:empty{display:none}
+.ic-led-rows{list-style:none;display:grid;gap:4px}
+.ic-led-row{display:grid;grid-template-columns:3.4rem minmax(0,1fr) auto;align-items:center;gap:10px;padding:6px 6px;border:1px solid transparent;color:#d8c9a6}
+.ic-led-day{font:700 .82rem/1 var(--ic-fm);letter-spacing:.14em;text-transform:uppercase;color:var(--ic-muted)}
+.ic-led-svg{width:100%;max-width:300px;height:auto;color:#e9d9b4;filter:drop-shadow(0 0 2px rgba(233,217,180,.45))}
+.ic-led-val{display:block;min-width:0}
+.ic-led-txt{font:700 1rem/1 var(--ic-fm);letter-spacing:.06em;color:#e9d9b4}
+.ic-board-led.is-led .ic-led-txt{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.ic-led-tag{font:700 .62rem/1 var(--ic-fm);letter-spacing:.14em;text-transform:uppercase;color:transparent;padding:.3rem .4rem}
+.ic-led-row.is-today{border-color:rgba(255,90,31,.55);background:rgba(255,90,31,.08)}
+.ic-led-row.is-today .ic-led-day{color:var(--ic-molten)}
+.ic-led-row.is-today .ic-led-svg{color:var(--ic-molten);filter:drop-shadow(0 0 3px rgba(255,90,31,.7))}
+.ic-led-row.is-today .ic-led-txt{color:var(--ic-molten)}
+.ic-led-row.is-today .ic-led-tag{background:var(--ic-molten);color:var(--ic-black)}
+.ic-led-status{display:flex;align-items:center;gap:.55rem;margin:14px 6px 0;font:500 .78rem/1.4 var(--ic-fm);color:var(--ic-chalk-2)}
+.ic-led-status::before{content:"";width:8px;height:8px;flex:none;border-radius:50%;background:var(--ic-green);box-shadow:0 0 8px var(--ic-green)}
+.ic-led-status.is-off::before{background:var(--ic-yellow);box-shadow:0 0 8px var(--ic-yellow)}
+.ic-led-note{margin:.8rem 6px 0;font-size:.82rem;color:var(--ic-muted)}
+
+.ic-fcols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:26px 20px;padding-block:30px;border-top:1px solid #1d1e21}
+@media (min-width:900px){.ic-fcols{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.ic-fcols ul{list-style:none;display:grid;gap:.45rem}
+.ic-fcols a{display:inline-block;padding:.15rem 0;color:var(--ic-chalk-2);text-decoration:none;font-size:.95rem;transition:color .2s}
+.ic-fcols a:hover{color:var(--ic-molten-ink);text-decoration:underline;text-underline-offset:4px}
+.ic-legal{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 28px;padding-block:22px;border-top:1px solid #1d1e21;font-size:.8rem;color:var(--ic-muted)}
+.ic-legal p{margin:0;max-width:80ch}
+.ic-legal ul{display:flex;flex-wrap:wrap;gap:.3rem 1.2rem;list-style:none}
+.ic-legal a{color:var(--ic-chalk-2);text-underline-offset:3px}
+.ic-legal a:hover{color:var(--ic-molten-ink)}
+/* giant cropped wordmark */
+.ic-wm{position:relative;display:block;height:calc(min(100vw,1920px) * .215);margin-top:8px;overflow:hidden;text-decoration:none;color:var(--ic-iron)}
+.ic-wm__txt{position:absolute;left:50%;top:0;transform:translateX(-50%);font:900 calc(min(100vw,1920px) * .305)/.78 var(--ic-fd);letter-spacing:-.01em;text-transform:uppercase;white-space:nowrap;transition:color .6s}
+.ic-wm::before{content:"";position:absolute;left:0;right:0;bottom:0;height:clamp(6px,.9vw,14px);background:#1d1e21;z-index:1}
+.ic-wm::after{content:"";position:absolute;left:0;right:0;bottom:0;height:clamp(6px,.9vw,14px);background:var(--ic-molten);transform:scaleX(0);transform-origin:left;transition:transform 1.1s var(--ic-ease);z-index:2;box-shadow:0 0 24px rgba(255,90,31,.6)}
+.ic-wm:hover::after,.ic-wm:focus-visible::after{transform:scaleX(1)}
+.ic-wm:hover .ic-wm__txt,.ic-wm:focus-visible .ic-wm__txt{color:#3a3d42}
+.ic-wm:focus-visible{outline-offset:-6px}
+
+/* ======================= MOBILE QUICK BAR ======================= */
+.ic-mbar{position:fixed;left:0;right:0;bottom:0;z-index:60;display:flex;align-items:center;gap:8px;padding:8px 12px calc(8px + env(safe-area-inset-bottom));background:rgba(13,13,14,.96);border-top:1px solid #2c2e33;box-shadow:0 -12px 30px -16px rgba(0,0,0,.9);transition:transform .35s var(--ic-ease)}
+.ic-mbar::before{content:"";position:absolute;left:0;right:0;top:-5px;height:4px;background:var(--ic-hazard)}
+.ic-mbar.is-hidden{transform:translateY(calc(100% + 8px))}
+.ic-mbar__pill{display:flex;align-items:center;gap:.5rem;flex:1;min-width:0;min-height:48px;margin:0;padding:.4rem .75rem;background:var(--ic-steel);border:1px solid #33353a;font:500 .74rem/1.25 var(--ic-fm);color:var(--ic-chalk-2)}
+.ic-mbar__pill b{color:var(--ic-chalk)}
+.ic-mbar__pill > span:last-child{min-width:0;white-space:nowrap;line-height:1.3}
+.ic-mbar__pill small{display:block;font-size:.66rem;color:var(--ic-muted)}
+.ic-mbar .ic-btn{min-height:48px;padding-inline:1.1rem;flex:none}
+@media (min-width:768px){.ic-mbar{display:none}}
+@media (max-width:767px){.ic-foot{padding-bottom:calc(72px + env(safe-area-inset-bottom))}}
+
+/* ======================= REDUCED MOTION ======================= */
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;transition-delay:0s!important}
+  .ic-js .ic-rv{opacity:1;transform:none}
+  .ic-mq__track{animation:none;transform:none}
+  .ic-occ__dot::after{display:none}
+  .ic-menu__nav a{transform:none;opacity:1}
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="ic-i-logo" viewBox="0 0 48 48"><circle cx="24" cy="24" r="23" fill="#2A2C30" stroke="#FF5A1F" stroke-width="2"/><circle cx="24" cy="24" r="18" fill="none" stroke="#0D0D0E" stroke-width="1.6"/><g fill="#0D0D0E"><rect x="21" y="8.2" width="6" height="7.4" rx="3"/><rect x="21" y="8.2" width="6" height="7.4" rx="3" transform="rotate(120 24 24)"/><rect x="21" y="8.2" width="6" height="7.4" rx="3" transform="rotate(240 24 24)"/></g><circle cx="24" cy="24" r="7" fill="#EDEAE3"/><circle cx="24" cy="24" r="3.1" fill="#0D0D0E"/><path d="M24 1.6v3.2M24 43.2v3.2M1.6 24h3.2M43.2 24h3.2" stroke="#FF5A1F" stroke-width="1.6"/></symbol>
+    <symbol id="ic-i-arrow" viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square"/></symbol>
+    <symbol id="ic-i-arrow-l" viewBox="0 0 24 24"><path d="M20 12H5M11 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square"/></symbol>
+    <symbol id="ic-i-down" viewBox="0 0 24 24"><path d="M12 4v15M6 13l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square"/></symbol>
+    <symbol id="ic-i-phone" viewBox="0 0 24 24"><path d="M5 3.5h3.6l1.7 4.4-2.2 1.4a11.5 11.5 0 0 0 5.6 5.6l1.4-2.2 4.4 1.7V18a2.5 2.5 0 0 1-2.5 2.5A15.5 15.5 0 0 1 2.5 6 2.5 2.5 0 0 1 5 3.5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+    <symbol id="ic-i-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14"/><path d="M3.5 6l8.5 7 8.5-7"/></g></symbol>
+    <symbol id="ic-i-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 21.5s-7-6.3-7-12a7 7 0 0 1 14 0c0 5.7-7 12-7 12z"/><circle cx="12" cy="9.5" r="2.6"/></g></symbol>
+    <symbol id="ic-i-clock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="9"/><path d="M12 6.5V12l3.5 2.2"/></g></symbol>
+    <symbol id="ic-i-menu" viewBox="0 0 24 24"><path d="M3 6.5h18M3 12h18M3 17.5h12" stroke="currentColor" stroke-width="2.4" stroke-linecap="square"/></symbol>
+    <symbol id="ic-i-close" viewBox="0 0 24 24"><path d="M5.5 5.5l13 13M18.5 5.5l-13 13" stroke="currentColor" stroke-width="2.4" stroke-linecap="square"/></symbol>
+    <symbol id="ic-i-plate" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9.5"/><circle cx="12" cy="12" r="3"/></g><circle cx="12" cy="12" r="1" fill="currentColor"/></symbol>
+    <symbol id="ic-i-users" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3.4"/><path d="M2.8 20a6.2 6.2 0 0 1 12.4 0"/><circle cx="17.2" cy="9" r="2.6"/><path d="M16 14.2a5 5 0 0 1 5.6 5"/></g></symbol>
+    <symbol id="ic-i-shield" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 2.8l7.5 3v5.7c0 4.6-3.2 8.3-7.5 9.8-4.3-1.5-7.5-5.2-7.5-9.8V5.8z"/><path d="M8.6 12l2.4 2.4 4.4-4.6"/></g></symbol>
+    <symbol id="ic-i-cursor" viewBox="0 0 24 24"><path d="M5 3l13 7.2-5.6 1.6 3.4 6.5-2.6 1.4-3.4-6.5L5.6 17z" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/></symbol>
+    <symbol id="ic-i-warn" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"><path d="M12 3l10 17.5H2z"/><path d="M12 9.5v5M12 17.2v.6"/></g></symbol>
+    <symbol id="ic-i-fob" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2"><rect x="7" y="7" width="10" height="14" rx="5"/><circle cx="12" cy="4" r="2"/><path d="M12 12v3"/></g></symbol>
+    <symbol id="ic-i-cal" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2"><rect x="3.5" y="5" width="17" height="15.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></g></symbol>
+    <symbol id="ic-i-tram" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="5.5" y="5" width="13" height="13" rx="2"/><path d="M5.5 12h13M8 21l2-3M16 21l-2-3M9 2.5h6M12 2.5V5"/></g></symbol>
+    <symbol id="ic-i-ig" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2"><rect x="3.5" y="3.5" width="17" height="17" rx="4.5"/><circle cx="12" cy="12" r="4"/></g><circle cx="17.3" cy="6.7" r="1.2" fill="currentColor"/></symbol>
+    <symbol id="ic-i-yt" viewBox="0 0 24 24"><rect x="2.5" y="5.5" width="19" height="13" rx="3.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10 9.2v5.6l4.8-2.8z" fill="currentColor"/></symbol>
+    <symbol id="ic-i-tt" viewBox="0 0 24 24"><path d="M14 3.5v11.2a3.8 3.8 0 1 1-3.8-3.8M14 3.5c.4 2.6 2.3 4.4 5 4.6" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"/></symbol>
+    <symbol id="ic-i-fb" viewBox="0 0 24 24"><path d="M13.6 21v-7.6h2.6l.4-3h-3V8.6c0-.9.3-1.5 1.5-1.5h1.6V4.4A20 20 0 0 0 14.4 4.3c-2.3 0-3.9 1.4-3.9 4v2.1H8v3h2.5V21" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/></symbol>
+    <pattern id="ic-led-off" width="10" height="10" patternUnits="userSpaceOnUse"><circle cx="5" cy="5" r="3.3" fill="#1c1b19"/></pattern>
+  </defs>
+</svg>
+
+<a class="ic-skip" href="#ic-main">Skip to main content</a>
+
+<!-- ================= HEADER: two-tier gym floor bar ================= -->
+<header class="ic-header" id="ic-header">
+  <div class="ic-strip">
+    <div class="ic-wrap ic-strip__in">
+      <div class="ic-occ" role="meter" aria-label="Gym floor occupancy right now" aria-valuemin="0" aria-valuemax="100" aria-valuenow="31" aria-valuetext="31% full, 9 of 14 racks free" data-ic-occ="meter" data-ic-level="quiet">
+        <span class="ic-occ__dot"></span>
+        <span><span class="ic-hide-s">Gym floor now</span><span class="ic-show-s">Floor</span>: <b data-ic-occ="pct">31%</b></span>
+        <span class="ic-occ__track"><span class="ic-occ__fill" data-ic-occ="fill"></span></span>
+        <span><span class="ic-hide-s">Racks free</span><span class="ic-show-s">Racks</span>: <b data-ic-occ="racks">9/14</b></span>
+      </div>
+      <div class="ic-strip__end">
+        <span class="ic-strip__addr">Forge Works, Mowbray Street, Kelham Island</span>
+        <span class="ic-247"><svg aria-hidden="true"><use href="#ic-i-clock"/></svg><span class="ic-hide-s">Open&nbsp;</span>24/7</span>
+        <a class="ic-strip__phone" href="tel:+441144960732"><svg aria-hidden="true"><use href="#ic-i-phone"/></svg>0114 496 0732</a>
+      </div>
+    </div>
+  </div>
+  <div class="ic-bar">
+    <div class="ic-wrap ic-bar__in">
+      <a class="ic-logo" href="#ic-main" aria-label="Forgeline Strength Club, Sheffield. Back to the top">
+        <svg class="ic-logo__mark" viewBox="0 0 48 48" aria-hidden="true"><use href="#ic-i-logo"/></svg>
+        <span><span class="ic-logo__name">Forgeline</span><span class="ic-logo__sub">Strength Club · Sheffield</span></span>
+      </a>
+      <nav class="ic-nav" aria-label="Main">
+        <ol>
+          <li><a href="#ic-floor">The floor</a></li>
+          <li><a href="#ic-programmes">Programmes</a></li>
+          <li><a href="#ic-loader">Plate loader</a></li>
+          <li><a href="#ic-pricing">Memberships</a></li>
+          <li><a href="#ic-prs">PR board</a></li>
+          <li><a href="#ic-coaches">Coaches</a></li>
+        </ol>
+      </nav>
+      <div class="ic-bar__end">
+        <a class="ic-tag" href="#ic-pass"><span class="ic-tag__body"><span class="ic-tag__txt">Free day pass<svg aria-hidden="true"><use href="#ic-i-arrow"/></svg></span></span></a>
+        <button class="ic-burger" id="ic-burger" type="button" aria-expanded="false" aria-controls="ic-menu" aria-label="Open menu"><span class="ic-burger__txt" aria-hidden="true">Menu</span><svg aria-hidden="true"><use href="#ic-i-menu"/></svg></button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- full-screen menu (tablet and mobile) -->
+<div class="ic-menu" id="ic-menu" role="dialog" aria-modal="true" aria-label="Site menu" hidden>
+  <div class="ic-wrap ic-menu__top">
+    <a class="ic-logo" href="#ic-main" aria-label="Forgeline Strength Club, Sheffield. Back to the top">
+      <svg class="ic-logo__mark" viewBox="0 0 48 48" aria-hidden="true"><use href="#ic-i-logo"/></svg>
+      <span><span class="ic-logo__name">Forgeline</span><span class="ic-logo__sub">Strength Club · Sheffield</span></span>
+    </a>
+    <button class="ic-menu__close" id="ic-menu-close" type="button" aria-label="Close menu"><span aria-hidden="true">Close</span><svg aria-hidden="true"><use href="#ic-i-close"/></svg></button>
+  </div>
+  <nav class="ic-wrap ic-menu__nav" aria-label="Menu">
+    <ol>
+      <li><a href="#ic-floor" style="--i:0"><span class="ic-menu__n">01</span><span class="ic-menu__t">The floor</span></a></li>
+      <li><a href="#ic-programmes" style="--i:1"><span class="ic-menu__n">02</span><span class="ic-menu__t">Programmes</span></a></li>
+      <li><a href="#ic-loader" style="--i:2"><span class="ic-menu__n">03</span><span class="ic-menu__t">Plate loader</span></a></li>
+      <li><a href="#ic-pricing" style="--i:3"><span class="ic-menu__n">04</span><span class="ic-menu__t">Memberships</span></a></li>
+      <li><a href="#ic-prs" style="--i:4"><span class="ic-menu__n">05</span><span class="ic-menu__t">PR board</span></a></li>
+      <li><a href="#ic-coaches" style="--i:5"><span class="ic-menu__n">06</span><span class="ic-menu__t">Coaches</span></a></li>
+    </ol>
+  </nav>
+  <div class="ic-wrap ic-menu__foot">
+    <div class="ic-menu__info">
+      <p class="ic-menu__occ" data-ic-occ="pill" data-ic-level="quiet"><span class="ic-occ__dot" aria-hidden="true"></span><span>Floor <b data-ic-occ="pct">31%</b> full · <b data-ic-occ="free">9</b> racks free</span></p>
+      <p style="margin:0"><a href="tel:+441144960732">0114 496 0732</a> · Forge Works, 61 Mowbray Street, Sheffield S3 8ZZ</p>
+    </div>
+    <a class="ic-btn ic-btn--molten" href="#ic-pass">Claim a free day pass<svg aria-hidden="true"><use href="#ic-i-arrow"/></svg></a>
+  </div>
+</div>
+
+<main id="ic-main" tabindex="-1">
+
+<!-- ================= HERO ================= -->
+<section class="ic-hero" id="ic-hero" aria-labelledby="ic-hero-title">
+  <div class="ic-hero__media">
+    <img class="ic-hero__img" id="ic-hero-img" src="https://images.pexels.com/photos/949131/pexels-photo-949131.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1600&amp;h=1000&amp;fit=crop" srcset="https://images.pexels.com/photos/949131/pexels-photo-949131.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=960&amp;h=600&amp;fit=crop 960w, https://images.pexels.com/photos/949131/pexels-photo-949131.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1600&amp;h=1000&amp;fit=crop 1600w, https://images.pexels.com/photos/949131/pexels-photo-949131.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=2400&amp;h=1500&amp;fit=crop 2400w" sizes="100vw" width="1600" height="1000" decoding="async" fetchpriority="high" alt="Lifter setting up a heavy deadlift on a dark rubber gym floor">
+    <canvas class="ic-hero__canvas" id="ic-burn" aria-hidden="true"></canvas>
+  </div>
+  <div class="ic-wrap">
+    <p class="ic-hero__kicker"><span>Kelham Island, Sheffield</span><span>Est. 2017</span><span class="ic-hero__k3">Powerlifting · Weightlifting · Strongman</span><span class="ic-hero__hint" aria-hidden="true"><svg><use href="#ic-i-cursor"/></svg>Move to burn through the chalk</span></p>
+  </div>
+  <h1 class="ic-hero__title" id="ic-hero-title"><span class="ic-hero__l1">Lift heavy<span class="ic-hero__dot">.</span></span> <span class="ic-hero__l2"><span class="ic-hero__w">Stay honest</span><span class="ic-hero__dot">.</span></span></h1>
+  <div class="ic-wrap">
+    <div class="ic-hero__row">
+      <div>
+        <p class="ic-hero__lede">A 24/7 strength gym in an old cutlery works off Mowbray Street. Calibrated plates, platforms you can actually drop a bar on, and no queue for the racks. <strong>New to the barbell? Our coaches will teach you properly, and nobody here will judge you for it.</strong></p>
+        <div class="ic-hero__cta">
+          <a class="ic-btn ic-btn--molten" href="#ic-pass">Claim a free day pass<svg aria-hidden="true"><use href="#ic-i-arrow"/></svg></a>
+          <a class="ic-btn ic-btn--line" href="#ic-loader">Load the bar</a>
+        </div>
+      </div>
+      <ul class="ic-chips" aria-label="The gym at a glance">
+        <li class="ic-chip" style="--ic-c:var(--ic-red)"><b>14</b><span>Combo racks</span></li>
+        <li class="ic-chip" style="--ic-c:var(--ic-blue)"><b>6</b><span>Deadlift platforms</span></li>
+        <li class="ic-chip" style="--ic-c:var(--ic-yellow)"><b>24/7</b><span>Fob access</span></li>
+        <li class="ic-chip" style="--ic-c:var(--ic-green)"><b>1,250<small style="font-size:.5em">kg</small></b><span>Calibrated plates</span></li>
+      </ul>
+    </div>
+    <div class="ic-hero__barwrap">
+      <svg class="ic-hero__barbell" viewBox="0 0 1200 170" aria-hidden="true" focusable="false">
+        <defs>
+          <linearGradient id="ic-g-chrome" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f4f2ee"/><stop offset=".45" stop-color="#9da0a6"/><stop offset=".55" stop-color="#6d7076"/><stop offset="1" stop-color="#c8cacd"/></linearGradient>
+          <linearGradient id="ic-g-shine" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff" stop-opacity=".22"/><stop offset=".35" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".25"/></linearGradient>
+          <symbol id="ic-hp-r" viewBox="0 0 26 150"><rect width="26" height="150" rx="3" fill="#D7263D"/><rect width="26" height="150" rx="3" fill="url(#ic-g-shine)"/></symbol>
+          <symbol id="ic-hp-b" viewBox="0 0 23 150"><rect width="23" height="150" rx="3" fill="#1F5BD7"/><rect width="23" height="150" rx="3" fill="url(#ic-g-shine)"/></symbol>
+          <symbol id="ic-hp-g" viewBox="0 0 18 108"><rect width="18" height="108" rx="3" fill="#2E9E5B"/><rect width="18" height="108" rx="3" fill="url(#ic-g-shine)"/></symbol>
+          <symbol id="ic-hp-k" viewBox="0 0 12 63"><rect x=".5" y=".5" width="11" height="62" rx="2" fill="#141414" stroke="#3a3c41"/></symbol>
+          <symbol id="ic-hp-c" viewBox="0 -5 22 49"><rect width="22" height="44" rx="2" fill="url(#ic-g-chrome)"/><rect x="8" y="-5" width="6" height="8" fill="#9da0a6"/></symbol>
+        </defs>
+        <rect x="284" y="80" width="632" height="10" fill="url(#ic-g-chrome)"/>
+        <path d="M330 85H560M640 85H870" stroke="#2a2c30" stroke-opacity=".55" stroke-width="10" stroke-dasharray="1.4 2.6"/>
+        <rect x="20" y="75" width="250" height="20" fill="url(#ic-g-chrome)"/>
+        <rect x="930" y="75" width="250" height="20" fill="url(#ic-g-chrome)"/>
+        <rect x="268" y="66" width="16" height="38" fill="url(#ic-g-chrome)"/>
+        <rect x="916" y="66" width="16" height="38" fill="url(#ic-g-chrome)"/>
+        <use class="ic-hb-l" style="--i:0" href="#ic-hp-r" x="240" y="10" width="26" height="150"/>
+        <use class="ic-hb-l" style="--i:1" href="#ic-hp-r" x="212" y="10" width="26" height="150"/>
+        <use class="ic-hb-l" style="--i:2" href="#ic-hp-b" x="187" y="10" width="23" height="150"/>
+        <use class="ic-hb-l" style="--i:3" href="#ic-hp-g" x="167" y="31" width="18" height="108"/>
+        <use class="ic-hb-l" style="--i:4" href="#ic-hp-k" x="153" y="53.5" width="12" height="63"/>
+        <use class="ic-hb-l" style="--i:5" href="#ic-hp-c" x="129" y="58" width="22" height="49"/>
+        <use class="ic-hb-r" style="--i:0" href="#ic-hp-r" x="934" y="10" width="26" height="150"/>
+        <use class="ic-hb-r" style="--i:1" href="#ic-hp-r" x="962" y="10" width="26" height="150"/>
+        <use class="ic-hb-r" style="--i:2" href="#ic-hp-b" x="990" y="10" width="23" height="150"/>
+        <use class="ic-hb-r" style="--i:3" href="#ic-hp-g" x="1015" y="31" width="18" height="108"/>
+        <use class="ic-hb-r" style="--i:4" href="#ic-hp-k" x="1035" y="53.5" width="12" height="63"/>
+        <use class="ic-hb-r" style="--i:5" href="#ic-hp-c" x="1049" y="58" width="22" height="49"/>
+        <g class="ic-hb-c" fill="#a5a199" font-family="JetBrains Mono, monospace" font-size="13" letter-spacing="2"><text x="600" y="128" text-anchor="middle">FORGELINE · 20KG · IPF SPEC</text></g>
+      </svg>
+      <p class="ic-hero__cap"><span>On the bar: <b>190kg</b>. Two 25s, a 20, a 10 and a 2.5 a side, with collars.</span><a class="ic-link" href="#ic-loader">Load your own<svg aria-hidden="true"><use href="#ic-i-down"/></svg></a></p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= STATS STRIP ================= -->
+<section class="ic-stats" id="ic-stats" aria-labelledby="ic-stats-title">
+  <h2 class="ic-vh" id="ic-stats-title">Forgeline in numbers</h2>
+  <div class="ic-wrap">
+    <ul class="ic-stats__grid">
+      <li class="ic-stat ic-rv"><span class="ic-stat__k">Members</span><span class="ic-stat__n"><span class="ic-count" data-ic-to="412">412</span><small>/450</small></span><span class="ic-stat__l">We cap membership at 450, so the floor never gets rammed.</span></li>
+      <li class="ic-stat ic-rv" style="--ic-d:.06s"><span class="ic-stat__k">Peak rack wait</span><span class="ic-stat__n"><span class="ic-count" data-ic-to="3">3</span><small>min</small></span><span class="ic-stat__l">Average wait for a rack at 6pm, October 2026.</span></li>
+      <li class="ic-stat ic-rv" style="--ic-d:.12s"><span class="ic-stat__k">Ranked lifters</span><span class="ic-stat__n"><span class="ic-count" data-ic-to="23">23</span></span><span class="ic-stat__l">Team members on the British Powerlifting rankings this season.</span></li>
+      <li class="ic-stat ic-rv" style="--ic-d:.18s"><span class="ic-stat__k">Rating</span><span class="ic-stat__n"><span class="ic-count" data-ic-to="4.9" data-ic-dp="1">4.9</span><small>/5</small></span><span class="ic-stat__l">From 318 Google reviews (placeholder).</span></li>
+      <li class="ic-stat ic-rv" style="--ic-d:.24s"><span class="ic-stat__k">PRs this year</span><span class="ic-stat__n"><span class="ic-count" data-ic-to="1186">1,186</span></span><span class="ic-stat__l">Personal bests rung on the bell by the front desk since January.</span></li>
+    </ul>
+  </div>
+</section>
+
+<div class="ic-mq" aria-hidden="true">
+  <div class="ic-mq__track">
+    <ul class="ic-mq__list"><li>Chalk welcome</li><li>Strip your bar</li><li>Ask for a spot</li><li>Film your lifts, not other people</li><li>Bumpers on platforms only</li><li>Everyone starts somewhere</li></ul>
+    <ul class="ic-mq__list"><li>Chalk welcome</li><li>Strip your bar</li><li>Ask for a spot</li><li>Film your lifts, not other people</li><li>Bumpers on platforms only</li><li>Everyone starts somewhere</li></ul>
+  </div>
+</div>
+
+<!-- ================= THE FLOOR: equipment rail ================= -->
+<section class="ic-sec ic-dust" id="ic-floor" aria-labelledby="ic-floor-title">
+  <div class="ic-wrap">
+    <div class="ic-floor__top">
+      <div>
+        <p class="ic-sign"><span class="ic-sign__n">Bay 01</span>The floor</p>
+        <h2 id="ic-floor-title">Built for barbells. <span class="ic-hl">Not for selfies.</span></h2>
+        <p class="ic-lede">Ten thousand square feet of rubber, steel and chalk in a Victorian works building. Everything is competition spec, everything is calibrated, and there's enough of it that you won't be waiting.</p>
+      </div>
+      <div class="ic-railnav">
+        <button class="ic-railnav__btn" id="ic-rail-prev" type="button" aria-controls="ic-rail" aria-label="Previous equipment"><svg aria-hidden="true"><use href="#ic-i-arrow-l"/></svg></button>
+        <div class="ic-railnav__prog" aria-hidden="true"><span class="ic-railnav__bar" id="ic-rail-bar"></span></div>
+        <button class="ic-railnav__btn" id="ic-rail-next" type="button" aria-controls="ic-rail" aria-label="Next equipment"><svg aria-hidden="true"><use href="#ic-i-arrow"/></svg></button>
+      </div>
+    </div>
+  </div>
+  <div class="ic-railbox">
+    <ul class="ic-rail" id="ic-rail" tabindex="0" aria-label="Equipment on the gym floor. Scroll sideways for more">
+      <li class="ic-eq">
+        <div class="ic-eq__img"><img src="https://images.pexels.com/photos/6389513/pexels-photo-6389513.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=744&amp;h=558&amp;fit=crop" srcset="https://images.pexels.com/photos/6389513/pexels-photo-6389513.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=480&amp;h=360&amp;fit=crop 480w, https://images.pexels.com/photos/6389513/pexels-photo-6389513.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=744&amp;h=558&amp;fit=crop 744w" sizes="(max-width:767px) 78vw, (max-width:1199px) 340px, 372px" width="744" height="558" loading="lazy" decoding="async" alt="Squat racks and a full dumbbell rack in a brick-walled strength gym"><span class="ic-eq__bay">Zone A</span></div>
+        <div class="ic-eq__body"><h3>Combo racks</h3><p class="ic-eq__spec">14 racks · 2.3m · spotter arms · bench J-hooks</p><p>Every rack doubles as a competition bench station, with tight hole spacing so your setup is the same every session. Bookable at peak on the members' app.</p></div>
+      </li>
+      <li class="ic-eq">
+        <div class="ic-eq__img"><img src="https://images.pexels.com/photos/5837215/pexels-photo-5837215.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=744&amp;h=558&amp;fit=crop" srcset="https://images.pexels.com/photos/5837215/pexels-photo-5837215.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=480&amp;h=360&amp;fit=crop 480w, https://images.pexels.com/photos/5837215/pexels-photo-5837215.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=744&amp;h=558&amp;fit=crop 744w" sizes="(max-width:767px) 78vw, (max-width:1199px) 340px, 372px" width="744" height="558" loading="lazy" decoding="async" alt="Lifter gripping a loaded barbell on a chalk-dusted rubber floor"><span class="ic-eq__bay">Zone B</span></div>
+        <div class="ic-eq__body"><h3>Deadlift platforms</h3><p class="ic-eq__spec">6 platforms · 3m × 2.5m · 40mm rubber on oak</p><p>Pull, clean, snatch and drop bumpers without anyone flinching. Two platforms have jerk blocks and stands for Olympic lifting.</p></div>
+      </li>
+      <li class="ic-eq">
+        <div class="ic-eq__img"><img src="https://images.pexels.com/photos/38576478/pexels-photo-38576478.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=744&amp;h=558&amp;fit=crop" srcset="https://images.pexels.com/photos/38576478/pexels-photo-38576478.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=480&amp;h=360&amp;fit=crop 480w, https://images.pexels.com/photos/38576478/pexels-photo-38576478.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=744&amp;h=558&amp;fit=crop 744w" sizes="(max-width:767px) 78vw, (max-width:1199px) 340px, 372px" width="744" height="558" loading="lazy" decoding="async" alt="Lifter bench pressing dumbbells while a training partner spots"><span class="ic-eq__bay">Zone C</span></div>
+        <div class="ic-eq__body"><h3>Competition bench</h3><p class="ic-eq__spec">IPF-spec bench · 2 monolifts</p><p>A proper comp bench with the right height and pad width, plus two monolift stands so you can rehearse meet-day squats.</p></div>
+      </li>
+      <li class="ic-eq">
+        <div class="ic-eq__img"><img src="https://images.pexels.com/photos/12954990/pexels-photo-12954990.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=744&amp;h=558&amp;fit=crop" srcset="https://images.pexels.com/photos/12954990/pexels-photo-12954990.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=480&amp;h=360&amp;fit=crop 480w, https://images.pexels.com/photos/12954990/pexels-photo-12954990.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=744&amp;h=558&amp;fit=crop 744w" sizes="(max-width:767px) 78vw, (max-width:1199px) 340px, 372px" width="744" height="558" loading="lazy" decoding="async" alt="Yellow, green and blue bumper plates stacked on a gym floor"><span class="ic-eq__bay">Zone D</span></div>
+        <div class="ic-eq__body"><h3>Calibrated plates</h3><p class="ic-eq__spec">1,250kg · IPF colours · ±10g</p><p>Calibrated steel from 25kg reds down to 0.25kg change plates, plus bumpers for the platforms. What it says on the plate is what's on the bar.</p></div>
+      </li>
+      <li class="ic-eq">
+        <div class="ic-eq__img"><img src="https://images.pexels.com/photos/20379134/pexels-photo-20379134.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=744&amp;h=558&amp;fit=crop" srcset="https://images.pexels.com/photos/20379134/pexels-photo-20379134.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=480&amp;h=360&amp;fit=crop 480w, https://images.pexels.com/photos/20379134/pexels-photo-20379134.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=744&amp;h=558&amp;fit=crop 744w" sizes="(max-width:767px) 78vw, (max-width:1199px) 340px, 372px" width="744" height="558" loading="lazy" decoding="async" alt="Athlete driving a weighted sled across the gym floor"><span class="ic-eq__bay">Zone E</span></div>
+        <div class="ic-eq__body"><h3>Strongman yard</h3><p class="ic-eq__spec">Stones 40–160kg · log · axle · yoke · 20m sled</p><p>A covered yard with atlas stones, logs, farmer's handles, a yoke and a sled track. On Saturday mornings it belongs to Strongman Saturdays.</p></div>
+      </li>
+      <li class="ic-eq">
+        <div class="ic-eq__img"><img src="https://images.pexels.com/photos/1092875/pexels-photo-1092875.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=744&amp;h=558&amp;fit=crop" srcset="https://images.pexels.com/photos/1092875/pexels-photo-1092875.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=480&amp;h=360&amp;fit=crop 480w, https://images.pexels.com/photos/1092875/pexels-photo-1092875.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=744&amp;h=558&amp;fit=crop 744w" sizes="(max-width:767px) 78vw, (max-width:1199px) 340px, 372px" width="744" height="558" loading="lazy" decoding="async" alt="Tattooed forearm gripping a barbell set in a squat rack"><span class="ic-eq__bay">Zone F</span></div>
+        <div class="ic-eq__body"><h3>The bar library</h3><p class="ic-eq__spec">21 bars · power, deadlift, 15kg, SSB, trap, axle</p><p>Stiff power bars for squat and bench, a whippy deadlift bar, 15kg women's bars, a safety squat bar, two trap bars and a 25kg strongman axle.</p></div>
+      </li>
+      <li class="ic-eq ic-eq--cta">
+        <p class="ic-sign" style="background:var(--ic-black);border-color:var(--ic-black)"><span class="ic-sign__n">Desk</span>Reception</p>
+        <h3>See it for yourself</h3>
+        <p>Your first day is on us. A coach will show you round, set up a rack at the right height and leave you to it, or stay if you'd like a hand.</p>
+        <a class="ic-btn" href="#ic-pass">Claim a day pass<svg aria-hidden="true"><use href="#ic-i-arrow"/></svg></a>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= HOUSE RULES: the main worry, answered ================= -->
+<section class="ic-sec ic-sec--steel" id="ic-rules" aria-labelledby="ic-rules-title">
+  <div class="ic-wrap">
+    <div class="ic-rules__grid">
+      <figure class="ic-rules__photo ic-rv">
+        <img src="https://images.pexels.com/photos/39219652/pexels-photo-39219652.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800&amp;h=1000&amp;fit=crop" srcset="https://images.pexels.com/photos/39219652/pexels-photo-39219652.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=560&amp;h=700&amp;fit=crop 560w, https://images.pexels.com/photos/39219652/pexels-photo-39219652.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800&amp;h=1000&amp;fit=crop 800w" sizes="(max-width:999px) 100vw, 45vw" width="800" height="1000" loading="lazy" decoding="async" alt="Lifter squatting in a rack while a coach watches her form, in black and white">
+        <figcaption><b>Tuesday, 7pm.</b> A Barbell Basics squat session in Zone A. Week two, and nobody's watching but the coach.</figcaption>
+      </figure>
+      <div>
+        <p class="ic-sign"><span class="ic-sign__n">Bay 02</span>House rules</p>
+        <h2 id="ic-rules-title">No posers. No queues. <span class="ic-hl">No judgement.</span></h2>
+        <p class="ic-lede" style="margin-bottom:28px">The question new members ask most is whether they'll fit in. Short answer: yes. Here's how we keep it that way.</p>
+        <ul class="ic-worry">
+          <li class="ic-rv"><span class="ic-worry__ic"><svg aria-hidden="true"><use href="#ic-i-users"/></svg></span><h3>Beginners are the point</h3><p>About a third of our members came through Barbell Basics having never squatted with a bar. Every new member gets a free 30-minute induction with a coach.</p></li>
+          <li class="ic-rv" style="--ic-d:.08s"><span class="ic-worry__ic"><svg aria-hidden="true"><use href="#ic-i-clock"/></svg></span><h3>Racks when you want them</h3><p>Membership is capped at 450. At peak (5pm to 8pm, Monday to Thursday) you can book a rack in 75-minute slots on the app. October's average wait at 6pm: three minutes.</p></li>
+          <li class="ic-rv" style="--ic-d:.16s"><span class="ic-worry__ic"><svg aria-hidden="true"><use href="#ic-i-shield"/></svg></span><h3>Lifting, not posing</h3><p>Two mirrors, both in the warm-up area. Tripods are fine on your own platform, but filming other people without asking gets you a quiet word from a coach.</p></li>
+        </ul>
+        <div class="ic-signboard ic-rv">
+          <h3>The Forgeline code</h3>
+          <ol>
+            <li>Strip your bar. Every time.</li>
+            <li>Chalk is welcome. Brush the bar after.</li>
+            <li>Ask for a spot. Nobody says no.</li>
+            <li>Film your lifts, not other people.</li>
+            <li>Bumpers drop on platforms only.</li>
+            <li>Everyone here was a beginner once.</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROGRAMMES ================= -->
+<section class="ic-sec ic-dust" id="ic-programmes" aria-labelledby="ic-programmes-title">
+  <div class="ic-wrap">
+    <div class="ic-head">
+      <div>
+        <p class="ic-sign"><span class="ic-sign__n">Bay 03</span>Coached programmes</p>
+        <h2 id="ic-programmes-title">Coached by people who <span class="ic-hl">actually lift.</span></h2>
+      </div>
+      <p class="ic-lede">Whether you've never touched a barbell or you're chasing a qualifying total, there's a programme here with a coach who has done it themselves.</p>
+    </div>
+    <div class="ic-progs">
+      <article class="ic-prog ic-rv" style="--ic-c:var(--ic-green)" aria-labelledby="ic-prog-1">
+        <div class="ic-prog__img"><img src="https://images.pexels.com/photos/19025674/pexels-photo-19025674.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=960&amp;h=660&amp;fit=crop" srcset="https://images.pexels.com/photos/19025674/pexels-photo-19025674.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=640&amp;h=440&amp;fit=crop 640w, https://images.pexels.com/photos/19025674/pexels-photo-19025674.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=960&amp;h=660&amp;fit=crop 960w" sizes="(max-width:899px) 100vw, 33vw" width="960" height="660" loading="lazy" decoding="async" alt="Lifter with a barbell across her shoulders in a squat rack, in black and white"><span class="ic-prog__tag">Beginners</span></div>
+        <div class="ic-prog__body">
+          <h3 id="ic-prog-1">Barbell Basics</h3>
+          <ul class="ic-prog__meta"><li>6 weeks</li><li>2 sessions a week</li><li>Groups of 6</li></ul>
+          <ul class="ic-ticks">
+            <li>Squat, bench, deadlift and overhead press, taught from scratch</li>
+            <li>Your own written programme to take forward</li>
+            <li>Six weeks of 24/7 gym access included</li>
+            <li>Next intake: Monday 7 December, 6.30pm</li>
+          </ul>
+          <div class="ic-prog__foot"><p class="ic-prog__price" style="margin:0">£119<small>one-off, six weeks</small></p><a class="ic-link" href="#ic-pass">Book a place<svg aria-hidden="true"><use href="#ic-i-arrow"/></svg></a></div>
+        </div>
+      </article>
+      <article class="ic-prog ic-rv" style="--ic-c:var(--ic-red);--ic-d:.08s" aria-labelledby="ic-prog-2">
+        <div class="ic-prog__img"><img src="https://images.pexels.com/photos/9479153/pexels-photo-9479153.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=960&amp;h=660&amp;fit=crop" srcset="https://images.pexels.com/photos/9479153/pexels-photo-9479153.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=640&amp;h=440&amp;fit=crop 640w, https://images.pexels.com/photos/9479153/pexels-photo-9479153.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=960&amp;h=660&amp;fit=crop 960w" sizes="(max-width:899px) 100vw, 33vw" width="960" height="660" loading="lazy" decoding="async" alt="Powerlifter pulling a heavily loaded barbell off the floor"><span class="ic-prog__tag">Intermediate to elite</span></div>
+        <div class="ic-prog__body">
+          <h3 id="ic-prog-2">Powerlifting Team</h3>
+          <ul class="ic-prog__meta"><li>Tue &amp; Thu 6.30pm</li><li>Sun 10am</li><li>Meet support</li></ul>
+          <ul class="ic-ticks">
+            <li>12-week programmed blocks, reviewed weekly with your coach</li>
+            <li>Video form checks in the team app</li>
+            <li>Meet entry, handling and attempt selection on the day</li>
+            <li>Kit advice for British Powerlifting Classic</li>
+          </ul>
+          <div class="ic-prog__foot"><p class="ic-prog__price" style="margin:0">£55<small>a month, Team membership</small></p><a class="ic-link" href="#ic-pricing">See Team<svg aria-hidden="true"><use href="#ic-i-arrow"/></svg></a></div>
+        </div>
+      </article>
+      <article class="ic-prog ic-rv" style="--ic-c:var(--ic-yellow);--ic-d:.16s" aria-labelledby="ic-prog-3">
+        <div class="ic-prog__img"><img src="https://images.pexels.com/photos/12585922/pexels-photo-12585922.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=960&amp;h=660&amp;fit=crop" srcset="https://images.pexels.com/photos/12585922/pexels-photo-12585922.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=640&amp;h=440&amp;fit=crop 640w, https://images.pexels.com/photos/12585922/pexels-photo-12585922.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=960&amp;h=660&amp;fit=crop 960w" sizes="(max-width:899px) 100vw, 33vw" width="960" height="660" loading="lazy" decoding="async" alt="Close-up of a hand gripping a thick training rope, in black and white"><span class="ic-prog__tag">All levels</span></div>
+        <div class="ic-prog__body">
+          <h3 id="ic-prog-3">Strongman Saturdays</h3>
+          <ul class="ic-prog__meta"><li>Sat 10am to 12.30pm</li><li>Max 12 lifters</li><li>The yard</li></ul>
+          <ul class="ic-ticks">
+            <li>Stones, log, axle, yoke, farmer's and sled</li>
+            <li>Loads scaled for first-timers, from 40kg stones</li>
+            <li>Included with Team, £10 a session for other members</li>
+            <li>Brews and bacon butties in the yard afterwards</li>
+          </ul>
+          <div class="ic-prog__foot"><p class="ic-prog__price" style="margin:0">£10<small>a session, members</small></p><a class="ic-link" href="#ic-pass">Try a session<svg aria-hidden="true"><use href="#ic-i-arrow"/></svg></a></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SIGNATURE TOOL: plate loader + 1RM ================= -->
+<section class="ic-sec ic-sec--tread" id="ic-loader" aria-labelledby="ic-loader-title">
+  <div class="ic-wrap">
+    <div class="ic-head">
+      <div>
+        <p class="ic-sign"><span class="ic-sign__n">Bay 04</span>Plate maths</p>
+        <h2 id="ic-loader-title">Load the bar. <span class="ic-hl">Get it right.</span></h2>
+      </div>
+      <p class="ic-lede">Type a weight and we'll show you exactly what goes on each side, in proper IPF colours. Switch tabs to estimate your one-rep max from a set and get your working weights.</p>
+    </div>
+
+    <div class="ic-tool">
+      <div class="ic-tabs" role="tablist" aria-label="Plate tools">
+        <button class="ic-tab" type="button" role="tab" id="ic-tab-load" aria-controls="ic-panel-load" aria-selected="true">Plate loader<span>What goes on the bar</span></button>
+        <button class="ic-tab" type="button" role="tab" id="ic-tab-1rm" aria-controls="ic-panel-1rm" aria-selected="false" tabindex="-1">1RM calculator<span>Epley + Brzycki</span></button>
+      </div>
+
+      <div class="ic-panel" role="tabpanel" id="ic-panel-load" aria-labelledby="ic-tab-load" tabindex="0">
+        <div class="ic-loader">
+          <div>
+            <div class="ic-field">
+              <label for="ic-target">Target weight</label>
+              <div class="ic-kg">
+                <button class="ic-kg__step" type="button" data-ic-step="-2.5" data-ic-for="ic-target" aria-label="Take off 2.5 kilograms">−2.5</button>
+                <input id="ic-target" type="number" inputmode="decimal" min="15" max="600" step="0.5" value="142.5" aria-describedby="ic-target-hint">
+                <span class="ic-kg__u" aria-hidden="true">kg</span>
+                <button class="ic-kg__step" type="button" data-ic-step="2.5" data-ic-for="ic-target" aria-label="Add 2.5 kilograms">+2.5</button>
+              </div>
+              <p class="ic-hint" id="ic-target-hint">From an empty bar up to 600kg. Calibrated plates go down to 0.5kg jumps.</p>
+            </div>
+            <ul class="ic-presets" aria-label="Common weights">
+              <li><button type="button" data-ic-preset="60">60kg</button></li>
+              <li><button type="button" data-ic-preset="100">100kg</button></li>
+              <li><button type="button" data-ic-preset="140">140kg</button></li>
+              <li><button type="button" data-ic-preset="180">180kg</button></li>
+              <li><button type="button" data-ic-preset="220">220kg</button></li>
+              <li><button type="button" data-ic-preset="272.5">272.5kg</button></li>
+            </ul>
+            <fieldset>
+              <legend class="ic-legend">Bar</legend>
+              <div class="ic-seg">
+                <label><input type="radio" name="ic-bar" value="20" checked><span>20kg<small>Power bar</small></span></label>
+                <label><input type="radio" name="ic-bar" value="15"><span>15kg<small>Women's bar</small></span></label>
+                <label><input type="radio" name="ic-bar" value="25"><span>25kg<small>Strongman axle</small></span></label>
+              </div>
+            </fieldset>
+            <label class="ic-switch" for="ic-collars"><span class="ic-switch__txt">Competition collars<small>2.5kg each, 5kg a pair</small></span><input type="checkbox" id="ic-collars" role="switch" checked></label>
+          </div>
+
+          <div class="ic-stage">
+            <div class="ic-stage__total">
+              <p class="ic-stage__kg" id="ic-load-total" style="margin:0">142.5<small>kg</small></p>
+              <p class="ic-stage__lb" id="ic-load-lb" style="margin:0">314.2lb on the bar</p>
+            </div>
+            <div class="ic-stage__svgbox">
+              <svg id="ic-load-svg" viewBox="0 0 900 250" role="img" aria-labelledby="ic-load-svg-title" focusable="false">
+                <title id="ic-load-svg-title">Barbell loaded with 142.5kg: per side, two 25kg, one 5kg, one 2.5kg and one 1.25kg plate, with collars</title>
+                <rect x="10" y="114" width="320" height="22" fill="url(#ic-g-chrome)"/>
+                <rect x="570" y="114" width="320" height="22" fill="url(#ic-g-chrome)"/>
+                <rect x="352" y="119" width="196" height="12" fill="url(#ic-g-chrome)"/>
+                <path d="M362 125H430M470 125H538" stroke="#2a2c30" stroke-opacity=".55" stroke-width="12" stroke-dasharray="1.4 2.6"/>
+                <rect x="330" y="100" width="22" height="50" fill="url(#ic-g-chrome)"/>
+                <rect x="548" y="100" width="22" height="50" fill="url(#ic-g-chrome)"/>
+                <g id="ic-load-plates"></g>
+              </svg>
+            </div>
+            <div class="ic-warn" id="ic-load-warn" hidden>
+              <svg aria-hidden="true"><use href="#ic-i-warn"/></svg>
+              <div><p id="ic-load-warn-txt" style="margin:0"></p><div class="ic-warn__acts" id="ic-load-warn-acts"></div></div>
+            </div>
+            <div class="ic-perside">
+              <div>
+                <h3>Per side, inside out</h3>
+                <ul class="ic-plist" id="ic-load-list">
+                  <li><span class="ic-plist__sw" style="background:#D7263D" aria-hidden="true"></span>25kg red<b>× 2</b></li>
+                  <li><span class="ic-plist__sw" style="background:#E6E3DC" aria-hidden="true"></span>5kg white<b>× 1</b></li>
+                  <li><span class="ic-plist__sw" style="background:#141414" aria-hidden="true"></span>2.5kg black<b>× 1</b></li>
+                  <li><span class="ic-plist__sw" style="background:#b9bcc2" aria-hidden="true"></span>1.25kg chrome<b>× 1</b></li>
+                </ul>
+              </div>
+              <div>
+                <h3>The maths</h3>
+                <p class="ic-sum" id="ic-load-sum">Bar <b>20kg</b> + collars <b>5kg</b> + plates <b>2 × 58.75kg</b> = <b>142.5kg</b></p>
+              </div>
+            </div>
+            <p class="ic-vh" id="ic-load-live" aria-live="polite"></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="ic-panel" role="tabpanel" id="ic-panel-1rm" aria-labelledby="ic-tab-1rm" tabindex="0">
+        <div class="ic-1rm">
+          <div>
+            <div class="ic-field">
+              <label for="ic-rm-kg">Weight lifted</label>
+              <div class="ic-kg">
+                <button class="ic-kg__step" type="button" data-ic-step="-2.5" data-ic-for="ic-rm-kg" aria-label="Take off 2.5 kilograms">−2.5</button>
+                <input id="ic-rm-kg" type="number" inputmode="decimal" min="1" max="500" step="0.5" value="120">
+                <span class="ic-kg__u" aria-hidden="true">kg</span>
+                <button class="ic-kg__step" type="button" data-ic-step="2.5" data-ic-for="ic-rm-kg" aria-label="Add 2.5 kilograms">+2.5</button>
+              </div>
+            </div>
+            <div class="ic-field">
+              <label for="ic-rm-reps">Reps completed</label>
+              <div class="ic-kg">
+                <button class="ic-kg__step" type="button" data-ic-step="-1" data-ic-for="ic-rm-reps" aria-label="One rep fewer">−1</button>
+                <input id="ic-rm-reps" type="number" inputmode="numeric" min="1" max="12" step="1" value="5" aria-describedby="ic-rm-hint">
+                <span class="ic-kg__u" aria-hidden="true">reps</span>
+                <button class="ic-kg__step" type="button" data-ic-step="1" data-ic-for="ic-rm-reps" aria-label="One more rep">+1</button>
+              </div>
+              <p class="ic-hint" id="ic-rm-hint">Use a hard set of 1 to 12 reps. Estimates get shaky above 10.</p>
+            </div>
+            <div class="ic-1rm__res">
+              <div class="ic-1rm__box"><span>Epley</span><b id="ic-rm-epley">140kg</b></div>
+              <div class="ic-1rm__box"><span>Brzycki</span><b id="ic-rm-brzycki">135kg</b></div>
+              <div class="ic-1rm__box ic-1rm__box--main"><span>Estimated 1RM</span><b id="ic-rm-avg">137.5kg</b></div>
+            </div>
+            <p class="ic-note">Estimates, not promises. Weights are rounded to the nearest 2.5kg so you can actually load them. Test a true max with a coach watching, not on your own at 3am.</p>
+            <p class="ic-vh" id="ic-rm-live" aria-live="polite"></p>
+          </div>
+          <div>
+            <table class="ic-pct">
+              <caption>Working weights from your estimated max</caption>
+              <thead><tr><th scope="col">Intensity</th><th scope="col">Weight</th><th scope="col" class="ic-pct__reps">Typical reps</th><th scope="col"><span class="ic-vh">Send to plate loader</span></th></tr></thead>
+              <tbody id="ic-rm-body">
+                <tr><th scope="row">95%</th><td>130kg</td><td class="ic-pct__reps">1 to 2</td><td></td></tr>
+                <tr><th scope="row">90%</th><td>125kg</td><td class="ic-pct__reps">3 to 4</td><td></td></tr>
+                <tr><th scope="row">85%</th><td>117.5kg</td><td class="ic-pct__reps">5 to 6</td><td></td></tr>
+                <tr><th scope="row">80%</th><td>110kg</td><td class="ic-pct__reps">7 to 8</td><td></td></tr>
+                <tr><th scope="row">75%</th><td>102.5kg</td><td class="ic-pct__reps">9 to 10</td><td></td></tr>
+                <tr><th scope="row">70%</th><td>97.5kg</td><td class="ic-pct__reps">11 to 12</td><td></td></tr>
+                <tr><th scope="row">65%</th><td>90kg</td><td class="ic-pct__reps">13 to 15</td><td></td></tr>
+                <tr><th scope="row">60%</th><td>82.5kg</td><td class="ic-pct__reps">16 to 20</td><td></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= MEMBERSHIPS ================= -->
+<section class="ic-sec ic-dust" id="ic-pricing" aria-labelledby="ic-pricing-title">
+  <div class="ic-wrap">
+    <div class="ic-head">
+      <div>
+        <p class="ic-sign"><span class="ic-sign__n">Bay 05</span>Memberships</p>
+        <h2 id="ic-pricing-title">Simple prices. <span class="ic-hl">No small print.</span></h2>
+      </div>
+      <p class="ic-lede">No joining fee and no annual contract. Every membership rolls monthly and you can cancel with 30 days' notice. Not sure? Start with a free day pass.</p>
+    </div>
+    <div class="ic-plans">
+      <article class="ic-plan ic-plan--top ic-rv" style="--ic-c:var(--ic-red)" aria-labelledby="ic-plan-1">
+        <span class="ic-plan__plate" aria-hidden="true"></span><span class="ic-plan__flag">Most popular</span><span class="ic-plan__kg" aria-hidden="true">25KG</span>
+        <h3 id="ic-plan-1">24/7</h3>
+        <p class="ic-plan__for">Full access, any hour, any day of the year.</p>
+        <p class="ic-plan__price">£39<span>/month</span></p>
+        <ul class="ic-ticks">
+          <li>24/7 fob access, 365 days a year</li>
+          <li>Book racks at peak on the app</li>
+          <li>Free induction and a programme review every 8 weeks</li>
+          <li>Open-gym coaching during staffed hours</li>
+        </ul>
+        <a class="ic-btn ic-btn--molten ic-btn--block" href="#ic-pass">Start with a free day</a>
+      </article>
+      <article class="ic-plan ic-rv" style="--ic-c:var(--ic-yellow);--ic-d:.06s" aria-labelledby="ic-plan-2">
+        <span class="ic-plan__plate" aria-hidden="true"></span><span class="ic-plan__kg" aria-hidden="true">15KG</span>
+        <h3 id="ic-plan-2">Off-peak</h3>
+        <p class="ic-plan__for">For shift workers, early risers and night owls.</p>
+        <p class="ic-plan__price">£27<span>/month</span></p>
+        <ul class="ic-ticks">
+          <li>Weekdays before 4pm and after 8pm</li>
+          <li>Weekends and bank holidays, any time</li>
+          <li>Same induction and coaching as 24/7</li>
+          <li>Switch plans any month, no fee</li>
+        </ul>
+        <a class="ic-btn ic-btn--line ic-btn--block" href="#ic-pass">Try it free</a>
+      </article>
+      <article class="ic-plan ic-rv" style="--ic-c:var(--ic-green);--ic-d:.12s" aria-labelledby="ic-plan-3">
+        <span class="ic-plan__plate" aria-hidden="true"></span><span class="ic-plan__kg" aria-hidden="true">10KG</span>
+        <h3 id="ic-plan-3">Student</h3>
+        <p class="ic-plan__for">Full 24/7 access with a valid student card.</p>
+        <p class="ic-plan__price">£29<span>/month</span></p>
+        <ul class="ic-ticks">
+          <li>Sheffield Hallam, University of Sheffield and Sheffield College</li>
+          <li>Freeze over summer for £5 a month</li>
+          <li>Barbell Basics for £89 instead of £119</li>
+          <li>Same 24/7 access and induction</li>
+        </ul>
+        <a class="ic-btn ic-btn--line ic-btn--block" href="#ic-pass">Try it free</a>
+      </article>
+      <article class="ic-plan ic-rv" style="--ic-c:var(--ic-blue);--ic-d:.18s" aria-labelledby="ic-plan-4">
+        <span class="ic-plan__plate" aria-hidden="true"></span><span class="ic-plan__kg" aria-hidden="true">20KG</span>
+        <h3 id="ic-plan-4">Team</h3>
+        <p class="ic-plan__for">For lifters who want a coach and a team behind them.</p>
+        <p class="ic-plan__price">£55<span>/month</span></p>
+        <ul class="ic-ticks">
+          <li>Everything in 24/7</li>
+          <li>Coached team sessions, Tuesday, Thursday and Sunday</li>
+          <li>12-week programmed blocks and video checks</li>
+          <li>Strongman Saturdays and meet handling included</li>
+        </ul>
+        <a class="ic-btn ic-btn--line ic-btn--block" href="#ic-pass">Talk to a coach</a>
+      </article>
+    </div>
+    <ul class="ic-plans__notes">
+      <li><svg aria-hidden="true"><use href="#ic-i-plate"/></svg><span><b>No joining fee, ever.</b> Rolling monthly, 30 days' notice to cancel.</span></li>
+      <li><svg aria-hidden="true"><use href="#ic-i-cal"/></svg><span><b>Freeze for up to 3 months a year</b> for injury, exams or travel. No charge.</span></li>
+      <li><svg aria-hidden="true"><use href="#ic-i-fob"/></svg><span><b>Day pass £8 · 10-visit card £65.</b> Pay-as-you-go during staffed hours.</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= HOW TO START ================= -->
+<section class="ic-sec ic-sec--steel" id="ic-start" aria-labelledby="ic-start-title">
+  <div class="ic-wrap">
+    <div class="ic-head">
+      <div>
+        <p class="ic-sign"><span class="ic-sign__n">Bay 06</span>Your first day</p>
+        <h2 id="ic-start-title">Four steps to <span class="ic-hl">your first lift.</span></h2>
+      </div>
+      <p class="ic-lede">No sales pitch in a glass office. You'll be on the floor with chalk on your hands within the first half hour.</p>
+    </div>
+    <ol class="ic-steps">
+      <li class="ic-step ic-rv"><span class="ic-step__time">2 min</span><h3>Claim your day pass</h3><p>Fill in the short form below. We'll text you within a working day to confirm your slot.</p></li>
+      <li class="ic-step ic-rv" style="--ic-d:.08s"><span class="ic-step__time">30 min</span><h3>Meet a coach</h3><p>A coach shows you round, asks about any injuries and sets up a rack at the right height for you.</p></li>
+      <li class="ic-step ic-rv" style="--ic-d:.16s"><span class="ic-step__time">All day</span><h3>Lift</h3><p>Train on your own or with a coach close by. New to it? We'll write you a simple three-day starter plan.</p></li>
+      <li class="ic-step ic-rv" style="--ic-d:.24s"><span class="ic-step__time">No pressure</span><h3>Join, or don't</h3><p>Liked it? Pick a membership with no joining fee. Didn't? No hard sell and no follow-up calls. Promise.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ================= PR BOARD ================= -->
+<section class="ic-sec ic-dust" id="ic-prs" aria-labelledby="ic-prs-title">
+  <div class="ic-wrap">
+    <div class="ic-head">
+      <div>
+        <p class="ic-sign"><span class="ic-sign__n">Bay 07</span>PR board</p>
+        <h2 id="ic-prs-title">The board <span class="ic-hl">doesn't lie.</span></h2>
+      </div>
+      <p class="ic-lede">Every lift here was done on our platforms in front of a club referee, or at a British Powerlifting meet. Filter by lift, or switch to DOTS to see who's strongest pound for pound.</p>
+    </div>
+    <div class="ic-prbar">
+      <div class="ic-filter" role="group" aria-label="Lift" id="ic-pr-lift">
+        <button type="button" data-ic-lift="squat" aria-pressed="true">Squat</button>
+        <button type="button" data-ic-lift="bench" aria-pressed="false">Bench</button>
+        <button type="button" data-ic-lift="deadlift" aria-pressed="false">Deadlift</button>
+      </div>
+      <div class="ic-prbar__grp"><span class="ic-prbar__lbl" id="ic-pr-sex-lbl">Lifters</span>
+        <div class="ic-filter ic-filter--sm" role="group" aria-labelledby="ic-pr-sex-lbl" id="ic-pr-sex">
+          <button type="button" data-ic-sex="all" aria-pressed="true">All</button>
+          <button type="button" data-ic-sex="f" aria-pressed="false">Women</button>
+          <button type="button" data-ic-sex="m" aria-pressed="false">Men</button>
+        </div>
+      </div>
+      <div class="ic-prbar__grp"><span class="ic-prbar__lbl" id="ic-pr-sort-lbl">Rank by</span>
+        <div class="ic-filter ic-filter--sm" role="group" aria-labelledby="ic-pr-sort-lbl" id="ic-pr-sort">
+          <button type="button" data-ic-sort="kg" aria-pressed="true">Heaviest</button>
+          <button type="button" data-ic-sort="dots" aria-pressed="false">DOTS</button>
+        </div>
+      </div>
+    </div>
+    <div class="ic-board" tabindex="0" role="region" aria-labelledby="ic-prs-title">
+      <table class="ic-pr" id="ic-pr">
+        <caption id="ic-pr-cap">All 24 club records across squat, bench and deadlift, heaviest first within each lift.</caption>
+        <thead><tr><th scope="col">Rank</th><th scope="col">Lifter</th><th scope="col">Class</th><th scope="col">Lift</th><th scope="col">Best</th><th scope="col">DOTS</th><th scope="col">Set</th><th scope="col">Where</th></tr></thead>
+        <tbody id="ic-pr-body">
+        <tr data-ic-lift="squat" data-ic-sex="m"><td>1</td><th scope="row">Tom W.</th><td>Men 120+kg</td><td>Squat</td><td>310</td><td>173.0</td><td>Oct 2026</td><td class="ic-m">Meet</td></tr>
+        <tr data-ic-lift="squat" data-ic-sex="m"><td>2</td><th scope="row">Callum B.</th><td>Men 105kg</td><td>Squat</td><td>285</td><td>172.4</td><td>Sep 2026</td><td class="ic-m">Meet</td></tr>
+        <tr data-ic-lift="squat" data-ic-sex="m"><td>3</td><th scope="row">Jordan H.</th><td>Men 93kg</td><td>Squat</td><td>262.5</td><td>167.8</td><td>Aug 2026</td><td>Gym</td></tr>
+        <tr data-ic-lift="squat" data-ic-sex="m"><td>4</td><th scope="row">Marcus O.</th><td>Men 83kg</td><td>Squat</td><td>240</td><td>162.5</td><td>Oct 2026</td><td>Gym</td></tr>
+        <tr data-ic-lift="squat" data-ic-sex="f"><td>5</td><th scope="row">Aisha K.</th><td>Women 84kg</td><td>Squat</td><td>190</td><td>175.7</td><td>Jul 2026</td><td class="ic-m">Meet</td></tr>
+        <tr data-ic-lift="squat" data-ic-sex="f"><td>6</td><th scope="row">Ellie M.</th><td>Women 76kg</td><td>Squat</td><td>182.5</td><td>177.3</td><td>Sep 2026</td><td>Gym</td></tr>
+        <tr data-ic-lift="squat" data-ic-sex="f"><td>7</td><th scope="row">Shannon P.</th><td>Women 63kg</td><td>Squat</td><td>150</td><td>161.6</td><td>Nov 2026</td><td>Gym</td></tr>
+        <tr data-ic-lift="squat" data-ic-sex="f"><td>8</td><th scope="row">Priya S.</th><td>Women 57kg</td><td>Squat</td><td>132.5</td><td>153.0</td><td>Jun 2026</td><td class="ic-m">Meet</td></tr>
+        <tr data-ic-lift="bench" data-ic-sex="m"><td>1</td><th scope="row">Tom W.</th><td>Men 120+kg</td><td>Bench</td><td>200</td><td>111.6</td><td>Sep 2026</td><td>Gym</td></tr>
+        <tr data-ic-lift="bench" data-ic-sex="m"><td>2</td><th scope="row">Callum B.</th><td>Men 105kg</td><td>Bench</td><td>180</td><td>108.9</td><td>Oct 2026</td><td class="ic-m">Meet</td></tr>
+        <tr data-ic-lift="bench" data-ic-sex="m"><td>3</td><th scope="row">Jordan H.</th><td>Men 93kg</td><td>Bench</td><td>170</td><td>108.7</td><td>Jun 2026</td><td>Gym</td></tr>
+        <tr data-ic-lift="bench" data-ic-sex="m"><td>4</td><th scope="row">Marcus O.</th><td>Men 83kg</td><td>Bench</td><td>160</td><td>108.3</td><td>Nov 2026</td><td>Gym</td></tr>
+        <tr data-ic-lift="bench" data-ic-sex="f"><td>5</td><th scope="row">Aisha K.</th><td>Women 84kg</td><td>Bench</td><td>112.5</td><td>104.1</td><td>Oct 2026</td><td class="ic-m">Meet</td></tr>
+        <tr data-ic-lift="bench" data-ic-sex="f"><td>6</td><th scope="row">Ellie M.</th><td>Women 76kg</td><td>Bench</td><td>105</td><td>102.0</td><td>Aug 2026</td><td>Gym</td></tr>
+        <tr data-ic-lift="bench" data-ic-sex="f"><td>7</td><th scope="row">Shannon P.</th><td>Women 63kg</td><td>Bench</td><td>85</td><td>91.6</td><td>Sep 2026</td><td class="ic-m">Meet</td></tr>
+        <tr data-ic-lift="bench" data-ic-sex="f"><td>8</td><th scope="row">Priya S.</th><td>Women 57kg</td><td>Bench</td><td>72.5</td><td>83.7</td><td>Oct 2026</td><td>Gym</td></tr>
+        <tr data-ic-lift="deadlift" data-ic-sex="m"><td>1</td><th scope="row">Tom W.</th><td>Men 120+kg</td><td>Deadlift</td><td>330</td><td>184.1</td><td>Jul 2026</td><td class="ic-m">Meet</td></tr>
+        <tr data-ic-lift="deadlift" data-ic-sex="m"><td>2</td><th scope="row">Callum B.</th><td>Men 105kg</td><td>Deadlift</td><td>320</td><td>193.6</td><td>Oct 2026</td><td>Gym</td></tr>
+        <tr data-ic-lift="deadlift" data-ic-sex="m"><td>3</td><th scope="row">Jordan H.</th><td>Men 93kg</td><td>Deadlift</td><td>300</td><td>191.8</td><td>Sep 2026</td><td class="ic-m">Meet</td></tr>
+        <tr data-ic-lift="deadlift" data-ic-sex="m"><td>4</td><th scope="row">Marcus O.</th><td>Men 83kg</td><td>Deadlift</td><td>280</td><td>189.5</td><td>Aug 2026</td><td>Gym</td></tr>
+        <tr data-ic-lift="deadlift" data-ic-sex="f"><td>5</td><th scope="row">Aisha K.</th><td>Women 84kg</td><td>Deadlift</td><td>222.5</td><td>205.8</td><td>Nov 2026</td><td>Gym</td></tr>
+        <tr data-ic-lift="deadlift" data-ic-sex="f"><td>6</td><th scope="row">Ellie M.</th><td>Women 76kg</td><td>Deadlift</td><td>215</td><td>208.8</td><td>Oct 2026</td><td class="ic-m">Meet</td></tr>
+        <tr data-ic-lift="deadlift" data-ic-sex="f"><td>7</td><th scope="row">Shannon P.</th><td>Women 63kg</td><td>Deadlift</td><td>185</td><td>199.4</td><td>Jun 2026</td><td>Gym</td></tr>
+        <tr data-ic-lift="deadlift" data-ic-sex="f"><td>8</td><th scope="row">Priya S.</th><td>Women 57kg</td><td>Deadlift</td><td>160</td><td>184.8</td><td>Sep 2026</td><td>Gym</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="ic-vh" id="ic-pr-live" aria-live="polite"></p>
+    <div class="ic-prfoot"><p style="margin:0">Gym lifts are filmed and judged to IPF rules by a club referee. Meet lifts are from British Powerlifting results.</p><p style="margin:0">Updated every Friday.</p></div>
+  </div>
+</section>
+
+<!-- ================= COACHES ================= -->
+<section class="ic-sec ic-sec--steel" id="ic-coaches" aria-labelledby="ic-coaches-title">
+  <div class="ic-wrap">
+    <div class="ic-head">
+      <div>
+        <p class="ic-sign"><span class="ic-sign__n">Bay 08</span>Coaches</p>
+        <h2 id="ic-coaches-title">Coaches with <span class="ic-hl">chalk on their hands.</span></h2>
+      </div>
+      <p class="ic-lede">Qualified, insured and still competing. They'll tell you the truth about your form, kindly, and they'll remember your name.</p>
+    </div>
+    <ul class="ic-coaches">
+      <li class="ic-coach ic-rv">
+        <div class="ic-coach__img"><img src="https://images.pexels.com/photos/20517238/pexels-photo-20517238.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=640&amp;h=800&amp;fit=crop" srcset="https://images.pexels.com/photos/20517238/pexels-photo-20517238.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=400&amp;h=500&amp;fit=crop 400w, https://images.pexels.com/photos/20517238/pexels-photo-20517238.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=640&amp;h=800&amp;fit=crop 640w" sizes="(max-width:639px) 100vw, (max-width:1199px) 50vw, 25vw" width="640" height="800" loading="lazy" decoding="async" alt="Dan Hargreaves crouched in front of a red squat rack"><span class="ic-coach__best">Best: 312.5kg deadlift</span></div>
+        <div class="ic-coach__body"><h3>Dan Hargreaves</h3><p class="ic-coach__role">Head coach and founder</p><p>Twelve years on the melt shop floor at Stocksbridge before he opened Forgeline in 2017. British Powerlifting club coach and national referee.</p><ul class="ic-coach__tags"><li>Powerlifting</li><li>Team programming</li><li>Meet day</li></ul></div>
+      </li>
+      <li class="ic-coach ic-rv" style="--ic-d:.06s">
+        <div class="ic-coach__img"><img src="https://images.pexels.com/photos/4378848/pexels-photo-4378848.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=640&amp;h=800&amp;fit=crop" srcset="https://images.pexels.com/photos/4378848/pexels-photo-4378848.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=400&amp;h=500&amp;fit=crop 400w, https://images.pexels.com/photos/4378848/pexels-photo-4378848.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=640&amp;h=800&amp;fit=crop 640w" sizes="(max-width:639px) 100vw, (max-width:1199px) 50vw, 25vw" width="640" height="800" loading="lazy" decoding="async" alt="Kezia Brown holding a training rope in the gym"><span class="ic-coach__best">Best: 92kg clean and jerk</span></div>
+        <div class="ic-coach__body"><h3>Kezia Brown</h3><p class="ic-coach__role">Weightlifting coach</p><p>Former England junior weightlifter and British Weightlifting Level 2 coach. Runs the Wednesday night snatch and clean clinics on the Zone B platforms.</p><ul class="ic-coach__tags"><li>Olympic lifting</li><li>Mobility</li></ul></div>
+      </li>
+      <li class="ic-coach ic-rv" style="--ic-d:.12s">
+        <div class="ic-coach__img"><img src="https://images.pexels.com/photos/27898327/pexels-photo-27898327.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=640&amp;h=800&amp;fit=crop" srcset="https://images.pexels.com/photos/27898327/pexels-photo-27898327.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=400&amp;h=500&amp;fit=crop 400w, https://images.pexels.com/photos/27898327/pexels-photo-27898327.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=640&amp;h=800&amp;fit=crop 640w" sizes="(max-width:639px) 100vw, (max-width:1199px) 50vw, 25vw" width="640" height="800" loading="lazy" decoding="async" alt="Tomasz Nowak in headphones between sets in the dumbbell area"><span class="ic-coach__best">Best: 180kg atlas stone</span></div>
+        <div class="ic-coach__body"><h3>Tomasz Nowak</h3><p class="ic-coach__role">Strongman coach</p><p>Twice a finalist at England's Strongest Man (under 105kg). Runs Strongman Saturdays and keeps the stones, logs and yoke in order.</p><ul class="ic-coach__tags"><li>Strongman</li><li>Grip</li><li>Conditioning</li></ul></div>
+      </li>
+      <li class="ic-coach ic-rv" style="--ic-d:.18s">
+        <div class="ic-coach__img"><img src="https://images.pexels.com/photos/15390868/pexels-photo-15390868.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=640&amp;h=800&amp;fit=crop" srcset="https://images.pexels.com/photos/15390868/pexels-photo-15390868.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=400&amp;h=500&amp;fit=crop 400w, https://images.pexels.com/photos/15390868/pexels-photo-15390868.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=640&amp;h=800&amp;fit=crop 640w" sizes="(max-width:639px) 100vw, (max-width:1199px) 50vw, 25vw" width="640" height="800" loading="lazy" decoding="async" alt="Mags O'Donnell sitting on the gym floor after a session"><span class="ic-coach__best">Best: 140kg squat</span></div>
+        <div class="ic-coach__body"><h3>Mags O'Donnell</h3><p class="ic-coach__role">Barbell Basics lead</p><p>Sports therapist (BSc, Sheffield Hallam) and BWL Level 1 coach. If you've never touched a barbell, she's the first person you'll meet.</p><ul class="ic-coach__tags"><li>Beginners</li><li>Injury-aware</li><li>Women's lifting</li></ul></div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= REVIEWS ================= -->
+<section class="ic-sec ic-dust" id="ic-reviews" aria-labelledby="ic-reviews-title">
+  <div class="ic-wrap">
+    <div class="ic-head">
+      <div>
+        <p class="ic-sign"><span class="ic-sign__n">Bay 09</span>Members</p>
+        <h2 id="ic-reviews-title">Straight from <span class="ic-hl">the platform.</span></h2>
+      </div>
+      <div class="ic-score">
+        <b>4.9</b>
+        <div><span class="ic-stars" role="img" aria-label="4.9 out of 5 stars"></span><small>318 Google reviews (placeholder)</small></div>
+      </div>
+    </div>
+    <div class="ic-reviews">
+      <figure class="ic-review ic-rv" style="--ic-c:var(--ic-red)">
+        <span class="ic-stars" role="img" aria-label="5 out of 5 stars"></span>
+        <blockquote><p>I spent five years at a chain gym waiting for the one squat rack. Here I've never waited more than a few minutes, even at six o'clock on a Monday.</p></blockquote>
+        <figcaption><img src="https://images.pexels.com/photos/31735315/pexels-photo-31735315.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=96&amp;h=96&amp;fit=crop" srcset="https://images.pexels.com/photos/31735315/pexels-photo-31735315.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=96&amp;h=96&amp;fit=crop 96w, https://images.pexels.com/photos/31735315/pexels-photo-31735315.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=144&amp;h=144&amp;fit=crop 144w" sizes="48px" width="96" height="96" loading="lazy" decoding="async" alt="Liam K."><span><cite>Liam K.</cite><span>24/7 member since 2022</span></span></figcaption>
+      </figure>
+      <figure class="ic-review ic-rv" style="--ic-c:var(--ic-green);--ic-d:.06s">
+        <span class="ic-stars" role="img" aria-label="5 out of 5 stars"></span>
+        <blockquote><p>I was terrified of looking daft. Mags had me deadlifting with decent form by week two of Barbell Basics, and nobody so much as glanced over. Now I'm the one telling newbies to chalk up.</p></blockquote>
+        <figcaption><img src="https://images.pexels.com/photos/10157816/pexels-photo-10157816.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=96&amp;h=96&amp;fit=crop" srcset="https://images.pexels.com/photos/10157816/pexels-photo-10157816.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=96&amp;h=96&amp;fit=crop 96w, https://images.pexels.com/photos/10157816/pexels-photo-10157816.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=144&amp;h=144&amp;fit=crop 144w" sizes="48px" width="96" height="96" loading="lazy" decoding="async" alt="Sophie R."><span><cite>Sophie R.</cite><span>Barbell Basics, spring 2026</span></span></figcaption>
+      </figure>
+      <figure class="ic-review ic-rv" style="--ic-c:var(--ic-blue);--ic-d:.12s">
+        <span class="ic-stars" role="img" aria-label="5 out of 5 stars"></span>
+        <blockquote><p>Joined the team to have a go at one meet. Two years on I've got a 610kg total and a lot of new mates. Dan's programming is no-nonsense and it works.</p></blockquote>
+        <figcaption><img src="https://images.pexels.com/photos/8815931/pexels-photo-8815931.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=96&amp;h=96&amp;fit=crop" srcset="https://images.pexels.com/photos/8815931/pexels-photo-8815931.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=96&amp;h=96&amp;fit=crop 96w, https://images.pexels.com/photos/8815931/pexels-photo-8815931.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=144&amp;h=144&amp;fit=crop 144w" sizes="48px" width="96" height="96" loading="lazy" decoding="async" alt="Aaron T."><span><cite>Aaron T.</cite><span>Powerlifting Team, 93kg class</span></span></figcaption>
+      </figure>
+      <figure class="ic-review ic-rv" style="--ic-c:var(--ic-yellow)">
+        <span class="ic-stars" role="img" aria-label="5 out of 5 stars"></span>
+        <blockquote><p>Off-peak is brilliant for shift work. I train at 2am after a late finish and it's well lit, covered by CCTV, and there's a panic alarm by every platform.</p></blockquote>
+        <figcaption><img src="https://images.pexels.com/photos/32619334/pexels-photo-32619334.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=96&amp;h=96&amp;fit=crop" srcset="https://images.pexels.com/photos/32619334/pexels-photo-32619334.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=96&amp;h=96&amp;fit=crop 96w, https://images.pexels.com/photos/32619334/pexels-photo-32619334.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=144&amp;h=144&amp;fit=crop 144w" sizes="48px" width="96" height="96" loading="lazy" decoding="async" alt="Hannah W."><span><cite>Hannah W.</cite><span>Off-peak member, NHS nurse</span></span></figcaption>
+      </figure>
+      <figure class="ic-review ic-rv" style="--ic-c:var(--ic-molten);--ic-d:.06s">
+        <span class="ic-stars" role="img" aria-label="5 out of 5 stars"></span>
+        <blockquote><p>Calibrated plates, a proper deadlift bar and a 15kg bar for my girlfriend. Little things, but no other gym in Sheffield bothered.</p></blockquote>
+        <figcaption><img src="https://images.pexels.com/photos/39598425/pexels-photo-39598425.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=96&amp;h=96&amp;fit=crop" srcset="https://images.pexels.com/photos/39598425/pexels-photo-39598425.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=96&amp;h=96&amp;fit=crop 96w, https://images.pexels.com/photos/39598425/pexels-photo-39598425.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=144&amp;h=144&amp;fit=crop 144w" sizes="48px" width="96" height="96" loading="lazy" decoding="async" alt="Ravi P."><span><cite>Ravi P.</cite><span>Student member, University of Sheffield</span></span></figcaption>
+      </figure>
+      <figure class="ic-review ic-rv" style="--ic-c:var(--ic-red);--ic-d:.12s">
+        <span class="ic-stars" role="img" aria-label="5 out of 5 stars"></span>
+        <blockquote><p>Strongman Saturdays is the best morning of my week. Tomasz had me loading a 70kg stone by my third session, and the bacon butties are worth the trip on their own.</p></blockquote>
+        <figcaption><img src="https://images.pexels.com/photos/3979997/pexels-photo-3979997.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=96&amp;h=96&amp;fit=crop" srcset="https://images.pexels.com/photos/3979997/pexels-photo-3979997.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=96&amp;h=96&amp;fit=crop 96w, https://images.pexels.com/photos/3979997/pexels-photo-3979997.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=144&amp;h=144&amp;fit=crop 144w" sizes="48px" width="96" height="96" loading="lazy" decoding="async" alt="Gemma S."><span><cite>Gemma S.</cite><span>Strongman Saturdays regular</span></span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section class="ic-sec ic-sec--steel" id="ic-faq" aria-labelledby="ic-faq-title">
+  <div class="ic-wrap">
+    <div class="ic-faq__grid">
+      <div>
+        <p class="ic-sign"><span class="ic-sign__n">Bay 10</span>Questions</p>
+        <h2 id="ic-faq-title">Asked at the <span class="ic-hl">front desk.</span></h2>
+        <div class="ic-faq__aside ic-rv">
+          <h3>Still not sure?</h3>
+          <p>Ring the desk on <a class="ic-link" href="tel:+441144960732">0114 496 0732</a> during staffed hours, email <a class="ic-link" href="mailto:hello@forgelinestrength.example">hello@forgelinestrength.example</a>, or just come and see it on a free day pass.</p>
+          <a class="ic-btn ic-btn--molten" href="#ic-pass">Claim a day pass<svg aria-hidden="true"><use href="#ic-i-arrow"/></svg></a>
+        </div>
+      </div>
+      <div class="ic-acc">
+        <details><summary><span class="ic-acc__n">01</span><span class="ic-acc__q">I've never lifted a barbell. Will I be out of my depth?</span><span class="ic-acc__ic" aria-hidden="true"></span></summary>
+          <div class="ic-acc__a"><p>Not at all. About a third of our members came through Barbell Basics having never squatted with a bar. Every new member gets a free 30-minute induction, and coaches are on the floor during staffed hours to check your form whenever you ask. Nobody here cares what you lift, only that you put it back.</p></div></details>
+        <details><summary><span class="ic-acc__n">02</span><span class="ic-acc__q">Will I have to queue for a rack at peak times?</span><span class="ic-acc__ic" aria-hidden="true"></span></summary>
+          <div class="ic-acc__a"><p>Rarely. We cap membership at 450 so the floor never gets rammed. Between 5pm and 8pm, Monday to Thursday, you can book a rack in 75-minute slots on the members' app; outside those hours it's first come, first served. October's average wait at 6pm was three minutes, and the meter at the top of this page shows how busy the floor is right now.</p></div></details>
+        <details><summary><span class="ic-acc__n">03</span><span class="ic-acc__q">Is it really open 24/7? Is it safe at night?</span><span class="ic-acc__ic" aria-hidden="true"></span></summary>
+          <div class="ic-acc__a"><p>Yes. Members get a key fob after their induction. Outside staffed hours the doors are fob-only, the whole floor is covered by CCTV, and panic alarms by the platforms and in the changing rooms go straight to our monitoring service. Day pass visits are during staffed hours only.</p></div></details>
+        <details><summary><span class="ic-acc__n">04</span><span class="ic-acc__q">Can I use chalk and drop the bar?</span><span class="ic-acc__ic" aria-hidden="true"></span></summary>
+          <div class="ic-acc__a"><p>Chalk is welcome everywhere, and there's a chalk bowl between every pair of racks. Please brush the bar down after. Bumper plates can be dropped on the six platforms; iron plates and dumbbells get lowered, not dropped.</p></div></details>
+        <details><summary><span class="ic-acc__n">05</span><span class="ic-acc__q">Is there a joining fee or a contract?</span><span class="ic-acc__ic" aria-hidden="true"></span></summary>
+          <div class="ic-acc__a"><p>Neither. Memberships roll monthly and you can cancel with 30 days' notice, or freeze for up to three months a year for injury, exams or travel. Barbell Basics is a one-off £119 for six weeks and includes your gym access.</p></div></details>
+        <details><summary><span class="ic-acc__n">06</span><span class="ic-acc__q">Do you have changing rooms, showers and lockers?</span><span class="ic-acc__ic" aria-hidden="true"></span></summary>
+          <div class="ic-acc__a"><p>Yes: separate men's and women's changing rooms with showers, a step-free accessible changing room, free lockers (bring a padlock or buy one at the desk for £4) and a filtered water tap. The desk also sells chalk, wrist wraps and flapjacks from the bakery up the road.</p></div></details>
+        <details><summary><span class="ic-acc__n">07</span><span class="ic-acc__q">How do I get there, and is there parking?</span><span class="ic-acc__ic" aria-hidden="true"></span></summary>
+          <div class="ic-acc__a"><p>We're in Forge Works on Mowbray Street, Kelham Island, a four-minute walk from Shalesmoor tram stop on the blue and yellow lines. There are 12 free parking spaces in the yard (members only after 6pm and all weekend) and covered bike racks by the door.</p></div></details>
+        <details><summary><span class="ic-acc__n">08</span><span class="ic-acc__q">Do I have to compete to join the Powerlifting Team?</span><span class="ic-acc__ic" aria-hidden="true"></span></summary>
+          <div class="ic-acc__a"><p>No. The team takes lifters from their first novice meet to national level, and we enter members into British Powerlifting divisional competitions through the year. Plenty of team members never compete and just like the programming and the company.</p></div></details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FREE DAY PASS FORM ================= -->
+<section class="ic-sec ic-pass" id="ic-pass" aria-labelledby="ic-pass-title">
+  <div class="ic-pass__bg" aria-hidden="true"><img src="https://images.pexels.com/photos/4720788/pexels-photo-4720788.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1600&amp;h=1000&amp;fit=crop" srcset="https://images.pexels.com/photos/4720788/pexels-photo-4720788.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1000&amp;h=625&amp;fit=crop 1000w, https://images.pexels.com/photos/4720788/pexels-photo-4720788.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1600&amp;h=1000&amp;fit=crop 1600w, https://images.pexels.com/photos/4720788/pexels-photo-4720788.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=2200&amp;h=1375&amp;fit=crop 2200w" sizes="100vw" width="1600" height="1000" loading="lazy" decoding="async" alt=""></div>
+  <div class="ic-wrap">
+    <div class="ic-pass__grid">
+      <div>
+        <p class="ic-sign"><span class="ic-sign__n">Bay 11</span>Free day pass</p>
+        <h2 id="ic-pass-title">Your first day <span class="ic-hl">is on us.</span></h2>
+        <p class="ic-lede">One free day per person, during staffed hours. Tell us when you'd like to come and what you lift (or don't, yet), and we'll have a coach and a rack ready.</p>
+        <div class="ic-pass__ticket ic-rv">
+          <b>Day pass · Admit one</b>
+          <ul>
+            <li>Valid during staffed hours, any day</li>
+            <li>Coach-led tour and rack setup</li>
+            <li>Belts, wraps and chalk to borrow</li>
+            <li>No card details. No catch.</li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <form class="ic-form" id="ic-form" novalidate aria-labelledby="ic-form-title">
+          <h3 class="ic-vh" id="ic-form-title">Free day pass request</h3>
+          <div class="ic-form__grid">
+            <div class="ic-field">
+              <label for="ic-f-name">Full name <span class="ic-req" aria-hidden="true">*</span></label>
+              <input class="ic-input" id="ic-f-name" name="name" type="text" autocomplete="name" required aria-describedby="ic-f-name-err">
+              <p class="ic-err" id="ic-f-name-err" hidden><svg aria-hidden="true"><use href="#ic-i-warn"/></svg><span></span></p>
+            </div>
+            <div class="ic-field">
+              <label for="ic-f-email">Email <span class="ic-req" aria-hidden="true">*</span></label>
+              <input class="ic-input" id="ic-f-email" name="email" type="email" autocomplete="email" inputmode="email" required aria-describedby="ic-f-email-err">
+              <p class="ic-err" id="ic-f-email-err" hidden><svg aria-hidden="true"><use href="#ic-i-warn"/></svg><span></span></p>
+            </div>
+            <div class="ic-field">
+              <label for="ic-f-phone">Mobile number <span class="ic-req" aria-hidden="true">*</span></label>
+              <input class="ic-input" id="ic-f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required aria-describedby="ic-f-phone-hint ic-f-phone-err">
+              <p class="ic-hint" id="ic-f-phone-hint">We'll text to confirm your slot.</p>
+              <p class="ic-err" id="ic-f-phone-err" hidden><svg aria-hidden="true"><use href="#ic-i-warn"/></svg><span></span></p>
+            </div>
+            <div class="ic-field">
+              <label for="ic-f-date">Preferred day <span class="ic-req" aria-hidden="true">*</span></label>
+              <input class="ic-input" id="ic-f-date" name="date" type="date" required aria-describedby="ic-f-date-err">
+              <p class="ic-err" id="ic-f-date-err" hidden><svg aria-hidden="true"><use href="#ic-i-warn"/></svg><span></span></p>
+            </div>
+            <div class="ic-field ic-form__full">
+              <label for="ic-f-time">Time of day</label>
+              <select class="ic-input" id="ic-f-time" name="time">
+                <option value="morning">Morning (from 6am weekdays)</option>
+                <option value="lunch">Lunchtime</option>
+                <option value="afternoon">Afternoon</option>
+                <option value="evening" selected>Evening (until 9pm weekdays)</option>
+              </select>
+            </div>
+            <fieldset class="ic-form__full" aria-describedby="ic-f-exp-err">
+              <legend class="ic-legend">Your lifting experience <span class="ic-req" aria-hidden="true">*</span></legend>
+              <div class="ic-exp">
+                <label><input type="radio" name="exp" value="new" required><span>New to barbells<small>Never squatted with a bar</small></span></label>
+                <label><input type="radio" name="exp" value="some"><span>Some gym experience<small>Machines and dumbbells, maybe a bar</small></span></label>
+                <label><input type="radio" name="exp" value="lifter"><span>I lift regularly<small>Or I compete, or want to</small></span></label>
+              </div>
+              <p class="ic-err" id="ic-f-exp-err" hidden><svg aria-hidden="true"><use href="#ic-i-warn"/></svg><span></span></p>
+            </fieldset>
+            <fieldset class="ic-form__full">
+              <legend class="ic-legend">Interested in (optional)</legend>
+              <div class="ic-checks">
+                <label><input type="checkbox" name="interest" value="basics">Barbell Basics</label>
+                <label><input type="checkbox" name="interest" value="team">Powerlifting Team</label>
+                <label><input type="checkbox" name="interest" value="strongman">Strongman Saturdays</label>
+                <label><input type="checkbox" name="interest" value="open">Just open gym</label>
+              </div>
+            </fieldset>
+            <div class="ic-field ic-form__full">
+              <label for="ic-f-msg">Anything we should know? (optional)</label>
+              <textarea class="ic-input" id="ic-f-msg" name="message" rows="3" aria-describedby="ic-f-msg-hint"></textarea>
+              <p class="ic-hint" id="ic-f-msg-hint">Injuries, goals, or the lift you're scared of. All useful.</p>
+            </div>
+            <div class="ic-field ic-form__full">
+              <label class="ic-consent"><input type="checkbox" id="ic-f-consent" name="consent" required aria-describedby="ic-f-consent-err"><span>I'm happy for Forgeline to contact me about my day pass. We never pass your details on.</span></label>
+              <p class="ic-err" id="ic-f-consent-err" hidden><svg aria-hidden="true"><use href="#ic-i-warn"/></svg><span></span></p>
+            </div>
+          </div>
+          <div class="ic-form__foot">
+            <p class="ic-small">This is a demo form, so nothing is sent. Fields marked * are required.</p>
+            <button class="ic-btn ic-btn--molten" type="submit">Claim my day pass<svg aria-hidden="true"><use href="#ic-i-arrow"/></svg></button>
+          </div>
+        </form>
+        <div class="ic-success" id="ic-success" tabindex="-1" hidden>
+          <span class="ic-success__stamp">Pass booked</span>
+          <h3 id="ic-success-title">See you soon.</h3>
+          <p id="ic-success-txt">We'll text you within a working day to confirm your slot.</p>
+          <p>Bring trainers with a flat sole, a water bottle and a padlock if you have one. Chalk is on us.</p>
+          <button class="ic-btn ic-btn--line" type="button" id="ic-again">Book for a friend</button>
+        </div>
+        <p class="ic-vh" id="ic-form-live" aria-live="polite"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ================= FOOTER: hazard edge, LED hours scoreboard, giant wordmark ================= -->
+<footer class="ic-foot" id="ic-foot" aria-labelledby="ic-foot-title">
+  <div class="ic-foot__hz" aria-hidden="true"></div>
+  <div class="ic-wrap">
+    <div class="ic-foot__main">
+      <div class="ic-foot__about">
+        <a class="ic-logo" href="#ic-main" aria-label="Forgeline Strength Club, Sheffield. Back to the top">
+          <svg class="ic-logo__mark" viewBox="0 0 48 48" aria-hidden="true"><use href="#ic-i-logo"/></svg>
+          <span><span class="ic-logo__name">Forgeline</span><span class="ic-logo__sub">Strength Club · Sheffield</span></span>
+        </a>
+        <h2 id="ic-foot-title">An independent strength gym, run by lifters.</h2>
+        <p>Powerlifting, weightlifting and strongman in a former cutlery works on Kelham Island since 2017. 24/7 for members, coached when it counts.</p>
+        <a class="ic-tag" href="#ic-pass"><span class="ic-tag__body"><span class="ic-tag__txt">Free day pass<svg aria-hidden="true"><use href="#ic-i-arrow"/></svg></span></span></a>
+      </div>
+      <div>
+        <h3 class="ic-foot__h" id="ic-hours-title">Staffed hours</h3>
+        <div class="ic-board-led" id="ic-led" role="group" aria-labelledby="ic-hours-title">
+          <div class="ic-led-head"><p class="ic-led-head__title">Coaches on the floor</p><svg class="ic-led-banner" id="ic-led-banner" data-ic-led="OPEN 24/7" aria-hidden="true" focusable="false"></svg></div>
+          <ul class="ic-led-rows">
+            <li class="ic-led-row" data-ic-day="1"><span class="ic-led-day">Mon</span><span class="ic-led-val" data-ic-led="06:00-21:00"><span class="ic-led-txt">06:00 to 21:00</span></span><span class="ic-led-tag"></span></li>
+            <li class="ic-led-row" data-ic-day="2"><span class="ic-led-day">Tue</span><span class="ic-led-val" data-ic-led="06:00-21:00"><span class="ic-led-txt">06:00 to 21:00</span></span><span class="ic-led-tag"></span></li>
+            <li class="ic-led-row" data-ic-day="3"><span class="ic-led-day">Wed</span><span class="ic-led-val" data-ic-led="06:00-21:00"><span class="ic-led-txt">06:00 to 21:00</span></span><span class="ic-led-tag"></span></li>
+            <li class="ic-led-row" data-ic-day="4"><span class="ic-led-day">Thu</span><span class="ic-led-val" data-ic-led="06:00-21:00"><span class="ic-led-txt">06:00 to 21:00</span></span><span class="ic-led-tag"></span></li>
+            <li class="ic-led-row" data-ic-day="5"><span class="ic-led-day">Fri</span><span class="ic-led-val" data-ic-led="06:00-20:00"><span class="ic-led-txt">06:00 to 20:00</span></span><span class="ic-led-tag"></span></li>
+            <li class="ic-led-row" data-ic-day="6"><span class="ic-led-day">Sat</span><span class="ic-led-val" data-ic-led="08:00-16:00"><span class="ic-led-txt">08:00 to 16:00</span></span><span class="ic-led-tag"></span></li>
+            <li class="ic-led-row" data-ic-day="0"><span class="ic-led-day">Sun</span><span class="ic-led-val" data-ic-led="09:00-14:00"><span class="ic-led-txt">09:00 to 14:00</span></span><span class="ic-led-tag"></span></li>
+          </ul>
+          <p class="ic-led-status" id="ic-led-status">Members' fob access 24 hours a day, 7 days a week.</p>
+        </div>
+        <p class="ic-led-note">Bank holidays 09:00 to 14:00. Fob access never closes, even on Christmas Day.</p>
+      </div>
+      <div>
+        <h3 class="ic-foot__h">Find us</h3>
+        <ul class="ic-contact">
+          <li><svg aria-hidden="true"><use href="#ic-i-pin"/></svg><span>Unit 3, Forge Works<br>61 Mowbray Street, Kelham Island<br>Sheffield S3 8ZZ</span></li>
+          <li><svg aria-hidden="true"><use href="#ic-i-tram"/></svg><span>4 minutes' walk from Shalesmoor tram stop</span></li>
+          <li><svg aria-hidden="true"><use href="#ic-i-phone"/></svg><a href="tel:+441144960732">0114 496 0732</a></li>
+          <li><svg aria-hidden="true"><use href="#ic-i-mail"/></svg><a href="mailto:hello@forgelinestrength.example">hello@forgelinestrength.example</a></li>
+        </ul>
+        <ul class="ic-social">
+          <li><a href="#" aria-label="Forgeline on Instagram"><svg aria-hidden="true"><use href="#ic-i-ig"/></svg></a></li>
+          <li><a href="#" aria-label="Forgeline on YouTube"><svg aria-hidden="true"><use href="#ic-i-yt"/></svg></a></li>
+          <li><a href="#" aria-label="Forgeline on TikTok"><svg aria-hidden="true"><use href="#ic-i-tt"/></svg></a></li>
+          <li><a href="#" aria-label="Forgeline on Facebook"><svg aria-hidden="true"><use href="#ic-i-fb"/></svg></a></li>
+        </ul>
+      </div>
+    </div>
+
+    <nav class="ic-fcols" aria-label="Footer">
+      <div>
+        <h3 class="ic-foot__h">Train</h3>
+        <ul>
+          <li><a href="#ic-programmes">Barbell Basics</a></li>
+          <li><a href="#ic-programmes">Powerlifting Team</a></li>
+          <li><a href="#ic-programmes">Strongman Saturdays</a></li>
+          <li><a href="#ic-loader">Plate loader and 1RM</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="ic-foot__h">The club</h3>
+        <ul>
+          <li><a href="#ic-floor">The floor</a></li>
+          <li><a href="#ic-rules">House rules</a></li>
+          <li><a href="#ic-prs">PR board</a></li>
+          <li><a href="#ic-coaches">Coaches</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="ic-foot__h">Join</h3>
+        <ul>
+          <li><a href="#ic-pricing">Memberships</a></li>
+          <li><a href="#ic-start">Your first day</a></li>
+          <li><a href="#ic-pass">Free day pass</a></li>
+          <li><a href="#ic-faq">FAQs</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="ic-foot__h">Info</h3>
+        <ul>
+          <li><a href="#">Privacy notice</a></li>
+          <li><a href="#">Cookies</a></li>
+          <li><a href="#">Membership terms</a></li>
+          <li><a href="#">Accessibility</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="ic-legal">
+      <p>© <span id="ic-year">2026</span> Forgeline Strength Club Ltd. Registered in England and Wales, company no. 1XXXXXXX. Registered office: Unit 3, Forge Works, 61 Mowbray Street, Sheffield S3 8ZZ. Photography from Unsplash.</p>
+      <ul>
+        <li><a href="#">Privacy</a></li>
+        <li><a href="#">Cookies</a></li>
+        <li><a href="#">Terms</a></li>
+        <li><a href="#">Accessibility</a></li>
+      </ul>
+    </div>
+  </div>
+  <a class="ic-wm" href="#ic-main" aria-label="Back to the top"><span class="ic-wm__txt" aria-hidden="true">Forgeline</span></a>
+</footer>
+
+<!-- mobile quick action: day pass + live occupancy pill -->
+<div class="ic-mbar" id="ic-mbar">
+  <p class="ic-mbar__pill" data-ic-occ="pill" data-ic-level="quiet"><span class="ic-occ__dot" aria-hidden="true"></span><span>Floor <b data-ic-occ="pct">31%</b> full<small><b data-ic-occ="free">9</b> of 14 racks free</small></span></p>
+  <a class="ic-btn ic-btn--molten" href="#ic-pass">Day pass<svg aria-hidden="true"><use href="#ic-i-arrow"/></svg></a>
+</div>
+
+<script>
+(() => {
+  'use strict';
+  const d = document;
+  const $ = (s, c = d) => c.querySelector(s);
+  const $$ = (s, c = d) => Array.from(c.querySelectorAll(s));
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)');
+  const mqDesk = matchMedia('(min-width: 1200px)');
+  const finePointer = matchMedia('(hover: hover) and (pointer: fine)');
+  const smooth = () => (reduce.matches ? 'auto' : 'smooth');
+  const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
+  const snap = (v, step) => Math.round(v / step) * step;
+  const kgFmt = v => (Math.round(v * 100) / 100).toLocaleString('en-GB', { maximumFractionDigits: 2 });
+  const onMq = (mq, fn) => (mq.addEventListener ? mq.addEventListener('change', fn) : mq.addListener(fn));
+
+  /* ---- footer year ---- */
+  const yearEl = $('#ic-year');
+  if (yearEl) yearEl.textContent = String(new Date().getFullYear());
+
+  /* ---- header: the utility strip slides away, the bar goes solid with a chalk-dust edge ---- */
+  const header = $('#ic-header');
+  let scrollQueued = false;
+  function onScroll() {
+    scrollQueued = false;
+    header.classList.toggle('is-scrolled', window.scrollY > 48);
+  }
+  window.addEventListener('scroll', () => {
+    if (!scrollQueued) { scrollQueued = true; requestAnimationFrame(onScroll); }
+  }, { passive: true });
+  onScroll();
+  header.addEventListener('focusin', e => { if (e.target.closest('.ic-strip')) header.classList.remove('is-scrolled'); });
+
+  /* ---- live occupancy: a typical day's curve, nudged every few seconds ---- */
+  const RACKS = 14;
+  const CURVE = [7, 5, 4, 3, 3, 6, 18, 26, 21, 15, 14, 18, 24, 21, 16, 19, 30, 44, 56, 50, 38, 27, 17, 11];
+  const occ = {
+    pct: $$('[data-ic-occ="pct"]'), racks: $$('[data-ic-occ="racks"]'), free: $$('[data-ic-occ="free"]'),
+    fill: $$('[data-ic-occ="fill"]'), meter: $$('[data-ic-occ="meter"]'), lvl: $$('[data-ic-level]'), v: null
+  };
+  function occTarget() {
+    const now = new Date();
+    const h = now.getHours(), m = now.getMinutes();
+    let v = CURVE[h] + (CURVE[(h + 1) % 24] - CURVE[h]) * (m / 60);
+    const day = now.getDay();
+    if (day === 0 || day === 6) v *= (h >= 9 && h <= 13) ? 1.15 : 0.7;
+    return v;
+  }
+  function tickOcc() {
+    const target = occTarget();
+    const next = occ.v === null ? target : occ.v + (target + (Math.random() - 0.5) * 7 - occ.v) * 0.45;
+    occ.v = clamp(next, 2, 95);
+    const pct = Math.round(occ.v);
+    const free = clamp(RACKS - Math.round(RACKS * pct / 82), 0, RACKS);
+    const level = pct < 35 ? 'quiet' : pct < 60 ? 'steady' : 'busy';
+    occ.pct.forEach(el => { el.textContent = pct + '%'; });
+    occ.racks.forEach(el => { el.textContent = free + '/' + RACKS; });
+    occ.free.forEach(el => { el.textContent = String(free); });
+    occ.fill.forEach(el => { el.style.transform = 'scaleX(' + (pct / 100).toFixed(3) + ')'; });
+    occ.meter.forEach(el => {
+      el.setAttribute('aria-valuenow', String(pct));
+      el.setAttribute('aria-valuetext', pct + '% full, ' + free + ' of ' + RACKS + ' racks free');
+    });
+    occ.lvl.forEach(el => { el.setAttribute('data-ic-level', level); });
+  }
+  tickOcc();
+  setInterval(() => { if (!d.hidden) tickOcc(); }, 4000);
+
+  /* ---- mobile quick bar: hidden while the menu is open or the form/footer is on screen ---- */
+  const quickBar = $('#ic-mbar');
+  const menu = $('#ic-menu');
+  const barBlock = new Set();
+  function syncBar() {
+    if (!quickBar) return;
+    const hide = !menu.hidden || barBlock.size > 0;
+    quickBar.classList.toggle('is-hidden', hide);
+    if (hide) quickBar.setAttribute('inert', ''); else quickBar.removeAttribute('inert');
+  }
+  if ('IntersectionObserver' in window) {
+    const barIO = new IntersectionObserver(entries => {
+      entries.forEach(en => (en.isIntersecting ? barBlock.add(en.target) : barBlock.delete(en.target)));
+      syncBar();
+    });
+    [$('#ic-pass'), $('#ic-foot')].forEach(el => { if (el) barIO.observe(el); });
+  }
+
+  /* ---- full-screen menu: dialog, focus trap, Esc, scroll lock, staggered links ---- */
+  const burger = $('#ic-burger');
+  const menuClose = $('#ic-menu-close');
+  let lastFocus = null;
+  function openMenu() {
+    lastFocus = d.activeElement;
+    menu.hidden = false;
+    burger.setAttribute('aria-expanded', 'true');
+    d.body.classList.add('ic-lock');
+    void menu.offsetWidth; /* commit the start state so the staggered links animate in */
+    menu.classList.add('is-open');
+    menuClose.focus();
+    syncBar();
+  }
+  function closeMenu(restore) {
+    if (menu.hidden) return;
+    menu.classList.remove('is-open');
+    menu.hidden = true;
+    burger.setAttribute('aria-expanded', 'false');
+    d.body.classList.remove('ic-lock');
+    if (restore && lastFocus && typeof lastFocus.focus === 'function') lastFocus.focus();
+    syncBar();
+  }
+  burger.addEventListener('click', openMenu);
+  menuClose.addEventListener('click', () => closeMenu(true));
+  menu.addEventListener('click', e => { if (e.target.closest('a')) closeMenu(false); });
+  menu.addEventListener('keydown', e => {
+    if (e.key === 'Escape') { e.preventDefault(); closeMenu(true); return; }
+    if (e.key !== 'Tab') return;
+    const f = $$('a[href], button:not([disabled])', menu);
+    const first = f[0], last = f[f.length - 1];
+    if (e.shiftKey && d.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && d.activeElement === last) { e.preventDefault(); first.focus(); }
+  });
+  onMq(mqDesk, e => { if (e.matches) closeMenu(false); });
+
+  /* ---- active section in the desktop nav ---- */
+  const navLinks = $$('.ic-nav a');
+  if ('IntersectionObserver' in window && navLinks.length) {
+    const byId = new Map(navLinks.map(a => [a.getAttribute('href').slice(1), a]));
+    const navIO = new IntersectionObserver(entries => {
+      entries.forEach(en => {
+        const a = byId.get(en.target.id);
+        if (!a) return;
+        if (en.isIntersecting) {
+          navLinks.forEach(l => l.removeAttribute('aria-current'));
+          a.setAttribute('aria-current', 'true');
+        } else if (a.hasAttribute('aria-current')) {
+          a.removeAttribute('aria-current');
+        }
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    byId.forEach((a, id) => { const s = d.getElementById(id); if (s) navIO.observe(s); });
+  }
+
+  /* ---- hero: the photo burns through only where the cursor has been, then fades back ---- */
+  const hero = $('#ic-hero'), burn = $('#ic-burn'), heroImg = $('#ic-hero-img');
+  if (hero && burn && burn.getContext && heroImg) {
+    const ctx = burn.getContext('2d'), mask = d.createElement('canvas'), brush = d.createElement('canvas');
+    const mctx = mask.getContext('2d');
+    const MS = 0.5, LIFE = 1500, MAXP = 700;
+    let W = 0, H = 0, dpr = 1, rad = 110, pts = [], raf = 0, introRaf = 0;
+    let lastPt = null, on = false, touched = false, resizeT = 0;
+
+    function makeBrush() {
+      const r = Math.max(8, Math.round(rad * MS));
+      brush.width = brush.height = r * 2;
+      const b = brush.getContext('2d');
+      const g = b.createRadialGradient(r, r, 0, r, r, r);
+      g.addColorStop(0, 'rgba(0,0,0,1)');
+      g.addColorStop(0.5, 'rgba(0,0,0,.72)');
+      g.addColorStop(1, 'rgba(0,0,0,0)');
+      b.fillStyle = g;
+      b.fillRect(0, 0, r * 2, r * 2);
+    }
+    function size() {
+      W = hero.clientWidth;
+      H = hero.clientHeight;
+      dpr = Math.min(2, window.devicePixelRatio || 1);
+      burn.width = Math.max(1, Math.round(W * dpr));
+      burn.height = Math.max(1, Math.round(H * dpr));
+      mask.width = Math.max(1, Math.round(W * MS));
+      mask.height = Math.max(1, Math.round(H * MS));
+      rad = clamp(W * 0.085, 70, 150);
+      makeBrush();
+      kick();
+    }
+    function drawCover() {
+      const iw = heroImg.naturalWidth, ih = heroImg.naturalHeight;
+      const cw = burn.width, ch = burn.height;
+      const s = Math.max(cw / iw, ch / ih);
+      const dw = iw * s, dh = ih * s;
+      ctx.drawImage(heroImg, (cw - dw) / 2, (ch - dh) / 2, dw, dh);
+    }
+    function frame(now) {
+      raf = 0;
+      while (pts.length && now - pts[0].t > LIFE) pts.shift();
+      ctx.globalCompositeOperation = 'source-over';
+      ctx.clearRect(0, 0, burn.width, burn.height);
+      if (!pts.length || !heroImg.complete || !heroImg.naturalWidth) return;
+      mctx.clearRect(0, 0, mask.width, mask.height);
+      const br = brush.width / 2;
+      for (const p of pts) {
+        const a = clamp(1 - (now - p.t) / LIFE, 0, 1);
+        mctx.globalAlpha = a * a * (3 - 2 * a);
+        mctx.drawImage(brush, p.x * MS - br, p.y * MS - br);
+      }
+      mctx.globalAlpha = 1;
+      drawCover();
+      ctx.globalCompositeOperation = 'destination-in';
+      ctx.drawImage(mask, 0, 0, burn.width, burn.height);
+      ctx.globalCompositeOperation = 'source-over';
+      raf = requestAnimationFrame(frame);
+    }
+    function kick() { if (on && !raf) raf = requestAnimationFrame(frame); }
+    function add(x, y) {
+      const t = performance.now();
+      if (lastPt) {
+        const dx = x - lastPt.x, dy = y - lastPt.y;
+        const n = Math.min(24, Math.floor(Math.hypot(dx, dy) / (rad * 0.28)));
+        for (let i = 1; i <= n; i++) pts.push({ x: lastPt.x + dx * i / (n + 1), y: lastPt.y + dy * i / (n + 1), t });
+      }
+      pts.push({ x, y, t });
+      if (pts.length > MAXP) pts.splice(0, pts.length - MAXP);
+      lastPt = { x, y };
+      kick();
+    }
+    function stopIntro() {
+      if (introRaf) cancelAnimationFrame(introRaf);
+      introRaf = 0;
+      lastPt = null;
+    }
+    /* one slow sweep across the headline on load, so people see what the cursor does */
+    function intro() {
+      if (!on || touched) return;
+      const t0 = performance.now(), DUR = 1800;
+      lastPt = null;
+      const step = now => {
+        introRaf = 0;
+        if (!on || touched) return;
+        const p = (now - t0) / DUR;
+        if (p > 1) { lastPt = null; return; }
+        add(W * (0.06 + 0.88 * p), H * (0.4 + Math.sin(p * Math.PI * 2.4) * 0.12));
+        introRaf = requestAnimationFrame(step);
+      };
+      introRaf = requestAnimationFrame(step);
+    }
+    function setMode() {
+      const want = finePointer.matches && !reduce.matches;
+      if (want === on) return;
+      on = want;
+      hero.classList.toggle('ic-hero--burn', on);
+      if (on) {
+        size();
+        if (heroImg.complete) setTimeout(intro, 700);
+        else heroImg.addEventListener('load', () => setTimeout(intro, 300), { once: true });
+      } else {
+        stopIntro();
+        pts = [];
+        if (raf) cancelAnimationFrame(raf);
+        raf = 0;
+        ctx.clearRect(0, 0, burn.width, burn.height);
+      }
+    }
+    hero.addEventListener('pointermove', e => {
+      if (!on || e.pointerType === 'touch') return;
+      if (!touched) { touched = true; hero.classList.add('is-touched'); stopIntro(); }
+      const r = hero.getBoundingClientRect();
+      add(e.clientX - r.left, e.clientY - r.top);
+    });
+    hero.addEventListener('pointerleave', () => { lastPt = null; });
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeT);
+      resizeT = setTimeout(() => { if (on) size(); }, 150);
+    });
+    setMode();
+    onMq(finePointer, setMode);
+    onMq(reduce, setMode);
+  }
+
+  /* ---- reveal on scroll + stat counters ---- */
+  const reveals = $$('.ic-rv');
+  const counters = $$('.ic-count');
+  function runCount(el) {
+    const to = parseFloat(el.dataset.icTo);
+    const dp = parseInt(el.dataset.icDp || '0', 10);
+    const fmt = v => v.toLocaleString('en-GB', { minimumFractionDigits: dp, maximumFractionDigits: dp });
+    if (reduce.matches || !isFinite(to)) return;
+    const t0 = performance.now(), DUR = 1400;
+    const step = now => {
+      const p = clamp((now - t0) / DUR, 0, 1);
+      el.textContent = fmt(to * (1 - Math.pow(1 - p, 3)));
+      if (p < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  }
+  if ('IntersectionObserver' in window) {
+    const rvIO = new IntersectionObserver((entries, obs) => {
+      entries.forEach(en => {
+        if (!en.isIntersecting) return;
+        en.target.classList.add('is-in');
+        obs.unobserve(en.target);
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.06 });
+    reveals.forEach(el => rvIO.observe(el));
+    const countIO = new IntersectionObserver((entries, obs) => {
+      entries.forEach(en => {
+        if (!en.isIntersecting) return;
+        runCount(en.target);
+        obs.unobserve(en.target);
+      });
+    }, { threshold: 0.6 });
+    counters.forEach(el => countIO.observe(el));
+  } else {
+    reveals.forEach(el => el.classList.add('is-in'));
+  }
+
+  /* ---- the floor: sideways rail with buttons, progress and mouse drag ---- */
+  const rail = $('#ic-rail'), railPrev = $('#ic-rail-prev'), railNext = $('#ic-rail-next'), railBar = $('#ic-rail-bar');
+  if (rail) {
+    const stepW = () => {
+      const card = rail.querySelector('.ic-eq');
+      const gap = parseFloat(getComputedStyle(rail).columnGap) || 16;
+      return card ? card.getBoundingClientRect().width + gap : rail.clientWidth * 0.8;
+    };
+    const railUpd = () => {
+      const max = rail.scrollWidth - rail.clientWidth;
+      const p = max > 0 ? rail.scrollLeft / max : 1;
+      railBar.style.transform = 'scaleX(' + (0.12 + 0.88 * p).toFixed(3) + ')';
+      railPrev.disabled = rail.scrollLeft <= 4;
+      railNext.disabled = rail.scrollLeft >= max - 4;
+    };
+    railPrev.addEventListener('click', () => rail.scrollBy({ left: -stepW(), behavior: smooth() }));
+    railNext.addEventListener('click', () => rail.scrollBy({ left: stepW(), behavior: smooth() }));
+    rail.addEventListener('scroll', railUpd, { passive: true });
+    window.addEventListener('resize', railUpd);
+    railUpd();
+    let drag = null, suppress = false;
+    rail.addEventListener('pointerdown', e => {
+      if (e.pointerType !== 'mouse' || e.button !== 0) return;
+      drag = { x: e.clientX, left: rail.scrollLeft, moved: false, id: e.pointerId };
+    });
+    rail.addEventListener('pointermove', e => {
+      if (!drag) return;
+      const dx = e.clientX - drag.x;
+      if (!drag.moved && Math.abs(dx) > 6) {
+        drag.moved = true;
+        rail.classList.add('is-drag');
+        try { rail.setPointerCapture(drag.id); } catch (err) { /* pointer already gone */ }
+      }
+      if (drag.moved) rail.scrollLeft = drag.left - dx;
+    });
+    const endDrag = () => {
+      if (!drag) return;
+      if (drag.moved) {
+        suppress = true;
+        setTimeout(() => { suppress = false; }, 0);
+        rail.classList.remove('is-drag');
+      }
+      drag = null;
+    };
+    rail.addEventListener('pointerup', endDrag);
+    rail.addEventListener('pointercancel', endDrag);
+    rail.addEventListener('click', e => { if (suppress) { e.preventDefault(); e.stopPropagation(); } }, true);
+    rail.addEventListener('dragstart', e => e.preventDefault());
+  }
+
+  /* ---- signature tool: tabs ---- */
+  const tabs = $$('.ic-tab');
+  function selectTab(tab, focus) {
+    tabs.forEach(t => {
+      const sel = t === tab;
+      t.setAttribute('aria-selected', String(sel));
+      t.tabIndex = sel ? 0 : -1;
+      const panel = d.getElementById(t.getAttribute('aria-controls'));
+      if (panel) panel.hidden = !sel;
+    });
+    if (focus) tab.focus();
+  }
+  tabs.forEach((t, i) => {
+    t.addEventListener('click', () => selectTab(t, false));
+    t.addEventListener('keydown', e => {
+      let j = null;
+      if (e.key === 'ArrowRight') j = (i + 1) % tabs.length;
+      else if (e.key === 'ArrowLeft') j = (i - 1 + tabs.length) % tabs.length;
+      else if (e.key === 'Home') j = 0;
+      else if (e.key === 'End') j = tabs.length - 1;
+      if (j !== null) { e.preventDefault(); selectTab(tabs[j], true); }
+    });
+  });
+  if (tabs.length) selectTab(tabs[0], false);
+
+  /* shared number steppers (+/- buttons next to inputs) */
+  $$('[data-ic-step]').forEach(b => b.addEventListener('click', () => {
+    const inp = d.getElementById(b.dataset.icFor);
+    if (!inp) return;
+    const st = parseFloat(b.dataset.icStep);
+    const cur = parseFloat(inp.value);
+    const base = isFinite(cur) ? cur : parseFloat(inp.min) || 0;
+    inp.value = String(clamp(Math.round((base + st) * 100) / 100, parseFloat(inp.min), parseFloat(inp.max)));
+    inp.dispatchEvent(new Event('input', { bubbles: true }));
+  }));
+
+  /* ---- plate loader: IPF colours, greedy per side, sleeve check ---- */
+  const PLATES = [
+    { kg: 25, name: '25kg red', col: '#D7263D', dia: 450, mm: 27 }, { kg: 20, name: '20kg blue', col: '#1F5BD7', dia: 450, mm: 23 },
+    { kg: 15, name: '15kg yellow', col: '#F2C230', dia: 400, mm: 21 }, { kg: 10, name: '10kg green', col: '#2E9E5B', dia: 325, mm: 19 },
+    { kg: 5, name: '5kg white', col: '#E6E3DC', dia: 228, mm: 21 }, { kg: 2.5, name: '2.5kg black', col: '#141414', dia: 190, mm: 17 },
+    { kg: 1.25, name: '1.25kg chrome', col: '#b9bcc2', dia: 160, mm: 13 }, { kg: 0.5, name: '0.5kg chrome', col: '#9da0a6', dia: 134, mm: 9 },
+    { kg: 0.25, name: '0.25kg chrome', col: '#c8cacd', dia: 100, mm: 7 }
+  ];
+  const SLEEVE_MM = 415, COLLAR_MM = 55, SC = 320 / SLEEVE_MM, CY = 125, FULL_H = 230;
+  const target = $('#ic-target'), collarsEl = $('#ic-collars'), platesG = $('#ic-load-plates');
+  const loadTotal = $('#ic-load-total'), loadLb = $('#ic-load-lb'), loadList = $('#ic-load-list'), loadSum = $('#ic-load-sum');
+  const loadWarn = $('#ic-load-warn'), loadWarnTxt = $('#ic-load-warn-txt'), loadWarnActs = $('#ic-load-warn-acts');
+  const loadLive = $('#ic-load-live'), loadTitle = $('#ic-load-svg-title');
+  let prevPlates = [], liveT = 0;
+
+  function solve(perSide) {
+    let rem = Math.round(perSide * 100);
+    const out = [];
+    PLATES.forEach(p => {
+      const c = Math.round(p.kg * 100);
+      while (rem >= c) { out.push(p); rem -= c; }
+    });
+    return out;
+  }
+  function plateMarkup(p, x, w, i, side, isNew) {
+    const h = p.dia / 450 * FULL_H, y = CY - h / 2, cx = (x + w / 2).toFixed(1);
+    const stroke = p.kg === 2.5 ? ' stroke="#3a3c41"' : '';
+    const label = p.kg >= 10
+      ? '<text x="' + cx + '" y="' + CY + '" transform="rotate(-90 ' + cx + ' ' + CY + ')" text-anchor="middle" dominant-baseline="central" font-family="JetBrains Mono, monospace" font-size="11" font-weight="700" fill="' + (p.kg === 15 ? '#0D0D0E' : '#EDEAE3') + '" fill-opacity=".85">' + p.kg + '</text>'
+      : '';
+    return '<g class="ic-pl' + (isNew ? ' is-new' : '') + '" style="--i:' + i + ';--ic-from:' + (side * 70) + 'px">' +
+      '<rect x="' + x.toFixed(1) + '" y="' + y.toFixed(1) + '" width="' + w.toFixed(1) + '" height="' + h.toFixed(1) + '" rx="2.5" fill="' + p.col + '"' + stroke + '/>' +
+      '<rect x="' + x.toFixed(1) + '" y="' + y.toFixed(1) + '" width="' + w.toFixed(1) + '" height="' + h.toFixed(1) + '" rx="2.5" fill="url(#ic-g-shine)"/>' + label + '</g>';
+  }
+  function collarMarkup(x, w, i, side, isNew) {
+    return '<g class="ic-pl' + (isNew ? ' is-new' : '') + '" style="--i:' + i + ';--ic-from:' + (side * 70) + 'px">' +
+      '<rect x="' + x.toFixed(1) + '" y="' + (CY - 30) + '" width="' + w.toFixed(1) + '" height="60" rx="3" fill="url(#ic-g-chrome)"/>' +
+      '<rect x="' + (x + w * 0.32).toFixed(1) + '" y="' + (CY - 42) + '" width="' + (w * 0.36).toFixed(1) + '" height="14" fill="#9da0a6"/></g>';
+  }
+  function renderLoad(announce) {
+    if (!target) return;
+    const barIn = $('input[name="ic-bar"]:checked');
+    const bar = barIn ? parseFloat(barIn.value) : 20;
+    const col = collarsEl.checked ? 5 : 0;
+    const base = bar + col;
+    const raw = parseFloat(String(target.value).replace(',', '.'));
+    const msgs = [];
+    let acts = [];
+    let want = isFinite(raw) ? raw : base;
+    let loadKg = want;
+    if (want < base) {
+      msgs.push('That’s less than the bar' + (col ? ' and collars' : '') + ' on their own (' + kgFmt(base) + 'kg), so here’s the empty bar.');
+      loadKg = base;
+    } else if (want > 600) {
+      msgs.push('That’s past this tool’s 600kg limit, and past the world record. Showing 600kg.');
+      loadKg = 600;
+    }
+    const plateHund = Math.round((loadKg - base) * 100);
+    const flo = Math.floor(plateHund / 50) * 50;
+    if (flo !== plateHund) {
+      const below = base + flo / 100, above = below + 0.5;
+      msgs.push(kgFmt(want) + 'kg can’t be made exactly: the smallest jump is 0.5kg (a 0.25kg change plate each side). Showing the closest weight below, ' + kgFmt(below) + 'kg.');
+      acts = [below, above];
+      loadKg = below;
+    }
+    const perSide = (loadKg - base) / 2;
+    const plates = solve(perSide);
+    const usedMM = plates.reduce((s, p) => s + p.mm, 0) + (col ? COLLAR_MM : 0);
+    if (usedMM > SLEEVE_MM) {
+      msgs.push('That’s ' + usedMM + 'mm of iron on a ' + SLEEVE_MM + 'mm sleeve, so it won’t physically fit. Time for the axle and a chat with Tomasz.');
+    }
+
+    /* draw: plates from the inner collar outwards, mirrored */
+    let xl = 330, xr = 570, html = '';
+    plates.forEach((p, i) => {
+      const w = p.mm * SC;
+      const isNew = prevPlates[i] !== p.kg;
+      xl -= w + 1;
+      html += plateMarkup(p, xl, w, i, -1, isNew) + plateMarkup(p, xr + 1, w, i, 1, isNew);
+      xr += w + 1;
+    });
+    if (col) {
+      const w = COLLAR_MM * SC, i = plates.length;
+      const isNew = prevPlates[i] !== 'c';
+      xl -= w + 2;
+      html += collarMarkup(xl, w, i, -1, isNew) + collarMarkup(xr + 2, w, i, 1, isNew);
+    }
+    platesG.innerHTML = html;
+    prevPlates = plates.map(p => p.kg).concat(col ? ['c'] : []);
+
+    /* group for the list */
+    const groups = [];
+    plates.forEach(p => {
+      const g = groups[groups.length - 1];
+      if (g && g.p === p) g.n += 1; else groups.push({ p, n: 1 });
+    });
+    let list = groups.map(g => '<li><span class="ic-plist__sw" style="background:' + g.p.col + '" aria-hidden="true"></span>' + g.p.name + '<b>× ' + g.n + '</b></li>').join('');
+    if (!groups.length) list = '<li class="ic-plist__empty">No plates. Just the bar' + (col ? ' and collars' : '') + '.</li>';
+    if (col) list += '<li><span class="ic-plist__sw" style="background:linear-gradient(#f4f2ee,#6d7076)" aria-hidden="true"></span>Collar, 2.5kg<b>× 1</b></li>';
+    loadList.innerHTML = list;
+
+    loadTotal.innerHTML = kgFmt(loadKg) + '<small>kg</small>';
+    loadLb.textContent = (loadKg * 2.20462).toFixed(1) + 'lb on the bar';
+    loadSum.innerHTML = 'Bar <b>' + kgFmt(bar) + 'kg</b>' + (col ? ' + collars <b>5kg</b>' : '') + ' + plates <b>2 × ' + kgFmt(perSide) + 'kg</b> = <b>' + kgFmt(loadKg) + 'kg</b>';
+
+    if (msgs.length) {
+      loadWarn.hidden = false;
+      loadWarnTxt.textContent = msgs.join(' ');
+      loadWarnActs.innerHTML = acts.map(v => '<button type="button" data-ic-set="' + v + '">Load ' + kgFmt(v) + 'kg</button>').join('');
+    } else {
+      loadWarn.hidden = true;
+      loadWarnTxt.textContent = '';
+      loadWarnActs.innerHTML = '';
+    }
+
+    const sideTxt = groups.length ? groups.map(g => g.n + ' × ' + g.p.name).join(', ') : 'no plates';
+    loadTitle.textContent = 'Barbell loaded with ' + kgFmt(loadKg) + 'kg: per side, ' + sideTxt + (col ? ', then a collar' : '');
+    if (announce) {
+      clearTimeout(liveT);
+      liveT = setTimeout(() => {
+        loadLive.textContent = kgFmt(loadKg) + ' kilograms. Per side: ' + sideTxt + '. ' + msgs.join(' ');
+      }, 650);
+    }
+  }
+  if (target) {
+    target.addEventListener('input', () => renderLoad(true));
+    target.addEventListener('blur', () => {
+      const v = parseFloat(target.value);
+      if (!isFinite(v)) { target.value = '142.5'; renderLoad(true); }
+    });
+    $$('input[name="ic-bar"]').forEach(r => r.addEventListener('change', () => renderLoad(true)));
+    collarsEl.addEventListener('change', () => renderLoad(true));
+    $$('[data-ic-preset]').forEach(b => b.addEventListener('click', () => {
+      target.value = b.dataset.icPreset;
+      renderLoad(true);
+    }));
+    loadWarnActs.addEventListener('click', e => {
+      const b = e.target.closest('[data-ic-set]');
+      if (!b) return;
+      target.value = b.dataset.icSet;
+      renderLoad(true);
+      target.focus();
+    });
+    renderLoad(false);
+  }
+
+  /* ---- 1RM calculator: Epley + Brzycki, percentage table ---- */
+  const rmKg = $('#ic-rm-kg'), rmReps = $('#ic-rm-reps'), rmBody = $('#ic-rm-body'), rmLive = $('#ic-rm-live');
+  const RM_ROWS = [[95, '1 to 2'], [90, '3 to 4'], [85, '5 to 6'], [80, '7 to 8'], [75, '9 to 10'], [70, '11 to 12'], [65, '13 to 15'], [60, '16 to 20']];
+  let rmT = 0;
+  function renderRM(announce) {
+    if (!rmKg) return;
+    const w = parseFloat(String(rmKg.value).replace(',', '.'));
+    const r = Math.round(parseFloat(rmReps.value));
+    const ep = $('#ic-rm-epley'), bz = $('#ic-rm-brzycki'), av = $('#ic-rm-avg');
+    if (!(w > 0) || !(r >= 1 && r <= 12)) {
+      ep.textContent = bz.textContent = av.textContent = '–';
+      rmBody.innerHTML = '<tr><td colspan="4">Enter the weight you lifted and between 1 and 12 reps.</td></tr>';
+      if (announce) rmLive.textContent = 'Enter a weight and between 1 and 12 reps to see an estimate.';
+      return;
+    }
+    const epley = r === 1 ? w : w * (1 + r / 30);
+    const brz = r === 1 ? w : w * 36 / (37 - r);
+    const avg = (epley + brz) / 2;
+    const est = snap(avg, 2.5);
+    ep.textContent = kgFmt(Math.round(epley * 10) / 10) + 'kg';
+    bz.textContent = kgFmt(Math.round(brz * 10) / 10) + 'kg';
+    av.textContent = kgFmt(est) + 'kg';
+    rmBody.innerHTML = RM_ROWS.map(([pc, reps]) => {
+      const kg = Math.max(2.5, snap(avg * pc / 100, 2.5));
+      return '<tr><th scope="row">' + pc + '%</th><td>' + kgFmt(kg) + 'kg<span class="ic-pct__bar" aria-hidden="true"><i style="transform:scaleX(' + (pc / 100) + ')"></i></span></td><td class="ic-pct__reps">' + reps + '</td><td><button type="button" data-ic-load="' + kg + '">Load ' + kgFmt(kg) + 'kg</button></td></tr>';
+    }).join('');
+    if (announce) {
+      clearTimeout(rmT);
+      rmT = setTimeout(() => {
+        rmLive.textContent = 'Estimated one-rep max ' + kgFmt(est) + ' kilograms. Epley ' + kgFmt(Math.round(epley * 10) / 10) + ', Brzycki ' + kgFmt(Math.round(brz * 10) / 10) + '.';
+      }, 650);
+    }
+  }
+  if (rmKg) {
+    rmKg.addEventListener('input', () => renderRM(true));
+    rmReps.addEventListener('input', () => renderRM(true));
+    rmBody.addEventListener('click', e => {
+      const b = e.target.closest('[data-ic-load]');
+      if (!b || !target) return;
+      target.value = b.dataset.icLoad;
+      renderLoad(true);
+      selectTab($('#ic-tab-load'), true);
+      const tool = $('.ic-tool');
+      const top = tool.getBoundingClientRect().top;
+      if (top < 0) tool.scrollIntoView({ behavior: smooth(), block: 'start' });
+    });
+    renderRM(false);
+  }
+
+  /* ---- PR board: filter by lift and sex, rank by kilos or DOTS ---- */
+  const prTable = $('#ic-pr'), prBody = $('#ic-pr-body'), prCap = $('#ic-pr-cap'), prLive = $('#ic-pr-live');
+  if (prTable && prBody) {
+    const rows = $$('tr', prBody);
+    const state = { lift: 'squat', sex: 'all', sort: 'kg' };
+    const LIFT = { squat: 'Squat', bench: 'Bench press', deadlift: 'Deadlift' };
+    const renderPR = announce => {
+      const shown = rows.filter(r => r.dataset.icLift === state.lift && (state.sex === 'all' || r.dataset.icSex === state.sex));
+      const col = state.sort === 'dots' ? 5 : 4;
+      shown.sort((a, b) => parseFloat(b.cells[col].textContent) - parseFloat(a.cells[col].textContent));
+      rows.forEach(r => { r.hidden = true; r.classList.remove('is-top'); });
+      shown.forEach((r, i) => {
+        r.hidden = false;
+        r.cells[0].textContent = String(i + 1);
+        r.classList.toggle('is-top', i === 0);
+        prBody.appendChild(r);
+      });
+      prTable.classList.add('is-filtered');
+      prTable.classList.toggle('is-dots', state.sort === 'dots');
+      const who = state.sex === 'all' ? 'all lifters' : state.sex === 'f' ? 'women' : 'men';
+      const by = state.sort === 'dots' ? 'DOTS score, pound for pound' : 'heaviest lift';
+      prCap.innerHTML = '<b>' + LIFT[state.lift] + '</b> · ' + who + ' · ranked by ' + by + ' · ' + shown.length + ' lifters';
+      if (announce && shown[0]) {
+        prLive.textContent = LIFT[state.lift] + ', ' + who + ', ranked by ' + by + '. ' + shown.length + ' lifters. Top: ' + shown[0].cells[1].textContent + ', ' + shown[0].cells[4].textContent + ' kilograms.';
+      }
+    };
+    [[$('#ic-pr-lift'), 'lift', 'icLift'], [$('#ic-pr-sex'), 'sex', 'icSex'], [$('#ic-pr-sort'), 'sort', 'icSort']].forEach(([group, key, attr]) => {
+      if (!group) return;
+      const btns = $$('button', group);
+      btns.forEach(b => b.addEventListener('click', () => {
+        btns.forEach(x => x.setAttribute('aria-pressed', String(x === b)));
+        state[key] = b.dataset[attr];
+        renderPR(true);
+      }));
+    });
+    renderPR(false);
+  }
+
+  /* ---- free day pass form: inline validation, success panel ---- */
+  const form = $('#ic-form'), success = $('#ic-success'), formLive = $('#ic-form-live');
+  if (form) {
+    const f = {
+      name: $('#ic-f-name'), email: $('#ic-f-email'), phone: $('#ic-f-phone'),
+      date: $('#ic-f-date'), time: $('#ic-f-time'), consent: $('#ic-f-consent')
+    };
+    const exps = $$('input[name="exp"]', form);
+    const iso = dt => dt.getFullYear() + '-' + String(dt.getMonth() + 1).padStart(2, '0') + '-' + String(dt.getDate()).padStart(2, '0');
+    const today = new Date();
+    const latest = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 60);
+    f.date.min = iso(today);
+    f.date.max = iso(latest);
+    let tried = false;
+
+    function setErr(inputs, errEl, msg) {
+      const span = $('span', errEl);
+      errEl.hidden = !msg;
+      span.textContent = msg || '';
+      inputs.forEach(i => { if (msg) i.setAttribute('aria-invalid', 'true'); else i.removeAttribute('aria-invalid'); });
+      return !msg;
+    }
+    const checks = {
+      name: () => {
+        const v = f.name.value.trim();
+        return setErr([f.name], $('#ic-f-name-err'), !v ? 'Please tell us your name.' : v.length < 2 ? 'That looks a bit short. Please enter your full name.' : '');
+      },
+      email: () => {
+        const v = f.email.value.trim();
+        return setErr([f.email], $('#ic-f-email-err'), !v ? 'Please enter your email address.' : !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v) ? 'That email doesn’t look right. Check for a typo, like name@example.com.' : '');
+      },
+      phone: () => {
+        const v = f.phone.value.replace(/[\s().-]/g, '');
+        return setErr([f.phone], $('#ic-f-phone-err'), !v ? 'Please enter a number we can text.' : !/^(\+44|0)\d{9,10}$/.test(v) ? 'Please enter a UK number, like 07700 900123.' : '');
+      },
+      date: () => {
+        const v = f.date.value;
+        return setErr([f.date], $('#ic-f-date-err'), !v ? 'Please pick a day to come in.' : v < f.date.min ? 'Please pick today or a day in the future.' : v > f.date.max ? 'We take day pass bookings up to 60 days ahead.' : '');
+      },
+      exp: () => setErr(exps, $('#ic-f-exp-err'), exps.some(r => r.checked) ? '' : 'Please choose the option closest to you. There’s no wrong answer.'),
+      consent: () => setErr([f.consent], $('#ic-f-consent-err'), f.consent.checked ? '' : 'Please tick this so we can contact you about your pass.')
+    };
+    const fieldFor = { name: f.name, email: f.email, phone: f.phone, date: f.date, consent: f.consent };
+    Object.keys(fieldFor).forEach(k => {
+      const el = fieldFor[k];
+      el.addEventListener('blur', () => { if (tried || el.value) checks[k](); });
+      el.addEventListener(el.type === 'checkbox' ? 'change' : 'input', () => { if (el.getAttribute('aria-invalid') === 'true') checks[k](); });
+    });
+    exps.forEach(r => r.addEventListener('change', () => { if (tried) checks.exp(); }));
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      tried = true;
+      const order = ['name', 'email', 'phone', 'date', 'exp', 'consent'];
+      const bad = order.filter(k => !checks[k]());
+      if (bad.length) {
+        const first = bad[0] === 'exp' ? exps[0] : fieldFor[bad[0]];
+        first.focus();
+        formLive.textContent = 'Please fix ' + bad.length + (bad.length === 1 ? ' field' : ' fields') + ' before sending.';
+        return;
+      }
+      const firstName = f.name.value.trim().split(/\s+/)[0];
+      const day = new Date(f.date.value + 'T12:00:00');
+      const nice = day.toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long' });
+      const when = f.time.options[f.time.selectedIndex].text.split(' (')[0].toLowerCase();
+      const exp = (exps.find(r => r.checked) || {}).value;
+      const extra = exp === 'new'
+        ? ' As you’re new to barbells, Mags will spend your first hour with you.'
+        : exp === 'lifter'
+          ? ' Bring your belt and shoes if you have them; we’ll have a rack and a platform free.'
+          : ' A coach will show you round and help you pick a starting point.';
+      $('#ic-success-title').textContent = 'See you ' + nice + ', ' + firstName + '.';
+      $('#ic-success-txt').textContent = 'Your free day pass is booked for ' + nice + ', ' + when + '. We’ll text ' + f.phone.value.trim() + ' within a working day to confirm.' + extra;
+      form.hidden = true;
+      success.hidden = false;
+      success.focus();
+      formLive.textContent = 'Day pass request sent. See you ' + nice + '.';
+    });
+    $('#ic-again').addEventListener('click', () => {
+      form.reset();
+      tried = false;
+      Object.keys(checks).forEach(k => {
+        const errEl = $('#ic-f-' + k + '-err');
+        if (errEl) { errEl.hidden = true; $('span', errEl).textContent = ''; }
+      });
+      $$('[aria-invalid]', form).forEach(el => el.removeAttribute('aria-invalid'));
+      success.hidden = true;
+      form.hidden = false;
+      formLive.textContent = '';
+      f.name.focus();
+    });
+  }
+
+  /* ---- footer: LED-dot hours scoreboard with today highlighted ---- */
+  /* 5x7 dot-matrix glyphs: seven rows of bits, separated by dots */
+  const GLYPH = {
+    '0': '01110.10001.10011.10101.11001.10001.01110', '1': '00100.01100.00100.00100.00100.00100.01110',
+    '2': '01110.10001.00001.00010.00100.01000.11111', '3': '11111.00010.00100.00010.00001.10001.01110',
+    '4': '00010.00110.01010.10010.11111.00010.00010', '5': '11111.10000.11110.00001.00001.10001.01110',
+    '6': '00110.01000.10000.11110.10001.10001.01110', '7': '11111.00001.00010.00100.01000.01000.01000',
+    '8': '01110.10001.10001.01110.10001.10001.01110', '9': '01110.10001.10001.01111.00001.00010.01100',
+    ':': '00.11.11.00.11.11.00', '-': '0000.0000.0000.1111.0000.0000.0000',
+    '/': '00001.00010.00010.00100.01000.01000.10000', ' ': '000.000.000.000.000.000.000',
+    'O': '01110.10001.10001.10001.10001.10001.01110', 'P': '11110.10001.10001.11110.10000.10000.10000',
+    'E': '11111.10000.10000.11110.10000.10000.11111', 'N': '10001.11001.10101.10011.10001.10001.10001'
+  };
+  const SVGNS = 'http://www.w3.org/2000/svg';
+  function drawLed(svg, str) {
+    const P = 10, R = 3.4;
+    let col = 0, path = '';
+    for (const ch of str) {
+      const g = (GLYPH[ch] || GLYPH[' ']).split('.');
+      const w = g[0].length;
+      for (let r = 0; r < 7; r++) {
+        for (let c = 0; c < w; c++) {
+          if (g[r][c] !== '1') continue;
+          const cx = (col + c) * P + P / 2, cy = r * P + P / 2;
+          path += 'M' + (cx - R).toFixed(1) + ' ' + cy + 'a' + R + ' ' + R + ' 0 1 0 ' + (2 * R).toFixed(1) + ' 0a' + R + ' ' + R + ' 0 1 0 ' + (-2 * R).toFixed(1) + ' 0';
+        }
+      }
+      col += w + 1;
+    }
+    const Wd = (col - 1) * P, Hd = 7 * P;
+    svg.setAttribute('viewBox', '0 0 ' + Wd + ' ' + Hd);
+    svg.innerHTML = '<rect width="' + Wd + '" height="' + Hd + '" fill="url(#ic-led-off)"/><path d="' + path + '" fill="currentColor"/>';
+  }
+  const led = $('#ic-led');
+  if (led) {
+    const banner = $('#ic-led-banner');
+    if (banner) drawLed(banner, banner.getAttribute('data-ic-led'));
+    $$('.ic-led-val', led).forEach(val => {
+      const svg = d.createElementNS(SVGNS, 'svg');
+      svg.setAttribute('class', 'ic-led-svg');
+      svg.setAttribute('aria-hidden', 'true');
+      svg.setAttribute('focusable', 'false');
+      drawLed(svg, val.dataset.icLed);
+      val.insertBefore(svg, val.firstChild);
+    });
+    led.classList.add('is-led');
+
+    const now = new Date();
+    const toMin = s => { const [h, m] = s.split(':').map(Number); return h * 60 + m; };
+    const rowFor = day => $('.ic-led-row[data-ic-day="' + day + '"]', led);
+    const today = rowFor(now.getDay());
+    const statusEl = $('#ic-led-status');
+    if (today) {
+      today.classList.add('is-today');
+      $('.ic-led-tag', today).textContent = 'Today';
+      const [open, close] = $('.ic-led-val', today).dataset.icLed.split('-');
+      const mins = now.getHours() * 60 + now.getMinutes();
+      let msg, staffed = false;
+      if (mins >= toMin(open) && mins < toMin(close)) {
+        staffed = true;
+        msg = 'Staffed now: coaches on the floor until ' + close + '. Fob access 24/7.';
+      } else if (mins < toMin(open)) {
+        msg = 'Unstaffed right now, fob access only. Coaches in at ' + open + '.';
+      } else {
+        const tmr = rowFor((now.getDay() + 1) % 7);
+        const nextOpen = tmr ? $('.ic-led-val', tmr).dataset.icLed.split('-')[0] : '06:00';
+        msg = 'Unstaffed right now, fob access only. Coaches back at ' + nextOpen + ' tomorrow.';
+      }
+      if (statusEl) {
+        statusEl.textContent = msg;
+        statusEl.classList.toggle('is-off', !staffed);
+      }
+    }
+  }
+})();
+</script>
+</body>
+</html>
