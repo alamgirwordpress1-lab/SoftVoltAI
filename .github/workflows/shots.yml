@@ -2,12 +2,25 @@ name: preview-shots
 on: { push: { branches: [preview-shots] } }
 permissions: { contents: write }
 jobs:
-  live:
+  audit:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: npm i playwright@1.48.2 && npx playwright install --with-deps chromium
-      - run: node live.mjs
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - run: node audit.mjs
       - run: |
+          npm i -g lighthouse@12.2.1 >/dev/null
+          for p in "" quote contact portfolios products/ai-seo-audit services/white-label-wordpress-development blog/website-go-live-checklist for/seo-agencies; do
+            n=$(echo "x$p" | tr '/' '_'); lighthouse "https://www.softvoltai.com/$p" --quiet --chrome-flags="--headless=new --no-sandbox" --only-categories=performance,seo,accessibility,best-practices --output=json --output-path=res/lh_$n.json || true
+          done
+          node -e '
+          const fs=require("fs");const o={};
+          for(const f of fs.readdirSync("res").filter(f=>f.startsWith("lh_"))){const j=JSON.parse(fs.readFileSync("res/"+f));const a=j.audits;
+          o[f]={perf:j.categories.performance?.score,seo:j.categories.seo?.score,a11y:j.categories.accessibility?.score,bp:j.categories["best-practices"]?.score,LCP:a["largest-contentful-paint"]?.displayValue,TBT:a["total-blocking-time"]?.displayValue,CLS:a["cumulative-layout-shift"]?.displayValue,
+          fails:Object.values(a).filter(x=>x.score!==null&&x.score<0.9&&!["informative","manual","notApplicable","metricSavings"].includes(x.scoreDisplayMode)).map(x=>x.id+(x.displayValue?":"+x.displayValue:"")).slice(0,20),
+          details:["link-text","crawlable-anchors","image-alt","color-contrast","label","heading-order","button-name","link-name","is-crawlable","canonical","hreflang","document-title","meta-description","errors-in-console","label-content-name-mismatch"].filter(k=>a[k]&&a[k].score!==null&&a[k].score<1).map(k=>k+": "+JSON.stringify((a[k].details?.items||[]).slice(0,3).map(i=>i.node?.snippet||i.href||i.description||i.source||"").map(s=>String(s).slice(0,140))))};}
+          fs.writeFileSync("res/lh.json",JSON.stringify(o,null,1));'
+          rm -f res/lh_*.json
           git config user.name a && git config user.email a@users.noreply.github.com
-          git add out && git commit -qm live && git push -q
+          git add res && git commit -qm audit && git push -q
