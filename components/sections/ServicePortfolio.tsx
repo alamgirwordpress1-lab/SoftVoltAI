@@ -32,8 +32,8 @@ export function ServicePortfolio({
             </h2>
             <p className="lede mt-4">
               Open any design live and try it on desktop, tablet and phone. Pick
-              the one you like, and our {service.toLowerCase()} team builds it
-              as your website, with your name, words and brand.
+              the one you like, and we build it as your website, with your name,
+              words and brand, alongside the {service} work on this page.
             </p>
           </div>
           <ArrowLink href="/portfolios">
