@@ -6,20 +6,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with: { node-version: 22 }
-      - run: node crawl.mjs
       - run: |
-          npm i -g lighthouse@12.2.1
-          for p in "" services/wordpress-plugin-development products/flylive portfolios blog quote; do
-            n=$(echo "home$p" | tr '/' '_'); lighthouse "https://www.softvoltai.com/$p" --quiet --chrome-flags="--headless=new --no-sandbox" --only-categories=performance,seo,accessibility,best-practices --output=json --output-path=res/lh_$n.json || true
-          done
-          node -e '
-          const fs=require("fs");const o={};
-          for(const f of fs.readdirSync("res").filter(f=>f.startsWith("lh_"))){const j=JSON.parse(fs.readFileSync("res/"+f));const a=j.audits;
-          o[f]={perf:j.categories.performance?.score,seo:j.categories.seo?.score,a11y:j.categories.accessibility?.score,bp:j.categories["best-practices"]?.score,LCP:a["largest-contentful-paint"]?.displayValue,TBT:a["total-blocking-time"]?.displayValue,CLS:a["cumulative-layout-shift"]?.displayValue,FCP:a["first-contentful-paint"]?.displayValue,TTFB:a["server-response-time"]?.displayValue,lcpEl:(a["largest-contentful-paint-element"]?.details?.items?.[0]?.items?.[0]?.node?.snippet||"").slice(0,160),
-          fails:Object.values(a).filter(x=>x.score!==null&&x.score<0.9&&x.scoreDisplayMode!=="informative"&&x.scoreDisplayMode!=="manual"&&x.scoreDisplayMode!=="notApplicable").map(x=>x.id+(x.displayValue?":"+x.displayValue:"")).slice(0,25)};}
-          fs.writeFileSync("res/lh_summary.json",JSON.stringify(o,null,1));'
-          rm -f res/lh_home*.json.tmp; for f in res/lh_*.json; do [ "$f" = res/lh_summary.json ] || gzip -f "$f"; done
+          sudo apt-get install -y whois >/dev/null 2>&1
+          { echo "== whois"; whois softvoltai.com | grep -iE "creation|registry expiry|registrar:" | head -5
+            echo "== wayback first"; curl -s "https://web.archive.org/cdx/search/cdx?url=softvoltai.com&limit=3&output=json&fl=timestamp,original"
+            echo "== wayback count"; curl -s "https://web.archive.org/cdx/search/cdx?url=softvoltai.com/*&output=json&fl=timestamp&collapse=timestamp:6" | head -c 600
+            echo; echo "== bing site"; curl -s -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120 Safari/537.36" "https://www.bing.com/search?q=site%3Asoftvoltai.com&count=50" | grep -oE 'https://www\.softvoltai\.com[^"<& ]*' | sort -u | head -60
+            echo "== ddg site"; curl -s -A "Mozilla/5.0" "https://html.duckduckgo.com/html/?q=site%3Asoftvoltai.com" | grep -oE 'softvoltai\.com[^"<&% ]*' | sort -u | head -40
+            echo "== ddg brand"; curl -s -A "Mozilla/5.0" "https://html.duckduckgo.com/html/?q=softvoltai" | grep -oE 'result__url[^>]*>[^<]*' | sed 's/.*>//' | head -15
+            echo "== links to old slugs"; for u in / /case-studies /services /blog; do curl -s https://www.softvoltai.com$u | grep -oE 'href="/case-studies/(seo-agency-in-essex|bulk-bag-man|heat-pumps-4-pools)"' | sort -u | sed "s#^#$u #"; done
+            echo "== rates"; curl -s -o /dev/null -w '%{http_code} %{redirect_url}\n' https://www.softvoltai.com/rates
+          } > res/presence.txt 2>&1
           git config user.name audit && git config user.email audit@users.noreply.github.com
-          git add res && git commit -qm audit && git push -q
+          git add res && git commit -qm presence && git push -q
