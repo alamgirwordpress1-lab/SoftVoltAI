@@ -55,57 +55,57 @@ const p = (category: string, slug: string) => ({
 
 export const portfolioDesigns: PortfolioDesign[] = [
   {
-    slug: "abbeygate-house",
-    name: "Abbeygate House",
+    slug: "larkspur-house",
+    name: "Larkspur House",
     category: "Hospitality",
     summary:
       "A boutique townhouse hotel: arched gallery hero, rooms and offers, and a booking bar that stays in reach.",
-    ...p("hospitality", "abbeygate-house"),
+    ...p("hospitality", "larkspur-house"),
     tags: ["Hotel", "Room booking", "Classic serif"],
   },
   {
-    slug: "ember-and-oak",
-    name: "Ember & Oak",
+    slug: "flint-and-fennel",
+    name: "Flint & Fennel",
     category: "Hospitality",
     summary:
       "A candlelit restaurant site: menus, table reservations, private dining and gift vouchers.",
-    ...p("hospitality", "ember-and-oak"),
+    ...p("hospitality", "flint-and-fennel"),
     tags: ["Restaurant", "Reservations", "Dark theme"],
   },
   {
-    slug: "gull-and-lantern",
-    name: "The Gull & Lantern",
+    slug: "tern-and-tiller",
+    name: "The Tern & Tiller",
     category: "Hospitality",
     summary:
       "A harbourside inn with rooms: date and guest search, a swipeable photo stack and today's tide times.",
-    ...p("hospitality", "gull-and-lantern"),
+    ...p("hospitality", "tern-and-tiller"),
     tags: ["Inn", "Room search", "Card stack"],
   },
   {
-    slug: "fellside-spa",
-    name: "Fellside Spa & Retreat",
+    slug: "brackenmere-spa",
+    name: "Brackenmere Spa & Retreat",
     category: "Hospitality",
     summary:
       "A lakeside spa and retreat: full-bleed scenery, treatments, spa breaks and booking a day.",
-    ...p("hospitality", "fellside-spa"),
+    ...p("hospitality", "brackenmere-spa"),
     tags: ["Spa", "Full-bleed hero", "Booking"],
   },
   {
-    slug: "lamplighters-club",
-    name: "The Lamplighters' Club",
+    slug: "copper-owl-club",
+    name: "The Copper Owl Club",
     category: "Hospitality",
     summary:
       "A cocktail bar behind an unmarked door: a glowing neon sign, the drinks list and booth bookings.",
-    ...p("hospitality", "lamplighters-club"),
+    ...p("hospitality", "copper-owl-club"),
     tags: ["Bar", "Neon sign", "Bookings"],
   },
   {
-    slug: "crumb-and-co",
-    name: "Crumb & Co.",
+    slug: "proof-and-peel",
+    name: "Proof & Peel",
     category: "Hospitality",
     summary:
       "A bakery and brunch spot: order ahead for collection, today's bakes and two shops with opening times.",
-    ...p("hospitality", "crumb-and-co"),
+    ...p("hospitality", "proof-and-peel"),
     tags: ["Bakery", "Order ahead", "Bold type"],
   },
   {
