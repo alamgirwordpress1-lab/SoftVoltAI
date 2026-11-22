@@ -1,0 +1,52 @@
+name: tmp-test
+on: { push: { branches: [cta-forms-test] } }
+permissions: { contents: write }
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      NEXT_PUBLIC_SITE_URL: https://www.softvoltai.com
+      WP_GRAPHQL_URL: https://cms.softvoltai.com/graphql
+      WP_REST_URL: https://cms.softvoltai.com/wp-json
+      CF7_BASE_URL: https://cms.softvoltai.com
+      CF7_BRIEF_FORM_ID: "145"
+      CF7_CONTACT_FORM_ID: "146"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: pnpm }
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm cf:build
+      - run: mkdir -p /tmp/pw && cd /tmp/pw && npm init -y >/dev/null && npm i playwright@1.48.2 >/dev/null && npx playwright install --with-deps chromium
+      - name: run and shoot
+        run: |
+          (npx wrangler dev --local --port 8787 > dev.log 2>&1 &) ; sleep 30
+          cat > shoot.cjs <<'JS'
+          const { chromium, devices } = require('playwright');
+          (async()=>{
+            const b=await chromium.launch(); require('fs').mkdirSync('shots',{recursive:true});
+            for (const [n,u,steps] of [['quote','/quote',1],['contact','/contact',0],['for','/for/digital-marketing-agencies',0],['home','/',0]]) {
+              const p=await b.newPage({viewport:{width:1440,height:900}}); const errs=[]; p.on('pageerror',e=>errs.push(String(e).slice(0,120)));
+              await p.goto('http://localhost:8787'+u,{waitUntil:'networkidle',timeout:60000}).catch(e=>errs.push('goto '+e));
+              await p.evaluate(()=>document.querySelectorAll('[data-reveal]').forEach(e=>{e.style.opacity=1;e.style.transform='none'}));
+              const links=await p.evaluate(()=>[...document.querySelectorAll('a')].filter(a=>/brief|quote|call|contact/i.test(a.textContent)).map(a=>a.textContent.trim().slice(0,30)+' -> '+a.getAttribute('href')).slice(0,12));
+              console.log('PAGE',n,'errs',errs.join('|'),'links',JSON.stringify(links));
+              if(n==='quote'){ const f=await p.$('form[aria-labelledby=brief-form-title]'); await f.scrollIntoViewIfNeeded(); await p.waitForTimeout(500); await f.screenshot({path:'shots/quote-1.png'});
+                const nx=()=>p.locator('form[aria-labelledby=brief-form-title] button[type=button]',{hasText:'→'}).last().click();
+                await p.locator('form[aria-labelledby=brief-form-title] input[value="Build"]').check({force:true}); await p.waitForTimeout(300); await p.locator('form[aria-labelledby=brief-form-title] input[value="WordPress"]').check({force:true}); await p.waitForTimeout(200); await f.screenshot({path:'shots/quote-1b.png'});
+                await nx(); await p.waitForTimeout(300); await p.fill('#brief-text','We need a new website for a dental clinic with booking and five pages.'); await f.screenshot({path:'shots/quote-2.png'}); await nx(); await p.waitForTimeout(300);
+                await p.locator('form[aria-labelledby=brief-form-title] button',{hasText:'Within a month'}).click(); await p.locator('form[aria-labelledby=brief-form-title] input[value="$5k–15k"]').check({force:true}); await p.waitForTimeout(200); await f.screenshot({path:'shots/quote-3.png'}); await nx(); await p.waitForTimeout(300); await p.fill('#brief-name','Sam Reeve'); await f.screenshot({path:'shots/quote-4.png'}); }
+              if(n==='contact'){ const f=await p.$('form[aria-labelledby=message-form-title]'); await f.scrollIntoViewIfNeeded(); await f.screenshot({path:'shots/contact.png'}); }
+              if(n==='for'){ const s=await p.$('#designs'); if(s){await s.scrollIntoViewIfNeeded(); await s.screenshot({path:'shots/for-designs.png'})} else console.log('NO DESIGNS SECTION'); }
+              if(n==='home'){ await p.screenshot({path:'shots/home.png'}); }
+              await p.close();
+            }
+            await b.close();
+          })();
+          JS
+          NODE_PATH=/tmp/pw/node_modules node shoot.cjs
+          tail -5 dev.log
+      - run: |
+          git config user.name t && git config user.email t@users.noreply.github.com
+          git checkout --orphan shots-out && git rm -rqf --cached . && git add shots && git commit -qm shots && git push -qf origin shots-out:cta-forms-shots
