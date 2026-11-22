@@ -7,6 +7,6 @@ jobs:
       - run: |
           B=https://www.softvoltai.com
           h=$(curl -s $B/portfolios); for k in Hollybrook Glassline Redbrick Porchlight Brightwell "Northside Gyms" "Kelvin &amp; Close"; do echo "PF $k $(echo "$h" | grep -o "$k" | wc -l)"; done
-          for u in /portfolio/fitness/redbrick-gyms-manchester/preview.webp /portfolio/real-estate/byres-and-kerr-glasgow-west-end/preview.webp /portfolio/fitness/northside-gyms-manchester/index.html /portfolios /quote /services/local-seo; do echo "ST $(curl -s -o /dev/null -w '%{http_code} %{content_type}' $B$u) $u"; done
-          s=$(curl -s $B/services/local-seo); echo "SVC $(echo "$s" | grep -oE 'Hollybrook|Glassline|Movewell|Nightwell|Loom|Forgeline|Kinetic|Redbrick|Solace|Ridgeline|Hearth|Brightwell|Ironclad' | sort -u | tr '\n' ' ')"
+          for u in /portfolio/fitness/redbrick-gyms-manchester/preview.webp /portfolio/real-estate/byres-and-kerr-glasgow-west-end/preview.webp /portfolio/fitness/northside-gyms-manchester/index.html /portfolios /quote /services/local-seo-services; do echo "ST $(curl -s -o /dev/null -w '%{http_code} %{content_type}' $B$u) $u"; done
+          s=$(curl -s $B/services/local-seo-services); echo "SVC $(echo "$s" | grep -oE 'Hollybrook|Glassline|Movewell|Nightwell|Loom|Forgeline|Kinetic|Redbrick|Solace|Ridgeline|Hearth|Brightwell|Ironclad' | sort -u | tr '\n' ' ')"
           echo "SVCIMG $(echo "$s" | grep -oE 'portfolio/cleaning/[a-z-]+/preview.webp' | sort -u | tr '\n' ' ')"
