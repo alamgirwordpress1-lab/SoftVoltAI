@@ -473,6 +473,8 @@ export const portfolioDesigns: PortfolioDesign[] = [
     category: "Cleaning",
     summary: "Weekly and fortnightly house cleaning in Cheltenham.",
     demo: "/portfolio/cleaning/brightwell-home-cleaning-cheltenham/index.html",
+    image:
+      "/portfolio/cleaning/brightwell-home-cleaning-cheltenham/preview.webp",
     tags: ["House cleaning", "Postcode checker", "Instant quote"],
   },
   {
@@ -481,6 +483,7 @@ export const portfolioDesigns: PortfolioDesign[] = [
     category: "Cleaning",
     summary: "Pure-water window cleaning in north and central Bristol.",
     demo: "/portfolio/cleaning/clearview-window-cleaning-bristol/index.html",
+    image: "/portfolio/cleaning/clearview-window-cleaning-bristol/preview.webp",
     tags: ["Window cleaning", "Round-day calendar", "Glass header"],
   },
   {
@@ -490,6 +493,7 @@ export const portfolioDesigns: PortfolioDesign[] = [
     summary:
       "End of tenancy cleaning in Leeds, fixed prices and a 72-hour re-clean guarantee.",
     demo: "/portfolio/cleaning/handback-end-of-tenancy-leeds/index.html",
+    image: "/portfolio/cleaning/handback-end-of-tenancy-leeds/preview.webp",
     tags: ["End of tenancy", "Fixed prices", "Checklist progress"],
   },
   {
@@ -498,6 +502,8 @@ export const portfolioDesigns: PortfolioDesign[] = [
     category: "Cleaning",
     summary: "Office, retail, healthcare and school cleaning in London.",
     demo: "/portfolio/cleaning/halcyon-commercial-cleaning-london/index.html",
+    image:
+      "/portfolio/cleaning/halcyon-commercial-cleaning-london/preview.webp",
     tags: ["Commercial cleaning", "Sector switcher", "24/7 helpdesk"],
   },
   {
@@ -507,6 +513,8 @@ export const portfolioDesigns: PortfolioDesign[] = [
     summary:
       "Eco-friendly home cleaning and holiday-let changeovers in Brighton & Hove.",
     demo: "/portfolio/cleaning/fern-and-fable-eco-cleaning-brighton/index.html",
+    image:
+      "/portfolio/cleaning/fern-and-fable-eco-cleaning-brighton/preview.webp",
     tags: ["Eco cleaning", "Live counter", "Holiday lets"],
   },
   {
@@ -515,6 +523,8 @@ export const portfolioDesigns: PortfolioDesign[] = [
     category: "Cleaning",
     summary: "Carpet, rug and upholstery cleaning in Edinburgh.",
     demo: "/portfolio/cleaning/rinse-and-restore-carpet-care-edinburgh/index.html",
+    image:
+      "/portfolio/cleaning/rinse-and-restore-carpet-care-edinburgh/preview.webp",
     tags: ["Carpet care", "Area marquee", "Badge logo"],
   },
   {
@@ -523,6 +533,7 @@ export const portfolioDesigns: PortfolioDesign[] = [
     category: "Fitness",
     summary: "24/7 powerlifting and strongman gym, Kelham Island, Sheffield.",
     demo: "/portfolio/fitness/ironclad-strength-sheffield/index.html",
+    image: "/portfolio/fitness/ironclad-strength-sheffield/preview.webp",
     tags: ["Gym", "Live occupancy", "Bold dark"],
   },
   {
@@ -531,6 +542,7 @@ export const portfolioDesigns: PortfolioDesign[] = [
     category: "Fitness",
     summary: "Reformer Pilates classes in Clifton, Bristol.",
     demo: "/portfolio/fitness/lumen-reformer-pilates-bristol/index.html",
+    image: "/portfolio/fitness/lumen-reformer-pilates-bristol/preview.webp",
     tags: ["Pilates studio", "Side rail nav", "Class booking"],
   },
   {
@@ -539,6 +551,7 @@ export const portfolioDesigns: PortfolioDesign[] = [
     category: "Fitness",
     summary: "Boxing and HIIT classes in Shoreditch, London.",
     demo: "/portfolio/fitness/pulse-boxing-shoreditch/index.html",
+    image: "/portfolio/fitness/pulse-boxing-shoreditch/preview.webp",
     tags: ["Boxing & HIIT", "Class countdown", "Neon"],
   },
   {
@@ -547,6 +560,7 @@ export const portfolioDesigns: PortfolioDesign[] = [
     category: "Fitness",
     summary: "Trail and fell running coaching in Keswick, Lake District.",
     demo: "/portfolio/fitness/fellrunner-coaching-keswick/index.html",
+    image: "/portfolio/fitness/fellrunner-coaching-keswick/preview.webp",
     tags: ["Running coach", "Newspaper masthead", "Contour map"],
   },
   {
@@ -555,6 +569,7 @@ export const portfolioDesigns: PortfolioDesign[] = [
     category: "Fitness",
     summary: "Sauna, cold plunge and contrast therapy in Harrogate.",
     demo: "/portfolio/fitness/haven-heat-and-ice-harrogate/index.html",
+    image: "/portfolio/fitness/haven-heat-and-ice-harrogate/preview.webp",
     tags: ["Sauna & plunge", "Full-screen menu", "Breathing pacer"],
   },
   {
@@ -564,6 +579,7 @@ export const portfolioDesigns: PortfolioDesign[] = [
     summary:
       "No-contract gyms in Ancoats, Chorlton, Salford Quays and Didsbury.",
     demo: "/portfolio/fitness/northside-gyms-manchester/index.html",
+    image: "/portfolio/fitness/northside-gyms-manchester/preview.webp",
     tags: ["Gym chain", "Mega menu", "Location switcher"],
   },
   {
@@ -573,6 +589,8 @@ export const portfolioDesigns: PortfolioDesign[] = [
     summary:
       "Prime homes for sale in Chelsea, South Kensington, Belgravia and Notting Hill.",
     demo: "/portfolio/real-estate/ashcombe-and-vane-chelsea-london/index.html",
+    image:
+      "/portfolio/real-estate/ashcombe-and-vane-chelsea-london/preview.webp",
     tags: ["Prime sales", "Saved homes", "Wax-seal footer"],
   },
   {
@@ -582,6 +600,7 @@ export const portfolioDesigns: PortfolioDesign[] = [
     summary:
       "Letting agents and property management in Manchester and Salford.",
     demo: "/portfolio/real-estate/keyline-lettings-manchester/index.html",
+    image: "/portfolio/real-estate/keyline-lettings-manchester/preview.webp",
     tags: ["Lettings", "Folder-tab nav", "Signature footer"],
   },
   {
@@ -590,6 +609,8 @@ export const portfolioDesigns: PortfolioDesign[] = [
     category: "Real estate",
     summary: "Canal-side new homes by the Lace Market, Nottingham.",
     demo: "/portfolio/real-estate/lacemakers-yard-new-homes-nottingham/index.html",
+    image:
+      "/portfolio/real-estate/lacemakers-yard-new-homes-nottingham/preview.webp",
     tags: ["New homes", "Floor-plan menu", "Blueprint style"],
   },
   {
@@ -598,6 +619,8 @@ export const portfolioDesigns: PortfolioDesign[] = [
     category: "Real estate",
     summary: "Country homes, farms and land for sale across the Cotswolds.",
     demo: "/portfolio/real-estate/fenwick-hart-country-homes-cotswolds/index.html",
+    image:
+      "/portfolio/real-estate/fenwick-hart-country-homes-cotswolds/preview.webp",
     tags: ["Country homes", "Weathervane header", "Estate gate menu"],
   },
   {
@@ -606,6 +629,8 @@ export const portfolioDesigns: PortfolioDesign[] = [
     category: "Real estate",
     summary: "Fixed-fee estate agents in Birmingham, \u00a31,499 inc VAT.",
     demo: "/portfolio/real-estate/doorstep-fixed-fee-estate-agents-birmingham/index.html",
+    image:
+      "/portfolio/real-estate/doorstep-fixed-fee-estate-agents-birmingham/preview.webp",
     tags: ["Fixed-fee agent", "Command search", "Sold board"],
   },
   {
@@ -615,6 +640,8 @@ export const portfolioDesigns: PortfolioDesign[] = [
     summary:
       "Solicitor-led estate agents for Glasgow's West End and Southside.",
     demo: "/portfolio/real-estate/kelvin-and-close-glasgow-west-end/index.html",
+    image:
+      "/portfolio/real-estate/kelvin-and-close-glasgow-west-end/preview.webp",
     tags: ["Estate agent", "Buzzer-panel menu", "Tenement style"],
   },
 ];
