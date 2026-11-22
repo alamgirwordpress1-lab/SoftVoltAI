@@ -1,6 +1,7 @@
 import "server-only";
 import { cache } from "react";
 import { aboutLinks, cta, headerCta, legalLinks, nav, site, socials } from "@/content/site";
+import { routeLink } from "@/lib/links/route-cta";
 import { wpMenus, wpSettings, type WpMenuItem } from "@/lib/cms/wordpress";
 import { cms } from "@/lib/cms";
 import type { Product, ProductGroup } from "@/lib/cms/types";
@@ -173,10 +174,10 @@ export const getSiteChrome = cache(async (): Promise<SiteChrome> => {
     aboutLinks: header.find((item) => item.href.startsWith("/about"))?.children?.length
       ? (header.find((item) => item.href.startsWith("/about"))?.children ?? []).map(({ label, href, description }) => ({ label, href, description }))
       : local.aboutLinks,
-    headerCta: settings.headerCta?.label ? settings.headerCta : local.headerCta,
+    headerCta: routeLink(settings.headerCta?.label ? settings.headerCta : local.headerCta),
     cta: {
-      primary: settings.ctaPrimary?.label ? settings.ctaPrimary : local.cta.primary,
-      secondary: settings.ctaSecondary?.label ? settings.ctaSecondary : local.cta.secondary,
+      primary: routeLink(settings.ctaPrimary?.label ? settings.ctaPrimary : local.cta.primary),
+      secondary: routeLink(settings.ctaSecondary?.label ? settings.ctaSecondary : local.cta.secondary),
     },
     // each top-level footer item is a column; its children are that column's links
     footerColumns: footer.length

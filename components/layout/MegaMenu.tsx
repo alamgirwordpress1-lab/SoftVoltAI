@@ -139,7 +139,7 @@ export function MegaMenu({
         <div className="er flex flex-wrap items-center justify-between gap-4 rounded-b-[15px] px-6 py-4 lg:px-8">
           <p className="text-[14px] text-er-ink">{notes.footer}</p>
           <div className="flex flex-wrap items-center gap-5">
-            <Link href="/contact" onClick={close} tabIndex={open ? 0 : -1} className="ui inline-flex items-center gap-2 text-[13px] font-semibold uppercase tracking-[0.1em] text-volt hover:underline">
+            <Link href="/quote" onClick={close} tabIndex={open ? 0 : -1} className="ui inline-flex items-center gap-2 text-[13px] font-semibold uppercase tracking-[0.1em] text-volt hover:underline">
               Send us a brief <span aria-hidden="true">→</span>
             </Link>
             <Link href="/services" onClick={close} tabIndex={open ? 0 : -1} className="ui inline-flex items-center gap-2 text-[13px] font-semibold uppercase tracking-[0.1em] text-er-muted transition-colors hover:text-er-ink">

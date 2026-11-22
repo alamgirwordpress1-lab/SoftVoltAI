@@ -101,7 +101,7 @@ export const socials: { label: string; href: string; icon: "linkedin" | "mail" |
 ];
 
 export const cta = {
-  primary: { label: "Send us a brief", href: "/contact" },
+  primary: { label: "Send us a brief", href: "/quote" },
   secondary: { label: "Book a 20-min scoping call", href: "/contact#call" },
   tertiary: { label: "See services & rates", href: "/services" },
 };

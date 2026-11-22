@@ -50,7 +50,7 @@ export const whyCopy = page("why-softvoltai", "/why-softvoltai", "Why SoftVolt A
         2,
       ),
       closing: para("Closing card — text", "Start with one brief and judge the delivery, not the pitch."),
-      closing_button: link("Closing card — button", "Send us a brief", "/contact"),
+      closing_button: link("Closing card — button", "Send us a brief", "/quote"),
       closing_link: link("Closing card — second button", "See how it runs", "/how-we-work"),
     },
     "The rows of the table are edited under Comparison in the menu on the left.",

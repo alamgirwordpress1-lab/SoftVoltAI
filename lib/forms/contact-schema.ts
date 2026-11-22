@@ -1,21 +1,18 @@
 import * as z from "./zod";
 
 /**
- * The short contact form — the one for a question, an introduction or a job
- * that has not become a brief yet. The four-step brief form has its own schema.
+ * The plain contact form: a question, support, a partnership, billing. New
+ * projects go to the quote form at /quote, which has its own schema.
  *
  * Every field here is a plain input on purpose: the form is meant to be
  * rebuildable in Contact Form 7 (or any other form plugin) field for field.
  */
 export const CONTACT_TOPICS = [
-  "Website build",
-  "WooCommerce store",
-  "Headless + Next.js",
-  "AI or workflow automation",
-  "SEO",
-  "Paid media",
-  "Maintenance & support",
-  "Partnership",
+  "A question about a service",
+  "Support for an existing project",
+  "Partnership or reselling",
+  "Billing",
+  "Press or media",
   "Something else",
 ] as const;
 

@@ -711,6 +711,21 @@ const SERVICE_CATEGORIES: Record<string, string[]> = {
   ],
   "website-maintenance": ["Hospitality", "Non-profit", "Accountancy"],
   "ai-assistants-and-chat": ["Hospitality", "Hotels & restaurants", "Legal"],
+  // agency-type pages (/for/…): the kinds of client sites each agency sells most
+  "digital-marketing-agencies": ["Marketing", "E-commerce", "Agency & studio"],
+  "seo-agencies": ["Legal", "Real estate", "Construction"],
+  "google-ads-agencies": ["Cleaning", "Fitness", "Real estate"],
+  "branding-agencies": [
+    "Agency & studio",
+    "Hotels & restaurants",
+    "E-commerce",
+  ],
+  "web-design-agencies": ["Agency & studio", "Legal", "Hospitality"],
+  "full-service-agencies": [
+    "E-commerce",
+    "Hotels & restaurants",
+    "Construction",
+  ],
 };
 
 /**

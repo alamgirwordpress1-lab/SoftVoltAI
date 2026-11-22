@@ -208,7 +208,7 @@ export const homeCopy = page("home", "/", "Home", {
         ],
         { slots: 4 },
       ),
-      card_button: link("Dark card — button", "Send us a brief", "/contact"),
+      card_button: link("Dark card — button", "Send us a brief", "/quote"),
       card_note: text("Dark card — note", "Client names can wait until the NDA is signed."),
     },
     "The four pillar cards come from Services and Pillars in the menu on the left; everything else in this band is here.",
@@ -260,7 +260,7 @@ export const homeCopy = page("home", "/", "Home", {
         "Closing card — text",
         "If hiring is what is capping your agency's growth, this table usually settles it. Start with one brief and judge the delivery, not the pitch.",
       ),
-      closing_button: link("Closing card — button", "Send us a brief", "/contact"),
+      closing_button: link("Closing card — button", "Send us a brief", "/quote"),
       closing_link: link("Closing card — second button", "See how it runs", "/how-we-work"),
     },
     "The rows of the table are edited under Comparison in the menu on the left.",
@@ -274,7 +274,7 @@ export const homeCopy = page("home", "/", "Home", {
     r.fields.heading.value = "Build it once. Grow it every month.";
     r.fields.lede.value = "Websites at a fixed price, then a monthly plan per client site: care, SEO for Google and AI search, and an AI agent that answers leads. All white-label, all priced so you keep the margin.";
     r.fields.link.value = { text: "See all pricing", url: "/pricing" };
-    r.fields.button.value = { text: "Start with one site", url: "/contact" };
+    r.fields.button.value = { text: "Start with one site", url: "/quote" };
     r.fields.price_note.value = "Per client site · billed monthly";
     r.fields.note.value = "Websites from $1,190 one-time, and an AI-ready website bundle at $4,990. See the full price list.";
     return r;

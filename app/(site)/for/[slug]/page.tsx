@@ -5,6 +5,8 @@ import { PageHero } from "@/components/ui/PageHero";
 import { PageIntro } from "@/components/ui/PageIntro";
 import { Button } from "@/components/ui/Button";
 import { CtaBand } from "@/components/sections/CtaBand";
+import { ServicePortfolio } from "@/components/sections/ServicePortfolio";
+import { designsForService } from "@/content/portfolios";
 import { shareMetadata } from "@/lib/seo/share";
 import { Rich } from "@/components/ui/Rich";
 import { getSiteChrome } from "@/lib/cms/site";
@@ -157,6 +159,13 @@ export default async function AgencyTypePage({ params }: { params: Promise<{ slu
           ))}
         </ul>
       </section>
+
+      <ServicePortfolio
+        designs={designsForService(slug)}
+        service={type.name}
+        heading="Designs you can sell to your clients."
+        lede="Open any design live and try it on desktop, tablet and phone. Pick one for a client, and we build it under your agency's name, with your client's words, photos and brand. Your client never sees ours."
+      />
 
       <section id="promises" className="container-x border-t border-line py-14 md:py-20" aria-labelledby="promises-title">
         <span className="eyebrow">{band.promises_eyebrow}</span>

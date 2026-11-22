@@ -2,6 +2,7 @@ import "server-only";
 import { cache } from "react";
 import type { CopyOf, Field, PageCopy } from "@/content/copy/schema";
 import { wpTry } from "@/lib/wp/client";
+import { routeCta } from "@/lib/links/route-cta";
 
 /**
  * The words on a designed page: what an editor wrote in WordPress, with
@@ -49,7 +50,8 @@ function mergeField(key: string, field: Field, raw: Raw): unknown {
     }
     case "link": {
       const link = raw?.[key] as Raw;
-      return { text: words(link?.text, field.value.text), url: str(link?.url) || field.value.url };
+      const text = words(link?.text, field.value.text);
+      return { text, url: routeCta(text, str(link?.url) || field.value.url) };
     }
     case "items": {
       const keys = Object.keys(field.fields);
@@ -57,7 +59,11 @@ function mergeField(key: string, field: Field, raw: Raw): unknown {
         .map((i) => raw?.[`${key}_${i}`] as Raw)
         .filter((row): row is Record<string, unknown> => Boolean(row) && keys.some((k) => str(row?.[k])))
         .map((row) => Object.fromEntries(keys.map((k) => [k, str(row[k])])));
-      return found.length ? found : field.value;
+      const list = (found.length ? found : field.value) as Record<string, unknown>[];
+      // a row that is a link (text + url) follows the same brief-or-contact rule as a link field
+      return list.map((row) =>
+        typeof row?.text === "string" && typeof row?.url === "string" ? { ...row, url: routeCta(row.text, row.url) } : row,
+      );
     }
   }
 }

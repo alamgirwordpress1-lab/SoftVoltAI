@@ -98,7 +98,7 @@ export function Testimonials({ items }: { items: Testimonial[] }) {
           <p className="max-w-[62ch] text-[15px] leading-relaxed text-muted md:text-base">
             Want to be the first partner quoted here? Send one brief. If the work lands, we will ask — and you can say no.
           </p>
-          <Button href="/contact">Send us a brief</Button>
+          <Button href="/quote">Send us a brief</Button>
         </div>
       </div>
     </section>

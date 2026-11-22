@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "@/components/ui/Link";
 import { useRouter } from "next/navigation";
-import { CONTACT_BUDGETS, CONTACT_TOPICS } from "@/lib/forms/contact-schema";
+import { CONTACT_TOPICS } from "@/lib/forms/contact-schema";
 import { site } from "@/content/site";
 import type { MessageFormCopy } from "@/lib/cms/copy-types";
 import { loadRecaptchaOnInteraction, recaptchaToken } from "@/lib/forms/recaptcha";
@@ -11,8 +11,8 @@ import { RecaptchaNotice } from "@/components/ui/RecaptchaNotice";
 import { cn } from "@/lib/utils";
 
 /**
- * The short message form: one screen, plain fields, native validation. The
- * four-step brief lives above it for a project that is ready to be scoped.
+ * The plain contact form: one screen, plain fields, native validation. A new
+ * project goes to the quote form at /quote instead.
  *
  * Deliberately built without a form library — it keeps the page's JavaScript
  * small, and it maps one to one onto Contact Form 7 if the same form is ever
@@ -20,12 +20,9 @@ import { cn } from "@/lib/utils";
  *
  *   [text* your-name]          name
  *   [email* your-email]        email
- *   [text your-company]        company
  *   [tel your-phone]           phone
  *   [select* your-topic ...]   topic     (same options as CONTACT_TOPICS)
- *   [select your-budget ...]   budget    (same options as CONTACT_BUDGETS)
  *   [textarea* your-message]   message
- *   [checkbox your-nda ...]    nda
  *   [text website class:hidden] honeypot — hide it with CSS, reject if filled
  */
 
@@ -46,7 +43,7 @@ export function ContactForm({ copy, recaptchaKey = "" }: { copy: MessageFormCopy
   // ready by the time someone presses send rather than adding a wait to the submit
   useEffect(() => loadRecaptchaOnInteraction(recaptchaKey), [recaptchaKey]);
 
-  // "I want this design" on /portfolios lands here as ?design=Name: start the message for them.
+  // Old "I want this design" links landed here as ?design=Name; designs now go to the quote form.
   // Read on the client so the page itself stays static; only plain text ever reaches the field.
   useEffect(() => {
     const design = new URLSearchParams(window.location.search).get("design")?.replace(/[^\p{L}\p{N} &'’.,()-]/gu, "").trim().slice(0, 80);
@@ -54,7 +51,7 @@ export function ContactForm({ copy, recaptchaKey = "" }: { copy: MessageFormCopy
     const message = document.getElementById("contact-message") as HTMLTextAreaElement | null;
     if (message && !message.value) message.value = `I like the "${design}" design from your portfolio and would like a website based on it.\n\nWhat the site is for: \nWhen it needs to be live: `;
     const topic = document.getElementById("contact-topic") as HTMLSelectElement | null;
-    if (topic && !topic.value) topic.value = "Website build";
+    if (topic && !topic.value) topic.value = "A question about a service";
   }, []);
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -71,12 +68,9 @@ export function ContactForm({ copy, recaptchaKey = "" }: { copy: MessageFormCopy
         body: JSON.stringify({
           name: String(data.get("name") ?? ""),
           email: String(data.get("email") ?? ""),
-          company: String(data.get("company") ?? ""),
           phone: String(data.get("phone") ?? ""),
           topic: String(data.get("topic") ?? ""),
-          budget: String(data.get("budget") ?? "") || undefined,
           message: String(data.get("message") ?? ""),
-          nda: data.get("nda") === "on",
           recaptcha,
           website: String(data.get("website") ?? ""),
         }),
@@ -117,7 +111,15 @@ export function ContactForm({ copy, recaptchaKey = "" }: { copy: MessageFormCopy
         <span className="mono text-[12px] uppercase tracking-[0.1em] text-muted">{copy.reply_note}</span>
       </div>
 
-      <div className="mt-7 grid gap-5 sm:grid-cols-2">
+      <p className="mt-4 rounded-md border border-line bg-paper px-4 py-3 text-[14px] leading-relaxed text-muted">
+        Starting a new project?{" "}
+        <Link href="/quote" className="font-semibold text-ink underline decoration-line underline-offset-4 hover:decoration-accent">
+          Get a fixed-price quote instead
+        </Link>{" "}
+        — it asks the questions we need to price it.
+      </p>
+
+      <div className="mt-6 grid gap-5 sm:grid-cols-2">
         <div>
           <label className={label} htmlFor="contact-name">
             {copy.name_label} <Required mark={copy.required_note} />
@@ -130,13 +132,6 @@ export function ContactForm({ copy, recaptchaKey = "" }: { copy: MessageFormCopy
             {copy.email_label} <Required mark={copy.required_note} />
           </label>
           <input id="contact-email" name="email" type="email" required maxLength={160} autoComplete="email" placeholder={copy.email_placeholder} className={field} />
-        </div>
-
-        <div>
-          <label className={label} htmlFor="contact-company">
-            {copy.company_label}
-          </label>
-          <input id="contact-company" name="company" type="text" maxLength={120} autoComplete="organization" placeholder={copy.company_placeholder} className={field} />
         </div>
 
         <div>
@@ -157,20 +152,6 @@ export function ContactForm({ copy, recaptchaKey = "" }: { copy: MessageFormCopy
             {CONTACT_TOPICS.map((t) => (
               <option key={t} value={t}>
                 {t}
-              </option>
-            ))}
-          </select>
-        </div>
-
-        <div>
-          <label className={label} htmlFor="contact-budget">
-            {copy.budget_label}
-          </label>
-          <select id="contact-budget" name="budget" defaultValue="" className={cn(field, "appearance-none bg-[length:14px] bg-[right_0.9rem_center] bg-no-repeat pr-10 contact-select")}>
-            <option value="">{copy.budget_empty}</option>
-            {CONTACT_BUDGETS.map((b) => (
-              <option key={b} value={b}>
-                {b}
               </option>
             ))}
           </select>
@@ -198,11 +179,6 @@ export function ContactForm({ copy, recaptchaKey = "" }: { copy: MessageFormCopy
         <label htmlFor="contact-website">Website</label>
         <input id="contact-website" name="website" type="text" tabIndex={-1} autoComplete="off" />
       </div>
-
-      <label className="mt-6 flex cursor-pointer items-start gap-3 text-[14px] leading-relaxed text-ink">
-        <input name="nda" type="checkbox" className="mt-0.5 h-4 w-4 shrink-0 rounded border-line-strong accent-[var(--color-accent)]" />
-        {copy.nda_label}
-      </label>
 
       <div className="mt-7 flex flex-wrap items-center gap-x-5 gap-y-3 border-t border-line pt-6">
         <button

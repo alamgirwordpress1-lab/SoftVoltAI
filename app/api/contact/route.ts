@@ -22,8 +22,8 @@ export async function POST(req: Request) {
 
   const text = [
     `About: ${data.topic}`,
-    `Budget: ${data.budget ?? "not given"}`,
-    `NDA first: ${data.nda ? "yes" : "no"}`,
+    ...(data.budget ? [`Budget: ${data.budget}`] : []),
+    ...(data.nda ? ["NDA first: yes"] : []),
     `From: ${data.name}${data.company ? ` · ${data.company}` : ""} · ${data.email}${data.phone ? ` · ${data.phone}` : ""}`,
     "",
     data.message,

@@ -9,9 +9,14 @@ import { portfolioDesigns, type PortfolioDesign } from "@/content/portfolios";
 export function ServicePortfolio({
   designs,
   service,
+  heading = "Like one? We build it for you.",
+  lede,
 }: {
   designs: PortfolioDesign[];
   service: string;
+  heading?: string;
+  /** Replaces the service-page sentence, e.g. on an agency-type page. */
+  lede?: string;
 }) {
   if (!designs.length) return null;
   return (
@@ -28,12 +33,11 @@ export function ServicePortfolio({
           <div className="max-w-[720px]">
             <span className="eyebrow">Designs you can start from</span>
             <h2 id="designs-title" className="display display-md mt-4">
-              Like one? We build it for you.
+              {heading}
             </h2>
             <p className="lede mt-4">
-              Open any design live and try it on desktop, tablet and phone. Pick
-              the one you like, and we build it as your website, with your name,
-              words and brand, alongside the {service} work on this page.
+              {lede ??
+                `Open any design live and try it on desktop, tablet and phone. Pick the one you like, and we build it as your website, with your name, words and brand, alongside the ${service} work on this page.`}
             </p>
           </div>
           <ArrowLink href="/portfolios">

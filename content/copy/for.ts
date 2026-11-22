@@ -31,7 +31,7 @@ export const forCopy = page("for", "/for", "Agency Solutions", {
     ],
     links: [
       { text: "Kinds of agency", url: "#agency-types" },
-      { text: "Send a brief", url: "/contact" },
+      { text: "Send a brief", url: "/quote" },
     ],
   }),
 
