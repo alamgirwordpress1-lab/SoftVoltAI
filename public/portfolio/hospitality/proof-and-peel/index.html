@@ -9,7 +9,7 @@
 <meta name="theme-color" content="#e2412c" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link rel="preconnect" href="https://images.unsplash.com" />
+<link rel="preconnect" href="https://images.pexels.com" />
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet" />
 <script>document.documentElement.className += ' js';</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Bakery","name":"Proof & Peel","telephone":"+44 117 496 0127","servesCuisine":"Bakery, brunch","address":{"@type":"PostalAddress","streetAddress":"86 Stokes Croft","addressLocality":"Bristol","postalCode":"BS1 3QY","addressCountry":"GB"}}</script>
@@ -625,10 +625,10 @@ select.ctl{appearance:none;-webkit-appearance:none;background-image:url("data:im
 <section class="sec" id="brunch" aria-labelledby="br-h">
   <div class="wrap br-grid">
     <div class="br-media rv" id="br-media" aria-hidden="true">
-      <img class="on" src="https://images.unsplash.com/photo-1785697249208-749c906b69b0?w=1000&h=1250&fit=crop&q=75&auto=format" alt="" data-tab="brunch" />
-      <img src="https://images.unsplash.com/photo-1719520670204-dbe1903a789f?w=1000&h=1250&fit=crop&q=75&auto=format" alt="" data-tab="lunch" loading="lazy" />
-      <img src="https://images.unsplash.com/photo-1609246258268-fd17f2b9a2c7?w=1000&h=1250&fit=crop&q=75&auto=format" alt="" data-tab="sweet" loading="lazy" />
-      <img src="https://images.unsplash.com/photo-1525351484163-7529414344d8?w=1000&h=1250&fit=crop&q=75&auto=format" alt="" data-tab="kids" loading="lazy" />
+      <img class="on" src="https://images.pexels.com/photos/31132630/pexels-photo-31132630.jpeg?auto=compress&cs=tinysrgb&w=1000&h=1250&fit=crop" alt="" data-tab="brunch" />
+      <img src="https://images.pexels.com/photos/17057406/pexels-photo-17057406.jpeg?auto=compress&cs=tinysrgb&w=1000&h=1250&fit=crop" alt="" data-tab="lunch" loading="lazy" />
+      <img src="https://images.pexels.com/photos/18656839/pexels-photo-18656839.jpeg?auto=compress&cs=tinysrgb&w=1000&h=1250&fit=crop" alt="" data-tab="sweet" loading="lazy" />
+      <img src="https://images.pexels.com/photos/37888518/pexels-photo-37888518.jpeg?auto=compress&cs=tinysrgb&w=1000&h=1250&fit=crop" alt="" data-tab="kids" loading="lazy" />
       <span class="serv" id="br-serv">Served 8am to 2pm</span>
     </div>
     <div>
@@ -646,8 +646,8 @@ select.ctl{appearance:none;-webkit-appearance:none;background-image:url("data:im
 <section class="sec coffee" id="coffee" aria-labelledby="cf-h">
   <div class="wrap cf-grid">
     <div class="cf-media rv">
-      <img class="main" src="https://images.unsplash.com/photo-1541167760496-1628856ab772?w=900&h=1125&fit=crop&q=75&auto=format" alt="A barista pouring latte art into a flat white" loading="lazy" />
-      <img class="inset" src="https://images.unsplash.com/photo-1773118360501-00f979fd9322?w=600&h=600&fit=crop&q=75&auto=format" alt="Freshly roasted coffee beans turning in the roaster" loading="lazy" />
+      <img class="main" src="https://images.pexels.com/photos/24613535/pexels-photo-24613535.jpeg?auto=compress&cs=tinysrgb&w=900&h=1125&fit=crop" alt="A barista pouring latte art into a flat white" loading="lazy" />
+      <img class="inset" src="https://images.pexels.com/photos/18428694/pexels-photo-18428694.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&fit=crop" alt="Freshly roasted coffee beans turning in the roaster" loading="lazy" />
     </div>
     <div>
       <span class="label">Coffee</span>
@@ -719,7 +719,7 @@ select.ctl{appearance:none;-webkit-appearance:none;background-image:url("data:im
         <li><svg class="i"><use href="#i-check"/></svg>Order changes by 2pm the day before</li>
         <li><svg class="i"><use href="#i-check"/></svg>Monthly invoicing on 14-day terms</li>
       </ul>
-      <img class="ws-img rv" src="https://images.unsplash.com/photo-1763297014734-e2ac58a6f3c0?w=1000&h=625&fit=crop&q=75&auto=format" alt="Loaves of sourdough cooling on a bakery rack" loading="lazy" />
+      <img class="ws-img rv" src="https://images.pexels.com/photos/17428313/pexels-photo-17428313.jpeg?auto=compress&cs=tinysrgb&w=1000&h=625&fit=crop" alt="Loaves of sourdough cooling on a bakery rack" loading="lazy" />
     </div>
     <div class="wcard">
       <div id="ws-flow">
@@ -832,7 +832,7 @@ select.ctl{appearance:none;-webkit-appearance:none;background-image:url("data:im
   'use strict';
   var $ = function (s, r) { return (r || document).querySelector(s); };
   var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
-  var IMG = function (id, w, h) { return 'https://images.unsplash.com/photo-' + id + '?w=' + w + '&h=' + h + '&fit=crop&q=75&auto=format'; };
+  var IMG = function (id, w, h) { return 'https://images.pexels.com/photos/' + id + '/pexels-photo-' + id + '.jpeg?auto=compress&cs=tinysrgb&w=' + w + '&h=' + h + '&fit=crop'; };
   var gbp = function (n) { return '£' + n.toFixed(2); };
   var esc = function (s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
   var ARROW = '<svg class="i"><use href="#i-arrow"/></svg>';
@@ -846,11 +846,11 @@ select.ctl{appearance:none;-webkit-appearance:none;background-image:url("data:im
 
   /* ---------- Content ---------- */
   var SHOPS = {
-    sc: { name: 'Stokes Croft', addr: '86 Stokes Croft, Bristol BS1 3QY', tel: '0117 496 0127', img: '1712960327998-64f5604b086f', alt: 'A painted lane off Stokes Croft, around the corner from the bakery',
+    sc: { name: 'Stokes Croft', addr: '86 Stokes Croft, Bristol BS1 3QY', tel: '0117 496 0127', img: '12375020', alt: 'A painted lane off Stokes Croft, around the corner from the bakery',
       // Sun..Sat [open, close] in minutes
       hours: [[480, 900], [420, 960], [420, 960], [420, 960], [420, 960], [420, 960], [450, 960]],
       desc: 'The bakehouse. Watch the bakers through the window, then grab a seat at the long table.', facil: ['24 seats', 'Dogs welcome', 'Step-free', 'Bike racks'] },
-    cl: { name: 'Clifton', addr: '14 Princess Victoria Street, Bristol BS8 4BX', tel: '0117 496 0458', img: '1723543979834-f5d7df596a5f', alt: 'A customer choosing pastries at the counter of our Clifton café',
+    cl: { name: 'Clifton', addr: '14 Princess Victoria Street, Bristol BS8 4BX', tel: '0117 496 0458', img: '8429816', alt: 'A customer choosing pastries at the counter of our Clifton café',
       hours: [[480, 960], [450, 1020], [450, 1020], [450, 1020], [450, 1020], [450, 1020], [480, 1020]],
       desc: 'Our café, with the full brunch menu and the bakery school upstairs.', facil: ['40 seats', 'High chairs', 'Baby changing', 'Step-free'] }
   };
@@ -867,14 +867,14 @@ select.ctl{appearance:none;-webkit-appearance:none;background-image:url("data:im
   }
 
   var BAKES = [
-    { id: 'croissant', n: 'Butter croissant', d: 'Three days in the making, with Cornish butter and a shatter-crisp outside.', p: 2.90, img: '1691480162735-9b91238080f6', c: 'pastry', t: ['V'], flag: '' },
-    { id: 'pac', n: 'Pain au chocolat', d: 'Our croissant dough wrapped round two batons of 70% dark chocolate.', p: 3.40, img: '1681218424681-b4f8228ecea9', c: 'pastry', t: ['V'], flag: '' },
-    { id: 'knot', n: 'Cardamom knot', d: 'Swedish-style, with fresh-ground cardamom, orange zest and pearl sugar.', p: 3.60, img: '1775582662806-2972d4878175', c: 'pastry', t: ['V'], flag: 'Bestseller' },
-    { id: 'bun', n: 'Cinnamon bun', d: 'Brown butter, cinnamon and a cream cheese glaze. Usually gone by 10.', p: 3.50, img: '1764281469526-e1c378515e6f', c: 'pastry', t: ['V'], flag: '', sold: true },
-    { id: 'sourdough', n: 'Country sourdough', d: 'Our everyday 900g loaf: white, a little rye and a 36-hour ferment.', p: 5.20, img: '1767065888377-e5ffb4e39645', c: 'bread', t: ['VG'], flag: '' },
-    { id: 'focaccia', n: 'Rosemary focaccia', d: 'Plenty of olive oil, rosemary and flaky sea salt. Sold by the slab.', p: 3.20, img: '1767065885993-b4c5a018bd3a', c: 'bread', t: ['VG'], flag: '' },
-    { id: 'banana', n: 'Banana &amp; walnut loaf', d: 'Made with buckwheat and ground almonds instead of wheat. Sold by the slice.', p: 3.30, img: '1767065887793-f68f736ea9d6', c: 'pastry', t: ['GF', 'NUT'], flag: '' },
-    { id: 'baguette', n: 'Baguette', d: 'Long, slow ferment for a crackly crust and a sweet, open crumb.', p: 2.40, img: '1768203631935-da182455aa6d', c: 'bread', t: ['VG'], flag: 'Baked twice daily' }
+    { id: 'croissant', n: 'Butter croissant', d: 'Three days in the making, with Cornish butter and a shatter-crisp outside.', p: 2.90, img: '38959004', c: 'pastry', t: ['V'], flag: '' },
+    { id: 'pac', n: 'Pain au chocolat', d: 'Our croissant dough wrapped round two batons of 70% dark chocolate.', p: 3.40, img: '30632259', c: 'pastry', t: ['V'], flag: '' },
+    { id: 'knot', n: 'Cardamom knot', d: 'Swedish-style, with fresh-ground cardamom, orange zest and pearl sugar.', p: 3.60, img: '18784859', c: 'pastry', t: ['V'], flag: 'Bestseller' },
+    { id: 'bun', n: 'Cinnamon bun', d: 'Brown butter, cinnamon and a cream cheese glaze. Usually gone by 10.', p: 3.50, img: '5691261', c: 'pastry', t: ['V'], flag: '', sold: true },
+    { id: 'sourdough', n: 'Country sourdough', d: 'Our everyday 900g loaf: white, a little rye and a 36-hour ferment.', p: 5.20, img: '3850413', c: 'bread', t: ['VG'], flag: '' },
+    { id: 'focaccia', n: 'Rosemary focaccia', d: 'Plenty of olive oil, rosemary and flaky sea salt. Sold by the slab.', p: 3.20, img: '19602245', c: 'bread', t: ['VG'], flag: '' },
+    { id: 'banana', n: 'Banana &amp; walnut loaf', d: 'Made with buckwheat and ground almonds instead of wheat. Sold by the slice.', p: 3.30, img: '40321541', c: 'pastry', t: ['GF', 'NUT'], flag: '' },
+    { id: 'baguette', n: 'Baguette', d: 'Long, slow ferment for a crackly crust and a sweet, open crumb.', p: 2.40, img: '7966511', c: 'bread', t: ['VG'], flag: 'Baked twice daily' }
   ];
   var BY = {}; BAKES.forEach(function (b) { BY[b.id] = b; });
   var TAGS = { V: ['', 'Vegetarian'], VG: ['vg', 'Vegan'], GF: ['gf', 'Made without gluten'], NUT: ['nut', 'Contains nuts'] };
@@ -907,13 +907,13 @@ select.ctl{appearance:none;-webkit-appearance:none;background-image:url("data:im
   };
 
   var CLASSES = [
-    { t: 'Sourdough for beginners', d: new Date(2026, 10, 29), time: '9:30am to 1pm', p: 85, seats: 8, left: 3, img: '1652283321082-72bb2b601abd', alt: 'Hands shaping a ball of dough' },
-    { t: 'Croissants at home', d: new Date(2026, 11, 6), time: '9am to 2pm', p: 110, seats: 8, left: 0, img: '1732565649629-eb4932a1ec09', alt: 'A baker dusting flour over dough' },
-    { t: 'Christmas stollen and mince pies', d: new Date(2026, 11, 13), time: '10am to 1:30pm', p: 75, seats: 8, left: 5, img: '1532635224-cf024e66d122', alt: 'A tray of pastries being dusted with icing sugar' },
-    { t: "Kids' cinnamon bun morning", d: new Date(2026, 11, 20), time: '10am to 12pm, ages 7 to 12', p: 35, seats: 10, left: 6, img: '1694632288834-17d86b340745', alt: 'A tray of iced cinnamon rolls' }
+    { t: 'Sourdough for beginners', d: new Date(2026, 10, 29), time: '9:30am to 1pm', p: 85, seats: 8, left: 3, img: '7965926', alt: 'Hands shaping a ball of dough' },
+    { t: 'Croissants at home', d: new Date(2026, 11, 6), time: '9am to 2pm', p: 110, seats: 8, left: 0, img: '5953568', alt: 'A baker dusting flour over dough' },
+    { t: 'Christmas stollen and mince pies', d: new Date(2026, 11, 13), time: '10am to 1:30pm', p: 75, seats: 8, left: 5, img: '40321543', alt: 'A tray of pastries being dusted with icing sugar' },
+    { t: "Kids' cinnamon bun morning", d: new Date(2026, 11, 20), time: '10am to 12pm, ages 7 to 12', p: 35, seats: 10, left: 6, img: '41174041', alt: 'A tray of iced cinnamon rolls' }
   ];
 
-  var TRAIL = ['1623334044303-241021148842', '1681218424681-b4f8228ecea9', '1694632288834-17d86b340745', '1763297014734-e2ac58a6f3c0', '1764281469526-e1c378515e6f', '1767065885993-b4c5a018bd3a', '1775582662806-2972d4878175', '1767065888377-e5ffb4e39645', '1783058890700-4aee307c36a9', '1763207291761-e27bb059d851', '1768203631935-da182455aa6d', '1551024601-bec78aea704b', '1483695028939-5bb13f8648b0', '1767065887793-f68f736ea9d6'];
+  var TRAIL = ['10481790', '30632259', '41174041', '17428313', '5691261', '19602245', '18784859', '3850413', '34041969', '11128671', '7966511', '33759172', '9866784', '40321541'];
 
   /* ---------- Header & mobile nav ---------- */
   var hdr = $('#hdr');

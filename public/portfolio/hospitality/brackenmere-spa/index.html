@@ -9,7 +9,7 @@
 <meta name="theme-color" content="#3f4d54" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link rel="preconnect" href="https://images.unsplash.com" />
+<link rel="preconnect" href="https://images.pexels.com" />
 <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Nunito+Sans:opsz,wght@6..12,400;6..12,500;6..12,600;6..12,700&display=swap" rel="stylesheet" />
 <script>document.documentElement.className += ' js';</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"DaySpa","name":"Brackenmere Spa & Retreat","telephone":"+44 1632 960440","address":{"@type":"PostalAddress","streetAddress":"Waterhead","addressLocality":"Ambleside","addressRegion":"Cumbria","postalCode":"LA22 0EX","addressCountry":"GB"},"openingHours":"Mo-Su 08:00-21:00"}</script>
@@ -532,7 +532,7 @@ select.ctl{appearance:none;-webkit-appearance:none;background-image:url("data:im
 
 <!-- Hero -->
 <section class="hero" id="top" aria-labelledby="hero-h">
-  <img class="hero-img" src="https://images.unsplash.com/photo-1786472307121-7e761c923720?w=2400&h=1500&fit=crop&q=80&auto=format" alt="Green fells reflected in a still lake under a soft sky" fetchpriority="high" />
+  <img class="hero-img" src="https://images.pexels.com/photos/16698144/pexels-photo-16698144.jpeg?auto=compress&cs=tinysrgb&w=2400&h=1500&fit=crop" alt="Green fells reflected in a still lake under a soft sky" fetchpriority="high" />
   <canvas class="fog" id="fog" aria-hidden="true"></canvas>
   <div class="mist-css" aria-hidden="true"><i></i><i></i><i></i></div>
   <div class="hero-shade" aria-hidden="true"></div>
@@ -579,7 +579,7 @@ select.ctl{appearance:none;-webkit-appearance:none;background-image:url("data:im
       <a class="link" href="#story">Read our story<svg class="i"><use href="#i-arrow"/></svg></a>
     </div>
     <figure class="wl-media rv">
-      <img src="https://images.unsplash.com/photo-1761591672163-abaa765eb459?w=1300&h=1040&fit=crop&q=78&auto=format" alt="Open doors from a quiet room looking out over green hills" loading="lazy" />
+      <img src="https://images.pexels.com/photos/10802159/pexels-photo-10802159.jpeg?auto=compress&cs=tinysrgb&w=1300&h=1040&fit=crop" alt="Open doors from a quiet room looking out over green hills" loading="lazy" />
       <figcaption>The relaxation room opens onto the garden and the fells beyond.</figcaption>
     </figure>
   </div>
@@ -768,7 +768,7 @@ select.ctl{appearance:none;-webkit-appearance:none;background-image:url("data:im
       </form>
     </div>
     <div class="gv-vis rv">
-      <img src="https://images.unsplash.com/photo-1567922045116-2a00fae2ed03?w=1200&h=1000&fit=crop&q=75&auto=format" alt="" loading="lazy" />
+      <img src="https://images.pexels.com/photos/18161061/pexels-photo-18161061.jpeg?auto=compress&cs=tinysrgb&w=1200&h=1000&fit=crop" alt="" loading="lazy" />
       <div class="voucher" aria-label="Voucher preview">
         <div class="vh"><div><b>BRACKENMERE</b><small>Spa &amp; Retreat</small></div><small>Gift voucher</small></div>
         <div class="amt" id="vc-amt">£100</div>
@@ -796,7 +796,7 @@ select.ctl{appearance:none;-webkit-appearance:none;background-image:url("data:im
 </main>
 
 <footer class="ft" aria-labelledby="ft-h">
-  <div class="ft-bg" aria-hidden="true"><img src="https://images.unsplash.com/photo-1604864386208-9411d0eb3f23?w=2200&h=1300&fit=crop&q=75&auto=format" alt="" loading="lazy" /></div>
+  <div class="ft-bg" aria-hidden="true"><img src="https://images.pexels.com/photos/9146381/pexels-photo-9146381.jpeg?auto=compress&cs=tinysrgb&w=2200&h=1300&fit=crop" alt="" loading="lazy" /></div>
   <svg class="ridge" viewBox="0 0 1440 140" preserveAspectRatio="none" aria-hidden="true"><path d="M0 0h1440v58l-46 10-38-16-52 22-40-8-58 30-44-12-36 10-60-34-48 18-70-36-52 22-36-6-64 30-46-10-40 14-58-26-66 30-34-10-48 16-56-28-40 6-62 34-48-14-40 8-64-40-46 20-38-6-58 26-50-18-42 12-60-30-36 8L0 66z"/></svg>
   <div class="wrap ft-pad">
     <h2 class="sr" id="ft-h">Brackenmere contact details and links</h2>
@@ -850,7 +850,7 @@ select.ctl{appearance:none;-webkit-appearance:none;background-image:url("data:im
   'use strict';
   var $ = function (s, r) { return (r || document).querySelector(s); };
   var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
-  var IMG = function (id, w, h) { return 'https://images.unsplash.com/photo-' + id + '?w=' + w + '&h=' + h + '&fit=crop&q=75&auto=format'; };
+  var IMG = function (id, w, h) { return 'https://images.pexels.com/photos/' + id + '/pexels-photo-' + id + '.jpeg?auto=compress&cs=tinysrgb&w=' + w + '&h=' + h + '&fit=crop'; };
   var ARROW = '<svg class="i"><use href="#i-arrow"/></svg>';
   var CHECK = '<svg class="i"><use href="#i-check"/></svg>';
   var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -859,10 +859,10 @@ select.ctl{appearance:none;-webkit-appearance:none;background-image:url("data:im
 
   /* ---------- Content ---------- */
   var PKG = [
-    { id: 'lakeside', t: 'Lakeside Spa Day', dur: '4 hours', img: '1630595271375-5073a6c0638b', alt: 'A guest in a white robe drinking tea in a quiet lounge', d: 'Our simplest day: time in the heat rooms and hot pool, then lunch.', inc: ['Thermal journey and outdoor hot pool', 'Two-course lunch in the Garden Room', 'Robe, towels and slippers'], p: 95, times: ['9:30am', '10:00am', '12:30pm', '1:00pm'] },
-    { id: 'retreat', t: 'Brackenmere Retreat Day', dur: '6 hours', img: '1741522509438-a120c0bb5e88', alt: 'A therapist giving a back massage', d: 'Our most popular day, with a full treatment of your choice.', inc: ['55-minute massage or facial', 'Thermal journey and outdoor hot pool', 'Two-course lunch and afternoon tea'], p: 165, times: ['9:30am', '10:00am'] },
-    { id: 'fell', t: 'Fell & Spa Day', dur: '6 hours', img: '1609432906469-c24f58d7fedd', alt: 'Walkers on a misty fellside path with a wooden gate', d: 'A guided morning walk on Loughrigg, then the spa to warm up.', inc: ['Two-hour guided walk with a local guide', 'Thermal journey and outdoor hot pool', 'Hot lunch and a 25-minute back massage'], p: 120, times: ['9:00am'] },
-    { id: 'twilight', t: 'Twilight Spa', dur: '5pm to 9pm', img: '1794304146780-a8733f60646d', alt: 'Lanterns around an outdoor hot tub on a deck at dusk', d: 'An evening in the spa as the light goes, Monday to Thursday.', inc: ['Thermal journey and outdoor hot pool', '25-minute back, neck and shoulder massage', 'Light two-course supper'], p: 85, times: ['5:00pm'], weekdays: true }
+    { id: 'lakeside', t: 'Lakeside Spa Day', dur: '4 hours', img: '7365444', alt: 'A guest in a white robe drinking tea in a quiet lounge', d: 'Our simplest day: time in the heat rooms and hot pool, then lunch.', inc: ['Thermal journey and outdoor hot pool', 'Two-course lunch in the Garden Room', 'Robe, towels and slippers'], p: 95, times: ['9:30am', '10:00am', '12:30pm', '1:00pm'] },
+    { id: 'retreat', t: 'Brackenmere Retreat Day', dur: '6 hours', img: '37719545', alt: 'A therapist giving a back massage', d: 'Our most popular day, with a full treatment of your choice.', inc: ['55-minute massage or facial', 'Thermal journey and outdoor hot pool', 'Two-course lunch and afternoon tea'], p: 165, times: ['9:30am', '10:00am'] },
+    { id: 'fell', t: 'Fell & Spa Day', dur: '6 hours', img: '35854894', alt: 'Walkers on a misty fellside path with a wooden gate', d: 'A guided morning walk on Loughrigg, then the spa to warm up.', inc: ['Two-hour guided walk with a local guide', 'Thermal journey and outdoor hot pool', 'Hot lunch and a 25-minute back massage'], p: 120, times: ['9:00am'] },
+    { id: 'twilight', t: 'Twilight Spa', dur: '5pm to 9pm', img: '8968090', alt: 'Lanterns around an outdoor hot tub on a deck at dusk', d: 'An evening in the spa as the light goes, Monday to Thursday.', inc: ['Thermal journey and outdoor hot pool', '25-minute back, neck and shoulder massage', 'Light two-course supper'], p: 85, times: ['5:00pm'], weekdays: true }
   ];
   var TREAT = [
     { c: 'massage', t: 'Brackenmere deep tissue massage', d: 'Firm, slow work on the back, legs and shoulders. Good after a long walk or a long week.', p: [['60 min', 95], ['90 min', 130]] },
@@ -878,16 +878,16 @@ select.ctl{appearance:none;-webkit-appearance:none;background-image:url("data:im
     { c: 'couples', t: 'Couples ritual', d: 'Body scrub, massage and express facial, finished with tea in a private room.', p: [['2 hours', 340, 'for two']] }
   ];
   var JOURNEY = [
-    { t: 'Sauna', temp: '85°C', time: '10 to 15 minutes', img: '1717356495389-6ab1e5ff9d84', alt: 'A softly lit wooden sauna with benches', d: 'Dry heat in a cedar-lined room with a window onto the trees.' },
-    { t: 'Steam room', temp: '45°C', time: 'About 10 minutes', img: '1761470575018-135c213340eb', alt: 'A warm-lit steam room with a candle', d: 'Gentle, humid heat with eucalyptus to clear your head.' },
-    { t: 'Cold plunge', temp: '12°C', time: '30 seconds to a minute', img: '1713270232602-bf8dc038d91c', alt: 'A metal plunge tub filled with cold water', d: 'Fed by spring water. Breathe slowly; it gets easier.' },
-    { t: 'Outdoor hot pool', temp: '38°C', time: 'As long as you like', img: '1783094724116-ff5f8362a581', alt: 'A wooden hot tub outdoors among green trees', d: 'Our cedar pool on the shore, with views up the lake.' },
-    { t: 'Relaxation room', temp: 'Heated loungers', time: '20 minutes or more', img: '1620733723572-11c53f73a416', alt: 'A candle, a rolled towel and a reed diffuser', d: 'Warm loungers, blankets, herbal tea and no phones.' }
+    { t: 'Sauna', temp: '85°C', time: '10 to 15 minutes', img: '39237331', alt: 'A softly lit wooden sauna with benches', d: 'Dry heat in a cedar-lined room with a window onto the trees.' },
+    { t: 'Steam room', temp: '45°C', time: 'About 10 minutes', img: '10693828', alt: 'A warm-lit steam room with a candle', d: 'Gentle, humid heat with eucalyptus to clear your head.' },
+    { t: 'Cold plunge', temp: '12°C', time: '30 seconds to a minute', img: '30302449', alt: 'A metal plunge tub filled with cold water', d: 'Fed by spring water. Breathe slowly; it gets easier.' },
+    { t: 'Outdoor hot pool', temp: '38°C', time: 'As long as you like', img: '14678986', alt: 'A wooden hot tub outdoors among green trees', d: 'Our cedar pool on the shore, with views up the lake.' },
+    { t: 'Relaxation room', temp: 'Heated loungers', time: '20 minutes or more', img: '6628486', alt: 'A candle, a rolled towel and a reed diffuser', d: 'Warm loungers, blankets, herbal tea and no phones.' }
   ];
   var STAYS = [
-    { t: 'Lakeside Spa Break', k: 'One night', img: '1629140727571-9b5c6f6267b4', alt: 'A calm hotel bedroom with a made bed and lamps', d: 'Our classic break: arrive at lunchtime, stay for dinner and wake up to the lake.', inc: ['Three-course dinner and full breakfast', 'Spa access from 12pm on arrival until 1pm the next day', 'A 25-minute treatment each'], p: 295 },
-    { t: 'Two-Night Unwind', k: 'Two nights', img: '1689672235501-6dc1e56d454c', alt: 'A plate of salmon with herbs beside a glass of white wine', d: 'Enough time to walk, read, eat well and do very little else.', inc: ['Dinner on both nights and full breakfasts', 'A 55-minute treatment each', 'Late check-out at 1pm'], p: 560 },
-    { t: 'Midweek Escape', k: 'Sunday to Thursday', img: '1642755622932-d1e0cb783dc5', alt: 'A dark freestanding bath beside a tall window', d: 'Quieter days, lower prices and our best rooms more often available.', inc: ['Two-course dinner and full breakfast', 'Spa access on both days', 'Upgrade to a lake view room when available'], p: 245 }
+    { t: 'Lakeside Spa Break', k: 'One night', img: '9582660', alt: 'A calm hotel bedroom with a made bed and lamps', d: 'Our classic break: arrive at lunchtime, stay for dinner and wake up to the lake.', inc: ['Three-course dinner and full breakfast', 'Spa access from 12pm on arrival until 1pm the next day', 'A 25-minute treatment each'], p: 295 },
+    { t: 'Two-Night Unwind', k: 'Two nights', img: '7243878', alt: 'A plate of salmon with herbs beside a glass of white wine', d: 'Enough time to walk, read, eat well and do very little else.', inc: ['Dinner on both nights and full breakfasts', 'A 55-minute treatment each', 'Late check-out at 1pm'], p: 560 },
+    { t: 'Midweek Escape', k: 'Sunday to Thursday', img: '19672635', alt: 'A dark freestanding bath beside a tall window', d: 'Quieter days, lower prices and our best rooms more often available.', inc: ['Two-course dinner and full breakfast', 'Spa access on both days', 'Upgrade to a lake view room when available'], p: 245 }
   ];
   var CLASSES = {
     1: [['7:30am', 'Sunrise yoga', '60 min · Lake Studio'], ['11:00am', 'Breathwork', '30 min · Relaxation room'], ['5:30pm', 'Gentle stretch', '45 min · Lake Studio']],
