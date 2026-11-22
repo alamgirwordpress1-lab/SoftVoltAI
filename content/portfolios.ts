@@ -127,6 +127,51 @@ export const portfolioDesigns: PortfolioDesign[] = [
     tags: ["Scroll animation", "Marquee", "Dark mode"],
   },
   {
+    slug: "halftone-and-co",
+    name: "Halftone & Co.",
+    category: "Agency & studio",
+    summary:
+      "A brand identity studio: a filterable work grid, a services accordion and a six-question brand health check.",
+    ...p("agency", "halftone-and-co"),
+    tags: ["Branding studio", "Brand quiz", "Editorial serif"],
+  },
+  {
+    slug: "northlight-films",
+    name: "Northlight Films",
+    category: "Agency & studio",
+    summary:
+      "A video production company: a cinematic hero, a showreel player and an instant budget estimator.",
+    ...p("agency", "northlight-films"),
+    tags: ["Video production", "Budget estimator", "Showreel"],
+  },
+  {
+    slug: "pixel-and-pine",
+    name: "Pixel & Pine",
+    category: "Agency & studio",
+    summary:
+      "A product and UX design studio: an animated app mock-up, a before-and-after slider and case study tabs.",
+    ...p("agency", "pixel-and-pine"),
+    tags: ["UX studio", "Before and after", "Bento grid"],
+  },
+  {
+    slug: "tidewater-pr",
+    name: "Tidewater PR",
+    category: "Agency & studio",
+    summary:
+      'A PR agency styled like a newspaper: a coverage ticker, a 24-hour crisis line and an "Is it news?" checker.',
+    ...p("agency", "tidewater-pr"),
+    tags: ["PR agency", "News ticker", "Story checker"],
+  },
+  {
+    slug: "kiln-collective",
+    name: "Kiln Collective",
+    category: "Agency & studio",
+    summary:
+      "A photography studio: a filterable gallery with a lightbox, service rates and a studio hire calendar.",
+    ...p("agency", "kiln-collective"),
+    tags: ["Photography", "Lightbox gallery", "Booking calendar"],
+  },
+  {
     slug: "brightledger",
     name: "Brightledger",
     category: "Accountancy",

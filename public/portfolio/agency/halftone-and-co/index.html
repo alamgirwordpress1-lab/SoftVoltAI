@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex" />
+<title>Halftone &amp; Co. | Brand identity studio in Clerkenwell, London</title>
+<meta name="description" content="Halftone &amp; Co. is an independent brand identity studio in Clerkenwell, London. Naming, identity, packaging and brand systems for companies that are about to grow." />
+<meta name="theme-color" content="#f3eee4" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preconnect" href="https://images.pexels.com" />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+:root{--paper:#f3eee4;--paper-2:#e9e2d4;--ink:#1b1916;--muted:#6b645a;--line:#d8cfbf;--red:#e0442b;--red-d:#b9321d;--wrap:1320px;--gut:22px;--serif:'Fraunces',Georgia,serif;--sans:'Inter',system-ui,sans-serif}
+@media(min-width:900px){:root{--gut:44px}}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 16.5px/1.65 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--gut)}
+.eyebrow{font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--red)}
+.dot{display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--red);margin-right:10px;vertical-align:1px}
+h1,h2,h3{font-family:var(--serif);font-weight:400;letter-spacing:-.02em;line-height:1.05;margin:0}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;border-radius:999px;font-weight:600;font-size:15px;border:1px solid var(--ink);transition:background .2s,color .2s,transform .2s}
+.btn:hover{transform:translateY(-1px)}
+.btn.solid{background:var(--ink);color:var(--paper)}
+.btn.solid:hover{background:var(--red);border-color:var(--red)}
+.btn.line:hover{background:var(--ink);color:var(--paper)}
+
+/* header */
+.hdr{position:sticky;top:0;z-index:50;background:rgba(243,238,228,.88);backdrop-filter:blur(10px);border-bottom:1px solid transparent;transition:border-color .3s}
+.hdr.on{border-color:var(--line)}
+.hdr .wrap{display:flex;align-items:center;justify-content:space-between;height:74px;gap:20px}
+.logo{display:flex;align-items:center;gap:12px;font-family:var(--serif);font-size:23px}
+.logo svg{width:34px;height:34px}
+.nav{display:flex;gap:30px;font-size:15px}
+.nav a{position:relative;padding:4px 0}
+.nav a::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:1px;background:var(--red);transition:right .3s}
+.nav a:hover::after{right:0}
+.burger{display:none;width:44px;height:44px;border:1px solid var(--line);border-radius:50%;background:none}
+@media(max-width:900px){.nav,.hdr .btn{display:none}.burger{display:grid;place-items:center}}
+.drawer{position:fixed;inset:74px 0 0;background:var(--paper);z-index:49;padding:30px var(--gut);display:none;flex-direction:column;gap:18px;font-family:var(--serif);font-size:30px}
+.drawer.open{display:flex}
+
+/* hero */
+.hero{padding:70px 0 40px}
+.hero h1{font-size:clamp(46px,8.4vw,132px);max-width:13ch}
+.hero h1 em{font-style:italic;color:var(--red)}
+.swap{font-style:italic;color:var(--red)}
+.hero-row{display:grid;gap:30px;margin-top:40px;align-items:end}
+@media(min-width:900px){.hero-row{grid-template-columns:1.2fr 1fr}}
+.hero p.lede{font-size:19px;max-width:46ch;color:var(--muted);margin:0 0 26px}
+.hero-img{position:relative;border-radius:6px;overflow:hidden;aspect-ratio:4/3}
+.hero-img img{width:100%;height:100%;object-fit:cover}
+.hero-img .tag{position:absolute;left:14px;bottom:14px;background:var(--paper);padding:8px 12px;border-radius:4px;font-size:13px}
+.stats{display:flex;gap:36px;flex-wrap:wrap;margin-top:30px;font-size:14px;color:var(--muted)}
+.stats b{display:block;font-family:var(--serif);font-weight:400;font-size:34px;color:var(--ink)}
+
+/* clients marquee */
+.clients{border-block:1px solid var(--line);margin-top:60px;overflow:hidden;padding:22px 0}
+.track{display:flex;gap:60px;width:max-content;animation:mq 34s linear infinite;font-family:var(--serif);font-size:26px;color:var(--muted);white-space:nowrap}
+.track span:nth-child(3n){font-style:italic}
+@keyframes mq{to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.track{animation:none}}
+
+section{padding:96px 0}
+.sec-head{display:grid;gap:18px;margin-bottom:42px}
+@media(min-width:900px){.sec-head{grid-template-columns:1fr 1fr;align-items:end}}
+.sec-head h2{font-size:clamp(36px,5vw,64px)}
+.sec-head p{color:var(--muted);max-width:52ch;margin:0}
+
+/* work */
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px}
+.filters button{border:1px solid var(--line);background:none;border-radius:999px;padding:9px 16px;font-size:14px}
+.filters button[aria-pressed=true]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.work{display:grid;gap:26px}
+@media(min-width:760px){.work{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1100px){.work{grid-template-columns:repeat(3,1fr)}}
+.case{display:block;transition:opacity .3s}
+.case.hide{display:none}
+.case figure{margin:0;border-radius:6px;overflow:hidden;aspect-ratio:4/5;background:var(--paper-2)}
+.case img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.8,.2,1)}
+.case:hover img{transform:scale(1.05)}
+.case h3{font-size:26px;margin-top:16px}
+.case p{margin:4px 0 0;color:var(--muted);font-size:14.5px}
+.case .chip{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--red)}
+
+/* services */
+.svc{border-top:1px solid var(--ink)}
+.svc details{border-bottom:1px solid var(--line)}
+.svc summary{list-style:none;display:grid;grid-template-columns:60px 1fr 40px;align-items:center;gap:10px;padding:26px 0;cursor:pointer}
+.svc summary::-webkit-details-marker{display:none}
+.svc summary .n{font-size:13px;color:var(--muted)}
+.svc summary h3{font-size:clamp(26px,3.4vw,42px)}
+.svc summary .pl{width:34px;height:34px;border-radius:50%;border:1px solid var(--ink);display:grid;place-items:center;transition:transform .3s,background .3s}
+.svc details[open] .pl{transform:rotate(45deg);background:var(--red);border-color:var(--red);color:#fff}
+.svc .body{display:grid;gap:20px;padding:0 0 30px 70px;color:var(--muted)}
+@media(min-width:900px){.svc .body{grid-template-columns:1.3fr 1fr}}
+.svc ul{margin:0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:8px}
+.svc li{border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-size:13.5px;color:var(--ink)}
+@media(max-width:600px){.svc summary{grid-template-columns:40px 1fr 36px}.svc .body{padding-left:0}}
+
+/* process */
+.dark{background:var(--ink);color:var(--paper)}
+.dark .sec-head p{color:#b9b1a4}
+.steps{display:grid;gap:2px;counter-reset:s}
+@media(min-width:900px){.steps{grid-template-columns:repeat(4,1fr)}}
+.step{background:#262320;padding:30px 26px 34px;counter-increment:s;min-height:250px;display:flex;flex-direction:column}
+.step::before{content:"0" counter(s);font-family:var(--serif);font-size:54px;color:var(--red);line-height:1}
+.step h3{font-size:26px;margin:20px 0 10px}
+.step p{margin:0;color:#b9b1a4;font-size:15px}
+.step .wk{margin-top:auto;padding-top:20px;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:#d9d1c3}
+
+/* health check */
+.check{display:grid;gap:40px;align-items:start}
+@media(min-width:900px){.check{grid-template-columns:1fr 1fr}}
+.q{border-top:1px solid var(--line);padding:18px 0;display:flex;justify-content:space-between;gap:16px;align-items:center}
+.q span{max-width:40ch}
+.yn{display:flex;gap:6px;flex:none}
+.yn button{border:1px solid var(--line);background:#fff8;border-radius:999px;padding:7px 14px;font-size:14px}
+.yn button[aria-pressed=true]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.score{position:sticky;top:100px;background:#fff;border-radius:8px;padding:34px;border:1px solid var(--line)}
+.meter{height:10px;background:var(--paper-2);border-radius:99px;overflow:hidden;margin:20px 0}
+.meter i{display:block;height:100%;width:0;background:var(--red);transition:width .5s}
+.score .big{font-family:var(--serif);font-size:64px;line-height:1}
+.score p{color:var(--muted)}
+
+/* team */
+.team{display:grid;gap:22px;grid-template-columns:repeat(2,1fr)}
+@media(min-width:900px){.team{grid-template-columns:repeat(4,1fr)}}
+.person figure{margin:0;aspect-ratio:3/4;border-radius:6px;overflow:hidden;filter:grayscale(1) contrast(1.05);transition:filter .4s}
+.person:hover figure{filter:none}
+.person img{width:100%;height:100%;object-fit:cover}
+.person h3{font-size:22px;margin-top:12px}
+.person p{margin:2px 0 0;color:var(--muted);font-size:14px}
+
+/* quote */
+.quote{text-align:center;max-width:980px;margin:0 auto}
+.quote blockquote{margin:0;font-family:var(--serif);font-size:clamp(28px,3.6vw,46px);line-height:1.2}
+.quote blockquote::before{content:"“";color:var(--red)}
+.quote blockquote::after{content:"”";color:var(--red)}
+.quote cite{display:block;margin-top:24px;font-style:normal;color:var(--muted);font-size:15px}
+.qdots{display:flex;justify-content:center;gap:8px;margin-top:22px}
+.qdots button{width:10px;height:10px;border-radius:50%;border:0;background:var(--line);padding:0}
+.qdots button[aria-current=true]{background:var(--red)}
+
+/* contact */
+.contact{display:grid;gap:40px}
+@media(min-width:900px){.contact{grid-template-columns:1fr 1.1fr}}
+.contact h2{font-size:clamp(44px,6vw,86px)}
+.form{display:grid;gap:14px}
+.form label{display:grid;gap:6px;font-size:14px;color:var(--muted)}
+.form input,.form select,.form textarea{border:0;border-bottom:1px solid var(--ink);background:transparent;padding:10px 0;font-size:17px;border-radius:0}
+.form input:focus,.form select:focus,.form textarea:focus{outline:none;border-color:var(--red)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips label{display:inline-flex}
+.chips input{position:absolute;opacity:0}
+.chips span{border:1px solid var(--line);border-radius:999px;padding:8px 14px;font-size:14px;color:var(--ink);cursor:pointer}
+.chips input:checked+span{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.chips input:focus-visible+span{outline:2px solid var(--red)}
+.ok{display:none;padding:18px;border-radius:6px;background:#fff;border:1px solid var(--line)}
+
+footer{border-top:1px solid var(--line);padding:40px 0;font-size:14px;color:var(--muted)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:20px;justify-content:space-between}
+:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+.rv{opacity:0;transform:translateY(24px);transition:opacity .8s,transform .8s cubic-bezier(.2,.8,.2,1)}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<header class="hdr" id="hdr">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="Halftone and Co., home">
+      <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="19" fill="#1b1916"/><g fill="#e0442b"><circle cx="13" cy="13" r="4"/><circle cx="25" cy="13" r="3"/><circle cx="13" cy="25" r="3"/><circle cx="25" cy="25" r="2"/><circle cx="31" cy="19" r="1.4"/><circle cx="19" cy="31" r="1.4"/></g></svg>
+      Halftone &amp; Co.
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="#work">Work</a><a href="#services">Services</a><a href="#process">Process</a><a href="#studio">Studio</a><a href="#contact">Contact</a>
+    </nav>
+    <a class="btn solid" href="#contact">Start a project</a>
+    <button class="burger" id="burger" aria-expanded="false" aria-controls="drawer" aria-label="Menu">☰</button>
+  </div>
+</header>
+<nav class="drawer" id="drawer" aria-label="Mobile">
+  <a href="#work">Work</a><a href="#services">Services</a><a href="#process">Process</a><a href="#studio">Studio</a><a href="#contact">Contact</a>
+</nav>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <p class="eyebrow"><span class="dot"></span>Brand identity studio · Clerkenwell, London</p>
+      <h1>Brands that look <span class="swap" id="swap">sure of themselves</span>.</h1>
+      <div class="hero-row">
+        <div>
+          <p class="lede">We are an independent studio of eleven. We name companies, build their identities and design the packaging, websites and signage that carry them, for founders who are about to raise, rebrand or launch.</p>
+          <div style="display:flex;gap:12px;flex-wrap:wrap">
+            <a class="btn solid" href="#contact">Start a project →</a>
+            <a class="btn line" href="#work">See the work</a>
+          </div>
+          <div class="stats">
+            <div><b>140+</b>identities launched</div>
+            <div><b>14</b>years in Clerkenwell</div>
+            <div><b>6 wks</b>typical identity project</div>
+          </div>
+        </div>
+        <figure class="hero-img rv" style="margin:0">
+          <img src="https://images.pexels.com/photos/5706015/pexels-photo-5706015.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200&amp;h=900&amp;fit=crop" alt="Brand identity cards and stationery laid out on a studio table" fetchpriority="high" />
+          <span class="tag">Fieldnote Coffee · identity, 2026</span>
+        </figure>
+      </div>
+    </div>
+    <div class="clients" aria-label="Some of our clients">
+      <div class="track"><span>Fieldnote Coffee</span><span>Marlow &amp; Finch</span><span>Oakhurst Bank</span><span>Brine</span><span>Northvale Hotels</span><span>Paper Kite</span><span>Lumen Health</span><span>Tallis Gin</span><span>Fieldnote Coffee</span><span>Marlow &amp; Finch</span><span>Oakhurst Bank</span><span>Brine</span><span>Northvale Hotels</span><span>Paper Kite</span><span>Lumen Health</span><span>Tallis Gin</span></div>
+    </div>
+  </section>
+
+  <section id="work">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <div><p class="eyebrow">Selected work</p><h2>Six recent <em>identities</em>.</h2></div>
+        <p>Every project starts with one sentence about what the company stands for. Everything you see here was designed to say that sentence, faster.</p>
+      </div>
+      <div class="filters" role="group" aria-label="Filter work">
+        <button aria-pressed="true" data-f="all">All</button><button aria-pressed="false" data-f="identity">Identity</button><button aria-pressed="false" data-f="packaging">Packaging</button><button aria-pressed="false" data-f="digital">Digital</button>
+      </div>
+      <div class="work">
+        <a class="case rv" data-c="identity" href="#contact"><figure><img src="https://images.pexels.com/photos/7661590/pexels-photo-7661590.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800&amp;h=1000&amp;fit=crop" alt="Business cards and letterhead for Fieldnote Coffee" loading="lazy" /></figure><span class="chip">Identity</span><h3>Fieldnote Coffee</h3><p>Naming, identity and cup system for a roaster opening six cafés.</p></a>
+        <a class="case rv" data-c="packaging" href="#contact"><figure><img src="https://images.pexels.com/photos/31447457/pexels-photo-31447457.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800&amp;h=1000&amp;fit=crop" alt="Stack of printed packaging boxes for Tallis Gin" loading="lazy" /></figure><span class="chip">Packaging</span><h3>Tallis Gin</h3><p>Bottle, label and gift box for a Somerset distillery.</p></a>
+        <a class="case rv" data-c="digital" href="#contact"><figure><img src="https://images.pexels.com/photos/5904049/pexels-photo-5904049.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800&amp;h=1000&amp;fit=crop" alt="Website design for Oakhurst Bank on a laptop" loading="lazy" /></figure><span class="chip">Digital</span><h3>Oakhurst Bank</h3><p>A calmer bank brand, from app icons to branch signs.</p></a>
+        <a class="case rv" data-c="identity" href="#contact"><figure><img src="https://images.pexels.com/photos/13758309/pexels-photo-13758309.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800&amp;h=1000&amp;fit=crop" alt="Stationery set for Marlow and Finch" loading="lazy" /></figure><span class="chip">Identity</span><h3>Marlow &amp; Finch</h3><p>A rebrand for a 90-year-old law firm that wanted to look its age, kindly.</p></a>
+        <a class="case rv" data-c="packaging" href="#contact"><figure><img src="https://images.pexels.com/photos/35644145/pexels-photo-35644145.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800&amp;h=1000&amp;fit=crop" alt="Printed boxes for Brine" loading="lazy" /></figure><span class="chip">Packaging</span><h3>Brine</h3><p>Tins and boxes for a pickle company that sells in 400 shops.</p></a>
+        <a class="case rv" data-c="digital" href="#contact"><figure><img src="https://images.pexels.com/photos/4977459/pexels-photo-4977459.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800&amp;h=1000&amp;fit=crop" alt="Signage and interior for Northvale Hotels" loading="lazy" /></figure><span class="chip">Digital</span><h3>Northvale Hotels</h3><p>Booking site, signage and room cards for four Lake District hotels.</p></a>
+      </div>
+    </div>
+  </section>
+
+  <section id="services" style="padding-top:20px">
+    <div class="wrap">
+      <div class="sec-head rv"><div><p class="eyebrow">What we do</p><h2>Four things, done properly.</h2></div><p>We keep the list short on purpose. If you need something we don't do, we'll tell you who does it well.</p></div>
+      <div class="svc">
+        <details open><summary><span class="n">01</span><h3>Strategy &amp; naming</h3><span class="pl" aria-hidden="true">+</span></summary><div class="body"><p>Workshops with your founders and customers, a positioning sentence everyone agrees with, and a name that is free to trademark and has a .com or .co.uk.</p><ul><li>Positioning</li><li>Naming</li><li>Tone of voice</li><li>Trademark checks</li></ul></div></details>
+        <details><summary><span class="n">02</span><h3>Visual identity</h3><span class="pl" aria-hidden="true">+</span></summary><div class="body"><p>Logo, type, colour, image style and a guidelines site your team will actually open. Delivered with every file format your printers and developers ask for.</p><ul><li>Logo system</li><li>Typography</li><li>Colour</li><li>Guidelines site</li></ul></div></details>
+        <details><summary><span class="n">03</span><h3>Packaging</h3><span class="pl" aria-hidden="true">+</span></summary><div class="body"><p>From the first sketch to press checks at the printer. We design ranges that stay readable on a crowded shelf and work for the next ten products too.</p><ul><li>Structure</li><li>Labels</li><li>Print management</li><li>Retail display</li></ul></div></details>
+        <details><summary><span class="n">04</span><h3>Websites &amp; digital</h3><span class="pl" aria-hidden="true">+</span></summary><div class="body"><p>Brand-led websites, app icons and social templates, built with our development partners so the launch looks exactly like the presentation did.</p><ul><li>Web design</li><li>Design systems</li><li>Social kits</li><li>Motion</li></ul></div></details>
+      </div>
+    </div>
+  </section>
+
+  <section id="process" class="dark">
+    <div class="wrap">
+      <div class="sec-head rv"><div><p class="eyebrow">How a project runs</p><h2>Six weeks, four steps, no surprises.</h2></div><p>You see work every Friday. Prices are fixed when you approve the scope, and they don't move unless the scope does.</p></div>
+      <div class="steps">
+        <div class="step rv"><h3>Listen</h3><p>Two workshops and ten customer interviews. We write down what you stand for in one sentence.</p><span class="wk">Week 1</span></div>
+        <div class="step rv"><h3>Explore</h3><p>Three directions, shown as they would really look: on a shop front, a box and a phone.</p><span class="wk">Weeks 2–3</span></div>
+        <div class="step rv"><h3>Refine</h3><p>One direction, worked through every touchpoint you need on launch day.</p><span class="wk">Weeks 4–5</span></div>
+        <div class="step rv"><h3>Hand over</h3><p>Files, guidelines site and a training session for your team and suppliers.</p><span class="wk">Week 6</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="check">
+    <div class="wrap check">
+      <div class="rv">
+        <p class="eyebrow">Brand health check</p>
+        <h2 style="font-size:clamp(34px,4.4vw,56px);margin-bottom:14px">Do you need a rebrand, or just a tidy-up?</h2>
+        <p style="color:var(--muted);margin:0 0 20px">Answer six questions honestly. It takes thirty seconds.</p>
+        <div id="qs"></div>
+      </div>
+      <aside class="score rv" aria-live="polite">
+        <p class="eyebrow" style="margin:0">Your result</p>
+        <div class="big" id="sc">0/6</div>
+        <div class="meter"><i id="bar"></i></div>
+        <h3 id="verdict" style="font-size:28px">Answer the questions on the left.</h3>
+        <p id="advice">We'll tell you what we'd do in your position, even if the answer is "nothing yet".</p>
+        <a class="btn solid" href="#contact">Talk it through with us</a>
+      </aside>
+    </div>
+  </section>
+
+  <section id="studio" style="padding-top:20px">
+    <div class="wrap">
+      <div class="sec-head rv"><div><p class="eyebrow">The studio</p><h2>Small on purpose.</h2></div><p>The people you meet at the pitch are the people who do the work. No juniors you never see, no account managers in between.</p></div>
+      <div class="team">
+        <div class="person rv"><figure><img src="https://images.pexels.com/photos/37770968/pexels-photo-37770968.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=600&amp;h=800&amp;fit=crop" alt="Portrait of Ruth Aldane" loading="lazy" /></figure><h3>Ruth Aldane</h3><p>Founder, creative director</p></div>
+        <div class="person rv"><figure><img src="https://images.pexels.com/photos/4621573/pexels-photo-4621573.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=600&amp;h=800&amp;fit=crop" alt="Portrait of Priya Shah" loading="lazy" /></figure><h3>Priya Shah</h3><p>Design director</p></div>
+        <div class="person rv"><figure><img src="https://images.pexels.com/photos/30133734/pexels-photo-30133734.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=600&amp;h=800&amp;fit=crop" alt="Portrait of Tom Okafor" loading="lazy" /></figure><h3>Tom Okafor</h3><p>Strategy &amp; naming</p></div>
+        <div class="person rv"><figure><img src="https://images.pexels.com/photos/18890524/pexels-photo-18890524.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=600&amp;h=800&amp;fit=crop" alt="Portrait of Ella Brandt" loading="lazy" /></figure><h3>Ella Brandt</h3><p>Packaging lead</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="dark" style="padding:90px 0">
+    <div class="wrap quote">
+      <blockquote id="qt">They found the sentence we had been trying to say for five years, then made it look inevitable.</blockquote>
+      <cite id="qc">Sam Reeve, founder, Fieldnote Coffee</cite>
+      <div class="qdots" id="qd"></div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap contact">
+      <div class="rv">
+        <p class="eyebrow">Start a project</p>
+        <h2>Tell us what you're <em style="color:var(--red)">making</em>.</h2>
+        <p style="color:var(--muted);max-width:40ch">We reply within one working day with questions, a rough budget range and two dates for a call.</p>
+        <p style="margin-top:30px">hello@halftone.example<br />020 7946 0318<br />14 Hatton Wall, London EC1N 8HW</p>
+      </div>
+      <form class="form rv" id="form" novalidate>
+        <label>Your name<input required name="name" autocomplete="name" /></label>
+        <label>Email<input required type="email" name="email" autocomplete="email" /></label>
+        <fieldset style="border:0;padding:0;margin:8px 0 0"><legend style="font-size:14px;color:var(--muted);margin-bottom:8px">What do you need?</legend>
+          <div class="chips"><label><input type="checkbox" name="need" value="Naming" /><span>Naming</span></label><label><input type="checkbox" name="need" value="Identity" /><span>Identity</span></label><label><input type="checkbox" name="need" value="Packaging" /><span>Packaging</span></label><label><input type="checkbox" name="need" value="Website" /><span>Website</span></label></div>
+        </fieldset>
+        <label>Budget<select name="budget"><option>£15k–£30k</option><option>£30k–£60k</option><option>£60k+</option><option>Not sure yet</option></select></label>
+        <label>A few lines about the project<textarea name="msg" rows="3"></textarea></label>
+        <button class="btn solid" type="submit" style="justify-self:start">Send →</button>
+        <p class="ok" id="ok" role="status">Thank you. This is a demo, so nothing was sent, but on the live site Ruth would reply within a day.</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap"><span>© 2026 Halftone &amp; Co. Ltd · 14 Hatton Wall, London EC1N 8HW</span><span>Instagram · LinkedIn · Are.na</span></div>
+</footer>
+
+<script>
+(function(){
+  var hdr=document.getElementById('hdr');
+  addEventListener('scroll',function(){hdr.classList.toggle('on',scrollY>10)},{passive:true});
+  var b=document.getElementById('burger'),d=document.getElementById('drawer');
+  b.addEventListener('click',function(){var o=d.classList.toggle('open');b.setAttribute('aria-expanded',o)});
+  d.addEventListener('click',function(e){if(e.target.tagName==='A'){d.classList.remove('open');b.setAttribute('aria-expanded','false')}});
+
+  var words=['sure of themselves','ready to grow','worth the price','like nobody else'],i=0,sw=document.getElementById('swap');
+  if(!matchMedia('(prefers-reduced-motion: reduce)').matches)setInterval(function(){i=(i+1)%words.length;sw.textContent=words[i]},2400);
+
+  document.querySelectorAll('.filters button').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      document.querySelectorAll('.filters button').forEach(function(x){x.setAttribute('aria-pressed',x===btn)});
+      var f=btn.dataset.f;
+      document.querySelectorAll('.case').forEach(function(c){c.classList.toggle('hide',f!=='all'&&c.dataset.c!==f)});
+    });
+  });
+
+  var Q=['Could a stranger say what you do from your logo and homepage?','Do your website, packaging and social posts look like the same company?','Is your name easy to say, spell and search for?','Would you be proud to put your brand on a billboard tomorrow?','Does your team use the same colours and fonts without asking?','Have you launched a new product or market in the last two years without a refresh?'];
+  var ans={},qs=document.getElementById('qs');
+  Q.forEach(function(q,n){
+    var r=document.createElement('div');r.className='q';
+    r.innerHTML='<span>'+q+'</span><div class="yn" role="group" aria-label="Answer"><button type="button" aria-pressed="false" data-v="1">Yes</button><button type="button" aria-pressed="false" data-v="0">No</button></div>';
+    r.querySelectorAll('button').forEach(function(bt){bt.addEventListener('click',function(){
+      r.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',x===bt)});
+      ans[n]=n===5?1-(+bt.dataset.v):+bt.dataset.v;score();
+    })});
+    qs.appendChild(r);
+  });
+  function score(){
+    var k=Object.keys(ans).length,s=0;for(var x in ans)s+=ans[x];
+    document.getElementById('sc').textContent=s+'/6';
+    document.getElementById('bar').style.width=(s/6*100)+'%';
+    var v=document.getElementById('verdict'),a=document.getElementById('advice');
+    if(k<6){v.textContent=(6-k)+' to go…';return}
+    if(s>=5){v.textContent='Healthy. Keep going.';a.textContent='You probably need guidelines, not a rebrand. A two-week tidy-up would keep things this way as you grow.'}
+    else if(s>=3){v.textContent='A refresh would pay off.';a.textContent='The foundations are there. A focused refresh of type, colour and key touchpoints usually takes four weeks.'}
+    else{v.textContent='Time for a proper rebrand.';a.textContent='Your brand is working against you. Start with strategy and naming checks before any design.'}
+  }
+
+  var T=[['They found the sentence we had been trying to say for five years, then made it look inevitable.','Sam Reeve, founder, Fieldnote Coffee'],['Our sales team stopped apologising for the brochure. That alone paid for the project.','Helen Marsh, managing partner, Marlow & Finch'],['Six weeks, on budget, and the printer said it was the easiest job of the year.','Owen Tallis, co-founder, Tallis Gin']];
+  var qd=document.getElementById('qd'),qi=0;
+  T.forEach(function(_,n){var bt=document.createElement('button');bt.setAttribute('aria-label','Quote '+(n+1));bt.addEventListener('click',function(){show(n)});qd.appendChild(bt)});
+  function show(n){qi=n;document.getElementById('qt').textContent=T[n][0];document.getElementById('qc').textContent=T[n][1];qd.querySelectorAll('button').forEach(function(x,j){x.setAttribute('aria-current',j===n)})}
+  show(0);setInterval(function(){show((qi+1)%T.length)},7000);
+
+  var f=document.getElementById('form');
+  f.addEventListener('submit',function(e){e.preventDefault();if(!f.checkValidity()){f.reportValidity();return}document.getElementById('ok').style.display='block'});
+
+  var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target)}})},{threshold:.12});
+  document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+})();
+</script>
+</body>
+</html>

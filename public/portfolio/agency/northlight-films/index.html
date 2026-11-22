@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex" />
+<title>Northlight Films | Video production company in Ancoats, Manchester</title>
+<meta name="description" content="Northlight Films makes brand films, adverts, documentaries and social video from a studio in Ancoats, Manchester. Get an instant budget estimate." />
+<meta name="theme-color" content="#0c0d0f" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preconnect" href="https://images.pexels.com" />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+<style>
+:root{--bg:#0c0d0f;--bg-2:#15171a;--ink:#f2efe9;--muted:#9a978f;--line:rgba(242,239,233,.12);--amber:#ffb627;--amber-d:#e09a10;--wrap:1360px;--gut:22px;--mono:'JetBrains Mono',ui-monospace,monospace}
+@media(min-width:900px){:root{--gut:48px}}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16.5px/1.6 'Archivo',system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button,input,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--gut)}
+.mono{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+h1,h2,h3{margin:0;font-weight:900;letter-spacing:-.03em;line-height:.95;text-transform:uppercase}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 24px;border-radius:2px;font-weight:700;font-size:14px;letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--line);transition:background .2s,color .2s,border-color .2s}
+.btn.amber{background:var(--amber);color:#111;border-color:var(--amber)}
+.btn.amber:hover{background:#fff;border-color:#fff}
+.btn.ghost:hover{border-color:var(--amber);color:var(--amber)}
+:focus-visible{outline:2px solid var(--amber);outline-offset:3px}
+
+.hdr{position:fixed;inset:0 0 auto;z-index:40;transition:background .3s}
+.hdr.on{background:rgba(12,13,15,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.hdr .wrap{display:flex;align-items:center;justify-content:space-between;height:78px}
+.logo{display:flex;align-items:center;gap:12px;font-weight:900;font-size:19px;letter-spacing:.04em;text-transform:uppercase}
+.logo i{width:22px;height:22px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#fff 0 18%,var(--amber) 19% 55%,transparent 56%),var(--bg-2);box-shadow:0 0 18px rgba(255,182,39,.5)}
+.nav{display:flex;gap:30px;font-size:14px;text-transform:uppercase;letter-spacing:.08em}
+.nav a:hover{color:var(--amber)}
+.rec{display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:12px}
+.rec::before{content:"";width:9px;height:9px;border-radius:50%;background:#ff3b30;animation:blink 1.4s steps(2) infinite}
+@keyframes blink{50%{opacity:0}}
+.burger{display:none;width:44px;height:44px;border:1px solid var(--line);background:none;border-radius:2px}
+@media(max-width:900px){.nav,.rec{display:none}.burger{display:grid;place-items:center}}
+.drawer{position:fixed;inset:78px 0 0;background:var(--bg);z-index:39;padding:30px var(--gut);display:none;flex-direction:column;gap:16px;font-weight:900;font-size:34px;text-transform:uppercase}
+.drawer.open{display:flex}
+
+.hero{position:relative;min-height:100vh;display:flex;align-items:flex-end;padding:120px 0 70px;overflow:hidden}
+.hero .bg{position:absolute;inset:0}
+.hero .bg img{width:100%;height:100%;object-fit:cover;animation:kb 22s ease-in-out infinite alternate}
+@keyframes kb{to{transform:scale(1.12) translate(-2%,-2%)}}
+@media(prefers-reduced-motion:reduce){.hero .bg img{animation:none}}
+.hero .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,13,15,.35) 0%,rgba(12,13,15,.2) 40%,rgba(12,13,15,.95) 100%)}
+.hero .wrap{position:relative;width:100%}
+.hero h1{font-size:clamp(54px,11vw,188px);max-width:11ch}
+.hero h1 span{color:var(--amber)}
+.hero-foot{display:grid;gap:26px;margin-top:34px;align-items:end}
+@media(min-width:900px){.hero-foot{grid-template-columns:1fr auto}}
+.hero p{font-size:19px;max-width:48ch;color:#d4d0c7;margin:0}
+.play{display:flex;align-items:center;gap:16px;background:none;border:0;padding:0;text-align:left}
+.play .c{width:84px;height:84px;border-radius:50%;border:1px solid rgba(255,255,255,.5);display:grid;place-items:center;transition:transform .3s,background .3s}
+.play:hover .c{transform:scale(1.08);background:var(--amber);border-color:var(--amber);color:#111}
+.play b{display:block;font-size:15px;text-transform:uppercase;letter-spacing:.08em}
+.tc{position:absolute;top:100px;right:var(--gut);font-family:var(--mono);font-size:12px;color:#d4d0c7}
+
+section{padding:100px 0}
+.head{display:grid;gap:18px;margin-bottom:44px}
+@media(min-width:900px){.head{grid-template-columns:1fr 1fr;align-items:end}}
+.head h2{font-size:clamp(40px,6vw,92px)}
+.head p{color:var(--muted);margin:0;max-width:50ch}
+
+.logos{border-block:1px solid var(--line);padding:26px 0;display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px 40px;font-weight:900;text-transform:uppercase;letter-spacing:.08em;color:#6f6c66;font-size:18px}
+
+.films{display:grid;gap:4px}
+@media(min-width:800px){.films{grid-template-columns:repeat(6,1fr)}.f1{grid-column:span 4}.f2{grid-column:span 2}.f3,.f4,.f5{grid-column:span 2}}
+.film{position:relative;overflow:hidden;aspect-ratio:16/10;background:var(--bg-2)}
+.f2{aspect-ratio:auto}
+@media(max-width:799px){.f2{aspect-ratio:16/10}}
+.film img{width:100%;height:100%;object-fit:cover;filter:saturate(.85);transition:transform .9s cubic-bezier(.2,.8,.2,1),filter .4s}
+.film:hover img{transform:scale(1.06);filter:saturate(1.1)}
+.film .meta{position:absolute;inset:auto 0 0;padding:22px;background:linear-gradient(transparent,rgba(0,0,0,.85))}
+.film h3{font-size:clamp(22px,2.4vw,34px)}
+.film .mono{color:#d4d0c7}
+.film .dur{position:absolute;top:14px;right:14px;background:rgba(0,0,0,.6);padding:4px 8px;font-family:var(--mono);font-size:12px}
+
+.svcs{display:grid;gap:1px;background:var(--line);border:1px solid var(--line)}
+@media(min-width:800px){.svcs{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1150px){.svcs{grid-template-columns:repeat(4,1fr)}}
+.svc{background:var(--bg);padding:34px 28px 40px;min-height:300px;display:flex;flex-direction:column;transition:background .3s}
+.svc:hover{background:var(--bg-2)}
+.svc .n{font-family:var(--mono);color:var(--amber);font-size:13px}
+.svc h3{font-size:30px;margin:60px 0 14px}
+.svc p{color:var(--muted);margin:0;font-size:15px}
+.svc .from{margin-top:auto;padding-top:20px;font-family:var(--mono);font-size:13px}
+
+.est{background:var(--bg-2);border:1px solid var(--line);display:grid}
+@media(min-width:1000px){.est{grid-template-columns:1.3fr 1fr}}
+.est .in{padding:36px;display:grid;gap:26px}
+.est .out{padding:36px;border-top:1px solid var(--line);background:#101113;display:flex;flex-direction:column}
+@media(min-width:1000px){.est .out{border-top:0;border-left:1px solid var(--line)}}
+.opts{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.opts button{background:none;border:1px solid var(--line);padding:10px 14px;border-radius:2px;font-size:14px}
+.opts button[aria-pressed=true]{background:var(--amber);color:#111;border-color:var(--amber);font-weight:700}
+input[type=range]{width:100%;accent-color:var(--amber);margin-top:12px}
+.rowlab{display:flex;justify-content:space-between;align-items:baseline}
+.rowlab b{font-family:var(--mono);color:var(--amber)}
+.tog{display:flex;align-items:center;gap:10px;margin-top:10px;font-size:15px}
+.tog input{accent-color:var(--amber);width:18px;height:18px}
+.price{font-size:clamp(40px,5vw,64px);font-weight:900;letter-spacing:-.03em;margin:12px 0 6px}
+.out ul{list-style:none;margin:18px 0 26px;padding:0;color:var(--muted);font-size:15px;display:grid;gap:8px}
+.out li::before{content:"— ";color:var(--amber)}
+
+.tl{display:grid;gap:0;border-top:1px solid var(--line)}
+@media(min-width:900px){.tl{grid-template-columns:repeat(5,1fr)}}
+.tl div{padding:26px 20px 30px 0;border-bottom:1px solid var(--line);position:relative}
+@media(min-width:900px){.tl div{border-bottom:0}.tl div::before{content:"";position:absolute;top:-6px;left:0;width:11px;height:11px;border-radius:50%;background:var(--amber)}}
+.tl h3{font-size:22px;margin:12px 0 8px}
+.tl p{margin:0;color:var(--muted);font-size:15px}
+
+.crew{display:grid;gap:30px;align-items:center}
+@media(min-width:900px){.crew{grid-template-columns:1fr 1fr}}
+.crew figure{margin:0;position:relative}
+.crew figure img{width:100%;aspect-ratio:4/5;object-fit:cover}
+.crew figure figcaption{position:absolute;left:0;bottom:0;background:var(--amber);color:#111;padding:10px 14px;font-weight:700;font-size:14px}
+.kit{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);margin-top:26px;border:1px solid var(--line)}
+.kit div{background:var(--bg);padding:18px}
+.kit b{display:block;font-size:28px;font-weight:900}
+.kit span{color:var(--muted);font-size:14px}
+
+.cta{position:relative;overflow:hidden;text-align:center;padding:140px 0}
+.cta img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.3}
+.cta .wrap{position:relative}
+.cta h2{font-size:clamp(46px,9vw,150px)}
+.cta p{color:#d4d0c7;max-width:46ch;margin:22px auto 30px}
+
+footer{border-top:1px solid var(--line);padding:36px 0;color:var(--muted);font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
+
+dialog{border:0;padding:0;background:#000;color:var(--ink);width:min(1100px,94vw);max-height:90vh}
+dialog::backdrop{background:rgba(0,0,0,.85)}
+.reel{position:relative;aspect-ratio:16/9;overflow:hidden}
+.reel img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1s}
+.reel img.on{opacity:1;animation:kb 6s linear forwards}
+.reel .cap{position:absolute;left:20px;bottom:18px;font-family:var(--mono);font-size:13px;background:rgba(0,0,0,.6);padding:6px 10px}
+.reel .bar{position:absolute;left:0;bottom:0;height:3px;background:var(--amber);width:0}
+.dlg-x{position:absolute;top:10px;right:10px;z-index:2;background:rgba(0,0,0,.6);border:1px solid var(--line);width:40px;height:40px;border-radius:50%}
+
+.rv{opacity:0;transform:translateY(30px);transition:opacity .9s,transform .9s cubic-bezier(.2,.8,.2,1)}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<header class="hdr" id="hdr">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="Northlight Films, home"><i aria-hidden="true"></i>Northlight</a>
+    <nav class="nav" aria-label="Main"><a href="#work">Work</a><a href="#services">Services</a><a href="#estimate">Budget</a><a href="#studio">Studio</a><a href="#contact">Contact</a></nav>
+    <span class="rec">Shooting in Salford today</span>
+    <button class="burger" id="burger" aria-expanded="false" aria-controls="drawer" aria-label="Menu">☰</button>
+  </div>
+</header>
+<nav class="drawer" id="drawer" aria-label="Mobile"><a href="#work">Work</a><a href="#services">Services</a><a href="#estimate">Budget</a><a href="#studio">Studio</a><a href="#contact">Contact</a></nav>
+
+<main id="top">
+  <section class="hero" style="padding-top:120px">
+    <div class="bg"><img src="https://images.pexels.com/photos/3062541/pexels-photo-3062541.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1920&amp;h=1200&amp;fit=crop" alt="A film crew setting up a camera on set" fetchpriority="high" /></div>
+    <span class="tc" id="tc" aria-hidden="true">00:00:00:00</span>
+    <div class="wrap">
+      <p class="mono" style="color:#d4d0c7">Video production · Ancoats, Manchester · Since 2013</p>
+      <h1>Films people <span>finish</span> watching.</h1>
+      <div class="hero-foot">
+        <p>Brand films, adverts, documentaries and social video for companies that would rather be remembered than seen. Written, shot and finished in-house.</p>
+        <button class="play" id="play" type="button"><span class="c" aria-hidden="true">▶</span><span><b>Play the showreel</b><span class="mono">2026 · 1 min 40</span></span></button>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap"><div class="logos" aria-label="Clients"><span>Canalside Energy</span><span>Ancoats Arts</span><span>Ridgeway</span><span>Irwell University</span><span>Boundless</span><span>Peak Outdoor</span></div></div>
+
+  <section id="work">
+    <div class="wrap">
+      <div class="head rv"><h2>Recent<br />work</h2><p>A few films from the last twelve months. Every one was written in this building, and most were shot within an hour of it.</p></div>
+      <div class="films">
+        <a class="film f1 rv" href="#contact"><img src="https://images.pexels.com/photos/6714952/pexels-photo-6714952.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1400&amp;h=875&amp;fit=crop" alt="Director watching a monitor on set" loading="lazy" /><span class="dur">2:14</span><div class="meta"><span class="mono">Brand film · Peak Outdoor</span><h3>The Long Way Up</h3></div></a>
+        <a class="film f2 rv" href="#contact"><img src="https://images.pexels.com/photos/23531613/pexels-photo-23531613.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=700&amp;h=900&amp;fit=crop" alt="Cinematographer holding a camera" loading="lazy" /><span class="dur">0:30</span><div class="meta"><span class="mono">TV advert · Ridgeway</span><h3>Home, sooner</h3></div></a>
+        <a class="film f3 rv" href="#contact"><img src="https://images.pexels.com/photos/14279592/pexels-photo-14279592.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800&amp;h=500&amp;fit=crop" alt="Interview being filmed with lights" loading="lazy" /><span class="dur">12:40</span><div class="meta"><span class="mono">Documentary · Ancoats Arts</span><h3>First Chair</h3></div></a>
+        <a class="film f4 rv" href="#contact"><img src="https://images.pexels.com/photos/5282585/pexels-photo-5282585.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800&amp;h=500&amp;fit=crop" alt="Aerial view of a city at dusk" loading="lazy" /><span class="dur">1:05</span><div class="meta"><span class="mono">Campaign · Irwell University</span><h3>City of Firsts</h3></div></a>
+        <a class="film f5 rv" href="#contact"><img src="https://images.pexels.com/photos/8089650/pexels-photo-8089650.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800&amp;h=500&amp;fit=crop" alt="Studio lights set up for a shoot" loading="lazy" /><span class="dur">6 × 0:15</span><div class="meta"><span class="mono">Social series · Boundless</span><h3>Small Wins</h3></div></a>
+      </div>
+    </div>
+  </section>
+
+  <section id="services" style="padding-top:10px">
+    <div class="wrap">
+      <div class="head rv"><h2>What we<br />make</h2><p>One team from the first idea to the final grade. You get a producer, a director and an editor who all know the brief.</p></div>
+      <div class="svcs">
+        <div class="svc rv"><span class="n">01</span><h3>Brand films</h3><p>Two to four minutes on who you are and why it matters. For homepages, pitches and all-hands.</p><span class="from">From £9,500</span></div>
+        <div class="svc rv"><span class="n">02</span><h3>Adverts</h3><p>TV, cinema and YouTube spots, with clearance, music licensing and every cut-down you need.</p><span class="from">From £18,000</span></div>
+        <div class="svc rv"><span class="n">03</span><h3>Documentary</h3><p>Longer stories told with real people, for charities, universities and brands with something true to say.</p><span class="from">From £14,000</span></div>
+        <div class="svc rv"><span class="n">04</span><h3>Social video</h3><p>Series shot in one or two days, cut vertically and horizontally, captioned and ready to post.</p><span class="from">From £4,800</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="estimate" style="padding-top:10px">
+    <div class="wrap">
+      <div class="head rv"><h2>Rough<br />budget</h2><p>Pick what you have in mind and see a realistic range before you call us. We'll firm it up after a 20-minute chat.</p></div>
+      <div class="est rv">
+        <div class="in">
+          <div><span class="mono">Type of film</span><div class="opts" id="type" role="group" aria-label="Type of film"><button aria-pressed="true" data-v="9500">Brand film</button><button aria-pressed="false" data-v="18000">Advert</button><button aria-pressed="false" data-v="14000">Documentary</button><button aria-pressed="false" data-v="4800">Social series</button></div></div>
+          <div><div class="rowlab"><label class="mono" for="days">Shoot days</label><b id="dv">2</b></div><input id="days" type="range" min="1" max="6" value="2" /></div>
+          <div><div class="rowlab"><label class="mono" for="locs">Locations</label><b id="lv">1</b></div><input id="locs" type="range" min="1" max="5" value="1" /></div>
+          <div><span class="mono">Extras</span>
+            <label class="tog"><input type="checkbox" data-v="2400" />Drone shots</label>
+            <label class="tog"><input type="checkbox" data-v="3500" />Actors and casting</label>
+            <label class="tog"><input type="checkbox" data-v="1800" />Motion graphics</label>
+            <label class="tog"><input type="checkbox" data-v="1200" />Subtitles in 3 languages</label>
+          </div>
+        </div>
+        <div class="out" aria-live="polite">
+          <span class="mono">Estimated range, ex VAT</span>
+          <div class="price" id="price">£11k – £14k</div>
+          <span class="mono" id="weeks">About 4 weeks from brief to delivery</span>
+          <ul><li>Producer, director and editor</li><li>Script and storyboard</li><li>Grade, sound mix and licensed music</li><li>Two rounds of changes</li></ul>
+          <a class="btn amber" href="#contact" style="margin-top:auto;align-self:flex-start">Get a firm quote</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="studio" style="padding-top:10px">
+    <div class="wrap">
+      <div class="head rv"><h2>How it<br />runs</h2><p>Most of our films take four to six weeks. You always know what happens this week and what we need from you.</p></div>
+      <div class="tl">
+        <div class="rv"><span class="mono">Week 1</span><h3>Brief</h3><p>A call, a written treatment and a fixed price.</p></div>
+        <div class="rv"><span class="mono">Week 2</span><h3>Pre-production</h3><p>Script, storyboard, locations, casting and a shoot schedule.</p></div>
+        <div class="rv"><span class="mono">Week 3</span><h3>Shoot</h3><p>One to six days with our own crew and kit.</p></div>
+        <div class="rv"><span class="mono">Weeks 4–5</span><h3>Edit</h3><p>First cut, your notes, second cut, picture lock.</p></div>
+        <div class="rv"><span class="mono">Week 6</span><h3>Deliver</h3><p>Grade, sound mix, captions and every format you need.</p></div>
+      </div>
+      <div class="crew" style="margin-top:90px">
+        <figure class="rv"><img src="https://images.pexels.com/photos/31718971/pexels-photo-31718971.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=900&amp;h=1125&amp;fit=crop" alt="Editor working in the Northlight edit suite" loading="lazy" /><figcaption>Our grading suite, Ancoats</figcaption></figure>
+        <div class="rv">
+          <span class="mono">The studio</span>
+          <h2 style="font-size:clamp(36px,4.6vw,66px);margin:14px 0 18px">Our own crew, our own kit.</h2>
+          <p style="color:var(--muted);max-width:46ch">Fourteen people in a converted mill on Jersey Street: producers, directors, camera, edit, grade and sound. Owning the kit keeps prices fair and the schedule ours.</p>
+          <div class="kit"><div><b>14</b><span>people in-house</span></div><div><b>320+</b><span>films delivered</span></div><div><b>2</b><span>edit and grade suites</span></div><div><b>8K</b><span>cinema cameras</span></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta" id="contact">
+    <img src="https://images.pexels.com/photos/29043650/pexels-photo-29043650.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1920&amp;h=1080&amp;fit=crop" alt="" loading="lazy" />
+    <div class="wrap">
+      <span class="mono" style="color:#d4d0c7">Got a story?</span>
+      <h2>Let's roll.</h2>
+      <p>Tell us what the film needs to do and when you need it. A producer replies the same working day.</p>
+      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap"><a class="btn amber" href="mailto:hello@northlight.example">hello@northlight.example</a><a class="btn ghost" href="tel:01614960412">0161 496 0412</a></div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap"><span>© 2026 Northlight Films Ltd · Unit 3, 52 Jersey Street, Manchester M4 6JW</span><span>Vimeo · Instagram · LinkedIn</span></div></footer>
+
+<dialog id="dlg" aria-label="Showreel">
+  <button class="dlg-x" id="x" aria-label="Close">✕</button>
+  <div class="reel" id="reel">
+    <img src="https://images.pexels.com/photos/8088386/pexels-photo-8088386.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1600&amp;h=900&amp;fit=crop" alt="" /><img src="https://images.pexels.com/photos/19102538/pexels-photo-19102538.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1600&amp;h=900&amp;fit=crop" alt="" /><img src="https://images.pexels.com/photos/33803470/pexels-photo-33803470.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1600&amp;h=900&amp;fit=crop" alt="" /><img src="https://images.pexels.com/photos/36305682/pexels-photo-36305682.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1600&amp;h=900&amp;fit=crop" alt="" /><img src="https://images.pexels.com/photos/7644081/pexels-photo-7644081.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1600&amp;h=900&amp;fit=crop" alt="" />
+    <span class="cap" id="cap">Northlight showreel 2026</span><span class="bar" id="bar"></span>
+  </div>
+</dialog>
+
+<script>
+(function(){
+  var hdr=document.getElementById('hdr');addEventListener('scroll',function(){hdr.classList.toggle('on',scrollY>20)},{passive:true});
+  var b=document.getElementById('burger'),d=document.getElementById('drawer');
+  b.addEventListener('click',function(){var o=d.classList.toggle('open');b.setAttribute('aria-expanded',o)});
+  d.addEventListener('click',function(e){if(e.target.tagName==='A'){d.classList.remove('open');b.setAttribute('aria-expanded','false')}});
+
+  var tc=document.getElementById('tc'),f=0;setInterval(function(){f++;var s=Math.floor(f/25),p=function(n){return('0'+n).slice(-2)};tc.textContent='00:'+p(Math.floor(s/60))+':'+p(s%60)+':'+p(f%25)},40);
+
+  var dlg=document.getElementById('dlg'),imgs=[].slice.call(document.querySelectorAll('#reel img')),bar=document.getElementById('bar'),cap=document.getElementById('cap'),t=null,k=0,caps=['The Long Way Up · Peak Outdoor','Home, sooner · Ridgeway','City of Firsts · Irwell University','Small Wins · Boundless','First Chair · Ancoats Arts'];
+  function step(){imgs.forEach(function(im,j){im.classList.toggle('on',j===k)});cap.textContent=caps[k];bar.style.transition='none';bar.style.width='0';requestAnimationFrame(function(){bar.style.transition='width 4s linear';bar.style.width=((k+1)/imgs.length*100)+'%'});k=(k+1)%imgs.length}
+  document.getElementById('play').addEventListener('click',function(){dlg.showModal();k=0;step();t=setInterval(step,4000)});
+  function close(){dlg.close()}
+  document.getElementById('x').addEventListener('click',close);
+  dlg.addEventListener('click',function(e){if(e.target===dlg)close()});
+  dlg.addEventListener('close',function(){clearInterval(t)});
+
+  var typeBtns=[].slice.call(document.querySelectorAll('#type button')),base=9500,days=document.getElementById('days'),locs=document.getElementById('locs');
+  typeBtns.forEach(function(x){x.addEventListener('click',function(){typeBtns.forEach(function(y){y.setAttribute('aria-pressed',y===x)});base=+x.dataset.v;calc()})});
+  [days,locs].forEach(function(r){r.addEventListener('input',calc)});
+  document.querySelectorAll('.tog input').forEach(function(c){c.addEventListener('change',calc)});
+  function k$(n){return '£'+Math.round(n/1000)+'k'}
+  function calc(){
+    document.getElementById('dv').textContent=days.value;document.getElementById('lv').textContent=locs.value;
+    var tot=base+(days.value-1)*3200+(locs.value-1)*900;
+    document.querySelectorAll('.tog input:checked').forEach(function(c){tot+=+c.dataset.v});
+    document.getElementById('price').textContent=k$(tot*.95)+' – '+k$(tot*1.25);
+    var w=3+Math.ceil(days.value/2)+(locs.value>2?1:0);
+    document.getElementById('weeks').textContent='About '+w+' weeks from brief to delivery';
+  }
+  calc();
+
+  var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target)}})},{threshold:.12});
+  document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+})();
+</script>
+</body>
+</html>
