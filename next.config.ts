@@ -112,6 +112,8 @@ const nextConfig: NextConfig = {
       { source: "/work", destination: "/case-studies", permanent: true },
       // /rates became /pricing: the word agencies search for
       { source: "/rates", destination: "/pricing", permanent: true },
+      // AI SEO Engine became AI SEO Audit, Nov 2026: the address now carries the product name
+      { source: "/products/softvoltai-ai-seo-engine", destination: "/products/ai-seo-audit", permanent: true },
       // case studies moved to keyword slugs (service, client, market), Nov 2026
       { source: "/case-studies/green-pathway", destination: "/case-studies/custom-wordpress-website-green-pathway-us-consultancy", permanent: true },
       { source: "/case-studies/gfc-fans-bd", destination: "/case-studies/woocommerce-store-gfc-fans-bd-bangladesh", permanent: true },
