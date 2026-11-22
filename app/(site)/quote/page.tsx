@@ -7,7 +7,7 @@ import { cms } from "@/lib/cms";
 import { getSiteChrome } from "@/lib/cms/site";
 
 export const metadata: Metadata = {
-  title: "Get a quote for your website, SEO or AI project",
+  title: "Get a quote: website, SEO or AI project",
   description:
     "Tell us what you need: a website, online store, SEO, ads or AI automation. A real person replies within one business day, with a fixed price in two.",
   alternates: { canonical: "/quote" },

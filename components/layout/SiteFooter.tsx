@@ -7,7 +7,7 @@ import type { SiteChrome } from "@/lib/cms/site";
 import "./footer.css";
 
 function SocialIcon({ icon }: { icon: (typeof socials)[number]["icon"] }) {
-  if (icon === "linkedin") return <span className="ui text-[15px] font-bold leading-none">in</span>;
+  if (icon === "linkedin") return <span aria-hidden="true" className="ui text-[15px] font-bold leading-none">in</span>;
   if (icon === "mail")
     return (
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
