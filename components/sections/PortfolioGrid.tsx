@@ -36,7 +36,7 @@ export function PortfolioGrid({ designs, categories }: { designs: PortfolioDesig
   );
 }
 
-function DesignCard({ design: d, index }: { design: PortfolioDesign; index: number }) {
+export function DesignCard({ design: d, index }: { design: PortfolioDesign; index: number }) {
   return (
     <article className="card card-lift shadow-soft group flex h-full flex-col overflow-hidden">
       <div className="stage-chrome !py-2">
