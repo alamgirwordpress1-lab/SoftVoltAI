@@ -79,12 +79,6 @@ export default async function ContactPage() {
                 <dt className="mono text-[11px] uppercase tracking-[0.1em] text-muted">{m.hours_label}</dt>
                 <dd className="mt-1 text-ink">{m.hours_text}</dd>
               </div>
-              {m.nda_text ? (
-                <div>
-                  <dt className="mono text-[11px] uppercase tracking-[0.1em] text-muted">{m.nda_label}</dt>
-                  <dd className="mt-1 text-ink">{m.nda_text}</dd>
-                </div>
-              ) : null}
               {m.brief_link.text ? (
                 <div>
                   <dt className="mono text-[11px] uppercase tracking-[0.1em] text-muted">{m.brief_label}</dt>
@@ -108,7 +102,11 @@ export default async function ContactPage() {
           </div>
 
           <div className="lg:col-span-7" data-reveal style={{ ["--reveal-delay" as string]: "90ms" }}>
-            <ContactForm copy={copy.form} recaptchaKey={chrome.recaptchaSiteKey} />
+            {/* a plain contact form: no NDA box, and a question rather than a project brief */}
+            <ContactForm
+              copy={{ ...copy.form, message_placeholder: "How can we help? A sentence or two is enough." }}
+              recaptchaKey={chrome.recaptchaSiteKey}
+            />
           </div>
         </div>
       </section>
