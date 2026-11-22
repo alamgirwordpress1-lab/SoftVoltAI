@@ -59,6 +59,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     page("/partner-programme", 0.6),
     page("/about", 0.5),
     page("/contact", 0.8),
+    page("/quote", 0.8),
     ...(posts.length ? [page("/blog", 0.6, "weekly")] : []),
     ...posts.map((p) => page(`/blog/${p.slug}`, 0.5, "monthly", p.modified || updated)),
     ...wpPages.map((p) => page(p.uri, 0.4, "monthly", p.modified || updated)),

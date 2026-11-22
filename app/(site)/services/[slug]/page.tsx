@@ -191,9 +191,7 @@ export default async function ServicePage({
         ]}
       >
         <div className="flex flex-wrap items-center gap-3">
-          <Button href={chrome.cta.primary.href}>
-            {chrome.cta.primary.label}
-          </Button>
+          <Button href="/quote">Get a quote</Button>
           <Button href={chrome.cta.secondary.href} variant="secondary">
             {chrome.cta.secondary.label}
           </Button>
@@ -393,9 +391,7 @@ export default async function ServicePage({
                   ))}
                 </ul>
               </div>
-              <Button href={chrome.cta.primary.href}>
-                {chrome.cta.primary.label}
-              </Button>
+              <Button href="/quote">Get a quote</Button>
             </div>
           </aside>
           <div

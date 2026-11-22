@@ -66,7 +66,7 @@ export const ratesCopy = page("rates", "/pricing", "Pricing", {
           "Monthly reports with your agency's logo",
         ].join("\n"),
       ),
-      button: link("Button", "Send us a brief", "/contact"),
+      button: link("Button", "Get a quote", "/quote"),
       button_2: link("Second button", "Book a 20-min scoping call", "/contact#call"),
     },
     "The featured package at the top of the Pricing page.",
@@ -77,7 +77,7 @@ export const ratesCopy = page("rates", "/pricing", "Pricing", {
     heading: "Fixed-price builds.",
     lede: "One-off prices for a build from an approved design or a full design and build. Every build includes responsive layouts, Core Web Vitals, SEO basics, a QA checklist and a clean handover.",
     price_note: "One-time · fixed price per scope",
-    button: ["Send us a brief", "/contact"],
+    button: ["Get a quote", "/quote"],
     note: "Extra unique template: $340. Content entry, animation and extra integrations are priced on their own line in the scope.",
     packages: [
       { name: "Landing page", best_for: "One campaign page from your design, built to convert and load fast.", price: "$1,190", includes: ["One template, responsive", "Form and tracking set up", "Speed and SEO basics"] },
@@ -94,7 +94,7 @@ export const ratesCopy = page("rates", "/pricing", "Pricing", {
     heading: "Monthly plans per client site.",
     lede: "Need just one service? Pick it on its own. Or turn every launch into monthly income: Care keeps the site safe, Grow gets it found in Google and in AI answers, and Grow + AI adds an agent that answers leads around the clock.",
     price_note: "Per client site · billed monthly · cancel any time",
-    button: ["Start with one site", "/contact"],
+    button: ["Start with one site", "/quote"],
     note: "Prices are per site. Ten sites or more on the same plan get 10% off.",
     packages: [
       { name: "Single service", best_for: "Need just one thing? Pick one service and pay only for that.", price: "", period: "", includes: ["Website design and development", "SEO only", "AI agent or automation only", "Google or Meta Ads only", "Fixed price, agreed before we start"] },
@@ -109,7 +109,7 @@ export const ratesCopy = page("rates", "/pricing", "Pricing", {
     heading: "AI agents and automation, on their own.",
     lede: "For clients who already have a site. We set up our own SoftVoltAI Voice Agent under your brand, train it on the client's business, and connect the leads to the tools they already use.",
     price_note: "Plus AI usage at cost",
-    button: ["Ask about AI", "/contact"],
+    button: ["Ask about AI", "/quote"],
     note: "Prefer to run it yourself? The SoftVoltAI Voice Agent plugin is free on WordPress.org, and Pro licences start at $10 a month.",
     packages: [
       { name: "AI chat and voice agent", best_for: "An agent that talks to visitors by voice or text, answers from the client's facts and books calls.", price: "$149", period: "/month + $490 setup", badge: "New", includes: ["Trained on the client's services and prices", "Voice and text, in the client's brand", "Bookings, hand-off to a person, lead inbox", "WhatsApp, Messenger and Telegram", "Monthly tuning from real conversations"] },

@@ -70,7 +70,7 @@ export function DesignCard({ design: d, index }: { design: PortfolioDesign; inde
         ) : null}
         <div className="mt-auto pt-6">
           <Link
-            href={`/contact?design=${encodeURIComponent(d.name)}#message`}
+            href={`/quote?design=${encodeURIComponent(d.name)}#brief`}
             prefetch={false}
             className="ui inline-flex items-center gap-1.5 text-[15px] font-semibold text-ink underline decoration-line underline-offset-4 transition-colors hover:decoration-accent"
           >
