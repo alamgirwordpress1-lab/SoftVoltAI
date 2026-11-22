@@ -32,8 +32,8 @@ export interface PortfolioDesign {
 
 export const portfolioCategories = [
   "Hospitality",
+  "Hotels & restaurants",
   "E-commerce",
-  "Healthcare",
   "Construction",
   "Real estate",
   "Fitness",
@@ -57,7 +57,7 @@ export const portfolioDesigns: PortfolioDesign[] = [
   {
     slug: "larkspur-house",
     name: "Larkspur House",
-    category: "Hospitality",
+    category: "Hotels & restaurants",
     summary:
       "A boutique townhouse hotel: arched gallery hero, rooms and offers, and a booking bar that stays in reach.",
     ...p("hospitality", "larkspur-house"),
@@ -66,7 +66,7 @@ export const portfolioDesigns: PortfolioDesign[] = [
   {
     slug: "flint-and-fennel",
     name: "Flint & Fennel",
-    category: "Hospitality",
+    category: "Hotels & restaurants",
     summary:
       "A candlelit restaurant site: menus, table reservations, private dining and gift vouchers.",
     ...p("hospitality", "flint-and-fennel"),
@@ -75,7 +75,7 @@ export const portfolioDesigns: PortfolioDesign[] = [
   {
     slug: "tern-and-tiller",
     name: "The Tern & Tiller",
-    category: "Hospitality",
+    category: "Hotels & restaurants",
     summary:
       "A harbourside inn with rooms: date and guest search, a swipeable photo stack and today's tide times.",
     ...p("hospitality", "tern-and-tiller"),
@@ -84,7 +84,7 @@ export const portfolioDesigns: PortfolioDesign[] = [
   {
     slug: "brackenmere-spa",
     name: "Brackenmere Spa & Retreat",
-    category: "Hospitality",
+    category: "Hotels & restaurants",
     summary:
       "A lakeside spa and retreat: full-bleed scenery, treatments, spa breaks and booking a day.",
     ...p("hospitality", "brackenmere-spa"),
@@ -93,7 +93,7 @@ export const portfolioDesigns: PortfolioDesign[] = [
   {
     slug: "copper-owl-club",
     name: "The Copper Owl Club",
-    category: "Hospitality",
+    category: "Hotels & restaurants",
     summary:
       "A cocktail bar behind an unmarked door: a glowing neon sign, the drinks list and booth bookings.",
     ...p("hospitality", "copper-owl-club"),
@@ -102,7 +102,7 @@ export const portfolioDesigns: PortfolioDesign[] = [
   {
     slug: "proof-and-peel",
     name: "Proof & Peel",
-    category: "Hospitality",
+    category: "Hotels & restaurants",
     summary:
       "A bakery and brunch spot: order ahead for collection, today's bakes and two shops with opening times.",
     ...p("hospitality", "proof-and-peel"),
@@ -321,7 +321,7 @@ export const portfolioDesigns: PortfolioDesign[] = [
   {
     slug: "calloway-hospital",
     name: "Calloway Hospital",
-    category: "Healthcare",
+    category: "Hospitality",
     summary: "Private hospital in Marylebone, London.",
     ...p("healthcare", "calloway-hospital"),
     tags: ["Private hospital", "Referrals", "Booking"],
@@ -329,7 +329,7 @@ export const portfolioDesigns: PortfolioDesign[] = [
   {
     slug: "little-oaks",
     name: "Little Oaks Children's Hospital",
-    category: "Healthcare",
+    category: "Hospitality",
     summary: "Independent children's hospital in Manchester.",
     ...p("healthcare", "little-oaks"),
     tags: ["Children's hospital", "Your visit", "Friendly"],
@@ -337,7 +337,7 @@ export const portfolioDesigns: PortfolioDesign[] = [
   {
     slug: "brightview-eye",
     name: "Brightview Eye Hospital",
-    category: "Healthcare",
+    category: "Hospitality",
     summary: "Cataract, laser and lens surgery in Birmingham.",
     ...p("healthcare", "brightview-eye"),
     tags: ["Eye surgery", "Laser check", "Prices"],
@@ -345,7 +345,7 @@ export const portfolioDesigns: PortfolioDesign[] = [
   {
     slug: "marlbank-orthopaedic",
     name: "Marlbank Orthopaedic",
-    category: "Healthcare",
+    category: "Hospitality",
     summary: "Private orthopaedic hospital in Leeds.",
     ...p("healthcare", "marlbank-orthopaedic"),
     tags: ["Orthopaedics", "Sports injuries", "Consultants"],
@@ -353,7 +353,7 @@ export const portfolioDesigns: PortfolioDesign[] = [
   {
     slug: "rosewood-womens",
     name: "Rosewood Women's Hospital",
-    category: "Healthcare",
+    category: "Hospitality",
     summary: "Private maternity, scans and gynaecology in Edinburgh.",
     ...p("healthcare", "rosewood-womens"),
     tags: ["Maternity", "Scans", "Week by week"],
@@ -361,7 +361,7 @@ export const portfolioDesigns: PortfolioDesign[] = [
   {
     slug: "kestrel-heart",
     name: "Kestrel Heart Hospital",
-    category: "Healthcare",
+    category: "Hospitality",
     summary: "Private cardiac care in Cardiff.",
     ...p("healthcare", "kestrel-heart"),
     tags: ["Cardiac care", "Patient portal", "Bilingual"],
@@ -695,19 +695,31 @@ export const portfolioDesigns: PortfolioDesign[] = [
 const SERVICE_CATEGORIES: Record<string, string[]> = {
   "woocommerce-development": ["E-commerce"],
   "shopify-development": ["E-commerce"],
-  "landing-page-development": ["Marketing", "Hospitality", "E-commerce"],
+  "landing-page-development": [
+    "Marketing",
+    "Hotels & restaurants",
+    "E-commerce",
+  ],
   "conversion-rate-optimisation": ["E-commerce", "Marketing"],
-  "meta-ads-management": ["Fitness", "E-commerce", "Hospitality"],
+  "meta-ads-management": ["Fitness", "E-commerce", "Hotels & restaurants"],
   "white-label-google-ads-management": ["Real estate", "Cleaning", "Legal"],
   "white-label-digital-marketing": ["Marketing", "E-commerce"],
   "white-label-seo-services": ["Real estate", "Legal", "Accountancy"],
-  "technical-seo-services": ["Healthcare", "Legal", "E-commerce"],
+  "technical-seo-services": ["Hospitality", "Legal", "E-commerce"],
   "local-seo-services": ["Cleaning", "Construction", "Fitness"],
-  "elementor-development": ["Marketing", "Hospitality", "Construction"],
+  "elementor-development": [
+    "Marketing",
+    "Hotels & restaurants",
+    "Construction",
+  ],
   "webflow-development": ["Agency & studio", "Marketing"],
-  "white-label-web-design": ["Agency & studio", "Hospitality", "Legal"],
-  "website-maintenance": ["Healthcare", "Non-profit", "Accountancy"],
-  "ai-assistants-and-chat": ["Healthcare", "Hospitality", "Legal"],
+  "white-label-web-design": [
+    "Agency & studio",
+    "Hotels & restaurants",
+    "Legal",
+  ],
+  "website-maintenance": ["Hospitality", "Non-profit", "Accountancy"],
+  "ai-assistants-and-chat": ["Hospitality", "Hotels & restaurants", "Legal"],
 };
 
 /**
