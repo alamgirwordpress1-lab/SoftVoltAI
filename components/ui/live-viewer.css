@@ -9,15 +9,16 @@ html[data-live-open] {
   scrollbar-gutter: stable;
 }
 
-/* the button that sits on a screenshot: see-through, readable on any picture */
+/* the button that sits on a screenshot: brand green (the light-theme accent in
+   both themes, so white text stays at 5.4:1 on any picture) */
 .live-visit-glass {
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
   padding: 0.5rem 0.95rem;
-  border: 1px solid rgba(255, 255, 255, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.35);
   border-radius: 999px;
-  background: rgba(14, 20, 17, 0.38);
+  background: #1e7a32;
   color: #fff;
   font-family: var(--font-ui);
   font-size: 13.5px;
@@ -30,7 +31,7 @@ html[data-live-open] {
   transition: background-color 0.2s var(--ease-hover), border-color 0.2s var(--ease-hover), transform 0.2s var(--ease-hover);
 }
 .live-visit-glass:hover {
-  background: rgba(14, 20, 17, 0.62);
+  background: #17622a;
   border-color: var(--color-volt);
 }
 .live-visit-glass:active {
