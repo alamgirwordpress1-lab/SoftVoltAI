@@ -4,7 +4,7 @@ const urls = JSON.parse(fs.readFileSync("urls.json", "utf8"));
 fs.mkdirSync("out", { recursive: true });
 const b = await chromium.launch();
 for (const u of urls) {
-  const p = await b.newPage({ viewport: { width: 1568, height: 744 } });
+  const p = await b.newPage({ viewport: { width: 1440, height: 900 } });
   await p.goto(u, { waitUntil: "networkidle", timeout: 60000 });
   await p.evaluate(async () => { for (const i of document.images) i.loading = "eager"; await Promise.all([...document.images].filter(i => !i.complete).map(i => new Promise(r => { i.onload = i.onerror = r; setTimeout(r, 15000); }))); });
   await p.waitForTimeout(2500);
