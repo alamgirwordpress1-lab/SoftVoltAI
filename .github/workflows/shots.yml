@@ -9,6 +9,6 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - run: node audit.mjs
-          rm -f res/lh_*.json
+      - run: |
           git config user.name a && git config user.email a@users.noreply.github.com
           git add res && git commit -qm audit && git push -q
