@@ -1,11 +1,18 @@
 name: preview-shots
 on: { push: { branches: [preview-shots] } }
+permissions: { contents: write }
 jobs:
-  ping:
+  nwx:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
       - run: |
-          K=0bb59e9649e9711c2fc1bd649b64ca2c
-          urls=$(curl -s https://www.softvoltai.com/sitemap.xml | grep -oE '<loc>[^<]+' | sed 's/<loc>//' | jq -R . | jq -s -c .)
-          body=$(jq -n -c --argjson u "$urls" --arg k "$K" '{host:"www.softvoltai.com",key:$k,keyLocation:("https://www.softvoltai.com/"+$k+".txt"),urlList:$u}')
-          echo "PING $(echo $urls | jq length) indexnow $(curl -s -o /dev/null -w '%{http_code}' -X POST -H 'Content-Type: application/json; charset=utf-8' -d "$body" https://api.indexnow.org/indexnow)"
+          mkdir -p res /tmp/n && cd /tmp/n
+          curl -sSL -o n.zip https://downloads.wordpress.org/plugin/nexwordx.latest-stable.zip && unzip -q n.zip
+          cd nexwordx
+          { echo "== files mentioning svls/licen"; grep -rlIiE "svls|licen[cs]e_key|licence_key|/activate" . | head -20
+            echo "== snippets"; grep -rnIiE "svls/v1|'licen[cs]e|\"licen[cs]e|site_url|home_url\(\)|'domain'|instance" --include=*.php . | grep -iE "svls|licen|activat|body|domain|instance" | head -60
+          } > $GITHUB_WORKSPACE/res/nwx.txt 2>&1
+          cd $GITHUB_WORKSPACE
+          git config user.name a && git config user.email a@users.noreply.github.com
+          git add res && git commit -qm nwx && git push -q
