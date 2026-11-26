@@ -1,0 +1,64 @@
+== files mentioning svls/licen
+== snippets
+./public/class-nexwordx-public.php:104:		if ( ! $post instanceof WP_Post || ! Nexwordx_Settings::is_enabled_type( $post->post_type ) ) {
+./public/class-nexwordx-public.php:196:		if ( ! is_string( $canonical_url ) || '' === $canonical_url || ! $post instanceof WP_Post || ! Nexwordx_Frontend::connected() ) {
+./public/class-nexwordx-public.php:237:		if ( ! $post instanceof WP_Post || ! Nexwordx_Document::is_builder( $post->ID ) ) {
+./includes/class-nexwordx-schema.php:281:		$registry = Nexwordx_Widgets::instance();
+./includes/class-nexwordx-schema.php:347:			// A global widget instance (Nexwordx Pro, CONTRACT §45): the id of the library
+./includes/class-nexwordx-schema.php:502:		$controls = Nexwordx_Widgets::instance()->controls( 'page' );
+./includes/class-nexwordx-rest.php:424:		if ( ! $response instanceof WP_HTTP_Response || 0 !== strpos( strtolower( (string) $request->get_route() ), '/' . self::NS . '/' ) ) {
+./includes/class-nexwordx-rest.php:449:		if ( ! $response instanceof WP_REST_Response || ! $request instanceof WP_REST_Request ) {
+./includes/class-nexwordx-rest.php:469:		if ( $depth > 64 || ( ! is_array( $value ) && ! $value instanceof stdClass ) ) {
+./includes/class-nexwordx-rest.php:472:		$is_object = $value instanceof stdClass;
+./includes/class-nexwordx-rest.php:474:		if ( isset( $list['type'], $list['widget'] ) && 'widget' === $list['type'] && is_string( $list['widget'] ) && ! Nexwordx_Widgets::instance()->get( $list['widget'] ) ) {
+./includes/class-nexwordx-rest.php:480:			if ( ( is_array( $item ) || $item instanceof stdClass ) && ! in_array( $key, array( 'kit', 'icons', 'fonts', 'menus', 'seo', 'rendered' ), true ) ) {
+./includes/class-nexwordx-rest.php:673:			'widgetsHash'    => Nexwordx_Widgets::instance()->hash(),
+./includes/class-nexwordx-rest.php:703:		$registry = Nexwordx_Widgets::instance();
+./includes/class-nexwordx-rest.php:1006:		$widget   = Nexwordx_Widgets::instance()->get( 'text-editor' );
+./includes/class-nexwordx-rest.php:1118:			'widgetsHash'  => Nexwordx_Widgets::instance()->hash(),
+./includes/class-nexwordx-icons.php:253:			$definitions = Nexwordx_Widgets::instance()->controls_map();
+./includes/functions.php:31:	return Nexwordx_Widgets::instance()->register( $definition );
+./includes/class-nexwordx-posts.php:168:		$definitions = Nexwordx_Widgets::instance()->controls_map();
+./includes/class-nexwordx-posts.php:270:		if ( ! $post instanceof WP_Post ) {
+./includes/class-nexwordx.php:223:		$widgets = Nexwordx_Widgets::instance();
+./includes/class-nexwordx-frontend.php:433:		$hash   = Nexwordx_Widgets::instance()->hash();
+./includes/class-nexwordx-frontend.php:680:		if ( ! $post instanceof WP_Post || ! self::connected() ) {
+./includes/class-nexwordx-frontend.php:713:		if ( ! $after instanceof WP_Post || ! $before instanceof WP_Post || 'publish' !== $before->post_status ) {
+./includes/class-nexwordx-frontend.php:741:		$post = $post instanceof WP_Post ? $post : get_post( $post_id );
+./includes/class-nexwordx-frontend.php:1305:		$definitions = Nexwordx_Widgets::instance()->controls_map();
+./includes/class-nexwordx-document.php:98:		if ( ! $post instanceof WP_Post || ! Nexwordx_Settings::is_enabled_type( $post->post_type ) ) {
+./includes/class-nexwordx-document.php:225:		 * puts the current settings of global widgets into their instances here.
+./includes/class-nexwordx-document.php:286:		$definitions = Nexwordx_Widgets::instance()->controls_map();
+./includes/class-nexwordx-document.php:815:		if ( class_exists( 'Nexwordx_Library' ) && $post instanceof WP_Post && Nexwordx_Library::POST_TYPE === $post->post_type ) {
+./includes/class-nexwordx-document.php:857:			$definitions = Nexwordx_Widgets::instance()->controls_map();
+./includes/class-nexwordx-document.php:915:		$definitions = Nexwordx_Widgets::instance()->controls_map();
+./includes/class-nexwordx-document.php:1071:			'widgetsHash'  => Nexwordx_Widgets::instance()->hash(),
+./includes/modules/class-nexwordx-blocks.php:377:		$registry = Nexwordx_Widgets::instance();
+./includes/modules/class-nexwordx-plugin-bridge.php:666:		if ( ! is_array( $data ) || ! $seo || ! $post instanceof WP_Post ) {
+./includes/modules/class-nexwordx-plugin-bridge.php:945:					if ( $term instanceof WP_Term ) {
+./includes/modules/class-nexwordx-plugin-bridge.php:1025:			if ( $post instanceof WP_Post ) {
+./includes/modules/class-nexwordx-plugin-bridge.php:1346:			if ( ! isset( $wp_filter[ $hook ] ) || ! $wp_filter[ $hook ] instanceof WP_Hook ) {
+./includes/modules/class-nexwordx-plugin-bridge.php:1356:					if ( $callback['function'] instanceof Closure && self::$capture['wrapped']->contains( $callback['function'] ) ) {
+./includes/modules/class-nexwordx-plugin-bridge.php:1504:		$redirect                  = $error instanceof RuntimeException && self::REDIRECT_CODE === $error->getCode();
+./includes/modules/class-nexwordx-plugin-bridge.php:1566:		if ( is_array( $hook_callback ) && isset( $hook_callback[0] ) && class_exists( 'WP_Script_Modules', false ) && $hook_callback[0] instanceof WP_Script_Modules ) {
+./includes/modules/class-nexwordx-plugin-bridge.php:1590:			} elseif ( is_string( $hook_callback ) || $hook_callback instanceof Closure ) {
+./includes/modules/class-nexwordx-setup.php:613:		if ( '' === (string) get_option( 'permalink_structure' ) && $wp_rewrite instanceof WP_Rewrite ) {
+./includes/modules/class-nexwordx-model-3d.php:95:		if ( $user instanceof WP_User ) {
+./includes/modules/class-nexwordx-model-3d.php:427:		if ( $served || ! $request instanceof WP_REST_Request || ! $result instanceof WP_HTTP_Response || ! self::is_model_route( $request->get_route() ) ) {
+./includes/modules/class-nexwordx-maintenance.php:267:		if ( $post instanceof WP_Post && $new_status !== $old_status && ( 'publish' === $new_status || 'publish' === $old_status ) ) {
+./includes/modules/class-nexwordx-tools.php:217:		$hash = Nexwordx_Widgets::instance()->hash();
+./includes/modules/class-nexwordx-theme-data.php:104:		$registry           = Nexwordx_Widgets::instance();
+./includes/modules/class-nexwordx-theme-data.php:173:		if ( $post instanceof WP_Post && Nexwordx_Library::POST_TYPE !== $post->post_type ) {
+./includes/modules/class-nexwordx-theme-data.php:199:		if ( ! $post instanceof WP_Post ) {
+./includes/modules/class-nexwordx-theme-data.php:387:		if ( ! $post instanceof WP_Post || Nexwordx_Library::POST_TYPE === $post->post_type ) {
+./includes/modules/class-nexwordx-theme-data.php:563:				if ( ! $term instanceof WP_Term ) {
+./includes/modules/class-nexwordx-route.php:113:		if ( ! $post instanceof WP_Post || 'attachment' === $post->post_type || Nexwordx_Library::POST_TYPE === $post->post_type || ! is_post_type_viewable( $post->post_type ) ) {
+./includes/modules/class-nexwordx-route.php:273:		if ( ! $wp_rewrite instanceof WP_Rewrite || ! $wp_rewrite->using_permalinks() ) {
+./includes/modules/class-nexwordx-route.php:307:			if ( isset( $GLOBALS['wp'] ) && $GLOBALS['wp'] instanceof WP ) {
+./includes/modules/class-nexwordx-route.php:372:			$post  = $found->post instanceof WP_Post ? $found->post : null;
+./includes/modules/class-nexwordx-route.php:390:			$taxonomy = $object instanceof WP_Term ? get_taxonomy( $object->taxonomy ) : null;
+./includes/modules/class-nexwordx-route.php:407:			if ( ! $object instanceof WP_User ) {
+./includes/modules/class-nexwordx-route.php:477:				$url = $object instanceof WP_Term ? get_term_link( $object ) : '';
+./includes/modules/class-nexwordx-route.php:480:				$url = $object instanceof WP_User ? get_author_posts_url( $object->ID, $object->user_nicename ) : '';
+grep: write error: Broken pipe
+grep: write error: Broken pipe
